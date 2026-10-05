@@ -1,0 +1,44 @@
+{
+  "runtime": "G:\\Modding\\Skyrim_Runtime_1.6.1170",
+  "extracted": "E:\\Sectores\\Sector_Varios\\bae extractor",
+  "source": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v10\\source\\Torre_Ballesta_lowpoly_v04.blend",
+  "meters_to_units": 70.0,
+  "fire_seconds": 0.3,
+  "release_seconds": 0.1,
+  "reset_seconds": 1.2,
+  "cycle_seconds": 1.5,
+  "yaw_speed": 40.0,
+  "pitch_speed": 20.0,
+  "pitch_min": -5.0,
+  "pitch_max": 80.0,
+  "controller_hz": 20.0,
+  "operator_distance": 160.0,
+  "tower_top_units": 465.5,
+  "mount_raise_units": 20.0,
+  "pitch_pivot_units": 153.0,
+  "mouse_aim": true,
+  "use_sight_camera": true,
+  "camera_node": "AstraSightCameraNode",
+  "camera_local_units": [
+    0,
+    80,
+    40
+  ],
+  "native_api_version": 3,
+  "continuous_fire": false,
+  "projectile_body": {
+    "mass": 15.0,
+    "restitution": 0.1
+  },
+  "sight_zero_meters": 75.0,
+  "sight": {
+    "rear_sight_node": "AstraSightCameraNode",
+    "front_post_node": "AstraSightFrontPost",
+    "front_post_local_y": -150.0,
+    "tail_distance_units": 120.0,
+    "min_camera_height_units": 65.0,
+    "min_camera_distance_units": 0.0,
+    "pedestal_collision_height_units": 35.0,
+    "note": "v10: camera on the line rear sight (anchor) -> zero target at sight_zero_meters, slid back up to tail_distance; front post placed on that line natively."
+  }
+}

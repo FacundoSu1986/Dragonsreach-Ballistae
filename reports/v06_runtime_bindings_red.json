@@ -1,0 +1,31 @@
+{
+  "tests_run": 7,
+  "failures": [
+    {
+      "test": "test_api_mismatch_rejected_before_controls_acquired (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_api_mismatch_rejected_before_controls_acquired)",
+      "reason": "AssertionError: True is not false"
+    },
+    {
+      "test": "test_old_dll_rejected_before_controls_acquired (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_old_dll_rejected_before_controls_acquired)",
+      "reason": "AssertionError: True is not false"
+    },
+    {
+      "test": "test_periodic_aim_does_not_call_unbound_camera_namespace (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_periodic_aim_does_not_call_unbound_camera_namespace)",
+      "reason": "AssertionError: 3 != 0"
+    },
+    {
+      "test": "test_session_native_calls_avoid_unneeded_main_thread_hops (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_session_native_calls_avoid_unneeded_main_thread_hops)",
+      "reason": "AssertionError: Regex didn't match: 'RegisterFunction\\\\(\"IsAvailable\",\\\\s*\"AstraSightNative\",\\\\s*IsAvailable,\\\\s*true\\\\)' not found in '#include <RE/Skyrim.h>\\n#include <SKSE/SKSE.h>\\n#include <spdlog/sinks/basic_file_sink.h>\\n#include \"Astra/Core.h\"\\n#include <atomic>\\n#include <algorithm>\\n\\nnames"
+    },
+    {
+      "test": "test_special_camera_is_rejected_despite_old_unbound_default_zero (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_special_camera_is_rejected_despite_old_unbound_default_zero)",
+      "reason": "AssertionError: True is not false"
+    },
+    {
+      "test": "test_third_person_entry_observes_real_state_and_forces_first_person (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_third_person_entry_observes_real_state_and_forces_first_person)",
+      "reason": "AssertionError: 9 != 0"
+    }
+  ],
+  "errors": [],
+  "expected_red": true
+}

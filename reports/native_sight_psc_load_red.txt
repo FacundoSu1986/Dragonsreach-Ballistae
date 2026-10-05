@@ -1,0 +1,58 @@
+test_async_thaw_blocks_replacement_shot_on_same_token (tests.test_native_sight.NativeSightContract.test_async_thaw_blocks_replacement_shot_on_same_token) ... ok
+test_attack_during_native_sample_discards_periodic_pose_preserves_shot (tests.test_native_sight.NativeSightContract.test_attack_during_native_sample_discards_periodic_pose_preserves_shot) ... ok
+test_begin_once_after_fp_and_wait_for_ready (tests.test_native_sight.NativeSightContract.test_begin_once_after_fp_and_wait_for_ready) ... ok
+test_begin_rejection_and_ready_timeout_release_controls (tests.test_native_sight.NativeSightContract.test_begin_rejection_and_ready_timeout_release_controls) ... ok
+test_begin_return_after_deadline_cannot_mark_entry_ready (tests.test_native_sight.NativeSightContract.test_begin_return_after_deadline_cannot_mark_entry_ready) ... ok
+test_commit_thaws_after_single_launch_and_reload_can_aim (tests.test_native_sight.NativeSightContract.test_commit_thaws_after_single_launch_and_reload_can_aim) ... ok
+test_end_boundary_cannot_reenter_before_old_cleanup_finishes (tests.test_native_sight.NativeSightContract.test_end_boundary_cannot_reenter_before_old_cleanup_finishes) ... ok
+test_end_native_precedes_release_and_visual_cleanup (tests.test_native_sight.NativeSightContract.test_end_native_precedes_release_and_visual_cleanup) ... ok
+test_exit_during_begin_before_or_after_effect_ends_old_token (tests.test_native_sight.NativeSightContract.test_exit_during_begin_before_or_after_effect_ends_old_token) ... ok
+test_exit_rebases_cached_pose_after_end_before_next_entry (tests.test_native_sight.NativeSightContract.test_exit_rebases_cached_pose_after_end_before_next_entry) ... ok
+test_final_esp_binds_native_sight_true (tests.test_native_sight.NativeSightContract.test_final_esp_binds_native_sight_true) ... ok
+test_freeze_return_cannot_mutate_or_thaw_new_lease (tests.test_native_sight.NativeSightContract.test_freeze_return_cannot_mutate_or_thaw_new_lease) ... ok
+test_invalid_freeze_snapshot_ends_session_without_launch (tests.test_native_sight.NativeSightContract.test_invalid_freeze_snapshot_ends_session_without_launch) ... ok
+test_invalid_native_snapshot_is_visible_and_releases_controls (tests.test_native_sight.NativeSightContract.test_invalid_native_snapshot_is_visible_and_releases_controls) ... ok
+test_late_begin_does_not_release_replacement_lease (tests.test_native_sight.NativeSightContract.test_late_begin_does_not_release_replacement_lease) ... ok
+test_menu_cancellation_thaws_before_and_after_freeze_effect (tests.test_native_sight.NativeSightContract.test_menu_cancellation_thaws_before_and_after_freeze_effect) ... ok
+test_menu_during_native_sample_discards_even_empty_old_result (tests.test_native_sight.NativeSightContract.test_menu_during_native_sample_discards_even_empty_old_result) ... ok
+test_missing_plugin_does_not_call_api_or_acquire_controls (tests.test_native_sight.NativeSightContract.test_missing_plugin_does_not_call_api_or_acquire_controls) ... ok
+test_native_sample_uses_applied_snapshot_without_node_writes (tests.test_native_sight.NativeSightContract.test_native_sample_uses_applied_snapshot_without_node_writes) ... ok
+test_native_sight_default_is_explicit_and_true (tests.test_native_sight.NativeSightContract.test_native_sight_default_is_explicit_and_true) ... ok
+test_no_ammo_rejects_without_freezing (tests.test_native_sight.NativeSightContract.test_no_ammo_rejects_without_freezing) ... ok
+test_old_end_after_load_recovery_cannot_restore_or_release_new_lease (tests.test_native_sight.NativeSightContract.test_old_end_after_load_recovery_cannot_restore_or_release_new_lease) ... FAIL
+test_prepare_failure_thaws_and_returns_to_idle (tests.test_native_sight.NativeSightContract.test_prepare_failure_thaws_and_returns_to_idle) ... ok
+test_readiness_lost_ends_operating_session (tests.test_native_sight.NativeSightContract.test_readiness_lost_ends_operating_session) ... ok
+test_readiness_lost_while_frozen_is_visible_and_ends_before_launch (tests.test_native_sight.NativeSightContract.test_readiness_lost_while_frozen_is_visible_and_ends_before_launch) ... ok
+test_release_boundary_cannot_reenter_or_restore_under_new_native_lease (tests.test_native_sight.NativeSightContract.test_release_boundary_cannot_reenter_or_restore_under_new_native_lease) ... ok
+test_saved_cleanup_flag_onload_recovers_controls_and_allows_entry (tests.test_native_sight.NativeSightContract.test_saved_cleanup_flag_onload_recovers_controls_and_allows_entry) ... FAIL
+test_session_emergency_native_end_precedes_control_and_camera_restore (tests.test_native_sight.NativeSightContract.test_session_emergency_native_end_precedes_control_and_camera_restore) ... ok
+test_session_end_boundary_retains_releasing_guard (tests.test_native_sight.NativeSightContract.test_session_end_boundary_retains_releasing_guard) ... ok
+test_shot_freezes_actual_pose_atomically_without_applyaim (tests.test_native_sight.NativeSightContract.test_shot_freezes_actual_pose_atomically_without_applyaim) ... ok
+test_stale_commit_failure_cannot_end_replacement_session (tests.test_native_sight.NativeSightContract.test_stale_commit_failure_cannot_end_replacement_session) ... ok
+test_stale_prepare_return_cannot_change_replacement_phase (tests.test_native_sight.NativeSightContract.test_stale_prepare_return_cannot_change_replacement_phase) ... ok
+test_stale_sample_cannot_end_replacement_session (tests.test_native_sight.NativeSightContract.test_stale_sample_cannot_end_replacement_session) ... ok
+test_unavailable_api_rejects_before_acquiring_controls (tests.test_native_sight.NativeSightContract.test_unavailable_api_rejects_before_acquiring_controls) ... ok
+test_unfreeze_failure_is_visible_and_ends_session (tests.test_native_sight.NativeSightContract.test_unfreeze_failure_is_visible_and_ends_session) ... ok
+
+======================================================================
+FAIL: test_old_end_after_load_recovery_cannot_restore_or_release_new_lease (tests.test_native_sight.NativeSightContract.test_old_end_after_load_recovery_cannot_restore_or_release_new_lease)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 390, in test_old_end_after_load_recovery_cannot_restore_or_release_new_lease
+    self.assertTrue(f.vm.state['operating']); self.assertGreater(f.vm.state['token'],old)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_saved_cleanup_flag_onload_recovers_controls_and_allows_entry (tests.test_native_sight.NativeSightContract.test_saved_cleanup_flag_onload_recovers_controls_and_allows_entry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 375, in test_saved_cleanup_flag_onload_recovers_controls_and_allows_entry
+    self.assertFalse(f.vm.state['endingSession']); self.assertEqual(f.lease.controls,[True]*8)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 35 tests in 0.197s
+
+FAILED (failures=2)

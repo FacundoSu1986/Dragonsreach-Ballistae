@@ -1,0 +1,17 @@
+{
+  "original_blend": {
+    "path": "E:/Sectores/Sector_Modelado_3D/Torre_Ballesta_v04/Torre_Ballesta_lowpoly_v04.blend",
+    "sha256": "ffa0a5574dfc67f450b6692dc70af15b027546af948a93a754decdb2ec766633",
+    "unchanged": true
+  },
+  "v03_runtime_zip": {
+    "path": "E:/Sectores/Sector_Modelado_3D/Ballesta_Astra_Vanilla_SE_v03/dist/AstraAsedio_v03_MO2.zip",
+    "sha256": "1fac402e5747485ece69dc938decaee0868803c3b6871cfbf725716ed11640f5",
+    "unchanged": true
+  },
+  "v03_sources_zip": {
+    "path": "E:/Sectores/Sector_Modelado_3D/Ballesta_Astra_Vanilla_SE_v03/dist/AstraAsedio_v03_Fuentes.zip",
+    "sha256": "c8546199292a32bc33c9d4f1861c9bbabde358ee80a485881d41c0fd67634eaa",
+    "unchanged": true
+  }
+}

@@ -1,0 +1,10 @@
+test_stale_request_shot_after_resume_cannot_freeze_replacement (tests.test_native_sight.NativeSightContract.test_stale_request_shot_after_resume_cannot_freeze_replacement) ... ok
+test_stale_request_exit_clock_cannot_end_replacement (tests.test_native_sight.NativeSightContract.test_stale_request_exit_clock_cannot_end_replacement) ... ok
+test_input_ready_discards_replacement_during_menu_read_or_resume (tests.test_native_sight.NativeSightContract.test_input_ready_discards_replacement_during_menu_read_or_resume) ... ok
+test_old_aim_key_after_resume_cannot_set_replacement_holds_or_release_gates (tests.test_native_sight.NativeSightContract.test_old_aim_key_after_resume_cannot_set_replacement_holds_or_release_gates) ... ok
+test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.081s
+
+OK

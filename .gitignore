@@ -1,0 +1,86 @@
+# ==============================================================================
+# REGLA ESTRICTA: PROHIBIDO CONTENIDO PROPIETARIO DE TERCEROS / BETHESDA
+# ==============================================================================
+# Este repositorio contiene únicamente código fuente original, modelos 3D propios
+# y scripts de pipeline. NUNCA se deben versionar archivos propietarios de Bethesda
+# ni recursos extraídos del juego base (Skyrim / Skyrim SE / Creation Kit).
+# ==============================================================================
+
+# 1. Archivos maestros y contenedores de Bethesda
+*.esm
+*.bsa
+*.ba2
+*.esl
+
+# 2. Assets de juego y texturas propietarias
+# (Las mallas NIF del mod referencian texturas vanilla en tiempo de ejecución,
+# no distribuyen texturas de Bethesda)
+*.dds
+*.hkx
+*.tri
+*.fuz
+*.xwm
+textures/
+sound/
+strings/
+
+# 3. Herramientas de extracción y volcados de datos
+extracted/
+*extractor*/
+bae/
+dumps/
+
+# ==============================================================================
+# CARPETAS DE BUILD Y DISTRIBUCIÓN PESADAS (~2 GB)
+# ==============================================================================
+# build/ contiene el volcado de Windows SDK, CommonLibSSE-NG compilado y temporales.
+# dist/ contiene los archivos ZIP empaquetados que se generan con scripts/package_release.py.
+build/
+dist/
+out/
+bin/
+obj/
+
+# ==============================================================================
+# BLENDER
+# ==============================================================================
+# Respaldos automáticos generados por Blender
+*.blend1
+*.blend2
+*.blend3
+*.blend4
+*.blend5
+*.blend@
+
+# ==============================================================================
+# PYTHON / C++ ARTEFACTOS INTERMEDIOS
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+*.obj
+*.pdb
+*.idb
+*.ilk
+*.exp
+*.lib
+*.tlog
+*.log
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+
+# ==============================================================================
+# ENTORNO Y EDITORES
+# ==============================================================================
+.vs/
+.vscode/
+.idea/
+*.user
+Thumbs.db
+desktop.ini
+.DS_Store

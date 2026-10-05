@@ -1,0 +1,12 @@
+{
+  "parent_project": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05",
+  "parent_archives": {
+    "AstraAsedio_v05_Fuentes.zip": "a1825256602919be692a597e1c538c56366054045ffde345d4d4bf6ddc688a5c",
+    "AstraAsedio_v05_MO2.zip": "fbea30f5ec9c39f3c52347bd4364e943e57a0d9eaf70e277d3b59669a03ba775"
+  },
+  "user_confirmed": [
+    "v05 camera attached to the weapon works",
+    "v05 mouse rotation works"
+  ],
+  "user_reported": "Firing makes operation slow and buggy; exact FPS effect not yet measured"
+}

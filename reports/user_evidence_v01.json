@@ -1,0 +1,25 @@
+{
+  "revision_observed": "v01",
+  "date_local": "2026-10-03",
+  "timezone": "America/Montevideo",
+  "images": [
+    {
+      "path": "G:\\Modding\\Skyrim_Runtime_1.6.1170\\SkyrimSE 2026-10-03 15-40-57_1.png",
+      "sha256": "1647ff94ffda3471b980725ae1dce5807ff98f62002059e26f33bf8d88da84a3",
+      "bytes": 2169981
+    },
+    {
+      "path": "G:\\Modding\\Skyrim_Runtime_1.6.1170\\SkyrimSE 2026-10-03 15-41-12_2.png",
+      "sha256": "778f6ff7a5964476f407eea0de3ce3200ecaec70e8f43a23423fc5f962adb948",
+      "bytes": 1636640
+    }
+  ],
+  "user_reports": [
+    "mechanism marked in image2 looks broken and its function unclear",
+    "test room dark with green mist",
+    "targets incorrectly oriented",
+    "E appears to do nothing"
+  ],
+  "runtime_log_evidence": "reports/runtime_diagnostic/evidence.json",
+  "v02_in_game_verified": false
+}

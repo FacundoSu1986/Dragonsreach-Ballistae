@@ -1,0 +1,7 @@
+test_fire_reset_return_cannot_end_or_rephase_replacement_shot (tests.test_native_sight.NativeSightContract.test_fire_reset_return_cannot_end_or_rephase_replacement_shot) ... ok
+test_cancel_reset_return_cannot_end_replacement_shot (tests.test_native_sight.NativeSightContract.test_cancel_reset_return_cannot_end_replacement_shot) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.046s
+
+OK

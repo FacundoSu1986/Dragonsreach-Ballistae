@@ -1,0 +1,17 @@
+{
+  "old_v03_nif_sha256": "c398a16e2204d0378915c36660559da1b04f050d511fada2dad9e2f6b9ecd791",
+  "red_before_raise": {
+    "pitch": 80,
+    "moving_min_z": -16.979610443115234,
+    "test_failed": true
+  },
+  "raise_units": 20,
+  "current_nif_sha256": "da4c13e01af2d3e789103f1f13f25b3283ce7bb7b9d6cb321a645bb538da5f44",
+  "green_after_raise": {
+    "pitch": 80,
+    "moving_min_z": 3.020390272140503,
+    "test_passed": true
+  },
+  "muzzle_validation": "reports/elevation_diagnosis.json",
+  "in_game": false
+}

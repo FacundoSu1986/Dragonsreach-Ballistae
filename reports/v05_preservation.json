@@ -1,0 +1,11 @@
+{
+  "parent_v04_archives_unchanged": true,
+  "original_blender_unchanged": true,
+  "original_sha256": "ffa0a5574dfc67f450b6692dc70af15b027546af948a93a754decdb2ec766633",
+  "parent_archives": {
+    "AstraAsedio_v04_Fuentes.zip": "243776d98508233f922160b7ffd2a376571911cd9a6f7577c2295c69be6dbb4e",
+    "AstraAsedio_v04_MO2.zip": "530a6d944cd82df9dea9ceb1e7d5825d1a0631b798cb6d8f361240b01ea97b6e"
+  },
+  "current_sight_nif_sha256": "6912ae8d83ff6c8dfe584f105665c76acbc79f6ea6774d785ed68decaac68d39",
+  "current_native_dll_sha256": "38327cec801fbfa7b6b7515e94adf482627249f620ae50401207027dc975daef"
+}

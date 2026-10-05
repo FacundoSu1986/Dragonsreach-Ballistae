@@ -1,0 +1,9 @@
+﻿== torre.nif  (0 cajas de colision)
+   sin bhkBoxShape: nada que comprobar aca
+== ballesta.nif  (0 cajas de colision)
+   sin bhkBoxShape: nada que comprobar aca
+== virote.nif  (1 caja de colision)
+   bhkRigidBodyT  dims=[0.02327, 0.00179, 0.40872] radio=0.00179 masa=5.00 inercia=[1.328, 0.044, 1.336]
+      OBS inercia / formula de caja = [4.77, 0.16, 1471.55]. En vanilla esa razon va de 1,2 a 471 con mediana 7,1: NO hay formula, y por eso esto no reprueba.
+
+1 cajas comprobadas, 0 con falla

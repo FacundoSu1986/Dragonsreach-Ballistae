@@ -1,0 +1,462 @@
+{
+  "files": {
+    "torre": {
+      "sha256": "41bedca7ae60dfa7cdd9a7850cfc437a6ee667853adf51a9f07bd27476a891c5",
+      "shapes": 3,
+      "triangles": 15004,
+      "vertices": 16156,
+      "collision_triangles": 1064,
+      "bbox_units": {
+        "min": [
+          -284.3592529296875,
+          -540.3952026367188,
+          -18.10491943359375
+        ],
+        "max": [
+          372.1043701171875,
+          283.9925537109375,
+          536.3679809570312
+        ]
+      },
+      "sequences": [],
+      "sequence_details": {},
+      "nodes": {
+        "AstraTorre": {
+          "translation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        }
+      },
+      "bytes": 645045
+    },
+    "ballesta": {
+      "sha256": "dd1741b8480e32988a10d1711b342d70882da1d1f398564794b8e6581c44bd1d",
+      "shapes": 20,
+      "triangles": 20120,
+      "vertices": 16622,
+      "collision_triangles": 12,
+      "bbox_units": {
+        "min": [
+          -134.4008331298828,
+          -211.39999389648438,
+          -7.62939453125e-06
+        ],
+        "max": [
+          134.4008331298828,
+          149.80001831054688,
+          200.60000610351562
+        ]
+      },
+      "sequences": [
+        "Fire",
+        "Reset"
+      ],
+      "sequence_details": {
+        "Fire": {
+          "start": 0.0,
+          "stop": 0.30000001192092896,
+          "targets": [
+            "CTRL_BRAZO_I",
+            "CTRL_BRAZO_D",
+            "Cuerda_I",
+            "Cuerda_D",
+            "VIROTE_VISUAL"
+          ]
+        },
+        "Reset": {
+          "start": 0.0,
+          "stop": 1.2000000476837158,
+          "targets": [
+            "CTRL_BRAZO_I",
+            "CTRL_BRAZO_D",
+            "Cuerda_I",
+            "Cuerda_D",
+            "VIROTE_VISUAL"
+          ]
+        }
+      },
+      "nodes": {
+        "AstraBallesta": {
+          "translation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": [
+            "CTRL_GIRO_360",
+            "OperatorNode"
+          ]
+        },
+        "CTRL_GIRO_360": {
+          "translation": [
+            0.0,
+            0.0,
+            135.5
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": [
+            "CTRL_ELEVACION"
+          ]
+        },
+        "CTRL_ELEVACION": {
+          "translation": [
+            0.0,
+            0.0,
+            17.5
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": [
+            "AstraSightFrontPost",
+            "CTRL_BRAZO_D",
+            "CTRL_BRAZO_I",
+            "Cuerda_D",
+            "Cuerda_I",
+            "VIROTE_VISUAL",
+            "AstraSightCameraNode",
+            "ProjectileNode"
+          ]
+        },
+        "AstraSightFrontPost": {
+          "translation": [
+            0.0,
+            -150.0,
+            34.4512939453125
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        },
+        "CTRL_BRAZO_D": {
+          "translation": [
+            11.899999618530273,
+            -131.0399932861328,
+            1.0500030517578125
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        },
+        "CTRL_BRAZO_I": {
+          "translation": [
+            -11.899999618530273,
+            -131.0399932861328,
+            1.0500030517578125
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        },
+        "Cuerda_D": {
+          "translation": [
+            132.3000030517578,
+            -101.1500015258789,
+            19.5999755859375
+          ],
+          "rotation": [
+            0.7947676777839661,
+            -0.6069138050079346,
+            0.0,
+            0.6069138050079346,
+            0.7947676777839661,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        },
+        "Cuerda_I": {
+          "translation": [
+            -132.3000030517578,
+            -101.1500015258789,
+            19.5999755859375
+          ],
+          "rotation": [
+            0.7947676777839661,
+            0.6069138050079346,
+            0.0,
+            -0.6069138050079346,
+            0.7947676777839661,
+            -0.0,
+            -0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        },
+        "VIROTE_VISUAL": {
+          "translation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        },
+        "AstraSightCameraNode": {
+          "translation": [
+            0.0,
+            80.0,
+            40.0
+          ],
+          "rotation": [
+            -1.0,
+            8.742277657347586e-08,
+            0.0,
+            -8.742277657347586e-08,
+            -1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        },
+        "ProjectileNode": {
+          "translation": [
+            0.0,
+            -224.0,
+            19.600006103515625
+          ],
+          "rotation": [
+            -1.0,
+            8.742277657347586e-08,
+            0.0,
+            -8.742277657347586e-08,
+            -1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        },
+        "OperatorNode": {
+          "translation": [
+            73.5,
+            101.5,
+            119.0
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        }
+      },
+      "bytes": 706270
+    },
+    "virote": {
+      "sha256": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5",
+      "shapes": 1,
+      "triangles": 480,
+      "vertices": 530,
+      "collision_triangles": 12,
+      "bbox_units": {
+        "min": [
+          -7.349985122680664,
+          -284.54998779296875,
+          -4.153102874755859
+        ],
+        "max": [
+          7.350014686584473,
+          0.0,
+          7.699972152709961
+        ]
+      },
+      "sequences": [],
+      "sequence_details": {},
+      "nodes": {
+        "AstraVirote": {
+          "translation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "children": []
+        }
+      },
+      "bytes": 20909
+    }
+  },
+  "failures": [],
+  "alpha_properties": {
+    "torre": [],
+    "ballesta": [],
+    "virote": []
+  },
+  "aim_nodes_have_no_animation_tracks": true,
+  "rope_reimport_max_gap": 6.103515625e-05,
+  "rope_outer_attachment_max_error": 4.57763671875e-05,
+  "rope_poses_sampled": 152,
+  "scale_keys_in_binary": {
+    "Fire/Cuerda_I": 19,
+    "Fire/Cuerda_D": 19,
+    "Fire/VIROTE_VISUAL": 19,
+    "Reset/Cuerda_I": 133,
+    "Reset/Cuerda_D": 133,
+    "Reset/VIROTE_VISUAL": 133
+  },
+  "rope_endpoint_checks_pass": true,
+  "reimport_ballesta_actions": {
+    "Fire": [
+      "CTRL_BRAZO_I",
+      "CTRL_BRAZO_D",
+      "Cuerda_I",
+      "Cuerda_D",
+      "VIROTE_VISUAL"
+    ],
+    "Reset": [
+      "CTRL_BRAZO_I",
+      "CTRL_BRAZO_D",
+      "Cuerda_I",
+      "Cuerda_D",
+      "VIROTE_VISUAL"
+    ]
+  },
+  "projectile_physics_verified": {
+    "layer": "PROJECTILE",
+    "material": "MATERIAL_ARROW",
+    "body": "bhkRigidBodyT",
+    "mass": 15.0,
+    "restitution": 0.10000000149011612,
+    "box_coverage": 1.0,
+    "box_long_axis": "Y",
+    "inertia": [
+      98.54035949707031,
+      0.4804585874080658,
+      98.82951354980469
+    ],
+    "inertia_axis_aligned": true,
+    "vanilla_rules_failures": []
+  },
+  "projectile_box_ok": true,
+  "visual_triangles_total": 35604,
+  "collision_triangles_total": 1088,
+  "texture_paths": [
+    "textures\\architecture\\farmhouse\\rope01.dds",
+    "textures\\architecture\\farmhouse\\rope01_n.dds",
+    "textures\\architecture\\farmhouse\\woodpost02.dds",
+    "textures\\architecture\\farmhouse\\woodpost02_n.dds",
+    "textures\\architecture\\farmhouse\\woodwalkway01.dds",
+    "textures\\architecture\\farmhouse\\woodwalkway01_n.dds",
+    "textures\\clutter\\cwcatapult01.dds",
+    "textures\\clutter\\cwcatapult01_n.dds",
+    "textures\\cubemaps\\ShinyDull_e.dds",
+    "textures\\dlc01\\weapons\\crossbow\\bolt.dds",
+    "textures\\dlc01\\weapons\\crossbow\\bolt_n.dds"
+  ],
+  "vanilla_textures_exist": true,
+  "checks": {
+    "visual_budget": true,
+    "collision_budget": true,
+    "tower_shapes": true,
+    "ballesta_shapes": true,
+    "textures": true,
+    "aim_tracks": true,
+    "rope": true,
+    "no_alpha_properties": true,
+    "projectile_box": true
+  },
+  "ok": true
+}

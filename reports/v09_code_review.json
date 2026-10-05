@@ -1,0 +1,257 @@
+{
+  "reviewer": "superpowers:code-reviewer subagent (independent context, read-only)",
+  "utc": "2026-10-05T16:16:59.271292+00:00",
+  "scope": "v09 changed code against the spec and the v08 in-game evidence: Papyrus event interleaving, native diagnostics and suspension, tower pipeline, release gates and tests that cannot fail. Three passes: review (Papyrus re-entry design rejected), re-verification of the native suspension redesign (N1, M4 found), final check (all resolved, no regression). No engine execution.",
+  "findings": [],
+  "resolved_findings": [
+    {
+      "id": "C1",
+      "severity": "Critical",
+      "summary": "A menu or sight loss while a shot was frozen still ended the session (the 07:32:21 event); re-entry only armed by PauseInput.",
+      "fix": "Design replaced: AstraSight suspends instead of dropping when the camera leaves first person (FirstPersonState::End, update state check, post-camera check); lease, pose and freeze survive; Papyrus waits camera states 6/7 for 3 s after menus.",
+      "tests": [
+        "MenuSuspension.test_frozen_shot_during_a_menu_keeps_the_session",
+        "v09_tests.cpp suspension assertions"
+      ]
+    },
+    {
+      "id": "I1",
+      "severity": "Important",
+      "summary": "Re-entry races (click right after a menu, double re-entry) ended the session.",
+      "fix": "Papyrus re-entry removed; a click while the camera returns is discarded (freeze result 0) without ending.",
+      "tests": [
+        "MenuSuspension.test_click_right_after_the_menu_while_the_camera_returns_does_not_end"
+      ]
+    },
+    {
+      "id": "I2",
+      "severity": "Important",
+      "summary": "Re-entry Begin used a stale Papyrus pose against the DLL-written nodes.",
+      "fix": "No re-Begin: the suspended native session keeps its own aim and bases.",
+      "tests": [
+        "v09_tests.cpp: update after suspend resumes the same lease"
+      ]
+    },
+    {
+      "id": "M1",
+      "severity": "Minor",
+      "summary": "PollFirstPerson treated menus/tween as fatal during re-entry.",
+      "fix": "Re-entry removed.",
+      "tests": []
+    },
+    {
+      "id": "M2",
+      "severity": "Minor",
+      "summary": "Sprint mode key had the lost-release latch bug.",
+      "fix": "modeReleaseSerial like Attack.",
+      "tests": [
+        "SprintLatch"
+      ]
+    },
+    {
+      "id": "M3",
+      "severity": "Minor",
+      "summary": "A no-menu sight loss right after a menu was re-entered.",
+      "fix": "Re-entry removed; only camera states 6/7 inside the menu grace wait.",
+      "tests": [
+        "MenuSuspension.test_sight_lost_without_a_menu_still_ends_the_session"
+      ]
+    },
+    {
+      "id": "M4",
+      "severity": "Minor",
+      "summary": "New OnUpdate early returns did not reschedule.",
+      "fix": "Those returns were part of the removed re-entry.",
+      "tests": []
+    },
+    {
+      "id": "M5",
+      "severity": "Minor",
+      "summary": "Getter counters were lifetime totals; unused counters.",
+      "fix": "Reset per session; unused fields removed.",
+      "tests": []
+    },
+    {
+      "id": "M6",
+      "severity": "Minor",
+      "summary": "Floor/stair pieces were not measured by the tower verification.",
+      "fix": "rustico.py measures per-floor vertical displacement; verify_stair_route asserts it bound to the torre.nif hash.",
+      "tests": [
+        "verify_stair_route.py"
+      ]
+    },
+    {
+      "id": "M7",
+      "severity": "Minor",
+      "summary": "Fixture Begin was more permissive than Session::begin.",
+      "fix": "Fixture rejects a Begin while a lease is active.",
+      "tests": [
+        "full suite"
+      ]
+    },
+    {
+      "id": "N1",
+      "severity": "Important",
+      "summary": "Re-verification: the camera grace counted from the menu open; a menu held open more than 3 s still ended the session.",
+      "fix": "ResumeInput (first post-menu observation) also arms the grace.",
+      "tests": [
+        "MenuSuspension.test_long_menu_tick_before_menu_close_waits_for_the_camera",
+        "MenuSuspension.test_long_menu_tick_inside_menu_close_waits_for_the_camera"
+      ]
+    },
+    {
+      "id": "M4-raised",
+      "severity": "Important",
+      "summary": "Re-verification: a shot cancelled by a menu inside a tick stopped the tick chain (v08 flaw), leaving the ballista unable to fire.",
+      "fix": "The four OnUpdate early returns reschedule while operating on the same token.",
+      "tests": [
+        "MenuSuspension.test_menu_inside_a_tick_during_a_frozen_shot_keeps_the_tick_chain"
+      ]
+    },
+    {
+      "id": "BeginShot-discard",
+      "severity": "Important",
+      "summary": "Found while testing the redesign: a discarded freeze left phase 1, and the next tick fired unfrozen (in game: SHOT_NATIVE_PREFLIGHT_FAILED).",
+      "fix": "BeginShot resets phase/needsReset/shotGeneration when nothing else took the shot.",
+      "tests": [
+        "MenuSuspension.test_click_right_after_the_menu_while_the_camera_returns_does_not_end"
+      ]
+    }
+  ],
+  "accepted_limits": [
+    "N2 (minor): a permanent camera loss exactly during a frozen shot lets that shot fire; the session ends on the next tick.",
+    "Activation also gets the 3 s camera grace (PollFirstPerson calls ResumeInput).",
+    "M7 partial: PSC tests stub ValidateShot; native ValidateShot is covered by C++ tests."
+  ],
+  "open_issue_not_a_finding": "Camera at yaw ~180 renders from the player eye: unresolved by design in v09; recorded natively for the next user test.",
+  "inputs": [
+    {
+      "path": "mod/scripts/source/AstraAsedioActi.psc",
+      "sha256": "f5337fdb6c932fa931920fbf5d0b93d6786d0efded3fdb1e8eecd78b9218189a"
+    },
+    {
+      "path": "native/src/Plugin.cpp",
+      "sha256": "62a74ded1b5f05c6e5ea7a43b1b5f10a8697c6f9c83c71e57399ebc2195436e9"
+    },
+    {
+      "path": "native/src/Core.cpp",
+      "sha256": "cbad76358b11f9aaab8be26b4c8c0e772cb05bd7284dbf128ba2e7ddd9db7d72"
+    },
+    {
+      "path": "native/include/Astra/Core.h",
+      "sha256": "6501ba3ab6582372ac51761adf3e9645698a6ec49fedcfa7e5021fb6c2888f88"
+    },
+    {
+      "path": "native/tests/v09_tests.cpp",
+      "sha256": "ce5e5e964482e5fa699e64056a1b1d17aa61ca7332f69c91c6a90a26ebda4751"
+    },
+    {
+      "path": "native/CMakeLists.txt",
+      "sha256": "42a3603c32120b43ee73629b1021535dcd995e28451942ae285b0ffe51f6c1ef"
+    },
+    {
+      "path": "native/verify_binary.py",
+      "sha256": "caf994931a7b3d1c6415f17b8380bd32ff3471ae2911d97245244f0636e2d0a6"
+    },
+    {
+      "path": "scripts/build_native.py",
+      "sha256": "0090af90ef7542271fef3ecadaae1dd1c56fbb246f80ef94435d13febf0d2741"
+    },
+    {
+      "path": "scripts/verify_native_artifacts.py",
+      "sha256": "969e3e949084ba21fb1e92d1e05a9c03b35ad11921704f06a0c79d3469f6e67a"
+    },
+    {
+      "path": "tests/test_v09_input_fixes.py",
+      "sha256": "815d83642a692bcac0ffbb6acb05760b202cdbd6461284700f4ffe079d231c4b"
+    },
+    {
+      "path": "tests/test_native_sight.py",
+      "sha256": "3f0a19c9a2738c57f61e5826fa5531723eecd3b675edc54e3b0a29cc2c46b13d"
+    },
+    {
+      "path": "tests/test_control_lease.py",
+      "sha256": "be062c929173c31a5541eef9deea8f8dc047ca610c0c7ee39f3d38ac667c494d"
+    },
+    {
+      "path": "tests/test_camera_aim.py",
+      "sha256": "224f4f7de0f383cabf7ccb3ff57b507396d7986dfc4b7537ad7f514c9ea02439"
+    },
+    {
+      "path": "tests/test_v07_camera_contract.py",
+      "sha256": "48352f42771d7bcb5e337f96777c5c0858362ad11e6f7a89cb346e6bd6e77daa"
+    },
+    {
+      "path": "tests/test_v07_firing.py",
+      "sha256": "2a91d079e16ec3ba72b0ae6a304cb6f6e37a1d3928a6d96a30db13079d91f082"
+    },
+    {
+      "path": "tests/test_v06_runtime_bindings.py",
+      "sha256": "6baa4a30397bdda7de1f53b920fc6ec97bce269b5ffc609f4a2ced0546993137"
+    },
+    {
+      "path": "tests/test_v08_sight_zero.py",
+      "sha256": "ef3800c7ff7d85fb8d5762e3be2fe0629d0386cae3776f06814921e0990bf6f6"
+    },
+    {
+      "path": "scripts/build_stairs.py",
+      "sha256": "552ef8f2d75603989fe7cbdc460e4b3ac41eb6681027b7f8042ff867632eb84a"
+    },
+    {
+      "path": "scripts/rustico.py",
+      "sha256": "6a4429abc51bb5b7cfbda875ac27a56aef47796d4ae45e69cd0b5e7a34d3b278"
+    },
+    {
+      "path": "scripts/verify_stair_route.py",
+      "sha256": "98a0cd93cc432e0654c7caee077be7a1f61967640e80b27ad22f3600563bd3de"
+    },
+    {
+      "path": "reports/reference_collision_escalera_directa.json",
+      "sha256": "70941e272d7e4b46b42ccfb9ab0e23c7c94f363b5652647ca206d6436b608d03"
+    },
+    {
+      "path": "scripts/render_assets.py",
+      "sha256": "68e11df9e93360a77c072dbc4d779a9a5a582610f926f371d262aaa013f08b1e"
+    },
+    {
+      "path": "scripts/start_v09.py",
+      "sha256": "3ae8d2f116acef804c49163f000e2ab2dc399aa864908950638bf6361b45731b"
+    },
+    {
+      "path": "scripts/check_rebuild_v09.py",
+      "sha256": "19f1f53d8684d2a6048bbd45390075d3bdd6a03b2d95279a230b47c5bfe467ca"
+    },
+    {
+      "path": "scripts/seal_v09_review.py",
+      "sha256": "ac26c08645499a7c82aaddae6ae003089298fd8d7bc1aa5ec0dee6a1b02efa6e"
+    },
+    {
+      "path": "scripts/package_release.py",
+      "sha256": "b4a5e79a88c26e546949f790a77952b16e1cba37eff9058b1f209ed4455701e5"
+    },
+    {
+      "path": "scripts/verify_input_contracts.py",
+      "sha256": "ab09a77521d132cb7ac7d755015db2bd00c9a5ba9e7ecbe81d05fed3dcee58ed"
+    },
+    {
+      "path": "scripts/prepare_test_profile.py",
+      "sha256": "76a9448d856e8c2254efd91018330f436b628c54c6c084551b7d5ac9164dda05"
+    },
+    {
+      "path": "scripts/write_v09_docs.py",
+      "sha256": "346a968bc13240e9b16a4697240f3527c23f5c0ff456a1913fc667db7be13e70"
+    },
+    {
+      "path": "scripts/release_notes_v09.py",
+      "sha256": "62681cced0a8be98b4d964d86ea04270392b0a91e3ecb7d4cd4e24603144c49a"
+    },
+    {
+      "path": "config.json",
+      "sha256": "cf48da2f5109278b842d27a677ef435353fa94e121498c611933f05eba690552"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-05-v09-prueba-v08.md",
+      "sha256": "47a8149ad25f27d51c7ca29e8e66c496263e23f49df763719a8fad11da823925"
+    }
+  ]
+}

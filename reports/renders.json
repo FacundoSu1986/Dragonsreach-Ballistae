@@ -1,0 +1,21 @@
+{
+  "renderer": "Blender 4.4 Cycles",
+  "frames": "four rest views, sight anchor preview and +80 degree elevation view",
+  "in_game": false,
+  "sight_preview_fov_degrees": 75,
+  "sight_preview_is_engine_camera_proof": false,
+  "nifs": {
+    "torre": "41bedca7ae60dfa7cdd9a7850cfc437a6ee667853adf51a9f07bd27476a891c5",
+    "ballesta": "dd1741b8480e32988a10d1711b342d70882da1d1f398564794b8e6581c44bd1d"
+  },
+  "images": [
+    "renders/Astra_overview.png",
+    "renders/Astra_mechanism.png",
+    "renders/Astra_trinquete_v05.png",
+    "renders/Astra_amarres_v05.png",
+    "renders/Astra_torre_rustica_v09.png",
+    "renders/Astra_esquina_rustica_v09.png",
+    "renders/Astra_mira_v05.png",
+    "renders/Astra_elevacion_80_v05.png"
+  ]
+}

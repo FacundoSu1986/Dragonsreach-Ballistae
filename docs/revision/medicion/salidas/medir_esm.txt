@@ -1,0 +1,262 @@
+﻿== PROJ tipo Arrow o de asedio
+Skyrim.esm     ArrowDaedricProjectile                   tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Daedric\DaedricArrowProjectile.nif
+Dawnguard.esm  ArrowDragonboneProjectile                tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=DLC01\Weapons\Dragonbone\ArrowFlight.nif
+Skyrim.esm     ArrowDraugrMagicProjectile               tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Draugr\DraugrMagicArrowFlight.nif
+Skyrim.esm     ArrowDraugrProjectile                    tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Draugr\DraugrArrowProjectile.nif
+Skyrim.esm     ArrowDwarvenProjectile                   tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Dwarven\DwarvenArrowProjectile.nif
+Skyrim.esm     ArrowDwarvenSphereBoltProjectile         tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags= modelo=Weapons\Dwarven\DwarvenSphereBoltProjectile.nif
+Skyrim.esm     ArrowDwarvenSphereProjectile             tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Dwarven\DwarvenSphereArrowProjectile.nif
+Skyrim.esm     ArrowEbonyProjectile                     tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Ebony\EbonyArrowProjectile.nif
+Skyrim.esm     ArrowElvenProjectile                     tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Elven\ElvenArrowFlight.nif
+Skyrim.esm     ArrowFalmerProjectile                    tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Falmer\FalmerArrowInFlight.nif
+Skyrim.esm     ArrowForswornProjectile                  tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.5 radio=0.5 flags=CanBePickedUp modelo=Weapons\Forsworn\ForswornArrowProjectile.nif
+Skyrim.esm     ArrowGlassProjectile                     tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Glass\GlassArrowFlight.nif
+Skyrim.esm     ArrowIronProjectile                      tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp|Supersonic modelo=Weapons\Iron\IronArrowFlight.nif
+Skyrim.esm     ArrowNordHeroProjectile                  tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\NordHero\NordHeroArrowProjectile.nif
+Skyrim.esm     ArrowOrcishProjectile                    tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Orcish\OrcishArrowProjectile.nif
+Skyrim.esm     ArrowSteelProjectile                     tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Steel\SteelArrowFlight.nif
+Skyrim.esm     BoundArrowPROJ                           tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.5 radio=0.5 flags=CanBeDisabled modelo=Weapons\BoundWeapons\BoundArrowFlight.nif
+Skyrim.esm     CWArrowProjectile                        tipo=0x40 grav=0.35 vel=   2000 alcance= 60000 impacto=  1.0 radio=0.5 flags= modelo=Weapons\Steel\SteelArrowFlight.nif
+Skyrim.esm     CWArrowProjectileShort                   tipo=0x40 grav=0.35 vel=   1000 alcance= 60000 impacto=  1.0 radio=0.5 flags= modelo=Weapons\Steel\SteelArrowFlight.nif
+Skyrim.esm     CWCatapultProjectile                     tipo=0x01 grav=1.00 vel=   4000 alcance= 15000 impacto=  0.0 radio=10.0 flags=Explosion modelo=Effects\CWOilTrapProjectile02.nif
+Dawnguard.esm  DCL1ArrowElvenBloodProjectile            tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=DLC01\Weapons\Auriel\AurielsArrowBloodFlight.nif
+Dawnguard.esm  DLC1ArrowAurielProjectile                tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=Explosion|CanBePickedUp modelo=DLC01\Weapons\Auriel\AurielsArrowFlight.nif
+Dawnguard.esm  DLC1ArrowElvenProjectileExplode          tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=Explosion|CanBePickedUp modelo=DLC01\Weapons\Auriel\AurielsArrowFlight.nif
+Dawnguard.esm  DLC1AurielsBloodDippedProjectile         tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=DLC01\Weapons\Auriel\AurielsArrowBloodFlight.nif
+Dawnguard.esm  DLC1BoltDwarvenProjectile                tipo=0x40 grav=0.35 vel=   5400 alcance= 60000 impacto=  1.5 radio=0.5 flags=CanBePickedUp|Supersonic modelo=DLC01\Weapons\Dwarven Crossbow\DwarvenBoltProjectile.nif
+Dawnguard.esm  DLC1BoltDwarvenProjectileExplodingFire   tipo=0x40 grav=0.35 vel=   5400 alcance= 60000 impacto=  1.5 radio=0.5 flags=Explosion|CanBePickedUp|Supersonic modelo=DLC01\Weapons\Dwarven Crossbow\DwarvenBoltProjectile.nif
+Dawnguard.esm  DLC1BoltDwarvenProjectileExplodingIce    tipo=0x40 grav=0.35 vel=   5400 alcance= 60000 impacto=  1.5 radio=0.5 flags=Explosion|CanBePickedUp|Supersonic modelo=DLC01\Weapons\Dwarven Crossbow\DwarvenBoltProjectile.nif
+Dawnguard.esm  DLC1BoltDwarvenProjectileExplodingShock  tipo=0x40 grav=0.35 vel=   5400 alcance= 60000 impacto=  1.5 radio=0.5 flags=Explosion|CanBePickedUp|Supersonic modelo=DLC01\Weapons\Dwarven Crossbow\DwarvenBoltProjectile.nif
+Dawnguard.esm  DLC1BoltSteelProjectile                  tipo=0x40 grav=0.35 vel=   5400 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp|Supersonic modelo=DLC01\Weapons\Crossbow\BoltProjectile.nif
+Dawnguard.esm  DLC1BoltSteelProjectileFire              tipo=0x40 grav=0.35 vel=   5400 alcance= 60000 impacto=  1.0 radio=0.5 flags=Explosion|CanBePickedUp|Supersonic modelo=DLC01\Weapons\Crossbow\BoltProjectile.nif
+Dawnguard.esm  DLC1BoltSteelProjectileIce               tipo=0x40 grav=0.35 vel=   5400 alcance= 60000 impacto=  1.0 radio=0.5 flags=Explosion|CanBePickedUp|Supersonic modelo=DLC01\Weapons\Crossbow\BoltProjectile.nif
+Dawnguard.esm  DLC1BoltSteelProjectileShock             tipo=0x40 grav=0.35 vel=   5400 alcance= 60000 impacto=  1.0 radio=0.5 flags=Explosion|CanBePickedUp|Supersonic modelo=DLC01\Weapons\Crossbow\BoltProjectile.nif
+Dragonborn.esm DLC2ArrowDwarvenBallistaBoltProjectile   tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags= modelo=DLC02\Weapons\DwarvenBolts\Bolts.nif
+Dragonborn.esm DLC2ArrowDwarvenSoulStealerProjectile    tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Dwarven\SoulStealerArrowProjectile.nif
+Dragonborn.esm DLC2ArrowNordicProjectile                tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=DLC02\Weapons\Nordic\NordicArrowFlight.nif
+Dragonborn.esm DLC2ArrowRieklingSpearProjectile         tipo=0x40 grav=1.30 vel=   2000 alcance=  4000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=DLC02\Weapons\RieklingSpears\Spear.nif
+Dragonborn.esm DLC2ArrowStalhrimProjectile              tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=DLC02\Weapons\Stahlrim\StahlrimArrow.nif
+Skyrim.esm     dunArcherPracticeArrowProjectile         tipo=0x40 grav=0.35 vel=   3600 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Iron\IronArrow.nif
+Skyrim.esm     dunJaphetsFollyCWCatapultProjectile      tipo=0x01 grav=1.00 vel=   4000 alcance= 15000 impacto=  0.0 radio=10.0 flags=Explosion modelo=Magic\FireballProjectile01.nif
+Skyrim.esm     MQ101ArrowSteelProjectile                tipo=0x40 grav=0.00 vel=  15000 alcance= 60000 impacto=  1.0 radio=0.5 flags=CanBePickedUp modelo=Weapons\Steel\SteelArrowFlight.nif
+Skyrim.esm     TrapDweBallistaBolt01                    tipo=0x01 grav=0.80 vel=   2800 alcance= 60000 impacto= 50.0 radio=1.0 flags=Explosion|MuzzleFlash modelo=Traps\BowTrap\LargeBolt01.nif
+Skyrim.esm     TrapDweBallistaBolt02                    tipo=0x01 grav=0.80 vel=   2800 alcance= 60000 impacto= 50.0 radio=1.0 flags=Explosion|MuzzleFlash modelo=Traps\BowTrap\LargeBolt01.nif
+Skyrim.esm     TrapDweBallistaBolt03                    tipo=0x01 grav=0.80 vel=   2800 alcance= 60000 impacto= 50.0 radio=1.0 flags=Explosion|MuzzleFlash modelo=Traps\BowTrap\LargeBolt01.nif
+Skyrim.esm     TrapDweBallistaBolt04                    tipo=0x01 grav=0.80 vel=   2800 alcance= 60000 impacto= 50.0 radio=1.0 flags=Explosion|MuzzleFlash modelo=Traps\BowTrap\LargeBolt01.nif
+Skyrim.esm     TrapDweBallistaBolt05                    tipo=0x01 grav=0.80 vel=   2800 alcance= 60000 impacto= 50.0 radio=1.0 flags=Explosion|MuzzleFlash modelo=Traps\BowTrap\LargeBolt01.nif
+Skyrim.esm     TrapDweBallistaBolt06                    tipo=0x01 grav=0.80 vel=   2800 alcance= 60000 impacto= 50.0 radio=1.0 flags=Explosion|MuzzleFlash modelo=Traps\BowTrap\LargeBolt01.nif
+
+== AMMO
+Skyrim.esm     boundArrow                         dano= 24.0 flags=0x4 (flecha) proyectil=BoundArrowPROJ
+Skyrim.esm     CWArrow                            dano=  1.0 flags=0x6 (flecha, no jugable) proyectil=CWArrowProjectile
+Skyrim.esm     CWArrowShort                       dano=  1.0 flags=0x6 (flecha, no jugable) proyectil=CWArrowProjectileShort
+Skyrim.esm     CWCatapultAmmo                     dano=  5.0 flags=0x6 (flecha, no jugable) proyectil=CWCatapultProjectile
+Dawnguard.esm  DaedricArrow                       dano= 24.0 flags=0x4 (flecha) proyectil=ArrowDaedricProjectile
+Skyrim.esm     DaedricArrow                       dano= 24.0 flags=0x4 (flecha) proyectil=ArrowDaedricProjectile
+Dawnguard.esm  DLC1BoltDwarven                    dano= 14.0 flags=0x0 (virote) proyectil=DLC1BoltDwarvenProjectile
+Dawnguard.esm  DLC1BoltDwarvenExplodingFire       dano= 14.0 flags=0x0 (virote) proyectil=DLC1BoltDwarvenProjectileExplodingFire
+Dawnguard.esm  DLC1BoltDwarvenExplodingIce        dano= 14.0 flags=0x0 (virote) proyectil=DLC1BoltDwarvenProjectileExplodingIce
+Dawnguard.esm  DLC1BoltDwarvenExplodingShock      dano= 14.0 flags=0x0 (virote) proyectil=DLC1BoltDwarvenProjectileExplodingShock
+Dawnguard.esm  DLC1BoltSteel                      dano= 10.0 flags=0x0 (virote) proyectil=DLC1BoltSteelProjectile
+Dawnguard.esm  DLC1BoltSteelExplodingFire         dano= 10.0 flags=0x0 (virote) proyectil=DLC1BoltSteelProjectileFire
+Dawnguard.esm  DLC1BoltSteelExplodingIce          dano= 10.0 flags=0x0 (virote) proyectil=DLC1BoltSteelProjectileIce
+Dawnguard.esm  DLC1BoltSteelExplodingShock        dano= 10.0 flags=0x0 (virote) proyectil=DLC1BoltSteelProjectileShock
+Dawnguard.esm  DLC1DragonboneArrow                dano= 25.0 flags=0x4 (flecha) proyectil=ArrowDragonboneProjectile
+Dawnguard.esm  DLC1ElderScrollBack                dano= 10.0 flags=0x6 (flecha, no jugable) proyectil=ArrowSteelProjectile
+Dawnguard.esm  DLC1ElvenArrowBlessed              dano= 16.0 flags=0x4 (flecha) proyectil=DLC1ArrowElvenProjectileExplode
+Dawnguard.esm  DLC1ElvenArrowBlood                dano= 16.0 flags=0x4 (flecha) proyectil=DLC1AurielsBloodDippedProjectile
+Dawnguard.esm  DLC1SoulCairnKeeperArrow           dano= 14.0 flags=0x6 (flecha, no jugable) proyectil=ArrowDragonboneProjectile
+Dragonborn.esm DLC2BloodskalAmmo                  dano= 15.0 flags=0x6 (flecha, no jugable) proyectil=DLC2BloodskalAreaProjectileHoriz
+Dragonborn.esm DLC2DwarvenBallistaBolt            dano= 12.0 flags=0x7 (flecha, no jugable) proyectil=DLC2ArrowDwarvenBallistaBoltProjectile
+Dragonborn.esm DLC2NordicArrow                    dano= 14.0 flags=0x4 (flecha) proyectil=DLC2ArrowNordicProjectile
+Dragonborn.esm DLC2RieklingSpearThrown            dano= 10.0 flags=0x4 (flecha) proyectil=DLC2ArrowRieklingSpearProjectile
+Dragonborn.esm DLC2StalhrimArrow                  dano= 20.0 flags=0x4 (flecha) proyectil=DLC2ArrowStalhrimProjectile
+Skyrim.esm     DraugrArrow                        dano= 10.0 flags=0x4 (flecha) proyectil=ArrowDraugrProjectile
+Skyrim.esm     DummyArrow                         dano=  0.0 flags=0x4 (flecha) proyectil=ArrowDwarvenProjectile
+Skyrim.esm     dunArcherPracticeArrow             dano=  0.0 flags=0x4 (flecha) proyectil=dunArcherPracticeArrowProjectile
+Skyrim.esm     dunGeirmundSigdisArrowsIllusion    dano=  4.0 flags=0x4 (flecha) proyectil=ArrowDraugrProjectile
+Skyrim.esm     dunJaphetsFollyCWCatapultAmmo      dano= 10.0 flags=0x4 (flecha) proyectil=dunJaphetsFollyCWCatapultProjectile
+Dawnguard.esm  DwarvenArrow                       dano= 14.0 flags=0x4 (flecha) proyectil=ArrowDwarvenProjectile
+Skyrim.esm     DwarvenArrow                       dano= 14.0 flags=0x4 (flecha) proyectil=ArrowDwarvenProjectile
+Skyrim.esm     DwarvenSphereArrow                 dano= 20.0 flags=0x6 (flecha, no jugable) proyectil=ArrowDwarvenProjectile
+Dawnguard.esm  DwarvenSphereBolt01                dano= 10.0 flags=0x6 (flecha, no jugable) proyectil=ArrowDwarvenSphereBoltProjectile
+Skyrim.esm     DwarvenSphereBolt01                dano= 10.0 flags=0x6 (flecha, no jugable) proyectil=ArrowDwarvenSphereBoltProjectile
+Dawnguard.esm  DwarvenSphereBolt02                dano= 15.0 flags=0x6 (flecha, no jugable) proyectil=ArrowDwarvenSphereBoltProjectile
+Skyrim.esm     DwarvenSphereBolt02                dano= 15.0 flags=0x6 (flecha, no jugable) proyectil=ArrowDwarvenSphereBoltProjectile
+Dawnguard.esm  EbonyArrow                         dano= 20.0 flags=0x4 (flecha) proyectil=ArrowEbonyProjectile
+Skyrim.esm     EbonyArrow                         dano= 20.0 flags=0x4 (flecha) proyectil=ArrowEbonyProjectile
+Dawnguard.esm  ElvenArrow                         dano= 16.0 flags=0x4 (flecha) proyectil=ArrowElvenProjectile
+Skyrim.esm     ElvenArrow                         dano= 16.0 flags=0x4 (flecha) proyectil=ArrowElvenProjectile
+Skyrim.esm     FalmerArrow                        dano=  7.0 flags=0x4 (flecha) proyectil=ArrowFalmerProjectile
+Skyrim.esm     FollowerIronArrow                  dano=  8.0 flags=0x6 (flecha, no jugable) proyectil=ArrowIronProjectile
+Skyrim.esm     ForswornArrow                      dano=  7.0 flags=0x4 (flecha) proyectil=ArrowForswornProjectile
+Skyrim.esm     FXDustDropAmmoMed                  dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=FXdustProjectileMed
+Skyrim.esm     FXDustDropAmmoSm                   dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=FXdustProjectileSm
+Skyrim.esm     FXDustDropAmmoTiny                 dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=FXdustProjectileTiny
+Dawnguard.esm  GlassArrow                         dano= 18.0 flags=0x4 (flecha) proyectil=ArrowGlassProjectile
+Skyrim.esm     GlassArrow                         dano= 18.0 flags=0x4 (flecha) proyectil=ArrowGlassProjectile
+Dawnguard.esm  IronArrow                          dano=  8.0 flags=0x4 (flecha) proyectil=ArrowIronProjectile
+Skyrim.esm     IronArrow                          dano=  8.0 flags=0x4 (flecha) proyectil=ArrowIronProjectile
+Skyrim.esm     MQ101SteelArrow                    dano= 10.0 flags=0x4 (flecha) proyectil=MQ101ArrowSteelProjectile
+Skyrim.esm     NordHeroArrow                      dano= 24.0 flags=0x4 (flecha) proyectil=ArrowNordHeroProjectile
+Dawnguard.esm  OrcishArrow                        dano= 12.0 flags=0x4 (flecha) proyectil=ArrowOrcishProjectile
+Skyrim.esm     OrcishArrow                        dano= 12.0 flags=0x4 (flecha) proyectil=ArrowOrcishProjectile
+Dawnguard.esm  SteelArrow                         dano= 10.0 flags=0x4 (flecha) proyectil=ArrowSteelProjectile
+Skyrim.esm     SteelArrow                         dano= 10.0 flags=0x4 (flecha) proyectil=ArrowSteelProjectile
+Dawnguard.esm  TestDLC1Bolt                       dano= 10.0 flags=0x0 (virote) proyectil=DLC1BoltSteelProjectile
+Skyrim.esm     TrapDart                           dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=TrapDartWooden01
+Dawnguard.esm  TrapDweBallistaBoltAmmo01          dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=TrapDweBallistaBolt01
+Skyrim.esm     TrapDweBallistaBoltAmmo01          dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=TrapDweBallistaBolt01
+Skyrim.esm     TrapDweBallistaBoltAmmo02          dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=TrapDweBallistaBolt02
+Skyrim.esm     TrapDweBallistaBoltAmmo03          dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=TrapDweBallistaBolt03
+Skyrim.esm     TrapDweBallistaBoltAmmo04          dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=TrapDweBallistaBolt04
+Skyrim.esm     TrapDweBallistaBoltAmmo05          dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=TrapDweBallistaBolt05
+Skyrim.esm     TrapDweBallistaBoltAmmo06          dano=  0.0 flags=0x6 (flecha, no jugable) proyectil=TrapDweBallistaBolt06
+
+== WEAP base (sin CNAM): ballestas y armas de trampa/asedio
+Skyrim.esm     CWCatapultWeapon                   anim=7 dano= 10 velocidad=1.000 peso=4.0 stagger=0.00
+Dawnguard.esm  DLC1CrossBow                       anim=9 dano= 19 velocidad=1.000 peso=14.0 stagger=0.75
+Dawnguard.esm  DLC1CrossBowEnhanced               anim=9 dano= 19 velocidad=1.000 peso=15.0 stagger=0.75
+Dawnguard.esm  DLC1DwarvenCrossBow                anim=9 dano= 22 velocidad=1.000 peso=20.0 stagger=0.75
+Dawnguard.esm  DLC1DwarvenCrossBowEnhanced        anim=9 dano= 22 velocidad=1.000 peso=21.0 stagger=0.75
+Dawnguard.esm  DLC1TrapCrossbowWeapon01           anim=7 dano= 10 velocidad=1.000 peso=4.0 stagger=0.00
+Dawnguard.esm  DLC1TrapCrossbowWeapon02           anim=7 dano= 15 velocidad=1.000 peso=4.0 stagger=0.00
+Dawnguard.esm  DLC1TrapCrossbowWeapon03           anim=7 dano= 20 velocidad=1.000 peso=4.0 stagger=0.00
+Dawnguard.esm  DLC1TrapCrossbowWeapon04           anim=7 dano= 25 velocidad=1.000 peso=4.0 stagger=0.00
+Dawnguard.esm  DLC1TrapCrossbowWeapon05           anim=7 dano= 30 velocidad=1.000 peso=4.0 stagger=0.00
+Dawnguard.esm  DLC1TrapCrossbowWeapon06           anim=7 dano= 35 velocidad=1.000 peso=4.0 stagger=0.00
+Dragonborn.esm DLC2crDwarvenBallistaBow01         anim=7 dano= 16 velocidad=0.875 peso=5.0 stagger=0.00
+Dragonborn.esm DLC2crDwarvenBallistaBow02         anim=7 dano= 24 velocidad=0.875 peso=5.0 stagger=0.00
+Dragonborn.esm DLC2crDwarvenBallistaBow03         anim=7 dano= 32 velocidad=0.875 peso=5.0 stagger=0.00
+Skyrim.esm     GasTrapDummy                       anim=0 dano=  0 velocidad=1.000 peso=0.0 stagger=1.00
+Skyrim.esm     TrapDartWeapon01                   anim=0 dano=  1 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeapon02                   anim=0 dano=  1 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeapon03                   anim=0 dano=  1 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeapon04                   anim=0 dano=  2 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeapon05                   anim=0 dano=  2 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeapon06                   anim=0 dano=  3 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeaponDwe01                anim=0 dano=  2 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeaponDwe02                anim=0 dano=  2 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeaponDwe03                anim=0 dano=  3 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeaponDwe04                anim=0 dano=  3 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeaponDwe05                anim=0 dano=  4 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDartWeaponDwe06                anim=0 dano=  5 velocidad=10.000 peso=0.0 stagger=0.00
+Skyrim.esm     TrapDweBallistaWeaponL01           anim=7 dano=  0 velocidad=1.000 peso=4.0 stagger=0.00
+Skyrim.esm     TrapDweBallistaWeaponM01           anim=7 dano=  0 velocidad=1.000 peso=4.0 stagger=0.00
+Skyrim.esm     TrapDweBallistaWeaponR01           anim=7 dano=  0 velocidad=1.000 peso=4.0 stagger=0.00
+
+== GMST de flechas, proyectiles y gravedad
+Skyrim.esm     fAttachedArrowAgeMax                     10.0000
+Skyrim.esm     fConeProjectileEnvironmentDistance       192.0000
+Skyrim.esm     fConeProjectileEnvironmentTimer          0.1250
+Skyrim.esm     fProjectileInventoryGrenadeFreakoutTime  0.1000
+Skyrim.esm     fProjectileInventoryGrenadeTimer         2.0000
+Skyrim.esm     fProjectileKnockMultBiped                0.2500
+Skyrim.esm     iArrowInventoryChance                    33
+Skyrim.esm     iProjectileMineShooterCanTrigger         0
+Skyrim.esm     sMagicProjectileTypeBall                 (cadena localizada 8d8a0000)
+Skyrim.esm     sMagicProjectileTypeBolt                 (cadena localizada da9b0000)
+Skyrim.esm     sMagicProjectileTypeFog                  (cadena localizada ff680000)
+Skyrim.esm     sMagicProjectileTypeSpray                (cadena localizada 713b0000)
+Skyrim.esm     sNoArrows                                (cadena localizada 1f130100)
+Dawnguard.esm  sNoBolts                                 (cadena localizada 17070000)
+Skyrim.esm     sTopicSubtypeTextMiscellaneousPlayerCastProjectileSpell (cadena localizada 96d50000)
+
+== RACE de dragon (salud inicial = DATA+36) y NordRace de control
+Dawnguard.esm  DLC1UndeadDragonRace           020117DE salud inicial=900
+Dragonborn.esm DLC2AcolyteDragonPriestRace    0203911A salud inicial=1000
+Dragonborn.esm DLC2DragonBlackRace            0202C88C salud inicial=500
+Dragonborn.esm dlc2SpectralDragonRace         0201F98F salud inicial=200
+Dragonborn.esm DragonBlackRace                0202C88B salud inicial=500
+Skyrim.esm     DragonPriestRace               000131EF salud inicial=1000
+Dragonborn.esm DragonRace                     00012E82 salud inicial=500
+Skyrim.esm     DragonRace                     00012E82 salud inicial=500
+Skyrim.esm     NordRace                       00013746 salud inicial=50
+Dragonborn.esm UndeadDragonRace               001052A3 salud inicial=500
+Skyrim.esm     UndeadDragonRace               001052A3 salud inicial=500
+
+== NPC_ de razas de dragon (sin sacerdotes): ACBS
+Skyrim.esm     AudioTemplateDragon                      raza=DragonRace             nivel=1     offsetSalud=    0 autocalculo=False
+Skyrim.esm     AudioTemplateDragonQuiet                 raza=DragonRace             nivel=1     offsetSalud=    0 autocalculo=False
+Skyrim.esm     BlackreachDragon                         raza=DragonRace             nivel=50    offsetSalud= 2000 autocalculo=True
+Skyrim.esm     BleakFallsDragon                         raza=DragonRace             nivel=20    offsetSalud=    0 autocalculo=False
+Dawnguard.esm  DLC1Durnehviir                           raza=DLC1UndeadDragonRace   nivel=x1.00 offsetSalud=    0 autocalculo=True
+Dawnguard.esm  DLC1DurnehviirSummon                     raza=DLC1UndeadDragonRace   nivel=20    offsetSalud=  700 autocalculo=True
+Dawnguard.esm  DLC1EncDragon06Fire                      raza=DragonRace             nivel=62    offsetSalud= 2300 autocalculo=True
+Dawnguard.esm  DLC1EncDragon06FireNoScript              raza=DragonRace             nivel=62    offsetSalud= 2300 autocalculo=True
+Dawnguard.esm  DLC1EncDragon07Fire                      raza=DragonRace             nivel=75    offsetSalud= 2800 autocalculo=True
+Dawnguard.esm  DLC1EncDragon07FireNoScript              raza=DragonRace             nivel=75    offsetSalud= 2800 autocalculo=True
+Dawnguard.esm  DLC1EncDragon07Frost                     raza=DragonRace             nivel=75    offsetSalud= 2800 autocalculo=True
+Dawnguard.esm  DLC1EncDragon07FrostNoScript             raza=DragonRace             nivel=75    offsetSalud= 3000 autocalculo=True
+Dawnguard.esm  DLC1EncDragonIceLake01                   raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Dawnguard.esm  DLC1lvlDragonIceLake                     raza=DragonRace             nivel=1     offsetSalud=    0 autocalculo=False
+Dawnguard.esm  DLC1lvlDragonNaaslaarum                  raza=DragonRace             nivel=1     offsetSalud=    0 autocalculo=False
+Dawnguard.esm  DLC1lvlDragonVoslaarum                   raza=DragonRace             nivel=1     offsetSalud=    0 autocalculo=False
+Dragonborn.esm DLC2DragonSkeleton                       raza=UndeadDragonRace       nivel=20    offsetSalud=    0 autocalculo=False
+Dragonborn.esm DLC2EncDragon01FireNoScript_MQ06         raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Dragonborn.esm DLC2EncDragon01FrostNoScript_MQ06        raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Dragonborn.esm DLC2EncDragon02FireNoScript_MQ06         raza=DragonRace             nivel=20    offsetSalud=  700 autocalculo=True
+Dragonborn.esm DLC2EncDragon02FrostNoScript_MQ06        raza=DragonRace             nivel=20    offsetSalud=  700 autocalculo=True
+Dragonborn.esm DLC2EncDragon03FireNoScript_MQ06         raza=DragonRace             nivel=40    offsetSalud= 1300 autocalculo=True
+Dragonborn.esm DLC2EncDragon03FrostNoScript_MQ06        raza=DragonRace             nivel=30    offsetSalud= 1022 autocalculo=True
+Dragonborn.esm DLC2EncDragon04FireNoScript_MQ06         raza=DragonRace             nivel=40    offsetSalud= 1300 autocalculo=True
+Dragonborn.esm DLC2EncDragon04FrostNoScript_MQ06        raza=DragonRace             nivel=40    offsetSalud= 1300 autocalculo=True
+Dragonborn.esm DLC2EncDragon05FireNoScript_MQ06         raza=DragonRace             nivel=50    offsetSalud= 2000 autocalculo=True
+Dragonborn.esm DLC2EncDragon05FrostNoScript_MQ06        raza=DragonRace             nivel=50    offsetSalud= 2000 autocalculo=True
+Dragonborn.esm DLC2EncDragon06Fire                      raza=DragonRace             nivel=58    offsetSalud= 2400 autocalculo=True
+Dragonborn.esm DLC2EncDragon06FireNoScript              raza=DragonRace             nivel=58    offsetSalud= 2400 autocalculo=True
+Dragonborn.esm DLC2EncDragon06Frost                     raza=DragonRace             nivel=58    offsetSalud= 2400 autocalculo=True
+Dragonborn.esm DLC2EncDragon06FrostNoScript             raza=DragonRace             nivel=58    offsetSalud= 2400 autocalculo=True
+Dragonborn.esm dlc2FireWyrmCreated                      raza=dlc2SpectralDragonRace nivel=11    offsetSalud=    0 autocalculo=True
+Dragonborn.esm DLC2lvlMQ05Dragon                        raza=DragonRace             nivel=1     offsetSalud=    0 autocalculo=False
+Dragonborn.esm DLC2MiraakDragon                         raza=DragonRace             nivel=58    offsetSalud= 2400 autocalculo=True
+Dragonborn.esm DLC2MQ02MiraakDragon                     raza=DragonRace             nivel=58    offsetSalud= 2400 autocalculo=True
+Dragonborn.esm DLC2MQ05Dragon                           raza=DragonRace             nivel=1     offsetSalud=    0 autocalculo=False
+Dragonborn.esm DLC2MQ06MiraakDragon                     raza=DragonRace             nivel=58    offsetSalud= 2400 autocalculo=True
+Dragonborn.esm dlc2SpectralDragonSummon                 raza=dlc2SpectralDragonRace nivel=9     offsetSalud=    0 autocalculo=True
+Dragonborn.esm DLC2TameDragonVoice                      raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Dragonborn.esm DLDC2EncDragon03FrostNoScript_MQ06       raza=DragonRace             nivel=30    offsetSalud= 1022 autocalculo=True
+Skyrim.esm     dunLabyrinthianUndeadDragon              raza=UndeadDragonRace       nivel=20    offsetSalud=    0 autocalculo=False
+Skyrim.esm     dunSkuldafnDragonDraugr                  raza=DragonRace             nivel=20    offsetSalud=    0 autocalculo=False
+Skyrim.esm     dunSkuldafnDragonDraugrFrost             raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     dunSkuldafnDragonDraugrTundra            raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     dunSkuldafnDragonDraugrUnaggressive      raza=DragonRace             nivel=40    offsetSalud= 1300 autocalculo=True
+Skyrim.esm     dunSkuldafnDragonDraugrUnaggressiveFrost raza=DragonRace             nivel=30    offsetSalud= 1022 autocalculo=True
+Skyrim.esm     E3DemoEncDragonFrost                     raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     EncDragon01Fire                          raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     EncDragon01FireNoScript                  raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     EncDragon01Frost                         raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     EncDragon01FrostNoScript                 raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     EncDragon02Fire                          raza=DragonRace             nivel=20    offsetSalud=  700 autocalculo=True
+Skyrim.esm     EncDragon02FireNoScript                  raza=DragonRace             nivel=20    offsetSalud=  700 autocalculo=True
+Dawnguard.esm  EncDragon02Frost                         raza=DragonRace             nivel=20    offsetSalud=  700 autocalculo=True
+Skyrim.esm     EncDragon02Frost                         raza=DragonRace             nivel=20    offsetSalud=  700 autocalculo=True
+Skyrim.esm     EncDragon02FrostNoScript                 raza=DragonRace             nivel=20    offsetSalud=  700 autocalculo=True
+Skyrim.esm     EncDragon03FireNoScript                  raza=DragonRace             nivel=40    offsetSalud= 1300 autocalculo=True
+Skyrim.esm     EncDragon03Frost                         raza=DragonRace             nivel=30    offsetSalud= 1022 autocalculo=True
+Skyrim.esm     EncDragon03FrostNoScript                 raza=DragonRace             nivel=30    offsetSalud= 1022 autocalculo=True
+Skyrim.esm     EncDragon04Fire                          raza=DragonRace             nivel=40    offsetSalud= 1300 autocalculo=True
+Skyrim.esm     EncDragon04FireNoScript                  raza=DragonRace             nivel=40    offsetSalud= 1300 autocalculo=True
+Skyrim.esm     EncDragon04Frost                         raza=DragonRace             nivel=40    offsetSalud= 1300 autocalculo=True
+Skyrim.esm     EncDragon04FrostNoScript                 raza=DragonRace             nivel=40    offsetSalud= 1300 autocalculo=True
+Skyrim.esm     EncDragon05Fire                          raza=DragonRace             nivel=50    offsetSalud= 2000 autocalculo=True
+Skyrim.esm     EncDragon05FireNoScript                  raza=DragonRace             nivel=50    offsetSalud= 2000 autocalculo=True
+Skyrim.esm     EncDragon05Frost                         raza=DragonRace             nivel=50    offsetSalud= 2000 autocalculo=True
+Skyrim.esm     EncDragon05FrostNoScript                 raza=DragonRace             nivel=50    offsetSalud= 2000 autocalculo=True
+Skyrim.esm     EncDragonSnow                            raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     EncDragonSnowNoScript                    raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     EncDragonTundra                          raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     MQ206Dragon                              raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     MQ206Dragon2                             raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     MQ206Dragon3                             raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     MQ206Dragon4                             raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     MQ303Odahviing                           raza=DragonRace             nivel=1     offsetSalud=    0 autocalculo=False
+Dragonborn.esm MQ306DragonA                             raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     MQ306DragonA                             raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Dragonborn.esm MQ306DragonB                             raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     MQ306DragonB                             raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Dragonborn.esm MQ306DragonC                             raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     MQ306DragonC                             raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Skyrim.esm     Odahviing                                raza=DragonRace             nivel=1     offsetSalud=    0 autocalculo=False
+Skyrim.esm     Paarthurnax                              raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True
+Dragonborn.esm testjeffbDragon                          raza=DragonRace             nivel=10    offsetSalud=  300 autocalculo=True

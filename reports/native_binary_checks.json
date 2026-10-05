@@ -1,0 +1,57 @@
+{
+  "dll": "mod\\SKSE\\Plugins\\AstraSight.dll",
+  "sha256": "6b295ab4972b43bc79607d8e9c04d7f0c9af40dbef7d7dfdbac683c9c4609fa6",
+  "size": 635904,
+  "machine": "AMD64 (0x8664)",
+  "exports": {
+    "SKSEPlugin_Load": 162224,
+    "SKSEPlugin_Query": 163920,
+    "SKSEPlugin_Version": 598016
+  },
+  "metadata": {
+    "version_data": 1,
+    "plugin_name": "AstraSight",
+    "packed_plugin_version": 50528256,
+    "address_library": true,
+    "structs_post_629": true,
+    "compatible_packed_versions": [
+      17189152,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "minimum_skse_packed": 33685632
+  },
+  "imports": [
+    "KERNEL32.dll",
+    "MSVCP140.dll",
+    "VCRUNTIME140.dll",
+    "VCRUNTIME140_1.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-locale-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-convert-l1-1-0.dll",
+    "api-ms-win-crt-stdio-l1-1-0.dll",
+    "api-ms-win-crt-filesystem-l1-1-0.dll",
+    "api-ms-win-crt-time-l1-1-0.dll",
+    "ole32.dll",
+    "VERSION.dll",
+    "USER32.dll",
+    "SHELL32.dll"
+  ],
+  "verified_by": "PE parse only; DLL not loaded and game not launched"
+}

@@ -1,0 +1,146 @@
+{
+  "collected_utc": "2026-10-03T19:10:23.275372+00:00",
+  "documents_resolved_by": "[Environment]::GetFolderPath(MyDocuments)",
+  "documents": "C:\\Users\\Facu2\\OneDrive\\Documentos",
+  "profile_read_only": "G:\\Modding\\MO2\\SkyrimSE\\profiles\\PruebaEmpaquetado",
+  "profile_modlist_sha256": "08e1bf16806ece6527157c6f72396eafb515d3654312bc51be3ba0ca09157418",
+  "profile_plugins_sha256": "227b9e9df0c046bedbcaafcfb9874365cac0709807b2a62d25894ddd9b31c369",
+  "enabled_astra_plugins": [
+    "*AstraAsedio.esp",
+    "*AstraAsedio_Despejado.esp"
+  ],
+  "installed_files": [
+    {
+      "artifact": "AstraAsedio.esp",
+      "enabled_mod_candidates": [
+        {
+          "path": "G:\\Modding\\MO2\\SkyrimSE\\mods\\AstraAsedio_v\\AstraAsedio.esp",
+          "sha256": "c368d28678009ab47483a7d88a02f3eb0420b6738354f0649ed63d5da1e2caae",
+          "matches_v01": true,
+          "matches_v02": false
+        }
+      ],
+      "unambiguous_effective_file": true
+    },
+    {
+      "artifact": "AstraAsedio_Despejado.esp",
+      "enabled_mod_candidates": [
+        {
+          "path": "G:\\Modding\\MO2\\SkyrimSE\\mods\\AstraAsedio_Despejado_MO\\AstraAsedio_Despejado.esp",
+          "sha256": "1921a7bfff9df49b0769c828636dd87814da44bfc060698145b1b9060b61dcd6",
+          "matches_v01": false,
+          "matches_v02": false
+        }
+      ],
+      "unambiguous_effective_file": true
+    },
+    {
+      "artifact": "scripts/AstraAsedioActi.pex",
+      "enabled_mod_candidates": [
+        {
+          "path": "G:\\Modding\\MO2\\SkyrimSE\\mods\\AstraAsedio_v\\scripts\\AstraAsedioActi.pex",
+          "sha256": "1d7592f1e39b35256f11391c8ff884cbe1a1408160475d0269e280a79c636801",
+          "matches_v01": true,
+          "matches_v02": false
+        }
+      ],
+      "unambiguous_effective_file": true
+    },
+    {
+      "artifact": "scripts/AstraAsedioSession.pex",
+      "enabled_mod_candidates": [
+        {
+          "path": "G:\\Modding\\MO2\\SkyrimSE\\mods\\AstraAsedio_v\\scripts\\AstraAsedioSession.pex",
+          "sha256": "4ee965f055fd8b64f58a5d00b1adbe6013f05a37aa0ef8d3b6ba9e8edb762c08",
+          "matches_v01": true,
+          "matches_v02": false
+        }
+      ],
+      "unambiguous_effective_file": true
+    },
+    {
+      "artifact": "scripts/AstraAsedioPlayerAlias.pex",
+      "enabled_mod_candidates": [
+        {
+          "path": "G:\\Modding\\MO2\\SkyrimSE\\mods\\AstraAsedio_v\\scripts\\AstraAsedioPlayerAlias.pex",
+          "sha256": "c17de2a2e590e20f29dff655a6a4fef67450b036104fdb626a62587d74f9fa4d",
+          "matches_v01": true,
+          "matches_v02": false
+        }
+      ],
+      "unambiguous_effective_file": true
+    },
+    {
+      "artifact": "seq/AstraAsedio.seq",
+      "enabled_mod_candidates": [
+        {
+          "path": "G:\\Modding\\MO2\\SkyrimSE\\mods\\AstraAsedio_v\\seq\\AstraAsedio.seq",
+          "sha256": "5907a2bc621a287e138957f9f8f9ad9be9fbfd706b3087db35225b26f391b551",
+          "matches_v01": true,
+          "matches_v02": true
+        }
+      ],
+      "unambiguous_effective_file": true
+    }
+  ],
+  "astra_only_log_evidence": [
+    {
+      "path": "C:\\Users\\Facu2\\OneDrive\\Documentos\\My Games\\Skyrim Special Edition\\Logs\\Script\\Papyrus.0.log",
+      "sha256": "8a6582ef780a874b8fadbfc1d9df08c1adfc9814c7abd22c51d9a7ff77fa7986",
+      "modified": "2026-10-03T15:40:48.559085",
+      "astra_error_counts": {
+        "Cannot cast from None to Float[]": 6,
+        "Cannot create an array into a non-array variable": 48
+      },
+      "examples": [
+        {
+          "line": 156,
+          "excerpt": "[10/03/2026 - 03:40:09PM] error: Cannot cast from None to Float[]\nstack:\n\t[ (10000901)].AstraAsedioActi.CaptureMatrices() - \"AstraAsedioActi.psc\" Line 148\n\t[ (10000901)].AstraAsedioActi.OnLoad() - \"AstraAsedioActi.psc\" Line 60"
+        },
+        {
+          "line": 160,
+          "excerpt": "[10/03/2026 - 03:40:09PM] error: Cannot create an array into a non-array variable\nstack:\n\t[ (10000901)].AstraAsedioActi.CaptureMatrices() - \"AstraAsedioActi.psc\" Line 148\n\t[ (10000901)].AstraAsedioActi.OnLoad() - \"AstraAsedioActi.psc\" Line 60"
+        },
+        {
+          "line": 227,
+          "excerpt": "[10/03/2026 - 03:40:37PM] error: Cannot cast from None to Float[]\nstack:\n\t[ (10000901)].AstraAsedioActi.CaptureMatrices() - \"AstraAsedioActi.psc\" Line 148\n\t[ (10000901)].AstraAsedioActi.OnActivate() - \"AstraAsedioActi.psc\" Line 78"
+        },
+        {
+          "line": 231,
+          "excerpt": "[10/03/2026 - 03:40:37PM] error: Cannot create an array into a non-array variable\nstack:\n\t[ (10000901)].AstraAsedioActi.CaptureMatrices() - \"AstraAsedioActi.psc\" Line 148\n\t[ (10000901)].AstraAsedioActi.OnActivate() - \"AstraAsedioActi.psc\" Line 78"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\Facu2\\OneDrive\\Documentos\\My Games\\Skyrim Special Edition\\Logs\\Script\\Papyrus.1.log",
+      "sha256": "e5003263885a9516eb1906cf336e55aee9bf3dc3e23db2fa3431b645f5930b1c",
+      "modified": "2026-10-03T15:32:39.198158",
+      "astra_error_counts": {
+        "Cannot cast from None to Float[]": 9,
+        "Cannot create an array into a non-array variable": 72
+      },
+      "examples": [
+        {
+          "line": 243,
+          "excerpt": "[10/03/2026 - 03:29:30PM] error: Cannot cast from None to Float[]\nstack:\n\t[ (10000901)].AstraAsedioActi.CaptureMatrices() - \"AstraAsedioActi.psc\" Line 148\n\t[ (10000901)].AstraAsedioActi.OnLoad() - \"AstraAsedioActi.psc\" Line 60"
+        },
+        {
+          "line": 247,
+          "excerpt": "[10/03/2026 - 03:29:30PM] error: Cannot create an array into a non-array variable\nstack:\n\t[ (10000901)].AstraAsedioActi.CaptureMatrices() - \"AstraAsedioActi.psc\" Line 148\n\t[ (10000901)].AstraAsedioActi.OnLoad() - \"AstraAsedioActi.psc\" Line 60"
+        },
+        {
+          "line": 320,
+          "excerpt": "[10/03/2026 - 03:29:55PM] error: Cannot cast from None to Float[]\nstack:\n\t[ (10000901)].AstraAsedioActi.CaptureMatrices() - \"AstraAsedioActi.psc\" Line 148\n\t[ (10000901)].AstraAsedioActi.OnActivate() - \"AstraAsedioActi.psc\" Line 78"
+        },
+        {
+          "line": 324,
+          "excerpt": "[10/03/2026 - 03:29:55PM] error: Cannot create an array into a non-array variable\nstack:\n\t[ (10000901)].AstraAsedioActi.CaptureMatrices() - \"AstraAsedioActi.psc\" Line 148\n\t[ (10000901)].AstraAsedioActi.OnActivate() - \"AstraAsedioActi.psc\" Line 78"
+        }
+      ]
+    }
+  ],
+  "runtime_or_mo2_written": false,
+  "saved_games_read_or_written": false,
+  "native_apps_started": false,
+  "in_game_fix_verified": false
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "package": "C:\\ProgramData\\Package Cache\\{2BBE2DFA-6106-03E7-2F10-974C16AF6F63}v10.1.26100.8249\\Installers\\Universal CRT Headers Libraries and Sources-x86_en-us.msi",
+    "sha256": "91910ce2df0db3f7336444bf45e7d825893c104261c5e2c3e2f63b273ee13f0b",
+    "operation": "administrative extraction to project only"
+  },
+  {
+    "package": "C:\\ProgramData\\Package Cache\\{28C90E10-A917-28CE-DC76-63B86B801968}v10.1.26100.8249\\Installers\\Windows SDK Desktop Headers x64-x86_en-us.msi",
+    "sha256": "a0eb8d173a0f0ac5fd3dec0eeecede51a43da832824bb800ad96b97ae4301c18",
+    "operation": "administrative extraction to project only"
+  },
+  {
+    "package": "C:\\ProgramData\\Package Cache\\{2C985DD5-2B48-49A4-11B4-22EAF4B77565}v10.1.26100.8249\\Installers\\Windows SDK for Windows Store Apps Headers-x86_en-us.msi",
+    "sha256": "48c953ad16ce986f724ea53a9fa5fe796dd92d77e6c1bfe8cfe2105760401425",
+    "operation": "administrative extraction to project only"
+  }
+]

@@ -1,0 +1,113 @@
+{
+  "revision": "v10",
+  "runtime_verified": false,
+  "runtime_modified": false,
+  "evidence": {
+    "log_reference": "reports/user_evidence_v02.json",
+    "user_observation": "Cámara, consola y menús responden; el personaje está inmóvil y ninguna flecha gira o eleva la ballesta.",
+    "activation_and_acquisition_observed": true,
+    "astra_array_vm_errors_observed": false,
+    "v02_phase_or_fire_trace_observed": false
+  },
+  "supported_findings": [
+    "v02 OnActivate rechaza cualquier activación durante operating con ALREADY_OPERATING; el log confirma que el usuario llegó repetidamente a esa rama.",
+    "La inmovilidad del jugador es el bloqueo de controles adquirido por la sesión. La respuesta de cámara y menús descarta un congelamiento global del motor como explicación del relato.",
+    "v02 giro, elevación, ataque y salida dependían de Input.IsKeyPressed, sin una recepción alternativa por eventos.",
+    "Los imports SKSE instalados declaran RegisterForKey, RegisterForControl y sus eventos en Form.psc; Input.psc permite seleccionar deviceType 0 y 1 explícitamente."
+  ],
+  "hypothesis_and_limits": [
+    "La evidencia es compatible con una ruta de polling sin respuesta, pero no demuestra que el cache DirectInput sea la causa interna concreta en este runtime.",
+    "GetMappedKey automático puede elegir gamepad; esto no explica por sí solo que tampoco respondan las flechas físicas y no se afirma como causa observada.",
+    "Los eventos SKSE usan InputEventDispatcher y evitan la dependencia del cache consultado por IsKeyPressed. La recepción real de esos eventos con este conjunto de mods aún necesita prueba en juego.",
+    "OnKeyDown y OnControlDown no incluyen timestamp ni generación de origen. Una entrega excepcionalmente tardía de un Down de menú después de reanudar podría parecer una pulsación nueva; no se bloquean por ello todas las teclas que no estaban sostenidas.",
+    "La cancelación anterior al commit se revalida después del preflight. RemoveItem y Weapon.Fire son llamadas externas: una vez comprometido el disparo no se promete cancelarlo o deshacerlo. Weapon.Fire devuelve void; compilación y trazas no prueban proyectil visible ni daño."
+  ],
+  "implemented_contract": {
+    "arrows": [
+      203,
+      205,
+      200,
+      208
+    ],
+    "held_flags_from_down_up_events": true,
+    "mapped_controls": [
+      "Activate",
+      "Right Attack/Block"
+    ],
+    "explicit_mapping_devices": [
+      0,
+      1
+    ],
+    "single_fire_latch_shared_by_key_and_control": true,
+    "fresh_first_press_after_entry": true,
+    "held_keys_require_release_across_menus": true,
+    "keys_not_held_accept_first_new_press_after_menu": true,
+    "unconsumed_pending_shot_invalidated_on_menu": true,
+    "reactivation_directly_ends_session": true,
+    "initial_and_post_exit_debounce_seconds": 0.35,
+    "exit_independent_of_onupdate": true,
+    "unregister_keys_controls_menus_on_cleanup": true,
+    "restore_only_session_owned_controls": true,
+    "bounded_aim_dt_seconds": 0.15,
+    "single_update_period_seconds": 0.05,
+    "ammo_consumption_before_native_launch_after_all_checks": true,
+    "none_array_cast_guard_retained": true,
+    "first_input_after_menu_close_before_update": true,
+    "menu_clock_reset_on_event_resume": true,
+    "post_preflight_scalar_generation_revalidation": true,
+    "controls_released_before_visual_cleanup": true,
+    "acquisition_cleanup_rollback_contract": true,
+    "atomic_native_ammo_launch_transaction": false,
+    "first_person_on_entry": true,
+    "mouse_look_drives_aim": true,
+    "camera_switch_control_owned": true,
+    "previous_perspective_restoration_policy": "owned change, eligible camera only; no exact third-person substate claim",
+    "pitch_max_degrees": 80.0,
+    "native_sight_camera": true,
+    "native_plugin_required_before_controls": true,
+    "legacy_aim_requires_use_sight_camera_false": true
+  },
+  "diagnostics": [
+    "Siempre: input registrado con códigos, OnKeyDown, OnControlDown, solicitud de ataque, primer OnUpdate de cada sesión, cancelación y EndSession.",
+    "Siempre: rechazo de munición, generación/sesión, transformaciones con magnitudes de error y resultado false de PlayGamebryoAnimation.",
+    "QALog: transiciones de settle y Fire y datos del commit nativo. No hay traza en cada tick."
+  ],
+  "verification": {
+    "bethesda_compiler_success": true,
+    "bethesda_assembler_disassembly_success": true,
+    "compiled_scripts": 3,
+    "compiler_errors": 0,
+    "compiler_warnings": 0,
+    "session_contract_tests_passed": 38,
+    "source_level_behavior_cases": 16,
+    "report": "reports/plugin_compile.json",
+    "test_result": "reports/input_behavior.json",
+    "interpretation": "Pruebas de contrato source/bytecode y guards reales PSC evaluados con fixtures explícitos para fronteras nativas; no ejecución de la VM del juego.",
+    "control_lease_contract_tests_passed": 10,
+    "control_lease_test_result": "reports/control_lease_behavior.json",
+    "controller_source_sha256": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+    "session_source_sha256": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4",
+    "camera_contract_tests_passed": 33,
+    "camera_contract_report": "reports/camera_aim_behavior.json",
+    "native_sight_contract_tests_passed": 52,
+    "native_sight_contract_report": "reports/native_sight_behavior.json"
+  },
+  "primary_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/ianpatt/skse64/master/skse64/PapyrusInput.cpp",
+      "lines": "6-9,64-116",
+      "finding": "IsKeyPressed consulta DIHookControl; el mapping sin deviceType explícito puede priorizar gamepad."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ianpatt/skse64/master/skse64/Hooks_DirectInput8Create.cpp",
+      "lines": "64-96,249-279,403-429",
+      "finding": "El polling consulta estados guardados alimentados por el hook de DirectInput."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ianpatt/skse64/master/skse64/PapyrusEvents.cpp",
+      "lines": "181-252",
+      "finding": "InputEventHandler entrega Down/Up de keys y controles a registros Papyrus desde InputEventDispatcher."
+    }
+  ],
+  "user_v03_evidence": "reports/user_evidence_v03.json"
+}

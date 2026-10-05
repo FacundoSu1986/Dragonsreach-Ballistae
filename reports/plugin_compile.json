@@ -1,0 +1,94 @@
+{
+  "compiler": "G:\\Modding\\Skyrim_Runtime_1.6.1170\\Papyrus Compiler\\PapyrusCompiler.exe",
+  "assembler": "G:\\Modding\\Skyrim_Runtime_1.6.1170\\Papyrus Compiler\\PapyrusAssembler.exe",
+  "runtime_read_only": true,
+  "scripts": [
+    {
+      "source_sha256": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+      "source": "mod\\scripts\\source\\AstraAsedioActi.psc",
+      "pex": "mod\\scripts\\AstraAsedioActi.pex",
+      "exit_code": 0,
+      "assembler_exit_code": 0,
+      "success": true,
+      "output": "Starting 1 compile threads for 1 files...\nCompiling \"AstraAsedioActi\"...\nStarting assembly of AstraAsedioActi\n0 error(s), 0 warning(s)\nAssembly succeeded\n\nCompilation succeeded.\n\nBatch compile of 1 files finished. 1 succeeded, 0 failed.\nStarting disassembly of AstraAsedioActi\n0 error(s), 0 warning(s)\nDisassembly succeeded\n",
+      "bytecode_safety": {
+        "no_none_to_array_casts": true,
+        "array_create_count": 8,
+        "functions_inspected": 51,
+        "skse_input_events": [
+          "OnKeyDown",
+          "OnKeyUp",
+          "OnControlDown",
+          "OnControlUp"
+        ],
+        "no_iskeypressed_poll": true,
+        "arrow_keycodes": [
+          203,
+          205,
+          200,
+          208
+        ],
+        "own_camera_state_binding": true,
+        "runtime_camera_wrappers_absent": true,
+        "disassembly": "reports\\papyrus_bytecode\\AstraAsedioActi.disassemble.pas",
+        "disassembly_sha256": "8c56d03d32e23c16d776247c7757e50c00a39efc3f47ec78f2d8d66c26ede4c5"
+      },
+      "sha256": "3105b2cf5ff403500a26da2c7f1d039ed9b69e8fe26724689e72f5022a9820fd"
+    },
+    {
+      "source_sha256": "048e868247e792cd7702518a36ea95bc54d98f1d46555379f8eb7c3dafa8831e",
+      "source": "mod\\scripts\\source\\AstraAsedioPlayerAlias.psc",
+      "pex": "mod\\scripts\\AstraAsedioPlayerAlias.pex",
+      "exit_code": 0,
+      "assembler_exit_code": 0,
+      "success": true,
+      "output": "Starting 1 compile threads for 1 files...\nCompiling \"AstraAsedioPlayerAlias\"...\nStarting assembly of AstraAsedioPlayerAlias\n0 error(s), 0 warning(s)\nAssembly succeeded\n\nCompilation succeeded.\n\nBatch compile of 1 files finished. 1 succeeded, 0 failed.\nStarting disassembly of AstraAsedioPlayerAlias\n0 error(s), 0 warning(s)\nDisassembly succeeded\n",
+      "bytecode_safety": {
+        "no_none_to_array_casts": true,
+        "array_create_count": 0,
+        "functions_inspected": 7,
+        "disassembly": "reports\\papyrus_bytecode\\AstraAsedioPlayerAlias.disassemble.pas",
+        "disassembly_sha256": "df0acf471ac32c6700e99a701cab197a861d58fd304625ce988bc897866b9b53"
+      },
+      "sha256": "e7c7a5a542b10a8bb412ec3d051c02f49e686a10215de8532db86c2770b33d69"
+    },
+    {
+      "source_sha256": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4",
+      "source": "mod\\scripts\\source\\AstraAsedioSession.psc",
+      "pex": "mod\\scripts\\AstraAsedioSession.pex",
+      "exit_code": 0,
+      "assembler_exit_code": 0,
+      "success": true,
+      "output": "Starting 1 compile threads for 1 files...\nCompiling \"AstraAsedioSession\"...\nStarting assembly of AstraAsedioSession\n0 error(s), 0 warning(s)\nAssembly succeeded\n\nCompilation succeeded.\n\nBatch compile of 1 files finished. 1 succeeded, 0 failed.\nStarting disassembly of AstraAsedioSession\n0 error(s), 0 warning(s)\nDisassembly succeeded\n",
+      "bytecode_safety": {
+        "no_none_to_array_casts": true,
+        "array_create_count": 0,
+        "functions_inspected": 12,
+        "own_camera_state_binding": true,
+        "runtime_camera_wrappers_absent": true,
+        "disassembly": "reports\\papyrus_bytecode\\AstraAsedioSession.disassemble.pas",
+        "disassembly_sha256": "325209955c1fd948cf2f7361d583cd5c5e2594254cf0d7ef388b706ca286a292"
+      },
+      "sha256": "7a019b63cbdd1ad812e969f7ea682e6137661c62de0a4cb290b451e45011b52a"
+    },
+    {
+      "source_sha256": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
+      "source": "mod\\scripts\\source\\AstraSightNative.psc",
+      "pex": "mod\\scripts\\AstraSightNative.pex",
+      "exit_code": 0,
+      "assembler_exit_code": 0,
+      "success": true,
+      "output": "Starting 1 compile threads for 1 files...\nCompiling \"AstraSightNative\"...\nStarting assembly of AstraSightNative\n0 error(s), 0 warning(s)\nAssembly succeeded\n\nCompilation succeeded.\n\nBatch compile of 1 files finished. 1 succeeded, 0 failed.\nStarting disassembly of AstraSightNative\n0 error(s), 0 warning(s)\nDisassembly succeeded\n",
+      "bytecode_safety": {
+        "no_none_to_array_casts": true,
+        "array_create_count": 0,
+        "functions_inspected": 13,
+        "disassembly": "reports\\papyrus_bytecode\\AstraSightNative.disassemble.pas",
+        "disassembly_sha256": "d836c96f89ea3173f32570da7b93445cb14c99a5925a3e9f1758b622d3c031b1"
+      },
+      "sha256": "73e1505387179774d689b83141474fd9dddbffd7ebf8bca4d490f6b5afcc57aa"
+    }
+  ],
+  "success": true,
+  "compile_from_fresh_staging": true
+}

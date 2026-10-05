@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "collision_mesh_triangles": 1064,
+  "route_samples": 127,
+  "max_floor_error_units": 0.013256835937454525,
+  "diagonal_edge_probe_recoveries": [
+    {
+      "sample": 125,
+      "exact_ray_hit": [
+        238.0,
+        238.0,
+        442.7633361816406
+      ]
+    }
+  ],
+  "edge_probe_max_offset_units": 0.02,
+  "clearance_sample_rays": 3024,
+  "body_clearance_blocking_hits": [],
+  "side_barrier_rays": 194,
+  "old_balcony_collision_absent": {
+    "frontal": true,
+    "izquierdo": true,
+    "trasero": true
+  },
+  "navmesh_covered_route_samples": 127,
+  "uncovered_navmesh_samples": [],
+  "collision_layout_equal_to_reference": true,
+  "reference": "reports/reference_collision_escalera_directa.json",
+  "body_and_roof_pieces": 263,
+  "floor_pieces": 81,
+  "floor_vertical_measured_m": 0.006000041961669922,
+  "body_and_roof_pieces_bent": 243,
+  "body_and_roof_max_bbox_drift_m": 0.12997599999999998,
+  "drift_limit_m": 0.22,
+  "nif_sha256": "41bedca7ae60dfa7cdd9a7850cfc437a6ee667853adf51a9f07bd27476a891c5",
+  "esp_sha256": "9229b0a06887b3e62792c1dfc765aaf6c8f4a714635f57bb6d9c72709f6362ac",
+  "engine_movement_tested": false,
+  "scope": "Static geometric samples of reimported Havok and NAVM; not an engine actor simulation."
+}

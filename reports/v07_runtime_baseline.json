@@ -1,0 +1,32 @@
+{
+  "revision": "v07",
+  "baseline_revision": "v06",
+  "user_report": "Camera/mouse improved, camera drifts beyond180; launch and reload slow; requests continuous hold Attack.",
+  "log_sha256": "5fefc311f5e648ba77011161b2d22d2f9675eaf2df033f53c14837af24ab6eca",
+  "baseline_shots": [
+    {
+      "handle": "1113025",
+      "token": "3",
+      "freeze_thaw_seconds": 4.126
+    },
+    {
+      "handle": "1113025",
+      "token": "3",
+      "freeze_thaw_seconds": 4.188
+    },
+    {
+      "handle": "1113025",
+      "token": "3",
+      "freeze_thaw_seconds": 4.14
+    },
+    {
+      "handle": "1113025",
+      "token": "3",
+      "freeze_thaw_seconds": 4.209
+    }
+  ],
+  "v07_engine_cases_executed": 0,
+  "fps_measured": false,
+  "latency_measured_v07": false,
+  "old_disk_disassembly_limit": "SkyrimSE executable text on disk is protected; raw bytes decoded into nonsensical instructions. No control-flow proof or camera consumer-order claim comes from this dump; hook schema is from bundled CommonLib."
+}

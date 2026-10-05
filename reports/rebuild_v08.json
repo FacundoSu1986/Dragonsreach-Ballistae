@@ -1,0 +1,92 @@
+{
+  "success": true,
+  "inputs_sha256": {
+    "config.json": "003d3d19b82c600e3b682826d7f3aa0ca2840a195d85030b907c47f0327834fe",
+    "scripts/build_assets.py": "86340e4116f8279493b7e38cb91a32dae45412738975b386d05c4ed5e3e8d8a2",
+    "scripts/verify_assets.py": "4c15431ffd82d2e2a48f50b7fe7590562c3e7663f73721f47dd0ddc595bea60d",
+    "scripts/nif_fisica.py": "f92d1c65ad621f67361956904209fbf2b625a91378dba72bea3bc0d4a93adb1a",
+    "scripts/vendor/nif_nodos.py": "be9141b0a95766d9b1b91ef56dccc6d5f240d3a83a08edde309e4d02f29afc3b",
+    "scripts/mechanism_source_fixes.py": "64cc1be585257c021d90f461f1d0a5d9b6f7c3612def1e8a44aedc3b68876f09",
+    "scripts/limb_tie_fixes.py": "494c39d1565a3cd27097e4328ec3cca9c9478b9d67edb5ee1a584c9aede9dd07",
+    "scripts/retime_v07.py": "01001dddcd60a32598ae4d977d86941b619fa98c0e3b86806dce2b7e02bb45f1"
+  },
+  "scope": "Disposable rebuild from preserved v04 with config v08; Blender export/reimport, not game execution.",
+  "commands": [
+    "build_assets.py",
+    "verify_assets.py"
+  ],
+  "config_sha256": "003d3d19b82c600e3b682826d7f3aa0ca2840a195d85030b907c47f0327834fe",
+  "builder_sha256": "86340e4116f8279493b7e38cb91a32dae45412738975b386d05c4ed5e3e8d8a2",
+  "assets_checks": {
+    "visual_budget": true,
+    "collision_budget": true,
+    "tower_shapes": true,
+    "ballesta_shapes": true,
+    "textures": true,
+    "aim_tracks": true,
+    "rope": true,
+    "no_alpha_properties": true,
+    "projectile_box": true
+  },
+  "sequences": {
+    "Fire": {
+      "start": 0.0,
+      "stop": 0.30000001192092896,
+      "targets": [
+        "CTRL_BRAZO_I",
+        "CTRL_BRAZO_D",
+        "Cuerda_I",
+        "Cuerda_D",
+        "VIROTE_VISUAL"
+      ]
+    },
+    "Reset": {
+      "start": 0.0,
+      "stop": 1.2000000476837158,
+      "targets": [
+        "CTRL_BRAZO_I",
+        "CTRL_BRAZO_D",
+        "Cuerda_I",
+        "Cuerda_D",
+        "VIROTE_VISUAL"
+      ]
+    }
+  },
+  "rope_max_gap": 6.103515625e-05,
+  "rope_outer_max_error": 4.57763671875e-05,
+  "visual_triangles": 38254,
+  "collision_triangles": 1772,
+  "projectile_physics": {
+    "layer": "PROJECTILE",
+    "material": "MATERIAL_ARROW",
+    "body": "bhkRigidBodyT",
+    "mass": 15.0,
+    "restitution": 0.10000000149011612,
+    "box_coverage": 1.0,
+    "box_long_axis": "Y",
+    "inertia": [
+      98.54035949707031,
+      0.4804585874080658,
+      98.82951354980469
+    ],
+    "inertia_axis_aligned": true,
+    "vanilla_rules_failures": []
+  },
+  "rebuilt_nif_sha256": {
+    "torre": "3fce175827fb2c4c3088bad1c8b590383d1d2f3573339f83f45d11adeb2bdead",
+    "ballesta": "456a880405f9fb20f70a978dfce81e5a1407f84852a136779f7af42fe2fe45f8",
+    "virote": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5"
+  },
+  "shipped_nif_sha256": {
+    "torre": "3fce175827fb2c4c3088bad1c8b590383d1d2f3573339f83f45d11adeb2bdead",
+    "ballesta": "e01052dba55ef52b3b26167a1b25f24aeca947df2e398abb3aa24b574e4dfb34",
+    "virote": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5"
+  },
+  "byte_identical_to_shipped": false,
+  "equivalent_to_shipped": {
+    "torre": true,
+    "ballesta": true,
+    "virote": true
+  },
+  "equivalence_rule": "every block byte-identical except NiDefaultAVObjectPalette, compared as a name->block set (PyNifly writes it in hash-seed order)"
+}

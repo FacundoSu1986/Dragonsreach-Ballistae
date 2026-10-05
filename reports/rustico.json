@@ -1,0 +1,2451 @@
+{
+  "objects": {
+    "Astra_Directa_Balaustre_exterior_00": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0404,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03423917293548584
+    },
+    "Astra_Directa_Balaustre_exterior_01": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0466,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0365908145904541
+    },
+    "Astra_Directa_Balaustre_exterior_02": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0515,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03152358531951904
+    },
+    "Astra_Directa_Balaustre_exterior_03": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0345,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.028796911239624023
+    },
+    "Astra_Directa_Balaustre_exterior_04": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0443,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03533816337585449
+    },
+    "Astra_Directa_Balaustre_exterior_05": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0586,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04513216018676758
+    },
+    "Astra_Directa_Balaustre_exterior_06": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0448,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.01367807388305664
+    },
+    "Astra_Directa_Balaustre_exterior_07": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0521,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.033237457275390625
+    },
+    "Astra_Directa_Balaustre_exterior_08": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0496,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03279733657836914
+    },
+    "Astra_Directa_Balaustre_exterior_09": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0578,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.038498878479003906
+    },
+    "Astra_Directa_Balaustre_exterior_10": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0418,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.01886749267578125
+    },
+    "Astra_Directa_Balaustre_exterior_11": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0524,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0339045524597168
+    },
+    "Astra_Directa_Balaustre_exterior_12": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0315,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.014543533325195312
+    },
+    "Astra_Directa_Balaustre_exterior_13": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0765,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05606269836425781
+    },
+    "Astra_Directa_Balaustre_exterior_14": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0477,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.00020599365234375
+    },
+    "Astra_Directa_Balaustre_interior_00": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0433,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0207064151763916
+    },
+    "Astra_Directa_Balaustre_interior_01": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0674,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04108858108520508
+    },
+    "Astra_Directa_Balaustre_interior_02": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0637,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05806756019592285
+    },
+    "Astra_Directa_Balaustre_interior_03": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0513,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03340458869934082
+    },
+    "Astra_Directa_Balaustre_interior_04": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0394,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.004324436187744141
+    },
+    "Astra_Directa_Balaustre_interior_05": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0516,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.024856090545654297
+    },
+    "Astra_Directa_Balaustre_interior_06": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.039,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.005097627639770508
+    },
+    "Astra_Directa_Balaustre_interior_07": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0686,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0531916618347168
+    },
+    "Astra_Directa_Balaustre_interior_08": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0414,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.028443336486816406
+    },
+    "Astra_Directa_Balaustre_interior_09": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0333,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.028792858123779297
+    },
+    "Astra_Directa_Balaustre_interior_10": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0652,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05463075637817383
+    },
+    "Astra_Directa_Balaustre_interior_11": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0712,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05160713195800781
+    },
+    "Astra_Directa_Balaustre_interior_12": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0553,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03562450408935547
+    },
+    "Astra_Directa_Balaustre_interior_13": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0447,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.02686166763305664
+    },
+    "Astra_Directa_Balaustre_interior_14": {
+      "regla": "Balaustre",
+      "desplazamiento_max_m": 0.0594,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.020582199096679688
+    },
+    "Astra_Directa_Baranda_exterior_0.53": {
+      "regla": "Baranda",
+      "desplazamiento_max_m": 0.0345,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03159475326538086
+    },
+    "Astra_Directa_Baranda_exterior_1.06": {
+      "regla": "Baranda",
+      "desplazamiento_max_m": 0.0479,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04698991775512695
+    },
+    "Astra_Directa_Baranda_interior_0.53": {
+      "regla": "Baranda",
+      "desplazamiento_max_m": 0.042,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04201507568359375
+    },
+    "Astra_Directa_Baranda_interior_1.06": {
+      "regla": "Baranda",
+      "desplazamiento_max_m": 0.0403,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.040090322494506836
+    },
+    "Astra_Directa_Jabalcon_00_-1": {
+      "regla": "Jabalcon",
+      "desplazamiento_max_m": 0.0227,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.006434500217437744
+    },
+    "Astra_Directa_Jabalcon_00_1": {
+      "regla": "Jabalcon",
+      "desplazamiento_max_m": 0.0236,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0074697136878967285
+    },
+    "Astra_Directa_Jabalcon_01_-1": {
+      "regla": "Jabalcon",
+      "desplazamiento_max_m": 0.0241,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.009677886962890625
+    },
+    "Astra_Directa_Jabalcon_01_1": {
+      "regla": "Jabalcon",
+      "desplazamiento_max_m": 0.0234,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.011731624603271484
+    },
+    "Astra_Directa_Jabalcon_02_-1": {
+      "regla": "Jabalcon",
+      "desplazamiento_max_m": 0.0492,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.018230438232421875
+    },
+    "Astra_Directa_Jabalcon_02_1": {
+      "regla": "Jabalcon",
+      "desplazamiento_max_m": 0.0346,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.008991479873657227
+    },
+    "Astra_Directa_Peldano_01": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0373,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000000983476639
+    },
+    "Astra_Directa_Peldano_02": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0469,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000012159347534
+    },
+    "Astra_Directa_Peldano_03": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0459,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000012159347534
+    },
+    "Astra_Directa_Peldano_04": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0413,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0059999823570251465
+    },
+    "Astra_Directa_Peldano_05": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.042,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0059999823570251465
+    },
+    "Astra_Directa_Peldano_06": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0559,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0010474920272827148
+    },
+    "Astra_Directa_Peldano_07": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0431,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_08": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.041,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0035295486450195312
+    },
+    "Astra_Directa_Peldano_09": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0483,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_10": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0152,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.005674004554748535
+    },
+    "Astra_Directa_Peldano_11": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.014,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_12": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0289,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.004126548767089844
+    },
+    "Astra_Directa_Peldano_13": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0353,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.002685546875
+    },
+    "Astra_Directa_Peldano_14": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0295,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_15": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0335,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_16": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0237,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_17": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0435,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0034475326538085938
+    },
+    "Astra_Directa_Peldano_18": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0372,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_19": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0563,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_20": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0403,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_21": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0451,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_22": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0199,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.005499362945556641
+    },
+    "Astra_Directa_Peldano_23": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0167,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_24": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0391,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_25": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0452,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_26": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0404,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.004677295684814453
+    },
+    "Astra_Directa_Peldano_27": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0276,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_28": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0513,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_29": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0464,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.005079746246337891
+    },
+    "Astra_Directa_Peldano_30": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0359,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_31": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0293,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_32": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0426,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_33": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0075,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Peldano_34": {
+      "regla": "Peldano",
+      "desplazamiento_max_m": 0.0253,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.006000041961669922
+    },
+    "Astra_Directa_Pilar_exterior_00": {
+      "regla": "Pilar",
+      "desplazamiento_max_m": 0.0249,
+      "grosor": 0.9731,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0
+    },
+    "Astra_Directa_Pilar_exterior_01": {
+      "regla": "Pilar",
+      "desplazamiento_max_m": 0.0743,
+      "grosor": 1.0125,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0
+    },
+    "Astra_Directa_Pilar_exterior_02": {
+      "regla": "Pilar",
+      "desplazamiento_max_m": 0.0336,
+      "grosor": 0.9819,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0
+    },
+    "Astra_Directa_Pilar_interior_00": {
+      "regla": "Pilar",
+      "desplazamiento_max_m": 0.0467,
+      "grosor": 0.9571,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0
+    },
+    "Astra_Directa_Pilar_interior_01": {
+      "regla": "Pilar",
+      "desplazamiento_max_m": 0.0458,
+      "grosor": 0.9682,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0
+    },
+    "Astra_Directa_Pilar_interior_02": {
+      "regla": "Pilar",
+      "desplazamiento_max_m": 0.0838,
+      "grosor": 1.0785,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0
+    },
+    "Astra_Directa_Travesano_00": {
+      "regla": "Travesano",
+      "desplazamiento_max_m": 0.0614,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04150068759918213
+    },
+    "Astra_Directa_Travesano_01": {
+      "regla": "Travesano",
+      "desplazamiento_max_m": 0.0495,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.036978960037231445
+    },
+    "Astra_Directa_Travesano_02": {
+      "regla": "Travesano",
+      "desplazamiento_max_m": 0.0355,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.02284383773803711
+    },
+    "Astra_Directa_Zanca_exterior": {
+      "regla": "Zanca",
+      "desplazamiento_max_m": 0.0186,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.01852107048034668
+    },
+    "Astra_Directa_Zanca_interior": {
+      "regla": "Zanca",
+      "desplazamiento_max_m": 0.0213,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.021125316619873047
+    },
+    "Dintel": {
+      "regla": "Dintel",
+      "desplazamiento_max_m": 0.0301,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.019315719604492188
+    },
+    "Marco_puerta": {
+      "regla": "Marco_puerta",
+      "desplazamiento_max_m": 0.0078,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0
+    },
+    "Marco_puerta.001": {
+      "regla": "Marco_puerta",
+      "desplazamiento_max_m": 0.0042,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0
+    },
+    "Puerta_tabla": {
+      "regla": "Puerta_tabla",
+      "desplazamiento_max_m": 0.008,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.003785371780395508
+    },
+    "Puerta_tabla.001": {
+      "regla": "Puerta_tabla",
+      "desplazamiento_max_m": 0.0084,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.00704503059387207
+    },
+    "Puerta_tabla.002": {
+      "regla": "Puerta_tabla",
+      "desplazamiento_max_m": 0.0137,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.012871980667114258
+    },
+    "Puerta_tabla.003": {
+      "regla": "Puerta_tabla",
+      "desplazamiento_max_m": 0.0138,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.01338958740234375
+    },
+    "Puerta_tabla.004": {
+      "regla": "Puerta_tabla",
+      "desplazamiento_max_m": 0.0133,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.012686729431152344
+    },
+    "Puerta_tabla.005": {
+      "regla": "Puerta_tabla",
+      "desplazamiento_max_m": 0.0153,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.014743566513061523
+    },
+    "Puerta_tabla.006": {
+      "regla": "Puerta_tabla",
+      "desplazamiento_max_m": 0.0176,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.01649022102355957
+    },
+    "Tronco_fachada": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.0828,
+      "grosor": 0.9807,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.023629862582311034
+    },
+    "Tronco_fachada.001": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3626,
+      "grosor": 1.0275,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.35889638774096966
+    },
+    "Tronco_fachada.002": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3561,
+      "grosor": 1.065,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.34794013295322657
+    },
+    "Tronco_fachada.003": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2128,
+      "grosor": 1.0494,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.16071376204490662
+    },
+    "Tronco_fachada.004": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2945,
+      "grosor": 1.0866,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2719903588294983
+    },
+    "Tronco_fachada.005": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.266,
+      "grosor": 1.0542,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.23876404762268066
+    },
+    "Tronco_fachada.006": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2227,
+      "grosor": 0.9704,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.18829184770584106
+    },
+    "Tronco_fachada.007": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2926,
+      "grosor": 1.0484,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.270513653755188
+    },
+    "Tronco_fachada.008": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1439,
+      "grosor": 0.9766,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.10528564453125
+    },
+    "Tronco_fachada.009": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.0878,
+      "grosor": 1.056,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04833173751831055
+    },
+    "Tronco_fachada.010": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3339,
+      "grosor": 1.0552,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3083900213241577
+    },
+    "Tronco_fachada.011": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.278,
+      "grosor": 1.0034,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2636532783508301
+    },
+    "Tronco_fachada.012": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1396,
+      "grosor": 1.0918,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.08712637424468994
+    },
+    "Tronco_fachada.013": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.125,
+      "grosor": 0.9966,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.054901719093322754
+    },
+    "Tronco_fachada.014": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1216,
+      "grosor": 1.0031,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.06565546989440918
+    },
+    "Tronco_fachada.015": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1382,
+      "grosor": 0.9882,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.08756697177886963
+    },
+    "Tronco_fachada.016": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1738,
+      "grosor": 1.0869,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.09884607791900635
+    },
+    "Tronco_fachada.017": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3552,
+      "grosor": 1.0302,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3413691520690918
+    },
+    "Tronco_fachada.018": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3513,
+      "grosor": 1.0542,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.33033180236816406
+    },
+    "Tronco_fachada.019": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3294,
+      "grosor": 1.0576,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.30466222763061523
+    },
+    "Tronco_fachada.020": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3461,
+      "grosor": 1.0941,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.317793607711792
+    },
+    "Tronco_fachada.021": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.341,
+      "grosor": 0.9992,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.33679354190826416
+    },
+    "Tronco_fachada.022": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.0945,
+      "grosor": 1.0944,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.08370304107666016
+    },
+    "Tronco_fachada.023": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3479,
+      "grosor": 1.0044,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.341616153717041
+    },
+    "Tronco_fachada.024": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3604,
+      "grosor": 1.0232,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3437488079071045
+    },
+    "Tronco_fachada.025": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3112,
+      "grosor": 1.0414,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.28022003173828125
+    },
+    "Tronco_fachada.026": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3194,
+      "grosor": 1.0374,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2992384433746338
+    },
+    "Tronco_fachada.027": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2579,
+      "grosor": 0.991,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.23477745056152344
+    },
+    "Tronco_fachada.028": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1427,
+      "grosor": 1.0224,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.11093926429748535
+    },
+    "Tronco_fachada.029": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3599,
+      "grosor": 1.0185,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.33664965629577637
+    },
+    "Tronco_fachada.030": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1603,
+      "grosor": 1.0121,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.13101625442504883
+    },
+    "Tronco_fachada.031": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1319,
+      "grosor": 0.9996,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.036711931228637695
+    },
+    "Tronco_fachada.032": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2987,
+      "grosor": 0.996,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2692861557006836
+    },
+    "Tronco_fachada.033": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.299,
+      "grosor": 0.9957,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2711312770843506
+    },
+    "Tronco_fachada.034": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3441,
+      "grosor": 1.0725,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3275878429412842
+    },
+    "Tronco_fachada.035": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3551,
+      "grosor": 1.0108,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3389139175415039
+    },
+    "Tronco_fachada.036": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3608,
+      "grosor": 1.0475,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.35106968879699707
+    },
+    "Tronco_fachada.037": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1838,
+      "grosor": 1.01,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.16543865203857422
+    },
+    "Tronco_fachada.038": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3338,
+      "grosor": 1.0833,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3132209777832031
+    },
+    "Tronco_fachada.039": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1604,
+      "grosor": 1.0616,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.11766386032104492
+    },
+    "Tronco_fachada.040": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.0835,
+      "grosor": 1.0989,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.051917076110839844
+    },
+    "Tronco_fachada.041": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2121,
+      "grosor": 1.0305,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.19003009796142578
+    },
+    "Tronco_fachada.042": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3372,
+      "grosor": 0.9747,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.31442928314208984
+    },
+    "Tronco_fachada.043": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3143,
+      "grosor": 0.9814,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2743229866027832
+    },
+    "Tronco_fachada.044": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1948,
+      "grosor": 1.0479,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.15086030960083008
+    },
+    "Tronco_fachada.045": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.0728,
+      "grosor": 1.0893,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.026049137115478516
+    },
+    "Tronco_fachada.046": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.0991,
+      "grosor": 1.0373,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05280637741088867
+    },
+    "Tronco_fachada.047": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1647,
+      "grosor": 1.0772,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.12270545959472656
+    },
+    "Tronco_fachada.048": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3245,
+      "grosor": 1.0708,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2978973388671875
+    },
+    "Tronco_fachada.049": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2408,
+      "grosor": 1.021,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.23161649703979492
+    },
+    "Tronco_fachada.050": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3485,
+      "grosor": 1.079,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3371696472167969
+    },
+    "Tronco_fachada.051": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2612,
+      "grosor": 0.9967,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2350749969482422
+    },
+    "Tronco_fachada.052": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2116,
+      "grosor": 1.0585,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.20036649703979492
+    },
+    "Tronco_fachada.053": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3164,
+      "grosor": 1.0111,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.28202056884765625
+    },
+    "Tronco_fachada.054": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2661,
+      "grosor": 1.0233,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2556772232055664
+    },
+    "Tronco_fachada.055": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3051,
+      "grosor": 1.0076,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2758936882019043
+    },
+    "Tronco_lateral": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3356,
+      "grosor": 1.0235,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.30734623968601227
+    },
+    "Tronco_lateral.001": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.329,
+      "grosor": 1.066,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.29595281183719635
+    },
+    "Tronco_lateral.002": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1323,
+      "grosor": 1.0322,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.09241551160812378
+    },
+    "Tronco_lateral.003": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1166,
+      "grosor": 1.0897,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.049633920192718506
+    },
+    "Tronco_lateral.004": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2016,
+      "grosor": 1.0657,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.14781230688095093
+    },
+    "Tronco_lateral.005": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.0599,
+      "grosor": 1.0844,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.032169222831726074
+    },
+    "Tronco_lateral.006": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3204,
+      "grosor": 1.0846,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3027305603027344
+    },
+    "Tronco_lateral.007": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.222,
+      "grosor": 1.0246,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.18258976936340332
+    },
+    "Tronco_lateral.008": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3234,
+      "grosor": 1.0732,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.285772442817688
+    },
+    "Tronco_lateral.009": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1659,
+      "grosor": 1.0129,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.13626086711883545
+    },
+    "Tronco_lateral.010": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.356,
+      "grosor": 1.0042,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3314788341522217
+    },
+    "Tronco_lateral.011": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.344,
+      "grosor": 1.0396,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.306726336479187
+    },
+    "Tronco_lateral.012": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2391,
+      "grosor": 0.9911,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2156369686126709
+    },
+    "Tronco_lateral.013": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.272,
+      "grosor": 1.0257,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.23022615909576416
+    },
+    "Tronco_lateral.014": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3062,
+      "grosor": 1.0008,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2728278636932373
+    },
+    "Tronco_lateral.015": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1156,
+      "grosor": 1.0128,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05772590637207031
+    },
+    "Tronco_lateral.016": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2306,
+      "grosor": 1.0476,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.19067931175231934
+    },
+    "Tronco_lateral.017": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3394,
+      "grosor": 0.9887,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.31240391731262207
+    },
+    "Tronco_lateral.018": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1402,
+      "grosor": 0.9983,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.06599593162536621
+    },
+    "Tronco_lateral.019": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2146,
+      "grosor": 1.0301,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2036745548248291
+    },
+    "Tronco_lateral.020": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3314,
+      "grosor": 1.0301,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.29448390007019043
+    },
+    "Tronco_lateral.021": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2778,
+      "grosor": 1.0836,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2494945526123047
+    },
+    "Tronco_lateral.022": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2265,
+      "grosor": 1.0497,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.19842791557312012
+    },
+    "Tronco_lateral.023": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.172,
+      "grosor": 1.0535,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.139115571975708
+    },
+    "Tronco_lateral.024": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1611,
+      "grosor": 1.082,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.14699077606201172
+    },
+    "Tronco_lateral.025": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1362,
+      "grosor": 1.0836,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05906558036804199
+    },
+    "Tronco_lateral.026": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1968,
+      "grosor": 1.0795,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.1520824432373047
+    },
+    "Tronco_lateral.027": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3371,
+      "grosor": 1.0855,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.29601621627807617
+    },
+    "Tronco_lateral.028": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2383,
+      "grosor": 0.9981,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2098684310913086
+    },
+    "Tronco_lateral.029": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.0741,
+      "grosor": 1.0436,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.022612571716308594
+    },
+    "Tronco_lateral.030": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.0628,
+      "grosor": 0.9909,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.035762786865234375
+    },
+    "Tronco_lateral.031": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2113,
+      "grosor": 0.9844,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.16213464736938477
+    },
+    "Tronco_lateral.032": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3374,
+      "grosor": 0.9871,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.29372596740722656
+    },
+    "Tronco_lateral.033": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3142,
+      "grosor": 1.0456,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.29247093200683594
+    },
+    "Tronco_lateral.034": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2574,
+      "grosor": 1.04,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.23001956939697266
+    },
+    "Tronco_lateral.035": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3215,
+      "grosor": 1.0893,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2967243194580078
+    },
+    "Tronco_lateral.036": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.333,
+      "grosor": 1.0065,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.31740617752075195
+    },
+    "Tronco_lateral.037": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2011,
+      "grosor": 1.0702,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.18358469009399414
+    },
+    "Tronco_lateral.038": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3589,
+      "grosor": 1.0284,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.33722543716430664
+    },
+    "Tronco_lateral.039": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.1389,
+      "grosor": 1.0248,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.051854610443115234
+    },
+    "Tronco_lateral.040": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3361,
+      "grosor": 1.0462,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2922377586364746
+    },
+    "Tronco_lateral.041": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3346,
+      "grosor": 1.0864,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3032369613647461
+    },
+    "Tronco_lateral.042": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.3425,
+      "grosor": 1.0144,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.3140902519226074
+    },
+    "Tronco_lateral.043": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.21,
+      "grosor": 1.0021,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.19598627090454102
+    },
+    "Tronco_lateral.044": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.2676,
+      "grosor": 0.9771,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.2383894920349121
+    },
+    "Tronco_lateral.045": {
+      "regla": "Tronco_",
+      "desplazamiento_max_m": 0.25,
+      "grosor": 1.0701,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.20888185501098633
+    },
+    "V04_Descanso_azotea": {
+      "regla": "Descanso_azotea",
+      "desplazamiento_max_m": 0.0331,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.005014896392822266
+    },
+    "V04_Descanso_azotea.001": {
+      "regla": "Descanso_azotea",
+      "desplazamiento_max_m": 0.0301,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0047245025634765625
+    },
+    "V04_Descanso_azotea.002": {
+      "regla": "Descanso_azotea",
+      "desplazamiento_max_m": 0.0211,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.004405975341796875
+    },
+    "V04_Descanso_azotea.003": {
+      "regla": "Descanso_azotea",
+      "desplazamiento_max_m": 0.0247,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0018916130065917969
+    },
+    "V04_Descanso_azotea.004": {
+      "regla": "Descanso_azotea",
+      "desplazamiento_max_m": 0.0138,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.004156589508056641
+    },
+    "V04_Descanso_azotea.005": {
+      "regla": "Descanso_azotea",
+      "desplazamiento_max_m": 0.0242,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.005983829498291016
+    },
+    "V04_Descanso_azotea.006": {
+      "regla": "Descanso_azotea",
+      "desplazamiento_max_m": 0.0199,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.002102375030517578
+    },
+    "V04_Jabalcon_azotea": {
+      "regla": "Jabalcon",
+      "desplazamiento_max_m": 0.0457,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03442716598510742
+    },
+    "V04_Jabalcon_azotea.001": {
+      "regla": "Jabalcon",
+      "desplazamiento_max_m": 0.0625,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.043901920318603516
+    },
+    "V04_Jabalcon_azotea.002": {
+      "regla": "Jabalcon",
+      "desplazamiento_max_m": 0.0333,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03078937530517578
+    },
+    "V04_Jabalcon_azotea.003": {
+      "regla": "Jabalcon",
+      "desplazamiento_max_m": 0.0536,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.039721012115478516
+    },
+    "V04_Parapeto_poste": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0664,
+      "grosor": 1.0398,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.042218685150146484
+    },
+    "V04_Parapeto_poste.001": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0352,
+      "grosor": 0.9681,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.00995779037475586
+    },
+    "V04_Parapeto_poste.002": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.099,
+      "grosor": 1.0382,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.055644989013671875
+    },
+    "V04_Parapeto_poste.003": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0778,
+      "grosor": 0.977,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.061971187591552734
+    },
+    "V04_Parapeto_poste.004": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0705,
+      "grosor": 0.9603,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.051746368408203125
+    },
+    "V04_Parapeto_poste.005": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0952,
+      "grosor": 1.0659,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.06739997863769531
+    },
+    "V04_Parapeto_poste.006": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0537,
+      "grosor": 0.9976,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.006120204925537109
+    },
+    "V04_Parapeto_poste.007": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0864,
+      "grosor": 1.0002,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.06932830810546875
+    },
+    "V04_Parapeto_poste.008": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0482,
+      "grosor": 1.0423,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0038881301879882812
+    },
+    "V04_Parapeto_poste.009": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0718,
+      "grosor": 1.0795,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04230070114135742
+    },
+    "V04_Parapeto_poste.010": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0398,
+      "grosor": 0.9599,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.008440017700195312
+    },
+    "V04_Parapeto_poste.011": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0776,
+      "grosor": 1.001,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05838584899902344
+    },
+    "V04_Parapeto_poste.012": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.066,
+      "grosor": 0.9845,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.050099849700927734
+    },
+    "V04_Parapeto_poste.013": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0675,
+      "grosor": 0.9693,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05909538269042969
+    },
+    "V04_Parapeto_poste.014": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0762,
+      "grosor": 0.9564,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.06216621398925781
+    },
+    "V04_Parapeto_poste.015": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0709,
+      "grosor": 1.0429,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.013760566711425781
+    },
+    "V04_Parapeto_poste.016": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0469,
+      "grosor": 1.0124,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0003733634948730469
+    },
+    "V04_Parapeto_poste.017": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0994,
+      "grosor": 0.9813,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.06372451782226562
+    },
+    "V04_Parapeto_poste.018": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0316,
+      "grosor": 1.0104,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.00866842269897461
+    },
+    "V04_Parapeto_poste.019": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0846,
+      "grosor": 1.0691,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05709123611450195
+    },
+    "V04_Parapeto_poste.020": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0684,
+      "grosor": 1.0509,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0536341667175293
+    },
+    "V04_Parapeto_poste.021": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0651,
+      "grosor": 1.0127,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.049799442291259766
+    },
+    "V04_Parapeto_poste.022": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0772,
+      "grosor": 1.0021,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.004582881927490234
+    },
+    "V04_Parapeto_poste.023": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0566,
+      "grosor": 1.0638,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.01366424560546875
+    },
+    "V04_Parapeto_poste.024": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0816,
+      "grosor": 0.9942,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.052535057067871094
+    },
+    "V04_Parapeto_poste.025": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0725,
+      "grosor": 1.0359,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.06300020217895508
+    },
+    "V04_Parapeto_poste.026": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0316,
+      "grosor": 1.0077,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.016880035400390625
+    },
+    "V04_Parapeto_poste.027": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0659,
+      "grosor": 1.0395,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04612398147583008
+    },
+    "V04_Parapeto_poste.028": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.03,
+      "grosor": 1.0223,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.015614986419677734
+    },
+    "V04_Parapeto_poste.029": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0413,
+      "grosor": 1.0101,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.025984764099121094
+    },
+    "V04_Parapeto_poste.030": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0416,
+      "grosor": 0.9613,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.02774953842163086
+    },
+    "V04_Parapeto_poste.031": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0851,
+      "grosor": 1.0081,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.045819759368896484
+    },
+    "V04_Parapeto_poste.032": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0728,
+      "grosor": 1.042,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03844451904296875
+    },
+    "V04_Parapeto_poste.033": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0676,
+      "grosor": 0.9555,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.013105392456054688
+    },
+    "V04_Parapeto_poste.034": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0743,
+      "grosor": 0.9687,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05779886245727539
+    },
+    "V04_Parapeto_poste.035": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0525,
+      "grosor": 0.9758,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.038768768310546875
+    },
+    "V04_Parapeto_poste.036": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0534,
+      "grosor": 0.9941,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.019884109497070312
+    },
+    "V04_Parapeto_poste.037": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0433,
+      "grosor": 1.0079,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.008839607238769531
+    },
+    "V04_Parapeto_poste.038": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0426,
+      "grosor": 1.0465,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.00676727294921875
+    },
+    "V04_Parapeto_poste.039": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0455,
+      "grosor": 1.0087,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.02635669708251953
+    },
+    "V04_Parapeto_poste.040": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0647,
+      "grosor": 0.9881,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03622770309448242
+    },
+    "V04_Parapeto_poste.041": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0505,
+      "grosor": 0.9826,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.025046825408935547
+    },
+    "V04_Parapeto_poste.042": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0624,
+      "grosor": 1.002,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04329633712768555
+    },
+    "V04_Parapeto_poste.043": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0579,
+      "grosor": 0.9698,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.02857208251953125
+    },
+    "V04_Parapeto_poste.044": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0457,
+      "grosor": 0.9731,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.008335590362548828
+    },
+    "V04_Parapeto_poste.045": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0346,
+      "grosor": 1.0407,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.01691436767578125
+    },
+    "V04_Parapeto_poste.046": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0314,
+      "grosor": 1.0553,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 7.867813110351562e-05
+    },
+    "V04_Parapeto_poste.047": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0686,
+      "grosor": 0.9539,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.019501686096191406
+    },
+    "V04_Parapeto_poste.048": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0873,
+      "grosor": 1.0485,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0505375862121582
+    },
+    "V04_Parapeto_poste.049": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0847,
+      "grosor": 1.0259,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.061528682708740234
+    },
+    "V04_Parapeto_poste.050": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0464,
+      "grosor": 1.0281,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0298004150390625
+    },
+    "V04_Parapeto_poste.051": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0431,
+      "grosor": 1.0488,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.013109207153320312
+    },
+    "V04_Parapeto_poste.052": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.0373,
+      "grosor": 0.9848,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.018529891967773438
+    },
+    "V04_Parapeto_poste.053": {
+      "regla": "Parapeto_poste",
+      "desplazamiento_max_m": 0.062,
+      "grosor": 0.9939,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05611371994018555
+    },
+    "V04_Parapeto_travesa\u00f1o": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0363,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.021975040435791016
+    },
+    "V04_Parapeto_travesa\u00f1o.001": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0589,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04201507568359375
+    },
+    "V04_Parapeto_travesa\u00f1o.002": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0349,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.02774667739868164
+    },
+    "V04_Parapeto_travesa\u00f1o.003": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0545,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.040287017822265625
+    },
+    "V04_Parapeto_travesa\u00f1o.004": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0529,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.034546852111816406
+    },
+    "V04_Parapeto_travesa\u00f1o.005": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0585,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03948783874511719
+    },
+    "V04_Parapeto_travesa\u00f1o.006": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0638,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05137491226196289
+    },
+    "V04_Parapeto_travesa\u00f1o.007": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0425,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03030109405517578
+    },
+    "V04_Parapeto_travesa\u00f1o.008": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0543,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.04614973068237305
+    },
+    "V04_Parapeto_travesa\u00f1o.009": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0387,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.02362346649169922
+    },
+    "V04_Parapeto_travesa\u00f1o.010": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0524,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05019378662109375
+    },
+    "V04_Parapeto_travesa\u00f1o.011": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0611,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.05635976791381836
+    },
+    "V04_Parapeto_travesa\u00f1o.012": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0305,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.02657032012939453
+    },
+    "V04_Parapeto_travesa\u00f1o.013": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0484,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.015766143798828125
+    },
+    "V04_Parapeto_travesa\u00f1o.014": {
+      "regla": "Parapeto_travesa",
+      "desplazamiento_max_m": 0.0579,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0466761589050293
+    },
+    "V04_Pilar_llegada_azotea": {
+      "regla": "Pilar",
+      "desplazamiento_max_m": 0.0897,
+      "grosor": 1.062,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0
+    },
+    "V04_Pilar_llegada_azotea.001": {
+      "regla": "Pilar",
+      "desplazamiento_max_m": 0.0587,
+      "grosor": 1.0764,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.0
+    },
+    "V04_Tablon_azotea": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0571,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0029511451721191406
+    },
+    "V04_Tablon_azotea.001": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0378,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0043392181396484375
+    },
+    "V04_Tablon_azotea.002": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0601,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0044841766357421875
+    },
+    "V04_Tablon_azotea.003": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0614,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0027060508728027344
+    },
+    "V04_Tablon_azotea.004": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0568,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0024423599243164062
+    },
+    "V04_Tablon_azotea.005": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.026,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0039424896240234375
+    },
+    "V04_Tablon_azotea.006": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0403,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.005001544952392578
+    },
+    "V04_Tablon_azotea.007": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0655,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0029425621032714844
+    },
+    "V04_Tablon_azotea.008": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0479,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0025415420532226562
+    },
+    "V04_Tablon_azotea.009": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.061,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.00341033935546875
+    },
+    "V04_Tablon_azotea.010": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0272,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.003908634185791016
+    },
+    "V04_Tablon_azotea.011": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0354,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.002544879913330078
+    },
+    "V04_Tablon_azotea.012": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0401,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0016775131225585938
+    },
+    "V04_Tablon_azotea.013": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0668,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0035772323608398438
+    },
+    "V04_Tablon_azotea.014": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0555,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.00592803955078125
+    },
+    "V04_Tablon_azotea.015": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0565,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0049571990966796875
+    },
+    "V04_Tablon_azotea.016": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0321,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.004233360290527344
+    },
+    "V04_Tablon_azotea.017": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0626,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0026426315307617188
+    },
+    "V04_Tablon_azotea.018": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0247,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0038766860961914062
+    },
+    "V04_Tablon_azotea.019": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0599,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0017728805541992188
+    },
+    "V04_Tablon_azotea.020": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0336,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0036554336547851562
+    },
+    "V04_Tablon_azotea.021": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0548,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0029478073120117188
+    },
+    "V04_Tablon_azotea.022": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0707,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.004349708557128906
+    },
+    "V04_Tablon_azotea.023": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0551,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.002323150634765625
+    },
+    "V04_Tablon_azotea.024": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0525,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0024709701538085938
+    },
+    "V04_Tablon_azotea.025": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0412,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0040645599365234375
+    },
+    "V04_Tablon_azotea.026": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0571,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.001964092254638672
+    },
+    "V04_Tablon_azotea.027": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0417,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0026788711547851562
+    },
+    "V04_Tablon_azotea.028": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.051,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0029616355895996094
+    },
+    "V04_Tablon_azotea.029": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0534,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0023550987243652344
+    },
+    "V04_Tablon_azotea.030": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0422,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0032210350036621094
+    },
+    "V04_Tablon_azotea.031": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0557,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.003996849060058594
+    },
+    "V04_Tablon_azotea.032": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0575,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.004608154296875
+    },
+    "V04_Tablon_azotea.033": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0397,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.004466056823730469
+    },
+    "V04_Tablon_azotea.034": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0301,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0033707618713378906
+    },
+    "V04_Tablon_azotea.035": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0591,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0028710365295410156
+    },
+    "V04_Tablon_azotea.036": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0577,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.003418445587158203
+    },
+    "V04_Tablon_azotea.037": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0316,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.002880096435546875
+    },
+    "V04_Tablon_azotea.038": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.0304,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0036978721618652344
+    },
+    "V04_Tablon_azotea.039": {
+      "regla": "Tablon_azotea",
+      "desplazamiento_max_m": 0.038,
+      "grosor": 1.0,
+      "piso": true,
+      "desplazamiento_vertical_max_m": 0.0018620491027832031
+    },
+    "V04_Viga_azotea": {
+      "regla": "Viga",
+      "desplazamiento_max_m": 0.0633,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.03442049026489258
+    },
+    "V04_Viga_azotea.001": {
+      "regla": "Viga",
+      "desplazamiento_max_m": 0.0687,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.06767606735229492
+    },
+    "V04_Viga_azotea.002": {
+      "regla": "Viga",
+      "desplazamiento_max_m": 0.0873,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.07316112518310547
+    },
+    "V04_Viga_azotea.003": {
+      "regla": "Viga",
+      "desplazamiento_max_m": 0.0547,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.054300785064697266
+    },
+    "V04_Viga_azotea.004": {
+      "regla": "Viga",
+      "desplazamiento_max_m": 0.0671,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.041548728942871094
+    },
+    "V04_Viga_llegada_azotea": {
+      "regla": "Viga",
+      "desplazamiento_max_m": 0.1014,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.08621406555175781
+    },
+    "V04_Viga_llegada_azotea.001": {
+      "regla": "Viga",
+      "desplazamiento_max_m": 0.0813,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.06040477752685547
+    },
+    "V04_Viga_longitudinal": {
+      "regla": "Viga",
+      "desplazamiento_max_m": 0.0841,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.07212400436401367
+    },
+    "V04_Viga_longitudinal.001": {
+      "regla": "Viga",
+      "desplazamiento_max_m": 0.0843,
+      "grosor": 1.0,
+      "piso": false,
+      "desplazamiento_vertical_max_m": 0.08217144012451172
+    }
+  },
+  "count": 328,
+  "floor_pieces": 81,
+  "max_displacement_m": 0.3626,
+  "collision_moved": false,
+  "rules": {
+    "Tronco_": [
+      0.025,
+      0.13,
+      180.0,
+      0.0,
+      0.0,
+      false
+    ],
+    "Parapeto_poste": [
+      0.045,
+      0.07,
+      30.0,
+      0.0,
+      0.0,
+      true
+    ],
+    "Parapeto_travesa": [
+      0.025,
+      0.04,
+      25.0,
+      0.0,
+      0.0,
+      false
+    ],
+    "Balaustre": [
+      0.035,
+      0.06,
+      25.0,
+      0.0,
+      0.0,
+      true
+    ],
+    "Baranda": [
+      0.03,
+      0.0,
+      0.0,
+      0.0,
+      0.045,
+      false
+    ],
+    "Pilar": [
+      0.05,
+      0.0,
+      20.0,
+      0.0,
+      0.0,
+      true
+    ],
+    "Jabalcon": [
+      0.025,
+      0.0,
+      20.0,
+      0.0,
+      0.0,
+      false
+    ],
+    "Travesano": [
+      0.022,
+      0.05,
+      25.0,
+      0.0,
+      0.0,
+      false
+    ],
+    "Zanca": [
+      0.012,
+      0.0,
+      0.0,
+      0.0,
+      0.022,
+      false
+    ],
+    "Viga": [
+      0.02,
+      0.08,
+      20.0,
+      0.0,
+      0.03,
+      false
+    ],
+    "Peldano": [
+      0.015,
+      0.04,
+      0.0,
+      3.0,
+      0.0,
+      false
+    ],
+    "Tablon_azotea": [
+      0.006,
+      0.06,
+      0.0,
+      0.6,
+      0.0,
+      false
+    ],
+    "Descanso_azotea": [
+      0.006,
+      0.04,
+      0.0,
+      1.0,
+      0.0,
+      false
+    ],
+    "Dintel": [
+      0.015,
+      0.03,
+      15.0,
+      0.0,
+      0.0,
+      false
+    ],
+    "Marco_puerta": [
+      0.01,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      true
+    ],
+    "Puerta_tabla": [
+      0.008,
+      0.02,
+      0.0,
+      0.0,
+      0.0,
+      true
+    ]
+  },
+  "thickness": {
+    "Tronco_": [
+      0.97,
+      1.1
+    ],
+    "Pilar": [
+      0.95,
+      1.08
+    ],
+    "Parapeto_poste": [
+      0.95,
+      1.08
+    ]
+  },
+  "floor_vertical_limit_m": 0.006,
+  "floor_vertical_measured_m": 0.006000041961669922,
+  "torre_nif_sha256": "41bedca7ae60dfa7cdd9a7850cfc437a6ee667853adf51a9f07bd27476a891c5"
+}

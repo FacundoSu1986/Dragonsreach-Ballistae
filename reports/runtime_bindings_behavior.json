@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "test_count": 9,
+  "command": [
+    "C:\\Users\\Facu2\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_v06_runtime_bindings"
+  ],
+  "output": "test_api_mismatch_rejected_before_controls_acquired (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_api_mismatch_rejected_before_controls_acquired) ... ok\ntest_api_version_boundary_cannot_adopt_a_replacement_session (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_api_version_boundary_cannot_adopt_a_replacement_session) ... ok\ntest_final_bytecode_validator_rejects_both_broken_runtime_wrappers (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_final_bytecode_validator_rejects_both_broken_runtime_wrappers) ... ok\ntest_missing_dll_cleanup_restores_owned_controls_without_new_native_call (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_missing_dll_cleanup_restores_owned_controls_without_new_native_call) ... ok\ntest_old_dll_rejected_before_controls_acquired (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_old_dll_rejected_before_controls_acquired) ... ok\ntest_periodic_aim_does_not_call_unbound_camera_namespace (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_periodic_aim_does_not_call_unbound_camera_namespace) ... ok\ntest_session_native_calls_avoid_unneeded_main_thread_hops (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_session_native_calls_avoid_unneeded_main_thread_hops) ... ok\ntest_special_camera_is_rejected_despite_old_unbound_default_zero (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_special_camera_is_rejected_despite_old_unbound_default_zero) ... ok\ntest_third_person_entry_observes_real_state_and_forces_first_person (tests.test_v06_runtime_bindings.RuntimeBindingContract.test_third_person_entry_observes_real_state_and_forces_first_person) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.019s\n\nOK\n",
+  "test_source_sha256": "dd6c68c0bd05ae37afa3448ddab0b32e36a7a577d0199af7d4ba74981d6dc45c",
+  "controller_source_sha256": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+  "sources_unchanged_during_verification": true,
+  "runtime_execution": false,
+  "dependency_sha256": {
+    "mod\\scripts\\source\\AstraAsedioSession.psc": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4",
+    "mod\\scripts\\source\\AstraSightNative.psc": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
+    "native\\src\\Plugin.cpp": "ffda9bb94e298db225fd00e92eca5cf2a6e758d10ed0a23c76c28802596ae504",
+    "scripts\\compile_papyrus.py": "18f85baad7ec4d0d7efd8121d35f369ba842c3a62a722d1091211ee646151bff",
+    "tests\\test_native_sight.py": "2520b1fb5b897b3c2131d5368d5f3a600968627649ca479cc8e979e5f38f0f71",
+    "tests\\test_camera_aim.py": "b63ad3416bd9e58c97e245b62300b5485675b1c62f7ce1e1329e7fe904771ea5",
+    "tests\\test_control_lease.py": "6100f18d77e5ef1c56934423440e2d297e204920a243e031817b50b4c0c3d8e7"
+  },
+  "interpretation": "Actual scalar PSC branches with explicit native fixtures; no Papyrus VM or SKSE event dispatch execution."
+}

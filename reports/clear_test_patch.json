@@ -1,0 +1,25 @@
+{
+  "patch": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v01\\patches\\AstraAsedio_Despejado\\AstraAsedio_Despejado.esp",
+  "zip": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v01\\dist\\AstraAsedio_Despejado_MO2.zip",
+  "sha256": "1921a7bfff9df49b0769c828636dd87814da44bfc060698145b1b9060b61dcd6",
+  "zip_sha256": "4ed7555f10532cf7a36c8803dee3b76a90870eda3228044b14e31f195c61f3fd",
+  "masters": [
+    "Skyrim.esm",
+    "Update.esm",
+    "Dawnguard.esm",
+    "AstraAsedio.esp"
+  ],
+  "changed_record": "CELL AstraAsedioTest",
+  "changed_subrecords": [
+    "XCLL",
+    "XCIM"
+  ],
+  "fog_max": 0.0,
+  "fog_near": 100000.0,
+  "fog_far": 200000.0,
+  "neutral_vanilla_imagespace": "00000167 DefaultImageSpace",
+  "file_checks_pass": true,
+  "base_plugin_unchanged": true,
+  "installed_in_mo2": false,
+  "in_game_verified": false
+}

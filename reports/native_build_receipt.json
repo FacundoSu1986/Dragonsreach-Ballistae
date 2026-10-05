@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-05T21:46:37.051809+00:00",
+  "runtime": "1.6.1170.0",
+  "skse_minimum": "2.2.8",
+  "architecture": "AMD64",
+  "plugin_name": "AstraSight",
+  "plugin_version": 50528256,
+  "api_version": 3,
+  "tasklet_callable_session_api": true,
+  "dependencies": {
+    "CommonLibSSE-NG": [
+      "https://github.com/CharmedBaryon/CommonLibSSE-NG.git",
+      "b93280e832f263dbef44e44cbe2936622a02f91a"
+    ],
+    "spdlog": [
+      "https://github.com/gabime/spdlog.git",
+      "486b55554f11c9cccc913e11a87085b2a91f706f"
+    ],
+    "rapidcsv": [
+      "https://github.com/d99kris/rapidcsv.git",
+      "03133b59e17ca92ecf886b611d87a03ad2bb2a8f"
+    ]
+  },
+  "files_sha256": {
+    "native\\CMakeLists.txt": "8cb67c3b28b11a1b737c62b88e0f8601b864c5a35ea687323e84414183e6c19b",
+    "native\\inspect_camera_runtime.py": "e2c653674ce274826023c3a8abdef5c50e2b97c80c25cff40a07670b6151e3b0",
+    "native\\prepare_local_sdk.py": "816001ed9371faa9c009a758aacdf084e788767eaf7aade2e825e16782fefdd8",
+    "native\\prove_freeze_regression.py": "41f7fe1763cbd3f48cbececb0b6e2702cd310a768c895b6d315d058e710c5293",
+    "native\\README.md": "47c1dbf693c0a28a43154eff5cf9eeb5c47e5b08c84fe2b38aa5146ce43ddda9",
+    "native\\verify_binary.py": "29e4138f24e39405f1231a5aee2d383aea395b269fff5e2614951f2c782e6a44",
+    "native\\include\\Astra\\Core.h": "dd8ac30e3363fd7af8c96c5c9c83f4344505830b1a16171328616dd600beed2d",
+    "native\\licenses\\CommonLibSSE-NG-LICENSE": "253d41f9a66509071e71deeafaad01d9cd5e1d0e235f38d988f33d4f54cb0fe2",
+    "native\\licenses\\fmt-LICENSE": "ae842eaa4d8ac87b936a5f5852bd447e64d2b7dea9fdb12ce5fa96fcfdc82ce6",
+    "native\\licenses\\rapidcsv-LICENSE": "2a07f96569e2cb61824a7cfad718c931ebb43e74338f492d720caff920309a6c",
+    "native\\licenses\\spdlog-LICENSE": "4ccecab18d1ff0b61174fe3d6c430541625d3ddb865b0d5887db296f883c76e7",
+    "native\\src\\Core.cpp": "bc6b406adaf67e914dc7b896787d55275ef8a6fcd50171a424adb145eee7a675",
+    "native\\src\\Plugin.cpp": "ffda9bb94e298db225fd00e92eca5cf2a6e758d10ed0a23c76c28802596ae504",
+    "native\\tests\\core_tests.cpp": "e9418036d13601faef243ccaf0c1ad6ca7e6c809931f13ddb99d87e73063f1ad",
+    "native\\tests\\v07_tests.cpp": "b685aba2a638d996700d13482e30946ecd19486ba159438b65f851816a381325",
+    "native\\tests\\v08_tests.cpp": "21bb57bb7d07cfb8cabfdce86918f7f61777e8de783bbd847ee867a0c8a41d08",
+    "native\\tests\\v09_tests.cpp": "ce5e5e964482e5fa699e64056a1b1d17aa61ca7332f69c91c6a90a26ebda4751",
+    "native\\tests\\v10_tests.cpp": "51e74bed26de9676b24f787a449af3f7817585aa9fe07d102a015c37013253b4",
+    "scripts\\build_native.py": "1bf3bd994ac3f895508267e6de9a53e192f178733fb60dbf9087af093cd57503",
+    "mod\\scripts\\source\\AstraSightNative.psc": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
+    "mod\\SKSE\\Plugins\\AstraSight.dll": "6b295ab4972b43bc79607d8e9c04d7f0c9af40dbef7d7dfdbac683c9c4609fa6"
+  },
+  "in_game_verified": false
+}

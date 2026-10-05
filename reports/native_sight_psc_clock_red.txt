@@ -1,0 +1,33 @@
+test_old_update_clock_cannot_overwrite_replacement_reload_clock (tests.test_native_sight.NativeSightContract.test_old_update_clock_cannot_overwrite_replacement_reload_clock) ... FAIL
+test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock (tests.test_native_sight.NativeSightContract.test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock) ... 
+  test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock (tests.test_native_sight.NativeSightContract.test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock) (function='PauseInput') ... FAIL
+  test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock (tests.test_native_sight.NativeSightContract.test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock) (function='ResumeInput') ... FAIL
+
+======================================================================
+FAIL: test_old_update_clock_cannot_overwrite_replacement_reload_clock (tests.test_native_sight.NativeSightContract.test_old_update_clock_cannot_overwrite_replacement_reload_clock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 577, in test_old_update_clock_cannot_overwrite_replacement_reload_clock
+    self.assertAlmostEqual(f.vm.state['lastTick'],100.4)
+AssertionError: 100.0 != 100.4 within 7 places (0.4000000000000057 difference)
+
+======================================================================
+FAIL: test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock (tests.test_native_sight.NativeSightContract.test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock) (function='PauseInput')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 602, in test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock
+    self.assertAlmostEqual(f.vm.state['lastTick'],100.4)
+AssertionError: 100.0 != 100.4 within 7 places (0.4000000000000057 difference)
+
+======================================================================
+FAIL: test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock (tests.test_native_sight.NativeSightContract.test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock) (function='ResumeInput')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 602, in test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock
+    self.assertAlmostEqual(f.vm.state['lastTick'],100.4)
+AssertionError: 100.0 != 100.4 within 7 places (0.4000000000000057 difference)
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.027s
+
+FAILED (failures=3)

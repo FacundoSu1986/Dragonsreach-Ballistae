@@ -1,0 +1,11 @@
+{
+  "raise_units": 20.0,
+  "fixed_base_before": -7.62939453125e-06,
+  "fixed_base_after": -7.62939453125e-06,
+  "fixed_top_before": 117.59998321533203,
+  "fixed_top_after": 137.5999755859375,
+  "yaw_pivot_z": 135.5,
+  "pitch_pivot_z": 153.0,
+  "moving_local_pivots_unchanged": true,
+  "source_original_modified": false
+}

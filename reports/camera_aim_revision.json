@@ -1,0 +1,185 @@
+{
+  "revision": "v04",
+  "runtime_execution": false,
+  "scope": "Actual PSC scalar branches/math with deterministic native-boundary fixtures; not Papyrus VM or proof of SKSE dispatch/native projectile.",
+  "baseline_v03": {
+    "control_lease_tests": 10,
+    "session_contract_tests": 38,
+    "input_behavior_cases": 16,
+    "success": true
+  },
+  "red": {
+    "modules": [
+      "tests.test_control_lease",
+      "tests.test_camera_aim",
+      "tests.test_session_contract.InputBehaviorContract"
+    ],
+    "tests_run": 42,
+    "failures": 106,
+    "errors": 0,
+    "success": false,
+    "source_sha256": {
+      "mod/scripts/source/AstraAsedioActi.psc": "c0c879e23b52f7a2a88c26caa4a1b8f66ec2c9ed593617b3054121f508a5f668",
+      "mod/scripts/source/AstraAsedioSession.psc": "be97451c4b506758cdc40b394ce2a84d99de1a2d8b4f7f50908cdf96dc71f80a",
+      "tests/test_control_lease.py": "f3cf3c8d598b1679999690760ce332c7889ad7d0caebdcbe7fd0030cbaceaf36",
+      "tests/test_session_contract.py": "a9a6feb6a7d09a56da2eefc81164ce2d5efce440e7c96507c3b1f686e299300e",
+      "tests/test_camera_aim.py": "754856cbe13a1f9fb7310dee4e5db2b569dae4bca7b23130e136f4a96e8c2548"
+    },
+    "missing_behavior": [
+      "CamSwitch ownership, FP camera acquisition/rollback/conditional restoration",
+      "World look vector mapped through root matrix transpose to yaw/pitch",
+      "Bounded actual first-person entry"
+    ]
+  },
+  "boundary_hardening_red": {
+    "modules": [
+      "tests.test_camera_aim.FirstPersonEntryContract.test_nonfinite_initial_clock_rolls_back_without_rotating_player",
+      "tests.test_camera_aim.FirstPersonEntryContract.test_cancel_in_last_alignment_preflight_does_not_rotate_after_release"
+    ],
+    "tests_run": 2,
+    "failures": 2,
+    "errors": 0,
+    "controller_source_sha256": "2d7d99fd6e29e24e7ca04bbf143f534f9fd90271cb34053e9f927358312adc9d",
+    "test_source_sha256": "20f9a8aa4d32c14a7fe1b5be5c0c471c352067b285569b09c22b2987fe1921db"
+  },
+  "entry_hardening_red": {
+    "modules": [
+      "tests.test_camera_aim.FirstPersonEntryContract.test_activation_rejections_explain_prelocked_looking_and_special_camera",
+      "tests.test_camera_aim.FirstPersonEntryContract.test_invalidated_lease_during_entry_ends_instead_of_rescheduling_forever"
+    ],
+    "tests_run": 2,
+    "failures": 2,
+    "errors": 0,
+    "controller_source_sha256": "d4a6579ea20eadbdb3398147212c9c84f85de07bd2dbb75ba029da990320a835",
+    "test_source_sha256": "ec26e5990c98955b38ff7f38303a9e9012b94a6f29367791724fb7e593a703a8"
+  },
+  "click_sample_red": {
+    "modules": [
+      "tests.test_camera_aim.MouseAimContract.test_mouse_attack_samples_fresh_look_before_freezing_shot",
+      "tests.test_camera_aim.MouseAimContract.test_cancellation_during_click_sample_or_last_ammo_read_never_freezes_stale_shot",
+      "tests.test_camera_aim.MouseAimContract.test_arrow_fallback_begin_shot_preserves_direction_and_entry_wait_cannot_fire"
+    ],
+    "tests_run": 3,
+    "failures": 3,
+    "errors": 0,
+    "controller_source_sha256": "f7416a870cd4d7bbee8982568903879b62ef858bff6af3614a9d1dc374128765",
+    "test_source_sha256": "4eeba5b84f3a35f9d29ac5ffd8f4d48022a816f6b639be83990dccd3e16f4274"
+  },
+  "green": {
+    "command": "python -m unittest tests.test_control_lease tests.test_camera_aim tests.test_session_contract.InputBehaviorContract",
+    "directed_tests": 59,
+    "full_source_tests_excluding_compile_receipt": 80,
+    "failures": 0,
+    "errors": 0,
+    "success": true,
+    "source_sha256": {
+      "mod/scripts/source/AstraAsedioActi.psc": "efda5f5789fcee202ed7d636b0fb24b44918881d674c6b5826ca0bb9d20ee6fc",
+      "mod/scripts/source/AstraAsedioSession.psc": "e2a040ec14f9515a017c0bda95cfd40bb289b002296c50f95e6e73e964959582",
+      "tests/test_control_lease.py": "f3cf3c8d598b1679999690760ce332c7889ad7d0caebdcbe7fd0030cbaceaf36",
+      "tests/test_session_contract.py": "a9a6feb6a7d09a56da2eefc81164ce2d5efce440e7c96507c3b1f686e299300e",
+      "tests/test_camera_aim.py": "d6be649f2c27caff007e91380e8895ffc959415bf61eeb241507791f5745d8d2"
+    },
+    "output": "test_accepts_typed_array_allocation_and_object_none_checks (tests.test_session_contract.BytecodeSafety.test_accepts_typed_array_allocation_and_object_none_checks) ... ok\ntest_legacy_poll_only_controller_bytecode_is_rejected (tests.test_session_contract.BytecodeSafety.test_legacy_poll_only_controller_bytecode_is_rejected) ... ok\ntest_rejects_the_observed_none_cast_then_arraycreate_sequence (tests.test_session_contract.BytecodeSafety.test_rejects_the_observed_none_cast_then_arraycreate_sequence) ... ok\ntest_cancel_press_during_initial_debounce_does_not_exit_but_later_press_does (tests.test_session_contract.InputBehaviorContract.test_cancel_press_during_initial_debounce_does_not_exit_but_later_press_does) ... ok\ntest_cancelled_generation_cannot_launch_late_even_after_menu_resumes (tests.test_session_contract.InputBehaviorContract.test_cancelled_generation_cannot_launch_late_even_after_menu_resumes) ... ok\ntest_closing_one_nested_menu_does_not_resume_input_while_another_is_open (tests.test_session_contract.InputBehaviorContract.test_closing_one_nested_menu_does_not_resume_input_while_another_is_open) ... ok\ntest_exit_during_transform_preflight_does_not_consume_or_launch (tests.test_session_contract.InputBehaviorContract.test_exit_during_transform_preflight_does_not_consume_or_launch) ... ok\ntest_exit_restores_controls_before_requesting_visual_reset (tests.test_session_contract.InputBehaviorContract.test_exit_restores_controls_before_requesting_visual_reset) ... ok\ntest_first_new_arrow_and_attack_press_after_session_entry_operate (tests.test_session_contract.InputBehaviorContract.test_first_new_arrow_and_attack_press_after_session_entry_operate) ... ok\ntest_fresh_input_after_menu_close_operates_before_the_next_update (tests.test_session_contract.InputBehaviorContract.test_fresh_input_after_menu_close_operates_before_the_next_update) ... ok\ntest_held_arrow_is_stopped_by_menu_and_a_queued_down_cannot_rearm_it (tests.test_session_contract.InputBehaviorContract.test_held_arrow_is_stopped_by_menu_and_a_queued_down_cannot_rearm_it) ... ok\ntest_key_and_control_fire_down_share_one_attempt_until_release (tests.test_session_contract.InputBehaviorContract.test_key_and_control_fire_down_share_one_attempt_until_release) ... ok\ntest_menu_cancellation_during_preflight_does_not_consume_or_launch (tests.test_session_contract.InputBehaviorContract.test_menu_cancellation_during_preflight_does_not_consume_or_launch) ... ok\ntest_menu_does_not_require_a_dummy_release_for_a_key_that_was_not_held (tests.test_session_contract.InputBehaviorContract.test_menu_does_not_require_a_dummy_release_for_a_key_that_was_not_held) ... ok\ntest_native_commit_consumes_exactly_once_even_if_requested_twice (tests.test_session_contract.InputBehaviorContract.test_native_commit_consumes_exactly_once_even_if_requested_twice) ... ok\ntest_pause_invalidates_precommit_shot_and_leaves_ammo_unconsumed (tests.test_session_contract.InputBehaviorContract.test_pause_invalidates_precommit_shot_and_leaves_ammo_unconsumed) ... ok\ntest_pause_preserves_already_consumed_shot_reload (tests.test_session_contract.InputBehaviorContract.test_pause_preserves_already_consumed_shot_reload) ... ok\ntest_press_delivered_while_menu_is_open_requires_release_afterward (tests.test_session_contract.InputBehaviorContract.test_press_delivered_while_menu_is_open_requires_release_afterward) ... ok\ntest_reactivation_closes_and_the_same_input_pulse_cannot_reopen (tests.test_session_contract.InputBehaviorContract.test_reactivation_closes_and_the_same_input_pulse_cannot_reopen) ... ok\ntest_activation_rejections_have_a_visible_reason (tests.test_session_contract.SessionContract.test_activation_rejections_have_a_visible_reason) ... ok\ntest_aim_thaws_after_release_and_cleanup_preserves_reload (tests.test_session_contract.SessionContract.test_aim_thaws_after_release_and_cleanup_preserves_reload) ... ok\ntest_cancellation_invalidates_pending_generation_and_unregisters_input (tests.test_session_contract.SessionContract.test_cancellation_invalidates_pending_generation_and_unregisters_input) ... ok\ntest_cleanup_on_load_death_and_unload (tests.test_session_contract.SessionContract.test_cleanup_on_load_death_and_unload) ... ok\ntest_controls_capture_and_only_owned_controls_restored (tests.test_session_contract.SessionContract.test_controls_capture_and_only_owned_controls_restored) ... ok\ntest_cycle_clock_is_not_clamped_to_aim_safety_dt (tests.test_session_contract.SessionContract.test_cycle_clock_is_not_clamped_to_aim_safety_dt) ... ok\ntest_fire_latch_is_taken_before_validation_and_no_poll_can_launch (tests.test_session_contract.SessionContract.test_fire_latch_is_taken_before_validation_and_no_poll_can_launch) ... ok\ntest_first_update_diagnostic_has_a_one_shot_guard (tests.test_session_contract.SessionContract.test_first_update_diagnostic_has_a_one_shot_guard) ... ok\ntest_input_uses_skse_events_instead_of_the_directinput_poll_cache (tests.test_session_contract.SessionContract.test_input_uses_skse_events_instead_of_the_directinput_poll_cache) ... ok\ntest_matrix_initialization_does_not_cast_none_to_an_array (tests.test_session_contract.SessionContract.test_matrix_initialization_does_not_cast_none_to_an_array) ... ok\ntest_menu_discards_held_and_pending_input_and_requires_a_release (tests.test_session_contract.SessionContract.test_menu_discards_held_and_pending_input_and_requires_a_release) ... ok\ntest_new_activation_and_control_cancel_without_waiting_for_update (tests.test_session_contract.SessionContract.test_new_activation_and_control_cancel_without_waiting_for_update) ... ok\ntest_operator_foot_projection_honors_root_rotation_and_scale (tests.test_session_contract.SessionContract.test_operator_foot_projection_honors_root_rotation_and_scale) ... ok\ntest_operator_gate_accepts_roof_at_145_units_but_rejects_lower_floor (tests.test_session_contract.SessionContract.test_operator_gate_accepts_roof_at_145_units_but_rejects_lower_floor) ... ok\ntest_reloading_3d_invalidates_saved_active_session_before_restoring_aim (tests.test_session_contract.SessionContract.test_reloading_3d_invalidates_saved_active_session_before_restoring_aim) ... ok\ntest_shot_failure_diagnostics_include_transform_and_animation_reasons (tests.test_session_contract.SessionContract.test_shot_failure_diagnostics_include_transform_and_animation_reasons) ... ok\ntest_single_native_launch_and_precommit_checks (tests.test_session_contract.SessionContract.test_single_native_launch_and_precommit_checks) ... ok\ntest_world_transform_verified_before_consuming_ammo (tests.test_session_contract.SessionContract.test_world_transform_verified_before_consuming_ammo) ... ok\ntest_cleanup_before_disable_aborts_without_enabling_any_controls (tests.test_control_lease.ControlLeaseContract.test_cleanup_before_disable_aborts_without_enabling_any_controls) ... ok\ntest_cleanup_can_repeat_and_reenter_during_cancelled_acquisition_rollback (tests.test_control_lease.ControlLeaseContract.test_cleanup_can_repeat_and_reenter_during_cancelled_acquisition_rollback) ... ok\ntest_cleanup_during_movement_snapshot_cannot_resume_with_a_new_token (tests.test_control_lease.ControlLeaseContract.test_cleanup_during_movement_snapshot_cannot_resume_with_a_new_token) ... ok\ntest_cleanup_over_native_disable_rolls_back_only_the_captured_controls (tests.test_control_lease.ControlLeaseContract.test_cleanup_over_native_disable_rolls_back_only_the_captured_controls) ... ok\ntest_emergency_cleanup_releases_the_current_gun_once_and_cannot_restore_globally (tests.test_control_lease.ControlLeaseContract.test_emergency_cleanup_releases_the_current_gun_once_and_cannot_restore_globally) ... ok\ntest_incomplete_acquisition_is_never_current_and_cannot_admit_another_lease (tests.test_control_lease.ControlLeaseContract.test_incomplete_acquisition_is_never_current_and_cannot_admit_another_lease) ... ok\ntest_invalid_gun_and_stopped_quest_do_not_toggle_controls_or_block_a_later_lease (tests.test_control_lease.ControlLeaseContract.test_invalid_gun_and_stopped_quest_do_not_toggle_controls_or_block_a_later_lease) ... ok\ntest_normal_release_preserves_prelocked_controls_and_ignores_stale_release (tests.test_control_lease.ControlLeaseContract.test_normal_release_preserves_prelocked_controls_and_ignores_stale_release) ... ok\ntest_release_blocks_new_leases_until_native_enable_has_completed (tests.test_control_lease.ControlLeaseContract.test_release_blocks_new_leases_until_native_enable_has_completed) ... ok\ntest_source_evaluator_rejects_unsupported_statements (tests.test_control_lease.ControlLeaseContract.test_source_evaluator_rejects_unsupported_statements) ... ok\ntest_camera_restore_guard_blocks_new_lease_through_native_third_person (tests.test_camera_aim.CameraLeaseContract.test_camera_restore_guard_blocks_new_lease_through_native_third_person) ... ok\ntest_cancellation_before_camera_or_look_snapshot_never_forces_a_camera (tests.test_camera_aim.CameraLeaseContract.test_cancellation_before_camera_or_look_snapshot_never_forces_a_camera) ... ok\ntest_first_person_is_requested_only_for_saved_third_person (tests.test_camera_aim.CameraLeaseContract.test_first_person_is_requested_only_for_saved_third_person) ... ok\ntest_force_first_person_cancellation_rolls_back_and_keeps_acquisition_guard (tests.test_camera_aim.CameraLeaseContract.test_force_first_person_cancellation_rolls_back_and_keeps_acquisition_guard) ... ok\ntest_restore_skips_dead_menu_and_foreign_camera_including_special_after_enable (tests.test_camera_aim.CameraLeaseContract.test_restore_skips_dead_menu_and_foreign_camera_including_special_after_enable) ... ok\ntest_special_camera_and_prelocked_looking_reject_without_global_toggles (tests.test_camera_aim.CameraLeaseContract.test_special_camera_and_prelocked_looking_reject_without_global_toggles) ... ok\ntest_activation_rejections_explain_prelocked_looking_and_special_camera (tests.test_camera_aim.FirstPersonEntryContract.test_activation_rejections_explain_prelocked_looking_and_special_camera) ... ok\ntest_cancel_in_last_alignment_preflight_does_not_rotate_after_release (tests.test_camera_aim.FirstPersonEntryContract.test_cancel_in_last_alignment_preflight_does_not_rotate_after_release) ... ok\ntest_entry_aligns_rotated_weapon_before_mouse_sample_without_player_translation (tests.test_camera_aim.FirstPersonEntryContract.test_entry_aligns_rotated_weapon_before_mouse_sample_without_player_translation) ... ok\ntest_invalidated_lease_during_entry_ends_instead_of_rescheduling_forever (tests.test_camera_aim.FirstPersonEntryContract.test_invalidated_lease_during_entry_ends_instead_of_rescheduling_forever) ... ok\ntest_menu_death_nan_clock_special_camera_or_setangle_cancel_roll_back_entry (tests.test_camera_aim.FirstPersonEntryContract.test_menu_death_nan_clock_special_camera_or_setangle_cancel_roll_back_entry) ... ok\ntest_nonfinite_initial_clock_rolls_back_without_rotating_player (tests.test_camera_aim.FirstPersonEntryContract.test_nonfinite_initial_clock_rolls_back_without_rotating_player) ... ok\ntest_saved_active_session_load_releases_before_restoring_visuals (tests.test_camera_aim.FirstPersonEntryContract.test_saved_active_session_load_releases_before_restoring_visuals) ... ok\ntest_transition_uses_finite_deadline_instead_of_treating_void_force_as_success (tests.test_camera_aim.FirstPersonEntryContract.test_transition_uses_finite_deadline_instead_of_treating_void_force_as_success) ... ok\ntest_actual_muzzle_guard_uses_raised_pivot_for_rotated_roots (tests.test_camera_aim.MouseAimContract.test_actual_muzzle_guard_uses_raised_pivot_for_rotated_roots) ... ok\ntest_aim_defaults_and_muzzle_height_are_linked_to_v04 (tests.test_camera_aim.MouseAimContract.test_aim_defaults_and_muzzle_height_are_linked_to_v04) ... ok\ntest_arrow_fallback_begin_shot_preserves_direction_and_entry_wait_cannot_fire (tests.test_camera_aim.MouseAimContract.test_arrow_fallback_begin_shot_preserves_direction_and_entry_wait_cannot_fire) ... ok\ntest_attack_during_periodic_mouse_read_preserves_shot_and_starts_settle_next_tick (tests.test_camera_aim.MouseAimContract.test_attack_during_periodic_mouse_read_preserves_shot_and_starts_settle_next_tick) ... ok\ntest_cancellation_during_click_sample_or_last_ammo_read_never_freezes_stale_shot (tests.test_camera_aim.MouseAimContract.test_cancellation_during_click_sample_or_last_ammo_read_never_freezes_stale_shot) ... ok\ntest_cardinal_mouse_heading_and_wrap_use_actual_psc_formula (tests.test_camera_aim.MouseAimContract.test_cardinal_mouse_heading_and_wrap_use_actual_psc_formula) ... ok\ntest_invalid_angle_matrix_and_cancelled_native_sample_do_not_apply (tests.test_camera_aim.MouseAimContract.test_invalid_angle_matrix_and_cancelled_native_sample_do_not_apply) ... ok\ntest_late_camera_boundary_cancel_and_special_camera_freeze_even_before_commit (tests.test_camera_aim.MouseAimContract.test_late_camera_boundary_cancel_and_special_camera_freeze_even_before_commit) ... ok\ntest_menu_camera_transition_during_sample_preserves_pause_and_lease (tests.test_camera_aim.MouseAimContract.test_menu_camera_transition_during_sample_preserves_pause_and_lease) ... ok\ntest_menu_during_periodic_mouse_read_pauses_without_advancing_phase_or_timer (tests.test_camera_aim.MouseAimContract.test_menu_during_periodic_mouse_read_pauses_without_advancing_phase_or_timer) ... ok\ntest_menu_mode_without_callback_during_mouse_native_also_pauses_cycle (tests.test_camera_aim.MouseAimContract.test_menu_mode_without_callback_during_mouse_native_also_pauses_cycle) ... ok\ntest_mouse_attack_samples_fresh_look_before_freezing_shot (tests.test_camera_aim.MouseAimContract.test_mouse_attack_samples_fresh_look_before_freezing_shot) ... ok\ntest_papyrus_array_length_keyword_is_not_a_local_identifier (tests.test_camera_aim.MouseAimContract.test_papyrus_array_length_keyword_is_not_a_local_identifier) ... ok\ntest_periodic_invalid_arithmetic_root_camera_and_lease_still_end_current_session (tests.test_camera_aim.MouseAimContract.test_periodic_invalid_arithmetic_root_camera_and_lease_still_end_current_session) ... ok\ntest_rotated_root_uses_transpose_without_heading_sign_regression (tests.test_camera_aim.MouseAimContract.test_rotated_root_uses_transpose_without_heading_sign_regression) ... ok\ntest_sample_result_distinguishes_applied_context_change_and_invalid_data (tests.test_camera_aim.MouseAimContract.test_sample_result_distinguishes_applied_context_change_and_invalid_data) ... ok\ntest_signed_x_pitch_clamp_and_vertical_yaw_preservation (tests.test_camera_aim.MouseAimContract.test_signed_x_pitch_clamp_and_vertical_yaw_preservation) ... ok\ntest_stale_periodic_sample_cannot_close_a_replacement_generation (tests.test_camera_aim.MouseAimContract.test_stale_periodic_sample_cannot_close_a_replacement_generation) ... ok\ntest_update_freezes_menu_and_precommit_fire_but_reload_samples_current_look (tests.test_camera_aim.MouseAimContract.test_update_freezes_menu_and_precommit_fire_but_reload_samples_current_look) ... ok\n\n----------------------------------------------------------------------\nRan 80 tests in 0.519s\n\nOK\n"
+  },
+  "contracts": {
+    "control_lease_cases": 10,
+    "unchanged_input_behavior_cases_with_arrow_fallback": 16,
+    "camera_aim_cases": 33,
+    "control_flags_owned": [
+      "movement",
+      "fighting",
+      "camera_switch"
+    ],
+    "looking_globally_toggled": false,
+    "initial_camera_states_accepted": [
+      0,
+      8,
+      9
+    ],
+    "restore_third_person_only_if_changed_and_current_first_person_alive_nonmenu": true,
+    "exact_8_or_9_restore_promised": false,
+    "real_time_entry_deadline_seconds": 1.5,
+    "requested_update_seconds": 0.05,
+    "guaranteed_20hz": false,
+    "mouse_click_samples_before_phase_1": true,
+    "pitch_limits_degrees": [
+      -5,
+      80
+    ],
+    "pitch_pivot_height_units": 153,
+    "transform": "world (sin h cos(-x), cos h cos(-x), sin(-x)); local R-transpose; yaw acos quadrant(localX,-localY); pitch asin(localZ)",
+    "no_player_translation_or_fov_changes": true,
+    "sample_result_outcomes": {
+      "applied": 1,
+      "benign_context_change": 0,
+      "invalid_sample": -1
+    },
+    "periodic_attack_interleaving_preserves_shot": true,
+    "menu_interleaving_does_not_advance_cycle": true,
+    "new_shot_settle_begins_next_scheduled_tick": true,
+    "stale_periodic_sample_cannot_end_new_generation": true
+  },
+  "limits": [
+    "Source evaluator is not a Papyrus VM; native fixtures do not prove runtime scheduling, save persistence, SKSE dispatch or native projectile.",
+    "The final interleaving revision compiled and disassembled successfully: three scripts, zero errors and warnings. Source-only fixture totals remain historical to that run; the full release suite includes the refreshed compile receipt.",
+    "In-game v04 FP/mouse/360/high aim/attack/exit/camera restoration/save-load remains pending.",
+    "v03 user reports working behavior; existing InputRequest trace does not confirm an actual native projectile.",
+    "Native ammo removal and Weapon.Fire remain non-atomic; no rollback after commit is promised.",
+    "Sight is player camera at crank; ProjectileNode may differ from close-range reticle."
+  ],
+  "reserved_identifier_red": {
+    "module": "tests.test_camera_aim.MouseAimContract.test_papyrus_array_length_keyword_is_not_a_local_identifier",
+    "tests_run": 1,
+    "failures": 1,
+    "errors": 0,
+    "controller_source_sha256": "5c4c476b66e71a50716265e9f5c7e53b5a05cb8cfbfb2f6fabb81ffe15408e3c",
+    "test_source_sha256": "a8b4b9087ca0220d4e9b5c2e597406879a6ce5256043956a44aa5cd3bf33acbe",
+    "compiler_failure_receipt": "reports/plugin_compile.json",
+    "compiler_receipt_sha256": "79d425c4cc99cfd91881a2e6f56f060e794ba12cb25f7985c17508acf0bcc253",
+    "diagnostic": "Acti(609,4): no viable alternative at input float; (609,17): loop did not match input =; Length is Papyrus array keyword."
+  },
+  "compiler_confirmation": {
+    "receipt": "reports/plugin_compile.json",
+    "receipt_sha256": "e92e6327509424816ff9496e7875caa723f6ff4c196f655a193a638014da1bf4",
+    "scripts_successful": 3,
+    "current_sources_and_pex_verified": true,
+    "sources": {
+      "mod\\scripts\\source\\AstraAsedioActi.psc": "efda5f5789fcee202ed7d636b0fb24b44918881d674c6b5826ca0bb9d20ee6fc",
+      "mod\\scripts\\source\\AstraAsedioPlayerAlias.psc": "048e868247e792cd7702518a36ea95bc54d98f1d46555379f8eb7c3dafa8831e",
+      "mod\\scripts\\source\\AstraAsedioSession.psc": "e2a040ec14f9515a017c0bda95cfd40bb289b002296c50f95e6e73e964959582"
+    },
+    "pex": {
+      "mod\\scripts\\AstraAsedioActi.pex": "50d8033336bd8dff8f8aedfde6a5febca4d5796a5eb47a009471aa46bc589824",
+      "mod\\scripts\\AstraAsedioPlayerAlias.pex": "dad2d1f0f09e2ed9d39491248b376e84480c2558efde2548e5f8062a884b0df3",
+      "mod\\scripts\\AstraAsedioSession.pex": "f888a7f800024e1de731b24cf8aa5836ffb446a802e3557d96a4bb48eb6dd39a"
+    },
+    "scope": "Final source revision after sample-interleaving fix; verified against actual PSC and PEX files."
+  },
+  "sample_interleaving_red": {
+    "modules": [
+      "tests.test_camera_aim.MouseAimContract.test_attack_during_periodic_mouse_read_preserves_shot_and_starts_settle_next_tick",
+      "tests.test_camera_aim.MouseAimContract.test_menu_during_periodic_mouse_read_pauses_without_advancing_phase_or_timer",
+      "tests.test_camera_aim.MouseAimContract.test_menu_mode_without_callback_during_mouse_native_also_pauses_cycle",
+      "tests.test_camera_aim.MouseAimContract.test_periodic_invalid_arithmetic_root_camera_and_lease_still_end_current_session",
+      "tests.test_camera_aim.MouseAimContract.test_sample_result_distinguishes_applied_context_change_and_invalid_data"
+    ],
+    "tests_run": 5,
+    "failures": 14,
+    "errors": 0,
+    "controller_source_sha256": "185be95d5c6d8cecb319a7b69b835989786d3c779eabdf3b8375e9de2f5db8f7",
+    "test_source_sha256": "a35e68279b7131573ae1891de5c748a55e3277d57d804e44023402b8deb974e1",
+    "observed": "Valid nested attack or menu from X/Z/root native caused UpdateAim to EndSession; false conflated benign context changes with invalid data. Same tick must not advance timer/settle after those changes."
+  },
+  "tween_menu_interleaving_red": {
+    "modules": [
+      "tests.test_camera_aim.MouseAimContract.test_menu_camera_transition_during_sample_preserves_pause_and_lease",
+      "tests.test_camera_aim.MouseAimContract.test_stale_periodic_sample_cannot_close_a_replacement_generation"
+    ],
+    "tests_run": 2,
+    "failures": 1,
+    "errors": 0,
+    "controller_source_sha256": "bdcc227dcea0a3b0dd2096b36cf11dc3812637a26fa112e1128def508115edc2",
+    "test_source_sha256": "d6be649f2c27caff007e91380e8895ffc959415bf61eeb241507791f5745d8d2",
+    "observed": "Camera 7 with an opened TweenMenu must discard the sample and pause instead of treating menu-owned camera transition as a fatal special camera. Replacement-generation safeguard already passed valid and NaN old angle reads."
+  }
+}

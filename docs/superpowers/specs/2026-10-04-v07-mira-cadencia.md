@@ -1,0 +1,17 @@
+# Astra v07: mira completa y tiro continuo
+
+El usuario autoriza corregir el desplazamiento de cámara al cruzar 180°, acelerar salida y recarga, y añadir disparo continuo al mantener Ataque. E entra en mira y sale; el operador permanece junto a la manivela. Se conserva v06 y se entrega un perfil MO2 propio sin cambiar el perfil seleccionado.
+
+## Cámara
+La pose mundial deseada se obtiene de AstraSightCameraNode después de actualizar las matrices del arma. FirstPersonState conserva sus getters. Se añade un hook posterior a TESCamera::Update en PlayerCamera para volver a aplicar esa pose al cameraRoot y actualizar NiCamera después de la composición vanilla. El hook sólo escribe dentro de una transacción de la sesión actual, con token y época correctos, estado FP y las mismas identidades de 3D y cameraRoot. Se convierte con el padre actual; no mueve al jugador ni cambia FOV ni colisiones globales. Es una hipótesis respaldada por el orden de composición; su resolución real sólo se confirma en Skyrim, no con los tests de matemáticas.
+
+## Disparo y rendimiento
+Los logs v06 registran cuatro bloqueos de mira de 4,13–4,21 s. Se retiran del camino nativo los sondeos Papyrus repetidos de nodos y arrays de matrices. El hilo del juego comprueba nodos, operador (160 u horizontal y 64 u vertical desde OperatorNode menos 119 u en Z de raíz), vida y contexto, y publica raíz, proyectil y mira coherentes. ValidateShot API 3, callable NoWait, valida ese snapshot congelado sin tocar la escena: pose, dirección +Y, posición de boca y escala finitas, distancia máxima 1 u y dirección dot >=0,999. El camino legacy conserva validación NetImmerse y tres ticks de asentamiento. El nativo usa un solo tick; CaptureAim(true) ya congela la última pose aplicada.
+
+Fire pasa a 0,30 s, la salida a 0,10 s, Reset a 1,20 s; ciclo nominal 1,50 s más un tick de asentamiento. Se retiman secuencias, interpoladores, controllers y keys del NIF, incluida visibilidad del virote, y se actualizan config, PSC y VMAD juntos. Weapon.Fire mantiene daño/balística vanilla; un commit consume exactamente un virote y lanza una sola vez. Papyrus sigue siendo dueño del ciclo, inventario y controles. No se modifica la ubicación del ancla ni la cuerda.
+
+## Tiro continuo
+Modo inicial individual. Sprint (normalmente Mayús, se respeta reasignación) alterna Individual/Continuo durante la operación con una notificación. En Continuo, un press válido de Ataque arma la repetición hasta su release; al terminar recarga se inicia como máximo un nuevo ciclo, sin recuperar disparos perdidos. El latch de deduplicación key/control y el permiso de repetición son separados. Abrir menú, cambiar modo, salir, morir, perder sesión/celda, cargar o quedarse sin munición borra el permiso. Volver de menú requiere soltar y presionar de nuevo. El disparo ya comprometido termina; no se programa otro. Sprint también tiene latch compartido key/control; no alterna dos veces por eventos duplicados. Ataque y E conservan teclas reasignadas.
+
+## Evidencia y límites
+Tests de snapshot/transacción con raíz inclinada/escalada, cambio de padre, overwrite vanilla, 179/180/181/240/359°, EndSight y renovación; tests del PSC real para release, menú, deduplicación, fin de recarga, ammo y stale callbacks; compilación C++ y Papyrus, reimport NIF y validación ESP, hashes y ZIP. Validación de motor pendiente: cámara 360°, FP real, latencia/FPS y colisiones, sonido y repetición en runtime 1.6.1170. No afirmar desempeño medido ni éxito en juego v07 antes de esa prueba.

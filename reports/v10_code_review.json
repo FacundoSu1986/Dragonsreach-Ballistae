@@ -1,0 +1,292 @@
+{
+  "reviewer": "superpowers:code-reviewer subagent (independent context, read-only)",
+  "utc": "2026-10-05T22:00:16.227395+00:00",
+  "scope": "v10 changed code against the spec and the v09 camera recorder evidence: sightPose math (Python and C++), native front post and camera integration, pedestal collision and sweep verification, release gates, tests that cannot fail, user docs. Three passes: review (0 Critical, 2 Important, 10 Minor), re-verification of the fixes (M5 not applied; N1-N3 Minor), final check. No engine execution.",
+  "findings": [],
+  "resolved_findings": [
+    {
+      "id": "I1",
+      "severity": "Important",
+      "summary": "The 35 u pedestal box stops walking but a jump clears it; operating from its top (dz +35 <= 64) was never sampled and the docs claimed it still stops the player.",
+      "fix": "verify_sight_path builds operator feet by raycasting walkable collision inside the native acceptance (186 positions, 52 on the pedestal top) and requires pedestal positions; docs state the jumpable pedestal as a visual-only limit.",
+      "tests": [
+        "test_v10_sight.WrittenNif.test_sight_path_verification_is_for_these_nifs",
+        "package_release sight path gate"
+      ]
+    },
+    {
+      "id": "I2",
+      "severity": "Important",
+      "summary": "PRUEBAS step 5 expected \"a few cm\" high at 10 and 30 m; the 75 m zero gives ~28 cm high at 30 m.",
+      "fix": "Predicted offsets stated: +3 cm at 10 m, +28 cm at 30 m, ~32 cm near 40 m, 0 at 75 m, -66 cm at 100 m.",
+      "tests": []
+    },
+    {
+      "id": "M1",
+      "severity": "Minor",
+      "summary": "Camera clearance and sight-line checks skipped the fixed base and the front arch.",
+      "fix": "All visual meshes except ring and post mesh; separate >= 15 u near-plane check for the sight meshes and a zero near-plane-cut check inside the view; renders at clip 15.",
+      "tests": [
+        "sight_path_verified.json near_plane_cut_poses 0"
+      ]
+    },
+    {
+      "id": "M2",
+      "severity": "Minor",
+      "summary": "Collinearity compared the pose with itself.",
+      "fix": "Post node written as Plugin.cpp writes it (pitch-local R^T(F-T)/s); ring centre and post apex measured on the written meshes.",
+      "tests": [
+        "sight_path_verified.json max_sight_alignment_error_units"
+      ]
+    },
+    {
+      "id": "M3",
+      "severity": "Minor",
+      "summary": "Sweep clearance was sampled and the docs claimed every pose.",
+      "fix": "1-Lipschitz guaranteed lower bound with refinement; +38 deg added; docs say sampled every 15 deg and >= 30 vs the pedestal by construction.",
+      "tests": []
+    },
+    {
+      "id": "M4",
+      "severity": "Minor",
+      "summary": "Model scale also scaled the ballistic zero.",
+      "fix": "Zero range and drop unscaled in Core.cpp and sight_pose.py; geometry scales.",
+      "tests": [
+        "v10_tests.cpp unscaled zero at scale 2",
+        "test_v10_sight.Pose.test_model_scale_scales_the_sight_but_not_the_ballistics"
+      ]
+    },
+    {
+      "id": "M5",
+      "severity": "Minor",
+      "summary": "Dead v08 zero functions and the never-running post-camera hook counted as evidence.",
+      "fix": "Marked legacy; test asserts Plugin.cpp does not call them; status reports the hook as never observed running. Hook kept installed (removal untestable without the game).",
+      "tests": [
+        "test_v08_sight_zero.SightZero.test_plugin_views_along_sight_pose_and_keeps_direction_checks"
+      ]
+    },
+    {
+      "id": "M6",
+      "severity": "Minor",
+      "summary": "Python and C++ shared golden values only for flat fire.",
+      "fix": "Golden values at 0/45/80 deg in both suites; Python returns None on degenerate input like C++.",
+      "tests": [
+        "test_v10_sight.Pose.test_golden_values_shared_with_the_native_suite",
+        "test_v10_sight.Pose.test_degenerate_inputs_return_none_like_the_native_pose",
+        "v10_tests.cpp"
+      ]
+    },
+    {
+      "id": "M7",
+      "severity": "Minor",
+      "summary": "Sight-path evidence tied only to NIF hashes; test used the report threshold.",
+      "fix": "inputs_sha256 for sight_pose.py, verify_sight_path.py, config.json gated in package_release; fixed thresholds in test and gate.",
+      "tests": [
+        "test_v10_sight.WrittenNif.test_sight_path_verification_is_for_these_nifs"
+      ]
+    },
+    {
+      "id": "M8",
+      "severity": "Minor",
+      "summary": "Stair reference gate stopped checking the pedestal footprint.",
+      "fix": "Pedestal min and max x/y must equal the reference in verify_stair_route and package_release.",
+      "tests": [
+        "verify_stair_route.py (re-run)"
+      ]
+    },
+    {
+      "id": "M9",
+      "severity": "Minor",
+      "summary": "Doc wording over-claimed or understated.",
+      "fix": "Reworded post movement, cause, test step 4 and in-game caveat.",
+      "tests": []
+    },
+    {
+      "id": "M5-reverify",
+      "severity": "Minor",
+      "summary": "Re-verification: the package status key post_camera_world_anchor_implemented had not actually been replaced.",
+      "fix": "Replaced by post_camera_hook (never ran in the v09 log) and v08_sight_zero_functions (legacy).",
+      "tests": []
+    },
+    {
+      "id": "N1",
+      "severity": "Minor",
+      "summary": "Re-verification: the near-plane check tested only vertices and triangle centres; a large face could cross the clipped slice unseen.",
+      "fix": "Triangle overlap with the clipped view pyramid plus the vertex test; falsified in the same run with a crossing face and with the ring against a 20 u plane.",
+      "tests": [
+        "sight_path_verified.json near_plane_check_falsified"
+      ]
+    },
+    {
+      "id": "N2",
+      "severity": "Minor",
+      "summary": "Re-verification: the verified operator area (160 u, |dz| 64) was hard-coded in the verifier, not tied to the enforcing code.",
+      "fix": "Test ties the verifier radius and |dz|, and (final check) its crank centre and the operator height, to the written OperatorNode, the final ESP VMAD, the PSC defaults and Plugin.cpp.",
+      "tests": [
+        "test_v10_sight.NativeContract.test_verified_operator_area_is_the_one_the_game_enforces"
+      ]
+    },
+    {
+      "id": "N3",
+      "severity": "Minor",
+      "summary": "Re-verification: tower visual-only meshes are outside the camera, near-plane and sight-line checks.",
+      "fix": "Documented as scope in the verifier and its report (not_covered).",
+      "tests": []
+    }
+  ],
+  "accepted_limits": [
+    "Engine model: sphere radius (12-15 u) and its start at the eye are fitted to the v09 log, not measured in the engine.",
+    "Jumping onto the 35 u pedestal puts the player inside the base (visual only; the sight works and is verified from there).",
+    "The base has no collision above 35 u: arrows and spells pass through the shaft and legs.",
+    "At +80 deg the rear ring is 16.5 u from the camera: an fNearDistance above ~16 (INI/ENB) clips it.",
+    "Outside the sight the front post keeps its last native position (up to 3.9 u) until the 3D reloads.",
+    "The camera is hundreds of units from the player head: engine side effects (audio listener, LOD) unverified.",
+    "M10 (plausible only): rear stem to drawn string clearance (~4.6 u in y) comes from source bounds, not verified through Fire/Reset.",
+    "Sight picture changes with elevation by design (ring apparent radius 2.6 to 21.6 deg).",
+    "Tower visual-only meshes are not in the camera/near-plane/sight-line checks (N3, documented scope).",
+    "Python sightPose does not reject a NaN right axis (C++ does); production inputs are finite node transforms."
+  ],
+  "open_issue_not_a_finding": "The tail camera and the iron-sight zero are verified on geometry and models only; the in-game test is pending.",
+  "inputs": [
+    {
+      "path": "native/src/Core.cpp",
+      "sha256": "bc6b406adaf67e914dc7b896787d55275ef8a6fcd50171a424adb145eee7a675"
+    },
+    {
+      "path": "native/src/Plugin.cpp",
+      "sha256": "ffda9bb94e298db225fd00e92eca5cf2a6e758d10ed0a23c76c28802596ae504"
+    },
+    {
+      "path": "native/include/Astra/Core.h",
+      "sha256": "dd8ac30e3363fd7af8c96c5c9c83f4344505830b1a16171328616dd600beed2d"
+    },
+    {
+      "path": "native/tests/v10_tests.cpp",
+      "sha256": "51e74bed26de9676b24f787a449af3f7817585aa9fe07d102a015c37013253b4"
+    },
+    {
+      "path": "native/CMakeLists.txt",
+      "sha256": "8cb67c3b28b11a1b737c62b88e0f8601b864c5a35ea687323e84414183e6c19b"
+    },
+    {
+      "path": "mod/scripts/source/AstraAsedioActi.psc",
+      "sha256": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26"
+    },
+    {
+      "path": "scripts/sight_pose.py",
+      "sha256": "7e7493af493254e58bf6e1760c5a27e06b2ddaee872b7352acd54ae4fc5a1a4f"
+    },
+    {
+      "path": "scripts/build_assets.py",
+      "sha256": "b235fa23a5985662fff4cd73054a417170ee8bd455def70fed7ecb819d27ae3f"
+    },
+    {
+      "path": "scripts/verify_sight_path.py",
+      "sha256": "be9fc9c5ea69923e07632367cb6082c24c507b916ae9a2aa0628fd58a6b67443"
+    },
+    {
+      "path": "scripts/inspect_sight_anchor.py",
+      "sha256": "ea475ef4c729fdc1ec7004003af73a79d2ad37a0feaa461099468a1eb86ee45c"
+    },
+    {
+      "path": "scripts/verify_stair_route.py",
+      "sha256": "62907c7c06b04798f30d9c6c27990bb1738d6255f577ee782e3f875162e69706"
+    },
+    {
+      "path": "scripts/package_release.py",
+      "sha256": "3112e39198a1b332250df0c1d267294d053f9d2971170d54a7381332cd84747c"
+    },
+    {
+      "path": "scripts/seal_v10_review.py",
+      "sha256": "f9f691ea6bcd58e69d42c8504deaa7842db2267b051b30a09a405f488819d86b"
+    },
+    {
+      "path": "scripts/verify_input_contracts.py",
+      "sha256": "7df8acab1163556709d39d25ece055b9fdd515b62d1177e14aa48eb39f2328b9"
+    },
+    {
+      "path": "scripts/check_rebuild_v10.py",
+      "sha256": "637ee7aec6d153ce0c65ec17288b226cc15431d33b9f08d1609c0cb49a8880c9"
+    },
+    {
+      "path": "scripts/start_v10.py",
+      "sha256": "b3812b7cbd52acf9445b3888141ff90933d486ccc986d322bda52aa301f06f74"
+    },
+    {
+      "path": "scripts/prepare_test_profile.py",
+      "sha256": "04ae304636e41b863e79cbcc516c96d49b5cd27ba1ea2bb6f1ebd633912b591d"
+    },
+    {
+      "path": "scripts/build_native.py",
+      "sha256": "1bf3bd994ac3f895508267e6de9a53e192f178733fb60dbf9087af093cd57503"
+    },
+    {
+      "path": "scripts/verify_native_artifacts.py",
+      "sha256": "14c96608b111a65895efcc4a6af625fd8abf7028192ceeaab3dcec7f8146d8d3"
+    },
+    {
+      "path": "scripts/write_v10_docs.py",
+      "sha256": "3c8ca9b9599985e4128dc93d6829828fc04a3c1592938d397190975246e5e0f2"
+    },
+    {
+      "path": "scripts/release_notes_v10.py",
+      "sha256": "5784b731964cf847eaefaabccae41d6dfca6a9662676f9a87d085b643961a114"
+    },
+    {
+      "path": "tests/test_v10_sight.py",
+      "sha256": "9a6432b325a2a08807aa15722c3b6dd23e3f54ab9b2297b6b8c674a5830cf174"
+    },
+    {
+      "path": "tests/test_v08_sight_zero.py",
+      "sha256": "9ce70b4a09c950c6e4e4fd204d038f944e122170f9fe7ff1e18ff56f17366250"
+    },
+    {
+      "path": "tests/test_v09_input_fixes.py",
+      "sha256": "95125873e66db23c23a803f777adedf28b0dba4bd239307740da947eef0fb84f"
+    },
+    {
+      "path": "tests/test_native_sight.py",
+      "sha256": "2520b1fb5b897b3c2131d5368d5f3a600968627649ca479cc8e979e5f38f0f71"
+    },
+    {
+      "path": "tests/test_control_lease.py",
+      "sha256": "6100f18d77e5ef1c56934423440e2d297e204920a243e031817b50b4c0c3d8e7"
+    },
+    {
+      "path": "tests/test_camera_aim.py",
+      "sha256": "b63ad3416bd9e58c97e245b62300b5485675b1c62f7ce1e1329e7fe904771ea5"
+    },
+    {
+      "path": "tests/test_v07_firing.py",
+      "sha256": "8ba6fcc468203f070bacaf78c3acb01f8c05516658e56ff1d82183fa559a25f7"
+    },
+    {
+      "path": "tests/test_v06_runtime_bindings.py",
+      "sha256": "dd6c68c0bd05ae37afa3448ddab0b32e36a7a577d0199af7d4ba74981d6dc45c"
+    },
+    {
+      "path": "config.json",
+      "sha256": "d214682015a08a9114bf1c41c9b354987ae5b0716d3b6c1258e271d2c2c8e982"
+    },
+    {
+      "path": "README.md",
+      "sha256": "cd334ae06199948009b07adb5a9c53bb199f5b6493e58d730e416a88e45ad254"
+    },
+    {
+      "path": "PRUEBAS_EN_JUEGO.md",
+      "sha256": "52ebcec84a085f38dabc02ee42c30e2213b1ede9ca56f52e243af9bfd93da994"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-05-v10-mira-cola.md",
+      "sha256": "71d55cfa42e09113eab13cc7af3baa0b69565bada415c286283829c8d94e862f"
+    },
+    {
+      "path": "reports/sight_path_verified.json",
+      "sha256": "bdb00716af223fcdf68b2e9b5e7ee497082251e272c87257e8b8d430cb45520f"
+    },
+    {
+      "path": "reports/user_evidence_v09.json",
+      "sha256": "9aab336c12c7badfd33f6914f743888e6f4f307c6244a305fe222ac1e822469e"
+    }
+  ]
+}

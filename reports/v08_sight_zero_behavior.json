@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "test_count": 5,
+  "command": [
+    "C:\\Users\\Facu2\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_v08_sight_zero"
+  ],
+  "output": "test_controller_refuses_the_v07_dll_before_any_native_call (tests.test_v08_sight_zero.SightZero.test_controller_refuses_the_v07_dll_before_any_native_call) ... ok\ntest_flat_zero_is_about_1_38_degrees (tests.test_v08_sight_zero.SightZero.test_flat_zero_is_about_1_38_degrees) ... ok\ntest_native_constants_match_config_nif_and_esp (tests.test_v08_sight_zero.SightZero.test_native_constants_match_config_nif_and_esp) ... ok\ntest_nif_camera_stays_parallel_to_the_bore (tests.test_v08_sight_zero.SightZero.test_nif_camera_stays_parallel_to_the_bore) ... ok\ntest_plugin_views_along_sight_pose_and_keeps_direction_checks (tests.test_v08_sight_zero.SightZero.test_plugin_views_along_sight_pose_and_keeps_direction_checks) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.004s\n\nOK\n",
+  "test_source_sha256": "9ce70b4a09c950c6e4e4fd204d038f944e122170f9fe7ff1e18ff56f17366250",
+  "controller_source_sha256": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+  "sources_unchanged_during_verification": true,
+  "runtime_execution": false,
+  "dependency_sha256": {
+    "native\\src\\Core.cpp": "bc6b406adaf67e914dc7b896787d55275ef8a6fcd50171a424adb145eee7a675",
+    "native\\src\\Plugin.cpp": "ffda9bb94e298db225fd00e92eca5cf2a6e758d10ed0a23c76c28802596ae504",
+    "config.json": "d214682015a08a9114bf1c41c9b354987ae5b0716d3b6c1258e271d2c2c8e982",
+    "mod\\meshes\\AstraAsedio\\ballesta.nif": "dd1741b8480e32988a10d1711b342d70882da1d1f398564794b8e6581c44bd1d",
+    "mod\\AstraAsedio.esp": "9229b0a06887b3e62792c1dfc765aaf6c8f4a714635f57bb6d9c72709f6362ac",
+    "tests\\test_native_sight.py": "2520b1fb5b897b3c2131d5368d5f3a600968627649ca479cc8e979e5f38f0f71"
+  },
+  "interpretation": "Actual scalar PSC branches with explicit native fixtures; no Papyrus VM or SKSE event dispatch execution."
+}

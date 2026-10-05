@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "reviewer": "v06_native_review",
+  "created_utc": "2026-10-04T18:20:38.267729+00:00",
+  "scope": "Final read-only review of v06 camera binding, API/version gates, lease cleanup, tasklet registration, and shot logging; only this report is written.",
+  "assessment": "No actionable correctness or thread-safety finding in the reviewed change.",
+  "findings": [],
+  "inputs": [
+    {
+      "path": "native/src/Plugin.cpp",
+      "sha256": "78bb83a519cf5a3ce49468078b0f9a722c9648aed37e10a926b6ea2df0091c2e"
+    },
+    {
+      "path": "native/src/Core.cpp",
+      "sha256": "d3a8b22b589a59fc1e98dd5a17fc9e9a67a867bebb93da39e1316410caf06cef"
+    },
+    {
+      "path": "native/include/Astra/Core.h",
+      "sha256": "b99f40d895d5b12409561ce80d27af4a421992118d04f99be357bee067c52669"
+    },
+    {
+      "path": "native/tests/core_tests.cpp",
+      "sha256": "e9418036d13601faef243ccaf0c1ad6ca7e6c809931f13ddb99d87e73063f1ad"
+    },
+    {
+      "path": "mod/scripts/source/AstraSightNative.psc",
+      "sha256": "8636f2383e4be12fb7c9430311f57b7498c3a884a7c625fa59efe3fa678ebc7c"
+    },
+    {
+      "path": "mod/scripts/source/AstraAsedioActi.psc",
+      "sha256": "292d57191dd55835411dd2b40f447a54cc02bccb41e2aa8825c3452ba2bef96e"
+    },
+    {
+      "path": "mod/scripts/source/AstraAsedioSession.psc",
+      "sha256": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4"
+    },
+    {
+      "path": "mod/scripts/source/AstraAsedioPlayerAlias.psc",
+      "sha256": "048e868247e792cd7702518a36ea95bc54d98f1d46555379f8eb7c3dafa8831e"
+    },
+    {
+      "path": "tests/test_v06_runtime_bindings.py",
+      "sha256": "8188e06efc040c32aea1bd2f6fec1e37a28889d72e05317d0c4193396e4bcfeb"
+    },
+    {
+      "path": "tests/test_native_sight.py",
+      "sha256": "9579a936b5b282b2fe4c47ae9dab771c4f2b37a82668c60931702e5793b653b8"
+    },
+    {
+      "path": "tests/test_control_lease.py",
+      "sha256": "c1764a00bf2be16a6b273d99b9027809b98d7645719e49b5a4c10a63e9d26f60"
+    },
+    {
+      "path": "tests/test_camera_aim.py",
+      "sha256": "669f8017ebfe7322d5a0cfd5fc5fed241903e5a58000ac7adefe226596c428c1"
+    },
+    {
+      "path": "scripts/compile_papyrus.py",
+      "sha256": "18f85baad7ec4d0d7efd8121d35f369ba842c3a62a722d1091211ee646151bff"
+    },
+    {
+      "path": "native/verify_binary.py",
+      "sha256": "7d26376b15ac849a6d53ffd162b21a553f89f9f46bdde956895e2ce4b6cb9ecf"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\native\\src\\Plugin.cpp",
+      "role": "baseline",
+      "sha256": "b9b932fb8a403a674542da4c34566854ef2f181ecfd41b30b30a7c5fb57b29c5"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\mod\\scripts\\source\\AstraAsedioActi.psc",
+      "role": "baseline",
+      "sha256": "555f624f7309fe13b5c5972d6c6ed751d023fcaa70cacc92b723ab12a03f19f9"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\mod\\scripts\\source\\AstraAsedioSession.psc",
+      "role": "baseline",
+      "sha256": "087eb1903bb5f3a7a5e7a8e2ea6a2153fd2ee169ba2ee0eff081a19d0ac6161c"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\build\\native\\CommonLibSSE-NG\\include\\RE\\B\\BSPointerHandle.h",
+      "role": "SDK evidence",
+      "sha256": "1b9cdc93398f3b7f29b401da31d7ca60641f448b84404ede25d062edb00e8d94"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\build\\native\\CommonLibSSE-NG\\include\\RE\\N\\NativeFunction.h",
+      "role": "SDK evidence",
+      "sha256": "8a86f487ab2a85650529d9c8fa4940802e3b68ee117f01d54b9d770ae09d0a9c"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\build\\native\\CommonLibSSE-NG\\include\\RE\\P\\PackUnpackImpl.h",
+      "role": "SDK evidence",
+      "sha256": "020aba8ec7028efd9e3be130b20990bf1146cbdc81d1e0005d98c381a4be5d72"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\build\\native\\CommonLibSSE-NG\\include\\RE\\V\\VirtualMachine.h",
+      "role": "SDK evidence",
+      "sha256": "ff8cfcdd198fdd96707a2bbd6110c313620b098079f5bab0de2ed9ddfedb1670"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\build\\native\\CommonLibSSE-NG\\include\\RE\\P\\PlayerCamera.h",
+      "role": "SDK evidence",
+      "sha256": "5e98d0f0275fa2f5c0655ab3e28930ae08f4fa305956f2ae6866ba36dfbed751"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\build\\native\\CommonLibSSE-NG\\include\\RE\\T\\TESCamera.h",
+      "role": "SDK evidence",
+      "sha256": "9615d128092a7d9b6c84e022c3c5e3c890eec5310f44ef3d0be4d8bd40aeb55a"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\build\\native\\CommonLibSSE-NG\\src\\RE\\T\\TESObjectREFR.cpp",
+      "role": "SDK evidence",
+      "sha256": "202aa1b1110ff6823dd5f94508c2eb19017188e1d4185ef25b87b348e24b0895"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\build\\native\\CommonLibSSE-NG\\src\\RE\\P\\PackUnpack.cpp",
+      "role": "SDK evidence",
+      "sha256": "cbf3efc9d80a084289ec3a71b94c29683b71b92b781efb6287e115c1529ed567"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v05\\build\\native\\CommonLibSSE-NG\\src\\RE\\O\\Object.cpp",
+      "role": "SDK evidence",
+      "sha256": "949396acd1522c2aa61dcbbc3f8137f2c323aed1a5e893833303465f73cd1bf2"
+    }
+  ],
+  "compiled_artifacts": [
+    {
+      "source": "mod\\scripts\\source\\AstraAsedioActi.psc",
+      "source_sha256": "292d57191dd55835411dd2b40f447a54cc02bccb41e2aa8825c3452ba2bef96e",
+      "pex": "mod\\scripts\\AstraAsedioActi.pex",
+      "pex_sha256": "0409a4efd3cd4e5ea3eac667a26a3289d48e7d36f995b164fd9a54f070349bab",
+      "disassembly": "reports\\papyrus_bytecode\\AstraAsedioActi.disassemble.pas",
+      "disassembly_sha256": "ff94cb23109e733354841a6f567a458668970972d5110c105fa5fc5b7dffb4ac",
+      "integrity_match": true
+    },
+    {
+      "source": "mod\\scripts\\source\\AstraAsedioPlayerAlias.psc",
+      "source_sha256": "048e868247e792cd7702518a36ea95bc54d98f1d46555379f8eb7c3dafa8831e",
+      "pex": "mod\\scripts\\AstraAsedioPlayerAlias.pex",
+      "pex_sha256": "062c5942e968e318a2a0776d057b90562adeb9e9c8394bd4441e013135800147",
+      "disassembly": "reports\\papyrus_bytecode\\AstraAsedioPlayerAlias.disassemble.pas",
+      "disassembly_sha256": "8be5c70974357c12728a9febc830d582c01c60cfa3c4a69d2512af6e5a422fd5",
+      "integrity_match": true
+    },
+    {
+      "source": "mod\\scripts\\source\\AstraAsedioSession.psc",
+      "source_sha256": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4",
+      "pex": "mod\\scripts\\AstraAsedioSession.pex",
+      "pex_sha256": "9fb7aa462ad2e40c90494c0e80c735eeb4c9a0aa95e23f6755cda6dfea8566a9",
+      "disassembly": "reports\\papyrus_bytecode\\AstraAsedioSession.disassemble.pas",
+      "disassembly_sha256": "4be48307144bf73216409c98336118862101ad68368e258049a2dd0454d077d8",
+      "integrity_match": true
+    },
+    {
+      "source": "mod\\scripts\\source\\AstraSightNative.psc",
+      "source_sha256": "8636f2383e4be12fb7c9430311f57b7498c3a884a7c625fa59efe3fa678ebc7c",
+      "pex": "mod\\scripts\\AstraSightNative.pex",
+      "pex_sha256": "d8f0ddc205dcd6473b122b7eac5098eff7f7000f8a513fa2641a4b0eb9817632",
+      "disassembly": "reports\\papyrus_bytecode\\AstraSightNative.disassemble.pas",
+      "disassembly_sha256": "3282b7ca14bfcf645d6ac63c90853fffebbae5c75c933d0bd4c5cf372f3863f8",
+      "integrity_match": true
+    }
+  ],
+  "native_binary": {
+    "path": "mod/SKSE/Plugins/AstraSight.dll",
+    "sha256": "436a0c626f744458477c0b3dc46eb44c99f1a241394d9c9ad500b3af0810f306",
+    "matches_build_dll": true,
+    "machine": "AMD64",
+    "packed_plugin_version": 33554432,
+    "exports": [
+      "SKSEPlugin_Load",
+      "SKSEPlugin_Query",
+      "SKSEPlugin_Version"
+    ],
+    "compatible_runtime": "1.6.1170",
+    "minimum_skse": "2.2.8",
+    "verification": "Independent read-only PE parse, no DLL load."
+  },
+  "verification": [
+    {
+      "command": "python -B -m unittest tests.test_v06_runtime_bindings tests.test_native_sight tests.test_control_lease tests.test_camera_aim -v",
+      "exit_code": 0,
+      "tests_run": 104,
+      "result": "PASS"
+    },
+    {
+      "command": "build/native/release-verified/AstraCoreTests.exe",
+      "exit_code": 0,
+      "assertions": 113,
+      "failures": 0,
+      "result": "PASS"
+    },
+    {
+      "check": "Current source, shipped PEX, and disassembly SHA256 versus reports/plugin_compile.json",
+      "scripts_checked": 4,
+      "result": "PASS"
+    },
+    {
+      "check": "validate_assembly for 4 final disassemblies and validate_camera_assembly for Acti/Session",
+      "result": "PASS"
+    }
+  ],
+  "review_observations": [
+    "GetCameraState reads currentState identity once, returns -1 on null/unknown, and does not dereference a TESCameraState. It compares against cameraStates raw pointers.",
+    "Metadata and query version are packed 0x02000000; PSC rejects lower versions before acquiring controls or invoking new API 2 methods. Generation is rechecked after new version/API calls.",
+    "Acti and Session camera reads use guarded own binding; final Acti/Session disassembly rejects both Camera.GetCameraState and Game.GetCameraState wrappers.",
+    "Cleanup can restore owned controls with a missing DLL without calling new native getters. EndSight retains the older >=1 gate because it exists in API 1.",
+    "All Session accesses are mutex-protected; key handle acquisition precedes the Session mutex, and VM array allocation/packing follows its release.",
+    "Seven RegisterFunction calls use callableFromTasklets=true; custom CaptureAim is explicitly flagged after binding. Scene updates remain in FirstPersonState::Update.",
+    "The two shot traces execute after session.capture/session.freeze return; they do not hold the Session mutex and are conditional on accepted shot operations. The selected spdlog sink is basic_file_sink_mt.",
+    "Official SKSE NoWait precedents cover camera-state identity, a CreateRefHandle user, and float-array-producing native functions. CommonLib still delegates underlying handle/allocation synchronization to engine functions."
+  ],
+  "primary_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/ianpatt/skse64/master/skse64/PapyrusGame.cpp",
+      "support": "GetCameraState identity scan, and NoWait registrations for GetCameraState and SetPlayersLastRiddenHorse, whose implementation calls CreateRefHandle."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ianpatt/skse64/master/skse64/PapyrusUtility.cpp",
+      "support": "NoWait registrations for CreateFloatArray/ResizeFloatArray and VMResultArray return path."
+    }
+  ],
+  "limits": [
+    "Python fixtures execute selected real PSC branches under deterministic callbacks; they are not the Papyrus VM and do not prove scheduling, persistence or event delivery in Skyrim.",
+    "Native Core tests exercise portable session/math logic, not hooked camera consumers, native handle management or the running engine.",
+    "No game launch, FPS measurement, firing-latency validation, camera visual validation or engine-load validation was performed.",
+    "CommonLib source does not expose the relocated handle-manager or VM array-allocation implementations; NoWait assessment is source-based plus official SKSE precedent.",
+    "Shot log intervals are diagnostic timings around accepted operations and are not a proof of visual freeze duration or firing responsiveness.",
+    "With a missing/old DLL, perspective restoration is conservatively skipped because the new camera getter is unavailable; owned controls still release."
+  ]
+}

@@ -1,0 +1,6 @@
+test_reload_visual_return_preserves_replacement_shot_or_menu_context (tests.test_native_sight.NativeSightContract.test_reload_visual_return_preserves_replacement_shot_or_menu_context) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.017s
+
+OK

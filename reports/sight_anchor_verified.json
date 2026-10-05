@@ -1,0 +1,449 @@
+{
+  "ok": true,
+  "nif_sha256": "dd1741b8480e32988a10d1711b342d70882da1d1f398564794b8e6581c44bd1d",
+  "poses": [
+    {
+      "root_yaw": 0,
+      "pitch": -5,
+      "world_eye": [
+        0.0,
+        76.2093505859375,
+        199.82025146484375
+      ],
+      "logical_forward": [
+        1.5099580252808664e-07,
+        -0.9961947202682495,
+        -0.08715572208166122
+      ],
+      "muzzle_forward_dot": 1.0000000442378452,
+      "floor_clearance_root_local": 202.62025146484376,
+      "nearest_mesh_distance": 18.1126708984375,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 0,
+      "pitch": 0,
+      "world_eye": [
+        0.0,
+        80.0,
+        193.0
+      ],
+      "logical_forward": [
+        1.5099580252808664e-07,
+        -1.0,
+        0.0
+      ],
+      "muzzle_forward_dot": 1.0000000000000229,
+      "floor_clearance_root_local": 195.8,
+      "nearest_mesh_distance": 18.112667083740234,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 0,
+      "pitch": 35,
+      "world_eye": [
+        0.0,
+        88.4752197265625,
+        139.8799591064453
+      ],
+      "logical_forward": [
+        1.5099580252808664e-07,
+        -0.8191519975662231,
+        0.5735765099525452
+      ],
+      "muzzle_forward_dot": 1.0000000298023453,
+      "floor_clearance_root_local": 142.67995910644532,
+      "nearest_mesh_distance": 18.112668991088867,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 0,
+      "pitch": 45,
+      "world_eye": [
+        0.0,
+        84.85281372070312,
+        124.71572875976562
+      ],
+      "logical_forward": [
+        1.5099580252808664e-07,
+        -0.7071067690849304,
+        0.7071067690849304
+      ],
+      "muzzle_forward_dot": 0.999999940395378,
+      "floor_clearance_root_local": 127.51572875976564,
+      "nearest_mesh_distance": 18.1126651763916,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 0,
+      "pitch": 60,
+      "world_eye": [
+        0.0,
+        74.6410140991211,
+        103.71796417236328
+      ],
+      "logical_forward": [
+        1.5099580252808664e-07,
+        -0.4999999701976776,
+        0.866025447845459
+      ],
+      "muzzle_forward_dot": 1.0000000298023453,
+      "floor_clearance_root_local": 106.51796417236329,
+      "nearest_mesh_distance": 18.1126708984375,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 0,
+      "pitch": 70,
+      "world_eye": [
+        0.0,
+        64.9493179321289,
+        91.5053939819336
+      ],
+      "logical_forward": [
+        1.5099580252808664e-07,
+        -0.3420201539993286,
+        0.9396926164627075
+      ],
+      "muzzle_forward_dot": 0.999999977648281,
+      "floor_clearance_root_local": 94.3053939819336,
+      "nearest_mesh_distance": 18.112667083740234,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 0,
+      "pitch": 75,
+      "world_eye": [
+        0.0,
+        59.342567443847656,
+        86.07870483398438
+      ],
+      "logical_forward": [
+        1.5099580252808664e-07,
+        -0.25881919264793396,
+        0.9659258127212524
+      ],
+      "muzzle_forward_dot": 1.0000000372529259,
+      "floor_clearance_root_local": 88.87870483398439,
+      "nearest_mesh_distance": 18.112668991088867,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 0,
+      "pitch": 80,
+      "world_eye": [
+        0.0,
+        53.284156799316406,
+        81.16130065917969
+      ],
+      "logical_forward": [
+        1.5099581673894136e-07,
+        -0.17364810407161713,
+        0.9848078489303589
+      ],
+      "muzzle_forward_dot": 1.00000015087428,
+      "floor_clearance_root_local": 83.9613006591797,
+      "nearest_mesh_distance": 17.323469161987305,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 47,
+      "pitch": -5,
+      "world_eye": [
+        -55.73598861694336,
+        51.97465515136719,
+        199.82025146484375
+      ],
+      "logical_forward": [
+        0.728570818901062,
+        -0.6794030666351318,
+        -0.08715572208166122
+      ],
+      "muzzle_forward_dot": 1.0000000740401447,
+      "floor_clearance_root_local": 202.62025146484376,
+      "nearest_mesh_distance": 18.112668991088867,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 47,
+      "pitch": 0,
+      "world_eye": [
+        -58.508296966552734,
+        54.55986785888672,
+        193.0
+      ],
+      "logical_forward": [
+        0.7313538193702698,
+        -0.6819982528686523,
+        0.0
+      ],
+      "muzzle_forward_dot": 1.0000000596046448,
+      "floor_clearance_root_local": 195.8,
+      "nearest_mesh_distance": 18.1126651763916,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 47,
+      "pitch": 35,
+      "world_eye": [
+        -64.70668029785156,
+        60.3399543762207,
+        139.8799591064453
+      ],
+      "logical_forward": [
+        0.5990899801254272,
+        -0.5586602091789246,
+        0.5735765099525452
+      ],
+      "muzzle_forward_dot": 1.0000000298023224,
+      "floor_clearance_root_local": 142.67995910644532,
+      "nearest_mesh_distance": 18.112667083740234,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 47,
+      "pitch": 45,
+      "world_eye": [
+        -62.05741882324219,
+        57.869476318359375,
+        124.71572875976562
+      ],
+      "logical_forward": [
+        0.5171452760696411,
+        -0.482245534658432,
+        0.7071067690849304
+      ],
+      "muzzle_forward_dot": 0.9999999701976776,
+      "floor_clearance_root_local": 127.51572875976564,
+      "nearest_mesh_distance": 18.11266326904297,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 47,
+      "pitch": 60,
+      "world_eye": [
+        -54.58898162841797,
+        50.905052185058594,
+        103.71796417236328
+      ],
+      "logical_forward": [
+        0.3656769096851349,
+        -0.340999037027359,
+        0.866025447845459
+      ],
+      "muzzle_forward_dot": 1.0000000074505806,
+      "floor_clearance_root_local": 106.51796417236329,
+      "nearest_mesh_distance": 18.112667083740234,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 47,
+      "pitch": 70,
+      "world_eye": [
+        -47.50092315673828,
+        44.29533004760742,
+        91.5053939819336
+      ],
+      "logical_forward": [
+        0.2501378059387207,
+        -0.23325708508491516,
+        0.9396926164627075
+      ],
+      "muzzle_forward_dot": 0.9999999813735485,
+      "floor_clearance_root_local": 94.3053939819336,
+      "nearest_mesh_distance": 18.1126651763916,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 47,
+      "pitch": 75,
+      "world_eye": [
+        -43.40040588378906,
+        40.471534729003906,
+        86.07870483398438
+      ],
+      "logical_forward": [
+        0.18928848206996918,
+        -0.1765141636133194,
+        0.9659258127212524
+      ],
+      "muzzle_forward_dot": 1.0000000428408384,
+      "floor_clearance_root_local": 88.87870483398439,
+      "nearest_mesh_distance": 18.112667083740234,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 47,
+      "pitch": 80,
+      "world_eye": [
+        -38.969566345214844,
+        36.3397102355957,
+        81.16130065917969
+      ],
+      "logical_forward": [
+        0.12699829041957855,
+        -0.11842761933803558,
+        0.9848078489303589
+      ],
+      "muzzle_forward_dot": 1.0000001545995474,
+      "floor_clearance_root_local": 83.9613006591797,
+      "nearest_mesh_distance": 17.323474884033203,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 180,
+      "pitch": -5,
+      "world_eye": [
+        6.662432951998198e-06,
+        -76.2093505859375,
+        199.82025146484375
+      ],
+      "logical_forward": [
+        -2.3808590299267962e-07,
+        0.9961947202682495,
+        -0.08715572208166122
+      ],
+      "muzzle_forward_dot": 1.000000044237879,
+      "floor_clearance_root_local": 202.62025146484376,
+      "nearest_mesh_distance": 18.1126708984375,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 180,
+      "pitch": 0,
+      "world_eye": [
+        6.993822353251744e-06,
+        -80.0,
+        193.0
+      ],
+      "logical_forward": [
+        -2.384185791015625e-07,
+        1.0,
+        0.0
+      ],
+      "muzzle_forward_dot": 1.0000000000000568,
+      "floor_clearance_root_local": 195.8,
+      "nearest_mesh_distance": 18.112667083740234,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 180,
+      "pitch": 35,
+      "world_eye": [
+        7.734748578513972e-06,
+        -88.4752197265625,
+        139.8799591064453
+      ],
+      "logical_forward": [
+        -2.2260834953158337e-07,
+        0.8191519975662231,
+        0.5735765099525452
+      ],
+      "muzzle_forward_dot": 1.000000029802372,
+      "floor_clearance_root_local": 142.67995910644532,
+      "nearest_mesh_distance": 18.112668991088867,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 180,
+      "pitch": 45,
+      "world_eye": [
+        7.418068889819551e-06,
+        -84.85281372070312,
+        124.71572875976562
+      ],
+      "logical_forward": [
+        -2.1281303475007007e-07,
+        0.7071067690849304,
+        0.7071067690849304
+      ],
+      "muzzle_forward_dot": 0.9999999403954005,
+      "floor_clearance_root_local": 127.51572875976564,
+      "nearest_mesh_distance": 18.1126651763916,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 180,
+      "pitch": 60,
+      "world_eye": [
+        6.525324351969175e-06,
+        -74.6410140991211,
+        103.71796417236328
+      ],
+      "logical_forward": [
+        -1.9470718370939721e-07,
+        0.4999999701976776,
+        0.866025447845459
+      ],
+      "muzzle_forward_dot": 1.0000000298023604,
+      "floor_clearance_root_local": 106.51796417236329,
+      "nearest_mesh_distance": 18.112668991088867,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 180,
+      "pitch": 70,
+      "world_eye": [
+        5.6780495469865855e-06,
+        -64.9493179321289,
+        91.5053939819336
+      ],
+      "logical_forward": [
+        -1.8089615139160742e-07,
+        0.3420201539993286,
+        0.9396926164627075
+      ],
+      "muzzle_forward_dot": 0.999999977648291,
+      "floor_clearance_root_local": 94.3053939819336,
+      "nearest_mesh_distance": 18.1126651763916,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 180,
+      "pitch": 75,
+      "world_eye": [
+        5.187891929381294e-06,
+        -59.342567443847656,
+        86.07870483398438
+      ],
+      "logical_forward": [
+        -1.7362249593588786e-07,
+        0.25881919264793396,
+        0.9659258127212524
+      ],
+      "muzzle_forward_dot": 1.0000000372529332,
+      "floor_clearance_root_local": 88.87870483398439,
+      "nearest_mesh_distance": 18.1126651763916,
+      "centre_ray_hits": []
+    },
+    {
+      "root_yaw": 180,
+      "pitch": 80,
+      "world_eye": [
+        4.658249054045882e-06,
+        -53.284156799316406,
+        81.16130065917969
+      ],
+      "logical_forward": [
+        -1.6617661913187476e-07,
+        0.17364810407161713,
+        0.9848078489303589
+      ],
+      "muzzle_forward_dot": 1.0000001508742846,
+      "floor_clearance_root_local": 83.9613006591797,
+      "nearest_mesh_distance": 17.323469161987305,
+      "centre_ray_hits": []
+    }
+  ],
+  "minimum_floor_clearance": 83.9613006591797,
+  "minimum_mesh_distance": 17.323469161987305,
+  "minimum_direction_dot": 0.999999940395378,
+  "local_position_units": [
+    0.0,
+    80.0,
+    40.0
+  ],
+  "logical_basis": "NIF +Y forward and +Z up; native adapter handles FP convention.",
+  "in_game_camera_verified": false,
+  "scope": "Rest-pose ballesta meshes and floor plane; not camera near-plane, frame composition, full animation, operator or scene visibility in Skyrim."
+}

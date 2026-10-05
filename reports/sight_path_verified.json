@@ -1,0 +1,1794 @@
+{
+  "scope": "Static geometry on the written NIFs, sampled poses (24 yaws x 9 elevations). The engine sphere radius (~12-15 u) and its start at the eye are fitted to the v09 camera recorder log, not measured in the engine.",
+  "operator_positions": 186,
+  "operator_positions_on_pedestal": 52,
+  "operator_foot_heights_above_root": [
+    -11.6,
+    -11.5,
+    -2.8,
+    35.0
+  ],
+  "operator_rule": "within 160 u of the crank foot, |dz| <= 64, walkable collision, body radius 10 u free up to 110 u; eye = feet + 120.5",
+  "poses": 216,
+  "pedestal_collision_top_above_root": 34.99560546875,
+  "min_head_to_camera_collision_clearance": 29.82699072854758,
+  "min_head_to_camera_collision_sampled": 30.00439453125,
+  "sweep_bound": "guaranteed lower bound: distance to the collision is 1-Lipschitz along the segment; intervals within 30 u refined 16x",
+  "worst_sweep_case": {
+    "yaw": 135,
+    "elevation": 60,
+    "eye": [
+      180.3699951171875,
+      220.22999572753906,
+      574.4632568359375
+    ]
+  },
+  "required_sweep_clearance": 25.0,
+  "min_camera_to_weapon_mesh": 10.29157829284668,
+  "worst_camera_case": [
+    270,
+    80
+  ],
+  "required_camera_clearance": 8.0,
+  "min_camera_to_sight_meshes": 16.52288818359375,
+  "worst_sight_mesh_case": [
+    30,
+    80
+  ],
+  "required_near_plane": 15.0,
+  "near_plane_cuts_in_view": [],
+  "near_plane_cut_poses": 0,
+  "near_plane_check_falsified": true,
+  "near_plane_rule": "no weapon triangle overlaps, and no weapon vertex lies inside, the view pyramid between the camera and the 15 u near plane (85 degree 16:9 frustum)",
+  "not_covered": "Tower visual-only geometry is outside the camera, near-plane and sight-line checks (tower collision is in the sweep); the v04 source has only low platform pieces within the 200 u camera radius.",
+  "sight_line_blocked_by_weapon": [],
+  "sight_line_blocked_count": 0,
+  "max_sight_colinearity_error": 1.142462940849107e-06,
+  "max_sight_alignment_error_units": 0.00010194952403940404,
+  "alignment_points": "written rear-ring centre (bounding box of the ring vertices) and written post apex, post node set as Plugin.cpp sets it",
+  "nif_sha256": {
+    "torre": "41bedca7ae60dfa7cdd9a7850cfc437a6ee667853adf51a9f07bd27476a891c5",
+    "ballesta": "dd1741b8480e32988a10d1711b342d70882da1d1f398564794b8e6581c44bd1d"
+  },
+  "inputs_sha256": {
+    "scripts/sight_pose.py": "7e7493af493254e58bf6e1760c5a27e06b2ddaee872b7352acd54ae4fc5a1a4f",
+    "scripts/verify_sight_path.py": "be9fc9c5ea69923e07632367cb6082c24c507b916ae9a2aa0628fd58a6b67443",
+    "config.json": "d214682015a08a9114bf1c41c9b354987ae5b0716d3b6c1258e271d2c2c8e982"
+  },
+  "rows": [
+    {
+      "yaw": 0,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88241577148438,
+      "camera_to_sight_meshes": 118.96810150146484
+    },
+    {
+      "yaw": 15,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88241577148438,
+      "camera_to_sight_meshes": 118.96809387207031
+    },
+    {
+      "yaw": 30,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88239288330078,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 45,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88239288330078,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 60,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88239288330078,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 75,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88240051269531,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 90,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88241577148438,
+      "camera_to_sight_meshes": 118.96810150146484
+    },
+    {
+      "yaw": 105,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88241577148438,
+      "camera_to_sight_meshes": 118.96808624267578
+    },
+    {
+      "yaw": 120,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88239288330078,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 135,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88240051269531,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 150,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88239288330078,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 165,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88240051269531,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 180,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88241577148438,
+      "camera_to_sight_meshes": 118.96810150146484
+    },
+    {
+      "yaw": 195,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88240051269531,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 210,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88240051269531,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 225,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88240051269531,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 240,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88239288330078,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 255,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88241577148438,
+      "camera_to_sight_meshes": 118.96809387207031
+    },
+    {
+      "yaw": 270,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88241577148438,
+      "camera_to_sight_meshes": 118.96810150146484
+    },
+    {
+      "yaw": 285,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88241577148438,
+      "camera_to_sight_meshes": 118.96809387207031
+    },
+    {
+      "yaw": 300,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88239288330078,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 315,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88240051269531,
+      "camera_to_sight_meshes": 118.96808624267578
+    },
+    {
+      "yaw": 330,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88240051269531,
+      "camera_to_sight_meshes": 118.96807861328125
+    },
+    {
+      "yaw": 345,
+      "elevation": -5,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 213.1446533203125,
+      "camera_to_weapon": 73.88240051269531,
+      "camera_to_sight_meshes": 118.96808624267578
+    },
+    {
+      "yaw": 0,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054107666016,
+      "camera_to_sight_meshes": 118.96892547607422
+    },
+    {
+      "yaw": 15,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89055633544922,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 30,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054870605469,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 45,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054870605469,
+      "camera_to_sight_meshes": 118.96892547607422
+    },
+    {
+      "yaw": 60,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054870605469,
+      "camera_to_sight_meshes": 118.96892547607422
+    },
+    {
+      "yaw": 75,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054107666016,
+      "camera_to_sight_meshes": 118.96891784667969
+    },
+    {
+      "yaw": 90,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054107666016,
+      "camera_to_sight_meshes": 118.96892547607422
+    },
+    {
+      "yaw": 105,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054107666016,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 120,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054870605469,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 135,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89055633544922,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 150,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054870605469,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 165,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054107666016,
+      "camera_to_sight_meshes": 118.96892547607422
+    },
+    {
+      "yaw": 180,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054107666016,
+      "camera_to_sight_meshes": 118.96892547607422
+    },
+    {
+      "yaw": 195,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054107666016,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 210,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054870605469,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 225,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89055633544922,
+      "camera_to_sight_meshes": 118.96892547607422
+    },
+    {
+      "yaw": 240,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89055633544922,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 255,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89055633544922,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 270,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054107666016,
+      "camera_to_sight_meshes": 118.96892547607422
+    },
+    {
+      "yaw": 285,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89055633544922,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 300,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054870605469,
+      "camera_to_sight_meshes": 118.96892547607422
+    },
+    {
+      "yaw": 315,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89055633544922,
+      "camera_to_sight_meshes": 118.96894073486328
+    },
+    {
+      "yaw": 330,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89055633544922,
+      "camera_to_sight_meshes": 118.96893310546875
+    },
+    {
+      "yaw": 345,
+      "elevation": 0,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 195.89410400390625,
+      "camera_to_weapon": 73.89054107666016,
+      "camera_to_sight_meshes": 118.96892547607422
+    },
+    {
+      "yaw": 0,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85182189941406,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 15,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.8518295288086,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 30,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85181427001953,
+      "camera_to_sight_meshes": 118.96493530273438
+    },
+    {
+      "yaw": 45,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.8518295288086,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 60,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85181427001953,
+      "camera_to_sight_meshes": 118.96493530273438
+    },
+    {
+      "yaw": 75,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.851806640625,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 90,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85182189941406,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 105,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.851806640625,
+      "camera_to_sight_meshes": 118.96493530273438
+    },
+    {
+      "yaw": 120,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85181427001953,
+      "camera_to_sight_meshes": 118.96493530273438
+    },
+    {
+      "yaw": 135,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.851806640625,
+      "camera_to_sight_meshes": 118.96492767333984
+    },
+    {
+      "yaw": 150,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85181427001953,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 165,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.851806640625,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 180,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85182189941406,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 195,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.851806640625,
+      "camera_to_sight_meshes": 118.96493530273438
+    },
+    {
+      "yaw": 210,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85181427001953,
+      "camera_to_sight_meshes": 118.96492767333984
+    },
+    {
+      "yaw": 225,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.851806640625,
+      "camera_to_sight_meshes": 118.96492767333984
+    },
+    {
+      "yaw": 240,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.851806640625,
+      "camera_to_sight_meshes": 118.96493530273438
+    },
+    {
+      "yaw": 255,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.8518295288086,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 270,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85182189941406,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 285,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.851806640625,
+      "camera_to_sight_meshes": 118.9649429321289
+    },
+    {
+      "yaw": 300,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85181427001953,
+      "camera_to_sight_meshes": 118.96493530273438
+    },
+    {
+      "yaw": 315,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.851806640625,
+      "camera_to_sight_meshes": 118.96493530273438
+    },
+    {
+      "yaw": 330,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.85182189941406,
+      "camera_to_sight_meshes": 118.96493530273438
+    },
+    {
+      "yaw": 345,
+      "elevation": 15,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 142.611083984375,
+      "camera_to_weapon": 73.851806640625,
+      "camera_to_sight_meshes": 118.96493530273438
+    },
+    {
+      "yaw": 0,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.09674072265625,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94478607177734
+    },
+    {
+      "yaw": 15,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94480895996094
+    },
+    {
+      "yaw": 30,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.94480895996094
+    },
+    {
+      "yaw": 45,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.94480895996094
+    },
+    {
+      "yaw": 60,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.09674072265625,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.94477844238281
+    },
+    {
+      "yaw": 75,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.09674072265625,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94477081298828
+    },
+    {
+      "yaw": 90,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.09674072265625,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94478607177734
+    },
+    {
+      "yaw": 105,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94481658935547
+    },
+    {
+      "yaw": 120,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94481658935547
+    },
+    {
+      "yaw": 135,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.94480895996094
+    },
+    {
+      "yaw": 150,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.94480895996094
+    },
+    {
+      "yaw": 165,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.09674072265625,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94477844238281
+    },
+    {
+      "yaw": 180,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.09674072265625,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94478607177734
+    },
+    {
+      "yaw": 195,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.9448013305664
+    },
+    {
+      "yaw": 210,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94480895996094
+    },
+    {
+      "yaw": 225,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.94480895996094
+    },
+    {
+      "yaw": 240,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94481658935547
+    },
+    {
+      "yaw": 255,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.09674072265625,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.94478607177734
+    },
+    {
+      "yaw": 270,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.09674072265625,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94478607177734
+    },
+    {
+      "yaw": 285,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.94479370117188
+    },
+    {
+      "yaw": 300,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.09674072265625,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.94477844238281
+    },
+    {
+      "yaw": 315,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.09674072265625,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.94477081298828
+    },
+    {
+      "yaw": 330,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65672302246094,
+      "camera_to_sight_meshes": 118.9448013305664
+    },
+    {
+      "yaw": 345,
+      "elevation": 35,
+      "camera_distance_behind_rear": 120.0,
+      "camera_height_above_root": 73.0966796875,
+      "camera_to_weapon": 73.65673065185547,
+      "camera_to_sight_meshes": 118.94480895996094
+    },
+    {
+      "yaw": 0,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.161704153365,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28731536865234,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 15,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16169919447515,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28731536865234,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 30,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.1617039288427,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28731536865234,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 45,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170008220226,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28731536865234,
+      "camera_to_sight_meshes": 116.1070327758789
+    },
+    {
+      "yaw": 60,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170645660293,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28732299804688,
+      "camera_to_sight_meshes": 116.1070556640625
+    },
+    {
+      "yaw": 75,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170820443108,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28732299804688,
+      "camera_to_sight_meshes": 116.10704803466797
+    },
+    {
+      "yaw": 90,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170415336376,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28731536865234,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 105,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170679189567,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.2873306274414,
+      "camera_to_sight_meshes": 116.1070556640625
+    },
+    {
+      "yaw": 120,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170363003009,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28732299804688,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 135,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170331885095,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28731536865234,
+      "camera_to_sight_meshes": 116.1070327758789
+    },
+    {
+      "yaw": 150,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170207012391,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28732299804688,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 165,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.1617086251104,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28732299804688,
+      "camera_to_sight_meshes": 116.1070556640625
+    },
+    {
+      "yaw": 180,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170415336373,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28731536865234,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 195,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170512429821,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28731536865234,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 210,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.1617026324538,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28732299804688,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 225,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170331884264,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.2873306274414,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 240,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170263172965,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28732299804688,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 255,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170592347612,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28731536865234,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 270,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170415336916,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28731536865234,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 285,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170365356926,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28732299804688,
+      "camera_to_sight_meshes": 116.10704803466797
+    },
+    {
+      "yaw": 300,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170792744303,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.2873306274414,
+      "camera_to_sight_meshes": 116.1070556640625
+    },
+    {
+      "yaw": 315,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.161707615271,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28733825683594,
+      "camera_to_sight_meshes": 116.10704803466797
+    },
+    {
+      "yaw": 330,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170293053536,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.28732299804688,
+      "camera_to_sight_meshes": 116.10704040527344
+    },
+    {
+      "yaw": 345,
+      "elevation": 38,
+      "camera_distance_behind_rear": 117.16170461262621,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 71.2873306274414,
+      "camera_to_sight_meshes": 116.1070556640625
+    },
+    {
+      "yaw": 0,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848495470708,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176734924316406,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 15,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848144907596,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176719665527344,
+      "camera_to_sight_meshes": 85.05796813964844
+    },
+    {
+      "yaw": 30,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848675956104,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17673110961914,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 45,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848309371486,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176727294921875,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 60,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848529643864,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17673110961914,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 75,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848610778511,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176734924316406,
+      "camera_to_sight_meshes": 85.0579833984375
+    },
+    {
+      "yaw": 90,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848495470615,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176727294921875,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 105,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.0484830324245,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176727294921875,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 120,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848665855265,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17673110961914,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 135,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848436405842,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17673110961914,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 150,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848532267151,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176734924316406,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 165,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848670712624,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17672348022461,
+      "camera_to_sight_meshes": 85.05796813964844
+    },
+    {
+      "yaw": 180,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848495470623,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176727294921875,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 195,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.0484844063154,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176727294921875,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 210,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848665855265,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17673110961914,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 225,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848436405298,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176734924316406,
+      "camera_to_sight_meshes": 85.0579833984375
+    },
+    {
+      "yaw": 240,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848569188638,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17673110961914,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 255,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848833158555,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17673873901367,
+      "camera_to_sight_meshes": 85.05799102783203
+    },
+    {
+      "yaw": 270,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848495470972,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17673110961914,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 285,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848417726723,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176734924316406,
+      "camera_to_sight_meshes": 85.0579833984375
+    },
+    {
+      "yaw": 300,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848626310734,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17673110961914,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 315,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848567008229,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.17673110961914,
+      "camera_to_sight_meshes": 85.0579833984375
+    },
+    {
+      "yaw": 330,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.0484857928893,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176734924316406,
+      "camera_to_sight_meshes": 85.0579833984375
+    },
+    {
+      "yaw": 345,
+      "elevation": 45,
+      "camera_distance_behind_rear": 86.04848176510744,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 45.176734924316406,
+      "camera_to_sight_meshes": 85.05797576904297
+    },
+    {
+      "yaw": 0,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039107948726,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759387969970703,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 15,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039022962188,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.75941276550293,
+      "camera_to_sight_meshes": 44.32157516479492
+    },
+    {
+      "yaw": 30,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.080390352698956,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759382247924805,
+      "camera_to_sight_meshes": 44.321571350097656
+    },
+    {
+      "yaw": 45,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.080390623969855,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759414672851562,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 60,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039150044042,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.75940704345703,
+      "camera_to_sight_meshes": 44.32157516479492
+    },
+    {
+      "yaw": 75,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039114520915,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759414672851562,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 90,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039107948684,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759389877319336,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 105,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039102990482,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.75941276550293,
+      "camera_to_sight_meshes": 44.32157516479492
+    },
+    {
+      "yaw": 120,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039080298855,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759403228759766,
+      "camera_to_sight_meshes": 44.321571350097656
+    },
+    {
+      "yaw": 135,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.080390578310116,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759414672851562,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 150,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.0803911141442,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759387969970703,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 165,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.080390960290565,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759416580200195,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 180,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039107948689,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759389877319336,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 195,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039139845795,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759384155273438,
+      "camera_to_sight_meshes": 44.321571350097656
+    },
+    {
+      "yaw": 210,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039079491674,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.75940704345703,
+      "camera_to_sight_meshes": 44.321571350097656
+    },
+    {
+      "yaw": 225,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039057830821,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759416580200195,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 240,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039143463626,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759384155273438,
+      "camera_to_sight_meshes": 44.321571350097656
+    },
+    {
+      "yaw": 255,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.080390987683614,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759389877319336,
+      "camera_to_sight_meshes": 44.32157516479492
+    },
+    {
+      "yaw": 270,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039107948815,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.75938606262207,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 285,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039109268076,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759422302246094,
+      "camera_to_sight_meshes": 44.32158279418945
+    },
+    {
+      "yaw": 300,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039086879364,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.75940704345703,
+      "camera_to_sight_meshes": 44.321571350097656
+    },
+    {
+      "yaw": 315,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.080391130276425,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759384155273438,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 330,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08039098434457,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759384155273438,
+      "camera_to_sight_meshes": 44.32157516479492
+    },
+    {
+      "yaw": 345,
+      "elevation": 60,
+      "camera_distance_behind_rear": 45.08038994689117,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 29.759380340576172,
+      "camera_to_sight_meshes": 44.32157897949219
+    },
+    {
+      "yaw": 0,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212095583745,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 25.439945220947266,
+      "camera_to_sight_meshes": 27.86690902709961
+    },
+    {
+      "yaw": 15,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320211875021386,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 27.028514862060547,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 30,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.32021209997872,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.399139404296875,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 45,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212126895566,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.399139404296875,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 60,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212272716862,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.399139404296875,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 75,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212177234147,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 27.02852439880371,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 90,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.32021209558353,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 25.439945220947266,
+      "camera_to_sight_meshes": 27.86690902709961
+    },
+    {
+      "yaw": 105,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.32021202055653,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 27.028512954711914,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 120,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.32021217763563,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.399139404296875,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 135,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212020263206,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.399139404296875,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 150,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.32021219331285,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.399139404296875,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 165,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320211931155793,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 27.028514862060547,
+      "camera_to_sight_meshes": 27.866912841796875
+    },
+    {
+      "yaw": 180,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212095583564,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 25.43994903564453,
+      "camera_to_sight_meshes": 27.86690902709961
+    },
+    {
+      "yaw": 195,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212119940326,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 27.02851676940918,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 210,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212102234766,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.399139404296875,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 225,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212020262428,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.399139404296875,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 240,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.32021237787283,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.39913558959961,
+      "camera_to_sight_meshes": 27.86690902709961
+    },
+    {
+      "yaw": 255,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212044740742,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 27.02852439880371,
+      "camera_to_sight_meshes": 27.86690902709961
+    },
+    {
+      "yaw": 270,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212095584097,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 25.439943313598633,
+      "camera_to_sight_meshes": 27.86690902709961
+    },
+    {
+      "yaw": 285,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212113115495,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 27.02850341796875,
+      "camera_to_sight_meshes": 27.866907119750977
+    },
+    {
+      "yaw": 300,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.32021207248004,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.39914321899414,
+      "camera_to_sight_meshes": 27.866912841796875
+    },
+    {
+      "yaw": 315,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320212131834502,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.399139404296875,
+      "camera_to_sight_meshes": 27.866910934448242
+    },
+    {
+      "yaw": 330,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.32021230021494,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 33.399139404296875,
+      "camera_to_sight_meshes": 27.866912841796875
+    },
+    {
+      "yaw": 345,
+      "elevation": 70,
+      "camera_distance_behind_rear": 28.320211818278306,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 27.02850341796875,
+      "camera_to_sight_meshes": 27.86690902709961
+    },
+    {
+      "yaw": 0,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438976856826,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 10.291584014892578,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 15,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438928793946,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 12.364752769470215,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 30,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438972705597,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 22.06797218322754,
+      "camera_to_sight_meshes": 16.52288818359375
+    },
+    {
+      "yaw": 45,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438975758547,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 26.15389633178711,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 60,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438988811963,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 22.067962646484375,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 75,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.4324389937526,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 12.364761352539062,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 90,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.43243897685675,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 10.291584014892578,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 105,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438950180064,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 12.364747047424316,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 120,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432439020414293,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 22.067956924438477,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 135,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.43243898904451,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 26.153892517089844,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 150,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438990156847,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 22.067974090576172,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 165,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438997063826,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 12.36474895477295,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 180,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438976856766,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 10.291584014892578,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 195,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438965033942,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 12.364750862121582,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 210,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432439008675654,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 22.067956924438477,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 225,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.43243898904428,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 26.15389060974121,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 240,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432439005877686,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 22.067955017089844,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 255,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432439014701924,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 12.364761352539062,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 270,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438976856925,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 10.29157829284668,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 285,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438965826897,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 12.36474323272705,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 300,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432439003348673,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 22.067964553833008,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 315,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432439021877723,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 26.15389060974121,
+      "camera_to_sight_meshes": 16.522890090942383
+    },
+    {
+      "yaw": 330,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.43243895816869,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 22.067968368530273,
+      "camera_to_sight_meshes": 16.52288818359375
+    },
+    {
+      "yaw": 345,
+      "elevation": 80,
+      "camera_distance_behind_rear": 16.432438939874466,
+      "camera_height_above_root": 65.0,
+      "camera_to_weapon": 12.364744186401367,
+      "camera_to_sight_meshes": 16.522890090942383
+    }
+  ],
+  "success": true,
+  "renders": [
+    "renders\\Astra_mira_v10_00.png",
+    "renders\\Astra_mira_v10_35.png",
+    "renders\\Astra_mira_v10_80.png"
+  ]
+}

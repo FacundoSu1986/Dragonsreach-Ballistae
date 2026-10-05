@@ -1,0 +1,10 @@
+﻿pivote de giro z=135.5, pivote de elevacion z=153.0 (sobre la raiz)
+OperatorNode xy=(73.5, 101.5) cuelga de AstraBallesta, radio=125.3 u; capsula=18 u -> cuerpo en r 107.3..143.3
+elevacion  -5: vertices que giran bajo z 125:   404 | radio max 108.7 (z 122.9, CTRL_ELEVACION_metal) | en franja r 125+-30:    12 | dentro de la capsula:    12 ['CTRL_ELEVACION_metal']
+elevacion  +0: vertices que giran bajo z 125:   472 | radio max 105.7 (z 113.5, CTRL_ELEVACION_metal) | en franja r 125+-30:    40 | dentro de la capsula:     0 
+elevacion +15: vertices que giran bajo z 125:  4144 | radio max 147.1 (z 107.1, CTRL_ELEVACION_bolt) | en franja r 125+-30:  3442 | dentro de la capsula:  2592 ['CTRL_ELEVACION_bolt', 'CTRL_ELEVACION_metal', 'CTRL_ELEVACION_rope', 'CTRL_ELEVACION_wood']
+elevacion +30: vertices que giran bajo z 125:  6558 | radio max 130.9 (z 71.7, CTRL_ELEVACION_bolt) | en franja r 125+-30:  3861 | dentro de la capsula:  2741 ['CTRL_ELEVACION_bolt', 'CTRL_ELEVACION_metal', 'CTRL_ELEVACION_wood']
+elevacion +45: vertices que giran bajo z 125:  7149 | radio max 113.4 (z 73.3, CTRL_ELEVACION_metal) | en franja r 125+-30:  1746 | dentro de la capsula:   526 ['CTRL_ELEVACION_metal']
+elevacion +60: vertices que giran bajo z 125:  7225 | radio max 92.1 (z 49.4, CTRL_ELEVACION_metal) | en franja r 125+-30:     0 | dentro de la capsula:     0 
+elevacion +80: vertices que giran bajo z 125:  7104 | radio max 72.4 (z 59.5, CTRL_ELEVACION_bolt) | en franja r 125+-30:     0 | dentro de la capsula:     0 
+parte fija: z -0.0..137.6, radio max 92.7

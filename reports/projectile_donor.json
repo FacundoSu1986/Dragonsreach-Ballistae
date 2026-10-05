@@ -1,0 +1,546 @@
+[
+  {
+    "name": "AddOnNode99",
+    "type": "EMPTY",
+    "parent": "TracerRoot",
+    "matrix": [
+      [
+        -1.0,
+        1.5832428701401113e-08,
+        -2.384979325142922e-08,
+        1.8297805581823923e-06
+      ],
+      [
+        2.3849750618865073e-08,
+        -2.221264821855584e-06,
+        -0.9999999403953552,
+        1.4335824251174927
+      ],
+      [
+        -1.5832483768463135e-08,
+        -0.9999999403953552,
+        2.221264821855584e-06,
+        -2.528716095184791e-06
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "props": {
+      "pynBlockName": "BSValueNode",
+      "pynNodeName": "AddOnNode99",
+      "pynValueNodeFlags": "",
+      "pynNodeFlags": "SELECTIVE_UPDATE | SELECTIVE_UPDATE_TRANSF | SELECTIVE_UPDATE_CONTR",
+      "childCount": "2",
+      "value": "99"
+    }
+  },
+  {
+    "name": "bhkBoxShape",
+    "type": "MESH",
+    "parent": null,
+    "matrix": [
+      [
+        1.0,
+        1.7484555314695172e-07,
+        0.0,
+        0.0
+      ],
+      [
+        -1.7484555314695172e-07,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "props": {
+      "bhkMaterial": "MATERIAL_ARROW",
+      "bhkRadius": "0.0017859373474493623",
+      "collisionFilter_layer": "PROJECTILE",
+      "worldObjCapFlags": "2147483648",
+      "unknownInt1": "1101591607",
+      "collisionFilterCopy_layer": "PROJECTILE",
+      "unused3": "205",
+      "processContactCallbackDelay2": "65535",
+      "inertiaMatrix": "<bpy id property array [12]>",
+      "rollingFrictionMult": "0.0",
+      "penetrationDepth": "0.003047916339710355",
+      "motionSystem": "SPHERE_STABILIZED",
+      "solverDeactivation": "LOW",
+      "qualityType": "MOVING",
+      "numShapeKeysInContactPointProps": "3",
+      "unknownBytes04": "<bpy id property array [4]>",
+      "pynRigidBody": "bhkRigidBodyT",
+      "pynCollisionFlags": "ACTIVE | SYNC_ON_UPDATE",
+      "pynCollisionBlockname": "bhkCollisionObject"
+    },
+    "rigidbody": {
+      "mass": 5.0,
+      "type": "ACTIVE",
+      "collision_shape": "CONVEX_HULL",
+      "friction": 0.5,
+      "restitution": 0.0,
+      "linear_damping": 0.099609375,
+      "angular_damping": 0.0498046875,
+      "collision_margin": 2.5516579626128078e-05
+    },
+    "bounds": [
+      [
+        -1.630449652671814,
+        -57.894508361816406,
+        -0.12153255194425583
+      ],
+      [
+        -1.630449652671814,
+        -57.894508361816406,
+        0.13233323395252228
+      ],
+      [
+        -1.630449652671814,
+        -0.6682985424995422,
+        0.13233323395252228
+      ],
+      [
+        -1.630449652671814,
+        -0.6682985424995422,
+        -0.12153255194425583
+      ],
+      [
+        1.6304415464401245,
+        -57.894508361816406,
+        -0.12153255194425583
+      ],
+      [
+        1.6304415464401245,
+        -57.894508361816406,
+        0.13233323395252228
+      ],
+      [
+        1.6304415464401245,
+        -0.6682985424995422,
+        0.13233323395252228
+      ],
+      [
+        1.6304415464401245,
+        -0.6682985424995422,
+        -0.12153255194425583
+      ]
+    ]
+  },
+  {
+    "name": "BSXFlags:BSX",
+    "type": "EMPTY",
+    "parent": "SteelBoltFlight:ROOT",
+    "matrix": [
+      [
+        1.0,
+        1.7484555314695172e-07,
+        0.0,
+        0.0
+      ],
+      [
+        -1.7484555314695172e-07,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "props": {
+      "BSXFlags_Name": "BSX",
+      "BSXFlags_Value": "ANIMATED | HAVOC | ADDON | DYNAMIC | ARTICULATED"
+    }
+  },
+  {
+    "name": "Flow",
+    "type": "EMPTY",
+    "parent": "AddOnNode99",
+    "matrix": [
+      [
+        -1.0,
+        1.624149206236325e-07,
+        4.7404375891346717e-07,
+        1.6271561662506429e-06
+      ],
+      [
+        -1.62413897442093e-07,
+        -0.9999999403953552,
+        2.145766984540387e-06,
+        -0.19587887823581696
+      ],
+      [
+        4.740440715522709e-07,
+        2.1457667571667116e-06,
+        0.9999999403953552,
+        -0.009520720690488815
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "props": {
+      "pynBlockName": "NiNode",
+      "pynNodeName": "Flow",
+      "pynNodeFlags": "SELECTIVE_UPDATE | SELECTIVE_UPDATE_TRANSF | SELECTIVE_UPDATE_CONTR",
+      "childCount": "1"
+    }
+  },
+  {
+    "name": "Flow:0",
+    "type": "MESH",
+    "parent": "Flow",
+    "matrix": [
+      [
+        -0.9999986886978149,
+        1.6241472167166648e-07,
+        4.740431336358597e-07,
+        2.5569897843524814e-05
+      ],
+      [
+        -1.6241368427927227e-07,
+        -0.9999986290931702,
+        2.175566578443977e-06,
+        -112.38187408447266
+      ],
+      [
+        4.7404344627466344e-07,
+        2.1755663510703016e-06,
+        0.9999986290931702,
+        -0.009249478578567505
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "props": {
+      "pynBlockName": "BSTriShape",
+      "pynNodeName": "Flow:0",
+      "vertexDesc": "59",
+      "pynNodeFlags": "SELECTIVE_UPDATE | SELECTIVE_UPDATE_TRANSF | SELECTIVE_UPDATE_CONTR",
+      "pynVertexDesc": "VERTEX | UV | NORMAL | TANGENT | COLORS",
+      "PYN_GAME": "SKYRIMSE",
+      "PYN_BLENDER_XF": "False",
+      "PYN_RENAME_BONES": "True",
+      "PYN_RENAME_BONES_NIFTOOLS": "False"
+    },
+    "bounds": [
+      [
+        -2.5334157943725586,
+        -112.3819808959961,
+        -3.13509202003479
+      ],
+      [
+        -2.5334157943725586,
+        -112.3819808959961,
+        2.565878391265869
+      ],
+      [
+        -2.5334157943725586,
+        -112.3819808959961,
+        2.565878391265869
+      ],
+      [
+        -2.5334157943725586,
+        -112.3819808959961,
+        -3.13509202003479
+      ],
+      [
+        3.245224714279175,
+        -112.3819808959961,
+        -3.13509202003479
+      ],
+      [
+        3.245224714279175,
+        -112.3819808959961,
+        2.565878391265869
+      ],
+      [
+        3.245224714279175,
+        -112.3819808959961,
+        2.565878391265869
+      ],
+      [
+        3.245224714279175,
+        -112.3819808959961,
+        -3.13509202003479
+      ]
+    ]
+  },
+  {
+    "name": "SteelBoltFlight:0",
+    "type": "MESH",
+    "parent": "SteelBoltFlight:ROOT",
+    "matrix": [
+      [
+        -0.9999986886978149,
+        -3.258409151385422e-07,
+        1.490115053570662e-08,
+        -9.53673520598386e-07
+      ],
+      [
+        3.258409151385422e-07,
+        -0.9999986886978149,
+        -5.2154042862184724e-08,
+        1.432226906517009e-11
+      ],
+      [
+        1.4901166522918174e-08,
+        -5.2154035756757366e-08,
+        0.9999986886978149,
+        5.006788342143409e-06
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "props": {
+      "pynBlockName": "BSTriShape",
+      "pynNodeName": "SteelBoltFlight:0",
+      "vertexDesc": "27",
+      "pynNodeFlags": "SELECTIVE_UPDATE | SELECTIVE_UPDATE_TRANSF | SELECTIVE_UPDATE_CONTR",
+      "pynVertexDesc": "VERTEX | UV | NORMAL | TANGENT",
+      "PYN_GAME": "SKYRIMSE",
+      "PYN_BLENDER_XF": "False",
+      "PYN_RENAME_BONES": "True",
+      "PYN_RENAME_BONES_NIFTOOLS": "False"
+    },
+    "bounds": [
+      [
+        -1.290494680404663,
+        0.01674652099609375,
+        -0.6348497271537781
+      ],
+      [
+        -1.290494680404663,
+        0.01674652099609375,
+        1.360612392425537
+      ],
+      [
+        -1.290494680404663,
+        21.119247436523438,
+        1.360612392425537
+      ],
+      [
+        -1.290494680404663,
+        21.119247436523438,
+        -0.6348497271537781
+      ],
+      [
+        1.3195070028305054,
+        0.01674652099609375,
+        -0.6348497271537781
+      ],
+      [
+        1.3195070028305054,
+        0.01674652099609375,
+        1.360612392425537
+      ],
+      [
+        1.3195070028305054,
+        21.119247436523438,
+        1.360612392425537
+      ],
+      [
+        1.3195070028305054,
+        21.119247436523438,
+        -0.6348497271537781
+      ]
+    ]
+  },
+  {
+    "name": "SteelBoltFlight:ROOT",
+    "type": "EMPTY",
+    "parent": null,
+    "matrix": [
+      [
+        1.0,
+        1.7484555314695172e-07,
+        0.0,
+        0.0
+      ],
+      [
+        -1.7484555314695172e-07,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "props": {
+      "pynBlockName": "BSFadeNode",
+      "pynNodeName": "SteelBoltFlight",
+      "pynNodeFlags": "SELECTIVE_UPDATE | SELECTIVE_UPDATE_TRANSF | SELECTIVE_UPDATE_CONTR",
+      "childCount": "2",
+      "pynRoot": "True",
+      "PYN_BLENDER_XF": "False",
+      "PYN_GAME": "SKYRIMSE"
+    }
+  },
+  {
+    "name": "TracerRoot",
+    "type": "EMPTY",
+    "parent": "SteelBoltFlight:ROOT",
+    "matrix": [
+      [
+        -1.0,
+        1.5832428701401113e-08,
+        -2.384979325142922e-08,
+        -1.9073486328125e-06
+      ],
+      [
+        2.3849750618865073e-08,
+        -2.221264821855584e-06,
+        -0.9999999403953552,
+        7.8231430222786e-08
+      ],
+      [
+        -1.5832483768463135e-08,
+        -0.9999999403953552,
+        2.221264821855584e-06,
+        -9.094947017729282e-13
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "props": {
+      "pynBlockName": "NiNode",
+      "pynNodeName": "TracerRoot",
+      "pynNodeFlags": "SELECTIVE_UPDATE | SELECTIVE_UPDATE_TRANSF | SELECTIVE_UPDATE_CONTR",
+      "childCount": "1"
+    }
+  },
+  {
+    "name": "trailShort",
+    "type": "MESH",
+    "parent": "AddOnNode99",
+    "matrix": [
+      [
+        -0.9999986290931702,
+        -2.3849748842508234e-08,
+        -1.5832418043260077e-08,
+        -2.792043233057484e-06
+      ],
+      [
+        2.3849718644441964e-08,
+        -0.9999984502792358,
+        1.6689272115399945e-06,
+        -112.38188171386719
+      ],
+      [
+        -1.5832462452181062e-08,
+        1.6689272115399945e-06,
+        0.9999984502792358,
+        0.00022167537827044725
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "props": {
+      "pynBlockName": "BSTriShape",
+      "pynNodeName": "trailShort",
+      "vertexDesc": "59",
+      "pynNodeFlags": "SELECTIVE_UPDATE | SELECTIVE_UPDATE_TRANSF | SELECTIVE_UPDATE_CONTR",
+      "pynVertexDesc": "VERTEX | UV | NORMAL | TANGENT | COLORS",
+      "PYN_GAME": "SKYRIMSE",
+      "PYN_BLENDER_XF": "False",
+      "PYN_RENAME_BONES": "True",
+      "PYN_RENAME_BONES_NIFTOOLS": "False"
+    },
+    "bounds": [
+      [
+        -4.951469421386719,
+        -109.5759048461914,
+        -9.578499794006348
+      ],
+      [
+        -4.951469421386719,
+        -109.5759048461914,
+        9.578499794006348
+      ],
+      [
+        -4.951469421386719,
+        186.63409423828125,
+        9.578499794006348
+      ],
+      [
+        -4.951469421386719,
+        186.63409423828125,
+        -9.578499794006348
+      ],
+      [
+        4.951469421386719,
+        -109.5759048461914,
+        -9.578499794006348
+      ],
+      [
+        4.951469421386719,
+        -109.5759048461914,
+        9.578499794006348
+      ],
+      [
+        4.951469421386719,
+        186.63409423828125,
+        9.578499794006348
+      ],
+      [
+        4.951469421386719,
+        186.63409423828125,
+        -9.578499794006348
+      ]
+    ]
+  }
+]

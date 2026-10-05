@@ -1,0 +1,40 @@
+{
+  "mod": "G:\\Modding\\MO2\\SkyrimSE\\mods\\AstraAsedio_QA_v10",
+  "profile": "G:\\Modding\\MO2\\SkyrimSE\\profiles\\AstraAsedio_QA_v10",
+  "profile_selected": false,
+  "game_launched": false,
+  "enabled_mo2_mods": [
+    "AstraAsedio_QA_v10",
+    "Address Library All in One"
+  ],
+  "address_library": "G:\\Modding\\MO2\\SkyrimSE\\mods\\Address Library All in One\\SKSE\\Plugins\\versionlib-1-6-1170-0.bin",
+  "address_library_sha256": "c4093c569a3c83b26587f4b9ea4c55de9ae6e73b84a2af9fb3fbd30e2fe0d452",
+  "local_saves": true,
+  "local_ini": true,
+  "runtime": "G:/Modding/Skyrim_Runtime_1.6.1170",
+  "esp_sha256": "9229b0a06887b3e62792c1dfc765aaf6c8f4a714635f57bb6d9c72709f6362ac",
+  "previous_selected_profile": "Prueva huevo",
+  "previous_profile_files_unchanged": true,
+  "mo2_ini_unchanged": true,
+  "installed_files_match_project": true,
+  "installed_sha256": {
+    "AstraAsedio.esp": "9229b0a06887b3e62792c1dfc765aaf6c8f4a714635f57bb6d9c72709f6362ac",
+    "Docs\\AstraAsedio\\Licenses\\CommonLibSSE-NG-LICENSE": "253d41f9a66509071e71deeafaad01d9cd5e1d0e235f38d988f33d4f54cb0fe2",
+    "Docs\\AstraAsedio\\Licenses\\fmt-LICENSE": "ae842eaa4d8ac87b936a5f5852bd447e64d2b7dea9fdb12ce5fa96fcfdc82ce6",
+    "Docs\\AstraAsedio\\Licenses\\rapidcsv-LICENSE": "2a07f96569e2cb61824a7cfad718c931ebb43e74338f492d720caff920309a6c",
+    "Docs\\AstraAsedio\\Licenses\\spdlog-LICENSE": "4ccecab18d1ff0b61174fe3d6c430541625d3ddb865b0d5887db296f883c76e7",
+    "meshes\\AstraAsedio\\ballesta.nif": "dd1741b8480e32988a10d1711b342d70882da1d1f398564794b8e6581c44bd1d",
+    "meshes\\AstraAsedio\\torre.nif": "41bedca7ae60dfa7cdd9a7850cfc437a6ee667853adf51a9f07bd27476a891c5",
+    "meshes\\AstraAsedio\\virote.nif": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5",
+    "scripts\\AstraAsedioActi.pex": "3105b2cf5ff403500a26da2c7f1d039ed9b69e8fe26724689e72f5022a9820fd",
+    "scripts\\AstraAsedioPlayerAlias.pex": "e7c7a5a542b10a8bb412ec3d051c02f49e686a10215de8532db86c2770b33d69",
+    "scripts\\AstraAsedioSession.pex": "7a019b63cbdd1ad812e969f7ea682e6137661c62de0a4cb290b451e45011b52a",
+    "scripts\\AstraSightNative.pex": "73e1505387179774d689b83141474fd9dddbffd7ebf8bca4d490f6b5afcc57aa",
+    "scripts\\source\\AstraAsedioActi.psc": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+    "scripts\\source\\AstraAsedioPlayerAlias.psc": "048e868247e792cd7702518a36ea95bc54d98f1d46555379f8eb7c3dafa8831e",
+    "scripts\\source\\AstraAsedioSession.psc": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4",
+    "scripts\\source\\AstraSightNative.psc": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
+    "seq\\AstraAsedio.seq": "5907a2bc621a287e138957f9f8f9ad9be9fbfd706b3087db35225b26f391b551",
+    "SKSE\\Plugins\\AstraSight.dll": "6b295ab4972b43bc79607d8e9c04d7f0c9af40dbef7d7dfdbac683c9c4609fa6"
+  }
+}

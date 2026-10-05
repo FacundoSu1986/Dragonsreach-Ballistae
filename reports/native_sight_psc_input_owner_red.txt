@@ -1,0 +1,105 @@
+test_stale_request_shot_after_resume_cannot_freeze_replacement (tests.test_native_sight.NativeSightContract.test_stale_request_shot_after_resume_cannot_freeze_replacement) ... FAIL
+test_stale_request_exit_clock_cannot_end_replacement (tests.test_native_sight.NativeSightContract.test_stale_request_exit_clock_cannot_end_replacement) ... FAIL
+test_input_ready_discards_replacement_during_menu_read_or_resume (tests.test_native_sight.NativeSightContract.test_input_ready_discards_replacement_during_menu_read_or_resume) ... 
+  test_input_ready_discards_replacement_during_menu_read_or_resume (tests.test_native_sight.NativeSightContract.test_input_ready_discards_replacement_during_menu_read_or_resume) (boundary='menu') ... FAIL
+  test_input_ready_discards_replacement_during_menu_read_or_resume (tests.test_native_sight.NativeSightContract.test_input_ready_discards_replacement_during_menu_read_or_resume) (boundary='resume_clock') ... FAIL
+test_old_aim_key_after_resume_cannot_set_replacement_holds_or_release_gates (tests.test_native_sight.NativeSightContract.test_old_aim_key_after_resume_cannot_set_replacement_holds_or_release_gates) ... FAIL
+test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) ... 
+  test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) (event='OnKeyDown', argument=256) ... FAIL
+  test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) (event='OnKeyDown', argument=18) ... FAIL
+  test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) (event='OnControlDown', argument='Right Attack/Block') ... FAIL
+  test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) (event='OnControlDown', argument='Activate') ... FAIL
+  test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) (event='OnActivate', argument=None) ... FAIL
+
+======================================================================
+FAIL: test_stale_request_shot_after_resume_cannot_freeze_replacement (tests.test_native_sight.NativeSightContract.test_stale_request_shot_after_resume_cannot_freeze_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 618, in test_stale_request_shot_after_resume_cannot_freeze_replacement
+    self.assertEqual(f.vm.state['phase'],0); self.assertFalse(f.frozen)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_stale_request_exit_clock_cannot_end_replacement (tests.test_native_sight.NativeSightContract.test_stale_request_exit_clock_cannot_end_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 630, in test_stale_request_exit_clock_cannot_end_replacement
+    self.assertTrue(f.vm.state['operating']); self.assertGreater(f.vm.state['token'],old_token)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_input_ready_discards_replacement_during_menu_read_or_resume (tests.test_native_sight.NativeSightContract.test_input_ready_discards_replacement_during_menu_read_or_resume) (boundary='menu')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 648, in test_input_ready_discards_replacement_during_menu_read_or_resume
+    self.assertFalse(f.vm.run('InputReady'))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_input_ready_discards_replacement_during_menu_read_or_resume (tests.test_native_sight.NativeSightContract.test_input_ready_discards_replacement_during_menu_read_or_resume) (boundary='resume_clock')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 648, in test_input_ready_discards_replacement_during_menu_read_or_resume
+    self.assertFalse(f.vm.run('InputReady'))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_old_aim_key_after_resume_cannot_set_replacement_holds_or_release_gates (tests.test_native_sight.NativeSightContract.test_old_aim_key_after_resume_cannot_set_replacement_holds_or_release_gates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 662, in test_old_aim_key_after_resume_cannot_set_replacement_holds_or_release_gates
+    self.assertFalse(f.vm.state['heldLeft']); self.assertFalse(f.vm.state['releaseLeft'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) (event='OnKeyDown', argument=256)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 678, in test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit
+    self.assertEqual(f.vm.state['phase'],0); self.assertFalse(f.frozen)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) (event='OnKeyDown', argument=18)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 676, in test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit
+    self.assertTrue(f.vm.state['operating']); self.assertGreater(f.vm.state['token'],old_token)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) (event='OnControlDown', argument='Right Attack/Block')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 678, in test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit
+    self.assertEqual(f.vm.state['phase'],0); self.assertFalse(f.frozen)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) (event='OnControlDown', argument='Activate')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 676, in test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit
+    self.assertTrue(f.vm.state['operating']); self.assertGreater(f.vm.state['token'],old_token)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit (tests.test_native_sight.NativeSightContract.test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit) (event='OnActivate', argument=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 676, in test_old_event_after_trace_cannot_adopt_replacement_shot_or_exit
+    self.assertTrue(f.vm.state['operating']); self.assertGreater(f.vm.state['token'],old_token)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.103s
+
+FAILED (failures=10)

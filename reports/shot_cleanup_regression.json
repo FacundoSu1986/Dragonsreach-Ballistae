@@ -1,0 +1,13 @@
+{
+  "revision": "v10",
+  "pre_fix_results": {
+    "exit_inside_transform_preflight": "failed: ammo -1, launches 1",
+    "menu_inside_transform_preflight": "failed: ammo -1, launches 1",
+    "controls_release_before_visual_reset": "failed: visual reset preceded release"
+  },
+  "post_fix_contracts_pass": true,
+  "controller_source_sha256": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+  "test_source_sha256": "1ee997d06135fc7603c5dfd742eda9819888043fecc40f4489fc763775617b0b",
+  "runtime_execution": false,
+  "scope": "Three actual PSC boundary regressions observed red before the fix and green afterwards. Native fixtures do not execute the game VM."
+}
