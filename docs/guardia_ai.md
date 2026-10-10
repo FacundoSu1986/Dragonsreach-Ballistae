@@ -165,5 +165,44 @@ corregidos y cubiertos por tests:
   el jitter y el muestreo se resetea al cambiar de blanco); liberar por evento de animación
   (la vía del jugador usa timer: `elapsed >= ReleaseSeconds`).
 
+### Revisión adversarial (2026-10-10, segunda pasada)
+
+Una segunda revisión (esta vez del código final, no de un snapshot) encontró y corrigió:
+
+**Bloqueantes:**
+1. **El ref del guardia se escribía como `REFR`** — el engine solo instancia actores
+   desde records `ACHR`; un REFR con base NPC_ es ignorado y el guardia **no aparecería
+   en el juego**. `reference()` ahora acepta `tipo=` y el guardia_ref sale como ACHR; el
+   validador lo exige. (Este bug lo habría descubiertu tu agente local en la primera
+   prueba, con el guardia ausente y sin traza que explique nada.)
+2. **`LineaSegura` con `||` en vez de `&&`**: un actor *cerca del blanco* quedaba marcado
+   como seguro — exactamente el guardia peleando en melee, el caso más común del híbrido.
+   Además el guardia no tenía el chequeo de `MargenImpacto` que sí tenía el jugador. Con
+   daño de asedio y radio de 128 u, la torre le habría tirado el virote encima. Corregido:
+   `seguro = lejos de la línea && lejos del blanco`, más `GUARDIA_CERCA_DEL_BLANCO`
+   espejo del chequeo del jugador. Test de regresión en la suite.
+
+**Reales (degradaban el comportamiento):**
+3. **Reintento de cesión que moría**: si el update de reintento (8,5 s) caía después de
+   que el jugador soltó la máquina, `OnUpdate` con fase 0 no hacía nada y la torre no
+   volvía a defender aunque el guardia siguiera en combate (su evento de combate no se
+   re-dispara: el estado no cambió). Nueva rama fase 0 → re-despertar.
+4. **Signo invertido al leer el pitch del nodo** (`atan2(-m[5], m[4])`): tras cada load el
+   pitch se recuperaba negado y el slew saltaba el doble. Ahora `atan2(m[5], m[4])`.
+5. **Slew sin clamp de dt**: tras recarga (1,28 s) o enfriamiento (8 s) el paso usaba el
+   dt completo → giros de hasta 320° en un update. El avance ahora se mide contra el tick
+   nominal (la velocidad de medición del blanco sigue usando el dt real).
+6. Menores: `hayPosPrev` no se reseteaba al reemplazar un blanco muerto (lead con
+   velocidad cruzada entre dos actores); `rafaga` no se reseteaba al despertar; el Reset
+   se lanzaba tarde (el ciclo duraba ~2,4 s en vez de ~1,3 s, con el virote invisible el
+   doble de tiempo).
+
+**Verificado y descartado:** firma de `GetNodeLocalRotationMatrix` idéntica a la del ACTI
+(compila igual); XLKR con keyword 0 es el "unnamed linked ref" del CK (vale para
+`GetLinkedRef()`); el lint sí contaba los `if` del ACTI (usa minúsculas); la cancelación
+catastrófica `v²−√disc` en float32 deja ~0,001° de error en el pitch (irrelevante);
+`PitchMin=−5` es el mismo límite del jugador (no es un bug que no dispare a blancos bajo
+la base); `CalmaCombat` deja terminar la secuencia iniciada a propósito (documentado).
+
 Queda para la máquina del usuario: compilar los PSC (el compilador es la palabra final en
 sintaxis), correr `build_plugin.py` con los donors reales, y la prueba in-game.

@@ -170,12 +170,14 @@ def projectile_radius():
 def stat(edid,model,obnd):
  return [W.sub('EDID',W.zstr(edid)),W.sub('OBND',obnd),W.sub('MODL',W.zstr(model)),W.sub('MODT',bytes.fromhex('020000000000000000000000')),W.sub('DNAM',struct.pack('<fI',90.0,0))]
 
-def reference(fid,base,pos,angle=0.0,edid=None,persistent=False,link=0):
+def reference(fid,base,pos,angle=0.0,edid=None,persistent=False,link=0,tipo='REFR'):
+ # tipo: 'REFR' para objetos, 'ACHR' para referencias de NPC (el engine solo
+ # instancia actores desde ACHR; un REFR con base NPC_ es ignorado).
  ss=[]
  if edid:ss.append(W.sub('EDID',W.zstr(edid)))
- if link:ss.append(W.sub('XLKR',struct.pack('<II',link,0)))
  ss+=[W.sub('NAME',U(base)),W.sub('DATA',struct.pack('<6f',*pos,0,0,angle))]
- return W.record('REFR',fid,ss,banderas=0x400 if persistent else 0)
+ if link:ss.append(W.sub('XLKR',struct.pack('<II',link,0)))
+ return W.record(tipo,fid,ss,banderas=0x400 if persistent else 0)
 
 def collision_boxes():
  data=json.loads((ROOT/'reports/collision_walkable.json').read_text())
@@ -400,6 +402,7 @@ def validate_plugin(path):
    v=r[fid][1].get('XLKR')
    return struct.unpack('<II',v)[0] if v else 0
   if link_de(IDS['ballesta_ref'])!=IDS['guardia_ref'] or link_de(IDS['guardia_ref'])!=IDS['ballesta_ref']:raise ValueError('bad guardia XLKR links')
+  if r[IDS['guardia_ref']][0]!='ACHR':raise ValueError('guardia ref must be ACHR (REFR with NPC base is never instantiated)')
   if struct.unpack('<I',r[IDS['guardia_ref']][1]['NAME'])[0]!=IDS['guardia']:raise ValueError('guardia ref does not point at the NPC')
  if (qv['version'],qv['object_format'])!=(5,2) or qv['scripts'][0]['name']!='AstraAsedioSession':raise ValueError('bad quest VMAD')
  if len(qv['aliases'])!=1:raise ValueError('bad player alias count')
@@ -409,9 +412,9 @@ def validate_plugin(path):
  qs=r[IDS['session']][1]
  if struct.unpack_from('<H',qs['DNAM'])[0]&0x101!=0x101 or qs['ALST']!=U(0) or qs['ALFR']!=U(0x14):raise ValueError('bad start-enabled quest bootstrap')
  for fid,(t,ss) in r.items():
-  if t=='REFR':
+  if t in ('REFR','ACHR'):
    target=struct.unpack('<I',ss['NAME'])[0]
-   if target>>24==3 and target not in r:raise ValueError('unresolved REFR')
+   if target>>24==3 and target not in r:raise ValueError('unresolved '+t)
  nv=r[IDS['navmesh']][1]['NVNM'];off=16
  if struct.unpack_from('<I',nv,12)[0]!=IDS['cell']:raise ValueError('wrong nav parent')
  vc=struct.unpack_from('<I',nv,off)[0];off+=4
@@ -544,7 +547,7 @@ def build():
  refs=[reference(IDS['tower_ref'],IDS['tower'],(0,0,0),edid='AstraAsedioTowerREF'),reference(IDS['container_ref'],IDS['container'],(400,380,2),edid='AstraAsedioBoltChestREF')];new.extend([IDS['tower_ref'],IDS['container_ref']])
  if guard_donor:
   gx,gy,gz=gcfg['posicion'];gangle=math.atan2(-gx,-gy)
-  refs.append(reference(IDS['guardia_ref'],IDS['guardia'],(gx,gy,gz),gangle,edid='AstraGuardiaREF',link=IDS['ballesta_ref']));new.append(IDS['guardia_ref'])
+  refs.append(reference(IDS['guardia_ref'],IDS['guardia'],(gx,gy,gz),gangle,edid='AstraGuardiaREF',link=IDS['ballesta_ref'],tipo='ACHR'));new.append(IDS['guardia_ref'])
  nextid=0x03000910
  for x in [-1536,-512,512,1536]:
   for y in [-2048,-1024,0,1024]:

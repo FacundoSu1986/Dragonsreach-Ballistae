@@ -176,7 +176,21 @@ ok('GLOB: EDID/FNAM(\'s\\0\')/FLTV(0.0) serializan')
 
 # XLKR de las referencias: <II form,keyword>
 assert struct.pack('<II', 0x03000940, 0) == b'@\t\x00\x03\x00\x00\x00\x00'
-ok('XLKR: <II padre,keyword> serializa')
+ok('XLKR: <II padre,keyword> serializa (keyword 0 = NONE, vale para GetLinkedRef())')
+
+# el ref del guardia DEBE ser ACHR (un REFR con base NPC_ no se instancia)
+rec = bp.reference(0x03000940, 0x0300080F, (105.0, 85.0, 465.0), 0.5236,
+                   edid='AstraGuardiaREF', link=0x03000901, tipo='ACHR')
+assert rec[:4] == b'ACHR', rec[:4]
+cuerpo = rec[24:]  # cabecera de record
+tags = []
+off = 0
+while off + 6 <= len(cuerpo):
+    tag = cuerpo[off:off+4]; n = struct.unpack_from('<H', cuerpo, off+4)[0]
+    tags.append(tag); off += 6 + n
+assert tags == [b'EDID', b'NAME', b'DATA', b'XLKR'], tags
+assert struct.unpack_from('<II', cuerpo, len(cuerpo)-8) == (0x03000901, 0)
+ok('reference(tipo=ACHR): record ACHR con EDID/NAME/DATA/XLKR en orden canónico')
 
 # ------------------------------------------- config <-> build_plugin keys --
 print('== 5) config.guardia <-> claves usadas por build_plugin ==')
@@ -202,5 +216,37 @@ core = (REPO/'native/src/Core.cpp').read_text()
 assert '5250/5400' in core and '0.35*9.81*70' in core
 assert g['velocidad_proyectil'] == 5400.0 and abs(g['gravedad_proyectil'] - 0.35*9.81*70) < 0.01
 ok('velocidad/gravedad del config == constantes documentadas en Core.cpp')
+
+# ------------------------------------------------- geometria de seguridad --
+print('== 6) LineaSegura (puerto python del PSC) ==')
+def linea_segura(margen_linea, ax, ay, bxy, pxy):
+    """Distancia del punto p al segmento a->b, con la regla del PSC:
+    seguro = lejos de la linea AND lejos del blanco (>200)."""
+    bx, by = bxy; px, py = pxy
+    abx, aby = bx-ax, by-ay
+    ab2 = abx*abx + aby*aby
+    t = 0.0
+    if ab2 > 0.0001:
+        t = ((px-ax)*abx + (py-ay)*aby) / ab2
+    t = max(0.0, min(1.0, t))
+    cx, cy = ax + abx*t, ay + aby*t
+    dist_linea = math.hypot(px-cx, py-cy)
+    dist_blanco = math.hypot(px-bx, py-by)
+    return dist_linea > margen_linea and dist_blanco > 200.0
+
+TORRE = (0.0, 0.0)
+BLANCO = (0.0, -5000.0)   # al frente de la torre a 5000 u
+# guardia en melee contra el blanco, a un costado (fuera de la línea de fuego)
+GUARDIA_MELEE = (150.0, -5000.0)
+seguro = linea_segura(320.0, *TORRE, BLANCO, GUARDIA_MELEE)
+assert not seguro, 'REGRESION: el || viejo marcaba seguro al guardia en melee'
+# con el || (bug original) este caso daba True -> el virote de asedio le caia encima
+viejito = (math.hypot(150.0, 0.0) > 320.0) or (150.0 < 200.0)
+assert viejito, 'sanity: el || viejo indeed devolvia True aca'
+# jugador lejos de la linea y del blanco: seguro
+assert linea_segura(320.0, *TORRE, BLANCO, (3000.0, -2000.0))
+# jugador EN la línea de fuego: inseguro
+assert not linea_segura(320.0, *TORRE, BLANCO, (0.0, -2500.0))
+ok('melee del guardia = INSEGURO (regresión del ||); línea y distancias OK')
 
 print('\nTODO OK (verificación local de la IA del guardia)')

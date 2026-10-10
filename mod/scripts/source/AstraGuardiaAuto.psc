@@ -138,6 +138,8 @@ Function AlertaCombat(Actor akBlanco)
     endif
     if fase == 0
         fase = 1
+        rafaga = 0
+        hayPosPrev = false
         ultimoTick = Utility.GetCurrentRealTime()
         RegisterForSingleUpdate(TickSegundos)
         if QALog
@@ -193,6 +195,16 @@ Event OnUpdate()
         dt = 0.0
     endif
     ultimoTick = ahora
+    if fase == 0
+        ; Reintento perdido: si este update llega DESPUÉS de que el jugador
+        ; soltó la máquina y el guardia sigue en combate, hay que despertar
+        ; (el evento de combate del guardia no se re-dispara: su estado no
+        ; cambió). Sin esta rama, la torre dormía hasta el próximo combate.
+        if guardia && guardia.IsInCombat() && ahora >= proximoIntento
+            AlertaCombat(guardia.GetCombatTarget())
+        endif
+        return
+    endif
     if fase == 1
         FaseRastreo(ahora, dt)
     elseif fase == 2
@@ -230,10 +242,17 @@ Function FaseRastreo(float ahora, float dt)
     float solYaw = sol[0]
     float solPitch = sol[1]
     ; Giro suave a velocidades del jugador: la torre apunta como un operador.
+    ; El avance del slew se mide contra el tick nominal, no contra el dt real
+    ; acumulado en recarga/enfriamiento: tras una pausa la torre NO recupera
+    ; el tiempo perdido (avanzaría cientos de grados en un update).
+    float dtSlew = dt
+    if dtSlew > TickSegundos
+        dtSlew = TickSegundos
+    endif
     float dyaw = Envolver(solYaw - yawActual)
     float dpitch = solPitch - pitchActual
-    float pasoYaw = YawSpeed * dt
-    float pasoPitch = PitchSpeed * dt
+    float pasoYaw = YawSpeed * dtSlew
+    float pasoPitch = PitchSpeed * dtSlew
     if Math.Abs(dyaw) <= pasoYaw
         yawActual = solYaw
     else
@@ -293,7 +312,11 @@ Function FaseLiberacion()
     endif
     rafaga += 1
     fase = 5
-    RegisterForSingleUpdate(ResetSegundos())
+    ; Entrar a la recarga YA (la anim Reset se lanza desde FaseRecarga, como
+    ; en la vía del jugador: disparo -> Reset inmediato -> esperar): esperar
+    ; ResetSegundos aquí lanzaría el rearme tarde y alargaría el ciclo al
+    ; doble, con el virote invisible el doble de tiempo.
+    RegisterForSingleUpdate(0.05)
 EndFunction
 
 Function FaseRecarga()
@@ -345,6 +368,7 @@ Function ElegirBlanco()
     endif
     if blanco != None && blanco.IsDead()
         blanco = objetivo
+        hayPosPrev = false
     endif
 EndFunction
 
@@ -407,11 +431,18 @@ string Function ReglaEnganche()
     if jugador.GetDistance(blanco) < MargenImpacto
         return "JUGADOR_CERCA_DEL_BLANCO"
     endif
+    if guardia && guardia.GetDistance(blanco) < MargenImpacto
+        return "GUARDIA_CERCA_DEL_BLANCO"
+    endif
     return ""
 EndFunction
 
 bool Function LineaSegura(Actor quien)
     ; Distancia 2D del actor al segmento boca->blanco (proyección con clamp).
+    ; Seguro = lejos de la línea Y lejos del blanco: el "||" sería un bug
+    ; (marcaría "seguro" a quien pelea en melee contra el blanco, y el virote
+    ; de asedio con radio 128 lo mataría). El margen de explosión completo
+    ; (MargenImpacto) lo aplican los checks dedicados de ReglaEnganche.
     float ax = GetPositionX()
     float ay = GetPositionY()
     float bx = blanco.GetPositionX()
@@ -434,7 +465,7 @@ bool Function LineaSegura(Actor quien)
     float cy = ay + aby*t
     float dx = px - cx
     float dy = py - cy
-    return Math.Sqrt(dx*dx + dy*dy) > MargenLinea || quien.GetDistance(blanco) < 200.0
+    return Math.Sqrt(dx*dx + dy*dy) > MargenLinea && quien.GetDistance(blanco) > 200.0
 EndFunction
 
 ; =============================================================================
@@ -553,7 +584,10 @@ Function LeerAnguloDeNodos()
         yawActual = Grados(Math.Atan2(m[3], m[0]))
     endif
     if NetImmerse.GetNodeLocalRotationMatrix(Self, PitchNode, m, false) && m.Length == 9
-        pitchActual = Grados(Math.Atan2(-m[5], m[4]))
+        ; AplicarNodos escribe rx(-pitch): m[4]=cos(p), m[5]=+sin(p). El pitch
+        ; es atan2(m[5], m[4]) DIRECTO (con el signo de m[5] invertido se
+        ; recuperaba negado y el slew saltaba tras cada load).
+        pitchActual = Grados(Math.Atan2(m[5], m[4]))
     endif
     if QALog
         Debug.Trace("AstraGuardiaAuto ángulos de nodo: yaw=" + yawActual + " pitch=" + pitchActual)
