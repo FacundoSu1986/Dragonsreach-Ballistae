@@ -67,7 +67,7 @@
     "max_rafaga": 3,
     "enfriamiento": 8.0,
     "anticipacion": 0.5,
-    "tick_segundos": 0.12,
+    "tick_segundos": 0.08,
     "qa_log": false,
     "nota": "donores_npc: EDIDs de NPC_ de Skyrim.esm probados en orden; el guardia clonado conserva paquetes/facciones/combate del donante (sandbox anclado a la ubicaci\u00f3n del editor). Bal\u00edstica id\u00e9ntica al PROJ donante: 5400 u/s y g=0.35*9.81*70=240.345 u/s^2 (native/src/Core.cpp)."
   }

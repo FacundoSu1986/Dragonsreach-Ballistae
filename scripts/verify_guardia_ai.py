@@ -55,15 +55,41 @@ ok('NPC -> Auto: AlertaCombat/CalmaCombat existen')
 # ------------------------------------------------------------ solver test --
 print('== 2) solver balístico (puerto python del PSC) ==')
 V, G = 5400.0, 240.345  # 0.35*9.81*70 exacto (Core.cpp)
-def resolver(dx, dy, h):
-    """h = altura de la boca sobre el blanco (positivo = dispara hacia abajo)"""
+def resolver(dx, dy, dz_rel):
+    """dz_rel = altura del BLANCO sobre la boca (negativo = blanco más abajo).
+    Firmas idénticas al ResolverBlanco del PSC. Devuelve (pitch, yaw) o None."""
     d = math.hypot(dx, dy)
     if d < 1.0: return None
     v2 = V*V
-    disc = v2*v2 - G*(G*d*d + 2.0*h*v2)
+    disc = v2*v2 - G*(G*d*d + 2.0*dz_rel*v2)
     if disc < 0: return None
     tanP = (v2 - math.sqrt(disc)) / (G*d)
     return math.degrees(math.atan(tanP)), math.degrees(math.atan2(dx, -dy))
+
+def vuelo_z(dx, dy, dz_rel, pitch_deg, n=200000):
+    """Física INDEPENDIENTE del solver: integra el vuelo (Euler semi-implícito
+    con paso fino) y devuelve la altura del proyectil al llegar a la distancia
+    horizontal del blanco. Oráculo anti-signo: si el solver usara la altura
+    al revés, esto no da dz_rel."""
+    d = math.hypot(dx, dy)
+    p = math.radians(pitch_deg)
+    vxh = V*math.cos(p) * (dx/d)      # velocidad horizontal proyectada sobre (dx,dy)
+    vxh_y = V*math.cos(p) * (dy/d)
+    vz = V*math.sin(p)
+    dt = (d/(V*math.cos(p)))/n   # tiempo de vuelo horizontal total, no la componente X
+    x, y, z, t = 0.0, 0.0, 0.0, 0.0
+    for _ in range(n):
+        vz -= G*dt
+        x += vxh*dt; y += vxh_y*dt; z += vz*dt
+    return z
+
+def check_fisica(dx, dy, dz_rel, tag):
+    sol = resolver(dx, dy, dz_rel)
+    assert sol is not None, tag
+    z_fin = vuelo_z(dx, dy, dz_rel, sol[0])
+    err_u = abs(z_fin - dz_rel)
+    assert err_u < 2.0, '%s: el tiro pasa a %.1f u del blanco (z_fin=%.1f, dz_rel=%.1f)' % (tag, err_u, z_fin, dz_rel)
+    print('  OK %s: pitch %+.2f°, impacto a %.2f u del blanco' % (tag, sol[0], err_u))
 
 # a) registro v08: a 5250 u (75 m) mismo nivel, la caída debe ser 113.589 u
 p, y = resolver(0.0, -5250.0, 0.0)
@@ -77,10 +103,18 @@ assert abs(p - 1.24) < 0.1, 'elevación %.3f' % p
 assert abs(y) < 1e-9
 print('  OK 75 m nivel: elevación %.2f°, caída plana %.3f u == kSightZeroDrop 113.589, sag %.3f u' % (p, caida_plana, caida))
 
-# b) blanco a 30 m (2100 u) 40 u más abajo que la boca
-p2, y2 = resolver(1000.0, -1850.0, 40.0)
-assert 0 < p2 < 3 and 25 < y2 < 32, (p2, y2)
-ok('blanco descentrado: yaw %.1f°, pitch %.2f°' % (y2, p2))
+# b) torre elevada: blancos DEBAJO de la boca, verificados integrando el
+#    vuelo (física independiente: detecta el signo invertido de dzRel)
+check_fisica(1000.0, -1850.0, -40.0, 'blanco 40 u debajo a 30 m')
+check_fisica(0.0, -5250.0, -300.0, 'blanco 300 u debajo a 75 m')
+check_fisica(0.0, -5250.0, -300.0 + 1e-9, 'idem (regresión signo: h=+300 daría +0.47° y err ~229 u)')
+# b2) blanco ARRIBA de la boca (desde una torre, un dragón)
+check_fisica(1500.0, -2600.0, 150.0, 'blanco 150 u arriba a 51 m')
+# b3) el pitch de un blanco debajo debe ser MENOR que el de uno a nivel
+p_nivel, _ = resolver(0.0, -5250.0, 0.0)
+p_abajo, _ = resolver(0.0, -5250.0, -300.0)
+assert p_abajo < p_nivel - 1.5, (p_nivel, p_abajo)
+ok('blanco debajo => pitch menor que a nivel (%.2f° < %.2f°)' % (p_abajo, p_nivel))
 
 # c) fuera de alcance balístico => None
 assert resolver(0.0, -150000.0, 0.0) is None  # >v²/g≈121k u: sin solución

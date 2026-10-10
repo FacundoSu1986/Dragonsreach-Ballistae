@@ -88,8 +88,23 @@ Event OnLoad()
     ; Una carga a mitad de combate re-despierta la torre: el evento de estado
     ; de combate del guardia no se re-dispara tras el load.
     Inicializar("OnLoad")
+    ; Defensa post-save (mismo patrón que OnLoad del ACTI): si la partida se
+    ; guardó con el virote escondido a mitad de un ciclo, devolverlo.
+    NetImmerse.SetNodeScale(Self, VisualBoltNode, 1.0, false)
     if guardia && guardia.IsInCombat()
         AlertaCombat(guardia.GetCombatTarget())
+    endif
+EndEvent
+
+Event OnCellDetach()
+    ; Celda descargada: dormir sin tocar nodos muertos. Un update pendiente
+    ; que dispare después encuentra fase 0 y no re-agenda (el guardia no
+    ; combate con su celda descargada, así que la rama de reintento tampoco).
+    fase = 0
+    blanco = None
+    hayPosPrev = false
+    if QALog
+        Debug.Trace("AstraGuardiaAuto OnCellDetach: torre dormida")
     endif
 EndEvent
 
@@ -151,7 +166,21 @@ Event OnUpdate()
         ; El jugador tomó la máquina a mitad de maniobra: ceder YA. El nativo
         ; captura los ángulos actuales como base de su sesión, así que no hay
         ; que restaurar nada; solo reintentar si el guardia sigue en combate.
+        if fase == 4
+            ; La anim de fuego ya corrió: completar la liberación para que no
+            ; quede un disparo fantasma (anim vacía sin proyectil).
+            FaseLiberacion()
+        endif
+        if fase == 4 || fase == 5
+            ; Rearmar y devolver el virote visual: la recarga normal no va a
+            ; correr (fase pasa a 0), y el ACTI del jugador no restaura la
+            ; escala al abrir su sesión.
+            PlayGamebryoAnimation("Reset", true)
+            NetImmerse.SetNodeScale(Self, VisualBoltNode, 1.0, false)
+        endif
         fase = 0
+        blanco = None
+        hayPosPrev = false
         proximoIntento = Utility.GetCurrentRealTime() + 8.0
         if guardia && guardia.IsInCombat()
             RegisterForSingleUpdate(8.5)
@@ -268,9 +297,13 @@ Function FaseLiberacion()
 EndFunction
 
 Function FaseRecarga()
-    ; Reset re-arma el mecanismo y su propia secuencia devuelve el virote
-    ; visual (igual que en la vía del jugador).
+    ; Reset re-arma el mecanismo. La escala del virote visual la restaura ESTE
+    ; script, no la animación: las anim Gamebryo del NIF no tocan escalas
+    ; (PyNifly omite las scale keys), y en la vía del jugador quien la sube a
+    ; 1.0 es AstraAsedioActi, no la secuencia. Sin esto, la torre quedaría
+    ; sin virote visible para siempre tras el primer disparo.
     PlayGamebryoAnimation("Reset", true)
+    NetImmerse.SetNodeScale(Self, VisualBoltNode, 1.0, false)
     if rafaga >= MaxRafaga
         fase = 6
         RegisterForSingleUpdate(Enfriamiento)
@@ -323,6 +356,13 @@ string Function ReglaEnganche()
         return "BLANCO_MUERTO"
     endif
     Actor jugador = Game.GetPlayer()
+    ; Nunca al jugador, ni siquiera si el guardia lo tiene como target de
+    ; combate (p. ej. el jugador lo agredió): la geometría de seguridad lo
+    ; frenaría igual (distancia 0 a la línea de fuego), pero es una regla
+    ; explícita y no un efecto colateral.
+    if blanco == jugador
+        return "BLANCO_JUGADOR"
+    endif
     ; Solo se dispara a quien es hostil para el jugador o para el guardia:
     ; nunca a aliados, neutrales ni al propio jugador.
     if !blanco.IsHostileToActor(jugador) && !(guardia && blanco.IsHostileToActor(guardia))
@@ -434,14 +474,20 @@ float[] Function ResolverBlanco(float dt)
     float dx = tx - mx
     float dy = ty - my
     float d = Math.Sqrt(dx*dx + dy*dy)
-    float h = mz - tz
     if d < 1.0
         return None
     endif
-    ; Solución balística (tiro bajo): tan(p) = (v^2 - sqrt(v^4 - g(g d^2 + 2 h v^2))) / (g d)
-    ; con h = altura de la boca sobre el blanco. Devuelve false si no llega.
+    ; Solución balística (tiro bajo) para un blanco a altura relativa
+    ; dzRel = altura del BLANCO sobre la boca (negativa si está más abajo,
+    ; que es lo normal desde una torre):
+    ;   tan(p) = (v^2 - sqrt(v^4 - g*(g*d^2 + 2*dzRel*v^2))) / (g*d)
+    ; OJO al signo: el término lleva la altura del BLANCO sobre la boca, no
+    ; al revés. Con dzRel < 0 el discriminante se relaja y el ángulo baja.
+    ; (Verificado contra integración del vuelo: z(t_llegada) == dzRel.)
+    ; Devuelve None si no llega.
+    float dzRel = tz - mz
     float v2 = VelocidadProyectil * VelocidadProyectil
-    float disc = v2*v2 - GravedadProyectil*(GravedadProyectil*d*d + 2.0*h*v2)
+    float disc = v2*v2 - GravedadProyectil*(GravedadProyectil*d*d + 2.0*dzRel*v2)
     if disc < 0.0
         if QALog
             Debug.Trace("AstraGuardiaAuto fuera de alcance balístico")

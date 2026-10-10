@@ -88,7 +88,7 @@ recíprocos y NAME del ref → NPC. El reporte JSON incorpora la sección `guard
 | `max_rafaga` / `enfriamiento` | Virotes por ráfaga / pausa entre ráfagas (s). | 3 / 8.0 |
 | `margen_linea` / `margen_impacto` | Márgenes de seguridad de la línea de fuego y del punto de impacto (u). | 320 / 384 |
 | `anticipacion` | Adelanto del apuntado según la velocidad medida del blanco (0 = desactivado). | 0.5 |
-| `tick_segundos` | Paso del loop de fases. | 0.12 |
+| `tick_segundos` | Paso del loop de fases (define el granulado del slew: `yaw_speed·tick`). | 0.08 |
 | `muzzle_alto` / `muzzle_adelante` | Offset del ProjectileNode sobre la raíz (z / y). | 172.6 / −224.0 |
 | `velocidad_proyectil` / `gravedad_proyectil` | Balística: 5400 u/s y 0.35·9.81·70 = 240.345 u/s² (PROJ donante, igual que `native/src/Core.cpp`). | — |
 
@@ -111,22 +111,59 @@ comportamiento que la mira del jugador).
 - No hay IA de "elegir mejor blanco": dispara al `GetCombatTarget()` del guardia, punto. Si
   el guardia pelea contra varios, la torre sigue al objetivo del guardia (coherente con el
   rol: el guardia es el cerebro táctico).
+- La GLOB `AstraGuardiaOcupada` es una por plugin: pensada para UNA torre en el mundo. Con
+  dos torres, la sesión del jugador en una dormiría también la otra (validar por distancia
+  o GLOB por instancia si algún día hay más).
+- La liberación del disparo usa timer (`ReleaseSegundos`), no eventos de animación: es
+  exactamente lo que hace la vía del jugador (`elapsed >= ReleaseSeconds`), y no hay
+  `RegisterForAnimationEvent` en todo el mod. Si se quiere precisión por frame en el futuro,
+  sería la vía v2.
 
 ## Verificación hecha en sandbox (sin Papyrus Compiler ni Skyrim)
 
-`python scripts/verify_guardia_ai.py` — todo verde a 2026-10-10:
+`python scripts/verify_guardia_ai.py` — todo verde a 2026-10-10 (incluye la revisión
+externa aplicada, ver abajo):
 1. Lint estructural de los 4 PSC (bloques Function/Event/If balanceados, sin `Utility.Wait`,
    sin `GetVelocity*` — esa API no existe en Papyrus y fue reemplazada por muestreo entre
    ticks). Este lint encontró y corrigió dos bugs reales antes del handoff: un `EndFunction`
    cerrando un `Event`, y la llamada inexistente `GetVelocityX`.
-2. Solver balístico (puerto Python del PSC): reproduce `kSightZeroDrop` = 113.589 exacto, el
-   sag bajo la línea de apuntado es ~0 (el tiro pasa por el blanco), el yaw coincide con
-   `gunDirection` del nativo, y fuera de alcance devuelve `None`.
+2. Solver balístico (puerto Python del PSC) con **física independiente**: cada caso se
+   verifica integrando el vuelo (Euler fino) y comprobando que el proyectil pasa por el
+   blanco (error < 2 u). Casos: nivel a 75 m (reproduce `kSightZeroDrop` = 113.589 exacto,
+   sag 0), blanco 40 u debajo a 30 m (pitch −0.59°), blanco 300 u debajo a 75 m (pitch
+   −2.03°), blanco 150 u arriba (dragón), blanco debajo ⇒ pitch menor que a nivel
+   (regresión anti-signo). El yaw coincide con `gunDirection` del nativo; fuera de alcance
+   devuelve `None`.
 3. `Atan2` del PSC vs `math.atan2`: 20.000 casos.
 4. Roundtrip `vmad_multi` ↔ `read_vmad` (2 scripts, properties tipo 1/3/4/5) + serialización
    de GLOB y XLKR.
 5. Consistencia `config.guardia` ↔ claves leídas por `build_plugin.py` en ambas direcciones,
    y constantes == `Core.cpp`.
+
+### Revisión externa aplicada (2026-10-10)
+
+Una revisión independiente del código detectó un bug balístico real y tres riesgos, todos
+corregidos y cubiertos por tests:
+- **Signo invertido en el discriminante** (el bug grave): el solver usaba la altura de la
+  boca sobre el blanco donde la fórmula pide la altura del **blanco sobre la boca**
+  (`dzRel = tz − mz`). Con h=0 (los únicos tests originales) ambos signos coinciden, así
+  que pasaba; con la torre elevada (blanco debajo), apuntaba ~2–5° demasiado alto y el
+  virote caía cientos de unidades lejos. Corregido + tests con integración del vuelo.
+- **Virote visual**: las anim Gamebryo no restauran la escala del nodo (en la vía del
+  jugador la sube el script del ACTI). La torre ahora restaura `VisualBoltNode` a 1.0 en
+  `FaseRecarga`, en la cesión al jugador y en `OnLoad` (defensa post-save).
+- **Cesión en fase 4**: si el jugador tomaba la máquina justo tras la anim de fuego, el
+  proyectil nunca salía (anim vacía). Ahora la rama de cesión completa la liberación y
+  rearma antes de dormir.
+- **Jugador como blanco**: si el jugador agredía al guardia, pasaba el filtro de hostilidad
+  (es hostil al guardia). Ahora hay un check explícito `BLANCO_JUGADOR` antes de cualquier
+  regla, además de la geometría de seguridad.
+- Menores: `OnCellDetach` duerme la torre con la celda descargada; `tick_segundos`
+  0.12 → 0.08 (slew menos escalonado).
+- Desestimados con criterio: cachear `Game.GetPlayer()` (es O(1) en el runtime, es la
+  práctica estándar llamarlo directo); suavizar la velocidad medida (el propio slew filtra
+  el jitter y el muestreo se resetea al cambiar de blanco); liberar por evento de animación
+  (la vía del jugador usa timer: `elapsed >= ReleaseSeconds`).
 
 Queda para la máquina del usuario: compilar los PSC (el compilador es la palabra final en
 sintaxis), correr `build_plugin.py` con los donors reales, y la prueba in-game.
