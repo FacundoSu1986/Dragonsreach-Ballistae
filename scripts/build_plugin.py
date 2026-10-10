@@ -17,6 +17,7 @@ MASTERS=['Skyrim.esm','Update.esm','Dawnguard.esm']
 IDS={'tower':0x03000800,'ballesta':0x03000801,'projectile':0x03000802,'ammo':0x03000803,'launcher':0x03000804,'launcher_stat':0x03000805,'session':0x03000806,'cell':0x03000807,'container':0x03000808,'navmesh':0x03000809,'tower_ref':0x03000900,'ballesta_ref':0x03000901,'container_ref':0x03000902,'spawn_ref':0x03000903}
 IDS.update(light_fill=0x0300080A,light_target=0x0300080B)
 IDS.update(explosion=0x0300080C,shot_sound=0x0300080D)
+IDS.update(ocupada=0x0300080E,guardia=0x0300080F,guardia_ref=0x03000940)
 # v08 siege records (docs/revision B1/B2/B6): one table for the build, the validator and the tests.
 # Damage follows the vanilla object-fired ballista: TrapDweBallistaBolt keeps WEAP/AMMO at 0 and
 # deals 80-250 through its explosion; impact force 50 is that projectile's own value.
@@ -45,6 +46,16 @@ def replace_clone(donor,edid,updates,drop=()):
   if k not in seen:ss.append(W.sub(k,v))
  return ss
 
+def find_guard_npc(path,candidates):
+ p=Plugin(path)
+ for t,o,n,d in p.recorrer():
+  if t=='NPC_':
+   ss=p.subrecords(p.datos(o))
+   ed=next((v.rstrip(b'\0').decode('cp1252') for k,v in ss if k=='EDID'),'')
+   if ed in candidates:
+    return {'edid':ed,'type':t,'fid':p.form_id(o),'subs':ss,'flags':struct.unpack_from('<I',p.d,o+8)[0]}
+ raise ValueError('Guard NPC donor not found among %s: abri xEdit, buscá el EDID de un guardia de ciudad (NPC_) y agregalo a config.json guardia.donores_npc'%candidates)
+
 def lenstr(s):
  b=s.encode('utf8');return struct.pack('<H',len(b))+b
 
@@ -60,7 +71,11 @@ def script(name,props):
   else:raise ValueError(kind)
  return b
 
-def vmad(name,props):return struct.pack('<HHH',5,2,1)+script(name,props)
+def vmad(name,props):return vmad_multi([(name,props)])
+def vmad_multi(scripts):
+ b=struct.pack('<HHH',5,2,len(scripts))
+ for name,props in scripts:b+=script(name,props)
+ return b
 
 def quest_vmad():
  b=vmad('AstraAsedioSession',{})
@@ -160,15 +175,18 @@ def projectile_radius():
 def stat(edid,model,obnd):
  return [W.sub('EDID',W.zstr(edid)),W.sub('OBND',obnd),W.sub('MODL',W.zstr(model)),W.sub('MODT',bytes.fromhex('020000000000000000000000')),W.sub('DNAM',struct.pack('<fI',90.0,0))]
 
-def reference(fid,base,pos,angle=0.0,edid=None,persistent=False,rot=None,scale=1.0):
- """rot: X/Y/Z radians as stored in DATA (v11_layout.engine_convention says how the engine reads them)."""
+def reference(fid,base,pos,angle=0.0,edid=None,persistent=False,rot=None,scale=1.0,link=0,tipo='REFR'):
+ """rot: X/Y/Z radians as stored in DATA (v11_layout.engine_convention says how the engine reads them).
+ tipo: 'REFR' para objetos, 'ACHR' para referencias de NPC (el engine solo
+ instancia actores desde ACHR; un REFR con base NPC_ es ignorado)."""
  ss=[]
  if edid:ss.append(W.sub('EDID',W.zstr(edid)))
  ss.append(W.sub('NAME',U(base)))
  # Skyrim.esm order for scaled references: ... NAME, XSCL, DATA last.
  if abs(scale-1.0)>1e-9:ss.append(W.sub('XSCL',struct.pack('<f',scale)))
  ss.append(W.sub('DATA',struct.pack('<6f',*pos,*(rot if rot is not None else (0,0,angle)))))
- return W.record('REFR',fid,ss,banderas=0x400 if persistent else 0)
+ if link:ss.append(W.sub('XLKR',struct.pack('<II',link,0)))
+ return W.record(tipo,fid,ss,banderas=0x400 if persistent else 0)
 
 def _contains(tri,x,y):
  (ax,ay,_a),(bx,by,_b),(cx,cy,_c)=tri;d=(by-cy)*(ax-cx)+(cx-bx)*(ay-cy)
@@ -413,6 +431,31 @@ def validate_plugin(path):
  if not sound or sound['type']!=1 or sound['value']!={'form_id':IDS['shot_sound'],'alias':-1} or r.get(IDS['shot_sound'],('',))[0]!='SOUN':raise ValueError('bad VMAD property ShotSound')
  fire=json.loads((ROOT/'build/Dawnguard.esm.donors.json').read_text())['WPNCrossbowFire']
  if fire['type']!='SNDR' or r[IDS['shot_sound']][1].get('SDSC')!=U(fire['fid']):raise ValueError('ShotSound must play Dawnguard WPNCrossbowFire')
+ # v-guardia: dos scripts en la ballesta (sesión + torre autónoma) y sus forms.
+ gcfg=json.loads((ROOT/'config.json').read_text()).get('guardia')
+ if gcfg:
+  if len(av['scripts'])!=2 or av['scripts'][1]['name']!='AstraGuardiaAuto':raise ValueError('bad auto VMAD')
+  ap=av['scripts'][1]['properties']
+  for name,target in [('Launcher',IDS['launcher']),('ShotAmmo',IDS['ammo']),('ShotSound',IDS['shot_sound']),('OcupadaGuardia',IDS['ocupada'])]:
+   pr=ap.get(name)
+   if not pr or pr['type']!=1 or pr['value']!={'form_id':target,'alias':-1}:raise ValueError('bad auto VMAD property '+name)
+  for key,ck in {'VelocidadProyectil':'velocidad_proyectil','GravedadProyectil':'gravedad_proyectil','ArcMax':'arc_max','AlcanceMin':'alcance_min','AlcanceMax':'alcance_max','MargenLinea':'margen_linea','MargenImpacto':'margen_impacto','Enfriamiento':'enfriamiento','Anticipacion':'anticipacion','TickSegundos':'tick_segundos'}.items():
+   if key not in ap or ap[key]['type']!=4 or abs(ap[key]['value']-gcfg[ck])>1e-4:raise ValueError('bad auto VMAD '+key)
+  if ap['MaxRafaga']['type']!=3 or ap['MaxRafaga']['value']!=gcfg['max_rafaga']:raise ValueError('bad auto VMAD MaxRafaga')
+  for key,ck in [('YawSpeed','yaw_speed'),('PitchSpeed','pitch_speed'),('PitchMin','pitch_min'),('PitchMax','pitch_max'),('ReleaseSegundos','release_seconds')]:
+   if abs(ap[key]['value']-json.loads((ROOT/'config.json').read_text())[ck])>1e-4:raise ValueError('bad auto VMAD mirror '+key)
+  if r[IDS['ocupada']][0]!='GLOB':raise ValueError('bad guardia GLOB type')
+  gs_=r[IDS['ocupada']][1]
+  if gs_['FNAM']!=b's\0' or struct.unpack('<f',gs_['FLTV'])[0]!=0.:raise ValueError('bad guardia GLOB payload')
+  if r[IDS['guardia']][0]!='NPC_':raise ValueError('bad guardia NPC type')
+  nv=read_vmad(r[IDS['guardia']][1]['VMAD'])
+  if nv['scripts'][0]['name']!='AstraGuardiaNPC' or nv['scripts'][0]['properties']:raise ValueError('bad guardia NPC VMAD')
+  def link_de(fid):
+   v=r[fid][1].get('XLKR')
+   return struct.unpack('<II',v)[0] if v else 0
+  if link_de(IDS['ballesta_ref'])!=IDS['guardia_ref'] or link_de(IDS['guardia_ref'])!=IDS['ballesta_ref']:raise ValueError('bad guardia XLKR links')
+  if r[IDS['guardia_ref']][0]!='ACHR':raise ValueError('guardia ref must be ACHR (REFR with NPC base is never instantiated)')
+  if struct.unpack('<I',r[IDS['guardia_ref']][1]['NAME'])[0]!=IDS['guardia']:raise ValueError('guardia ref does not point at the NPC')
  if (qv['version'],qv['object_format'])!=(5,2) or qv['scripts'][0]['name']!='AstraAsedioSession':raise ValueError('bad quest VMAD')
  if len(qv['aliases'])!=1:raise ValueError('bad player alias count')
  alias=qv['aliases'][0]
@@ -421,9 +464,9 @@ def validate_plugin(path):
  qs=r[IDS['session']][1]
  if struct.unpack_from('<H',qs['DNAM'])[0]&0x101!=0x101 or qs['ALST']!=U(0) or qs['ALFR']!=U(0x14):raise ValueError('bad start-enabled quest bootstrap')
  for fid,(t,ss) in r.items():
-  if t=='REFR':
+  if t in ('REFR','ACHR'):
    target=struct.unpack('<I',ss['NAME'])[0]
-   if target>>24==3 and target not in r:raise ValueError('unresolved REFR')
+   if target>>24==3 and target not in r:raise ValueError('unresolved '+t)
  nv=r[IDS['navmesh']][1]['NVNM'];off=16
  if struct.unpack_from('<I',nv,12)[0]!=IDS['cell']:raise ValueError('wrong nav parent')
  vc=struct.unpack_from('<I',nv,off)[0];off+=4
@@ -477,6 +520,10 @@ def build():
  sk=find_records(data/'Skyrim.esm',['QASmoke','WRIntFloorSTMid01Large','ArcheryTarget','ArcheryTargetTripod','TreasChestSmallEMPTYNoRespawn','DefaultImageSpace','MagicVoiceDragonRendProjectileLight','TrapBallistaBoltExplosion02'])
  if dg['WPNCrossbowFire']['type']!='SNDR' or sk['TrapBallistaBoltExplosion02']['type']!='EXPL':raise ValueError('v08 sound/explosion donors changed type')
  if sk['DefaultImageSpace']['fid']!=0x167 or struct.unpack('<4f',dict(sk['DefaultImageSpace']['subs'])['TNAM'])!=(0.,1.,1.,1.):raise ValueError('neutral vanilla ImageSpace changed')
+ gcfg=cfg.get('guardia')
+ guard_donor=None
+ if gcfg:
+  guard_donor=find_guard_npc(data/'Skyrim.esm',gcfg['donores_npc'])
  (ROOT/'build/Dawnguard.esm.donors.json').write_text(json.dumps({k:{**{q:v for q,v in d.items() if q!='subs'},'subs':[[k,v.hex()] for k,v in d['subs']]} for k,d in dg.items()},indent=2))
  groups=[];new=[]
  def add(t,fid,ss,flags=0):
@@ -489,8 +536,39 @@ def build():
  props['UseSightCamera']=(5,cfg['use_sight_camera'])
  props['ContinuousFire']=(5,cfg['continuous_fire'])
  props['OperatorHeight']=(4,119.);props['OperatorVerticalTolerance']=(4,64.)
- acti=[W.sub('EDID',W.zstr('AstraAsedioBallesta')),W.sub('VMAD',vmad('AstraAsedioActi',props)),W.sub('OBND',bound('ballesta',[-350,-300,0,350,300,250])),W.sub('FULL',W.zstr('Ballesta de asedio Astra')),W.sub('MODL',W.zstr('AstraAsedio\\ballesta.nif')),W.sub('MODT',bytes.fromhex('020000000000000000000000')),W.sub('FNAM',struct.pack('<H',0))]
+ props['OcupadaGuardia']=(1,IDS['ocupada'])
+ auto_props=None
+ if gcfg:
+  auto_props={'Launcher':(1,IDS['launcher']),'ShotAmmo':(1,IDS['ammo']),'ShotSound':(1,IDS['shot_sound']),'OcupadaGuardia':(1,IDS['ocupada']),
+   'VelocidadProyectil':(4,gcfg['velocidad_proyectil']),'GravedadProyectil':(4,gcfg['gravedad_proyectil']),
+   'MuzzleAlto':(4,gcfg['muzzle_alto']),'MuzzleAdelante':(4,gcfg['muzzle_adelante']),
+   'ArcMax':(4,gcfg['arc_max']),'AlcanceMin':(4,gcfg['alcance_min']),'AlcanceMax':(4,gcfg['alcance_max']),
+   'MargenLinea':(4,gcfg['margen_linea']),'MargenImpacto':(4,gcfg['margen_impacto']),
+   'MaxRafaga':(3,gcfg['max_rafaga']),'Enfriamiento':(4,gcfg['enfriamiento']),'Anticipacion':(4,gcfg['anticipacion']),
+   'TickSegundos':(4,gcfg['tick_segundos']),'QALog':(5,gcfg['qa_log']),
+   'YawSpeed':(4,cfg['yaw_speed']),'PitchSpeed':(4,cfg['pitch_speed']),
+   'PitchMin':(4,cfg['pitch_min']),'PitchMax':(4,cfg['pitch_max']),'ReleaseSegundos':(4,cfg['release_seconds'])}
+ acti_scripts=[('AstraAsedioActi',props)]+([('AstraGuardiaAuto',auto_props)] if auto_props else [])
+ acti=[W.sub('EDID',W.zstr('AstraAsedioBallesta')),W.sub('VMAD',vmad_multi(acti_scripts)),W.sub('OBND',bound('ballesta',[-350,-300,0,350,300,250])),W.sub('FULL',W.zstr('Ballesta de asedio Astra')),W.sub('MODL',W.zstr('AstraAsedio\\ballesta.nif')),W.sub('MODT',bytes.fromhex('020000000000000000000000')),W.sub('FNAM',struct.pack('<H',0))]
  groups.append(W.grupo('ACTI',[add('ACTI',IDS['ballesta'],acti)]))
+ # v-guardia: flag compartido sesión/demo <-> torre autónoma
+ groups.append(W.grupo('GLOB',[add('GLOB',IDS['ocupada'],[W.sub('EDID',W.zstr('AstraGuardiaOcupada')),W.sub('FNAM',b's\0'),W.sub('FLTV',struct.pack('<f',0.0))])]))
+ if guard_donor:
+  # Clon de un guardia vanilla: paquetes/facciones/combate del donante (sandbox
+  # anclado a la ubicación del editor = la torre). El VMAD del sensor va justo
+  # después de EDID, como exige el orden de subrecords de NPC_.
+  gsubs=[]
+  for k,v in guard_donor['subs']:
+   if k=='EDID':
+    gsubs.append(W.sub('EDID',W.zstr('AstraGuardiaNPC')))
+    gsubs.append(W.sub('VMAD',vmad('AstraGuardiaNPC',{})))
+   elif k=='VMAD':
+    continue
+   elif k=='FULL':
+    gsubs.append(W.sub('FULL',W.zstr(gcfg['nombre'])))
+   else:
+    gsubs.append(W.sub(k,v))
+  groups.append(W.grupo('NPC_',[add('NPC_',IDS['guardia'],gsubs)]))
  light_donor=sk['MagicVoiceDragonRendProjectileLight']
  groups.append(W.grupo('LIGH',[add('LIGH',IDS['light_fill'],neutral_light(light_donor,'AstraAsedioNeutralFill',1450)),add('LIGH',IDS['light_target'],neutral_light(light_donor,'AstraAsedioNeutralTargetLight',900))]))
  # v08 B1/B2: donor ballistics (gravity, speed, range) unchanged; only pickup, explosion, impact and radius move.
@@ -527,9 +605,12 @@ def build():
  cell=add('CELL',IDS['cell'],cellss)
  # The navmesh first: the spawn marker must land on it (v11 spec §1).
  nv,mi,nreport=navmesh_geometry();marker=spawn_marker(cfg,*LAST_NAVMESH)
- persistent=[reference(IDS['ballesta_ref'],IDS['ballesta'],(0,0,cfg['tower_top_units']),edid='AstraAsedioBallestaREF',persistent=True),reference(IDS['spawn_ref'],0x34,tuple(marker['pos']),math.pi,edid='AstraAsedioCOCMarker',persistent=True)]
+ persistent=[reference(IDS['ballesta_ref'],IDS['ballesta'],(0,0,cfg['tower_top_units']),edid='AstraAsedioBallestaREF',persistent=True,link=IDS['guardia_ref'] if guard_donor else 0),reference(IDS['spawn_ref'],0x34,tuple(marker['pos']),math.pi,edid='AstraAsedioCOCMarker',persistent=True)]
  new.extend([IDS['ballesta_ref'],IDS['spawn_ref']])
  refs=[reference(IDS['tower_ref'],IDS['tower'],(0,0,0),edid='AstraAsedioTowerREF'),reference(IDS['container_ref'],IDS['container'],(400,380,2),edid='AstraAsedioBoltChestREF')];new.extend([IDS['tower_ref'],IDS['container_ref']])
+ if guard_donor:
+  gx,gy,gz=gcfg['posicion'];gangle=math.atan2(-gx,-gy)
+  refs.append(reference(IDS['guardia_ref'],IDS['guardia'],(gx,gy,gz),gangle,edid='AstraGuardiaREF',link=IDS['ballesta_ref'],tipo='ACHR'));new.append(IDS['guardia_ref'])
  nextid=0x03000910
  for x in [-1536,-512,512,1536]:
   for y in [-2048,-1024,0,1024]:
@@ -569,6 +650,14 @@ def build():
  report['spawn_marker']=marker
  report['door']={'base':'000C78A3 FarmhouseAnimDoor01','teleport':False,'opens':cfg['tower_v11']['room']['door_opens'],'swing_verified_in_game':False}
  report['angle_convention']={k:v for k,v in json.loads((ROOT/'reports/angle_convention.json').read_text()).items() if k in ('decided','order','signs','falsified')}
+ report['guardia']={'donante_npc':(guard_donor or {}).get('edid'),'donante_fid':('%08X'%guard_donor['fid']) if guard_donor else None,
+  'nombre':gcfg['nombre'] if gcfg else None,'posicion':gcfg['posicion'] if gcfg else None,
+  'glob_ocupada':'%08X'%IDS['ocupada'],'auto_script':'AstraGuardiaAuto en la ballesta (segundo VMAD)',
+  'balistica':{'velocidad':gcfg['velocidad_proyectil'],'gravedad':gcfg['gravedad_proyectil'],'fuente':'native/src/Core.cpp v08 sight zero (5400 u/s, 0.35*9.81*70)'},
+  'reglas':{'arc_max':gcfg['arc_max'],'alcance_min':gcfg['alcance_min'],'alcance_max':gcfg['alcance_max'],'max_rafaga':gcfg['max_rafaga'],'enfriamiento':gcfg['enfriamiento'],'margen_linea':gcfg['margen_linea']},
+  'sensor':'combate vanilla del NPC (OnCombatStateChanged) + IsDetectedBy como LOS',
+  'prioridad':'GlobalVariable AstraGuardiaOcupada: sesión y demo del jugador siempre ganan',
+  'in_game_verified':False}
  report['activation']={'operator_distance_xy':cfg['operator_distance'],'operator_height_from_root':119.,'operator_vertical_tolerance':64.,'new_interaction_form':False,'rejection_notifications':True}
  report['seq']={'path':str(seq.relative_to(ROOT)), 'sha256':hashlib.sha256(seq.read_bytes()).hexdigest(), 'quest_fixed_form_id':f'{IDS["session"]:08X}', 'format_reference':'https://github.com/TES5Edit/TES5Edit/blob/dev-4.1.6/xEdit/xeMainForm.pas'}
  (ROOT/'reports/plugin_build.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
