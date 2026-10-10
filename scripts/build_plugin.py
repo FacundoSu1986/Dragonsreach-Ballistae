@@ -12,6 +12,7 @@ MASTERS=['Skyrim.esm','Update.esm','Dawnguard.esm']
 IDS={'tower':0x03000800,'ballesta':0x03000801,'projectile':0x03000802,'ammo':0x03000803,'launcher':0x03000804,'launcher_stat':0x03000805,'session':0x03000806,'cell':0x03000807,'container':0x03000808,'navmesh':0x03000809,'tower_ref':0x03000900,'ballesta_ref':0x03000901,'container_ref':0x03000902,'spawn_ref':0x03000903}
 IDS.update(light_fill=0x0300080A,light_target=0x0300080B)
 IDS.update(explosion=0x0300080C,shot_sound=0x0300080D)
+IDS.update(ocupada=0x0300080E,guardia=0x0300080F,guardia_ref=0x03000940)
 # v08 siege records (docs/revision B1/B2/B6): one table for the build, the validator and the tests.
 # Damage follows the vanilla object-fired ballista: TrapDweBallistaBolt keeps WEAP/AMMO at 0 and
 # deals 80-250 through its explosion; impact force 50 is that projectile's own value.
@@ -40,6 +41,16 @@ def replace_clone(donor,edid,updates,drop=()):
   if k not in seen:ss.append(W.sub(k,v))
  return ss
 
+def find_guard_npc(path,candidates):
+ p=Plugin(path)
+ for t,o,n,d in p.recorrer():
+  if t=='NPC_':
+   ss=p.subrecords(p.datos(o))
+   ed=next((v.rstrip(b'\0').decode('cp1252') for k,v in ss if k=='EDID'),'')
+   if ed in candidates:
+    return {'edid':ed,'type':t,'fid':p.form_id(o),'subs':ss,'flags':struct.unpack_from('<I',p.d,o+8)[0]}
+ raise ValueError('Guard NPC donor not found among %s: abri xEdit, buscá el EDID de un guardia de ciudad (NPC_) y agregalo a config.json guardia.donores_npc'%candidates)
+
 def lenstr(s):
  b=s.encode('utf8');return struct.pack('<H',len(b))+b
 
@@ -55,7 +66,11 @@ def script(name,props):
   else:raise ValueError(kind)
  return b
 
-def vmad(name,props):return struct.pack('<HHH',5,2,1)+script(name,props)
+def vmad(name,props):return vmad_multi([(name,props)])
+def vmad_multi(scripts):
+ b=struct.pack('<HHH',5,2,len(scripts))
+ for name,props in scripts:b+=script(name,props)
+ return b
 
 def quest_vmad():
  b=vmad('AstraAsedioSession',{})
@@ -155,9 +170,10 @@ def projectile_radius():
 def stat(edid,model,obnd):
  return [W.sub('EDID',W.zstr(edid)),W.sub('OBND',obnd),W.sub('MODL',W.zstr(model)),W.sub('MODT',bytes.fromhex('020000000000000000000000')),W.sub('DNAM',struct.pack('<fI',90.0,0))]
 
-def reference(fid,base,pos,angle=0.0,edid=None,persistent=False):
+def reference(fid,base,pos,angle=0.0,edid=None,persistent=False,link=0):
  ss=[]
  if edid:ss.append(W.sub('EDID',W.zstr(edid)))
+ if link:ss.append(W.sub('XLKR',struct.pack('<II',link,0)))
  ss+=[W.sub('NAME',U(base)),W.sub('DATA',struct.pack('<6f',*pos,0,0,angle))]
  return W.record('REFR',fid,ss,banderas=0x400 if persistent else 0)
 
@@ -361,6 +377,30 @@ def validate_plugin(path):
  if not sound or sound['type']!=1 or sound['value']!={'form_id':IDS['shot_sound'],'alias':-1} or r.get(IDS['shot_sound'],('',))[0]!='SOUN':raise ValueError('bad VMAD property ShotSound')
  fire=json.loads((ROOT/'build/Dawnguard.esm.donors.json').read_text())['WPNCrossbowFire']
  if fire['type']!='SNDR' or r[IDS['shot_sound']][1].get('SDSC')!=U(fire['fid']):raise ValueError('ShotSound must play Dawnguard WPNCrossbowFire')
+ # v-guardia: dos scripts en la ballesta (sesión + torre autónoma) y sus forms.
+ gcfg=json.loads((ROOT/'config.json').read_text()).get('guardia')
+ if gcfg:
+  if len(av['scripts'])!=2 or av['scripts'][1]['name']!='AstraGuardiaAuto':raise ValueError('bad auto VMAD')
+  ap=av['scripts'][1]['properties']
+  for name,target in [('Launcher',IDS['launcher']),('ShotAmmo',IDS['ammo']),('ShotSound',IDS['shot_sound']),('OcupadaGuardia',IDS['ocupada'])]:
+   pr=ap.get(name)
+   if not pr or pr['type']!=1 or pr['value']!={'form_id':target,'alias':-1}:raise ValueError('bad auto VMAD property '+name)
+  for key,ck in {'VelocidadProyectil':'velocidad_proyectil','GravedadProyectil':'gravedad_proyectil','ArcMax':'arc_max','AlcanceMin':'alcance_min','AlcanceMax':'alcance_max','MargenLinea':'margen_linea','MargenImpacto':'margen_impacto','Enfriamiento':'enfriamiento','Anticipacion':'anticipacion','TickSegundos':'tick_segundos'}.items():
+   if key not in ap or ap[key]['type']!=4 or abs(ap[key]['value']-gcfg[ck])>1e-4:raise ValueError('bad auto VMAD '+key)
+  if ap['MaxRafaga']['type']!=3 or ap['MaxRafaga']['value']!=gcfg['max_rafaga']:raise ValueError('bad auto VMAD MaxRafaga')
+  for key,ck in [('YawSpeed','yaw_speed'),('PitchSpeed','pitch_speed'),('PitchMin','pitch_min'),('PitchMax','pitch_max'),('ReleaseSegundos','release_seconds')]:
+   if abs(ap[key]['value']-json.loads((ROOT/'config.json').read_text())[ck])>1e-4:raise ValueError('bad auto VMAD mirror '+key)
+  if r[IDS['ocupada']][0]!='GLOB':raise ValueError('bad guardia GLOB type')
+  gs_=r[IDS['ocupada']][1]
+  if gs_['FNAM']!=b's\0' or struct.unpack('<f',gs_['FLTV'])[0]!=0.:raise ValueError('bad guardia GLOB payload')
+  if r[IDS['guardia']][0]!='NPC_':raise ValueError('bad guardia NPC type')
+  nv=read_vmad(r[IDS['guardia']][1]['VMAD'])
+  if nv['scripts'][0]['name']!='AstraGuardiaNPC' or nv['scripts'][0]['properties']:raise ValueError('bad guardia NPC VMAD')
+  def link_de(fid):
+   v=r[fid][1].get('XLKR')
+   return struct.unpack('<II',v)[0] if v else 0
+  if link_de(IDS['ballesta_ref'])!=IDS['guardia_ref'] or link_de(IDS['guardia_ref'])!=IDS['ballesta_ref']:raise ValueError('bad guardia XLKR links')
+  if struct.unpack('<I',r[IDS['guardia_ref']][1]['NAME'])[0]!=IDS['guardia']:raise ValueError('guardia ref does not point at the NPC')
  if (qv['version'],qv['object_format'])!=(5,2) or qv['scripts'][0]['name']!='AstraAsedioSession':raise ValueError('bad quest VMAD')
  if len(qv['aliases'])!=1:raise ValueError('bad player alias count')
  alias=qv['aliases'][0]
@@ -417,6 +457,10 @@ def build():
  if dg['WPNCrossbowFire']['type']!='SNDR' or sk['TrapBallistaBoltExplosion02']['type']!='EXPL':raise ValueError('v08 sound/explosion donors changed type')
  if sk['DefaultImageSpace']['fid']!=0x167 or struct.unpack('<4f',dict(sk['DefaultImageSpace']['subs'])['TNAM'])!=(0.,1.,1.,1.):raise ValueError('neutral vanilla ImageSpace changed')
  (ROOT/'build/Dawnguard.esm.donors.json').write_text(json.dumps({k:{**{q:v for q,v in d.items() if q!='subs'},'subs':[[k,v.hex()] for k,v in d['subs']]} for k,d in dg.items()},indent=2))
+ gcfg=cfg.get('guardia')
+ guard_donor=None
+ if gcfg:
+  guard_donor=find_guard_npc(data/'Skyrim.esm',gcfg['donores_npc'])
  groups=[];new=[]
  def add(t,fid,ss,flags=0):
   new.append(fid);return W.record(t,fid,ss,banderas=flags)
@@ -428,8 +472,39 @@ def build():
  props['UseSightCamera']=(5,cfg['use_sight_camera'])
  props['ContinuousFire']=(5,cfg['continuous_fire'])
  props['OperatorHeight']=(4,119.);props['OperatorVerticalTolerance']=(4,64.)
- acti=[W.sub('EDID',W.zstr('AstraAsedioBallesta')),W.sub('VMAD',vmad('AstraAsedioActi',props)),W.sub('OBND',bound('ballesta',[-350,-300,0,350,300,250])),W.sub('FULL',W.zstr('Ballesta de asedio Astra')),W.sub('MODL',W.zstr('AstraAsedio\\ballesta.nif')),W.sub('MODT',bytes.fromhex('020000000000000000000000')),W.sub('FNAM',struct.pack('<H',0))]
+ props['OcupadaGuardia']=(1,IDS['ocupada'])
+ auto_props=None
+ if gcfg:
+  auto_props={'Launcher':(1,IDS['launcher']),'ShotAmmo':(1,IDS['ammo']),'ShotSound':(1,IDS['shot_sound']),'OcupadaGuardia':(1,IDS['ocupada']),
+   'VelocidadProyectil':(4,gcfg['velocidad_proyectil']),'GravedadProyectil':(4,gcfg['gravedad_proyectil']),
+   'MuzzleAlto':(4,gcfg['muzzle_alto']),'MuzzleAdelante':(4,gcfg['muzzle_adelante']),
+   'ArcMax':(4,gcfg['arc_max']),'AlcanceMin':(4,gcfg['alcance_min']),'AlcanceMax':(4,gcfg['alcance_max']),
+   'MargenLinea':(4,gcfg['margen_linea']),'MargenImpacto':(4,gcfg['margen_impacto']),
+   'MaxRafaga':(3,gcfg['max_rafaga']),'Enfriamiento':(4,gcfg['enfriamiento']),'Anticipacion':(4,gcfg['anticipacion']),
+   'TickSegundos':(4,gcfg['tick_segundos']),'QALog':(5,gcfg['qa_log']),
+   'YawSpeed':(4,cfg['yaw_speed']),'PitchSpeed':(4,cfg['pitch_speed']),
+   'PitchMin':(4,cfg['pitch_min']),'PitchMax':(4,cfg['pitch_max']),'ReleaseSegundos':(4,cfg['release_seconds'])}
+ acti_scripts=[('AstraAsedioActi',props)]+([('AstraGuardiaAuto',auto_props)] if auto_props else [])
+ acti=[W.sub('EDID',W.zstr('AstraAsedioBallesta')),W.sub('VMAD',vmad_multi(acti_scripts)),W.sub('OBND',bound('ballesta',[-350,-300,0,350,300,250])),W.sub('FULL',W.zstr('Ballesta de asedio Astra')),W.sub('MODL',W.zstr('AstraAsedio\\ballesta.nif')),W.sub('MODT',bytes.fromhex('020000000000000000000000')),W.sub('FNAM',struct.pack('<H',0))]
  groups.append(W.grupo('ACTI',[add('ACTI',IDS['ballesta'],acti)]))
+ # v-guardia: flag compartido sesión/demo <-> torre autónoma
+ groups.append(W.grupo('GLOB',[add('GLOB',IDS['ocupada'],[W.sub('EDID',W.zstr('AstraGuardiaOcupada')),W.sub('FNAM',b's\0'),W.sub('FLTV',struct.pack('<f',0.0))])]))
+ if guard_donor:
+  # Clon de un guardia vanilla: paquetes/facciones/combate del donante (sandbox
+  # anclado a la ubicación del editor = la torre). El VMAD del sensor va justo
+  # después de EDID, como exige el orden de subrecords de NPC_.
+  gsubs=[]
+  for k,v in guard_donor['subs']:
+   if k=='EDID':
+    gsubs.append(W.sub('EDID',W.zstr('AstraGuardiaNPC')))
+    gsubs.append(W.sub('VMAD',vmad('AstraGuardiaNPC',{})))
+   elif k=='VMAD':
+    continue
+   elif k=='FULL':
+    gsubs.append(W.sub('FULL',W.zstr(gcfg['nombre'])))
+   else:
+    gsubs.append(W.sub(k,v))
+  groups.append(W.grupo('NPC_',[add('NPC_',IDS['guardia'],gsubs)]))
  light_donor=sk['MagicVoiceDragonRendProjectileLight']
  groups.append(W.grupo('LIGH',[add('LIGH',IDS['light_fill'],neutral_light(light_donor,'AstraAsedioNeutralFill',1450)),add('LIGH',IDS['light_target'],neutral_light(light_donor,'AstraAsedioNeutralTargetLight',900))]))
  # v08 B1/B2: donor ballistics (gravity, speed, range) unchanged; only pickup, explosion, impact and radius move.
@@ -464,9 +539,12 @@ def build():
  groups.append(W.grupo('QUST',[add('QUST',IDS['session'],quest)]))
  cellss=replace_clone(sk['QASmoke'],'AstraAsedioTest',{'FULL':W.zstr('Sala de pruebas de asedio Astra'),'XCLL':neutral_cell_lighting(dict(sk['QASmoke']['subs'])['XCLL']),'XCIM':U(sk['DefaultImageSpace']['fid'])})
  cell=add('CELL',IDS['cell'],cellss)
- persistent=[reference(IDS['ballesta_ref'],IDS['ballesta'],(0,0,cfg['tower_top_units']),edid='AstraAsedioBallestaREF',persistent=True),reference(IDS['spawn_ref'],0x34,(120,250,18),math.pi,edid='AstraAsedioCOCMarker',persistent=True)]
+ persistent=[reference(IDS['ballesta_ref'],IDS['ballesta'],(0,0,cfg['tower_top_units']),edid='AstraAsedioBallestaREF',persistent=True,link=IDS['guardia_ref'] if guard_donor else 0),reference(IDS['spawn_ref'],0x34,(120,250,18),math.pi,edid='AstraAsedioCOCMarker',persistent=True)]
  new.extend([IDS['ballesta_ref'],IDS['spawn_ref']])
  refs=[reference(IDS['tower_ref'],IDS['tower'],(0,0,0),edid='AstraAsedioTowerREF'),reference(IDS['container_ref'],IDS['container'],(400,380,2),edid='AstraAsedioBoltChestREF')];new.extend([IDS['tower_ref'],IDS['container_ref']])
+ if guard_donor:
+  gx,gy,gz=gcfg['posicion'];gangle=math.atan2(-gx,-gy)
+  refs.append(reference(IDS['guardia_ref'],IDS['guardia'],(gx,gy,gz),gangle,edid='AstraGuardiaREF',link=IDS['ballesta_ref']));new.append(IDS['guardia_ref'])
  nextid=0x03000910
  for x in [-1536,-512,512,1536]:
   for y in [-2048,-1024,0,1024]:
@@ -495,6 +573,14 @@ def build():
  report=validate_plugin(esp);report.update({'masters':MASTERS,'forms':{k:f'{v:08X}' for k,v in IDS.items()},'muzzle_rest_world':muzzle,'targets':{'10m':[0,muzzle[1]-700,muzzle[2]],'30m':[0,muzzle[1]-2100,muzzle[2]]},'navmesh':nreport,'donors':{k:f'{v["fid"]:08X}' for k,v in dg.items()},'NAVI':'Singleton 00012FB4 with only own NVMI; master files unchanged','limitations':['CK finalization not run','Native shooter attribution and in-game damage not verified','Navmesh avoids expanded collision boxes; CK path tests are pending']})
  report['test_room']={'neutral_imagespace':'00000167 DefaultImageSpace','ambient_rgb':[112,112,112],'directional_rgb':[80,80,80],'fog_max':0.,'native_light_count':4,'shadow_light_count':0,'light_donor':f'{light_donor["fid"]:08X} MagicVoiceDragonRendProjectileLight','light_radii_units':[1450,1450,900,900],'archery_target_form_id':f'{sk["ArcheryTarget"]["fid"]:08X}','target_heading_degrees':90.,'target_front_world_approx':[0.,.94,.34],'heading_source':'https://raw.githubusercontent.com/powerof3/CommonLibSSE/dev/src/RE/N/NiMatrix3.cpp','visual_in_game_verified':False}
  report['siege']={'weapon_damage':V08['weapon_damage'],'ammo_damage':struct.unpack_from('<f',ammo_data,8)[0],'explosion_damage':V08['explosion_damage'],'explosion_radius':V08['explosion_radius'],'explosion_force':V08['explosion_force'],'explosion_donor':'Skyrim.esm TrapBallistaBoltExplosion02','impact_force':V08['impact_force'],'weapon_stagger':V08['weapon_stagger'],'projectile_collision_radius':radius,'projectile_pickable':False,'ammo_playable':False,'shot_sound':'Dawnguard.esm WPNCrossbowFire via Papyrus SOUN','damage_composition_in_game_verified':False}
+ report['guardia']={'donante_npc':(guard_donor or {}).get('edid'),'donante_fid':('%08X'%guard_donor['fid']) if guard_donor else None,
+  'nombre':gcfg['nombre'] if gcfg else None,'posicion':gcfg['posicion'] if gcfg else None,
+  'glob_ocupada':'%08X'%IDS['ocupada'],'auto_script':'AstraGuardiaAuto en la ballesta (segundo VMAD)',
+  'balistica':{'velocidad':gcfg['velocidad_proyectil'],'gravedad':gcfg['gravedad_proyectil'],'fuente':'native/src/Core.cpp v08 sight zero (5400 u/s, 0.35*9.81*70)'},
+  'reglas':{'arc_max':gcfg['arc_max'],'alcance_min':gcfg['alcance_min'],'alcance_max':gcfg['alcance_max'],'max_rafaga':gcfg['max_rafaga'],'enfriamiento':gcfg['enfriamiento'],'margen_linea':gcfg['margen_linea']},
+  'sensor':'combate vanilla del NPC (OnCombatStateChanged) + IsDetectedBy como LOS',
+  'prioridad':'GlobalVariable AstraGuardiaOcupada: sesión y demo del jugador siempre ganan',
+  'in_game_verified':False}
  report['activation']={'operator_distance_xy':cfg['operator_distance'],'operator_height_from_root':119.,'operator_vertical_tolerance':64.,'new_interaction_form':False,'rejection_notifications':True}
  report['seq']={'path':str(seq.relative_to(ROOT)), 'sha256':hashlib.sha256(seq.read_bytes()).hexdigest(), 'quest_fixed_form_id':f'{IDS["session"]:08X}', 'format_reference':'https://github.com/TES5Edit/TES5Edit/blob/dev-4.1.6/xEdit/xeMainForm.pas'}
  (ROOT/'reports/plugin_build.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))

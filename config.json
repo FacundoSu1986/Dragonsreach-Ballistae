@@ -40,5 +40,35 @@
     "min_camera_distance_units": 0.0,
     "pedestal_collision_height_units": 35.0,
     "note": "v10: camera on the line rear sight (anchor) -> zero target at sight_zero_meters, slid back up to tail_distance; front post placed on that line natively."
+  },
+  "guardia": {
+    "donores_npc": [
+      "GuardWhiterun",
+      "GuardSolitude",
+      "GuardWindhelm",
+      "GuardMarkarth",
+      "GuardRiften"
+    ],
+    "nombre": "Guardia de la torre Astra",
+    "posicion": [
+      105.0,
+      85.0,
+      465.0
+    ],
+    "velocidad_proyectil": 5400.0,
+    "gravedad_proyectil": 240.345,
+    "muzzle_alto": 172.6,
+    "muzzle_adelante": -224.0,
+    "arc_max": 60.0,
+    "alcance_min": 900.0,
+    "alcance_max": 8400.0,
+    "margen_linea": 320.0,
+    "margen_impacto": 384.0,
+    "max_rafaga": 3,
+    "enfriamiento": 8.0,
+    "anticipacion": 0.5,
+    "tick_segundos": 0.12,
+    "qa_log": false,
+    "nota": "donores_npc: EDIDs de NPC_ de Skyrim.esm probados en orden; el guardia clonado conserva paquetes/facciones/combate del donante (sandbox anclado a la ubicaci\u00f3n del editor). Bal\u00edstica id\u00e9ntica al PROJ donante: 5400 u/s y g=0.35*9.81*70=240.345 u/s^2 (native/src/Core.cpp)."
   }
 }

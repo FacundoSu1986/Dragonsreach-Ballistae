@@ -4,6 +4,7 @@ Weapon Property Launcher Auto
 Ammo Property ShotAmmo Auto
 Ammo Property SteelBolt Auto
 Sound Property ShotSound Auto
+GlobalVariable Property OcupadaGuardia Auto   ; v-guardia: 1 durante sesión o demo
 float Property FireSeconds = 0.3 Auto
 float Property ReleaseSeconds = 0.1 Auto
 float Property ResetSeconds = 1.2 Auto
@@ -38,6 +39,7 @@ float[] rootPosition
 float[] muzzlePosition
 Actor player
 bool operating = false
+float demoUntil = 0.0   ; v-guardia: activación bloqueada mientras corre la demo
 bool updating = false
 bool heldFire = true
 bool repeatFire = false
@@ -137,6 +139,25 @@ Event OnUnload()
     EndSession()
 EndEvent
 
+; v-guardia: ciclo completo del guardia (torno, carga desde el atril, apuntado
+; y disparo) horneado como NiControllerSequence "GuardiaCiclo" dentro de
+; ballesta.nif por scripts/build_guardia.py. El jugador mira; la secuencia
+; fuerza el estado de cada nodo que anima (incluido CTRL_GIRO_360 a rumbo 0).
+Function PlayGuardiaDemo()
+    if operating || endingSession
+        return
+    endif
+    Debug.Trace("AstraAsedio demo del guardia (GuardiaCiclo)")
+    if OcupadaGuardia
+        OcupadaGuardia.SetValue(1)
+        RegisterForSingleUpdate(26.0)
+    endif
+    bool demoStarted = PlayGamebryoAnimation("GuardiaCiclo", true)
+    if !demoStarted
+        Debug.Trace("AstraAsedio GUARDIA_CICLO_MISSING: la secuencia no está en el NIF (corré build_guardia.py)")
+    endif
+EndFunction
+
 Event OnActivate(ObjectReference akActionRef)
     int activationGeneration = generation
     int activationToken = token
@@ -150,6 +171,16 @@ Event OnActivate(ObjectReference akActionRef)
     endif
     if !actionIsPlayer
         RejectActivation("ACTOR_NOT_PLAYER: solo el jugador puede manejarla.")
+        return
+    endif
+    ; v-guardia: mientras corre la demo, el guardia manda en la máquina.
+    if Utility.GetCurrentRealTime() < demoUntil
+        return
+    endif
+    ; v-guardia: activar EN SIGILO = demo del guardia (ciclo completo, ~22 s).
+    if Game.GetPlayer().IsSneaking()
+        demoUntil = Utility.GetCurrentRealTime() + 24.0
+        PlayGuardiaDemo()
         return
     endif
     if endingSession
@@ -260,6 +291,9 @@ Event OnActivate(ObjectReference akActionRef)
     int entryGeneration = generation
     int entryToken = token
     operating = true
+    if OcupadaGuardia
+        OcupadaGuardia.SetValue(1)
+    endif
     cameraEntryPending = true
     cameraEntryStartedAt = Utility.GetCurrentRealTime()
     ; Scheduled 0.05s ticks are requests, not a guaranteed engine frequency.
@@ -1166,6 +1200,12 @@ Function ApplyAim()
 EndFunction
 
 Event OnUpdate()
+    ; v-guardia: la ventana de la demo (22 s) se cierra aquí; los ticks de
+    ; sesión no se tocan (cuando operating es true esta rama nunca corre).
+    if !operating && !endingSession && OcupadaGuardia && OcupadaGuardia.GetValue() == 1 \
+        && Utility.GetCurrentRealTime() >= demoUntil
+        OcupadaGuardia.SetValue(0)
+    endif
     if updating || !operating
         return
     endif
@@ -1704,6 +1744,9 @@ Function EndSession()
         needsReset = true
     endif
     operating = false
+    if OcupadaGuardia && Utility.GetCurrentRealTime() >= demoUntil
+        OcupadaGuardia.SetValue(0)
+    endif
     cameraEntryPending = false
     cameraGraceUntil = 0.0
     firstUpdatePending = false
