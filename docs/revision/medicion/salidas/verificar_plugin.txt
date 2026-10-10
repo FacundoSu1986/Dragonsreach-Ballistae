@@ -1,0 +1,6 @@
+﻿== AstraAsedio.esp   44 records
+   OBS WEAP 03000804: no se encontro el NIF 'Weapons\\Steel\\SteelBow.nif' junto al plugin: Prn no verificado.
+   OBS 1 WEAP comprobada(s)
+   OBS 30 referencia(s) colocada(s) comprobada(s)
+   OBS 42 record(s) propio(s), 1 override(s), 3 master(s)
+   ok

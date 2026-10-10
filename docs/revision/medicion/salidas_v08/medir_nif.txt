@@ -1,0 +1,357 @@
+﻿
+===== E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v08\mod\meshes\AstraAsedio\torre.nif
+bloques: BSFadeNode x1, BSLightingShaderProperty x4, BSShaderTextureSet x4, BSTriShape x4, BSXFlags x1, bhkCollisionObject x1, bhkCompressedMeshShape x1, bhkCompressedMeshShapeData x1, bhkMoppBvTreeShape x1, bhkRigidBody x1
+BSXFlags BSX = 10 (Havok|Complex)
+bhkRigidBody[5] forma=bhkMoppBvTreeShape capa=STATIC masa=0.000 inercia=[1.0, 0.0, 0.0] amort=0.0400/0.1000 friccion=0.70 restitucion=0.40 movimiento=FIXED calidad=FIXED
+bhkCollisionObject[6] destino=0 flags=0x81 cuerpo=5(bhkRigidBody)
+BSTriShape[7] Torre_bolt tris=16 verts=27 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-92.4, -150.8, 285.6]..[-45.5, -145.2, 394.1]
+BSLightingShaderProperty[8] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dlc01\\weapons\\crossbow\\bolt.dds', 'textures\\dlc01\\weapons\\crossbow\\bolt_n.dds']
+BSTriShape[10] Torre_floor tris=8408 verts=9260 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-280.0, -280.0, 1.1]..[367.9, 280.0, 534.5]
+BSLightingShaderProperty[11] tipo=0 brillo=30 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\woodwalkway01.dds', 'textures\\architecture\\farmhouse\\woodwalkway01_n.dds']
+BSTriShape[13] Torre_metal tris=1644 verts=1358 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-151.2, -151.2, 22.8]..[151.2, 151.2, 468.2]
+BSLightingShaderProperty[14] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.00
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\cwcatapult01.dds', 'textures\\clutter\\cwcatapult01_n.dds', 'textures\\cubemaps\\ShinyDull_e.dds']
+BSTriShape[16] Torre_wood tris=7952 verts=10124 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-280.0, -280.0, -14.6]..[368.9, 282.8, 531.7]
+BSLightingShaderProperty[17] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\woodpost02.dds', 'textures\\architecture\\farmhouse\\woodpost02_n.dds']
+TOTAL BSTriShape: tris=18020 verts=20769
+largo visual en Y (shapes con BSLightingShaderProperty): 562.80 u (-280.00..282.80)
+
+===== E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v08\mod\meshes\AstraAsedio\ballesta.nif
+bloques: BSFadeNode x1, BSLightingShaderProperty x17, BSShaderTextureSet x17, BSTriShape x17, BSXFlags x1, NiControllerManager x1, NiControllerSequence x2, NiDefaultAVObjectPalette x1, NiMultiTargetTransformController x1, NiNode x10, NiTransformData x10, NiTransformInterpolator x10, bhkCollisionObject x1, bhkCompressedMeshShape x1, bhkCompressedMeshShapeData x1, bhkMoppBvTreeShape x1, bhkRigidBody x1
+BSXFlags BSX = 139 (Animated|Havok|Complex|Articulated)
+NiControllerSequence Fire bloques=5 ciclo=CLAMP frecuencia=1.00 inicio=0.000 fin=0.300 textKeys=no
+NiControllerSequence Reset bloques=5 ciclo=CLAMP frecuencia=1.00 inicio=0.000 fin=1.200 textKeys=no
+bhkRigidBody[30] forma=bhkMoppBvTreeShape capa=STATIC masa=0.000 inercia=[1.0, 0.0, 0.0] amort=0.0400/0.1000 friccion=0.70 restitucion=0.40 movimiento=FIXED calidad=FIXED
+bhkCollisionObject[31] destino=0 flags=0x81 cuerpo=30(bhkRigidBody)
+BSTriShape[35] CTRL_BRAZO_D_metal tris=236 verts=186 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[12.0, -138.4, 149.4]..[134.0, -103.4, 174.6]
+BSLightingShaderProperty[36] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.00
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\cwcatapult01.dds', 'textures\\clutter\\cwcatapult01_n.dds', 'textures\\cubemaps\\ShinyDull_e.dds']
+BSTriShape[38] CTRL_BRAZO_D_rope tris=3408 verts=2037 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[26.3, -140.0, 141.3]..[134.4, -99.1, 177.3]
+BSLightingShaderProperty[39] tipo=0 brillo=30 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\rope01.dds', 'textures\\architecture\\farmhouse\\rope01_n.dds']
+BSTriShape[41] CTRL_BRAZO_D_wood tris=236 verts=187 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[11.7, -138.6, 142.5]..[134.0, -100.1, 177.5]
+BSLightingShaderProperty[42] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\woodpost02.dds', 'textures\\architecture\\farmhouse\\woodpost02_n.dds']
+BSTriShape[45] CTRL_BRAZO_I_metal tris=236 verts=187 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-134.0, -138.4, 149.4]..[-12.0, -103.4, 174.6]
+BSLightingShaderProperty[46] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.00
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\cwcatapult01.dds', 'textures\\clutter\\cwcatapult01_n.dds', 'textures\\cubemaps\\ShinyDull_e.dds']
+BSTriShape[48] CTRL_BRAZO_I_rope tris=3396 verts=2030 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-134.4, -140.0, 141.3]..[-26.3, -99.1, 177.3]
+BSLightingShaderProperty[49] tipo=0 brillo=30 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\rope01.dds', 'textures\\architecture\\farmhouse\\rope01_n.dds']
+BSTriShape[51] CTRL_BRAZO_I_wood tris=236 verts=187 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-134.0, -138.6, 142.5]..[-11.7, -100.1, 177.5]
+BSLightingShaderProperty[52] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\woodpost02.dds', 'textures\\architecture\\farmhouse\\woodpost02_n.dds']
+BSTriShape[55] Cuerda_D_shape tris=20 verts=12 vertice=28B atributos=VERTEX|UV|NORMAL|TANGENT alfa=-1 caja=[-1.5, -102.3, 171.0]..[133.8, 73.2, 174.2]
+BSLightingShaderProperty[56] tipo=0 brillo=30 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\rope01.dds', 'textures\\architecture\\farmhouse\\rope01_n.dds']
+BSTriShape[59] Cuerda_I_shape tris=20 verts=12 vertice=28B atributos=VERTEX|UV|NORMAL|TANGENT alfa=-1 caja=[-133.8, -102.3, 171.0]..[1.5, 73.2, 174.2]
+BSLightingShaderProperty[60] tipo=0 brillo=30 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\rope01.dds', 'textures\\architecture\\farmhouse\\rope01_n.dds']
+BSTriShape[63] VIROTE_VISUAL_bolt tris=480 verts=530 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-7.3, -211.4, 168.4]..[7.3, 73.2, 180.3]
+BSLightingShaderProperty[64] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dlc01\\weapons\\crossbow\\bolt.dds', 'textures\\dlc01\\weapons\\crossbow\\bolt_n.dds']
+BSTriShape[68] CTRL_ELEVACION_bolt tris=324 verts=304 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-38.4, 87.6, 130.0]..[72.1, 149.8, 147.3]
+BSLightingShaderProperty[69] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dlc01\\weapons\\crossbow\\bolt.dds', 'textures\\dlc01\\weapons\\crossbow\\bolt_n.dds']
+BSTriShape[71] CTRL_ELEVACION_metal tris=5668 verts=6197 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-53.2, -141.0, 110.4]..[58.3, 137.5, 177.4]
+BSLightingShaderProperty[72] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.00
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\cwcatapult01.dds', 'textures\\clutter\\cwcatapult01_n.dds', 'textures\\cubemaps\\ShinyDull_e.dds']
+BSTriShape[74] CTRL_ELEVACION_rope tris=2530 verts=1478 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-19.6, -150.4, 135.0]..[19.6, 121.6, 172.5]
+BSLightingShaderProperty[75] tipo=0 brillo=30 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\rope01.dds', 'textures\\architecture\\farmhouse\\rope01_n.dds']
+BSTriShape[77] CTRL_ELEVACION_wood tris=1464 verts=1404 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-39.1, -158.2, 137.0]..[39.1, 142.6, 171.7]
+BSLightingShaderProperty[78] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\woodpost02.dds', 'textures\\architecture\\farmhouse\\woodpost02_n.dds']
+BSTriShape[80] CTRL_GIRO_360_metal tris=736 verts=762 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-44.1, -9.8, 116.8]..[44.2, 9.8, 162.8]
+BSLightingShaderProperty[81] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.00
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\cwcatapult01.dds', 'textures\\clutter\\cwcatapult01_n.dds', 'textures\\cubemaps\\ShinyDull_e.dds']
+BSTriShape[84] AstraBallesta_floor tris=176 verts=192 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-79.4, -79.4, 2.5]..[79.4, 79.4, 102.3]
+BSLightingShaderProperty[85] tipo=0 brillo=30 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\woodwalkway01.dds', 'textures\\architecture\\farmhouse\\woodwalkway01_n.dds']
+BSTriShape[87] AstraBallesta_metal tris=560 verts=486 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-91.7, -88.6, 2.9]..[91.7, 88.6, 128.1]
+BSLightingShaderProperty[88] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.00
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\cwcatapult01.dds', 'textures\\clutter\\cwcatapult01_n.dds', 'textures\\cubemaps\\ShinyDull_e.dds']
+BSTriShape[90] AstraBallesta_wood tris=28 verts=36 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-14.3, -14.3, -0.0]..[14.3, 14.3, 137.6]
+BSLightingShaderProperty[91] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\architecture\\farmhouse\\woodpost02.dds', 'textures\\architecture\\farmhouse\\woodpost02_n.dds']
+TOTAL BSTriShape: tris=19754 verts=16227
+largo visual en Y (shapes con BSLightingShaderProperty): 361.20 u (-211.40..149.80)
+
+===== E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v08\mod\meshes\AstraAsedio\virote.nif
+bloques: BSFadeNode x1, BSLightingShaderProperty x1, BSShaderTextureSet x1, BSTriShape x1, BSXFlags x1, bhkBoxShape x1, bhkCollisionObject x1, bhkRigidBodyT x1
+BSXFlags BSX = 194 (Havok|Dynamic|Articulated)
+bhkRigidBodyT[3] forma=bhkBoxShape capa=PROJECTILE masa=15.000 inercia=[98.5404, 0.4805, 98.8295] amort=0.0996/0.0498 friccion=0.50 restitucion=0.10 movimiento=SPHERE_STABILIZED calidad=MOVING
+   bhkBoxShape material=0xDE0EB592 radio=0.03150 semiejes(havok)=[0.0315, 2.03275, 0.0315]
+   caja en el marco del NIF (u): largo X/Y/Z=[4.41, 284.55, 4.41] centro=[0.0, -142.27, 0.0]
+bhkCollisionObject[4] destino=0 flags=0x81 cuerpo=3(bhkRigidBodyT)
+BSTriShape[5] AstraVirote_shape tris=480 verts=530 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-7.3, -284.5, -4.2]..[7.4, 0.0, 7.7]
+BSLightingShaderProperty[6] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dlc01\\weapons\\crossbow\\bolt.dds', 'textures\\dlc01\\weapons\\crossbow\\bolt_n.dds']
+TOTAL BSTriShape: tris=480 verts=530
+largo visual en Y (shapes con BSLightingShaderProperty): 284.55 u (-284.55..0.00)
+cobertura de la caja Havok sobre ese largo: 100.0 % (caja Y -284.55..0.00)
+
+===== E:\Sectores\Sector_Varios\bae extractor\meshes\dlc01\weapons\crossbow\boltprojectile.nif
+bloques: BSEffectShaderProperty x2, BSFadeNode x1, BSLightingShaderProperty x1, BSShaderTextureSet x1, BSTriShape x3, BSValueNode x1, BSXFlags x1, NiAlphaProperty x3, NiNode x2, NiTransformController x1, NiTransformData x1, NiTransformInterpolator x1, bhkBoxShape x1, bhkCollisionObject x1, bhkRigidBodyT x1
+BSXFlags BSX = 211 (Animated|Havok|Addon|Dynamic|Articulated)
+bhkRigidBodyT[3] forma=bhkBoxShape capa=PROJECTILE masa=5.000 inercia=[1.3276, 0.0439, 1.3358] amort=0.0996/0.0498 friccion=0.50 restitucion=0.40 movimiento=SPHERE_STABILIZED calidad=MOVING
+   bhkBoxShape material=0xDE0EB592 radio=0.00179 semiejes(havok)=[0.02327, 0.40872, 0.00179]
+   caja en el marco del NIF (u): largo X/Y/Z=[3.26, 57.21, 0.25] centro=[-0.0, -29.29, 0.01]
+bhkCollisionObject[4] destino=0 flags=0x81 cuerpo=3(bhkRigidBodyT)
+BSTriShape[7] trailShort tris=32 verts=30 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=9 caja=[-5.0, -299.0, -9.6]..[5.0, -2.8, 9.6]
+NiAlphaProperty[9] flags=4333 (0x10ED) umbral=128
+BSTriShape[14] Flow:0 tris=8 verts=9 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=16 caja=[-3.2, -0.0, -3.1]..[2.5, -0.0, 2.6]
+NiAlphaProperty[16] flags=4333 (0x10ED) umbral=128
+BSTriShape[17] SteelBoltFlight:0 tris=66 verts=71 vertice=28B atributos=VERTEX|UV|NORMAL|TANGENT alfa=20 caja=[-1.3, -21.1, -0.6]..[1.3, -0.0, 1.4]
+BSLightingShaderProperty[18] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.73
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|EnvMapLightFade
+   texturas=['textures\\dlc01\\weapons\\crossbow\\Bolt.dds', 'textures\\dlc01\\weapons\\crossbow\\Bolt_n.dds', 'textures\\cubemaps\\ShinyDullDS_e.dds', 'textures\\dlc01\\weapons\\crossbow\\Bolt_m.dds']
+NiAlphaProperty[20] flags=4844 (0x12EC) umbral=128
+TOTAL BSTriShape: tris=106 verts=110
+largo visual en Y (shapes con BSLightingShaderProperty): 21.10 u (-21.12..-0.02)
+cobertura de la caja Havok sobre ese largo: 96.9 % (caja Y -57.89..-0.68)
+
+===== E:\Sectores\Sector_Varios\bae extractor\meshes\dlc01\weapons\dwarven crossbow\dwarvenboltprojectile.nif
+bloques: BSEffectShaderProperty x2, BSFadeNode x1, BSLightingShaderProperty x1, BSShaderTextureSet x1, BSTriShape x3, BSValueNode x1, BSXFlags x1, NiAlphaProperty x3, NiNode x2, NiTransformController x1, NiTransformData x1, NiTransformInterpolator x1, bhkBoxShape x1, bhkCollisionObject x1, bhkRigidBodyT x1
+BSXFlags BSX = 211 (Animated|Havok|Addon|Dynamic|Articulated)
+bhkRigidBodyT[3] forma=bhkBoxShape capa=PROJECTILE masa=5.000 inercia=[1.3276, 0.0439, 1.3358] amort=0.0996/0.0498 friccion=0.50 restitucion=0.40 movimiento=SPHERE_STABILIZED calidad=MOVING
+   bhkBoxShape material=0xDE0EB592 radio=0.00179 semiejes(havok)=[0.02327, 0.40872, 0.00179]
+   caja en el marco del NIF (u): largo X/Y/Z=[3.26, 57.21, 0.25] centro=[-0.0, -29.29, 0.01]
+bhkCollisionObject[4] destino=0 flags=0x81 cuerpo=3(bhkRigidBodyT)
+BSTriShape[7] trailShort tris=32 verts=30 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=9 caja=[-5.0, -299.0, -9.6]..[5.0, -2.8, 9.6]
+NiAlphaProperty[9] flags=4333 (0x10ED) umbral=128
+BSTriShape[14] Flow:0 tris=8 verts=9 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=16 caja=[-3.2, -0.0, -3.1]..[2.5, -0.0, 2.6]
+NiAlphaProperty[16] flags=4333 (0x10ED) umbral=128
+BSTriShape[17] DwarvenBoltFlight:0 tris=108 verts=129 vertice=28B atributos=VERTEX|UV|NORMAL|TANGENT alfa=20 caja=[-1.3, -21.1, -0.5]..[1.3, -0.0, 1.4]
+BSLightingShaderProperty[18] tipo=1 brillo=7 especular=1.00 alfa=1.00 envMapScale=1.30
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|EnvMapLightFade
+   texturas=['textures\\dlc01\\weapons\\dwarvencrossbow\\DwarvenBolt.dds', 'textures\\dlc01\\weapons\\dwarvencrossbow\\DwarvenBolt_n.dds', 'textures\\cubemaps\\Bronze_e.dds', 'textures\\dlc01\\weapons\\dwarvencrossbow\\DwarvenBolt_m.dds']
+NiAlphaProperty[20] flags=4845 (0x12ED) umbral=128
+TOTAL BSTriShape: tris=148 verts=168
+largo visual en Y (shapes con BSLightingShaderProperty): 21.09 u (-21.11..-0.02)
+cobertura de la caja Havok sobre ese largo: 96.9 % (caja Y -57.89..-0.68)
+
+===== E:\Sectores\Sector_Varios\bae extractor\meshes\dlc02\weapons\dwarvenbolts\bolts.nif
+bloques: BSEffectShaderProperty x2, BSFadeNode x1, BSLightingShaderProperty x1, BSShaderTextureSet x1, BSTriShape x3, BSValueNode x1, BSXFlags x1, NiAlphaProperty x2, NiNode x2, NiTransformController x1, NiTransformData x1, NiTransformInterpolator x1, bhkBoxShape x1, bhkCollisionObject x1, bhkRigidBodyT x1
+BSXFlags BSX = 211 (Animated|Havok|Addon|Dynamic|Articulated)
+bhkRigidBodyT[3] forma=bhkBoxShape capa=PROJECTILE masa=5.000 inercia=[1.3276, 0.0439, 1.3358] amort=0.0996/0.0498 friccion=0.50 restitucion=0.40 movimiento=SPHERE_STABILIZED calidad=MOVING
+   bhkBoxShape material=0xDE0EB592 radio=0.00179 semiejes(havok)=[0.02327, 0.40872, 0.00179]
+   caja en el marco del NIF (u): largo X/Y/Z=[3.26, 57.21, 0.25] centro=[-0.0, -29.29, 0.01]
+bhkCollisionObject[4] destino=0 flags=0x81 cuerpo=3(bhkRigidBodyT)
+BSTriShape[7] trailShort tris=32 verts=30 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=9 caja=[-5.0, -299.0, -9.6]..[5.0, -2.8, 9.6]
+NiAlphaProperty[9] flags=4333 (0x10ED) umbral=128
+BSTriShape[14] Flow:0 tris=8 verts=9 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=16 caja=[-3.2, -0.0, -3.1]..[2.5, -0.0, 2.6]
+NiAlphaProperty[16] flags=4333 (0x10ED) umbral=128
+BSTriShape[17] SteelArrowFlight:0 tris=26 verts=28 vertice=28B atributos=VERTEX|UV|NORMAL|TANGENT alfa=-1 caja=[-3.0, -67.8, -1.7]..[3.0, 0.4, 1.7]
+BSLightingShaderProperty[18] tipo=0 brillo=80 especular=0.20 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|EnvMapLightFade|AnisoLighting
+   texturas=['textures\\actors\\dlc02\\dwarvenballistacenturion\\Dwarven_Centurion.dds', 'textures\\actors\\dlc02\\dwarvenballistacenturion\\Dwarven_Centurion_n.dds']
+TOTAL BSTriShape: tris=66 verts=67
+largo visual en Y (shapes con BSLightingShaderProperty): 68.19 u (-67.78..0.41)
+cobertura de la caja Havok sobre ese largo: 83.9 % (caja Y -57.89..-0.68)
+
+===== E:\Sectores\Sector_Varios\bae extractor\meshes\traps\bowtrap\largebolt01.nif
+bloques: BSFadeNode x1, BSLightingShaderProperty x1, BSShaderTextureSet x1, BSTriShape x1, BSXFlags x1, bhkCollisionObject x1, bhkConvexVerticesShape x1, bhkRigidBody x1
+BSXFlags BSX = 130 (Havok|Articulated)
+bhkRigidBody[3] forma=bhkConvexVerticesShape capa=WEAPON masa=0.000 inercia=[0.0, 0.0, 0.0] amort=0.0996/0.0498 friccion=0.50 restitucion=0.40 movimiento=BOX_STABILIZED calidad=INVALID
+bhkCollisionObject[4] destino=0 flags=0x81 cuerpo=3(bhkRigidBody)
+BSTriShape[5] LargeBolt01:37 tris=354 verts=292 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-7.2, -88.9, -3.8]..[7.2, 88.9, 3.8]
+BSLightingShaderProperty[6] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\weapons\\dwarven\\DwarvenArrow.dds', 'textures\\weapons\\dwarven\\DwarvenArrow_n.dds', 'textures\\weapons\\dwarven\\DwarvenArrow_m.dds']
+TOTAL BSTriShape: tris=354 verts=292
+largo visual en Y (shapes con BSLightingShaderProperty): 177.80 u (-88.90..88.90)
+
+===== E:\Sectores\Sector_Varios\bae extractor\meshes\dlc01\traps\crossbowtraps\plaincrossbow\plaincrossbowtrap01.nif
+bloques: BSBehaviorGraphExtraData x1, BSEffectShaderProperty x1, BSFadeNode x1, BSLightingShaderProperty x3, BSShaderTextureSet x2, BSTriShape x4, BSXFlags x1, NiAlphaProperty x1, NiFloatData x1, NiFloatExtraData x1, NiFloatExtraDataController x1, NiFloatInterpolator x1, NiNode x14, NiSkinData x1, NiSkinInstance x1, NiSkinPartition x1, NiTransformController x9, NiTransformData x9, NiTransformInterpolator x9, bhkCollisionObject x1, bhkConvexVerticesShape x3, bhkListShape x1, bhkRigidBody x1
+BSXFlags BSX = 171 (Animated|Havok|Complex|EditorMarker|Articulated)
+BSTriShape[3] EditorMarker tris=12 verts=24 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=5 caja=[-1.2, 22.0, 2.0]..[1.2, 512.0, 4.4]
+NiAlphaProperty[5] flags=4333 (0x10ED) umbral=128
+bhkRigidBody[11] forma=bhkListShape capa=STATIC masa=0.000 inercia=[0.0, 0.0, 0.0] amort=0.0996/0.0498 friccion=0.50 restitucion=0.40 movimiento=BOX_STABILIZED calidad=INVALID
+bhkCollisionObject[12] destino=6 flags=0x81 cuerpo=11(bhkRigidBody)
+BSTriShape[56] Bolt01:1 tris=117 verts=108 vertice=28B atributos=VERTEX|UV|NORMAL|TANGENT alfa=-1 caja=[-1.5, 0.4, 2.4]..[1.5, 24.7, 4.7]
+BSLightingShaderProperty[57] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|EnvMapLightFade
+   texturas=['textures\\dlc01\\weapons\\crossbow\\Bolt.dds', 'textures\\dlc01\\weapons\\crossbow\\Bolt_n.dds']
+BSTriShape[59] Stock01 tris=0 verts=0 vertice=44B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS|SKINNED alfa=-1
+BSLightingShaderProperty[63] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|Skinned|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dlc01\\weapons\\crossbow\\Crossbow.dds', 'textures\\dlc01\\weapons\\crossbow\\Crossbow_n.dds']
+BSTriShape[66] Brace01 tris=304 verts=376 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-7.1, -64.0, -6.1]..[7.1, 21.1, -2.2]
+BSLightingShaderProperty[67] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dlc01\\weapons\\crossbow\\Crossbow.dds', 'textures\\dlc01\\weapons\\crossbow\\Crossbow_n.dds']
+TOTAL BSTriShape: tris=433 verts=508
+largo visual en Y (shapes con BSLightingShaderProperty): 88.75 u (-64.00..24.75)
+
+===== E:\Sectores\Sector_Varios\bae extractor\meshes\clutter\civilwar\catapult\civilwarcatapult01.nif
+bloques: BSBehaviorGraphExtraData x1, BSEffectShaderProperty x2, BSEffectShaderPropertyColorController x1, BSEffectShaderPropertyFloatController x1, BSFadeNode x1, BSLightingShaderProperty x20, BSShaderTextureSet x4, BSTriShape x22, BSValueNode x2, BSXFlags x1, NiAlphaProperty x3, NiBoolData x1, NiBoolInterpolator x1, NiFloatData x2, NiFloatExtraData x1, NiFloatExtraDataController x1, NiFloatInterpolator x2, NiNode x16, NiPoint3Interpolator x1, NiPosData x1, NiTransformController x8, NiTransformData x8, NiTransformInterpolator x8, NiVisController x1, bhkCollisionObject x2, bhkCompressedMeshShape x2, bhkCompressedMeshShapeData x2, bhkMoppBvTreeShape x2, bhkRigidBody x1, bhkRigidBodyT x1
+BSXFlags BSX = 27 (Animated|Havok|Complex|Addon)
+bhkRigidBody[11] forma=bhkMoppBvTreeShape capa=ANIMSTATIC masa=0.000 inercia=[0.0, 0.0, 0.0] amort=0.0996/0.0498 friccion=0.50 restitucion=0.40 movimiento=BOX_INERTIA calidad=FIXED
+bhkCollisionObject[12] destino=4 flags=0x89 cuerpo=11(bhkRigidBody)
+BSTriShape[14] WheelsBack:2 tris=700 verts=1138 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-156.7, 104.6, 0.7]..[156.7, 177.2, 73.3]
+BSLightingShaderProperty[15] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds']
+BSTriShape[17] WheelsBack:3 tris=112 verts=106 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-156.7, 131.3, 27.4]..[156.7, 150.5, 46.6]
+BSLightingShaderProperty[18] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dungeons\\riften\\RatwayWood01.dds', 'textures\\dungeons\\riften\\RatwayWood01_n.dds']
+BSTriShape[20] WheelsBack:4 tris=144 verts=200 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-151.3, 128.7, 24.8]..[151.3, 153.1, 49.2]
+BSLightingShaderProperty[21] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.00
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds', 'textures\\cubemaps\\ShinyDull_e.dds']
+BSTriShape[24] WheelsFront:2 tris=700 verts=1138 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-156.7, -211.9, 0.7]..[156.7, -139.3, 73.3]
+BSLightingShaderProperty[25] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds']
+BSTriShape[26] WheelsFront:3 tris=112 verts=106 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-156.7, -185.2, 27.4]..[156.7, -166.0, 46.6]
+BSLightingShaderProperty[27] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dungeons\\riften\\RatwayWood01.dds', 'textures\\dungeons\\riften\\RatwayWood01_n.dds']
+BSTriShape[28] WheelsFront:4 tris=144 verts=204 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-151.3, -187.8, 24.8]..[151.3, -163.4, 49.2]
+BSLightingShaderProperty[29] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.00
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds', 'textures\\cubemaps\\ShinyDull_e.dds']
+BSTriShape[43] RopeTip02:2 tris=28 verts=60 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-1.6, 163.2, 39.9]..[1.6, 250.2, 115.0]
+BSLightingShaderProperty[44] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds']
+BSTriShape[45] RopeTip01:2 tris=24 verts=48 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-1.5, 169.9, 45.7]..[1.5, 249.8, 114.9]
+BSLightingShaderProperty[46] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds']
+BSTriShape[60] Cylinder02 tris=106 verts=65 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=65 caja=[-39.5, 230.9, 114.6]..[25.3, 283.8, 204.3]
+NiAlphaProperty[65] flags=4109 (0x100D) umbral=13
+BSTriShape[66] Rock01:0 tris=25 verts=27 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=71 caja=[-15.0, 249.4, 122.0]..[17.3, 265.5, 148.9]
+NiAlphaProperty[71] flags=4844 (0x12EC) umbral=128
+BSTriShape[72] Rock01:1 tris=523 verts=423 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=75 caja=[-17.4, 240.0, 117.2]..[19.8, 283.5, 154.0]
+BSLightingShaderProperty[73] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=Specular|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\trap\\OilTrap01.dds', 'textures\\trap\\OilTrap01_n.dds']
+NiAlphaProperty[75] flags=4844 (0x12EC) umbral=128
+BSTriShape[77] CatapultArm:3 tris=178 verts=234 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-107.1, -98.7, 56.8]..[107.1, 222.0, 134.0]
+BSLightingShaderProperty[78] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dungeons\\riften\\RatwayWood01.dds', 'textures\\dungeons\\riften\\RatwayWood01_n.dds']
+BSTriShape[79] CatapultArm:4 tris=300 verts=468 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-27.5, -86.5, 60.2]..[27.5, 291.9, 149.2]
+BSLightingShaderProperty[80] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.00
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds', 'textures\\cubemaps\\ShinyDull_e.dds']
+bhkRigidBodyT[89] forma=bhkMoppBvTreeShape capa=STATIC masa=0.000 inercia=[0.0, 0.0, 0.0] amort=0.0996/0.0498 friccion=0.50 restitucion=0.40 movimiento=BOX_STABILIZED calidad=INVALID
+bhkCollisionObject[90] destino=82 flags=0x81 cuerpo=89(bhkRigidBodyT)
+BSTriShape[91] TurnWheel:2 tris=360 verts=282 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-28.1, 189.1, 52.2]..[36.4, 213.0, 76.2]
+BSLightingShaderProperty[92] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds']
+BSTriShape[93] TurnWheel:3 tris=312 verts=183 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-154.2, 191.7, 55.0]..[154.2, 209.5, 72.8]
+BSLightingShaderProperty[94] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dungeons\\riften\\RatwayWood01.dds', 'textures\\dungeons\\riften\\RatwayWood01_n.dds']
+BSTriShape[95] TurnWheel:4 tris=580 verts=934 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-161.3, 161.0, 24.4]..[161.3, 240.1, 103.5]
+BSLightingShaderProperty[96] tipo=1 brillo=80 especular=1.00 alfa=1.00 envMapScale=1.00
+   F1=Specular|EnvMap|ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds', 'textures\\cubemaps\\ShinyDull_e.dds']
+BSTriShape[98] Details:2 tris=576 verts=762 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-137.0, -204.2, 18.4]..[137.0, 229.1, 83.3]
+BSLightingShaderProperty[99] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds']
+BSTriShape[100] Details:3 tris=704 verts=890 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-127.8, -204.2, 18.4]..[128.1, 227.4, 65.4]
+BSLightingShaderProperty[101] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dungeons\\riften\\RatwayWood01.dds', 'textures\\dungeons\\riften\\RatwayWood01_n.dds']
+BSTriShape[110] RopeBase02:2 tris=28 verts=50 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-1.8, 163.6, 40.2]..[1.8, 251.0, 115.7]
+BSLightingShaderProperty[111] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds']
+BSTriShape[112] RopeBase01:2 tris=28 verts=56 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-1.9, 163.1, 39.9]..[1.9, 250.3, 115.5]
+BSLightingShaderProperty[113] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds']
+BSTriShape[114] Frame01:2 tris=52 verts=72 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-139.5, -231.8, 7.2]..[139.5, 286.5, 363.6]
+BSLightingShaderProperty[115] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\clutter\\CWCatapult01.dds', 'textures\\clutter\\CWCatapult01_n.dds']
+BSTriShape[116] Frame01:3 tris=336 verts=458 vertice=32B atributos=VERTEX|UV|NORMAL|TANGENT|COLORS alfa=-1 caja=[-139.5, -231.8, 7.2]..[139.5, 286.5, 363.6]
+BSLightingShaderProperty[117] tipo=0 brillo=80 especular=1.00 alfa=1.00
+   F1=ReceiveShadows|CastShadows|OwnEmit|RemappableTex|ZBufferTest
+   F2=ZBufferWrite|VertexColors|EnvMapLightFade
+   texturas=['textures\\dungeons\\riften\\RatwayWood01.dds', 'textures\\dungeons\\riften\\RatwayWood01_n.dds']
+TOTAL BSTriShape: tris=6072 verts=7904
+largo visual en Y (shapes con BSLightingShaderProperty): 523.63 u (-231.78..291.85)
+
+===== E:\Sectores\Sector_Varios\bae extractor\textures\architecture\farmhouse\woodwalkway01.dds
+DXT1 2048x2048: bloques con texeles transparentes 0 de 262144; texeles transparentes 0.000 %

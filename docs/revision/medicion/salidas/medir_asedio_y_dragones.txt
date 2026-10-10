@@ -1,0 +1,80 @@
+﻿== Proyectiles de asedio vanilla y su explosion
+Skyrim.esm     CWCatapultProjectile                     tipo=0x01 grav=1.00 vel=4000 impacto=0.0 vuelo=OBJCatapultProjectileLP
+                                                         -> EXPL CWCatapultExp fuerza=240 dano=30 radio=320
+Dawnguard.esm  DLC1BoltSteelProjectile                  tipo=0x40 grav=0.35 vel=5400 impacto=1.0 vuelo=WPNBowProjectileSD
+Dawnguard.esm  DLC1BoltSteelProjectileFire              tipo=0x40 grav=0.35 vel=5400 impacto=1.0 vuelo=WPNBowProjectileSD
+                                                         -> EXPL DLC1BoltExplosionFire02 fuerza=30 dano=0 radio=150 EITM=EnchWeaponFireDamage02
+Dawnguard.esm  DLC1BoltSteelProjectileIce               tipo=0x40 grav=0.35 vel=5400 impacto=1.0 vuelo=WPNBowProjectileSD
+                                                         -> EXPL DLC1BoltExplosionFrost02 fuerza=30 dano=0 radio=150 EITM=EnchWeaponFrostDamage02
+Dawnguard.esm  DLC1BoltSteelProjectileShock             tipo=0x40 grav=0.35 vel=5400 impacto=1.0 vuelo=WPNBowProjectileSD
+                                                         -> EXPL DLC1BoltExplosionShock02 fuerza=30 dano=0 radio=150 EITM=EnchWeaponShockDamage02
+Dragonborn.esm DLC2ArrowDwarvenBallistaBoltProjectile   tipo=0x40 grav=0.35 vel=3600 impacto=1.0 vuelo=WPNBowProjectileSD
+Skyrim.esm     TrapDweBallistaBolt01                    tipo=0x01 grav=0.80 vel=2800 impacto=50.0 vuelo=-
+                                                         -> EXPL TrapBallistaBoltExplosion01 fuerza=20 dano=80 radio=320
+Skyrim.esm     TrapDweBallistaBolt02                    tipo=0x01 grav=0.80 vel=2800 impacto=50.0 vuelo=-
+                                                         -> EXPL TrapBallistaBoltExplosion02 fuerza=20 dano=150 radio=320
+Skyrim.esm     TrapDweBallistaBolt03                    tipo=0x01 grav=0.80 vel=2800 impacto=50.0 vuelo=-
+                                                         -> EXPL TrapBallistaBoltExplosion03 fuerza=20 dano=175 radio=320
+Skyrim.esm     TrapDweBallistaBolt04                    tipo=0x01 grav=0.80 vel=2800 impacto=50.0 vuelo=-
+                                                         -> EXPL TrapBallistaBoltExplosion04 fuerza=20 dano=200 radio=320
+Skyrim.esm     TrapDweBallistaBolt05                    tipo=0x01 grav=0.80 vel=2800 impacto=50.0 vuelo=-
+                                                         -> EXPL TrapBallistaBoltExplosion05 fuerza=20 dano=225 radio=320
+Skyrim.esm     TrapDweBallistaBolt06                    tipo=0x01 grav=0.80 vel=2800 impacto=50.0 vuelo=-
+                                                         -> EXPL TrapBallistaBoltExplosion06 fuerza=20 dano=250 radio=320
+
+== DragonRace: piel y habilidades
+Skyrim.esm DragonRace piel=SkinDragon armadura=0.0
+   SPLO SPEL AbDragon                           efectos=[('EnchFortifyCarryConstantSelf', 0.0)]
+   SPLO SPEL AbDragonBloodDamageFX              efectos=[('AbFXDragonBloodDamage', 0.0)]
+
+== Dragones de encuentro: piel propia y habilidades
+Dawnguard.esm  DLC1EncDragon07Fire    piel=skinDragonPurple armadura=0.0
+   SPLO SPEL AbDragonFire                       efectos=[('AbResistFire', 50.0), ('AbWeaknessFrostConstant', 25.0)]
+   SPLO SPEL DLC1crDragonUnarmedDamage07        efectos=[('AbFortifyUnarmedDamage', 175.0)]
+   SPLO SHOU DLC1DragonFireBreathShout07        efectos=[]
+   SPLO SHOU DLC1DragonDrainVitalityShout07     efectos=[]
+   SPLO SHOU DragonUnrelentingForceShout        efectos=[]
+Skyrim.esm     EncDragon01Fire        piel=de la raza
+   SPLO SPEL AbDragonFire                       efectos=[('AbResistFire', 50.0), ('AbWeaknessFrostConstant', 25.0)]
+   SPLO SHOU DragonFireBallShout01              efectos=[]
+   SPLO SHOU DragonFireBreathShout01            efectos=[]
+Skyrim.esm     EncDragon05Fire        piel=de la raza
+   SPLO SPEL AbDragonFire                       efectos=[('AbResistFire', 50.0), ('AbWeaknessFrostConstant', 25.0)]
+   SPLO SPEL crDragonUnarmedDamage05            efectos=[('AbFortifyUnarmedDamage', 175.0)]
+   SPLO SHOU DragonUnrelentingForceShout        efectos=[]
+   SPLO SHOU DragonFireBreathShout05            efectos=[]
+   SPLO SHOU DragonFireBallShout05              efectos=[]
+
+== Sonidos de disparo de ballestas y armas de asedio
+Skyrim.esm     CWCatapultWeapon             {'TNAM': 'WPNSwingBladeMediumSD'}
+Dawnguard.esm  DLC1CrossBow                 {'SNAM': 'WPNCrossbowFire', 'XNAM': 'WPNCrossbowFire2D', 'TNAM': 'WPNSwingBladeMediumSD'}
+Dawnguard.esm  DLC1DwarvenCrossBow          {'SNAM': 'WPNCrossbowFire', 'XNAM': 'WPNCrossbowFire2D', 'TNAM': 'WPNSwingBladeMediumSD'}
+Dawnguard.esm  DLC1TrapCrossbowWeapon01     {'TNAM': 'WPNSwingBladeMediumSD'}
+Dragonborn.esm DLC2crDwarvenBallistaBow01   {'TNAM': 'WPNSwingBladeMediumSD'}
+Skyrim.esm     TrapDweBallistaWeaponL01     {'TNAM': 'WPNSwingBladeMediumSD'}
+
+== FURN e IDLE con "Ballista" en el EDID
+Dragonborn.esm IDLE 1HMDwarvenBallistarKillMoves       
+Dragonborn.esm IDLE 2HMDwarvenBallistaKillMovesSlash   
+Dragonborn.esm IDLE 2HWDwarvenBallistaKillMovesSmash   
+Dragonborn.esm IDLE BallistaActivateTrap               Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaDeathStart                 Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaDeathWait                  Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaDraw                       Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaGetUp                      Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaKnockDown                  Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaMoveStart                  Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaMoveStop                   Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaRagdoll                    Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaRagdollInstant             Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaRightAttack                Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaRightRelease               Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaSheathe                    Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaStagger                    Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaTrapExit                   Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaTurnLeft                   Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaTurnRight                  Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaTurnStop                   Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm IDLE BallistaVerticalIdle               Actors\DLC02\DwarvenBallistaCenturion\Behaviors\BCBehavior.hkx
+Dragonborn.esm FURN DLC2BallistaGroundAmbush01         DLC02\Furniture\Invisible\BallistaGroundAmbush01.nif
+Dragonborn.esm IDLE KillMoveDwarvenBallistaRoot        
