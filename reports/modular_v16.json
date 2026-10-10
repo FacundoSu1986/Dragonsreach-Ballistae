@@ -1,0 +1,954 @@
+{
+  "revision": 16,
+  "core_sha256": "c74e4ab88910b8bf97b9e84b69b51529dc5e02cfe2db8a70c480028015c3aaa9",
+  "core_unchanged_from_v14": true,
+  "atalaya_unchanged_from_v14": true,
+  "whiterun_torres": {
+    "path": "addons\\WhiterunTorres\\AstraAsedio_WhiterunTorres.esp",
+    "records": 16,
+    "masters": [
+      "Skyrim.esm",
+      "Update.esm",
+      "Dawnguard.esm",
+      "AstraAsedio.esp"
+    ],
+    "sha256": "0c593986e305ea2e88cd0b4885de603e185153b93b90dd0e67633d079db156d0"
+  },
+  "platforms_evidence_sha256": "dc9db170a75c68ecd8b53d3da727b17eab0cf24dada81049a4430aec1e3534f4",
+  "placements": [
+    {
+      "name": "este",
+      "origin": [
+        17801.74,
+        -8324.61,
+        -3615.66
+      ],
+      "floor_local_z": -0.354012,
+      "deck_local_z": 71.645988,
+      "floor_boxes": [
+        {
+          "name": "Deck",
+          "lo": [
+            -260,
+            -710,
+            59.645988
+          ],
+          "hi": [
+            260,
+            -240,
+            71.645988
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "Toe",
+          "lo": [
+            128,
+            -78,
+            -12.354012
+          ],
+          "hi": [
+            145,
+            -22,
+            -0.354012
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "OutwardStep0",
+          "lo": [
+            145,
+            -78,
+            -12.354012
+          ],
+          "hi": [
+            155,
+            -22,
+            19.645988
+          ],
+          "kind": "step"
+        },
+        {
+          "name": "OutwardStep1",
+          "lo": [
+            155,
+            -78,
+            -12.354012
+          ],
+          "hi": [
+            165,
+            -22,
+            39.645988
+          ],
+          "kind": "step"
+        },
+        {
+          "name": "OutwardStep2",
+          "lo": [
+            165,
+            -78,
+            -12.354012
+          ],
+          "hi": [
+            181,
+            -22,
+            59.645988
+          ],
+          "kind": "step"
+        },
+        {
+          "name": "SouthStep",
+          "lo": [
+            146,
+            -102,
+            59.645988
+          ],
+          "hi": [
+            202,
+            -78,
+            71.645988
+          ],
+          "kind": "step"
+        },
+        {
+          "name": "Landing",
+          "lo": [
+            146,
+            -150,
+            59.645988
+          ],
+          "hi": [
+            202,
+            -102,
+            71.645988
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "Dogleg",
+          "lo": [
+            68,
+            -178,
+            59.645988
+          ],
+          "hi": [
+            174,
+            -122,
+            71.645988
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "Bridge",
+          "lo": [
+            68,
+            -240,
+            59.645988
+          ],
+          "hi": [
+            124,
+            -150,
+            71.645988
+          ],
+          "kind": "floor"
+        }
+      ],
+      "rail_boxes": [
+        {
+          "name": "WestRail",
+          "lo": [
+            -260,
+            -710,
+            71.645988
+          ],
+          "hi": [
+            -248,
+            -240,
+            119.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "EastRail",
+          "lo": [
+            248,
+            -710,
+            71.645988
+          ],
+          "hi": [
+            260,
+            -240,
+            119.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "FrontRail",
+          "lo": [
+            -260,
+            -710,
+            71.645988
+          ],
+          "hi": [
+            260,
+            -698,
+            119.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "RearLeft",
+          "lo": [
+            -260,
+            -252,
+            71.645988
+          ],
+          "hi": [
+            62,
+            -240,
+            119.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "RearRight",
+          "lo": [
+            130,
+            -252,
+            71.645988
+          ],
+          "hi": [
+            260,
+            -240,
+            119.645988
+          ],
+          "kind": "rail"
+        }
+      ],
+      "collision_boxes": [
+        {
+          "name": "Deck",
+          "lo": [
+            -260,
+            -710,
+            59.645988
+          ],
+          "hi": [
+            260,
+            -240,
+            71.645988
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "Toe",
+          "lo": [
+            128,
+            -78,
+            -12.354012
+          ],
+          "hi": [
+            145,
+            -22,
+            -0.354012
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "OutwardStep0",
+          "lo": [
+            145,
+            -78,
+            -12.354012
+          ],
+          "hi": [
+            155,
+            -22,
+            19.645988
+          ],
+          "kind": "step"
+        },
+        {
+          "name": "OutwardStep1",
+          "lo": [
+            155,
+            -78,
+            -12.354012
+          ],
+          "hi": [
+            165,
+            -22,
+            39.645988
+          ],
+          "kind": "step"
+        },
+        {
+          "name": "OutwardStep2",
+          "lo": [
+            165,
+            -78,
+            -12.354012
+          ],
+          "hi": [
+            181,
+            -22,
+            59.645988
+          ],
+          "kind": "step"
+        },
+        {
+          "name": "SouthStep",
+          "lo": [
+            146,
+            -102,
+            59.645988
+          ],
+          "hi": [
+            202,
+            -78,
+            71.645988
+          ],
+          "kind": "step"
+        },
+        {
+          "name": "Landing",
+          "lo": [
+            146,
+            -150,
+            59.645988
+          ],
+          "hi": [
+            202,
+            -102,
+            71.645988
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "Dogleg",
+          "lo": [
+            68,
+            -178,
+            59.645988
+          ],
+          "hi": [
+            174,
+            -122,
+            71.645988
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "Bridge",
+          "lo": [
+            68,
+            -240,
+            59.645988
+          ],
+          "hi": [
+            124,
+            -150,
+            71.645988
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "WestRail",
+          "lo": [
+            -260,
+            -710,
+            71.645988
+          ],
+          "hi": [
+            -248,
+            -240,
+            119.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "EastRail",
+          "lo": [
+            248,
+            -710,
+            71.645988
+          ],
+          "hi": [
+            260,
+            -240,
+            119.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "FrontRail",
+          "lo": [
+            -260,
+            -710,
+            71.645988
+          ],
+          "hi": [
+            260,
+            -698,
+            119.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "RearLeft",
+          "lo": [
+            -260,
+            -252,
+            71.645988
+          ],
+          "hi": [
+            62,
+            -240,
+            119.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "RearRight",
+          "lo": [
+            130,
+            -252,
+            71.645988
+          ],
+          "hi": [
+            260,
+            -240,
+            119.645988
+          ],
+          "kind": "rail"
+        }
+      ],
+      "gun_local_pos": [
+        0.0,
+        -500.0,
+        71.645988
+      ],
+      "gun_world_pos": [
+        17801.74,
+        -8824.61,
+        -3544.0140119999996
+      ],
+      "operator_local_foot": [
+        124,
+        -356.0,
+        71.645988
+      ],
+      "standby_local_foot": [
+        -210,
+        -280,
+        71.645988
+      ],
+      "scale": 1.0,
+      "yaw_deg": 0.0,
+      "yaw_range": [
+        -60,
+        60
+      ],
+      "pitch_range": [
+        -20,
+        80
+      ],
+      "step_rises": [
+        20,
+        20,
+        20,
+        12
+      ],
+      "route_nodes": [
+        [
+          110,
+          -50,
+          -0.354012
+        ],
+        [
+          122,
+          -50,
+          -0.354012
+        ],
+        [
+          145,
+          -50,
+          19.645988
+        ],
+        [
+          150,
+          -50,
+          19.645988
+        ],
+        [
+          155,
+          -50,
+          39.645988
+        ],
+        [
+          160,
+          -50,
+          39.645988
+        ],
+        [
+          165,
+          -50,
+          59.645988
+        ],
+        [
+          170,
+          -50,
+          59.645988
+        ],
+        [
+          174,
+          -78,
+          59.645988
+        ],
+        [
+          174,
+          -78,
+          71.645988
+        ],
+        [
+          174,
+          -150,
+          71.645988
+        ],
+        [
+          96,
+          -150,
+          71.645988
+        ],
+        [
+          96,
+          -240,
+          71.645988
+        ],
+        [
+          96,
+          -280,
+          71.645988
+        ],
+        [
+          210,
+          -300,
+          71.645988
+        ],
+        [
+          124,
+          -356,
+          71.645988
+        ]
+      ],
+      "braces": [
+        {
+          "a": [
+            -96.0,
+            -213.07208251953125,
+            -280.0
+          ],
+          "b": [
+            -96,
+            -660,
+            45.645988
+          ],
+          "radius": 13,
+          "wall_ref": "00089F3F"
+        },
+        {
+          "a": [
+            96.0,
+            -209.25711059570312,
+            -280.0
+          ],
+          "b": [
+            96,
+            -660,
+            45.645988
+          ],
+          "radius": 13,
+          "wall_ref": "00089F3F"
+        }
+      ],
+      "original_reference_overrides": [],
+      "engine_verified": false,
+      "nif": "addons\\WhiterunTorres\\meshes\\AstraAsedio\\voladizo_este.nif",
+      "nif_sha256": "582041e32f52c4392583a62f0193cb9c1c09f6644963093d8b26d89cd7dd65c5",
+      "visual_triangles": 5040,
+      "havok_triangles": 396,
+      "original_usable_nav_centers": 2259,
+      "lost_nav_centers": 0,
+      "original_marker": "00078784",
+      "marker_own_margin": 62.0,
+      "fixed_base_max_gap": 0.004340661132815171,
+      "route_samples": 181,
+      "route_environment_min_margin": 2.3810225064598356,
+      "route_own_min_margin": -13.614934759580692,
+      "max_step_up_proxy_gap": 20.00784255322266,
+      "operator_gun_min_margin": 22.200691507459666,
+      "standby_gun_min_margin": 62.0,
+      "gun_nav_y_gap": 285.30552512548786,
+      "certified_static_poses": 525,
+      "pose_increment_degrees": 5,
+      "gun_contacts": [],
+      "initial_projectile_hits": [],
+      "initial_projectile_min_clearance": 6.037699830586439,
+      "operator_environment_margin": 62.0,
+      "standby_environment_margin": 10.02276611328125
+    },
+    {
+      "name": "oeste",
+      "origin": [
+        15225.56,
+        -8306.52,
+        -4127.66
+      ],
+      "floor_local_z": -0.354012,
+      "deck_local_z": -0.354012,
+      "floor_boxes": [
+        {
+          "name": "Deck",
+          "lo": [
+            -260,
+            -630,
+            -12.354012
+          ],
+          "hi": [
+            260,
+            -180,
+            -0.354012
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "Bridge",
+          "lo": [
+            -36,
+            -180,
+            -12.354012
+          ],
+          "hi": [
+            36,
+            -126,
+            -0.354012
+          ],
+          "kind": "floor"
+        }
+      ],
+      "rail_boxes": [
+        {
+          "name": "WestRail",
+          "lo": [
+            -260,
+            -630,
+            -0.354012
+          ],
+          "hi": [
+            -248,
+            -180,
+            47.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "EastRail",
+          "lo": [
+            248,
+            -630,
+            -0.354012
+          ],
+          "hi": [
+            260,
+            -180,
+            47.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "FrontRail",
+          "lo": [
+            -260,
+            -630,
+            -0.354012
+          ],
+          "hi": [
+            260,
+            -618,
+            47.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "RearLeft",
+          "lo": [
+            -260,
+            -192,
+            -0.354012
+          ],
+          "hi": [
+            -42,
+            -180,
+            47.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "RearRight",
+          "lo": [
+            42,
+            -192,
+            -0.354012
+          ],
+          "hi": [
+            260,
+            -180,
+            47.645988
+          ],
+          "kind": "rail"
+        }
+      ],
+      "collision_boxes": [
+        {
+          "name": "Deck",
+          "lo": [
+            -260,
+            -630,
+            -12.354012
+          ],
+          "hi": [
+            260,
+            -180,
+            -0.354012
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "Bridge",
+          "lo": [
+            -36,
+            -180,
+            -12.354012
+          ],
+          "hi": [
+            36,
+            -126,
+            -0.354012
+          ],
+          "kind": "floor"
+        },
+        {
+          "name": "WestRail",
+          "lo": [
+            -260,
+            -630,
+            -0.354012
+          ],
+          "hi": [
+            -248,
+            -180,
+            47.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "EastRail",
+          "lo": [
+            248,
+            -630,
+            -0.354012
+          ],
+          "hi": [
+            260,
+            -180,
+            47.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "FrontRail",
+          "lo": [
+            -260,
+            -630,
+            -0.354012
+          ],
+          "hi": [
+            260,
+            -618,
+            47.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "RearLeft",
+          "lo": [
+            -260,
+            -192,
+            -0.354012
+          ],
+          "hi": [
+            -42,
+            -180,
+            47.645988
+          ],
+          "kind": "rail"
+        },
+        {
+          "name": "RearRight",
+          "lo": [
+            42,
+            -192,
+            -0.354012
+          ],
+          "hi": [
+            260,
+            -180,
+            47.645988
+          ],
+          "kind": "rail"
+        }
+      ],
+      "gun_local_pos": [
+        0.0,
+        -420.0,
+        -0.354012
+      ],
+      "gun_world_pos": [
+        15225.56,
+        -8726.52,
+        -4128.014012
+      ],
+      "operator_local_foot": [
+        124,
+        -276.0,
+        -0.354012
+      ],
+      "standby_local_foot": [
+        -210,
+        -220,
+        -0.354012
+      ],
+      "scale": 1.0,
+      "yaw_deg": 0.0,
+      "yaw_range": [
+        -60,
+        60
+      ],
+      "pitch_range": [
+        -20,
+        80
+      ],
+      "step_rises": [],
+      "route_nodes": [
+        [
+          0,
+          -100,
+          -0.354012
+        ],
+        [
+          0,
+          -126,
+          -0.354012
+        ],
+        [
+          0,
+          -218,
+          -0.354012
+        ],
+        [
+          210,
+          -218,
+          -0.354012
+        ],
+        [
+          210,
+          -250,
+          -0.354012
+        ],
+        [
+          124,
+          -276,
+          -0.354012
+        ]
+      ],
+      "braces": [
+        {
+          "a": [
+            -96.0,
+            -234.66424560546875,
+            -280.0
+          ],
+          "b": [
+            -96,
+            -580,
+            -26.354012
+          ],
+          "radius": 13,
+          "wall_ref": "00042516"
+        },
+        {
+          "a": [
+            96.0,
+            -234.01895141601562,
+            -280.0
+          ],
+          "b": [
+            96,
+            -580,
+            -26.354012
+          ],
+          "radius": 13,
+          "wall_ref": "00042516"
+        }
+      ],
+      "original_reference_overrides": [],
+      "engine_verified": false,
+      "nif": "addons\\WhiterunTorres\\meshes\\AstraAsedio\\voladizo_oeste.nif",
+      "nif_sha256": "968da3de9fef848fe7bd7489690a97aee09659e9b43ff1e6e41809b8ca81876c",
+      "visual_triangles": 4030,
+      "havok_triangles": 228,
+      "original_usable_nav_centers": 1641,
+      "lost_nav_centers": 0,
+      "original_marker": "0007878A",
+      "marker_own_margin": 62.0,
+      "fixed_base_max_gap": 0.025357735717773444,
+      "route_samples": 119,
+      "route_environment_min_margin": 43.472196692486726,
+      "route_own_min_margin": 8.005218505859375,
+      "max_step_up_proxy_gap": 0.025357735717773444,
+      "operator_gun_min_margin": 22.20069150745966,
+      "standby_gun_min_margin": 62.0,
+      "gun_nav_y_gap": 145.30552512548786,
+      "certified_static_poses": 525,
+      "pose_increment_degrees": 5,
+      "gun_contacts": [],
+      "initial_projectile_hits": [],
+      "initial_projectile_min_clearance": 6.055990179303238,
+      "operator_environment_margin": 62.0,
+      "standby_environment_margin": 10.005218505859375
+    }
+  ],
+  "compatibility": {
+    "LAND_edits": 0,
+    "NAVM_edits": 0,
+    "NAVI_edits": 0,
+    "PACK_edits": 0,
+    "vanilla_reference_edits": 0,
+    "patrol_destination_edits": 0,
+    "existing_tower_edits": 0,
+    "city_save_migration_supported": false,
+    "new_test_save_required": false,
+    "third_party_patches": "deferred",
+    "engine_verified": false,
+    "placement_recovery_from_v15_implemented": true,
+    "full_saved_script_migration_guaranteed": false
+  },
+  "core_and_city_esp_unchanged_from_v15": true,
+  "native_dll_version": "3.5.1",
+  "placement_recovery": {
+    "scope": "known own city refs B40/B50, their own markers, existing platform anchors",
+    "runs": "guard recovery or player preparation, only when scene is quiescent",
+    "new_saved_properties_required": false,
+    "engine_verified": false
+  }
+}

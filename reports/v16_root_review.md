@@ -1,0 +1,13 @@
+# Revisión del delta v16
+
+Agente principal, 2026-10-09. Cierre QA fuera del motor, sin aprobación independiente nueva ni ejecución de Skyrim.
+
+Se revisó el cambio C++ respecto de v15: sólo se trasladó tick desde cameraUpdate a update(FirstPersonState), después del retorno de session.update; se agregó un registro limitado a una vez por segundo durante espera de armado y se actualizó la versión real/PE a 3.5.1. No se modificaron transacción de munición, lanzamiento, temporización, límites, mutex/fence ni cleanup. Hay un único call-site de tick, en la actualización que los registros muestran ejecutándose. No se lo ejecuta dentro del callback bloqueado de Session.
+
+Se revisó EnsureCityPlacement y sus dos llamadas: recuperación del guardia y preparación del lease. Sólo identifica Self mediante los FormID propios B40/B50 en AstraAsedio_WhiterunTorres.esp y verifica los markers propios antes de moverlos. Los anchors B44/B54 son los voladizos existentes. Las constantes de offsets coinciden con el certificado y se verifican mediante la prueba que deriva sus valores esperados de él. No mueve la plataforma, actor vanilla, estación desconocida ni otro marker. La colocación del actor propio ocurre después en el flujo que ya coordina pin/lease.
+
+Los slots pinBusy y sceneBusy se mantienen desde la resolución de referencias hasta el retorno del último efecto. Reentradas pueden invalidar generación/reserva pero no liberar estos slots. FinishPlacement los libera una vez que retorna la operación vieja; el próximo dueño verifica/repara cualquier colocación parcial antes de adquirir el puesto. Tanto BeginRecovery como Prepare ya han soltado ownedGuard y comprobado la barrera nativa. Prepare de un jugador no modifica el puesto mientras playerReady es true; OnLoad espera propiedad/cleanup nativa antes de recuperar.
+
+Las regresiones cubren MoveTo/SetAngle de los tres objetos, antes/después del efecto y con takeover/load/unload. El guardia vuelve a recuperar el puesto o el jugador se admite sólo después del efecto viejo. Falta probar el despacho y la persistencia reales del VM, incluidos eventos OnLoad/Unload generados por MoveTo, y verificar que los controles no quedan retenidos por una pila guardada que no retorna.
+
+El cierre admite la entrega QA offline con 304 pruebas/107 subtests, seis PSC compilados, 2.337 aserciones portables y una DLL 3.5.1 real. La física, el acceso, la selección de blancos y la latencia siguen pendientes de motor. La posición guardada anterior es una inferencia apoyada por el log/captura y el ESP instalado, no un análisis del ESS. No hay hallazgos materiales conocidos abiertos en el delta revisado dentro de este alcance.

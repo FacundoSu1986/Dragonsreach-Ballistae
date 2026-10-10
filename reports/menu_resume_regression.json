@@ -1,0 +1,8 @@
+{
+  "test": "test_fresh_input_after_menu_close_operates_before_the_next_update",
+  "before_fix": "FAIL: heldUp=False phase=0; first fresh input dropped until next update",
+  "after_fix": "PASS: heldUp=True phase=1, menu flags false and lastTick reset before next update",
+  "nested_menus_do_not_resume": true,
+  "source_level_behavior_cases_passed": 13,
+  "native_vm_execution": false
+}

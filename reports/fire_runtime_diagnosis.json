@@ -1,0 +1,38 @@
+{
+  "revision": "v06",
+  "evidence_revision": "v05",
+  "user_confirmed": [
+    "camera on weapon works",
+    "mouse rotation works"
+  ],
+  "user_reported": "slow/buggy firing",
+  "observed_unbound_get_camera_state_calls": 132,
+  "nearby_acti_stack_count": 132,
+  "nearby_session_stack_count": 6,
+  "counts_may_overlap": true,
+  "observed_runtime_game_wrapper_calls_camera": true,
+  "camera_class_declares_native": true,
+  "skse_registers_function_on": "Game",
+  "primary_reference": "https://raw.githubusercontent.com/ianpatt/skse64/master/skse64/PapyrusGame.cpp",
+  "evidence_sha256": {
+    "reports\\runtime_diagnostic_v05\\AstraSight.log": "8ce21d92dcf4ba750ee4b8b4adfadddc5dd95a64fd34a6198acc6e56a709308b",
+    "reports\\runtime_diagnostic_v05\\Papyrus.0.log": "7ab527b3c1d8462a427a366a11fc39b4cdc111635282fbfbecb8bdc92b840fc3",
+    "reports\\runtime_diagnostic_v05\\skse64.log": "61eaa26b909167330639b7efb45bd335873d04c6efedda517440d9269f19856a"
+  },
+  "runtime_wrapper_inspection_sha256": {
+    "build\\runtime_api_disassembly\\Game.disassemble.pas": "fe09e3f6a0ac51136e31f1ce017434632381c9dc56f4f4be4e097d9aeb152845",
+    "build\\runtime_api_disassembly\\Camera.disassemble.pas": "f577ad01cef209827ea62f33f260e7a34b4e7b17babea30c2160101c71c9448a"
+  },
+  "fix": "Own AstraSightNative API 2 camera getter, reject old metadata before acquisition, NoWait tasklet registration on protected session API",
+  "unchanged": [
+    "camera hooks and NIFs",
+    "mouse controls and pitch limits",
+    "5-second reload",
+    "ammo/Fire/Reset transaction rules"
+  ],
+  "performance_cause_fully_proven": false,
+  "fps_measurements_available": false,
+  "v06_engine_execution": false,
+  "unrelated_cc_errors_modified": false,
+  "vanilla_game_scripts_redistributed": false
+}

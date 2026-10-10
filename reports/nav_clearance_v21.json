@@ -1,0 +1,83 @@
+{
+  "success": false,
+  "obstructions": 12,
+  "samples": [
+    {
+      "collision_triangle": 23,
+      "navigation_triangle": 6252,
+      "relative_z_min": -17.598624382578237,
+      "relative_z_max": 194.65582795977934
+    },
+    {
+      "collision_triangle": 24,
+      "navigation_triangle": 6252,
+      "relative_z_min": 122.83600525866586,
+      "relative_z_max": 194.65582795977934
+    },
+    {
+      "collision_triangle": 29,
+      "navigation_triangle": 6252,
+      "relative_z_min": -16.81397732075402,
+      "relative_z_max": 19.01332526238457
+    },
+    {
+      "collision_triangle": 30,
+      "navigation_triangle": 6252,
+      "relative_z_min": -15.947847882505812,
+      "relative_z_max": 194.65582795977934
+    },
+    {
+      "collision_triangle": 146,
+      "navigation_triangle": 6298,
+      "relative_z_min": 56.448707375631784,
+      "relative_z_max": 78.17388687449875
+    },
+    {
+      "collision_triangle": 147,
+      "navigation_triangle": 6298,
+      "relative_z_min": 55.86052668431876,
+      "relative_z_max": 77.74621574782577
+    },
+    {
+      "collision_triangle": 340,
+      "navigation_triangle": 6298,
+      "relative_z_min": 68.59818363053,
+      "relative_z_max": 160.1421760735484
+    },
+    {
+      "collision_triangle": 342,
+      "navigation_triangle": 6298,
+      "relative_z_min": 68.42230385788389,
+      "relative_z_max": 160.31864959176073
+    },
+    {
+      "collision_triangle": 347,
+      "navigation_triangle": 6298,
+      "relative_z_min": -29.16674374640752,
+      "relative_z_max": 164.43766244178732
+    },
+    {
+      "collision_triangle": 458,
+      "navigation_triangle": 6298,
+      "relative_z_min": 55.74653561046489,
+      "relative_z_max": 56.62511436319073
+    },
+    {
+      "collision_triangle": 460,
+      "navigation_triangle": 6298,
+      "relative_z_min": 55.18660433223613,
+      "relative_z_max": 56.03168040688524
+    },
+    {
+      "collision_triangle": 470,
+      "navigation_triangle": 6298,
+      "relative_z_min": -29.331252705288534,
+      "relative_z_max": 164.42905093132686
+    }
+  ],
+  "radius": 18,
+  "height": 128,
+  "nif_sha256": "5af5fe18541812ffab4032b3a7cd55a4d70235631a130113e07d8d415dc7f8ec",
+  "scope": "Whole winning navigation triangle surfaces expanded horizontally and upward; no engine AI test",
+  "source_report_sha256": "88b1f4a480b5bc0e4e1830ec064b484221edd9ca648c26f8190eaaae1cfaf3a6"
+}

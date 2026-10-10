@@ -1,0 +1,17 @@
+{
+  "note": "Straight geometric bore line; excludes projectile gravity, terrain and sights zero adjustment.",
+  "results": [
+    {
+      "build": "v11",
+      "muzzle_height_units": 618.5025357874127,
+      "straight_line_ground_distance_meters": 104.20531712718622,
+      "pitch_deg": -5.0
+    },
+    {
+      "build": "v12",
+      "muzzle_height_units": 304.5525357874127,
+      "straight_line_ground_distance_meters": 52.94153254930139,
+      "pitch_deg": -5.0
+    }
+  ]
+}

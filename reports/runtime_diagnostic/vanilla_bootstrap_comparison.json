@@ -1,0 +1,35 @@
+[
+  {
+    "quest": "PlayerWerewolfQuest",
+    "form_id": "0x2ba16",
+    "vmad_version": 5,
+    "object_format": 2,
+    "bind_version": 2,
+    "player_alias": {
+      "form_id": 178710,
+      "alias": 0,
+      "version": 5,
+      "object_format": 2
+    },
+    "script_names": [
+      "PlayerWerewolfScript"
+    ]
+  },
+  {
+    "quest": "MQ101",
+    "form_id": "0x3372b",
+    "vmad_version": 5,
+    "object_format": 2,
+    "bind_version": 2,
+    "player_alias": {
+      "form_id": 210731,
+      "alias": 119,
+      "version": 5,
+      "object_format": 2
+    },
+    "script_names": [
+      "MQ101PlayerScript",
+      "MQ101CartRiderScript"
+    ]
+  }
+]

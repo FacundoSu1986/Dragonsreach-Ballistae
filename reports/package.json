@@ -1,0 +1,22 @@
+{
+  "revision": "v10",
+  "archives": [
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v10\\dist\\AstraAsedio_v10_MO2.zip",
+      "bytes": 1069010,
+      "sha256": "5643b2964d4624483ad6725fe5b7c87ba0121aeb14043ad24b8d314e80344624"
+    },
+    {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v10\\dist\\AstraAsedio_v10_Fuentes.zip",
+      "bytes": 33379322,
+      "sha256": "818ec7ceabdb0e72ef6dc5eae58953348239e1723ed3aaa45904cfe75fe733e6"
+    }
+  ],
+  "zip_integrity_verified": true,
+  "runtime_entries_match_verified_hashes": true,
+  "source_entries_match_project": true,
+  "parent_v09_inputs_preserved": true,
+  "parent_v09_archives_preserved": true,
+  "vanilla_dds_or_esm_included": false,
+  "legacy_dates_clamped_in_zip_only": true
+}

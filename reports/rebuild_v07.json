@@ -1,0 +1,47 @@
+{
+  "success": true,
+  "scope": "Disposable rebuild from preserved v04 with config v07; Blender export/reimport, not game execution.",
+  "commands": [
+    "build_assets.py",
+    "verify_assets.py"
+  ],
+  "config_sha256": "adada8dfe2588887c2827dc018b23d59eed121e7f53ab9da00778b7a8f3c9586",
+  "builder_sha256": "1ff9fe64b0a186b454f808a6dc3cf63cefb7d68ddc76ccdada0bc312206f299a",
+  "assets_checks": {
+    "visual_budget": true,
+    "collision_budget": true,
+    "tower_shapes": true,
+    "ballesta_shapes": true,
+    "textures": true,
+    "aim_tracks": true,
+    "rope": true
+  },
+  "sequences": {
+    "Fire": {
+      "start": 0.0,
+      "stop": 0.30000001192092896,
+      "targets": [
+        "CTRL_BRAZO_I",
+        "CTRL_BRAZO_D",
+        "Cuerda_I",
+        "Cuerda_D",
+        "VIROTE_VISUAL"
+      ]
+    },
+    "Reset": {
+      "start": 0.0,
+      "stop": 1.2000000476837158,
+      "targets": [
+        "CTRL_BRAZO_I",
+        "CTRL_BRAZO_D",
+        "Cuerda_I",
+        "Cuerda_D",
+        "VIROTE_VISUAL"
+      ]
+    }
+  },
+  "rope_max_gap": 6.103515625e-05,
+  "rope_outer_max_error": 4.57763671875e-05,
+  "visual_triangles": 38254,
+  "collision_triangles": 1772
+}

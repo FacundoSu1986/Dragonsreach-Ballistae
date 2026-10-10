@@ -1,0 +1,2958 @@
+{
+  "ballista_sha256": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
+  "context_sha256": "d5c82dec2eab7223a5a19171c3999e9011da175c4c51116cd3586b8004cf5fb8",
+  "sites": [
+    {
+      "name": "este",
+      "requested": [
+        17801.74,
+        -8324.61,
+        -3615.66
+      ],
+      "tower_ref": "000684EC",
+      "tower": {
+        "id": "000684EC",
+        "type": "REFR",
+        "cell": "0000961B",
+        "world": "0000003C",
+        "base": "000684EB",
+        "edid": "",
+        "data": [
+          17792.0,
+          -8352.0,
+          -3552.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": 1.0,
+        "source": "Skyrim.esm",
+        "deleted": false,
+        "flags": 0,
+        "donor": {
+          "type": "STAT",
+          "edid": "WRScafGuardTowerLarge01",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTowerLarge01.nif",
+          "source": "Skyrim.esm"
+        }
+      },
+      "requested_nav_surfaces": [
+        {
+          "navmesh": "00089FFD",
+          "triangle": 4,
+          "z": -3616.0,
+          "triangle_flags": [
+            2048,
+            16514
+          ],
+          "cell": "0000961B"
+        }
+      ],
+      "floor_world_z": -3616.014007720947,
+      "havok_floor_objects": 1,
+      "candidates": [
+        {
+          "local": [
+            -96,
+            -96,
+            33.54585647583008
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -96,
+            -48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -96,
+            -24,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -96,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3615.9999999999995,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -96,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -96,
+            48,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -96,
+            72,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 3,
+              "z": -3616.0000000000005,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -96,
+            96,
+            0.9058380126953125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 0,
+              "z": -3618.2771357623596,
+              "triangle_flags": [
+                2049,
+                0
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -72,
+            -96,
+            29.883739471435547
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -72,
+            -48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -72,
+            -24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -72,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -72,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -72,
+            48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 3,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -72,
+            72,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.9967897716638,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -72,
+            96,
+            0.9058341979980469
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 0,
+              "z": -3617.97996944662,
+              "triangle_flags": [
+                2049,
+                0
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            -96,
+            26.22162437438965
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -48,
+            -72,
+            -0.3540153503417969
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -48,
+            -48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            -24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 3,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            72,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.9793877326674,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            96,
+            0.9058341979980469
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 1,
+              "z": -3618.440649593397,
+              "triangle_flags": [
+                2048,
+                16640
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            -96,
+            22.559513092041016
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -24,
+            -72,
+            -0.3540153503417969
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -24,
+            -48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            -24,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0000000000005,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            0,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0000000000005,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            24,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 3,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            48,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.987483364815,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            72,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.961985693671,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            96,
+            0.9058341979980469
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 1,
+              "z": -3618.9202788100924,
+              "triangle_flags": [
+                2048,
+                16640
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            -96,
+            19.297077178955078
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            0,
+            -72,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            0,
+            -48,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            -24,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.995578996962,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.9700813258187,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            72,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.944583654675,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            96,
+            0.9058380126953125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 1,
+              "z": -3619.399908026788,
+              "triangle_flags": [
+                2048,
+                16640
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            -96,
+            21.08190155029297
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            24,
+            -72,
+            -0.3540153503417969
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            24,
+            -48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            -24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 3,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.9781769579663,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.952679286823,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            72,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.927181615679,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            96,
+            0.9058380126953125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 1,
+              "z": -3619.8795372434834,
+              "triangle_flags": [
+                2048,
+                16640
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            -96,
+            22.866724014282227
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            48,
+            -72,
+            -0.3540153503417969
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            48,
+            -48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            -24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 3,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.986272590114,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            24,
+            -0.3540191650390625
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.96077491897,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            48,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.935277247827,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            72,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 1,
+              "z": -3615.9675522422062,
+              "triangle_flags": [
+                2048,
+                16640
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            96,
+            0.9058380126953125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 1,
+              "z": -3620.359166460178,
+              "triangle_flags": [
+                2048,
+                16640
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            -96,
+            24.651546478271484
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            72,
+            -72,
+            -0.3540153503417969
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            72,
+            -48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 4,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                16514
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            -24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.994368222261,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.968870551117,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.943372879974,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.91787520883,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            72,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 1,
+              "z": -3616.4471814589015,
+              "triangle_flags": [
+                2048,
+                16640
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            96,
+            0.9058380126953125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 1,
+              "z": -3620.8387956768743,
+              "triangle_flags": [
+                2048,
+                16640
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            96,
+            -96,
+            26.43636703491211
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            -72,
+            -0.3540153503417969
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            -48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 3,
+              "z": -3616.0,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            96,
+            -24,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.9769661832647,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            96,
+            0,
+            -0.35401153564453125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.9514685121208,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            96,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "00089FFD",
+              "triangle": 2,
+              "z": -3615.9259708409772,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961B"
+            }
+          ]
+        },
+        {
+          "local": [
+            96,
+            48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            72,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": []
+        }
+      ],
+      "models": [
+        {
+          "id": "000FC88B",
+          "model": "Clutter\\CivilWar\\CivilWarRubble02.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00089FF4",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00089F3F",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallTower01.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00063FA8",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00064D7C",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "0006982D",
+          "model": "Landscape\\Rocks\\RockPileM02Tundra.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "000FC919",
+          "model": "Clutter\\CivilWar\\CivilWarRubble02.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "000FC8A3",
+          "model": "Clutter\\Skuldafn\\SkuldafnBannerAnchor02.nif",
+          "collision_objects": 0
+        },
+        {
+          "id": "0006AA70",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "000684EF",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "000684EC",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTowerLarge01.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00067166",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00067160",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallTowerChunk01.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00042525",
+          "model": "Landscape\\Rocks\\RockCliff04.nif",
+          "collision_objects": 1
+        }
+      ],
+      "preview_mount": [
+        17801.74,
+        -8324.61,
+        -3604.464007720947
+      ],
+      "scope": "Preview at supplied XY, conservative mesh/body checks; final mount selection follows."
+    },
+    {
+      "name": "oeste",
+      "requested": [
+        15225.56,
+        -8306.52,
+        -4127.66
+      ],
+      "tower_ref": "00063FD0",
+      "tower": {
+        "id": "00063FD0",
+        "type": "REFR",
+        "cell": "0000961C",
+        "world": "0000003C",
+        "base": "00063FBC",
+        "edid": "",
+        "data": [
+          15232.0,
+          -8352.0,
+          -4160.0,
+          0.0,
+          -0.0,
+          1.5707963705062866
+        ],
+        "scale": 1.0,
+        "source": "Skyrim.esm",
+        "deleted": false,
+        "flags": 0,
+        "donor": {
+          "type": "STAT",
+          "edid": "WRScafGuardTower01",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTower01.nif",
+          "source": "Skyrim.esm"
+        }
+      },
+      "requested_nav_surfaces": [
+        {
+          "navmesh": "000B8338",
+          "triangle": 2,
+          "z": -4128.0,
+          "triangle_flags": [
+            2048,
+            16512
+          ],
+          "cell": "0000961C"
+        }
+      ],
+      "floor_world_z": -4128.014011535644,
+      "havok_floor_objects": 1,
+      "candidates": [
+        {
+          "local": [
+            -96,
+            -96,
+            -0.3540077209472656
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -96,
+            -72,
+            -0.3540077209472656
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -96,
+            -48,
+            -0.3540077209472656
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -96,
+            -24,
+            -0.3540077209472656
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -96,
+            0,
+            -0.3540077209472656
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -96,
+            24,
+            -0.3540077209472656
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -96,
+            48,
+            -0.3540077209472656
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -96,
+            72,
+            0.9058341979980469
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -96,
+            96,
+            -8.992263793945312
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -72,
+            -96,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -72,
+            -72,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -72,
+            -48,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -72,
+            -24,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -72,
+            0,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -72,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -72,
+            48,
+            -0.3540153503417969
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            -72,
+            72,
+            0.9058418273925781
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            -72,
+            96,
+            -8.992271423339844
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 1,
+              "z": -4139.911229166435,
+              "triangle_flags": [
+                2049,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            -96,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            -72,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            -48,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            -24,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            0,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            24,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            48,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            72,
+            0.9058341979980469
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 1,
+              "z": -4133.949377692652,
+              "triangle_flags": [
+                2049,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -48,
+            96,
+            -8.99227523803711
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 1,
+              "z": -4140.214658572608,
+              "triangle_flags": [
+                2049,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            -96,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            -72,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            -48,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            -24,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            72,
+            0.9058380126953125
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 1,
+              "z": -4134.252807098825,
+              "triangle_flags": [
+                2049,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            -24,
+            96,
+            -8.992271423339844
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 1,
+              "z": -4140.51808797878,
+              "triangle_flags": [
+                2049,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            -96,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            -72,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            -48,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            -24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 0,
+              "z": -4128.292270140375,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            72,
+            0.9058341979980469
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 0,
+              "z": -4134.556454713895,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            0,
+            96,
+            -8.992271423339844
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 1,
+              "z": -4140.821517384952,
+              "triangle_flags": [
+                2049,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            -96,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            -72,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            -48,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            -24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 0,
+              "z": -4128.596170060729,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            24,
+            72,
+            0.9058341979980469
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            24,
+            96,
+            -8.992267608642578
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 1,
+              "z": -4141.124946791125,
+              "triangle_flags": [
+                2049,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            -96,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            -72,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            -48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            -24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 2,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            48,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 0,
+              "z": -4128.900069981083,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            48,
+            72,
+            0.9058341979980469
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            48,
+            96,
+            -8.992263793945312
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 0,
+              "z": -4141.428439128123,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            -96,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            -72,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            -48,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            -24,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            0,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            24,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 3,
+              "z": -4128.0,
+              "triangle_flags": [
+                2048,
+                16512
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            48,
+            -0.3540077209472656
+          ],
+          "body_clear": false,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 0,
+              "z": -4129.203969901437,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            72,
+            72,
+            0.9058341979980469
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            72,
+            96,
+            -8.992263793945312
+          ],
+          "body_clear": true,
+          "nav": [
+            {
+              "navmesh": "000B8338",
+              "triangle": 0,
+              "z": -4141.732339048476,
+              "triangle_flags": [
+                2048,
+                0
+              ],
+              "cell": "0000961C"
+            }
+          ]
+        },
+        {
+          "local": [
+            96,
+            -96,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            -72,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            -48,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            -24,
+            -0.3540077209472656
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            0,
+            -0.3540153503417969
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            24,
+            -0.3540153503417969
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            48,
+            -0.3540077209472656
+          ],
+          "body_clear": false,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            72,
+            0.9058341979980469
+          ],
+          "body_clear": true,
+          "nav": []
+        },
+        {
+          "local": [
+            96,
+            96,
+            -8.992263793945312
+          ],
+          "body_clear": true,
+          "nav": []
+        }
+      ],
+      "models": [
+        {
+          "id": "000FC89A",
+          "model": "Clutter\\Skuldafn\\SkuldafnBannerAnchor02.nif",
+          "collision_objects": 0
+        },
+        {
+          "id": "00069847",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile01.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00067167",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00067162",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallStrRubbled01Free.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "0006714D",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00064D6A",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00064D73",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00064D72",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00064D71",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00064D6F",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransBottom.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "000FD0C9",
+          "model": "Architecture\\WhiteRun\\WRClutter\\WRBrazier01.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "0007168C",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "0007704A",
+          "model": "Clutter\\CivilWar\\CivilWarRubble02.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00067165",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "0004251F",
+          "model": "Landscape\\Rocks\\RockL02.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00042B48",
+          "model": "Landscape\\Rocks\\RockPileS02.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00063FD1",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTowerBase01.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00063FD0",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTower01.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "00103731",
+          "model": "Landscape\\Rocks\\RockPileS04.nif",
+          "collision_objects": 1
+        },
+        {
+          "id": "001036FB",
+          "model": "Architecture\\Tents\\SmallNordicTent01.nif",
+          "collision_objects": 1
+        }
+      ],
+      "preview_mount": [
+        15225.56,
+        -8306.52,
+        -4116.464011535644
+      ],
+      "scope": "Preview at supplied XY, conservative mesh/body checks; final mount selection follows."
+    }
+  ],
+  "engine_verified": false
+}

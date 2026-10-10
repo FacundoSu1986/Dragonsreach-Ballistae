@@ -1,0 +1,18 @@
+{
+  "sequences": {
+    "Fire": {
+      "old_seconds": 0.6000000238418579,
+      "new_seconds": 0.3,
+      "factor": 0.49999998013178587
+    },
+    "Reset": {
+      "old_seconds": 4.400000095367432,
+      "new_seconds": 1.2,
+      "factor": 0.2727272668160684
+    }
+  },
+  "timing_floats": 1978,
+  "spatial_values_shaders_collision_unchanged": true,
+  "before_sha256": "9bea7c900510208b5bc84c70c8c901fab0c089139db8223936b6ec4c54ffec98",
+  "after_sha256": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2"
+}

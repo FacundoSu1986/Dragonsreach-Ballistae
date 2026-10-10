@@ -1,0 +1,79 @@
+{
+  "utc": "2026-10-09T20:16:12.136427+00:00",
+  "project_root": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19",
+  "build_dir": "build\\native\\release-v19",
+  "vendor_dir": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v11\\build\\native",
+  "external_vendor_read_only": true,
+  "vendor_manifest": {
+    "report": "reports\\native_vendor_manifest.json",
+    "sha256": "641dd14d2cd883cc065835d8fe5aae251aff7b5a45f39b3d67302a9cc8a3efce",
+    "immutable": true,
+    "file_count": 6012,
+    "total_bytes": 665641140
+  },
+  "runtime": "1.6.1170.0",
+  "skse_minimum": "2.2.8",
+  "architecture": "AMD64",
+  "plugin_name": "AstraSight",
+  "plugin_version": 50659392,
+  "plugin_version_string": "3.5.4",
+  "api_version": 4,
+  "pitch_limits_degrees": [
+    -20.0,
+    80.0
+  ],
+  "per_session_aim_limits": true,
+  "native_release_seconds": 0.06666666666666667,
+  "nominal_cycle_seconds": 1.0,
+  "projectile_critical_path": "native input, game-thread effects, no VM tick",
+  "engine_latency_measured": false,
+  "tasklet_callable_session_api": true,
+  "dependencies": {
+    "CommonLibSSE-NG": [
+      "https://github.com/CharmedBaryon/CommonLibSSE-NG.git",
+      "b93280e832f263dbef44e44cbe2936622a02f91a"
+    ],
+    "spdlog": [
+      "https://github.com/gabime/spdlog.git",
+      "486b55554f11c9cccc913e11a87085b2a91f706f"
+    ],
+    "rapidcsv": [
+      "https://github.com/d99kris/rapidcsv.git",
+      "03133b59e17ca92ecf886b611d87a03ad2bb2a8f"
+    ]
+  },
+  "files_sha256": {
+    "native\\CMakeLists.txt": "fdd9d8a353c708baef1f53abddf29a85df361c67af47aa28d413f4b969825932",
+    "native\\inspect_camera_runtime.py": "e2c653674ce274826023c3a8abdef5c50e2b97c80c25cff40a07670b6151e3b0",
+    "native\\prepare_local_sdk.py": "816001ed9371faa9c009a758aacdf084e788767eaf7aade2e825e16782fefdd8",
+    "native\\prove_freeze_regression.py": "41f7fe1763cbd3f48cbececb0b6e2702cd310a768c895b6d315d058e710c5293",
+    "native\\README.md": "9c9361527f50643cdd943586512da544869ad262803053ae71bc2b5ef66548e9",
+    "native\\verify_binary.py": "cf030ef4e174b1b5e88dd533b820e6c808b2bd4912da8a29ea3a6845f244956f",
+    "native\\include\\Astra\\Core.h": "8cbde6a555f8bb9950166baedfd65265783b76ef84b0eac51614433f91712272",
+    "native\\include\\Astra\\FastShot.h": "dca721fd2fab8093ac02236a3c7d690134332a193ebf2acc7079e9f4245b19d2",
+    "native\\include\\Astra\\FastShotRuntime.h": "b9c775b9785836effd7dc2cde089ea022cb7f0c4264570b83597ff3a10e003d1",
+    "native\\licenses\\CommonLibSSE-NG-LICENSE": "253d41f9a66509071e71deeafaad01d9cd5e1d0e235f38d988f33d4f54cb0fe2",
+    "native\\licenses\\fmt-LICENSE": "ae842eaa4d8ac87b936a5f5852bd447e64d2b7dea9fdb12ce5fa96fcfdc82ce6",
+    "native\\licenses\\rapidcsv-LICENSE": "2a07f96569e2cb61824a7cfad718c931ebb43e74338f492d720caff920309a6c",
+    "native\\licenses\\spdlog-LICENSE": "4ccecab18d1ff0b61174fe3d6c430541625d3ddb865b0d5887db296f883c76e7",
+    "native\\src\\Core.cpp": "6632551962e7b9a2f7df839ba23b0083f1b273e8c76a95276c7593f93a4c421b",
+    "native\\src\\FastShot.cpp": "82e04e1a82287ba7a69ad25e2e32f6b27d0f8b879801f4ac86dd7eca6b39453a",
+    "native\\src\\FastShotRuntime.cpp": "124224e42d76968db9e069ff6653c238fd1283494c7bae06bfd3ea3cd7f68ba6",
+    "native\\src\\Plugin.cpp": "76174faa4531abe11e90c40465a53966f144799069bb749490fed32f05b7fc4b",
+    "native\\tests\\core_tests.cpp": "7e7b403ce066c2c9176544e3952dda73ffb4d730e80c9c35c7e23ef38ad6df0a",
+    "native\\tests\\v07_tests.cpp": "c9b7c8123bbe7b55fbd4ac44268e7d356575faca4b9ec93115d41a7f864656ca",
+    "native\\tests\\v08_tests.cpp": "21bb57bb7d07cfb8cabfdce86918f7f61777e8de783bbd847ee867a0c8a41d08",
+    "native\\tests\\v09_tests.cpp": "ce5e5e964482e5fa699e64056a1b1d17aa61ca7332f69c91c6a90a26ebda4751",
+    "native\\tests\\v10_tests.cpp": "0e3eabd5b46da577f06af9407ba3dfa488bee71b2e4caba2f70ca97ad0d6119f",
+    "native\\tests\\v15_tests.cpp": "759c21115d33254839190b157d48f83514f1b232accd267721cba0bb455eff97",
+    "native\\tests\\v17_tests.cpp": "92e7ed14c3b271e3b9c43135291a4322663011634c2d5a47919308cd96c341f3",
+    "native\\tests\\v18_tests.cpp": "ffa46fe4560295118954db1463e68223c77ee262e28d97f57fa0e8aa1ba7aa96",
+    "native\\tests\\v19_tests.cpp": "1a28786a1bccdfefae03605841fcc6710bc281a87cad6bfee447dfd7ebadbe04",
+    "scripts\\build_native.py": "0e48e0421343be838a93ea95d6d6a8a2c3ddcff20d20ede078019753919eba90",
+    "mod\\scripts\\source\\AstraSightNative.psc": "567f332af85cd265fb09d28cd52e18edcee847c26f14e8abfbde0710746e3505",
+    "mod\\scripts\\source\\AstraAsedioActi.psc": "237b5db5d05f49dc0ffa309cbcb73281541e0716de4943b803bbcda86a89d4ed",
+    "mod\\SKSE\\Plugins\\AstraSight.dll": "93e5f269d132db1851682dcfaf9ff2b9f5a2c8ee32e8a8164d4c983930982153"
+  },
+  "in_game_verified": false,
+  "papyrus_note": "AstraAsedioActi.psc hash covers the mounted combat-target retain, the 5s effects-quiescence bound, and the 1 Hz death-landing trace. AstraSight.dll was not rebuilt; the native API calls are unchanged."
+}

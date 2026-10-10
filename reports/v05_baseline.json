@@ -1,0 +1,11 @@
+{
+  "parent_project": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v04",
+  "parent_revision": "v04",
+  "copied_reports_are_historical_until_regenerated": true,
+  "parent_archives": {
+    "AstraAsedio_v04_Fuentes.zip": "243776d98508233f922160b7ffd2a376571911cd9a6f7577c2295c69be6dbb4e",
+    "AstraAsedio_v04_MO2.zip": "530a6d944cd82df9dea9ceb1e7d5825d1a0631b798cb6d8f361240b01ea97b6e"
+  },
+  "user_feedback": "v04 partially works; user requests direct E entry to weapon-aligned sight camera, moving rigidly with turret rather than player head.",
+  "user_approved_direct_E_sight": true
+}

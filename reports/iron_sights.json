@@ -1,0 +1,21 @@
+{
+  "rear_sight_local": [
+    0,
+    80,
+    40
+  ],
+  "front_post_tip_flat_local": [
+    0.0,
+    -150.0,
+    34.45130176449405
+  ],
+  "front_post_node": "AstraSightFrontPost",
+  "ring_inner_radius": 5.4,
+  "arch_clear_height": 29.0,
+  "arch_half_width_inner": 10.5,
+  "flat_camera_local": [
+    0.0,
+    199.96509494949495,
+    42.894130915950285
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-08T11:27:18.496673+00:00",
+  "success": true,
+  "plugin_version": "3.4.0",
+  "packed_plugin_version": 50593792,
+  "api_version": 3,
+  "pitch_limits_degrees": [
+    -20,
+    80
+  ],
+  "dll_sha256": "7cf962b1b16c14033ae62e36261b75a26a1212d4f7e0c692d24131e364cffb2d",
+  "dll_bytes": 635904,
+  "ctest_passed": 5,
+  "native_assertions_passed": 2281,
+  "player_tests_passed": 138,
+  "red_native_failures": 12,
+  "red_player_failures": 3,
+  "external_vendor_readonly": true,
+  "in_game_verified": false,
+  "engine_dll_loaded": false,
+  "files_sha256": {
+    "native/src/Core.cpp": "955cc7214ee0286e9aefc85d4e0439d1481b9884ad182eda2f192e8b8c9a4ed0",
+    "native/src/Plugin.cpp": "454b8422ec6d06ccdcabe7fde442dd05e64bcc8421363a08a4fb13661f358df5",
+    "native/CMakeLists.txt": "68ac32f89e85ec41dbba38e35017b3114b08e0ece47fc340a35df542ef735f8c",
+    "native/tests/core_tests.cpp": "7e7b403ce066c2c9176544e3952dda73ffb4d730e80c9c35c7e23ef38ad6df0a",
+    "native/tests/v07_tests.cpp": "c9b7c8123bbe7b55fbd4ac44268e7d356575faca4b9ec93115d41a7f864656ca",
+    "native/tests/v10_tests.cpp": "0e3eabd5b46da577f06af9407ba3dfa488bee71b2e4caba2f70ca97ad0d6119f",
+    "scripts/build_native.py": "d205cfcaf5fe4ea8566d8c93097b46b005e75a515f6b5eaef1c9821ec30ac961",
+    "scripts/verify_native_artifacts.py": "2b28bad1151b7d4ee013c60a13271b4e2008c0dba730637056ec31fee8609ea6",
+    "native/verify_binary.py": "621b524600e047954676e89fdfa26ea5c9e4dd586f98b0d2e6e2cab4b501e13b",
+    "mod/scripts/source/AstraAsedioActi.psc": "64b0402cad9e562b325d9a3d4e114357709e5de3796cb9396b260bb360f86453",
+    "tests/test_v13_native_depression.py": "d657c5d4ec171406c057435e60eaf79b5e875f7b01c9ca0e549a9957abb2becc",
+    "tests/test_camera_aim.py": "430817a432f9279ea92498fcb13159e7cc17780732a9a07d825b6270e3ecbe5d",
+    "tests/test_native_sight.py": "b8b29ba32721c86c63d06af4a402f0759047c9e867f8e790a219e65bf00fb7c4",
+    "tests/test_v06_runtime_bindings.py": "0fafd4c9f92f933910f908a6e30fc941a519c5f4c7e50e9c7ec0b1a695865326",
+    "tests/test_v07_firing.py": "2a14e002a7241c52bf3efd0d57b29979d24ad9162bbfe917aaa60ff8fde5891b",
+    "tests/test_v08_sight_zero.py": "74bd470afb047ecce5ae5e602725fca3649f563052078ceea8660a096f7304cd",
+    "tests/test_v09_input_fixes.py": "618c364a69bd3247b3f992717cf713ce1f98b7f8528ac1233fad20b03458543c",
+    "tests/test_v10_sight.py": "e0a1f28b2acef6f7df8685805bf563538673989c64b2eb8c89033a957e7fcd33"
+  },
+  "vendor_manifest": {
+    "report": "reports\\native_vendor_manifest.json",
+    "sha256": "641dd14d2cd883cc065835d8fe5aae251aff7b5a45f39b3d67302a9cc8a3efce",
+    "immutable": true,
+    "file_count": 6012,
+    "total_bytes": 665641140
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "hits": 0,
+  "first_hits": [],
+  "worst": {
+    "clearance": Infinity
+  },
+  "projectile_radius": 2.205,
+  "shots": 30960,
+  "footprint_units": 600.0,
+  "pitch_range": [
+    -5.0,
+    80.0
+  ],
+  "lowest_shot_z": 585.6816768271254,
+  "highest_geometry_z": {
+    "torre_visual": 559.5325317382812,
+    "vanilla": 451.3343177460948
+  },
+  "vertical_margin_units": 26.149145088844193,
+  "pairs_tested": 0,
+  "triangles": {
+    "torre_visual": 17662,
+    "torre_colision": 1632,
+    "vanilla": 3080
+  },
+  "falsified": true,
+  "falsification_hits": 159,
+  "inputs_sha256": {
+    "mod/meshes/AstraAsedio/torre.nif": "7e2e3efe74ed2a6d2c6d50625670f4e92a31a57405926d3cb511b7d2ce037b4e",
+    "mod/meshes/AstraAsedio/ballesta.nif": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2",
+    "reports/collision_walkable.json": "e5adbec0bca8605627fd18dc6714a33e1d5e5527a993ed5ff24c024c68d566a4",
+    "config.json": "330398e458ff7d0e97cdc4da6f759c4a83a2bda93cac5a07cfd5cbcc082c5adb",
+    "scripts/verify_shot_clearance.py": "1bd430a73e10691c5c3fe688a5bc8ef41be2d6590f8f161cf8ba7801f5e10b82"
+  }
+}

@@ -1,0 +1,7 @@
+test_old_update_clock_cannot_overwrite_replacement_reload_clock (tests.test_native_sight.NativeSightContract.test_old_update_clock_cannot_overwrite_replacement_reload_clock) ... ok
+test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock (tests.test_native_sight.NativeSightContract.test_old_pause_or_resume_clock_cannot_overwrite_replacement_clock) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.033s
+
+OK

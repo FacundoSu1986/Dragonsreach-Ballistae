@@ -1,0 +1,225 @@
+{
+  "nif": "addons\\Atalaya\\meshes\\AstraAsedio\\torre_atalaya_v21.nif",
+  "sha256": "22580ed56d8e31275404372da4eb667769e49c3163a70f6b4617c5d70e0a1af9",
+  "bbox": {
+    "min": [
+      -298.1138916015625,
+      -297.6689453125,
+      -237.92544555664062
+    ],
+    "max": [
+      376.7051696777344,
+      297.72052001953125,
+      211.74285888671875
+    ]
+  },
+  "source": "source/Atalaya_v21.blend",
+  "parts": 237,
+  "collision_boxes": 103,
+  "entry": {
+    "y0": -37.97605266882641,
+    "z0": -5.110148049416379,
+    "y1": -29.736434108527135,
+    "z1": 0,
+    "added_steps": 1,
+    "rise": 5.110148049416379,
+    "tread": 8.239618560299277
+  },
+  "supports": [
+    {
+      "name": "Pilote_bajo_-170_-170",
+      "bottom": -40.60346862666903,
+      "top": 114.18642029505324,
+      "ground_min": -24.382267981502004,
+      "ground_max": -21.20771945946813,
+      "bottom_below_ground": 16.221200645167023
+    },
+    {
+      "name": "Pilote_bajo_-170_-085",
+      "bottom": -53.08092728789182,
+      "top": 114.16032945407402,
+      "ground_min": -36.725238412742904,
+      "ground_max": -30.665720565371267,
+      "bottom_below_ground": 16.355688875148914
+    },
+    {
+      "name": "Pilote_bajo_-170_+085",
+      "bottom": -207.09012130136898,
+      "top": 113.57354473041127,
+      "ground_min": -205.57851019857543,
+      "ground_max": -157.58303106613096,
+      "bottom_below_ground": 1.5116111027935517
+    },
+    {
+      "name": "Pilote_bajo_-170_+170",
+      "bottom": -237.9254429605508,
+      "top": 113.47727707424849,
+      "ground_min": -220.31221952649514,
+      "ground_max": -212.1530022873954,
+      "bottom_below_ground": 17.61322343405567
+    },
+    {
+      "name": "Pilote_bajo_-085_-170",
+      "bottom": -46.65526705908814,
+      "top": 113.9116658832764,
+      "ground_min": -28.507993745540155,
+      "ground_max": -26.477375285354285,
+      "bottom_below_ground": 18.147273313547984
+    },
+    {
+      "name": "Pilote_bajo_-085_-085",
+      "bottom": -64.9424508133242,
+      "top": 113.61256404475238,
+      "ground_min": -47.4758892683032,
+      "ground_max": -35.679102982523105,
+      "bottom_below_ground": 17.466561545021
+    },
+    {
+      "name": "Pilote_bajo_-085_+085",
+      "bottom": -45.49783791563573,
+      "top": 112.77161235107471,
+      "ground_min": -28.798267399740144,
+      "ground_max": -25.769281985729673,
+      "bottom_below_ground": 16.699570515895584
+    },
+    {
+      "name": "Pilote_bajo_-085_+170",
+      "bottom": -211.5724819071542,
+      "top": 112.59133612944946,
+      "ground_min": -194.67899070300706,
+      "ground_max": -184.4739504385286,
+      "bottom_below_ground": 16.893491204147153
+    },
+    {
+      "name": "Pilote_bajo_+085_-170",
+      "bottom": -56.713450411665576,
+      "top": 113.61620330592703,
+      "ground_min": -40.987256163215974,
+      "ground_max": -36.24437017187707,
+      "bottom_below_ground": 15.726194248449602
+    },
+    {
+      "name": "Pilote_bajo_+085_-085",
+      "bottom": -67.51474308148164,
+      "top": 113.62779479029685,
+      "ground_min": -51.441326702331054,
+      "ground_max": -47.749649754144436,
+      "bottom_below_ground": 16.073416379150586
+    },
+    {
+      "name": "Pilote_bajo_+085_+085",
+      "bottom": -60.35319439326058,
+      "top": 112.79550823597664,
+      "ground_min": -42.01763492453126,
+      "ground_max": -39.449974497110695,
+      "bottom_below_ground": 18.335559468729322
+    },
+    {
+      "name": "Pilote_bajo_+085_+170",
+      "bottom": -51.938862927815194,
+      "top": 113.30019797283147,
+      "ground_min": -35.98557133619597,
+      "ground_max": -30.52592086202279,
+      "bottom_below_ground": 15.953291591619227
+    },
+    {
+      "name": "Pilote_bajo_+170_-170",
+      "bottom": -87.16102603760031,
+      "top": 114.34158915459129,
+      "ground_min": -71.00218353330476,
+      "ground_max": -59.5500239971166,
+      "bottom_below_ground": 16.15884250429555
+    },
+    {
+      "name": "Pilote_bajo_+170_-085",
+      "bottom": -67.41402810867069,
+      "top": 113.76217869362762,
+      "ground_min": -50.93986529767439,
+      "ground_max": -47.41100898360148,
+      "bottom_below_ground": 16.474162810996305
+    },
+    {
+      "name": "Pilote_bajo_+170_+085",
+      "bottom": -60.49349315193376,
+      "top": 112.88174269818495,
+      "ground_min": -42.6970177250665,
+      "ground_max": -40.19953353865212,
+      "bottom_below_ground": 17.79647542686726
+    },
+    {
+      "name": "Pilote_bajo_+170_+170",
+      "bottom": -57.23614220888801,
+      "top": 113.12220542379373,
+      "ground_min": -39.45138443234857,
+      "ground_max": -34.31138007396994,
+      "bottom_below_ground": 17.784757776539443
+    },
+    {
+      "name": "Pilote_escalera_bajo_int_0",
+      "bottom": -49.02009746867029,
+      "top": 25.027101847735327,
+      "ground_min": -31.347606453579015,
+      "ground_max": -10.801321060137823,
+      "bottom_below_ground": 17.67249101509128
+    },
+    {
+      "name": "Pilote_escalera_bajo_int_1",
+      "bottom": -63.621343816093955,
+      "top": 67.7557154897473,
+      "ground_min": -46.34338264180884,
+      "ground_max": -32.20059674486303,
+      "bottom_below_ground": 17.277961174285117
+    },
+    {
+      "name": "Pilote_escalera_bajo_ext_0",
+      "bottom": -37.273016948825195,
+      "top": 24.99686065477704,
+      "ground_min": -20.519019417641143,
+      "ground_max": -17.390968493233295,
+      "bottom_below_ground": 16.75399753118405
+    },
+    {
+      "name": "Pilote_escalera_bajo_ext_1",
+      "bottom": -35.22197289159673,
+      "top": 67.40184312482509,
+      "ground_min": -18.43610297437381,
+      "ground_max": -15.302064384402039,
+      "bottom_below_ground": 16.785869917222918
+    },
+    {
+      "name": "Atalaya_entrada_pilote_int_0",
+      "bottom": -34.8802531671112,
+      "top": -20.591596944567925,
+      "ground_min": -20.110151861368706,
+      "ground_max": -14.168910955137996,
+      "bottom_below_ground": 14.770101305742493
+    },
+    {
+      "name": "Atalaya_entrada_pilote_int_1",
+      "bottom": -33.49966210774558,
+      "top": -18.515498528687182,
+      "ground_min": -19.649115966088107,
+      "ground_max": -13.71082748563035,
+      "bottom_below_ground": 13.850546141657471
+    },
+    {
+      "name": "Atalaya_entrada_pilote_ext_0",
+      "bottom": -22.70313461271172,
+      "top": -19.493607198713253,
+      "ground_min": -7.432883374963272,
+      "ground_max": -1.6435093403954575,
+      "bottom_below_ground": 15.27025123774845
+    },
+    {
+      "name": "Atalaya_entrada_pilote_ext_1",
+      "bottom": -21.879536697397757,
+      "top": -18.115383774871116,
+      "ground_min": -6.8532783163861435,
+      "ground_max": -1.1687452762998571,
+      "bottom_below_ground": 15.026258381011614
+    }
+  ],
+  "stair_ground_max_overlap": 0.9999999990614299,
+  "game_tested": false,
+  "source_geometry": "own generated parts and own v04 turntable; no vanilla geometry exported"
+}

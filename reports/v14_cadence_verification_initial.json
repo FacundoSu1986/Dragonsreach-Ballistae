@@ -1,0 +1,93 @@
+{
+  "status": "cadence source and NIF complete; final VMAD/PEX integration owned by parent",
+  "tdd_red": {
+    "failed": 26,
+    "passed": 11,
+    "total": 37
+  },
+  "fresh_source_regression_green": {
+    "passed": 282,
+    "subtests_passed": 122,
+    "deselected_final_integration_checks": 2,
+    "guard_regressions": 69,
+    "new_cadence_tests": 37
+  },
+  "integration_checks_pending": [
+    "test_esp_timing_and_mode_match_config",
+    "test_all_scripts_compiled_by_real_bethesda_compiler"
+  ],
+  "player_defaults": {
+    "FireSeconds": 0.2,
+    "ReleaseSeconds": 0.06666666666666667,
+    "ResetSeconds": 0.8,
+    "CycleSeconds": 1.0
+  },
+  "guard_defaults": {
+    "FireSeconds": 0.2,
+    "ReleaseSeconds": 0.06666666666666667,
+    "ResetSeconds": 0.8,
+    "CadenceSeconds": 2.5
+  },
+  "migration": "timingRevision=14 once after invalidating saved generation/token. Approximate saved v13 defaults migrate; other finite compatible custom values survive. Invalid or incompatible values normalize to bounded defaults. Valid legacy-valued customs explicitly set after migration remain unchanged.",
+  "player_fixture_launch_interval": 1.050000000000015,
+  "guard_delay_fixtures": [
+    {
+      "preflight_delay": 0.0,
+      "weapon_fire_delay": 0.0,
+      "actual_launch_interval": 2.600000000000037,
+      "first_native_fire_return_to_next_launch": 2.600000000000037
+    },
+    {
+      "preflight_delay": 2.0,
+      "weapon_fire_delay": 0.0,
+      "actual_launch_interval": 2.600000000000037,
+      "first_native_fire_return_to_next_launch": 2.600000000000037
+    },
+    {
+      "preflight_delay": 0.0,
+      "weapon_fire_delay": 3.0,
+      "actual_launch_interval": 5.600000000000037,
+      "first_native_fire_return_to_next_launch": 2.600000000000037
+    },
+    {
+      "preflight_delay": 2.0,
+      "weapon_fire_delay": 3.0,
+      "actual_launch_interval": 5.600000000000037,
+      "first_native_fire_return_to_next_launch": 2.600000000000037
+    }
+  ],
+  "v13_full_tree_immutable": true,
+  "v13_files_verified": 1000,
+  "v14_before_sha256": {
+    "config.json": "6f2357337b0817244add6bd8e9bf817f58774fe3f02c5a7c1aee2f0408a325b3",
+    "mod/meshes/AstraAsedio/ballesta.nif": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2",
+    "mod/meshes/AstraAsedio/torre.nif": "1dc1ca22e03357cb292f6a122cd504914885cc540b21990dccf31c7b5d0a2679",
+    "mod/SKSE/Plugins/AstraSight.dll": "7cf962b1b16c14033ae62e36261b75a26a1212d4f7e0c692d24131e364cffb2d",
+    "mod/scripts/source/AstraAsedioActi.psc": "39c5d51f31408f56c618a2c0f1f5682d856f27b48061a0fa3afb6553fa9b57a7",
+    "mod/scripts/source/AstraAsedioGuard.psc": "ed4a785847f74f114e37ef228180febabe0a8105036370e412e0b3014f08457e"
+  },
+  "v14_after_sha256": {
+    "config.json": "d31c864b05475fe7e527654b35cf5649c57105e4997bb180c496cac29b62433f",
+    "mod/meshes/AstraAsedio/ballesta.nif": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
+    "mod/meshes/AstraAsedio/torre.nif": "1dc1ca22e03357cb292f6a122cd504914885cc540b21990dccf31c7b5d0a2679",
+    "mod/SKSE/Plugins/AstraSight.dll": "7cf962b1b16c14033ae62e36261b75a26a1212d4f7e0c692d24131e364cffb2d",
+    "mod/scripts/source/AstraAsedioActi.psc": "cb36b1bcfce9b4c62fe856a24a73846b4e819c3a0a04a5a9aa990803f5170d2e",
+    "mod/scripts/source/AstraAsedioGuard.psc": "d6d2a22df3e68ed94a13978e831a7440f5aee0ad3315960f49ddbeb6951bc601"
+  },
+  "nif_retime_report": "reports/v14_cadence_retime.json",
+  "test_xml": "reports/v14_cadence_tests.xml",
+  "runtime_changed": false,
+  "final_pex_written": false,
+  "scope_notes": [
+    "config.json: four existing timing fields only",
+    "AstraAsedioActi.psc and AstraAsedioGuard.psc only",
+    "Native API 3 and AstraSight 3.4 DLL unchanged",
+    "torre.nif, camera and spatial ballesta data unchanged"
+  ],
+  "limitations": [
+    "Source evaluators exercise actual PSC arithmetic/branches and specified native interruptions; they are not the Papyrus VM.",
+    "Engine event scheduling and save migration delivery still require the approved in-game test.",
+    "Nominal player Fire+Reset is1s; preparation adds TickSeconds and Papyrus/engine latency.",
+    "On first migration, an intentional custom setting exactly equal to an old default is indistinguishable from the saved default."
+  ]
+}

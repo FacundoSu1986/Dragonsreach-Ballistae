@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "collision_mesh_triangles": 872,
+  "vanilla_collision_triangles": 3080,
+  "route_samples": 127,
+  "max_floor_error_units": 0.011944580078079525,
+  "diagonal_edge_probe_recoveries": [],
+  "edge_probe_max_offset_units": 0.02,
+  "clearance_sample_rays": 3024,
+  "body_clearance_blocking_hits": [],
+  "side_barrier_rays": 194,
+  "old_balcony_collision_absent": {
+    "frontal": true,
+    "izquierdo": true,
+    "trasero": true
+  },
+  "navmesh_covered_route_samples": 127,
+  "uncovered_navmesh_samples": [],
+  "collision_layout_equal_to_reference": [
+    "floors_units",
+    "ramps",
+    "stair_edge_barriers_units",
+    "walkable_disk_units",
+    "five low railing barriers"
+  ],
+  "reference": "reports/reference_collision_escalera_directa.json",
+  "counts": {
+    "tablones_piso": 44,
+    "tablones_descanso": 3,
+    "peldanos": 34,
+    "tablas_pared": 6,
+    "troncos": 120,
+    "amarres": 37,
+    "postes_baranda": 50,
+    "soportes_pasamanos": 20,
+    "columnas_piso": 19
+  },
+  "v11_tower_checks": "reports/v11_tower.json ok on this torre.nif",
+  "nif_sha256": "7e2e3efe74ed2a6d2c6d50625670f4e92a31a57405926d3cb511b7d2ce037b4e",
+  "esp_sha256": "25b24793600f644b23809330f2c499c65dfb32daa62d5f281f331b9e7aca2279",
+  "engine_movement_tested": false,
+  "scope": "Static geometric samples of reimported Havok, the vanilla pieces collision and NAVM; not an engine actor simulation."
+}

@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-08T11:23:38.849080+00:00",
+  "vendor_dir": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v11\\build\\native",
+  "before_files": 6012,
+  "after_files": 6012,
+  "changed_files": [],
+  "success": true,
+  "comparison": "File inventory, byte length and nanosecond last-write time before/after complete isolated CMake build and pin checks"
+}

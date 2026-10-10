@@ -1,0 +1,127 @@
+{
+  "nif_sha256": "da4c13e01af2d3e789103f1f13f25b3283ce7bb7b9d6cb321a645bb538da5f44",
+  "read_only": true,
+  "rest_candidates": [
+    {
+      "local": [
+        0,
+        95,
+        32
+      ],
+      "nearest_mesh_units": 20.86796760559082,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        95,
+        40
+      ],
+      "nearest_mesh_units": 25.08028793334961,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        95,
+        48
+      ],
+      "nearest_mesh_units": 30.75978660583496,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        110,
+        32
+      ],
+      "nearest_mesh_units": 25.432987213134766,
+      "nearest_mesh": "CTRL_ELEVACION_wood",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        110,
+        40
+      ],
+      "nearest_mesh_units": 32.37852096557617,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        110,
+        48
+      ],
+      "nearest_mesh_units": 39.37980651855469,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        125,
+        32
+      ],
+      "nearest_mesh_units": 21.81426429748535,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        125,
+        40
+      ],
+      "nearest_mesh_units": 29.159265518188477,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        125,
+        48
+      ],
+      "nearest_mesh_units": 36.77857208251953,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        145,
+        32
+      ],
+      "nearest_mesh_units": 24.981849670410156,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        145,
+        40
+      ],
+      "nearest_mesh_units": 31.598947525024414,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    },
+    {
+      "local": [
+        0,
+        145,
+        48
+      ],
+      "nearest_mesh_units": 38.74137496948242,
+      "nearest_mesh": "CTRL_ELEVACION_metal",
+      "centre_ray_hits": []
+    }
+  ],
+  "limits": "Ray/distance probes do not prove visibility, near-plane, or inside/outside classification in Skyrim."
+}

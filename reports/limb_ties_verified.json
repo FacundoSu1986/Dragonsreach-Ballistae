@@ -1,0 +1,234 @@
+{
+  "ok": true,
+  "in_game_verified": false,
+  "nif_sha256": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2",
+  "parts": [
+    {
+      "name": "Ligadura_limbo",
+      "parent": "CTRL_BRAZO_I",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_I_metal",
+        "CTRL_BRAZO_I_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_I_rope"
+      ],
+      "clearance_min_units": 0.053067107200622576,
+      "clearance_max_units": 0.05740239143371584,
+      "center_to_rope_surface_min_units": 0.8631627559661865,
+      "center_to_rope_surface_max_units": 0.9040746688842773
+    },
+    {
+      "name": "Ligadura_limbo.001",
+      "parent": "CTRL_BRAZO_I",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_I_metal",
+        "CTRL_BRAZO_I_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_I_rope"
+      ],
+      "clearance_min_units": 0.049281258583068865,
+      "clearance_max_units": 0.05879606723785402,
+      "center_to_rope_surface_min_units": 0.8612467646598816,
+      "center_to_rope_surface_max_units": 0.90404212474823
+    },
+    {
+      "name": "Ligadura_limbo.002",
+      "parent": "CTRL_BRAZO_I",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_I_metal",
+        "CTRL_BRAZO_I_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_I_rope"
+      ],
+      "clearance_min_units": 0.048237342834472674,
+      "clearance_max_units": 0.05843867778778078,
+      "center_to_rope_surface_min_units": 0.8558246493339539,
+      "center_to_rope_surface_max_units": 0.9040060639381409
+    },
+    {
+      "name": "Ligadura_limbo.003",
+      "parent": "CTRL_BRAZO_D",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_D_metal",
+        "CTRL_BRAZO_D_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_D_rope"
+      ],
+      "clearance_min_units": 0.0546496105194092,
+      "clearance_max_units": 0.05888320922851564,
+      "center_to_rope_surface_min_units": 0.8639580607414246,
+      "center_to_rope_surface_max_units": 0.9039301872253418
+    },
+    {
+      "name": "Ligadura_limbo.004",
+      "parent": "CTRL_BRAZO_D",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_D_metal",
+        "CTRL_BRAZO_D_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_D_rope"
+      ],
+      "clearance_min_units": 0.05316831588745119,
+      "clearance_max_units": 0.06291176795959474,
+      "center_to_rope_surface_min_units": 0.8605157136917114,
+      "center_to_rope_surface_max_units": 0.9039757251739502
+    },
+    {
+      "name": "Ligadura_limbo.005",
+      "parent": "CTRL_BRAZO_D",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_D_metal",
+        "CTRL_BRAZO_D_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_D_rope"
+      ],
+      "clearance_min_units": 0.053467173576355,
+      "clearance_max_units": 0.06165887832641603,
+      "center_to_rope_surface_min_units": 0.8580976724624634,
+      "center_to_rope_surface_max_units": 0.9040318727493286
+    },
+    {
+      "name": "Ligadura_punta",
+      "parent": "CTRL_BRAZO_I",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_I_metal",
+        "CTRL_BRAZO_I_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_I_rope"
+      ],
+      "clearance_min_units": 0.04041029930114748,
+      "clearance_max_units": 0.057501335144042987,
+      "center_to_rope_surface_min_units": 0.7635140419006348,
+      "center_to_rope_surface_max_units": 0.9044106602668762
+    },
+    {
+      "name": "Ligadura_punta.001",
+      "parent": "CTRL_BRAZO_I",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_I_metal",
+        "CTRL_BRAZO_I_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_I_rope"
+      ],
+      "clearance_min_units": 0.03196980476379396,
+      "clearance_max_units": 0.0570917320251465,
+      "center_to_rope_surface_min_units": 0.764937162399292,
+      "center_to_rope_surface_max_units": 0.7957932949066162
+    },
+    {
+      "name": "Ligadura_punta.002",
+      "parent": "CTRL_BRAZO_I",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_I_metal",
+        "CTRL_BRAZO_I_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_I_rope"
+      ],
+      "clearance_min_units": 0.03276135444641115,
+      "clearance_max_units": 0.05626930713653566,
+      "center_to_rope_surface_min_units": 0.7660797238349915,
+      "center_to_rope_surface_max_units": 0.7962758541107178
+    },
+    {
+      "name": "Ligadura_punta.003",
+      "parent": "CTRL_BRAZO_I",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_I_metal",
+        "CTRL_BRAZO_I_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_I_rope"
+      ],
+      "clearance_min_units": 0.04601635456085207,
+      "clearance_max_units": 0.056303281784057635,
+      "center_to_rope_surface_min_units": 0.7859933972358704,
+      "center_to_rope_surface_max_units": 0.9043733477592468
+    },
+    {
+      "name": "Ligadura_punta.004",
+      "parent": "CTRL_BRAZO_D",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_D_metal",
+        "CTRL_BRAZO_D_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_D_rope"
+      ],
+      "clearance_min_units": 0.05510522842407228,
+      "clearance_max_units": 0.07282080173492433,
+      "center_to_rope_surface_min_units": 0.7636218667030334,
+      "center_to_rope_surface_max_units": 0.903538167476654
+    },
+    {
+      "name": "Ligadura_punta.005",
+      "parent": "CTRL_BRAZO_D",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_D_metal",
+        "CTRL_BRAZO_D_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_D_rope"
+      ],
+      "clearance_min_units": 0.05501737117767336,
+      "clearance_max_units": 0.07284297466278078,
+      "center_to_rope_surface_min_units": 0.7589263319969177,
+      "center_to_rope_surface_max_units": 0.8027084469795227
+    },
+    {
+      "name": "Ligadura_punta.006",
+      "parent": "CTRL_BRAZO_D",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_D_metal",
+        "CTRL_BRAZO_D_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_D_rope"
+      ],
+      "clearance_min_units": 0.05570604324340822,
+      "clearance_max_units": 0.07248510837554933,
+      "center_to_rope_surface_min_units": 0.6085339784622192,
+      "center_to_rope_surface_max_units": 0.7963985204696655
+    },
+    {
+      "name": "Ligadura_punta.007",
+      "parent": "CTRL_BRAZO_D",
+      "samples": 32,
+      "limb_shapes": [
+        "CTRL_BRAZO_D_metal",
+        "CTRL_BRAZO_D_wood"
+      ],
+      "rope_shapes": [
+        "CTRL_BRAZO_D_rope"
+      ],
+      "clearance_min_units": 0.05560972213745119,
+      "clearance_max_units": 0.06810023307800295,
+      "center_to_rope_surface_min_units": 0.616176426410675,
+      "center_to_rope_surface_max_units": 0.9042447805404663
+    }
+  ],
+  "both_limbs_verified": true,
+  "binding_count": 14,
+  "clearance_tolerance_units": 0.15
+}

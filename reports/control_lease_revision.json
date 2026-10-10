@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "timestamp_utc": "2026-10-03T23:54:06.536632+00:00",
+  "scope": "Reversible source-level session control lease cancellation and restoration race fix",
+  "changed_source": "mod/scripts/source/AstraAsedioSession.psc",
+  "source_sha256": "be97451c4b506758cdc40b394ce2a84d99de1a2d8b4f7f50908cdf96dc71f80a",
+  "regression_tests": "tests/test_control_lease.py",
+  "test_sha256": "a8ca3ffbb6d70221298d68ce3d2ccdd592438d43e42aefd783ba5817f7765dc3",
+  "red_before_fix": {
+    "source_sha256": "4ff4ba8f68aa6aae4224afe5d8019044a1dadb6e9151f77c0e883e78ec4cffbd",
+    "command": "python -m unittest discover -s tests -p test_control_lease.py",
+    "tests_run": 10,
+    "failed_subtests": 41,
+    "repro_boundary": "EmergencyCleanup after native movement snapshot captures its return value",
+    "returned_token": 2,
+    "active_owner_is_none": true,
+    "movement_enabled": false,
+    "fighting_enabled": false,
+    "diagnosis": "Cleanup clears ownership while the old Acquire resumes Disable and returns mutable generation."
+  },
+  "green_after_fix": {
+    "command": "python -m unittest discover -s tests -p test_control_lease.py -v; targeted existing source controls contract",
+    "tests_run": 11,
+    "failures": 0,
+    "errors": 0,
+    "success": true,
+    "output": "test_cleanup_before_disable_aborts_without_enabling_any_controls (test_control_lease.ControlLeaseContract.test_cleanup_before_disable_aborts_without_enabling_any_controls) ... ok\ntest_cleanup_can_repeat_and_reenter_during_cancelled_acquisition_rollback (test_control_lease.ControlLeaseContract.test_cleanup_can_repeat_and_reenter_during_cancelled_acquisition_rollback) ... ok\ntest_cleanup_during_movement_snapshot_cannot_resume_with_a_new_token (test_control_lease.ControlLeaseContract.test_cleanup_during_movement_snapshot_cannot_resume_with_a_new_token) ... ok\ntest_cleanup_over_native_disable_rolls_back_only_the_captured_controls (test_control_lease.ControlLeaseContract.test_cleanup_over_native_disable_rolls_back_only_the_captured_controls) ... ok\ntest_emergency_cleanup_releases_the_current_gun_once_and_cannot_restore_globally (test_control_lease.ControlLeaseContract.test_emergency_cleanup_releases_the_current_gun_once_and_cannot_restore_globally) ... ok\ntest_incomplete_acquisition_is_never_current_and_cannot_admit_another_lease (test_control_lease.ControlLeaseContract.test_incomplete_acquisition_is_never_current_and_cannot_admit_another_lease) ... ok\ntest_invalid_gun_and_stopped_quest_do_not_toggle_controls_or_block_a_later_lease (test_control_lease.ControlLeaseContract.test_invalid_gun_and_stopped_quest_do_not_toggle_controls_or_block_a_later_lease) ... ok\ntest_normal_release_preserves_prelocked_controls_and_ignores_stale_release (test_control_lease.ControlLeaseContract.test_normal_release_preserves_prelocked_controls_and_ignores_stale_release) ... ok\ntest_release_blocks_new_leases_until_native_enable_has_completed (test_control_lease.ControlLeaseContract.test_release_blocks_new_leases_until_native_enable_has_completed) ... ok\ntest_source_evaluator_rejects_unsupported_statements (test_control_lease.ControlLeaseContract.test_source_evaluator_rejects_unsupported_statements) ... ok\ntest_controls_capture_and_only_owned_controls_restored (test_session_contract.SessionContract.test_controls_capture_and_only_owned_controls_restored) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.029s\n\nOK\n"
+  },
+  "coverage": [
+    "Cleanup before/after IsRunning and both enabled-control snapshot natives aborts without control mutations.",
+    "Cleanup before/after Disable rolls back each of the four movement/fighting snapshots with exact eight boolean flags.",
+    "IsCurrent remains false until acquisition completes; another Acquire is rejected throughout native acquisition.",
+    "Repeated cleanup and attempted acquisition during rollback cannot overtake its pending native Enable.",
+    "Normal release rejects new acquisitions before/after native Enable until that call completes.",
+    "Stale release, repeated emergency cleanup, None gun, stopped quest, and a later valid lease are checked.",
+    "Previously disabled controls stay disabled; only captured movement/fighting flags can be enabled.",
+    "Actual source evaluator fails on unsupported declarations/statements rather than inventing Papyrus behavior.",
+    "Existing Disable(acquiredMovement, acquiredFighting, false...) and Enable(restoreMovement, restoreFighting, false...) source contract passes."
+  ],
+  "implementation": {
+    "captured_generation": true,
+    "acquisition_guard": true,
+    "deferred_cleanup_during_acquisition": true,
+    "cancel_validation_before_and_after_disable": true,
+    "restore_guard_held_through_native_enable": true,
+    "persistent_updates_or_waits_added": false,
+    "api_preserved": [
+      "Acquire(AstraAsedioActi)->int",
+      "IsCurrent(AstraAsedioActi,int)->bool",
+      "Release(AstraAsedioActi,int)",
+      "RestoreControls()",
+      "EmergencyCleanup()"
+    ]
+  },
+  "limits": [
+    "Tests execute actual PSC scalar branches and assignments with explicit reentrant native fixtures; they are not a Papyrus VM.",
+    "Native-boundary fixtures do not prove arbitrary VM instruction scheduling, event delivery, save/load persistence, or in-game engine behavior.",
+    "Real Papyrus compilation and project-wide tests are performed by the parent after all assigned sources are final.",
+    "No runtime, MO2 profile, saves, alias, Acti, or deployment changes are part of this revision."
+  ],
+  "historical_scope": "v03 lease regression retained; v04 camera-aware lease verified in camera_aim_revision/control_lease_behavior",
+  "superseded_in_v04_by": [
+    "reports/camera_aim_revision.json",
+    "reports/control_lease_behavior.json"
+  ]
+}

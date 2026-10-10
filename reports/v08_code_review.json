@@ -1,0 +1,218 @@
+{
+  "reviewer": "superpowers:code-reviewer subagent (independent context, read-only)",
+  "utc": "2026-10-05T01:26:21.056233+00:00",
+  "scope": "v08 changed code against spec/plan: record layouts, Havok offsets, sight-zero math, Papyrus order, version gates, release gates and checks that cannot fail. Three passes: review, re-verification of fixes, re-verification of residual fixes. No engine execution.",
+  "findings": [],
+  "resolved_findings": [
+    {
+      "id": 1,
+      "severity": "Important",
+      "summary": "B7 coverage ignored box orientation: a full-length box standing on Z passed with 1.0.",
+      "fix": "cobertura measures on the visual long axis, requires the box long axis to match (cos >= 0.99) and applies the owner node transform.",
+      "tests": [
+        "test_a_full_length_box_lying_across_the_bolt_is_rejected",
+        "test_a_box_tilted_off_the_bolt_is_rejected_but_a_small_tilt_is_not",
+        "test_coverage_follows_the_node_that_owns_the_collision"
+      ]
+    },
+    {
+      "id": 2,
+      "severity": "Important",
+      "summary": "Plan order sealed reports/test_profile.json before prepare_test_profile rewrote it.",
+      "fix": "Plan note; QA profile prepared before the seal.",
+      "tests": [
+        "package_release.py gate (Reviewed file changed after approval)"
+      ]
+    },
+    {
+      "id": 3,
+      "severity": "Important",
+      "summary": "Rebuild gate accepted evidence for other NIFs or other build scripts.",
+      "fix": "check_rebuild_v08 records inputs_sha256 for every imported build script; package_release checks inputs, shipped NIF hashes and three-way equivalence.",
+      "tests": [
+        "package_release.py gate"
+      ]
+    },
+    {
+      "id": 4,
+      "severity": "Minor",
+      "summary": "Doubly encoded UTF-8 in verify_input_contracts.py lines 108-110.",
+      "fix": "Re-encoded; contracts rerun.",
+      "tests": [
+        "byte scan"
+      ]
+    },
+    {
+      "id": 5,
+      "severity": "Minor",
+      "summary": "validate_plugin lacked EXPL MODT, exact PROJ radius and donor-ballistics checks.",
+      "fix": "Added; ESP rebuilt byte-identical.",
+      "tests": [
+        "test_validator_rejects_pickable_projectile_playable_ammo_and_missing_sound (5 new mutations)"
+      ]
+    },
+    {
+      "id": 6,
+      "severity": "Minor",
+      "summary": "ShotSound.Play before ThawSight/SetNodeScale could hold the frozen sight a frame.",
+      "fix": "Play moved after both; Papyrus recompiled.",
+      "tests": [
+        "test_v08_shot_sound source order"
+      ]
+    },
+    {
+      "id": 7,
+      "severity": "Minor",
+      "summary": "Sight zero assumes a level ballesta (latent).",
+      "fix": "Documented in README.",
+      "tests": []
+    },
+    {
+      "id": 8,
+      "severity": "Minor",
+      "summary": "Alpha check only saw referenced blocks; box extent ignored the owner node transform (latent).",
+      "fix": "Unreferenced NiAlphaProperty blocks count; owner transform applied.",
+      "tests": [
+        "test_an_unreferenced_alpha_block_still_counts"
+      ]
+    }
+  ],
+  "observations": [
+    "Virote and donor use motion system 3 (sphere stabilized): the inertia axis may have no runtime effect; noted in PRUEBAS_EN_JUEGO case 12.",
+    "reports/papyrus_bytecode/AstraAsedioActi.disassemble.pas keeps disassembler mojibake already present in v07."
+  ],
+  "inputs": [
+    {
+      "path": "scripts/build_plugin.py",
+      "sha256": "2812d165689c88e0db9abac6dcf20ce290020eff25d7b0f1414adbbb4cb59e36"
+    },
+    {
+      "path": "tests/test_plugin_contract.py",
+      "sha256": "88f3c266daa68e5636b436bcbb2fe1b0ed3b0b7ac7d451d2f0e3ecb10c394e1f"
+    },
+    {
+      "path": "mod/scripts/source/AstraAsedioActi.psc",
+      "sha256": "07093aac3729decaf41d466370e1f779a27ede9c91311b33f421c973ccc99c41"
+    },
+    {
+      "path": "tests/test_v08_shot_sound.py",
+      "sha256": "4e7da87f7f5d2493e833c72f272dcd8a33d373fbff855c9c62defdd9b628be19"
+    },
+    {
+      "path": "native/include/Astra/Core.h",
+      "sha256": "e015244ca93314889f53ac23f226a0f9708876670172d277e9dd031aea112f5f"
+    },
+    {
+      "path": "native/src/Core.cpp",
+      "sha256": "37bf35117730eca28b7d4eae90f6d49a7b8b4a905699f9225f97b2bd0920685a"
+    },
+    {
+      "path": "native/src/Plugin.cpp",
+      "sha256": "7490b289174f5672ee1e5a89d19d9cf6da3b6fe65ed4f9bd81076e1e0773f8d4"
+    },
+    {
+      "path": "native/tests/v08_tests.cpp",
+      "sha256": "21bb57bb7d07cfb8cabfdce86918f7f61777e8de783bbd847ee867a0c8a41d08"
+    },
+    {
+      "path": "native/CMakeLists.txt",
+      "sha256": "4e7618adf029a03eeb4fa157bfb170d49f5fd397702d0ec084889705d11ead68"
+    },
+    {
+      "path": "native/verify_binary.py",
+      "sha256": "5956ccaca7302c02ee49ecbaaf97af63ac00f3f9cb899530a9e42c154a42f052"
+    },
+    {
+      "path": "scripts/build_native.py",
+      "sha256": "0374105c5dca72bd8de5f2e394095db01f2525225884718d0bf54930e28f8bdc"
+    },
+    {
+      "path": "scripts/verify_native_artifacts.py",
+      "sha256": "7944f5b2a614c968fab3106e314201d2847563824107d605c7402ec8566cb559"
+    },
+    {
+      "path": "tests/test_v08_sight_zero.py",
+      "sha256": "84fd3e9b6c4e35f631a317bea317289d06262ec7cb8c836fe723b5d2ae9ce3bf"
+    },
+    {
+      "path": "tests/test_control_lease.py",
+      "sha256": "1e80233f45b418c2e7a97fd62f6db37e89a216d98dd3bf15c56ba01b52cccd96"
+    },
+    {
+      "path": "tests/test_camera_aim.py",
+      "sha256": "6dec6e66a3c07c2eaaac7100a9942247140d4e37485d24c6f9b1a320733d7abb"
+    },
+    {
+      "path": "tests/test_v06_runtime_bindings.py",
+      "sha256": "e6cb8a9c7bcee5e1f760b0077da2932140cd72fd6a7dd165197f0d7cbbdecc0f"
+    },
+    {
+      "path": "tests/test_native_sight.py",
+      "sha256": "9d1ac2dadc20baedf7196de860224f5b3de874d394d9d599501e72d2cc53bf30"
+    },
+    {
+      "path": "tests/test_v07_firing.py",
+      "sha256": "df1dae28f249525e18d8cfe536e93dfd2bd746b46b771f8179c048a06d6973ca"
+    },
+    {
+      "path": "scripts/nif_fisica.py",
+      "sha256": "f92d1c65ad621f67361956904209fbf2b625a91378dba72bea3bc0d4a93adb1a"
+    },
+    {
+      "path": "tests/test_v08_nif_fisica.py",
+      "sha256": "35ae41cfcdec3f8acccb012b25ebb44e47db1cee77d001dac9fc67c6d70d1d50"
+    },
+    {
+      "path": "scripts/build_assets.py",
+      "sha256": "86340e4116f8279493b7e38cb91a32dae45412738975b386d05c4ed5e3e8d8a2"
+    },
+    {
+      "path": "scripts/verify_assets.py",
+      "sha256": "4c15431ffd82d2e2a48f50b7fe7590562c3e7663f73721f47dd0ddc595bea60d"
+    },
+    {
+      "path": "scripts/check_rebuild_v08.py",
+      "sha256": "5f15aab6c20a43afcec243215e97dbe899dc663d8cc2f28bf752ae049215d445"
+    },
+    {
+      "path": "scripts/start_v08.py",
+      "sha256": "104ad4430a7098276f3c7102ca7cc63b56965361aab1e82c00fe1cd83b852022"
+    },
+    {
+      "path": "scripts/seal_v08_review.py",
+      "sha256": "21529222c5dec1d9d5f2fc73af2a0f5b90f743bb9d2783e4e5c1a89c1d2de87d"
+    },
+    {
+      "path": "scripts/prepare_test_profile.py",
+      "sha256": "da3d33013cb16dd9b71c12f7d93f01ae6b29104e9a61786701fbdf76194f0344"
+    },
+    {
+      "path": "scripts/package_release.py",
+      "sha256": "ad7eb4763ec8dafc159383f6d43fb9ace11dda0eccc9da15dd778fc6ad5c8d32"
+    },
+    {
+      "path": "scripts/verify_input_contracts.py",
+      "sha256": "30ac74f3e378fabb23af6c38eb928f9c4ca85b24655a0b86d0d20b0ec0f17206"
+    },
+    {
+      "path": "scripts/write_v08_docs.py",
+      "sha256": "7abd23374b5b6bdec14d1eab1ead57dda89b8c6ac54b5a28aaf15ff48c083034"
+    },
+    {
+      "path": "scripts/release_notes_v08.py",
+      "sha256": "2d7e14b959fe4924b4f7ed728652062215cf94d6f9e6153aee531c66b22bbd9b"
+    },
+    {
+      "path": "config.json",
+      "sha256": "003d3d19b82c600e3b682826d7f3aa0ca2840a195d85030b907c47f0327834fe"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-04-v08-backlog-p0-p1.md",
+      "sha256": "7bb13825e876676556aa0cef7c70a824ed55a2dd9a2e4ccc3952913565c9cb34"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-04-v08-backlog-p0-p1.md",
+      "sha256": "2a2e1be92a7bf273c30e40504784c82a953fabde12835da4af72af55eb7b66e1"
+    }
+  ]
+}

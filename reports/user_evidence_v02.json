@@ -1,0 +1,67 @@
+{
+  "baseline_revision": "v02",
+  "log": "C:\\Users\\Facu2\\OneDrive\\Documentos\\My Games\\Skyrim Special Edition\\Logs\\Script\\Papyrus.0.log",
+  "sha256": "656f354fc9042c4fa0e9eb62aaa7d5188217b15014a2a0cf82833c76a44244e2",
+  "astra_only_lines": [
+    "[10/03/2026 - 04:56:19PM] AstraAsedio Player alias initialized ref=[Actor < (00000014)>] session=[astraasediosession <AstraAsedioSessionQuest (0F000806)>]",
+    "[10/03/2026 - 04:56:19PM] AstraAsedio session quest initialized running=TRUE",
+    "[10/03/2026 - 04:57:10PM] AstraAsedio OnActivate ref=[AstraAsedioActi < (0F000901)>] actor=[Actor < (00000014)>]",
+    "[10/03/2026 - 04:57:11PM] AstraAsedio session acquired token=1 generation=1",
+    "[10/03/2026 - 04:57:11PM] AstraAsedio OnActivate ref=[AstraAsedioActi < (0F000901)>] actor=[Actor < (00000014)>]",
+    "[10/03/2026 - 04:57:11PM] AstraAsedio activation rejected: ALREADY_OPERATING: suelta activar y pulsa otra vez para salir.",
+    "[10/03/2026 - 04:57:44PM] AstraAsedio OnActivate ref=[AstraAsedioActi < (0F000901)>] actor=[Actor < (00000014)>]",
+    "[10/03/2026 - 04:57:44PM] AstraAsedio activation rejected: ALREADY_OPERATING: suelta activar y pulsa otra vez para salir.",
+    "[10/03/2026 - 04:57:56PM] AstraAsedio OnActivate ref=[AstraAsedioActi < (0F000901)>] actor=[Actor < (00000014)>]",
+    "[10/03/2026 - 04:57:56PM] AstraAsedio activation rejected: ALREADY_OPERATING: suelta activar y pulsa otra vez para salir.",
+    "[10/03/2026 - 04:57:57PM] AstraAsedio OnActivate ref=[AstraAsedioActi < (0F000901)>] actor=[Actor < (00000014)>]",
+    "[10/03/2026 - 04:57:57PM] AstraAsedio activation rejected: ALREADY_OPERATING: suelta activar y pulsa otra vez para salir.",
+    "[10/03/2026 - 04:58:01PM] AstraAsedio OnActivate ref=[AstraAsedioActi < (0F000901)>] actor=[Actor < (00000014)>]",
+    "[10/03/2026 - 04:58:01PM] AstraAsedio activation rejected: ALREADY_OPERATING: suelta activar y pulsa otra vez para salir.",
+    "[10/03/2026 - 04:58:03PM] AstraAsedio OnActivate ref=[AstraAsedioActi < (0F000901)>] actor=[Actor < (00000014)>]",
+    "[10/03/2026 - 04:58:03PM] AstraAsedio session acquired token=3 generation=3",
+    "[10/03/2026 - 04:58:06PM] AstraAsedio OnActivate ref=[AstraAsedioActi < (0F000901)>] actor=[Actor < (00000014)>]",
+    "[10/03/2026 - 04:58:07PM] AstraAsedio session acquired token=5 generation=5"
+  ],
+  "log_modified": 1791057571.6497335,
+  "array_errors_observed_for_astra": false,
+  "user_report": "controls stuck on firing attempt; cannot exit; rope ties loose on both bow limbs",
+  "cause_of_firing_failure_not_proven": true,
+  "new_revision_runtime_verified": false,
+  "user_clarification": {
+    "camera_console_menus_function": true,
+    "only_actor_immobile": true,
+    "arrows_do_not_aim": true
+  },
+  "images": [
+    {
+      "path": "G:\\Modding\\Skyrim_Runtime_1.6.1170\\SkyrimSE 2026-10-03 16-58-41_3.png",
+      "sha256": "d4b0092b9002e206f73083321d29e10559fb6846d41115769fd494b8c4b9ac04",
+      "bytes": 3804081
+    },
+    {
+      "path": "G:\\Modding\\Skyrim_Runtime_1.6.1170\\SkyrimSE 2026-10-03 16-57-50_2.png",
+      "sha256": "ad0843889917c534e470cb724a24e69bd77b165cb6348f098810f78a988ece40",
+      "bytes": 3458886
+    }
+  ],
+  "profile_selection_at_diagnosis": "AstraAsedio_QA_v01",
+  "actual_profile_mod_name": "AstraAsedio_v",
+  "installed_baseline_artifacts": [
+    {
+      "name": "AstraAsedio.esp",
+      "sha256": "6a4e0e2e358f319fe4d3fbf34b522b55adfbcacf2e43a3ba63967b730d2dfab6",
+      "matches_v02": true
+    },
+    {
+      "name": "scripts/AstraAsedioActi.pex",
+      "sha256": "39bc335360b4f37be7c93050f3ce2ce40632cabd638c48e64b53644476e1103a",
+      "matches_v02": true
+    },
+    {
+      "name": "meshes/AstraAsedio/ballesta.nif",
+      "sha256": "91e3b02ba82fe2693b220996153767bc674b90865e704079d551188cad191f2c",
+      "matches_v02": true
+    }
+  ],
+  "saved_selection_does_not_identify_artifact_version": true
+}

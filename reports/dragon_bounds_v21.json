@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "reference": "Skyrim.esm:0936C3",
+      "edid": "",
+      "editor_bound_separation": 1570.575345284048,
+      "intersects_with_256_unit_buffer": false
+    },
+    {
+      "reference": "Skyrim.esm:093697",
+      "edid": "",
+      "editor_bound_separation": 0.0,
+      "intersects_with_256_unit_buffer": true
+    },
+    {
+      "reference": "Skyrim.esm:05A6D1",
+      "edid": "MQ104FortAmolLandingMarker",
+      "editor_bound_separation": 3082.590008604525,
+      "intersects_with_256_unit_buffer": false
+    }
+  ],
+  "actual_dragon_collision_measured": false,
+  "editor_bounds_only": true
+}

@@ -1,0 +1,42 @@
+{
+  "revision_observed": "v09",
+  "date_local": "2026-10-05",
+  "profile": "AstraAsedio_QA_v09",
+  "user_statement": "funciono todo bien menos la camara; la camara se ubica en el medio (circulo azul) y deberia ir en la cola (circulo rojo); falta el punto de mira y quedaria genial una mira fija propia del arma; la escalera esta bien",
+  "logs": {
+    "AstraSight.log": "a939a8bccdce20690c43f04a125ec499c1bad376acff333c5e19429a6e5d507b",
+    "Papyrus.0.log": "74d48a6fb737219212cc6491b6605ce4cb704ff2901f953a6e5744e622c2f534",
+    "skse64.log": "760eec7546a07333a087c51615301aa6cbc23dfd3e775bdca575a07ea82990ab"
+  },
+  "screenshot": {
+    "path": "reports/user_evidence_v09/captura_usuario_camara.webp",
+    "sha256": "4ef0326a71c0880ceb84dfdb1a851ee891b08ab71dd5520b2a9e45be9e0dd8a3",
+    "note": "player-eye view outside the sight, annotated by the user"
+  },
+  "findings": [
+    {
+      "id": "post_camera_hook_dead",
+      "evidence": "every camera deviation/beat line reports post(writes/skips)=0/0 while frames and eligible getters (2 per frame) grow",
+      "meaning": "the PlayerCamera vtable slot 2 hook added in v07 never runs; the v07 fix premise was false; the camera is driven by the FirstPersonState getters only"
+    },
+    {
+      "id": "camera_pull_in",
+      "evidence": "deviations of 140-178 u for 2-3 s at yaw ~130-240; rendered camera on the eye->sight line at 129.9-131.3 u from the vanilla eye (38.6,215.9,574.8); no pull at yaw ~313 (anchor 186 u away)",
+      "cause": "Skyrim pulls the camera toward the player head when a sphere swept from the head to the camera position meets collision: the fixed ballista base box (z up to 137.6 above the root, the player eye is ~109) lies between the eye and the sight when the turret faces away. A 12-15 u sphere first touches it at 115-127 u in the four logged cases.",
+      "correction_of_v09_analysis": "v09 ruled camera collision out with a wrong eye (at the crank instead of the logged player position) and with the reimported ballista collision left at z 0 (PyNifly does not parent it to the moved root)."
+    },
+    {
+      "id": "small_deviations",
+      "evidence": "2-9 u deviations while turning",
+      "meaning": "one-frame difference between the published pose and the next frame start while the mouse moves; not visible"
+    },
+    {
+      "id": "everything_else",
+      "evidence": "user: todo funciona bien menos la camara; stair accepted"
+    }
+  ],
+  "user_design_choices": {
+    "camera": "tail of the ballista, sliding forward along the sight line as elevation rises (keeps 360 and -5..+80)",
+    "sight": "rear ring (alza) + front post (guion), post corrected for the 75 m zero"
+  }
+}

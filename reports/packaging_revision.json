@@ -1,0 +1,26 @@
+{
+  "revision": "v04",
+  "failure_observed": {
+    "command": "python scripts/package_release.py",
+    "attempted_cases": 32,
+    "module_import_errors": 2,
+    "modules": [
+      "test_camera_aim",
+      "test_session_contract"
+    ],
+    "diagnostic": "ModuleNotFoundError: No module named 'tests'",
+    "archives_created_on_failed_run": false
+  },
+  "change": "Add resolved project ROOT to sys.path before discovery, allowing shared tests namespace imports from script invocation.",
+  "passing_run_after_path_fix": {
+    "cases": 94,
+    "failures": 0,
+    "errors": 0,
+    "copied_nif_tamper_rejected": true,
+    "zip_crc_checked": true,
+    "runtime_entries_match_project_sha256": true
+  },
+  "packager_source_sha256": "1ee5f384047aa91bdfe58b299b87c62b1f3dd04ab68dd01f49d99f6193ffe1ff",
+  "engine_execution": false,
+  "scope": "This records the packaging import regression. Later controller regressions and final test totals are recorded in camera reports, delivery_status and tests.log."
+}

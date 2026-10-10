@@ -1,0 +1,23 @@
+{
+  "source": "mod\\scripts\\source\\AstraAsedioGuard.psc",
+  "source_sha256": "ed4a785847f74f114e37ef228180febabe0a8105036370e412e0b3014f08457e",
+  "fresh_staging": true,
+  "runtime_read_only": true,
+  "final_pex_written": false,
+  "compiler_exit_code": 0,
+  "compiler_output": "Starting 1 compile threads for 1 files...\nCompiling \"AstraAsedioGuard\"...\nStarting assembly of AstraAsedioGuard\n0 error(s), 0 warning(s)\nAssembly succeeded\n\nCompilation succeeded.\n\nBatch compile of 1 files finished. 1 succeeded, 0 failed.\n",
+  "assembler_exit_code": 0,
+  "assembler_output": "Starting disassembly of AstraAsedioGuard\n0 error(s), 0 warning(s)\nDisassembly succeeded\n",
+  "bytecode_safety": {
+    "no_none_to_array_casts": true,
+    "array_create_count": 8,
+    "functions_inspected": 39,
+    "camera_player_control_bindings_absent": true,
+    "weapon_fire_call_present": true
+  },
+  "pex_sha256": "d95c454556aca4377fbc3fa5791e9eb06f35102a7a00400872d46728fbf6695b",
+  "pex_size": 32148,
+  "disassembly": "reports\\v13_guard_bytecode.pas",
+  "disassembly_sha256": "27be90dc8166dfec1dadcd7cb722bf62e49aed506db0ffdc81fdecd1f367dd3a",
+  "success": true
+}

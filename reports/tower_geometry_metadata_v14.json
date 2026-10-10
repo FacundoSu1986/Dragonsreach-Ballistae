@@ -1,0 +1,1779 @@
+{
+  "inputs_sha256": {
+    "gun": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
+    "context": "d5c82dec2eab7223a5a19171c3999e9011da175c4c51116cd3586b8004cf5fb8",
+    "script": "28c4a4b3c70b73975dfa2faae1c5dc83cd63bcf05eff92e6b22f39ddd49ca6dc"
+  },
+  "sites": [
+    {
+      "name": "este",
+      "visual_triangles": 28105,
+      "havok_triangles": 10099,
+      "refs": [
+        {
+          "ref": "00076EAD",
+          "model": "Clutter\\Stockade\\StockadeBarricade\\StockadeBarricade01.nif",
+          "sha256": "e70ffe4964f26eac5b3a87b5e06005b6a9ff924fcf8365a0f44738b83716806b",
+          "visual_meshes": 12,
+          "havok_meshes": 16,
+          "bounds_min": [
+            -2331.038330078125,
+            120.78732299804688,
+            -942.3118896484375
+          ],
+          "bounds_max": [
+            -1687.2371826171875,
+            282.0182189941406,
+            -785.4058227539062
+          ]
+        },
+        {
+          "ref": "000FC88B",
+          "model": "Clutter\\CivilWar\\CivilWarRubble02.nif",
+          "sha256": "ac25546b2cac55f8250153fca4eb7131a3d04695a42ea933aab1f4dac89d143b",
+          "visual_meshes": 4,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -421.0943908691406,
+            69.3250732421875,
+            -270.3807373046875
+          ],
+          "bounds_max": [
+            280.359375,
+            577.48681640625,
+            -3.3781802654266357
+          ]
+        },
+        {
+          "ref": "00089FF4",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -113.42854309082031,
+            276.2320251464844,
+            -470.76519775390625
+          ],
+          "bounds_max": [
+            94.02552795410156,
+            472.48748779296875,
+            -79.09416198730469
+          ]
+        },
+        {
+          "ref": "00089FF2",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallStrUp128Shift128.nif",
+          "sha256": "b50aca00828c48334e71176ecd36522f3b5600adf13b67e7a96dff1ef4c93b45",
+          "visual_meshes": 3,
+          "havok_meshes": 2,
+          "bounds_min": [
+            305.5636901855469,
+            21.454639434814453,
+            -1016.9439697265625
+          ],
+          "bounds_max": [
+            1447.1165771484375,
+            264.84368896484375,
+            767.928466796875
+          ]
+        },
+        {
+          "ref": "00089F3F",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallTower01.nif",
+          "sha256": "c5b7a4530ba45b256315d6a37f282a5837a08adee676c71b6adc51bbe17b5ed1",
+          "visual_meshes": 5,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -372.9245910644531,
+            -230.79200744628906,
+            -928.2200927734375
+          ],
+          "bounds_max": [
+            363.9432678222656,
+            353.4884033203125,
+            141.64422607421875
+          ]
+        },
+        {
+          "ref": "00063FA8",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -522.1179809570312,
+            444.8444519042969,
+            -438.76519775390625
+          ],
+          "bounds_max": [
+            -325.86248779296875,
+            652.2985229492188,
+            -47.09415817260742
+          ]
+        },
+        {
+          "ref": "00064D7C",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -113.42854309082031,
+            84.23204040527344,
+            -390.76519775390625
+          ],
+          "bounds_max": [
+            94.02552795410156,
+            280.48748779296875,
+            0.9058380126953125
+          ]
+        },
+        {
+          "ref": "000684E8",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "sha256": "419ca4dbea593dbf625ebcb58ce62895ab3d8d41aee641d77879912a85269d44",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -808.0889892578125,
+            175.95663452148438,
+            -404.1685791015625
+          ],
+          "bounds_max": [
+            -267.46173095703125,
+            880.5057983398438,
+            -142.3226318359375
+          ]
+        },
+        {
+          "ref": "0006982D",
+          "model": "Landscape\\Rocks\\RockPileM02Tundra.nif",
+          "sha256": "dde150c35c1b96ed8584899a90a545d1bdc3e5526b1053ed3ede8857fdf42203",
+          "visual_meshes": 5,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -118.13822937011719,
+            431.5291748046875,
+            -223.04701232910156
+          ],
+          "bounds_max": [
+            223.4275360107422,
+            956.7801513671875,
+            -109.379638671875
+          ]
+        },
+        {
+          "ref": "00071689",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "sha256": "d206c4327b42a9b3f5f2ca33129b5615dce29fa5d092e464fb88105943e9a559",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -716.90869140625,
+            452.6099853515625,
+            -438.76519775390625
+          ],
+          "bounds_max": [
+            -513.4046630859375,
+            644.6380004882812,
+            -48.339996337890625
+          ]
+        },
+        {
+          "ref": "000FC89A",
+          "model": "Clutter\\Skuldafn\\SkuldafnBannerAnchor02.nif",
+          "sha256": "7a7b532dda9a3d83b3a0ab03b2140ffc665c1e9ec118161ca3268183130ae2b1",
+          "visual_meshes": 1,
+          "havok_meshes": 0,
+          "bounds_min": [
+            -2161.760009765625,
+            151.73072814941406,
+            -510.0331115722656
+          ],
+          "bounds_max": [
+            -2051.491455078125,
+            187.09033203125,
+            -498.6824951171875
+          ]
+        },
+        {
+          "ref": "00069848",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile05.nif",
+          "sha256": "4dbae8165d3c40f6f52c64a707bd25a2018390e246402a341aba74cb66ab9f4d",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2945.390625,
+            683.4655151367188,
+            -836.2088012695312
+          ],
+          "bounds_max": [
+            -2605.6845703125,
+            1121.6109619140625,
+            -690.081298828125
+          ]
+        },
+        {
+          "ref": "00069847",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile01.nif",
+          "sha256": "4517bb3db8a55a9ab359b9736d5135663193da58643f44378f71476804e86e98",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2705.339111328125,
+            201.29672241210938,
+            -994.3991088867188
+          ],
+          "bounds_max": [
+            -1971.0604248046875,
+            948.2103271484375,
+            -789.036376953125
+          ]
+        },
+        {
+          "ref": "00067167",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "sha256": "419ca4dbea593dbf625ebcb58ce62895ab3d8d41aee641d77879912a85269d44",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -3388.95166015625,
+            -9.687779426574707,
+            -1008.3093872070312
+          ],
+          "bounds_max": [
+            -2814.411376953125,
+            627.8961791992188,
+            -743.3478393554688
+          ]
+        },
+        {
+          "ref": "00067162",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallStrRubbled01Free.nif",
+          "sha256": "611e15f7bab93e0b0695137ee48a0cd4b52c36f26c647bceb4f58814e532464c",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -3985.97900390625,
+            162.64215087890625,
+            -1432.813232421875
+          ],
+          "bounds_max": [
+            -2138.559814453125,
+            278.68389892578125,
+            -696.01220703125
+          ]
+        },
+        {
+          "ref": "0006714D",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2673.428466796875,
+            644.2320556640625,
+            -1078.7652587890625
+          ],
+          "bounds_max": [
+            -2465.974365234375,
+            840.4874877929688,
+            -687.0941772460938
+          ]
+        },
+        {
+          "ref": "00042516",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallGateTarTrap01.nif",
+          "sha256": "a6b10fb9037616b51d1b9bd16593c45dd7d5a8425785ceaba260b75eff0cb7aa",
+          "visual_meshes": 8,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2950.114501953125,
+            -215.93234252929688,
+            -1463.53515625
+          ],
+          "bounds_max": [
+            -218.35585021972656,
+            1332.2191162109375,
+            -32.56402587890625
+          ]
+        },
+        {
+          "ref": "00064D6A",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2673.428466796875,
+            68.23204040527344,
+            -902.7652587890625
+          ],
+          "bounds_max": [
+            -2465.974365234375,
+            264.48748779296875,
+            -511.09417724609375
+          ]
+        },
+        {
+          "ref": "00064D73",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2673.428466796875,
+            452.2320251464844,
+            -998.7652587890625
+          ],
+          "bounds_max": [
+            -2465.974365234375,
+            648.4874877929688,
+            -607.0941772460938
+          ]
+        },
+        {
+          "ref": "00064D72",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "sha256": "d206c4327b42a9b3f5f2ca33129b5615dce29fa5d092e464fb88105943e9a559",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2473.739990234375,
+            268.2746887207031,
+            -998.7652587890625
+          ],
+          "bounds_max": [
+            -2281.7119140625,
+            471.7787170410156,
+            -608.3400268554688
+          ]
+        },
+        {
+          "ref": "00064D71",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "sha256": "d206c4327b42a9b3f5f2ca33129b5615dce29fa5d092e464fb88105943e9a559",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2281.76806640625,
+            273.4412536621094,
+            -998.7652587890625
+          ],
+          "bounds_max": [
+            -2089.739990234375,
+            476.9452819824219,
+            -608.3400268554688
+          ]
+        },
+        {
+          "ref": "00064D6F",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransBottom.nif",
+          "sha256": "a8d33dc982d322d1207f50a21dc81679758225e91cc6ee057bb4f4a4be62c0b6",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2671.4326171875,
+            258.37744140625,
+            -998.7652587890625
+          ],
+          "bounds_max": [
+            -2469.589599609375,
+            452.6379699707031,
+            -590.3662719726562
+          ]
+        },
+        {
+          "ref": "000FC919",
+          "model": "Clutter\\CivilWar\\CivilWarRubble02.nif",
+          "sha256": "ac25546b2cac55f8250153fca4eb7131a3d04695a42ea933aab1f4dac89d143b",
+          "visual_meshes": 4,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -545.341796875,
+            -932.2338256835938,
+            -1002.4588623046875
+          ],
+          "bounds_max": [
+            96.7892837524414,
+            -370.1531982421875,
+            -729.9445190429688
+          ]
+        },
+        {
+          "ref": "000FC8A3",
+          "model": "Clutter\\Skuldafn\\SkuldafnBannerAnchor02.nif",
+          "sha256": "7a7b532dda9a3d83b3a0ab03b2140ffc665c1e9ec118161ca3268183130ae2b1",
+          "visual_meshes": 1,
+          "havok_meshes": 0,
+          "bounds_min": [
+            -60.115447998046875,
+            -215.96751403808594,
+            -34.39933395385742
+          ],
+          "bounds_max": [
+            50.15302658081055,
+            -180.60791015625,
+            -23.048717498779297
+          ]
+        },
+        {
+          "ref": "0006AA70",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "sha256": "d206c4327b42a9b3f5f2ca33129b5615dce29fa5d092e464fb88105943e9a559",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -169.74000549316406,
+            -115.72530364990234,
+            -390.76519775390625
+          ],
+          "bounds_max": [
+            22.288002014160156,
+            87.77872467041016,
+            -0.3400001525878906
+          ]
+        },
+        {
+          "ref": "000684EF",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "sha256": "d206c4327b42a9b3f5f2ca33129b5615dce29fa5d092e464fb88105943e9a559",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            22.23200225830078,
+            -110.55872344970703,
+            -390.76519775390625
+          ],
+          "bounds_max": [
+            214.260009765625,
+            92.9453125,
+            -0.3400001525878906
+          ]
+        },
+        {
+          "ref": "000684EC",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTowerLarge01.nif",
+          "sha256": "4b8aac47c08cdb4d863a52a5a9f9f14612d4cad75ca59b4789284115a2c3dbff",
+          "visual_meshes": 4,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -289.5313720703125,
+            -249.4532470703125,
+            -55.46513748168945
+          ],
+          "bounds_max": [
+            275.5905456542969,
+            140.60423278808594,
+            593.5637817382812
+          ]
+        },
+        {
+          "ref": "00067166",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "sha256": "419ca4dbea593dbf625ebcb58ce62895ab3d8d41aee641d77879912a85269d44",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -775.45361328125,
+            -882.2462768554688,
+            -1050.5340576171875
+          ],
+          "bounds_max": [
+            84.16080474853516,
+            -224.23614501953125,
+            -730.109375
+          ]
+        },
+        {
+          "ref": "00067160",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallTowerChunk01.nif",
+          "sha256": "fadf1141f55e2d79842eecb102ad60acf37ef8266c71818ef5a172037ba57a96",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -718.301025390625,
+            -586.0153198242188,
+            -1008.7175903320312
+          ],
+          "bounds_max": [
+            -125.10092163085938,
+            -171.8563995361328,
+            -499.85650634765625
+          ]
+        },
+        {
+          "ref": "00042525",
+          "model": "Landscape\\Rocks\\RockCliff04.nif",
+          "sha256": "234d8f3378dbd6a42e9096a322b204f27add7cfbf8128b85c8f4045c11a97b0a",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -1339.720947265625,
+            -691.379638671875,
+            -1686.7840576171875
+          ],
+          "bounds_max": [
+            467.61480712890625,
+            796.9555053710938,
+            -286.764404296875
+          ]
+        },
+        {
+          "ref": "000FD0C9",
+          "model": "Architecture\\WhiteRun\\WRClutter\\WRBrazier01.nif",
+          "sha256": "1969168bdc0b447954c709d8fb6c7b9f7f8d84b4c34b55cc990a716fe827f8b2",
+          "visual_meshes": 1,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2009.4202880859375,
+            69.99320220947266,
+            -922.8125
+          ],
+          "bounds_max": [
+            -1925.36083984375,
+            152.7928466796875,
+            -801.717041015625
+          ]
+        },
+        {
+          "ref": "0007168C",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "sha256": "419ca4dbea593dbf625ebcb58ce62895ab3d8d41aee641d77879912a85269d44",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2917.5625,
+            -206.79910278320312,
+            -851.2058715820312
+          ],
+          "bounds_max": [
+            -2363.596435546875,
+            265.18243408203125,
+            -623.5438842773438
+          ]
+        },
+        {
+          "ref": "0007704A",
+          "model": "Clutter\\CivilWar\\CivilWarRubble02.nif",
+          "sha256": "ac25546b2cac55f8250153fca4eb7131a3d04695a42ea933aab1f4dac89d143b",
+          "visual_meshes": 4,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2601.7431640625,
+            -668.7949829101562,
+            -1080.9896240234375
+          ],
+          "bounds_max": [
+            -2046.5029296875,
+            -47.302406311035156,
+            -804.94140625
+          ]
+        },
+        {
+          "ref": "00067165",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "sha256": "419ca4dbea593dbf625ebcb58ce62895ab3d8d41aee641d77879912a85269d44",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2792.21923828125,
+            -507.96905517578125,
+            -1083.62451171875
+          ],
+          "bounds_max": [
+            -2215.84375,
+            134.62576293945312,
+            -820.9813232421875
+          ]
+        },
+        {
+          "ref": "0004251F",
+          "model": "Landscape\\Rocks\\RockL02.nif",
+          "sha256": "664184ca181f4848a6a01f4896eff543a411936cb25efdaf51bd9a29cc1274d9",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2667.941162109375,
+            -204.4322052001953,
+            -1130.016845703125
+          ],
+          "bounds_max": [
+            -1951.7677001953125,
+            301.3874206542969,
+            -802.4935302734375
+          ]
+        },
+        {
+          "ref": "00042B48",
+          "model": "Landscape\\Rocks\\RockPileS02.nif",
+          "sha256": "5d4ca65b6b6841861c25f4414219d3b3f7839f34ba87c2447ddda5d6cc27383c",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2448.070068359375,
+            -759.0158081054688,
+            -1076.3050537109375
+          ],
+          "bounds_max": [
+            -2190.61669921875,
+            -514.496337890625,
+            -974.8457641601562
+          ]
+        },
+        {
+          "ref": "00063FD1",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTowerBase01.nif",
+          "sha256": "d39b0c47b9665ba3f120bb3e03fce659ac244846430c4d614f50dc3bc9593c46",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2721.662109375,
+            -127.54047393798828,
+            -902.7652587890625
+          ],
+          "bounds_max": [
+            -2423.73828125,
+            75.84583282470703,
+            -512.3400268554688
+          ]
+        },
+        {
+          "ref": "00063FD0",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTower01.nif",
+          "sha256": "95ec0b316fb6d68b8ec32e11b1304e300880e54424e4dab0b67e7b58fb971cec",
+          "visual_meshes": 5,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2702.820556640625,
+            -153.17604064941406,
+            -518.7232055664062
+          ],
+          "bounds_max": [
+            -2417.68408203125,
+            99.80082702636719,
+            -173.60015869140625
+          ]
+        },
+        {
+          "ref": "00103731",
+          "model": "Landscape\\Rocks\\RockPileS04.nif",
+          "sha256": "c1b9307f4fa9b7db8a65db9efa908593d1b63c7e3cb286a312ec4f0e67c87563",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -3264.68701171875,
+            -511.123779296875,
+            -980.4091186523438
+          ],
+          "bounds_max": [
+            -2871.182861328125,
+            -15.071405410766602,
+            -902.6140747070312
+          ]
+        },
+        {
+          "ref": "001036FB",
+          "model": "Architecture\\Tents\\SmallNordicTent01.nif",
+          "sha256": "0db716eb28e196d38d77e27262a8961a2e3c79093f904d618457581f7f197ffe",
+          "visual_meshes": 1,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -3254.97265625,
+            -443.97271728515625,
+            -949.52978515625
+          ],
+          "bounds_max": [
+            -2949.6728515625,
+            -141.80136108398438,
+            -767.7906494140625
+          ]
+        },
+        {
+          "ref": "00103701",
+          "model": "Clutter\\Common\\RugRound01.nif",
+          "sha256": "8972770f76f069ca01b8b3d659d08a0d4851d5f68b41482876952de823c2d83f",
+          "visual_meshes": 1,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -2434.652099609375,
+            -985.6744995117188,
+            -1000.8092651367188
+          ],
+          "bounds_max": [
+            -2254.083251953125,
+            -801.6126098632812,
+            -998.12939453125
+          ]
+        }
+      ]
+    },
+    {
+      "name": "oeste",
+      "visual_triangles": 28105,
+      "havok_triangles": 10099,
+      "refs": [
+        {
+          "ref": "00076EAD",
+          "model": "Clutter\\Stockade\\StockadeBarricade\\StockadeBarricade01.nif",
+          "sha256": "e70ffe4964f26eac5b3a87b5e06005b6a9ff924fcf8365a0f44738b83716806b",
+          "visual_meshes": 12,
+          "havok_meshes": 16,
+          "bounds_min": [
+            245.14166259765625,
+            102.69731140136719,
+            -430.3118591308594
+          ],
+          "bounds_max": [
+            888.9429321289062,
+            263.92822265625,
+            -273.40576171875
+          ]
+        },
+        {
+          "ref": "000FC88B",
+          "model": "Clutter\\CivilWar\\CivilWarRubble02.nif",
+          "sha256": "ac25546b2cac55f8250153fca4eb7131a3d04695a42ea933aab1f4dac89d143b",
+          "visual_meshes": 4,
+          "havok_meshes": 1,
+          "bounds_min": [
+            2155.08544921875,
+            51.23507308959961,
+            241.6192626953125
+          ],
+          "bounds_max": [
+            2856.539306640625,
+            559.3968505859375,
+            508.621826171875
+          ]
+        },
+        {
+          "ref": "00089FF4",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            2462.75146484375,
+            258.14202880859375,
+            41.23480224609375
+          ],
+          "bounds_max": [
+            2670.20556640625,
+            454.3974914550781,
+            432.9058532714844
+          ]
+        },
+        {
+          "ref": "00089FF2",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallStrUp128Shift128.nif",
+          "sha256": "b50aca00828c48334e71176ecd36522f3b5600adf13b67e7a96dff1ef4c93b45",
+          "visual_meshes": 3,
+          "havok_meshes": 2,
+          "bounds_min": [
+            2881.74365234375,
+            3.364643096923828,
+            -504.9439392089844
+          ],
+          "bounds_max": [
+            4023.29638671875,
+            246.75369262695312,
+            1279.928466796875
+          ]
+        },
+        {
+          "ref": "00089F3F",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallTower01.nif",
+          "sha256": "c5b7a4530ba45b256315d6a37f282a5837a08adee676c71b6adc51bbe17b5ed1",
+          "visual_meshes": 5,
+          "havok_meshes": 1,
+          "bounds_min": [
+            2203.25537109375,
+            -248.8820037841797,
+            -416.2201232910156
+          ],
+          "bounds_max": [
+            2940.123291015625,
+            335.3984069824219,
+            653.6442260742188
+          ]
+        },
+        {
+          "ref": "00063FA8",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            2054.06201171875,
+            426.7544860839844,
+            73.23480224609375
+          ],
+          "bounds_max": [
+            2250.3173828125,
+            634.2085571289062,
+            464.9058532714844
+          ]
+        },
+        {
+          "ref": "00064D7C",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            2462.75146484375,
+            66.14204406738281,
+            121.23480224609375
+          ],
+          "bounds_max": [
+            2670.20556640625,
+            262.39752197265625,
+            512.9058227539062
+          ]
+        },
+        {
+          "ref": "000684E8",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "sha256": "419ca4dbea593dbf625ebcb58ce62895ab3d8d41aee641d77879912a85269d44",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            1768.0909423828125,
+            157.86663818359375,
+            107.83141326904297
+          ],
+          "bounds_max": [
+            2308.71826171875,
+            862.415771484375,
+            369.6773681640625
+          ]
+        },
+        {
+          "ref": "0006982D",
+          "model": "Landscape\\Rocks\\RockPileM02Tundra.nif",
+          "sha256": "dde150c35c1b96ed8584899a90a545d1bdc3e5526b1053ed3ede8857fdf42203",
+          "visual_meshes": 5,
+          "havok_meshes": 1,
+          "bounds_min": [
+            2458.041748046875,
+            413.439208984375,
+            288.9530029296875
+          ],
+          "bounds_max": [
+            2799.607421875,
+            938.690185546875,
+            402.620361328125
+          ]
+        },
+        {
+          "ref": "00071689",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "sha256": "d206c4327b42a9b3f5f2ca33129b5615dce29fa5d092e464fb88105943e9a559",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            1859.271240234375,
+            434.52001953125,
+            73.23480224609375
+          ],
+          "bounds_max": [
+            2062.775146484375,
+            626.5480346679688,
+            463.6600036621094
+          ]
+        },
+        {
+          "ref": "000FC89A",
+          "model": "Clutter\\Skuldafn\\SkuldafnBannerAnchor02.nif",
+          "sha256": "7a7b532dda9a3d83b3a0ab03b2140ffc665c1e9ec118161ca3268183130ae2b1",
+          "visual_meshes": 1,
+          "havok_meshes": 0,
+          "bounds_min": [
+            414.4200134277344,
+            133.64073181152344,
+            1.96687650680542
+          ],
+          "bounds_max": [
+            524.6884765625,
+            169.00033569335938,
+            13.317493438720703
+          ]
+        },
+        {
+          "ref": "00069848",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile05.nif",
+          "sha256": "4dbae8165d3c40f6f52c64a707bd25a2018390e246402a341aba74cb66ab9f4d",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -369.2105407714844,
+            665.3755493164062,
+            -324.208740234375
+          ],
+          "bounds_max": [
+            -29.504541397094727,
+            1103.52099609375,
+            -178.081298828125
+          ]
+        },
+        {
+          "ref": "00069847",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile01.nif",
+          "sha256": "4517bb3db8a55a9ab359b9736d5135663193da58643f44378f71476804e86e98",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -129.15921020507812,
+            183.20675659179688,
+            -482.3990783691406
+          ],
+          "bounds_max": [
+            605.1195678710938,
+            930.120361328125,
+            -277.0363464355469
+          ]
+        },
+        {
+          "ref": "00067167",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "sha256": "419ca4dbea593dbf625ebcb58ce62895ab3d8d41aee641d77879912a85269d44",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -812.7717895507812,
+            -27.77777671813965,
+            -496.309326171875
+          ],
+          "bounds_max": [
+            -238.23146057128906,
+            609.80615234375,
+            -231.34783935546875
+          ]
+        },
+        {
+          "ref": "00067162",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallStrRubbled01Free.nif",
+          "sha256": "611e15f7bab93e0b0695137ee48a0cd4b52c36f26c647bceb4f58814e532464c",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -1409.7989501953125,
+            144.55215454101562,
+            -920.8131713867188
+          ],
+          "bounds_max": [
+            437.62005615234375,
+            260.5939025878906,
+            -184.01217651367188
+          ]
+        },
+        {
+          "ref": "0006714D",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -97.24854278564453,
+            626.14208984375,
+            -566.7651977539062
+          ],
+          "bounds_max": [
+            110.20552825927734,
+            822.3975219726562,
+            -175.0941619873047
+          ]
+        },
+        {
+          "ref": "00042516",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallGateTarTrap01.nif",
+          "sha256": "a6b10fb9037616b51d1b9bd16593c45dd7d5a8425785ceaba260b75eff0cb7aa",
+          "visual_meshes": 8,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -373.9345397949219,
+            -234.0223388671875,
+            -951.53515625
+          ],
+          "bounds_max": [
+            2357.82421875,
+            1314.129150390625,
+            479.4360046386719
+          ]
+        },
+        {
+          "ref": "00064D6A",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -97.24854278564453,
+            50.14204406738281,
+            -390.76519775390625
+          ],
+          "bounds_max": [
+            110.20552825927734,
+            246.3975067138672,
+            0.9058380126953125
+          ]
+        },
+        {
+          "ref": "00064D73",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransTop.nif",
+          "sha256": "af35db4ab92185e59aa3b9cb504ec2bedf6d22595db8748b2e964b9949f6a4bd",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -97.24854278564453,
+            434.1420593261719,
+            -486.76519775390625
+          ],
+          "bounds_max": [
+            110.20552825927734,
+            630.3975219726562,
+            -95.09416198730469
+          ]
+        },
+        {
+          "ref": "00064D72",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "sha256": "d206c4327b42a9b3f5f2ca33129b5615dce29fa5d092e464fb88105943e9a559",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            102.43999481201172,
+            250.1846923828125,
+            -486.76519775390625
+          ],
+          "bounds_max": [
+            294.4679870605469,
+            453.688720703125,
+            -96.33999633789062
+          ]
+        },
+        {
+          "ref": "00064D71",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "sha256": "d206c4327b42a9b3f5f2ca33129b5615dce29fa5d092e464fb88105943e9a559",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            294.4120178222656,
+            255.3512725830078,
+            -486.76519775390625
+          ],
+          "bounds_max": [
+            486.44000244140625,
+            458.85528564453125,
+            -96.33999633789062
+          ]
+        },
+        {
+          "ref": "00064D6F",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafRampTransBottom.nif",
+          "sha256": "a8d33dc982d322d1207f50a21dc81679758225e91cc6ee057bb4f4a4be62c0b6",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -95.25270080566406,
+            240.28744506835938,
+            -486.76519775390625
+          ],
+          "bounds_max": [
+            106.5904769897461,
+            434.5479736328125,
+            -78.36625671386719
+          ]
+        },
+        {
+          "ref": "000FC919",
+          "model": "Clutter\\CivilWar\\CivilWarRubble02.nif",
+          "sha256": "ac25546b2cac55f8250153fca4eb7131a3d04695a42ea933aab1f4dac89d143b",
+          "visual_meshes": 4,
+          "havok_meshes": 1,
+          "bounds_min": [
+            2030.838134765625,
+            -950.3237915039062,
+            -490.4588623046875
+          ],
+          "bounds_max": [
+            2672.96923828125,
+            -388.2431640625,
+            -217.94448852539062
+          ]
+        },
+        {
+          "ref": "000FC8A3",
+          "model": "Clutter\\Skuldafn\\SkuldafnBannerAnchor02.nif",
+          "sha256": "7a7b532dda9a3d83b3a0ab03b2140ffc665c1e9ec118161ca3268183130ae2b1",
+          "visual_meshes": 1,
+          "havok_meshes": 0,
+          "bounds_min": [
+            2516.064453125,
+            -234.05751037597656,
+            477.6006774902344
+          ],
+          "bounds_max": [
+            2626.3330078125,
+            -198.69790649414062,
+            488.9512939453125
+          ]
+        },
+        {
+          "ref": "0006AA70",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "sha256": "d206c4327b42a9b3f5f2ca33129b5615dce29fa5d092e464fb88105943e9a559",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            2406.43994140625,
+            -133.8153076171875,
+            121.23480224609375
+          ],
+          "bounds_max": [
+            2598.468017578125,
+            69.68872833251953,
+            511.6600036621094
+          ]
+        },
+        {
+          "ref": "000684EF",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafStr02.nif",
+          "sha256": "d206c4327b42a9b3f5f2ca33129b5615dce29fa5d092e464fb88105943e9a559",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            2598.411865234375,
+            -128.6487274169922,
+            121.23480224609375
+          ],
+          "bounds_max": [
+            2790.43994140625,
+            74.85530853271484,
+            511.6600036621094
+          ]
+        },
+        {
+          "ref": "000684EC",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTowerLarge01.nif",
+          "sha256": "4b8aac47c08cdb4d863a52a5a9f9f14612d4cad75ca59b4789284115a2c3dbff",
+          "visual_meshes": 4,
+          "havok_meshes": 1,
+          "bounds_min": [
+            2286.648681640625,
+            -267.5432434082031,
+            456.53485107421875
+          ],
+          "bounds_max": [
+            2851.7705078125,
+            122.51422882080078,
+            1105.563720703125
+          ]
+        },
+        {
+          "ref": "00067166",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "sha256": "419ca4dbea593dbf625ebcb58ce62895ab3d8d41aee641d77879912a85269d44",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            1800.726318359375,
+            -900.3362426757812,
+            -538.5340576171875
+          ],
+          "bounds_max": [
+            2660.3408203125,
+            -242.32614135742188,
+            -218.109375
+          ]
+        },
+        {
+          "ref": "00067160",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallTowerChunk01.nif",
+          "sha256": "fadf1141f55e2d79842eecb102ad60acf37ef8266c71818ef5a172037ba57a96",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            1857.87890625,
+            -604.1052856445312,
+            -496.7175598144531
+          ],
+          "bounds_max": [
+            2451.0791015625,
+            -189.94639587402344,
+            12.143536567687988
+          ]
+        },
+        {
+          "ref": "00042525",
+          "model": "Landscape\\Rocks\\RockCliff04.nif",
+          "sha256": "234d8f3378dbd6a42e9096a322b204f27add7cfbf8128b85c8f4045c11a97b0a",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            1236.458984375,
+            -709.4696655273438,
+            -1174.7840576171875
+          ],
+          "bounds_max": [
+            3043.794677734375,
+            778.8655395507812,
+            225.23553466796875
+          ]
+        },
+        {
+          "ref": "000FD0C9",
+          "model": "Architecture\\WhiteRun\\WRClutter\\WRBrazier01.nif",
+          "sha256": "1969168bdc0b447954c709d8fb6c7b9f7f8d84b4c34b55cc990a716fe827f8b2",
+          "visual_meshes": 1,
+          "havok_meshes": 1,
+          "bounds_min": [
+            566.7597045898438,
+            51.9031982421875,
+            -410.81243896484375
+          ],
+          "bounds_max": [
+            650.8192138671875,
+            134.70285034179688,
+            -289.71697998046875
+          ]
+        },
+        {
+          "ref": "0007168C",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "sha256": "419ca4dbea593dbf625ebcb58ce62895ab3d8d41aee641d77879912a85269d44",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -341.38250732421875,
+            -224.88909912109375,
+            -339.2058410644531
+          ],
+          "bounds_max": [
+            212.58343505859375,
+            247.09243774414062,
+            -111.54383850097656
+          ]
+        },
+        {
+          "ref": "0007704A",
+          "model": "Clutter\\CivilWar\\CivilWarRubble02.nif",
+          "sha256": "ac25546b2cac55f8250153fca4eb7131a3d04695a42ea933aab1f4dac89d143b",
+          "visual_meshes": 4,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -25.563261032104492,
+            -686.8849487304688,
+            -568.9895629882812
+          ],
+          "bounds_max": [
+            529.6770629882812,
+            -65.39240264892578,
+            -292.94140625
+          ]
+        },
+        {
+          "ref": "00067165",
+          "model": "Architecture\\WhiteRun\\WRCityWalls\\WRWallRubblePile03.nif",
+          "sha256": "419ca4dbea593dbf625ebcb58ce62895ab3d8d41aee641d77879912a85269d44",
+          "visual_meshes": 3,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -216.03916931152344,
+            -526.05908203125,
+            -571.62451171875
+          ],
+          "bounds_max": [
+            360.3363037109375,
+            116.5357666015625,
+            -308.98138427734375
+          ]
+        },
+        {
+          "ref": "0004251F",
+          "model": "Landscape\\Rocks\\RockL02.nif",
+          "sha256": "664184ca181f4848a6a01f4896eff543a411936cb25efdaf51bd9a29cc1274d9",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -91.76128387451172,
+            -222.522216796875,
+            -618.016845703125
+          ],
+          "bounds_max": [
+            624.4122924804688,
+            283.29742431640625,
+            -290.4934997558594
+          ]
+        },
+        {
+          "ref": "00042B48",
+          "model": "Landscape\\Rocks\\RockPileS02.nif",
+          "sha256": "5d4ca65b6b6841861c25f4414219d3b3f7839f34ba87c2447ddda5d6cc27383c",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            128.1099090576172,
+            -777.1057739257812,
+            -564.30517578125
+          ],
+          "bounds_max": [
+            385.5632629394531,
+            -532.5863037109375,
+            -462.8458251953125
+          ]
+        },
+        {
+          "ref": "00063FD1",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTowerBase01.nif",
+          "sha256": "d39b0c47b9665ba3f120bb3e03fce659ac244846430c4d614f50dc3bc9593c46",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -145.48216247558594,
+            -145.63047790527344,
+            -390.76519775390625
+          ],
+          "bounds_max": [
+            152.44174194335938,
+            57.75583267211914,
+            -0.3400001525878906
+          ]
+        },
+        {
+          "ref": "00063FD0",
+          "model": "Architecture\\WhiteRun\\WRScaffold\\WRScafGuardTower01.nif",
+          "sha256": "95ec0b316fb6d68b8ec32e11b1304e300880e54424e4dab0b67e7b58fb971cec",
+          "visual_meshes": 5,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -126.64058685302734,
+            -171.2660369873047,
+            -6.723201751708984
+          ],
+          "bounds_max": [
+            158.49591064453125,
+            81.71083068847656,
+            338.3998718261719
+          ]
+        },
+        {
+          "ref": "00103731",
+          "model": "Landscape\\Rocks\\RockPileS04.nif",
+          "sha256": "c1b9307f4fa9b7db8a65db9efa908593d1b63c7e3cb286a312ec4f0e67c87563",
+          "visual_meshes": 2,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -688.5067749023438,
+            -529.2137451171875,
+            -468.4091491699219
+          ],
+          "bounds_max": [
+            -295.00274658203125,
+            -33.16140365600586,
+            -390.614013671875
+          ]
+        },
+        {
+          "ref": "001036FB",
+          "model": "Architecture\\Tents\\SmallNordicTent01.nif",
+          "sha256": "0db716eb28e196d38d77e27262a8961a2e3c79093f904d618457581f7f197ffe",
+          "visual_meshes": 1,
+          "havok_meshes": 1,
+          "bounds_min": [
+            -678.7925415039062,
+            -462.062744140625,
+            -437.5297546386719
+          ],
+          "bounds_max": [
+            -373.4927673339844,
+            -159.891357421875,
+            -255.79063415527344
+          ]
+        },
+        {
+          "ref": "00103701",
+          "model": "Clutter\\Common\\RugRound01.nif",
+          "sha256": "8972770f76f069ca01b8b3d659d08a0d4851d5f68b41482876952de823c2d83f",
+          "visual_meshes": 1,
+          "havok_meshes": 1,
+          "bounds_min": [
+            141.52792358398438,
+            -1003.7644653320312,
+            -488.8092346191406
+          ],
+          "bounds_max": [
+            322.0968017578125,
+            -819.7025756835938,
+            -486.12939453125
+          ]
+        }
+      ]
+    }
+  ],
+  "gun_shapes": [
+    {
+      "name": "AstraSightFrontPost_guion",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -1.2000000476837158,
+        -151.20000004768372,
+        177.4512939453125
+      ],
+      "bounds_max": [
+        1.2000000476837158,
+        -148.79999995231628,
+        187.4512939453125
+      ],
+      "vertices": 29,
+      "triangles": 18
+    },
+    {
+      "name": "CTRL_BRAZO_D_metal",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        12.045454025268555,
+        -138.42213821411133,
+        149.42999649047852
+      ],
+      "bounds_max": [
+        133.95890617370605,
+        -103.37346267700195,
+        174.56001091003418
+      ],
+      "vertices": 186,
+      "triangles": 236
+    },
+    {
+      "name": "CTRL_BRAZO_D_rope",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        25.2006254196167,
+        -139.94365692138672,
+        141.31439590454102
+      ],
+      "bounds_max": [
+        135.0433406829834,
+        -98.69067764282227,
+        177.71366500854492
+      ],
+      "vertices": 2142,
+      "triangles": 3584
+    },
+    {
+      "name": "CTRL_BRAZO_D_wood",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        11.703763961791992,
+        -138.56244277954102,
+        142.49999809265137
+      ],
+      "bounds_max": [
+        134.00360679626465,
+        -100.11790466308594,
+        177.49999809265137
+      ],
+      "vertices": 187,
+      "triangles": 236
+    },
+    {
+      "name": "CTRL_BRAZO_I_metal",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -133.95890617370605,
+        -138.42213249206543,
+        149.42999649047852
+      ],
+      "bounds_max": [
+        -12.045454025268555,
+        -103.37345886230469,
+        174.56001091003418
+      ],
+      "vertices": 187,
+      "triangles": 236
+    },
+    {
+      "name": "CTRL_BRAZO_I_rope",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -134.97704887390137,
+        -139.94355392456055,
+        141.31399822235107
+      ],
+      "bounds_max": [
+        -25.203625679016113,
+        -98.76122665405273,
+        177.72343254089355
+      ],
+      "vertices": 2142,
+      "triangles": 3584
+    },
+    {
+      "name": "CTRL_BRAZO_I_wood",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -134.00360679626465,
+        -138.56244277954102,
+        142.49999809265137
+      ],
+      "bounds_max": [
+        -11.703763961791992,
+        -100.11790466308594,
+        177.49999809265137
+      ],
+      "vertices": 187,
+      "triangles": 236
+    },
+    {
+      "name": "Cuerda_D_shape",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -1.5021495038435546,
+        -102.29706860866193,
+        170.96318757534027
+      ],
+      "bounds_max": [
+        133.80211395140026,
+        73.2470328669306,
+        174.23676359653473
+      ],
+      "vertices": 12,
+      "triangles": 20
+    },
+    {
+      "name": "Cuerda_I_shape",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -133.80211395140026,
+        -102.29706860866193,
+        170.96318757534027
+      ],
+      "bounds_max": [
+        1.5021495038435546,
+        73.2470328669306,
+        174.23676359653473
+      ],
+      "vertices": 12,
+      "triangles": 20
+    },
+    {
+      "name": "VIROTE_VISUAL_bolt",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -7.349999904632568,
+        -211.39999389648438,
+        168.44687271118164
+      ],
+      "bounds_max": [
+        7.349999904632568,
+        73.1500015258789,
+        180.29994773864746
+      ],
+      "vertices": 530,
+      "triangles": 480
+    },
+    {
+      "name": "CTRL_ELEVACION_alza",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -7.599999904632568,
+        76.0,
+        161.0
+      ],
+      "bounds_max": [
+        7.599999904632568,
+        84.0,
+        200.5999984741211
+      ],
+      "vertices": 310,
+      "triangles": 312
+    },
+    {
+      "name": "CTRL_ELEVACION_bolt",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -38.429996490478516,
+        87.6399917602539,
+        130.04000091552734
+      ],
+      "bounds_max": [
+        72.0999984741211,
+        149.80001831054688,
+        147.3299617767334
+      ],
+      "vertices": 304,
+      "triangles": 324
+    },
+    {
+      "name": "CTRL_ELEVACION_guion_arco",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -13.0,
+        -151.5,
+        167.0
+      ],
+      "bounds_max": [
+        13.0,
+        -148.5,
+        184.5
+      ],
+      "vertices": 56,
+      "triangles": 36
+    },
+    {
+      "name": "CTRL_ELEVACION_metal",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -53.20000076293945,
+        -141.01499938964844,
+        110.4400405883789
+      ],
+      "bounds_max": [
+        58.310001373291016,
+        137.51112365722656,
+        177.39501953125
+      ],
+      "vertices": 6197,
+      "triangles": 5668
+    },
+    {
+      "name": "CTRL_ELEVACION_rope",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -19.57711410522461,
+        -150.42999267578125,
+        135.013032913208
+      ],
+      "bounds_max": [
+        19.57711410522461,
+        121.64290618896484,
+        172.52810668945312
+      ],
+      "vertices": 1478,
+      "triangles": 2530
+    },
+    {
+      "name": "CTRL_ELEVACION_wood",
+      "yaw": true,
+      "pitch": true,
+      "bounds_min": [
+        -39.05999755859375,
+        -158.1999969482422,
+        137.03999996185303
+      ],
+      "bounds_max": [
+        39.05999755859375,
+        142.55465698242188,
+        171.6886920928955
+      ],
+      "vertices": 1404,
+      "triangles": 1464
+    },
+    {
+      "name": "CTRL_GIRO_360_metal",
+      "yaw": true,
+      "pitch": false,
+      "bounds_min": [
+        -44.11162185668945,
+        -9.800000190734863,
+        116.77502250671387
+      ],
+      "bounds_max": [
+        44.16426086425781,
+        9.800000190734863,
+        162.80000114440918
+      ],
+      "vertices": 762,
+      "triangles": 736
+    },
+    {
+      "name": "AstraBallesta_floor",
+      "yaw": false,
+      "pitch": false,
+      "bounds_min": [
+        -79.38245391845703,
+        -79.3824462890625,
+        2.49069881439209
+      ],
+      "bounds_max": [
+        79.38245391845703,
+        79.3824462890625,
+        102.34737396240234
+      ],
+      "vertices": 192,
+      "triangles": 176
+    },
+    {
+      "name": "AstraBallesta_metal",
+      "yaw": false,
+      "pitch": false,
+      "bounds_min": [
+        -91.69999694824219,
+        -88.55000305175781,
+        2.866668224334717
+      ],
+      "bounds_max": [
+        91.69999694824219,
+        88.55000305175781,
+        128.09906005859375
+      ],
+      "vertices": 486,
+      "triangles": 560
+    },
+    {
+      "name": "AstraBallesta_wood",
+      "yaw": false,
+      "pitch": false,
+      "bounds_min": [
+        -14.34999942779541,
+        -14.34999942779541,
+        -7.62939453125e-06
+      ],
+      "bounds_max": [
+        14.34999942779541,
+        14.34999942779541,
+        137.5999755859375
+      ],
+      "vertices": 36,
+      "triangles": 28
+    }
+  ],
+  "gun_visual_min": [
+    -134.97704887390137,
+    -211.39999389648438,
+    -7.62939453125e-06
+  ],
+  "gun_visual_max": [
+    135.0433406829834,
+    149.80001831054688,
+    200.5999984741211
+  ],
+  "gun_havok_min": [
+    -91.69999694824219,
+    -88.55000305175781,
+    -7.62939453125e-06
+  ],
+  "gun_havok_max": [
+    91.67707061767578,
+    88.5278549194336,
+    34.9956169128418
+  ]
+}

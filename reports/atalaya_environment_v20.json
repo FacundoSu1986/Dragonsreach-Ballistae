@@ -1,0 +1,203 @@
+{
+  "site": {
+    "x": 4665.54,
+    "y": -14922.81,
+    "z": -5217.81,
+    "rot_z_deg": 187.63,
+    "cell": "0000963D",
+    "grid": [
+      1,
+      -4
+    ]
+  },
+  "inputs": [
+    {
+      "reference": "0003ABB8",
+      "model": "Landscape\\Roads\\RoadChunkS01.nif",
+      "sha256": "f994e34e2faa34809a40ea9427ccc6cc583ab08fc8989c6ae30c23fdbc25f968",
+      "havok_triangles": 34,
+      "min": [
+        -1203.0185546875,
+        -547.6475219726562,
+        -16.97412109375
+      ],
+      "max": [
+        -1013.7127075195312,
+        -334.69134521484375,
+        42.738773345947266
+      ],
+      "blocks_initial_entrance": false
+    },
+    {
+      "reference": "0003ABB7",
+      "model": "Landscape\\Roads\\RoadChunkS01.nif",
+      "sha256": "f994e34e2faa34809a40ea9427ccc6cc583ab08fc8989c6ae30c23fdbc25f968",
+      "havok_triangles": 34,
+      "min": [
+        -430.144775390625,
+        -557.5121459960938,
+        -122.80192565917969
+      ],
+      "max": [
+        -239.5111846923828,
+        -334.18304443359375,
+        -74.36360931396484
+      ],
+      "blocks_initial_entrance": false
+    },
+    {
+      "reference": "0003ABB6",
+      "model": "Landscape\\Roads\\RoadChunkS03.nif",
+      "sha256": "79f6b051b47314af777e0cb915da9a127bc29d403f6498576445b68d5075d805",
+      "havok_triangles": 26,
+      "min": [
+        -389.7952575683594,
+        -411.88330078125,
+        -121.15423583984375
+      ],
+      "max": [
+        -227.8343505859375,
+        -254.6802215576172,
+        -83.85458374023438
+      ],
+      "blocks_initial_entrance": false
+    },
+    {
+      "reference": "0003ABB5",
+      "model": "Landscape\\Roads\\RoadChunkS02.nif",
+      "sha256": "738599a4efe357a82591c7bc288b024fa5c13c0f6d55c553f796226f866571c3",
+      "havok_triangles": 31,
+      "min": [
+        -339.85198974609375,
+        -478.96905517578125,
+        -119.21765899658203
+      ],
+      "max": [
+        -175.2537078857422,
+        -331.8580322265625,
+        -77.146240234375
+      ],
+      "blocks_initial_entrance": false
+    },
+    {
+      "reference": "0003ABB4",
+      "model": "Landscape\\Roads\\RoadChunkM03.nif",
+      "sha256": "cb9ff5447025c319aa7356480f7cdc93783b85c6870e0efba5a6a2b43450da82",
+      "havok_triangles": 44,
+      "min": [
+        -455.3292541503906,
+        -690.2616577148438,
+        -89.03816986083984
+      ],
+      "max": [
+        -328.191650390625,
+        -484.1052551269531,
+        -56.43836975097656
+      ],
+      "blocks_initial_entrance": false
+    },
+    {
+      "reference": "0003ABA9",
+      "model": "Landscape\\Roads\\RoadStraightLong01.nif",
+      "sha256": "c01516c288646ee7eaa8445fb082133a56929c0286f7d531019156668f9e68c5",
+      "havok_triangles": 120,
+      "min": [
+        -663.0922241210938,
+        -1913.711181640625,
+        -206.9769744873047
+      ],
+      "max": [
+        1472.57421875,
+        -77.24174499511719,
+        -67.58110809326172
+      ],
+      "blocks_initial_entrance": false
+    },
+    {
+      "reference": "0003ABA8",
+      "model": "Landscape\\Roads\\RoadCurve90R01.nif",
+      "sha256": "1335bd2ab8692b3957279102d212ea756d2d5546b564543db23ae3039d5d58d3",
+      "havok_triangles": 387,
+      "min": [
+        -1408.11669921875,
+        -848.3353881835938,
+        -192.25987243652344
+      ],
+      "max": [
+        5.446531295776367,
+        179.14051818847656,
+        38.241058349609375
+      ],
+      "blocks_initial_entrance": false
+    },
+    {
+      "reference": "000E4396",
+      "model": "Dungeons\\Imperial\\Exterior\\ImpExtRubble03.nif",
+      "sha256": "5bf3479f8b76124d7fc654283818f40a12c6c9233e00434e1d4348acb94ded3b",
+      "havok_triangles": 149,
+      "min": [
+        -151.459228515625,
+        -703.974609375,
+        -132.60980224609375
+      ],
+      "max": [
+        388.2281799316406,
+        0.05637984350323677,
+        -38.891517639160156
+      ],
+      "blocks_initial_entrance": true
+    },
+    {
+      "reference": "000E4397",
+      "model": "Dungeons\\Imperial\\Exterior\\ImpExtRubble02.nif",
+      "sha256": "0ca861499b2ebb9748335f552da68298a4acc4749861899fefe947e9eddb6417",
+      "havok_triangles": 313,
+      "min": [
+        141.49293518066406,
+        -771.5180053710938,
+        -301.41766357421875
+      ],
+      "max": [
+        861.0675048828125,
+        -212.56881713867188,
+        87.73367309570312
+      ],
+      "blocks_initial_entrance": false
+    },
+    {
+      "reference": "000E439F",
+      "model": "Landscape\\Rocks\\RockPileS02.nif",
+      "sha256": "5d4ca65b6b6841861c25f4414219d3b3f7839f34ba87c2447ddda5d6cc27383c",
+      "havok_triangles": 46,
+      "min": [
+        -1279.33740234375,
+        -734.2086181640625,
+        -0.6357755064964294
+      ],
+      "max": [
+        -1032.4190673828125,
+        -487.6350402832031,
+        98.99366760253906
+      ],
+      "blocks_initial_entrance": false
+    },
+    {
+      "reference": "000E43A0",
+      "model": "Landscape\\Rocks\\RockPileS02.nif",
+      "sha256": "5d4ca65b6b6841861c25f4414219d3b3f7839f34ba87c2447ddda5d6cc27383c",
+      "havok_triangles": 46,
+      "min": [
+        -1507.6407470703125,
+        -150.83273315429688,
+        38.49412536621094
+      ],
+      "max": [
+        -1256.71875,
+        95.48670959472656,
+        115.55448913574219
+      ],
+      "blocks_initial_entrance": false
+    }
+  ],
+  "scope": "Read-only vanilla Havok in the tower local frame; research cache never shipped"
+}

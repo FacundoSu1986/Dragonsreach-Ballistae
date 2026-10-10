@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "test_count": 14,
+  "command": [
+    "C:\\Users\\Facu2\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_v07_firing"
+  ],
+  "output": "test_ammo_exhaustion_disarms_repeat (tests.test_v07_firing.ContinuousFiring.test_ammo_exhaustion_disarms_repeat) ... ok\ntest_continuous_holding_repeats_once_per_cycle (tests.test_v07_firing.ContinuousFiring.test_continuous_holding_repeats_once_per_cycle) ... ok\ntest_exit_during_reload_cannot_repeat (tests.test_v07_firing.ContinuousFiring.test_exit_during_reload_cannot_repeat) ... ok\ntest_fast_defaults (tests.test_v07_firing.ContinuousFiring.test_fast_defaults) ... ok\ntest_menu_requires_new_press_and_has_no_catchup (tests.test_v07_firing.ContinuousFiring.test_menu_requires_new_press_and_has_no_catchup) ... ok\ntest_mode_key_control_deduplicate_and_clear_repeat (tests.test_v07_firing.ContinuousFiring.test_mode_key_control_deduplicate_and_clear_repeat) ... ok\ntest_native_can_operate_does_not_poll_scene_nodes_or_operator (tests.test_v07_firing.ContinuousFiring.test_native_can_operate_does_not_poll_scene_nodes_or_operator) ... ok\ntest_native_prepares_first_scheduled_tick (tests.test_v07_firing.ContinuousFiring.test_native_prepares_first_scheduled_tick) ... ok\ntest_old_repeat_callback_cannot_adopt_replacement_session (tests.test_v07_firing.ContinuousFiring.test_old_repeat_callback_cannot_adopt_replacement_session) ... ok\ntest_preflight_calls_native_snapshot_once (tests.test_v07_firing.ContinuousFiring.test_preflight_calls_native_snapshot_once) ... ok\ntest_release_stops_future_shots (tests.test_v07_firing.ContinuousFiring.test_release_stops_future_shots) ... ok\ntest_repeat_release_at_ammo_boundary_never_starts_another_cycle (tests.test_v07_firing.ContinuousFiring.test_repeat_release_at_ammo_boundary_never_starts_another_cycle) ... ok\ntest_single_hold_never_repeats (tests.test_v07_firing.ContinuousFiring.test_single_hold_never_repeats) ... ok\ntest_tick_during_freeze_handshake_waits_for_snapshot_publication (tests.test_v07_firing.ContinuousFiring.test_tick_during_freeze_handshake_waits_for_snapshot_publication) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 1.135s\n\nOK\n",
+  "test_source_sha256": "2a14e002a7241c52bf3efd0d57b29979d24ad9162bbfe917aaa60ff8fde5891b",
+  "controller_source_sha256": "39c5d51f31408f56c618a2c0f1f5682d856f27b48061a0fa3afb6553fa9b57a7",
+  "sources_unchanged_during_verification": true,
+  "runtime_execution": false,
+  "dependency_sha256": {
+    "tests\\test_native_sight.py": "b8b29ba32721c86c63d06af4a402f0759047c9e867f8e790a219e65bf00fb7c4",
+    "tests\\test_control_lease.py": "6100f18d77e5ef1c56934423440e2d297e204920a243e031817b50b4c0c3d8e7",
+    "tests\\test_camera_aim.py": "430817a432f9279ea92498fcb13159e7cc17780732a9a07d825b6270e3ecbe5d",
+    "mod\\scripts\\source\\AstraSightNative.psc": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
+    "native\\src\\Plugin.cpp": "454b8422ec6d06ccdcabe7fde442dd05e64bcc8421363a08a4fb13661f358df5",
+    "config.json": "a9012c7cb1c4b5e2eef47f1093264bd1f8a4c72b88673748016f27a367aec1b6"
+  },
+  "interpretation": "Actual scalar PSC branches with explicit native fixtures; no Papyrus VM or SKSE event dispatch execution."
+}

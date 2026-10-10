@@ -1,0 +1,77 @@
+Exe SHA256 c434208894f07f604b852f29b8edc3a58c4de63de783373733e72b2b73f33be9
+Address Library header 2 (1, 6, 1170, 0)
+
+FirstPersonState slot 3 ID 214855 vtableRVA 0x18ef1f8 functionRVA 0x8dec70
+008dec70 in       al, 0x84
+008dec72 test     dword ptr [rax], edi
+008dec74 push     0x68
+008dec77 xchg     dword ptr [rdx - 0x27], ecx
+008dec7a mov      ah, dh
+008dec7c pop      rsp
+008dec7d nop      
+008dec7e fprem    
+008dec80 fsub     dword ptr [rdi + rbx - 0x67]
+008dec84 push     rsi
+008dec85 adc      esp, ebp
+008dec87 or       byte ptr [rax + riz*4], bh
+
+FirstPersonState slot 4 ID 214855 vtableRVA 0x18ef1f8 functionRVA 0x8df590
+008df590 push     rdi
+008df591 and      edi, dword ptr [rbx + 0x57c3e6ba]
+008df599 not      ecx
+008df59b lahf     
+008df59c imul     ecx, esi, 0x2841a6c2
+008df5a2 sbb      dword ptr [rip - 0x3207b4b4], edx
+008df5a8 pop      rbp
+008df5a9 jo       0x1408df55a
+008df5ab loopne   0x1408df56a
+008df5ae scasb    al, byte ptr [rdi]
+008df5af jae      0x1408df5ea
+008df5b1 adc      al, cl
+008df5b3 adc      eax, 0xa9755955
+008df5b8 pop      rbp
+008df5b9 xchg     cx, ax
+008df5bb jl       0x1408df55d
+008df5bd add      bh, al
+008df5bf retf     0x5a2c
+008df5c3 adc      esi, dword ptr [rbx]
+008df5c5 ja       0x1408df637
+008df5c7 pushfq   
+
+FirstPersonState slot 5 ID 214855 vtableRVA 0x18ef1f8 functionRVA 0x8df6f0
+008df6f0 and      bh, dl
+008df6f2 adc      dword ptr [rsi - 0x2073893], ebp
+008df6f8 xchg     esi, eax
+008df6f9 cmpsb    byte ptr [rsi], byte ptr [rdi]
+008df6fa xor      al, 0xe6
+008df6fc not      byte ptr [rdi]
+008df6fe fisttp   word ptr [rdx - 0x687c7892]
+008df704 add      al, 0xf7
+008df706 in       al, 0x3e
+008df708 push     rsp
+008df709 sbb      eax, 0x51dee8c4
+008df70f mov      ch, 0x79
+008df711 mov      ebx, 0xad12cc9e
+008df716 xor      al, 0x4e
+
+PlayerCamera slot 2 ID 214859 vtableRVA 0x18ef278 functionRVA 0x5510a0
+005510a0 push     rsp
+005510a1 mov      esp, 0x6fc7bbae
+005510a6 int      0x25
+005510a8 xor      eax, 0x8e177717
+005510ae mov      bh, 0x93
+005510b0 jg       0x1405510e0
+005510b2 and      al, 0x89
+005510b4 xchg     r10, rax
+005510b6 popfq    
+005510b7 movabs   eax, dword ptr [0x3a0dc8d289a1fc97]
+005510c0 adc      esp, dword ptr [rcx - 0x36]
+005510c3 out      0xb5, al
+005510c6 xchg     esp, eax
+005510c7 cmp      al, 0xb4
+005510c9 iretd    
+005510ca mov      esi, 0xc8f5f679
+005510cf push     -0x772b431c
+005510d4 push     rdx
+005510d5 xor      al, 0x77
+005510d7 out      dx, eax

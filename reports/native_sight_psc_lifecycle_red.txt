@@ -1,0 +1,91 @@
+test_async_thaw_blocks_replacement_shot_on_same_token (tests.test_native_sight.NativeSightContract.test_async_thaw_blocks_replacement_shot_on_same_token) ... ok
+test_attack_during_native_sample_discards_periodic_pose_preserves_shot (tests.test_native_sight.NativeSightContract.test_attack_during_native_sample_discards_periodic_pose_preserves_shot) ... ok
+test_begin_once_after_fp_and_wait_for_ready (tests.test_native_sight.NativeSightContract.test_begin_once_after_fp_and_wait_for_ready) ... ok
+test_begin_rejection_and_ready_timeout_release_controls (tests.test_native_sight.NativeSightContract.test_begin_rejection_and_ready_timeout_release_controls) ... ok
+test_begin_return_after_deadline_cannot_mark_entry_ready (tests.test_native_sight.NativeSightContract.test_begin_return_after_deadline_cannot_mark_entry_ready) ... FAIL
+test_commit_thaws_after_single_launch_and_reload_can_aim (tests.test_native_sight.NativeSightContract.test_commit_thaws_after_single_launch_and_reload_can_aim) ... ok
+test_end_boundary_cannot_reenter_before_old_cleanup_finishes (tests.test_native_sight.NativeSightContract.test_end_boundary_cannot_reenter_before_old_cleanup_finishes) ... ok
+test_end_native_precedes_release_and_visual_cleanup (tests.test_native_sight.NativeSightContract.test_end_native_precedes_release_and_visual_cleanup) ... ok
+test_exit_during_begin_before_or_after_effect_ends_old_token (tests.test_native_sight.NativeSightContract.test_exit_during_begin_before_or_after_effect_ends_old_token) ... ok
+test_exit_rebases_cached_pose_after_end_before_next_entry (tests.test_native_sight.NativeSightContract.test_exit_rebases_cached_pose_after_end_before_next_entry) ... ok
+test_final_esp_binds_native_sight_true (tests.test_native_sight.NativeSightContract.test_final_esp_binds_native_sight_true) ... FAIL
+test_freeze_return_cannot_mutate_or_thaw_new_lease (tests.test_native_sight.NativeSightContract.test_freeze_return_cannot_mutate_or_thaw_new_lease) ... ok
+test_invalid_freeze_snapshot_ends_session_without_launch (tests.test_native_sight.NativeSightContract.test_invalid_freeze_snapshot_ends_session_without_launch) ... ok
+test_invalid_native_snapshot_is_visible_and_releases_controls (tests.test_native_sight.NativeSightContract.test_invalid_native_snapshot_is_visible_and_releases_controls) ... ok
+test_late_begin_does_not_release_replacement_lease (tests.test_native_sight.NativeSightContract.test_late_begin_does_not_release_replacement_lease) ... ok
+test_menu_cancellation_thaws_before_and_after_freeze_effect (tests.test_native_sight.NativeSightContract.test_menu_cancellation_thaws_before_and_after_freeze_effect) ... ok
+test_menu_during_native_sample_discards_even_empty_old_result (tests.test_native_sight.NativeSightContract.test_menu_during_native_sample_discards_even_empty_old_result) ... ok
+test_missing_plugin_does_not_call_api_or_acquire_controls (tests.test_native_sight.NativeSightContract.test_missing_plugin_does_not_call_api_or_acquire_controls) ... ok
+test_native_sample_uses_applied_snapshot_without_node_writes (tests.test_native_sight.NativeSightContract.test_native_sample_uses_applied_snapshot_without_node_writes) ... ok
+test_native_sight_default_is_explicit_and_true (tests.test_native_sight.NativeSightContract.test_native_sight_default_is_explicit_and_true) ... ok
+test_no_ammo_rejects_without_freezing (tests.test_native_sight.NativeSightContract.test_no_ammo_rejects_without_freezing) ... ok
+test_prepare_failure_thaws_and_returns_to_idle (tests.test_native_sight.NativeSightContract.test_prepare_failure_thaws_and_returns_to_idle) ... FAIL
+test_readiness_lost_ends_operating_session (tests.test_native_sight.NativeSightContract.test_readiness_lost_ends_operating_session) ... ok
+test_readiness_lost_while_frozen_is_visible_and_ends_before_launch (tests.test_native_sight.NativeSightContract.test_readiness_lost_while_frozen_is_visible_and_ends_before_launch) ... FAIL
+test_release_boundary_cannot_reenter_or_restore_under_new_native_lease (tests.test_native_sight.NativeSightContract.test_release_boundary_cannot_reenter_or_restore_under_new_native_lease) ... ok
+test_session_emergency_native_end_precedes_control_and_camera_restore (tests.test_native_sight.NativeSightContract.test_session_emergency_native_end_precedes_control_and_camera_restore) ... ok
+test_session_end_boundary_retains_releasing_guard (tests.test_native_sight.NativeSightContract.test_session_end_boundary_retains_releasing_guard) ... ok
+test_shot_freezes_actual_pose_atomically_without_applyaim (tests.test_native_sight.NativeSightContract.test_shot_freezes_actual_pose_atomically_without_applyaim) ... ok
+test_stale_commit_failure_cannot_end_replacement_session (tests.test_native_sight.NativeSightContract.test_stale_commit_failure_cannot_end_replacement_session) ... FAIL
+test_stale_prepare_return_cannot_change_replacement_phase (tests.test_native_sight.NativeSightContract.test_stale_prepare_return_cannot_change_replacement_phase) ... FAIL
+test_stale_sample_cannot_end_replacement_session (tests.test_native_sight.NativeSightContract.test_stale_sample_cannot_end_replacement_session) ... ok
+test_unavailable_api_rejects_before_acquiring_controls (tests.test_native_sight.NativeSightContract.test_unavailable_api_rejects_before_acquiring_controls) ... ok
+test_unfreeze_failure_is_visible_and_ends_session (tests.test_native_sight.NativeSightContract.test_unfreeze_failure_is_visible_and_ends_session) ... ok
+
+======================================================================
+FAIL: test_begin_return_after_deadline_cannot_mark_entry_ready (tests.test_native_sight.NativeSightContract.test_begin_return_after_deadline_cannot_mark_entry_ready)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 353, in test_begin_return_after_deadline_cannot_mark_entry_ready
+    self.assertFalse(f.vm.state['operating']); self.assertEqual(f.lease.controls,[True]*8)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_final_esp_binds_native_sight_true (tests.test_native_sight.NativeSightContract.test_final_esp_binds_native_sight_true)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 145, in test_final_esp_binds_native_sight_true
+    self.assertIn('UseSightCamera', props)
+AssertionError: 'UseSightCamera' not found in {'Session': {'type': 1, 'status': 1, 'value': {'form_id': 50333702, 'alias': -1}}, 'Launcher': {'type': 1, 'status': 1, 'value': {'form_id': 50333700, 'alias': -1}}, 'ShotAmmo': {'type': 1, 'status': 1, 'value': {'form_id': 50333699, 'alias': -1}}, 'SteelBolt': {'type': 1, 'status': 1, 'value': {'form_id': 33557427, 'alias': -1}}, 'FireSeconds': {'type': 4, 'status': 1, 'value': 0.6000000238418579}, 'ReleaseSeconds': {'type': 4, 'status': 1, 'value': 0.20000000298023224}, 'ResetSeconds': {'type': 4, 'status': 1, 'value': 4.400000095367432}, 'CycleSeconds': {'type': 4, 'status': 1, 'value': 5.0}, 'YawSpeed': {'type': 4, 'status': 1, 'value': 40.0}, 'PitchSpeed': {'type': 4, 'status': 1, 'value': 20.0}, 'PitchMin': {'type': 4, 'status': 1, 'value': -5.0}, 'PitchMax': {'type': 4, 'status': 1, 'value': 80.0}, 'OperatorDistance': {'type': 4, 'status': 1, 'value': 160.0}, 'TickSeconds': {'type': 4, 'status': 1, 'value': 0.05000000074505806}, 'PitchSign': {'type': 4, 'status': 1, 'value': -1.0}, 'UseMouseAim': {'type': 5, 'status': 1, 'value': True}, 'PitchPivotHeight': {'type': 4, 'status': 1, 'value': 153.0}, 'OperatorHeight': {'type': 4, 'status': 1, 'value': 119.0}, 'OperatorVerticalTolerance': {'type': 4, 'status': 1, 'value': 64.0}}
+
+======================================================================
+FAIL: test_prepare_failure_thaws_and_returns_to_idle (tests.test_native_sight.NativeSightContract.test_prepare_failure_thaws_and_returns_to_idle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 271, in test_prepare_failure_thaws_and_returns_to_idle
+    self.assertFalse(f.frozen); self.assertEqual(f.vm.state['phase'], 0)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_readiness_lost_while_frozen_is_visible_and_ends_before_launch (tests.test_native_sight.NativeSightContract.test_readiness_lost_while_frozen_is_visible_and_ends_before_launch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 314, in test_readiness_lost_while_frozen_is_visible_and_ends_before_launch
+    self.assertFalse(f.vm.state['operating']); self.assertEqual((f.ammo,f.launches),(10,0))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_stale_commit_failure_cannot_end_replacement_session (tests.test_native_sight.NativeSightContract.test_stale_commit_failure_cannot_end_replacement_session)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 336, in test_stale_commit_failure_cannot_end_replacement_session
+    self.assertTrue(f.vm.state['operating']); self.assertIsNotNone(f.native_token)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_stale_prepare_return_cannot_change_replacement_phase (tests.test_native_sight.NativeSightContract.test_stale_prepare_return_cannot_change_replacement_phase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 325, in test_stale_prepare_return_cannot_change_replacement_phase
+    self.assertTrue(f.vm.state['operating']); self.assertEqual(f.vm.state['phase'],3)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 3
+
+----------------------------------------------------------------------
+Ran 33 tests in 0.191s
+
+FAILED (failures=6)

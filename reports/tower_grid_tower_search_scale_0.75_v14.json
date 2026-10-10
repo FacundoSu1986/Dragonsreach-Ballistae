@@ -1,0 +1,5968 @@
+{
+  "sites": [
+    {
+      "name": "oeste",
+      "candidate": {
+        "offset": [
+          8.0,
+          8.0,
+          0.9058456420898438
+        ],
+        "gun_pos": [
+          15233.56,
+          -8298.52,
+          -4126.75415435791
+        ],
+        "yaw_deg": 180,
+        "scale": 0.75,
+        "floor_z": -4126.754160079956,
+        "center_floor_z": -4128.014013442993,
+        "base_min_z": -5.7220458984375e-06,
+        "support_variation": 1.259857177734375,
+        "support_samples": 81,
+        "operators": [
+          {
+            "local": [
+              73.5,
+              144
+            ],
+            "local_scaled": [
+              55.125,
+              108.0
+            ],
+            "local_pos": [
+              -47.124999999999986,
+              -100.0,
+              -0.3540153503417969
+            ],
+            "world_pos": [
+              15178.435,
+              -8406.52,
+              -4128.014015350342
+            ],
+            "nav": [
+              {
+                "navmesh": "000B8338",
+                "triangle": 2,
+                "z": -4128.0,
+                "triangle_flags": [
+                  2048,
+                  16512
+                ],
+                "cell": "0000961C"
+              }
+            ],
+            "body_margin": 41.832581737873106,
+            "gun_margin": -0.03985670163011079,
+            "crank_xy_distance": 31.875
+          },
+          {
+            "local": [
+              91.5,
+              126
+            ],
+            "local_scaled": [
+              68.625,
+              94.5
+            ],
+            "local_pos": [
+              -60.624999999999986,
+              -86.50000000000001,
+              -0.35401344299316406
+            ],
+            "world_pos": [
+              15164.935,
+              -8393.02,
+              -4128.014013442993
+            ],
+            "nav": [
+              {
+                "navmesh": "000B8338",
+                "triangle": 2,
+                "z": -4128.0,
+                "triangle_flags": [
+                  2048,
+                  16512
+                ],
+                "cell": "0000961C"
+              }
+            ],
+            "body_margin": 34.97720913015052,
+            "gun_margin": 1000.0,
+            "crank_xy_distance": 22.801110170340397
+          },
+          {
+            "local": [
+              91.5,
+              144
+            ],
+            "local_scaled": [
+              68.625,
+              108.0
+            ],
+            "local_pos": [
+              -60.624999999999986,
+              -100.00000000000001,
+              -0.35401344299316406
+            ],
+            "world_pos": [
+              15164.935,
+              -8406.52,
+              -4128.014013442993
+            ],
+            "nav": [
+              {
+                "navmesh": "000B8338",
+                "triangle": 2,
+                "z": -4128.0,
+                "triangle_flags": [
+                  2048,
+                  16512
+                ],
+                "cell": "0000961C"
+              }
+            ],
+            "body_margin": 31.291939651824784,
+            "gun_margin": 1000.0,
+            "crank_xy_distance": 34.615973552682306
+          }
+        ],
+        "corner_floor_z": [
+          -4126.7541619873045,
+          -4128.014011535644,
+          -4126.7541619873045,
+          -4128.014013442993
+        ],
+        "base_corner_gaps": [
+          1.9073486328125e-06,
+          1.2598514556884766,
+          1.9073486328125e-06,
+          1.2598533630371094
+        ],
+        "coarse_shot_hits": 4,
+        "coarse_minimum": 0.0,
+        "rest_overlap_pairs": 0,
+        "score": 4034.1148186693254
+      },
+      "operator": {
+        "local": [
+          91.5,
+          126
+        ],
+        "local_scaled": [
+          68.625,
+          94.5
+        ],
+        "local_pos": [
+          -60.624999999999986,
+          -86.50000000000001,
+          -0.35401344299316406
+        ],
+        "world_pos": [
+          15164.935,
+          -8393.02,
+          -4128.014013442993
+        ],
+        "nav": [
+          {
+            "navmesh": "000B8338",
+            "triangle": 2,
+            "z": -4128.0,
+            "triangle_flags": [
+              2048,
+              16512
+            ],
+            "cell": "0000961C"
+          }
+        ],
+        "body_margin": 34.97720913015052,
+        "gun_margin": 1000.0,
+        "crank_xy_distance": 22.801110170340397
+      },
+      "grid": [
+        {
+          "yaw": -60,
+          "pitch": -20,
+          "gun_overlap_pairs": 979,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": -15,
+          "gun_overlap_pairs": 606,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": -10,
+          "gun_overlap_pairs": 386,
+          "operator_margin": 5.779619203623085,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": -5,
+          "gun_overlap_pairs": 290,
+          "operator_margin": 1.5484437917865463,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 0,
+          "gun_overlap_pairs": 565,
+          "operator_margin": 0.23221062843266083,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 5,
+          "gun_overlap_pairs": 1079,
+          "operator_margin": -1.858805500842859,
+          "shot_distance": 0.7609949196202539,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 10,
+          "gun_overlap_pairs": 1701,
+          "operator_margin": -3.3119982183467833,
+          "shot_distance": 27.8853425824731,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 15,
+          "gun_overlap_pairs": 2610,
+          "operator_margin": -2.7633023573832247,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 20,
+          "gun_overlap_pairs": 2840,
+          "operator_margin": -1.6859884501502194,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 25,
+          "gun_overlap_pairs": 2859,
+          "operator_margin": 0.01637003377932089,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 30,
+          "gun_overlap_pairs": 2986,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 35,
+          "gun_overlap_pairs": 3099,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 40,
+          "gun_overlap_pairs": 3409,
+          "operator_margin": 1000.0,
+          "shot_distance": 34.60945992772543,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 45,
+          "gun_overlap_pairs": 3119,
+          "operator_margin": 1000.0,
+          "shot_distance": 33.42436356215517,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": -20,
+          "gun_overlap_pairs": 961,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": -15,
+          "gun_overlap_pairs": 618,
+          "operator_margin": 6.93729427872713,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": -10,
+          "gun_overlap_pairs": 480,
+          "operator_margin": -0.5412899285131978,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": -5,
+          "gun_overlap_pairs": 346,
+          "operator_margin": -6.718277560701836,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 0,
+          "gun_overlap_pairs": 666,
+          "operator_margin": -8.440634448028675,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 5,
+          "gun_overlap_pairs": 791,
+          "operator_margin": -8.096806908676115,
+          "shot_distance": 0.6956087095978469,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 10,
+          "gun_overlap_pairs": 1437,
+          "operator_margin": -7.822206512821202,
+          "shot_distance": 21.860168174120155,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 15,
+          "gun_overlap_pairs": 2131,
+          "operator_margin": -7.144042921939729,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 20,
+          "gun_overlap_pairs": 2178,
+          "operator_margin": -5.38364510027702,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 25,
+          "gun_overlap_pairs": 2377,
+          "operator_margin": -2.5527153816916854,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 30,
+          "gun_overlap_pairs": 2351,
+          "operator_margin": 1.443040685112127,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 35,
+          "gun_overlap_pairs": 2387,
+          "operator_margin": 5.144370581558917,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 40,
+          "gun_overlap_pairs": 2319,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 45,
+          "gun_overlap_pairs": 2410,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": -20,
+          "gun_overlap_pairs": 877,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": -15,
+          "gun_overlap_pairs": 474,
+          "operator_margin": 7.749819353520124,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": -10,
+          "gun_overlap_pairs": 327,
+          "operator_margin": -3.4769984243443783,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": -5,
+          "gun_overlap_pairs": 210,
+          "operator_margin": -12.174396296410361,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 0,
+          "gun_overlap_pairs": 564,
+          "operator_margin": -16.975200048317166,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 5,
+          "gun_overlap_pairs": 878,
+          "operator_margin": -15.916536721717153,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 10,
+          "gun_overlap_pairs": 1710,
+          "operator_margin": -14.132685895990749,
+          "shot_distance": 19.107590687497233,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 15,
+          "gun_overlap_pairs": 1903,
+          "operator_margin": -11.550907926833425,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 20,
+          "gun_overlap_pairs": 1596,
+          "operator_margin": -8.224848041547236,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 25,
+          "gun_overlap_pairs": 1516,
+          "operator_margin": -4.075500195516597,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 30,
+          "gun_overlap_pairs": 1797,
+          "operator_margin": 0.8321508439088063,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 35,
+          "gun_overlap_pairs": 1786,
+          "operator_margin": 6.427498789182447,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 40,
+          "gun_overlap_pairs": 1628,
+          "operator_margin": 13.17750454382313,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 45,
+          "gun_overlap_pairs": 1656,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": -20,
+          "gun_overlap_pairs": 899,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": -15,
+          "gun_overlap_pairs": 450,
+          "operator_margin": 9.689798675238443,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": -10,
+          "gun_overlap_pairs": 314,
+          "operator_margin": -1.5584578465742958,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": -5,
+          "gun_overlap_pairs": 184,
+          "operator_margin": -9.725750878308702,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 0,
+          "gun_overlap_pairs": 718,
+          "operator_margin": -12.861935206818332,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 5,
+          "gun_overlap_pairs": 954,
+          "operator_margin": -12.14196691357625,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 10,
+          "gun_overlap_pairs": 1697,
+          "operator_margin": -10.632675810692124,
+          "shot_distance": 17.719922065375247,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 15,
+          "gun_overlap_pairs": 1783,
+          "operator_margin": -8.355062511702716,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 20,
+          "gun_overlap_pairs": 1482,
+          "operator_margin": -5.171168433392564,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 25,
+          "gun_overlap_pairs": 1066,
+          "operator_margin": -1.208215922891931,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 30,
+          "gun_overlap_pairs": 1243,
+          "operator_margin": 6.651045679352158,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 35,
+          "gun_overlap_pairs": 1475,
+          "operator_margin": 10.600963366276538,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 40,
+          "gun_overlap_pairs": 1589,
+          "operator_margin": 15.211069200460862,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 45,
+          "gun_overlap_pairs": 1388,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": -20,
+          "gun_overlap_pairs": 630,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": -15,
+          "gun_overlap_pairs": 355,
+          "operator_margin": 7.423027140576469,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": -10,
+          "gun_overlap_pairs": 230,
+          "operator_margin": -0.40304854998823103,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": -5,
+          "gun_overlap_pairs": 198,
+          "operator_margin": -5.626293302241038,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 0,
+          "gun_overlap_pairs": 538,
+          "operator_margin": -6.035927652804418,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 5,
+          "gun_overlap_pairs": 644,
+          "operator_margin": -5.4132005853627785,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 10,
+          "gun_overlap_pairs": 1177,
+          "operator_margin": -4.127873428706451,
+          "shot_distance": 16.639338022174915,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 15,
+          "gun_overlap_pairs": 1620,
+          "operator_margin": -2.135517079592484,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 20,
+          "gun_overlap_pairs": 1258,
+          "operator_margin": 0.6253999093164886,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 25,
+          "gun_overlap_pairs": 1062,
+          "operator_margin": 4.160038354970752,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 30,
+          "gun_overlap_pairs": 993,
+          "operator_margin": 7.457107656596563,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 35,
+          "gun_overlap_pairs": 1159,
+          "operator_margin": 29.94212650483461,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 40,
+          "gun_overlap_pairs": 1116,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 45,
+          "gun_overlap_pairs": 1439,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": -20,
+          "gun_overlap_pairs": 302,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": -15,
+          "gun_overlap_pairs": 176,
+          "operator_margin": 6.9548404964267085,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": -10,
+          "gun_overlap_pairs": 56,
+          "operator_margin": -1.101970796952969,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": -5,
+          "gun_overlap_pairs": 34,
+          "operator_margin": -6.372538374377056,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 0,
+          "gun_overlap_pairs": 374,
+          "operator_margin": -6.228448870099747,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 5,
+          "gun_overlap_pairs": 420,
+          "operator_margin": -5.810592909836327,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 10,
+          "gun_overlap_pairs": 1205,
+          "operator_margin": -4.596803685005378,
+          "shot_distance": 15.86213776043831,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 15,
+          "gun_overlap_pairs": 1553,
+          "operator_margin": -2.596318864513849,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 20,
+          "gun_overlap_pairs": 1090,
+          "operator_margin": 0.17563665422851216,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 25,
+          "gun_overlap_pairs": 986,
+          "operator_margin": 3.6979666159716302,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 30,
+          "gun_overlap_pairs": 927,
+          "operator_margin": 26.042249081585794,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 35,
+          "gun_overlap_pairs": 925,
+          "operator_margin": 30.211177695732268,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 40,
+          "gun_overlap_pairs": 1008,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 45,
+          "gun_overlap_pairs": 1152,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": -20,
+          "gun_overlap_pairs": 44,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 8.421167453987962,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 0.9787418461755379,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": -5,
+          "gun_overlap_pairs": 0,
+          "operator_margin": -5.008936821345632,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 0,
+          "gun_overlap_pairs": 400,
+          "operator_margin": -7.031044342463913,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 5,
+          "gun_overlap_pairs": 707,
+          "operator_margin": -6.5969996727000595,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 10,
+          "gun_overlap_pairs": 1257,
+          "operator_margin": -5.62477949906312,
+          "shot_distance": 15.39612226798417,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 15,
+          "gun_overlap_pairs": 1349,
+          "operator_margin": -3.881208318995075,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 20,
+          "gun_overlap_pairs": 1146,
+          "operator_margin": -1.342690238800035,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 25,
+          "gun_overlap_pairs": 1072,
+          "operator_margin": 4.878911049883563,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 30,
+          "gun_overlap_pairs": 1138,
+          "operator_margin": 25.422598194282763,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 35,
+          "gun_overlap_pairs": 905,
+          "operator_margin": 29.591526874466368,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 40,
+          "gun_overlap_pairs": 1000,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 45,
+          "gun_overlap_pairs": 900,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": -20,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 6.503897960463549,
+          "ok": true
+        },
+        {
+          "yaw": -25,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 9.368483314268612,
+          "shot_distance": 8.606761911046044,
+          "ok": true
+        },
+        {
+          "yaw": -25,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": -2.879333330190077,
+          "shot_distance": 9.127684841336668,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": -5,
+          "gun_overlap_pairs": 0,
+          "operator_margin": -11.898784844673486,
+          "shot_distance": 12.315322634734514,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 0,
+          "gun_overlap_pairs": 358,
+          "operator_margin": -15.691987601114116,
+          "shot_distance": 14.597558292681425,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 5,
+          "gun_overlap_pairs": 863,
+          "operator_margin": -14.656530871289485,
+          "shot_distance": 16.593273391132996,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 10,
+          "gun_overlap_pairs": 1463,
+          "operator_margin": -12.841308373398169,
+          "shot_distance": 23.117054128948872,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 15,
+          "gun_overlap_pairs": 1671,
+          "operator_margin": -10.284328163910352,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 20,
+          "gun_overlap_pairs": 1378,
+          "operator_margin": -6.928519514624307,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 25,
+          "gun_overlap_pairs": 874,
+          "operator_margin": -2.76525269268242,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 30,
+          "gun_overlap_pairs": 849,
+          "operator_margin": 23.918961212323367,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 35,
+          "gun_overlap_pairs": 986,
+          "operator_margin": 28.087889957942117,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 40,
+          "gun_overlap_pairs": 1083,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 45,
+          "gun_overlap_pairs": 914,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": -20,
+          "gun_overlap_pairs": 48,
+          "operator_margin": 1000.0,
+          "shot_distance": 29.566228636571193,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": -15,
+          "gun_overlap_pairs": 48,
+          "operator_margin": 5.9012606172655495,
+          "shot_distance": 31.735771259432305,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": -10,
+          "gun_overlap_pairs": 48,
+          "operator_margin": -2.877792284665942,
+          "shot_distance": 32.069196775042016,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": -5,
+          "gun_overlap_pairs": 204,
+          "operator_margin": -10.338746562648051,
+          "shot_distance": 35.35633739359655,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 0,
+          "gun_overlap_pairs": 830,
+          "operator_margin": -13.816979606445798,
+          "shot_distance": 37.859956210742915,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 5,
+          "gun_overlap_pairs": 1472,
+          "operator_margin": -13.639648184270627,
+          "shot_distance": 39.89211630489295,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 10,
+          "gun_overlap_pairs": 1428,
+          "operator_margin": -12.811751131303133,
+          "shot_distance": 43.418214492079976,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 15,
+          "gun_overlap_pairs": 1431,
+          "operator_margin": -10.878676993808714,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 20,
+          "gun_overlap_pairs": 1056,
+          "operator_margin": -7.95946356821765,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 25,
+          "gun_overlap_pairs": 1074,
+          "operator_margin": -4.050368226398504,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 30,
+          "gun_overlap_pairs": 927,
+          "operator_margin": 0.5930423501602213,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 35,
+          "gun_overlap_pairs": 645,
+          "operator_margin": 25.71171053101505,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 40,
+          "gun_overlap_pairs": 918,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 45,
+          "gun_overlap_pairs": 1066,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": -20,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 8.76033944197604,
+          "shot_distance": 52.455423975689605,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": -15,
+          "gun_overlap_pairs": 54,
+          "operator_margin": 2.614920531554098,
+          "shot_distance": 54.66522758489691,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": -10,
+          "gun_overlap_pairs": 54,
+          "operator_margin": -2.5957369730924,
+          "shot_distance": 54.794189934112005,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": -5,
+          "gun_overlap_pairs": 58,
+          "operator_margin": -6.183243533177405,
+          "shot_distance": 58.13015241260413,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 0,
+          "gun_overlap_pairs": 600,
+          "operator_margin": -7.699924180874861,
+          "shot_distance": 60.82793015844244,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 5,
+          "gun_overlap_pairs": 570,
+          "operator_margin": -7.247194197037022,
+          "shot_distance": 62.864706996311796,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 10,
+          "gun_overlap_pairs": 303,
+          "operator_margin": -6.037428023581333,
+          "shot_distance": 65.45629494690216,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 15,
+          "gun_overlap_pairs": 446,
+          "operator_margin": -4.280192461604045,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 20,
+          "gun_overlap_pairs": 982,
+          "operator_margin": -2.7976310531078337,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 25,
+          "gun_overlap_pairs": 1100,
+          "operator_margin": -0.5976053194718425,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 30,
+          "gun_overlap_pairs": 608,
+          "operator_margin": 2.6982388308648417,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 35,
+          "gun_overlap_pairs": 772,
+          "operator_margin": 22.526971776126373,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 40,
+          "gun_overlap_pairs": 841,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 45,
+          "gun_overlap_pairs": 885,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": -20,
+          "gun_overlap_pairs": 54,
+          "operator_margin": 8.851296191782268,
+          "shot_distance": 104.0623178564044,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": -15,
+          "gun_overlap_pairs": 54,
+          "operator_margin": 3.133011235353031,
+          "shot_distance": 118.40079016632242,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": -10,
+          "gun_overlap_pairs": 54,
+          "operator_margin": -1.2994931233967257,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": -5,
+          "gun_overlap_pairs": 52,
+          "operator_margin": -4.037771396129132,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 0,
+          "gun_overlap_pairs": 81,
+          "operator_margin": -4.956182792524226,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 5,
+          "gun_overlap_pairs": 569,
+          "operator_margin": -4.739445297608089,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 10,
+          "gun_overlap_pairs": 796,
+          "operator_margin": -4.063331402888096,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 15,
+          "gun_overlap_pairs": 548,
+          "operator_margin": -2.9562694860867875,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 20,
+          "gun_overlap_pairs": 214,
+          "operator_margin": -1.1988365734590793,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 25,
+          "gun_overlap_pairs": 420,
+          "operator_margin": 1.1555635390215357,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 30,
+          "gun_overlap_pairs": 600,
+          "operator_margin": 4.113588577169022,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 35,
+          "gun_overlap_pairs": 1088,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 40,
+          "gun_overlap_pairs": 609,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 45,
+          "gun_overlap_pairs": 914,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": -20,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 104.84852410880714,
+          "ok": true
+        },
+        {
+          "yaw": -5,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 119.20236435737223,
+          "ok": true
+        },
+        {
+          "yaw": -5,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 9.281118492230778,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": -5,
+          "pitch": -5,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 5.611135608353013,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": -5,
+          "pitch": 0,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 4.008653286390455,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": -5,
+          "pitch": 5,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 4.317690529174545,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": -5,
+          "pitch": 10,
+          "gun_overlap_pairs": 78,
+          "operator_margin": 5.214310251029282,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 15,
+          "gun_overlap_pairs": 144,
+          "operator_margin": 6.614183279144726,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 20,
+          "gun_overlap_pairs": 386,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 25,
+          "gun_overlap_pairs": 834,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 30,
+          "gun_overlap_pairs": 384,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 35,
+          "gun_overlap_pairs": 476,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 40,
+          "gun_overlap_pairs": 1196,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 45,
+          "gun_overlap_pairs": 1456,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": -20,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 105.11125938430487,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 119.47023530761422,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": -5,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": 0,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": 5,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": 10,
+          "gun_overlap_pairs": 68,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 15,
+          "gun_overlap_pairs": 96,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 20,
+          "gun_overlap_pairs": 142,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 25,
+          "gun_overlap_pairs": 198,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 30,
+          "gun_overlap_pairs": 448,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 35,
+          "gun_overlap_pairs": 1492,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 40,
+          "gun_overlap_pairs": 871,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 45,
+          "gun_overlap_pairs": 1062,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": -20,
+          "gun_overlap_pairs": 34,
+          "operator_margin": 1000.0,
+          "shot_distance": 104.84852410880714,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": -15,
+          "gun_overlap_pairs": 36,
+          "operator_margin": 1000.0,
+          "shot_distance": 119.20236435737223,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": -10,
+          "gun_overlap_pairs": 40,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": -5,
+          "gun_overlap_pairs": 46,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 0,
+          "gun_overlap_pairs": 72,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 5,
+          "gun_overlap_pairs": 106,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 10,
+          "gun_overlap_pairs": 112,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 15,
+          "gun_overlap_pairs": 127,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 20,
+          "gun_overlap_pairs": 354,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 25,
+          "gun_overlap_pairs": 854,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 30,
+          "gun_overlap_pairs": 728,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 35,
+          "gun_overlap_pairs": 512,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 40,
+          "gun_overlap_pairs": 1198,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 45,
+          "gun_overlap_pairs": 1325,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": -20,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 1000.0,
+          "shot_distance": 104.0623178564044,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": -15,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 1000.0,
+          "shot_distance": 118.40079016632242,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": -10,
+          "gun_overlap_pairs": 68,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": -5,
+          "gun_overlap_pairs": 174,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 0,
+          "gun_overlap_pairs": 370,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 5,
+          "gun_overlap_pairs": 628,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 10,
+          "gun_overlap_pairs": 797,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 15,
+          "gun_overlap_pairs": 767,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 20,
+          "gun_overlap_pairs": 952,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 25,
+          "gun_overlap_pairs": 880,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 30,
+          "gun_overlap_pairs": 548,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 35,
+          "gun_overlap_pairs": 602,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 40,
+          "gun_overlap_pairs": 650,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 45,
+          "gun_overlap_pairs": 522,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": -20,
+          "gun_overlap_pairs": 54,
+          "operator_margin": 1000.0,
+          "shot_distance": 102.75862413140177,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": -15,
+          "gun_overlap_pairs": 56,
+          "operator_margin": 1000.0,
+          "shot_distance": 117.07161319806251,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": -10,
+          "gun_overlap_pairs": 812,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": -5,
+          "gun_overlap_pairs": 448,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 0,
+          "gun_overlap_pairs": 248,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 5,
+          "gun_overlap_pairs": 277,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 10,
+          "gun_overlap_pairs": 544,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 15,
+          "gun_overlap_pairs": 1066,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 20,
+          "gun_overlap_pairs": 838,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 25,
+          "gun_overlap_pairs": 384,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 30,
+          "gun_overlap_pairs": 564,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 35,
+          "gun_overlap_pairs": 586,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 40,
+          "gun_overlap_pairs": 336,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 45,
+          "gun_overlap_pairs": 616,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": -20,
+          "gun_overlap_pairs": 50,
+          "operator_margin": 1000.0,
+          "shot_distance": 100.94736483023826,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": -15,
+          "gun_overlap_pairs": 50,
+          "operator_margin": 1000.0,
+          "shot_distance": 115.22494929189989,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": -10,
+          "gun_overlap_pairs": 800,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": -5,
+          "gun_overlap_pairs": 916,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 0,
+          "gun_overlap_pairs": 1352,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 5,
+          "gun_overlap_pairs": 1273,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 10,
+          "gun_overlap_pairs": 815,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 15,
+          "gun_overlap_pairs": 332,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 20,
+          "gun_overlap_pairs": 528,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 25,
+          "gun_overlap_pairs": 638,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 30,
+          "gun_overlap_pairs": 488,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 35,
+          "gun_overlap_pairs": 322,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 40,
+          "gun_overlap_pairs": 526,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 45,
+          "gun_overlap_pairs": 724,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": -20,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 98.64232472986404,
+          "ok": true
+        },
+        {
+          "yaw": 25,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 112.8748526752066,
+          "ok": true
+        },
+        {
+          "yaw": 25,
+          "pitch": -10,
+          "gun_overlap_pairs": 31,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": -5,
+          "gun_overlap_pairs": 657,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 0,
+          "gun_overlap_pairs": 1029,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 5,
+          "gun_overlap_pairs": 882,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 10,
+          "gun_overlap_pairs": 711,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 15,
+          "gun_overlap_pairs": 728,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 20,
+          "gun_overlap_pairs": 448,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 25,
+          "gun_overlap_pairs": 318,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 30,
+          "gun_overlap_pairs": 398,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 35,
+          "gun_overlap_pairs": 530,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 40,
+          "gun_overlap_pairs": 692,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 45,
+          "gun_overlap_pairs": 711,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": -20,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 95.86104657726422,
+          "ok": true
+        },
+        {
+          "yaw": 30,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 110.03920900226288,
+          "ok": true
+        },
+        {
+          "yaw": 30,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 30,
+          "pitch": -5,
+          "gun_overlap_pairs": 543,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 0,
+          "gun_overlap_pairs": 1189,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 5,
+          "gun_overlap_pairs": 758,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 10,
+          "gun_overlap_pairs": 597,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 15,
+          "gun_overlap_pairs": 448,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 20,
+          "gun_overlap_pairs": 533,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 25,
+          "gun_overlap_pairs": 516,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 30,
+          "gun_overlap_pairs": 548,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 35,
+          "gun_overlap_pairs": 536,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 40,
+          "gun_overlap_pairs": 741,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 45,
+          "gun_overlap_pairs": 1039,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": -20,
+          "gun_overlap_pairs": 192,
+          "operator_margin": 1000.0,
+          "shot_distance": 92.62469757856174,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": -15,
+          "gun_overlap_pairs": 164,
+          "operator_margin": 1000.0,
+          "shot_distance": 106.73959923362818,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": -10,
+          "gun_overlap_pairs": 34,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": -5,
+          "gun_overlap_pairs": 352,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 0,
+          "gun_overlap_pairs": 861,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 5,
+          "gun_overlap_pairs": 821,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 10,
+          "gun_overlap_pairs": 1015,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 15,
+          "gun_overlap_pairs": 960,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 20,
+          "gun_overlap_pairs": 812,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 25,
+          "gun_overlap_pairs": 642,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 30,
+          "gun_overlap_pairs": 616,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 35,
+          "gun_overlap_pairs": 834,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 40,
+          "gun_overlap_pairs": 943,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 45,
+          "gun_overlap_pairs": 1433,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": -20,
+          "gun_overlap_pairs": 158,
+          "operator_margin": 1000.0,
+          "shot_distance": 88.95107474369172,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": -15,
+          "gun_overlap_pairs": 58,
+          "operator_margin": 1000.0,
+          "shot_distance": 103.01214075199346,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": -10,
+          "gun_overlap_pairs": 42,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": -5,
+          "gun_overlap_pairs": 370,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 0,
+          "gun_overlap_pairs": 728,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 5,
+          "gun_overlap_pairs": 798,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 10,
+          "gun_overlap_pairs": 758,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 15,
+          "gun_overlap_pairs": 752,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 20,
+          "gun_overlap_pairs": 840,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 25,
+          "gun_overlap_pairs": 828,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 30,
+          "gun_overlap_pairs": 880,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 35,
+          "gun_overlap_pairs": 1086,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 40,
+          "gun_overlap_pairs": 1508,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 45,
+          "gun_overlap_pairs": 1618,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": -20,
+          "gun_overlap_pairs": 347,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": -15,
+          "gun_overlap_pairs": 76,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": -10,
+          "gun_overlap_pairs": 64,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": -5,
+          "gun_overlap_pairs": 394,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 0,
+          "gun_overlap_pairs": 732,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 5,
+          "gun_overlap_pairs": 577,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 10,
+          "gun_overlap_pairs": 912,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 15,
+          "gun_overlap_pairs": 1102,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 20,
+          "gun_overlap_pairs": 986,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 25,
+          "gun_overlap_pairs": 1075,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 30,
+          "gun_overlap_pairs": 1471,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 35,
+          "gun_overlap_pairs": 1691,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 40,
+          "gun_overlap_pairs": 1682,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 45,
+          "gun_overlap_pairs": 1638,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": -20,
+          "gun_overlap_pairs": 403,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": -15,
+          "gun_overlap_pairs": 325,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": -10,
+          "gun_overlap_pairs": 98,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": -5,
+          "gun_overlap_pairs": 578,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 0,
+          "gun_overlap_pairs": 1003,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 5,
+          "gun_overlap_pairs": 971,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 10,
+          "gun_overlap_pairs": 1121,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 15,
+          "gun_overlap_pairs": 1497,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 20,
+          "gun_overlap_pairs": 1743,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 25,
+          "gun_overlap_pairs": 2023,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 30,
+          "gun_overlap_pairs": 1898,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 35,
+          "gun_overlap_pairs": 1859,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 40,
+          "gun_overlap_pairs": 1848,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 45,
+          "gun_overlap_pairs": 1792,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": -20,
+          "gun_overlap_pairs": 535,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": -15,
+          "gun_overlap_pairs": 529,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": -10,
+          "gun_overlap_pairs": 383,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": -5,
+          "gun_overlap_pairs": 982,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 0,
+          "gun_overlap_pairs": 1739,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 5,
+          "gun_overlap_pairs": 1581,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 10,
+          "gun_overlap_pairs": 2064,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 15,
+          "gun_overlap_pairs": 2122,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 20,
+          "gun_overlap_pairs": 2068,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 25,
+          "gun_overlap_pairs": 2035,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 30,
+          "gun_overlap_pairs": 2118,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 35,
+          "gun_overlap_pairs": 2178,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 40,
+          "gun_overlap_pairs": 2025,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 45,
+          "gun_overlap_pairs": 2127,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": -20,
+          "gun_overlap_pairs": 735,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": -15,
+          "gun_overlap_pairs": 784,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": -10,
+          "gun_overlap_pairs": 756,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": -5,
+          "gun_overlap_pairs": 757,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 0,
+          "gun_overlap_pairs": 1650,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 5,
+          "gun_overlap_pairs": 2125,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 10,
+          "gun_overlap_pairs": 2717,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 15,
+          "gun_overlap_pairs": 2800,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 20,
+          "gun_overlap_pairs": 2748,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 25,
+          "gun_overlap_pairs": 2201,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 30,
+          "gun_overlap_pairs": 2452,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 35,
+          "gun_overlap_pairs": 2434,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 40,
+          "gun_overlap_pairs": 2217,
+          "operator_margin": 1000.0,
+          "shot_distance": 46.248549084551506,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 45,
+          "gun_overlap_pairs": 2239,
+          "operator_margin": 1000.0,
+          "shot_distance": 44.802493914424154,
+          "ok": false
+        }
+      ]
+    },
+    {
+      "name": "oeste",
+      "candidate": {
+        "offset": [
+          16.0,
+          8.0,
+          0.9058456420898438
+        ],
+        "gun_pos": [
+          15241.56,
+          -8298.52,
+          -4126.75415435791
+        ],
+        "yaw_deg": 180,
+        "scale": 0.75,
+        "floor_z": -4126.754160079956,
+        "center_floor_z": -4128.014013442993,
+        "base_min_z": -5.7220458984375e-06,
+        "support_variation": 1.259857177734375,
+        "support_samples": 81,
+        "operators": [
+          {
+            "local": [
+              73.5,
+              144
+            ],
+            "local_scaled": [
+              55.125,
+              108.0
+            ],
+            "local_pos": [
+              -39.124999999999986,
+              -100.0,
+              -0.35401344299316406
+            ],
+            "world_pos": [
+              15186.435,
+              -8406.52,
+              -4128.014013442993
+            ],
+            "nav": [
+              {
+                "navmesh": "000B8338",
+                "triangle": 3,
+                "z": -4128.0,
+                "triangle_flags": [
+                  2048,
+                  16512
+                ],
+                "cell": "0000961C"
+              }
+            ],
+            "body_margin": 48.08415901878021,
+            "gun_margin": -0.03985682918310118,
+            "crank_xy_distance": 31.875
+          },
+          {
+            "local": [
+              91.5,
+              126
+            ],
+            "local_scaled": [
+              68.625,
+              94.5
+            ],
+            "local_pos": [
+              -52.624999999999986,
+              -86.50000000000001,
+              -0.35401344299316406
+            ],
+            "world_pos": [
+              15172.935,
+              -8393.02,
+              -4128.014013442993
+            ],
+            "nav": [
+              {
+                "navmesh": "000B8338",
+                "triangle": 2,
+                "z": -4128.0,
+                "triangle_flags": [
+                  2048,
+                  16512
+                ],
+                "cell": "0000961C"
+              }
+            ],
+            "body_margin": 41.30558041524234,
+            "gun_margin": 1000.0,
+            "crank_xy_distance": 22.801110170340397
+          },
+          {
+            "local": [
+              91.5,
+              144
+            ],
+            "local_scaled": [
+              68.625,
+              108.0
+            ],
+            "local_pos": [
+              -52.624999999999986,
+              -100.00000000000001,
+              -0.35401344299316406
+            ],
+            "world_pos": [
+              15172.935,
+              -8406.52,
+              -4128.014013442993
+            ],
+            "nav": [
+              {
+                "navmesh": "000B8338",
+                "triangle": 2,
+                "z": -4128.0,
+                "triangle_flags": [
+                  2048,
+                  16512
+                ],
+                "cell": "0000961C"
+              }
+            ],
+            "body_margin": 37.53664047642151,
+            "gun_margin": 1000.0,
+            "crank_xy_distance": 34.615973552682306
+          }
+        ],
+        "corner_floor_z": [
+          -4126.7541619873045,
+          -4128.014011535644,
+          -4126.7541619873045,
+          -4128.014013442993
+        ],
+        "base_corner_gaps": [
+          1.9073486328125e-06,
+          1.2598514556884766,
+          1.9073486328125e-06,
+          1.2598533630371094
+        ],
+        "coarse_shot_hits": 4,
+        "coarse_minimum": 0.0,
+        "rest_overlap_pairs": 0,
+        "score": 4040.6896539903387
+      },
+      "operator": {
+        "local": [
+          91.5,
+          126
+        ],
+        "local_scaled": [
+          68.625,
+          94.5
+        ],
+        "local_pos": [
+          -52.624999999999986,
+          -86.50000000000001,
+          -0.35401344299316406
+        ],
+        "world_pos": [
+          15172.935,
+          -8393.02,
+          -4128.014013442993
+        ],
+        "nav": [
+          {
+            "navmesh": "000B8338",
+            "triangle": 2,
+            "z": -4128.0,
+            "triangle_flags": [
+              2048,
+              16512
+            ],
+            "cell": "0000961C"
+          }
+        ],
+        "body_margin": 41.30558041524234,
+        "gun_margin": 1000.0,
+        "crank_xy_distance": 22.801110170340397
+      },
+      "grid": [
+        {
+          "yaw": -60,
+          "pitch": -20,
+          "gun_overlap_pairs": 1212,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": -15,
+          "gun_overlap_pairs": 777,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": -10,
+          "gun_overlap_pairs": 602,
+          "operator_margin": 5.779619203623085,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": -5,
+          "gun_overlap_pairs": 509,
+          "operator_margin": 1.5484437917865463,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 0,
+          "gun_overlap_pairs": 1064,
+          "operator_margin": 0.23221062843266083,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 5,
+          "gun_overlap_pairs": 1508,
+          "operator_margin": -1.858805500842859,
+          "shot_distance": 0.7609947625632513,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 10,
+          "gun_overlap_pairs": 2479,
+          "operator_margin": -3.3119982183467833,
+          "shot_distance": 27.325913364917447,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 15,
+          "gun_overlap_pairs": 3058,
+          "operator_margin": -2.7633023573832247,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 20,
+          "gun_overlap_pairs": 3318,
+          "operator_margin": -1.6859884501502194,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 25,
+          "gun_overlap_pairs": 2446,
+          "operator_margin": 0.01637003377932089,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 30,
+          "gun_overlap_pairs": 2411,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 35,
+          "gun_overlap_pairs": 2250,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 40,
+          "gun_overlap_pairs": 2383,
+          "operator_margin": 1000.0,
+          "shot_distance": 40.81025521727201,
+          "ok": false
+        },
+        {
+          "yaw": -60,
+          "pitch": 45,
+          "gun_overlap_pairs": 2768,
+          "operator_margin": 1000.0,
+          "shot_distance": 39.63233863336151,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": -20,
+          "gun_overlap_pairs": 840,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": -15,
+          "gun_overlap_pairs": 461,
+          "operator_margin": 6.93729427872713,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": -10,
+          "gun_overlap_pairs": 264,
+          "operator_margin": -0.5412899285131978,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": -5,
+          "gun_overlap_pairs": 282,
+          "operator_margin": -6.718277560701836,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 0,
+          "gun_overlap_pairs": 914,
+          "operator_margin": -8.440634448028675,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 5,
+          "gun_overlap_pairs": 1023,
+          "operator_margin": -8.096806908676118,
+          "shot_distance": 0.2506765551238038,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 10,
+          "gun_overlap_pairs": 1678,
+          "operator_margin": -7.822206512821202,
+          "shot_distance": 23.063149671447196,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 15,
+          "gun_overlap_pairs": 2034,
+          "operator_margin": -7.144042921939729,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 20,
+          "gun_overlap_pairs": 1910,
+          "operator_margin": -5.38364510027702,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 25,
+          "gun_overlap_pairs": 1836,
+          "operator_margin": -2.5527153816916854,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 30,
+          "gun_overlap_pairs": 1810,
+          "operator_margin": 1.443040685112127,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 35,
+          "gun_overlap_pairs": 2255,
+          "operator_margin": 5.144370581558917,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 40,
+          "gun_overlap_pairs": 2067,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -55,
+          "pitch": 45,
+          "gun_overlap_pairs": 2058,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": -20,
+          "gun_overlap_pairs": 466,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": -15,
+          "gun_overlap_pairs": 198,
+          "operator_margin": 7.749819353520124,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": -10,
+          "gun_overlap_pairs": 72,
+          "operator_margin": -3.4769984243443783,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": -5,
+          "gun_overlap_pairs": 576,
+          "operator_margin": -12.174396296410361,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 0,
+          "gun_overlap_pairs": 1456,
+          "operator_margin": -16.975200048317166,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 5,
+          "gun_overlap_pairs": 1299,
+          "operator_margin": -15.916536721717153,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 10,
+          "gun_overlap_pairs": 1091,
+          "operator_margin": -14.132685895990749,
+          "shot_distance": 18.413691092137796,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 15,
+          "gun_overlap_pairs": 1146,
+          "operator_margin": -11.550907926833425,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 20,
+          "gun_overlap_pairs": 1356,
+          "operator_margin": -8.224848041547236,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 25,
+          "gun_overlap_pairs": 1620,
+          "operator_margin": -4.075500195516597,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 30,
+          "gun_overlap_pairs": 1904,
+          "operator_margin": 0.8321508439088063,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 35,
+          "gun_overlap_pairs": 1745,
+          "operator_margin": 6.427498789182447,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 40,
+          "gun_overlap_pairs": 1614,
+          "operator_margin": 13.17750454382313,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -50,
+          "pitch": 45,
+          "gun_overlap_pairs": 1695,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": -20,
+          "gun_overlap_pairs": 232,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": -15,
+          "gun_overlap_pairs": 108,
+          "operator_margin": 9.689798675238443,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": -10,
+          "gun_overlap_pairs": 46,
+          "operator_margin": -1.5584578465742958,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": -5,
+          "gun_overlap_pairs": 649,
+          "operator_margin": -9.725750878308702,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 0,
+          "gun_overlap_pairs": 1415,
+          "operator_margin": -12.861935206818332,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 5,
+          "gun_overlap_pairs": 1014,
+          "operator_margin": -12.14196691357625,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 10,
+          "gun_overlap_pairs": 786,
+          "operator_margin": -10.632675810692124,
+          "shot_distance": 17.05988076677907,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 15,
+          "gun_overlap_pairs": 1020,
+          "operator_margin": -8.355062511702716,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 20,
+          "gun_overlap_pairs": 1132,
+          "operator_margin": -5.171168433392564,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 25,
+          "gun_overlap_pairs": 910,
+          "operator_margin": -1.208215922891931,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 30,
+          "gun_overlap_pairs": 1279,
+          "operator_margin": 6.651045679352158,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 35,
+          "gun_overlap_pairs": 1520,
+          "operator_margin": 10.600963366276538,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 40,
+          "gun_overlap_pairs": 1694,
+          "operator_margin": 15.211069200460855,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -45,
+          "pitch": 45,
+          "gun_overlap_pairs": 1450,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": -20,
+          "gun_overlap_pairs": 82,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": -15,
+          "gun_overlap_pairs": 32,
+          "operator_margin": 7.423027140576469,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": -10,
+          "gun_overlap_pairs": 12,
+          "operator_margin": -0.40304854998823103,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": -5,
+          "gun_overlap_pairs": 412,
+          "operator_margin": -5.626293302241038,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 0,
+          "gun_overlap_pairs": 722,
+          "operator_margin": -6.035927652804418,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 5,
+          "gun_overlap_pairs": 625,
+          "operator_margin": -5.4132005853627785,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 10,
+          "gun_overlap_pairs": 716,
+          "operator_margin": -4.127873428706451,
+          "shot_distance": 16.005667132616317,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 15,
+          "gun_overlap_pairs": 986,
+          "operator_margin": -2.135517079592484,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 20,
+          "gun_overlap_pairs": 995,
+          "operator_margin": 0.6253999093164886,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 25,
+          "gun_overlap_pairs": 1054,
+          "operator_margin": 4.160038354970752,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 30,
+          "gun_overlap_pairs": 979,
+          "operator_margin": 7.457107656596563,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 35,
+          "gun_overlap_pairs": 1059,
+          "operator_margin": 29.94212650483461,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 40,
+          "gun_overlap_pairs": 1461,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -40,
+          "pitch": 45,
+          "gun_overlap_pairs": 1690,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": -20,
+          "gun_overlap_pairs": 86,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 6.9548404964267085,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": -1.101970796952969,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": -5,
+          "gun_overlap_pairs": 366,
+          "operator_margin": -6.372538374377056,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 0,
+          "gun_overlap_pairs": 748,
+          "operator_margin": -6.228448870099747,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 5,
+          "gun_overlap_pairs": 823,
+          "operator_margin": -5.810592909836327,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 10,
+          "gun_overlap_pairs": 989,
+          "operator_margin": -4.596803685005378,
+          "shot_distance": 15.247436140819797,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 15,
+          "gun_overlap_pairs": 1245,
+          "operator_margin": -2.596318864513849,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 20,
+          "gun_overlap_pairs": 881,
+          "operator_margin": 0.17563665422851216,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 25,
+          "gun_overlap_pairs": 872,
+          "operator_margin": 3.6979666159716302,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 30,
+          "gun_overlap_pairs": 865,
+          "operator_margin": 26.042249081585794,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 35,
+          "gun_overlap_pairs": 1005,
+          "operator_margin": 30.211177695732268,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 40,
+          "gun_overlap_pairs": 996,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -35,
+          "pitch": 45,
+          "gun_overlap_pairs": 1543,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": -20,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 8.421167453987962,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 0.9787418461755379,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": -5,
+          "gun_overlap_pairs": 316,
+          "operator_margin": -5.008936821345632,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 0,
+          "gun_overlap_pairs": 1219,
+          "operator_margin": -7.031044342463913,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 5,
+          "gun_overlap_pairs": 1078,
+          "operator_margin": -6.5969996727000595,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 10,
+          "gun_overlap_pairs": 870,
+          "operator_margin": -5.62477949906312,
+          "shot_distance": 14.79279581249454,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 15,
+          "gun_overlap_pairs": 882,
+          "operator_margin": -3.881208318995075,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 20,
+          "gun_overlap_pairs": 818,
+          "operator_margin": -1.342690238800035,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 25,
+          "gun_overlap_pairs": 706,
+          "operator_margin": 4.878911049883563,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 30,
+          "gun_overlap_pairs": 880,
+          "operator_margin": 25.422598194282763,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 35,
+          "gun_overlap_pairs": 652,
+          "operator_margin": 29.59152687446636,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 40,
+          "gun_overlap_pairs": 1019,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -30,
+          "pitch": 45,
+          "gun_overlap_pairs": 981,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": -20,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 0.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 9.368483314268612,
+          "shot_distance": 1.4595612815676207,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": -2.879333330190077,
+          "shot_distance": 2.0263133582501744,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": -5,
+          "gun_overlap_pairs": 207,
+          "operator_margin": -11.898784844673486,
+          "shot_distance": 5.172820532167279,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 0,
+          "gun_overlap_pairs": 1264,
+          "operator_margin": -15.691987601114116,
+          "shot_distance": 7.373043156068905,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 5,
+          "gun_overlap_pairs": 1364,
+          "operator_margin": -14.656530871289485,
+          "shot_distance": 9.344029140845002,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 10,
+          "gun_overlap_pairs": 1166,
+          "operator_margin": -12.841308373398169,
+          "shot_distance": 17.811719072059823,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 15,
+          "gun_overlap_pairs": 879,
+          "operator_margin": -10.284328163910352,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 20,
+          "gun_overlap_pairs": 638,
+          "operator_margin": -6.928519514624307,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 25,
+          "gun_overlap_pairs": 434,
+          "operator_margin": -2.76525269268242,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 30,
+          "gun_overlap_pairs": 519,
+          "operator_margin": 23.918961212323367,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 35,
+          "gun_overlap_pairs": 682,
+          "operator_margin": 28.087889957942117,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 40,
+          "gun_overlap_pairs": 812,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -25,
+          "pitch": 45,
+          "gun_overlap_pairs": 923,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": -20,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 1000.0,
+          "shot_distance": 22.177322522646403,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": -15,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 5.9012606172655495,
+          "shot_distance": 24.31162181532008,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": -10,
+          "gun_overlap_pairs": 284,
+          "operator_margin": -2.877792284665942,
+          "shot_distance": 24.69598246812431,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": -5,
+          "gun_overlap_pairs": 827,
+          "operator_margin": -10.338746562648051,
+          "shot_distance": 27.948150132271753,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 0,
+          "gun_overlap_pairs": 1229,
+          "operator_margin": -13.816979606445798,
+          "shot_distance": 30.370860437909375,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 5,
+          "gun_overlap_pairs": 1419,
+          "operator_margin": -13.639648184270627,
+          "shot_distance": 32.38250886615226,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 10,
+          "gun_overlap_pairs": 1106,
+          "operator_margin": -12.811751131303133,
+          "shot_distance": 36.25010660993069,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 15,
+          "gun_overlap_pairs": 455,
+          "operator_margin": -10.878676993808714,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 20,
+          "gun_overlap_pairs": 458,
+          "operator_margin": -7.95946356821765,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 25,
+          "gun_overlap_pairs": 690,
+          "operator_margin": -4.050368226398504,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 30,
+          "gun_overlap_pairs": 584,
+          "operator_margin": 0.5930423501602213,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 35,
+          "gun_overlap_pairs": 301,
+          "operator_margin": 25.71171053101505,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 40,
+          "gun_overlap_pairs": 608,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -20,
+          "pitch": 45,
+          "gun_overlap_pairs": 835,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": -20,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 8.76033944197604,
+          "shot_distance": 44.85381526668686,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": -15,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 2.614920531554098,
+          "shot_distance": 47.01907962701001,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": -10,
+          "gun_overlap_pairs": 52,
+          "operator_margin": -2.5957369730924,
+          "shot_distance": 47.20253480296104,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": -5,
+          "gun_overlap_pairs": 402,
+          "operator_margin": -6.183243533177405,
+          "shot_distance": 50.511239300075324,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 0,
+          "gun_overlap_pairs": 564,
+          "operator_margin": -7.699924180874861,
+          "shot_distance": 53.13093869812387,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 5,
+          "gun_overlap_pairs": 465,
+          "operator_margin": -7.247194197037022,
+          "shot_distance": 55.15195457843186,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 10,
+          "gun_overlap_pairs": 411,
+          "operator_margin": -6.037428023581333,
+          "shot_distance": 57.84534591065248,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 15,
+          "gun_overlap_pairs": 390,
+          "operator_margin": -4.280192461604045,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 20,
+          "gun_overlap_pairs": 828,
+          "operator_margin": -2.7976310531078337,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 25,
+          "gun_overlap_pairs": 872,
+          "operator_margin": -0.5976053194718425,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 30,
+          "gun_overlap_pairs": 446,
+          "operator_margin": 2.6982388308648417,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 35,
+          "gun_overlap_pairs": 606,
+          "operator_margin": 22.526971776126373,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 40,
+          "gun_overlap_pairs": 518,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -15,
+          "pitch": 45,
+          "gun_overlap_pairs": 692,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": -20,
+          "gun_overlap_pairs": 48,
+          "operator_margin": 8.851296191782268,
+          "shot_distance": 67.24582533684232,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": -15,
+          "gun_overlap_pairs": 48,
+          "operator_margin": 3.133011235353031,
+          "shot_distance": 70.47181250375017,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": -10,
+          "gun_overlap_pairs": 48,
+          "operator_margin": -1.2994931233967257,
+          "shot_distance": 73.1542823046641,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": -5,
+          "gun_overlap_pairs": 50,
+          "operator_margin": -4.037771396129132,
+          "shot_distance": 75.4465092706579,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 0,
+          "gun_overlap_pairs": 208,
+          "operator_margin": -4.956182792524226,
+          "shot_distance": 77.4576561546481,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 5,
+          "gun_overlap_pairs": 590,
+          "operator_margin": -4.739445297608089,
+          "shot_distance": 79.26345671329398,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 10,
+          "gun_overlap_pairs": 805,
+          "operator_margin": -4.063331402888096,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 15,
+          "gun_overlap_pairs": 569,
+          "operator_margin": -2.9562694860867875,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 20,
+          "gun_overlap_pairs": 228,
+          "operator_margin": -1.1988365734590793,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 25,
+          "gun_overlap_pairs": 576,
+          "operator_margin": 1.1555635390215357,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 30,
+          "gun_overlap_pairs": 1150,
+          "operator_margin": 4.113588577169022,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 35,
+          "gun_overlap_pairs": 908,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 40,
+          "gun_overlap_pairs": 524,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -10,
+          "pitch": 45,
+          "gun_overlap_pairs": 616,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": -20,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 1000.0,
+          "shot_distance": 104.84852410880714,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": -15,
+          "gun_overlap_pairs": 54,
+          "operator_margin": 1000.0,
+          "shot_distance": 119.20236435737223,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": -10,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 9.281118492230778,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": -5,
+          "gun_overlap_pairs": 54,
+          "operator_margin": 5.611135608353013,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 0,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 4.008653286390455,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 5,
+          "gun_overlap_pairs": 82,
+          "operator_margin": 4.317690529174545,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 10,
+          "gun_overlap_pairs": 114,
+          "operator_margin": 5.214310251029282,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 15,
+          "gun_overlap_pairs": 96,
+          "operator_margin": 6.614183279144726,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 20,
+          "gun_overlap_pairs": 348,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 25,
+          "gun_overlap_pairs": 864,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 30,
+          "gun_overlap_pairs": 582,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 35,
+          "gun_overlap_pairs": 1136,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 40,
+          "gun_overlap_pairs": 1708,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": -5,
+          "pitch": 45,
+          "gun_overlap_pairs": 1754,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": -20,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 105.11125938430487,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 119.47023530761422,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": -5,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": 0,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": 5,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 0,
+          "pitch": 10,
+          "gun_overlap_pairs": 33,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 15,
+          "gun_overlap_pairs": 168,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 20,
+          "gun_overlap_pairs": 198,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 25,
+          "gun_overlap_pairs": 148,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 30,
+          "gun_overlap_pairs": 434,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 35,
+          "gun_overlap_pairs": 1756,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 40,
+          "gun_overlap_pairs": 2134,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 0,
+          "pitch": 45,
+          "gun_overlap_pairs": 2416,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": -20,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 104.84852410880714,
+          "ok": true
+        },
+        {
+          "yaw": 5,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 119.20236435737223,
+          "ok": true
+        },
+        {
+          "yaw": 5,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 5,
+          "pitch": -5,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 5,
+          "pitch": 0,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 5,
+          "pitch": 5,
+          "gun_overlap_pairs": 34,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 10,
+          "gun_overlap_pairs": 74,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 15,
+          "gun_overlap_pairs": 84,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 20,
+          "gun_overlap_pairs": 346,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 25,
+          "gun_overlap_pairs": 864,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 30,
+          "gun_overlap_pairs": 638,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 35,
+          "gun_overlap_pairs": 1144,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 40,
+          "gun_overlap_pairs": 1698,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 5,
+          "pitch": 45,
+          "gun_overlap_pairs": 1804,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": -20,
+          "gun_overlap_pairs": 48,
+          "operator_margin": 1000.0,
+          "shot_distance": 104.0623178564044,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": -15,
+          "gun_overlap_pairs": 48,
+          "operator_margin": 1000.0,
+          "shot_distance": 118.40079016632242,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": -10,
+          "gun_overlap_pairs": 50,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": -5,
+          "gun_overlap_pairs": 64,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 0,
+          "gun_overlap_pairs": 226,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 5,
+          "gun_overlap_pairs": 600,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 10,
+          "gun_overlap_pairs": 793,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 15,
+          "gun_overlap_pairs": 564,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 20,
+          "gun_overlap_pairs": 222,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 25,
+          "gun_overlap_pairs": 706,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 30,
+          "gun_overlap_pairs": 1140,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 35,
+          "gun_overlap_pairs": 870,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 40,
+          "gun_overlap_pairs": 568,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 10,
+          "pitch": 45,
+          "gun_overlap_pairs": 776,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": -20,
+          "gun_overlap_pairs": 50,
+          "operator_margin": 1000.0,
+          "shot_distance": 102.75862413140177,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": -15,
+          "gun_overlap_pairs": 52,
+          "operator_margin": 1000.0,
+          "shot_distance": 117.07161319806251,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": -10,
+          "gun_overlap_pairs": 62,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": -5,
+          "gun_overlap_pairs": 508,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 0,
+          "gun_overlap_pairs": 598,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 5,
+          "gun_overlap_pairs": 433,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 10,
+          "gun_overlap_pairs": 414,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 15,
+          "gun_overlap_pairs": 388,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 20,
+          "gun_overlap_pairs": 1044,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 25,
+          "gun_overlap_pairs": 836,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 30,
+          "gun_overlap_pairs": 438,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 35,
+          "gun_overlap_pairs": 758,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 40,
+          "gun_overlap_pairs": 624,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 15,
+          "pitch": 45,
+          "gun_overlap_pairs": 726,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": -20,
+          "gun_overlap_pairs": 48,
+          "operator_margin": 1000.0,
+          "shot_distance": 100.94736483023829,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": -15,
+          "gun_overlap_pairs": 48,
+          "operator_margin": 1000.0,
+          "shot_distance": 115.22494929189989,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": -10,
+          "gun_overlap_pairs": 459,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": -5,
+          "gun_overlap_pairs": 825,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 0,
+          "gun_overlap_pairs": 1157,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 5,
+          "gun_overlap_pairs": 1386,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 10,
+          "gun_overlap_pairs": 1130,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 15,
+          "gun_overlap_pairs": 718,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 20,
+          "gun_overlap_pairs": 546,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 25,
+          "gun_overlap_pairs": 726,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 30,
+          "gun_overlap_pairs": 670,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 35,
+          "gun_overlap_pairs": 408,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 40,
+          "gun_overlap_pairs": 621,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 20,
+          "pitch": 45,
+          "gun_overlap_pairs": 709,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": -20,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 98.64232472986404,
+          "ok": true
+        },
+        {
+          "yaw": 25,
+          "pitch": -15,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 112.8748526752066,
+          "ok": true
+        },
+        {
+          "yaw": 25,
+          "pitch": -10,
+          "gun_overlap_pairs": 0,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": true
+        },
+        {
+          "yaw": 25,
+          "pitch": -5,
+          "gun_overlap_pairs": 33,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 0,
+          "gun_overlap_pairs": 504,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 5,
+          "gun_overlap_pairs": 693,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 10,
+          "gun_overlap_pairs": 1121,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 15,
+          "gun_overlap_pairs": 1176,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 20,
+          "gun_overlap_pairs": 726,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 25,
+          "gun_overlap_pairs": 464,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 30,
+          "gun_overlap_pairs": 662,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 35,
+          "gun_overlap_pairs": 737,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 40,
+          "gun_overlap_pairs": 727,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 25,
+          "pitch": 45,
+          "gun_overlap_pairs": 710,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": -20,
+          "gun_overlap_pairs": 50,
+          "operator_margin": 1000.0,
+          "shot_distance": 95.86104657726422,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": -15,
+          "gun_overlap_pairs": 28,
+          "operator_margin": 1000.0,
+          "shot_distance": 110.03920900226288,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": -10,
+          "gun_overlap_pairs": 20,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": -5,
+          "gun_overlap_pairs": 70,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 0,
+          "gun_overlap_pairs": 824,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 5,
+          "gun_overlap_pairs": 1414,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 10,
+          "gun_overlap_pairs": 1259,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 15,
+          "gun_overlap_pairs": 831,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 20,
+          "gun_overlap_pairs": 795,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 25,
+          "gun_overlap_pairs": 1030,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 30,
+          "gun_overlap_pairs": 908,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 35,
+          "gun_overlap_pairs": 566,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 40,
+          "gun_overlap_pairs": 822,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 30,
+          "pitch": 45,
+          "gun_overlap_pairs": 852,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": -20,
+          "gun_overlap_pairs": 469,
+          "operator_margin": 1000.0,
+          "shot_distance": 92.62469757856174,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": -15,
+          "gun_overlap_pairs": 222,
+          "operator_margin": 1000.0,
+          "shot_distance": 106.73959923362818,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": -10,
+          "gun_overlap_pairs": 128,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": -5,
+          "gun_overlap_pairs": 281,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 0,
+          "gun_overlap_pairs": 1024,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 5,
+          "gun_overlap_pairs": 1447,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 10,
+          "gun_overlap_pairs": 1512,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 15,
+          "gun_overlap_pairs": 1560,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 20,
+          "gun_overlap_pairs": 1077,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 25,
+          "gun_overlap_pairs": 894,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 30,
+          "gun_overlap_pairs": 704,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 35,
+          "gun_overlap_pairs": 874,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 40,
+          "gun_overlap_pairs": 910,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 35,
+          "pitch": 45,
+          "gun_overlap_pairs": 1495,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": -20,
+          "gun_overlap_pairs": 504,
+          "operator_margin": 1000.0,
+          "shot_distance": 88.88927357916423,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": -15,
+          "gun_overlap_pairs": 526,
+          "operator_margin": 1000.0,
+          "shot_distance": 103.00113539200079,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": -10,
+          "gun_overlap_pairs": 314,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": -5,
+          "gun_overlap_pairs": 362,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 0,
+          "gun_overlap_pairs": 838,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 5,
+          "gun_overlap_pairs": 1037,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 10,
+          "gun_overlap_pairs": 1406,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 15,
+          "gun_overlap_pairs": 1437,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 20,
+          "gun_overlap_pairs": 1251,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 25,
+          "gun_overlap_pairs": 1103,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 30,
+          "gun_overlap_pairs": 915,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 35,
+          "gun_overlap_pairs": 1115,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 40,
+          "gun_overlap_pairs": 1630,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 40,
+          "pitch": 45,
+          "gun_overlap_pairs": 1781,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": -20,
+          "gun_overlap_pairs": 482,
+          "operator_margin": 1000.0,
+          "shot_distance": 84.89449215852682,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": -15,
+          "gun_overlap_pairs": 467,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": -10,
+          "gun_overlap_pairs": 510,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": -5,
+          "gun_overlap_pairs": 432,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 0,
+          "gun_overlap_pairs": 890,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 5,
+          "gun_overlap_pairs": 890,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 10,
+          "gun_overlap_pairs": 1188,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 15,
+          "gun_overlap_pairs": 1182,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 20,
+          "gun_overlap_pairs": 1300,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 25,
+          "gun_overlap_pairs": 1219,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 30,
+          "gun_overlap_pairs": 1434,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 35,
+          "gun_overlap_pairs": 1670,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 40,
+          "gun_overlap_pairs": 1766,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 45,
+          "pitch": 45,
+          "gun_overlap_pairs": 1515,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": -20,
+          "gun_overlap_pairs": 520,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": -15,
+          "gun_overlap_pairs": 320,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": -10,
+          "gun_overlap_pairs": 410,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": -5,
+          "gun_overlap_pairs": 238,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 0,
+          "gun_overlap_pairs": 872,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 5,
+          "gun_overlap_pairs": 1376,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 10,
+          "gun_overlap_pairs": 1442,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 15,
+          "gun_overlap_pairs": 1752,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 20,
+          "gun_overlap_pairs": 1525,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 25,
+          "gun_overlap_pairs": 1804,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 30,
+          "gun_overlap_pairs": 1837,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 35,
+          "gun_overlap_pairs": 1737,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 40,
+          "gun_overlap_pairs": 1601,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 50,
+          "pitch": 45,
+          "gun_overlap_pairs": 1529,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": -20,
+          "gun_overlap_pairs": 1095,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": -15,
+          "gun_overlap_pairs": 584,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": -10,
+          "gun_overlap_pairs": 530,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": -5,
+          "gun_overlap_pairs": 364,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 0,
+          "gun_overlap_pairs": 1049,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 5,
+          "gun_overlap_pairs": 1158,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 10,
+          "gun_overlap_pairs": 2104,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 15,
+          "gun_overlap_pairs": 2635,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 20,
+          "gun_overlap_pairs": 2764,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 25,
+          "gun_overlap_pairs": 2372,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 30,
+          "gun_overlap_pairs": 2070,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 35,
+          "gun_overlap_pairs": 2121,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 40,
+          "gun_overlap_pairs": 1908,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 55,
+          "pitch": 45,
+          "gun_overlap_pairs": 2105,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": -20,
+          "gun_overlap_pairs": 1041,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": -15,
+          "gun_overlap_pairs": 597,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": -10,
+          "gun_overlap_pairs": 404,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": -5,
+          "gun_overlap_pairs": 270,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 0,
+          "gun_overlap_pairs": 662,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 5,
+          "gun_overlap_pairs": 1030,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 10,
+          "gun_overlap_pairs": 1792,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 15,
+          "gun_overlap_pairs": 2228,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 20,
+          "gun_overlap_pairs": 2663,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 25,
+          "gun_overlap_pairs": 2539,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 30,
+          "gun_overlap_pairs": 2618,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 35,
+          "gun_overlap_pairs": 2475,
+          "operator_margin": 1000.0,
+          "shot_distance": 1000.0,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 40,
+          "gun_overlap_pairs": 2460,
+          "operator_margin": 1000.0,
+          "shot_distance": 39.97718460917939,
+          "ok": false
+        },
+        {
+          "yaw": 60,
+          "pitch": 45,
+          "gun_overlap_pairs": 2361,
+          "operator_margin": 1000.0,
+          "shot_distance": 38.529646124257404,
+          "ok": false
+        }
+      ]
+    }
+  ]
+}

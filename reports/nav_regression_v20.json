@@ -1,0 +1,128 @@
+{
+  "obstructions": 444,
+  "samples": [
+    {
+      "collision_triangle": 4,
+      "navigation_triangle": 2691,
+      "relative_z_min": 41.51048602495757,
+      "relative_z_max": 61.39688542811473
+    },
+    {
+      "collision_triangle": 4,
+      "navigation_triangle": 2401,
+      "relative_z_min": 51.78964003352121,
+      "relative_z_max": 101.63087264467322
+    },
+    {
+      "collision_triangle": 4,
+      "navigation_triangle": 2396,
+      "relative_z_min": 54.62275065381618,
+      "relative_z_max": 59.670308836880395
+    },
+    {
+      "collision_triangle": 4,
+      "navigation_triangle": 2499,
+      "relative_z_min": 97.70636544291938,
+      "relative_z_max": 99.18306377138742
+    },
+    {
+      "collision_triangle": 4,
+      "navigation_triangle": 2653,
+      "relative_z_min": 99.32354493096955,
+      "relative_z_max": 99.89774051221048
+    },
+    {
+      "collision_triangle": 5,
+      "navigation_triangle": 2499,
+      "relative_z_min": 98.89795643557954,
+      "relative_z_max": 203.11493546237398
+    },
+    {
+      "collision_triangle": 5,
+      "navigation_triangle": 2653,
+      "relative_z_min": 99.32354493096955,
+      "relative_z_max": 203.85848116660236
+    },
+    {
+      "collision_triangle": 6,
+      "navigation_triangle": 2499,
+      "relative_z_min": 99.18306377138742,
+      "relative_z_max": 203.40004279818186
+    },
+    {
+      "collision_triangle": 6,
+      "navigation_triangle": 2653,
+      "relative_z_min": 99.32354493096955,
+      "relative_z_max": 203.85848116660236
+    },
+    {
+      "collision_triangle": 8,
+      "navigation_triangle": 2691,
+      "relative_z_min": 41.94572482546664,
+      "relative_z_max": 61.95007585030726
+    },
+    {
+      "collision_triangle": 8,
+      "navigation_triangle": 2401,
+      "relative_z_min": 52.37834249230491,
+      "relative_z_max": 102.26094609007123
+    },
+    {
+      "collision_triangle": 8,
+      "navigation_triangle": 2396,
+      "relative_z_min": 55.21716962904702,
+      "relative_z_max": 60.22349925907292
+    },
+    {
+      "collision_triangle": 8,
+      "navigation_triangle": 2499,
+      "relative_z_min": 98.35295487829535,
+      "relative_z_max": 99.81298949923166
+    },
+    {
+      "collision_triangle": 8,
+      "navigation_triangle": 2653,
+      "relative_z_min": 99.95347065881379,
+      "relative_z_max": 100.5267787360981
+    },
+    {
+      "collision_triangle": 9,
+      "navigation_triangle": 2499,
+      "relative_z_min": 99.54192671949477,
+      "relative_z_max": 203.54892478162856
+    },
+    {
+      "collision_triangle": 9,
+      "navigation_triangle": 2653,
+      "relative_z_min": 99.95347065881379,
+      "relative_z_max": 204.26276316953044
+    },
+    {
+      "collision_triangle": 10,
+      "navigation_triangle": 2499,
+      "relative_z_min": 99.81298949923166,
+      "relative_z_max": 203.81998756136545
+    },
+    {
+      "collision_triangle": 10,
+      "navigation_triangle": 2653,
+      "relative_z_min": 99.95347065881379,
+      "relative_z_max": 204.26276316953044
+    },
+    {
+      "collision_triangle": 23,
+      "navigation_triangle": 2401,
+      "relative_z_min": -15.455383925399474,
+      "relative_z_max": 75.84873680675082
+    },
+    {
+      "collision_triangle": 23,
+      "navigation_triangle": 2499,
+      "relative_z_min": -16.706974439334772,
+      "relative_z_max": 207.35420606873504
+    }
+  ],
+  "radius": 18,
+  "height": 128,
+  "engine_test": false
+}

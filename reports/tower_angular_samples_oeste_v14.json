@@ -1,0 +1,2138 @@
+{
+  "rows": [
+    {
+      "yaw": -10,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -10,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -9,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -8,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -7,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -6,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -5,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -4,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -3,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -2,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": -1,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 0,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 1,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -20,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -19,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -18,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -17,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -16,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -15,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -14,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -13,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -12,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -11,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -10,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -9,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -8,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -7,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -6,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -5,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -4,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -3,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -2,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": -1,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    },
+    {
+      "yaw": 2,
+      "pitch": 0,
+      "visual_and_havok_overlap_pairs": 0,
+      "operator_margin": 23.80990409851075,
+      "projectile_distance": 32.0
+    }
+  ],
+  "site": {
+    "name": "oeste",
+    "user_requested": [
+      15225.56,
+      -8306.52,
+      -4127.66
+    ],
+    "gun_pos": [
+      15201.56,
+      -8338.52,
+      -4128.0140046691895
+    ],
+    "guard_pos": [
+      15302.96,
+      -8322.92,
+      -4128.014009628296
+    ],
+    "guard_local_unscaled": [
+      156,
+      24
+    ],
+    "guard_local_scaled": [
+      101.4,
+      15.600000000000001
+    ],
+    "yaw_deg": 0,
+    "scale": 0.65,
+    "floor_z": -4128.014009628296,
+    "center_floor_z": -4128.014013442993,
+    "base_min_z": -4.9591064453125e-06,
+    "base_min_z_unscaled": -7.62939453125e-06,
+    "base_contact_world_z": -4128.014009628296,
+    "cell": "0000961C",
+    "world": "0000003C",
+    "tower_ref": "00063FD0",
+    "support_refs_bounds_match": [
+      "00042516",
+      "00063FD1",
+      "00063FD0"
+    ],
+    "navmesh": {
+      "guard": [
+        {
+          "navmesh": "000B8338",
+          "triangle": 3,
+          "z": -4128.0,
+          "triangle_flags": [
+            2048,
+            16512
+          ],
+          "cell": "0000961C"
+        }
+      ],
+      "guard_delta_z": 0.014009628295752918,
+      "gun_axis": [
+        {
+          "navmesh": "000B8338",
+          "triangle": 2,
+          "z": -4128.0,
+          "triangle_flags": [
+            2048,
+            16512
+          ],
+          "cell": "0000961C"
+        }
+      ],
+      "scope": "Geometric NAVM triangle presence; no Skyrim pathfinding or reachability test."
+    },
+    "support": {
+      "ok": true,
+      "floor_source": "all nearby written vanilla Havok",
+      "corners": [
+        {
+          "world": [
+            15141.955001983642,
+            -8396.077501983644,
+            -4128.014009628296
+          ],
+          "support_z": -4128.014011535644,
+          "gap_units": 1.9073486328125e-06
+        },
+        {
+          "world": [
+            15261.150095901488,
+            -8396.077501983644,
+            -4128.014009628296
+          ],
+          "support_z": -4128.014011535644,
+          "gap_units": 1.9073486328125e-06
+        },
+        {
+          "world": [
+            15261.150095901488,
+            -8280.976894302368,
+            -4128.014009628296
+          ],
+          "support_z": -4128.014013442993,
+          "gap_units": 3.814697265625e-06
+        },
+        {
+          "world": [
+            15141.955001983642,
+            -8280.976894302368,
+            -4128.014009628296
+          ],
+          "support_z": -4128.014013442993,
+          "gap_units": 3.814697265625e-06
+        }
+      ],
+      "samples": 169,
+      "max_gap_units": 3.814697265625e-06,
+      "tolerance_units": 2.0,
+      "interior_height_variation": 7.62939453125e-06
+    },
+    "body": {
+      "radius": 18,
+      "height": 128,
+      "vanilla_min_margin": 25.23309894644786,
+      "gun_rest_min_margin": 23.80990409851075,
+      "gun_sweep_min_margin": 23.80990409851075,
+      "gun_sweep_worst_pose": [
+        -10,
+        -20
+      ],
+      "crank_xy_distance": 73.57500424736652,
+      "scope": "Fixed operator capsule against visual triangles and written Havok; intentional foot-floor contact excluded. Margins capped at64u are conservative lower bounds."
+    },
+    "route": {
+      "guard_on_existing_navmesh": true,
+      "crank_reach_xy_units": 73.57500424736652,
+      "tested": "Spawn/standing volume and NAVM support only; no route to the tower or live-engine path test."
+    },
+    "pitch_min": -20,
+    "pitch_max": 0,
+    "yaw_center": -4.0,
+    "yaw_half_sector": 6.0,
+    "yaw_min": -10,
+    "yaw_max": 2,
+    "angular_certificate": {
+      "ok": true,
+      "sampling_yaw_deg": 1,
+      "sampling_pitch_deg": 1,
+      "poses": 273,
+      "rest_overlap_pairs": 0,
+      "failed_pose_examples": [],
+      "projectile_radius": 2.205,
+      "minimum_projectile_distance": {
+        "distance": 32.0,
+        "yaw": -10,
+        "pitch": -20,
+        "ray_start": [
+          15177.044943533949,
+          -8477.551794042813,
+          -4066.3904498205657
+        ],
+        "ray_end": [
+          15097.371135437239,
+          -8929.40465921965,
+          -4233.388516185671
+        ]
+      },
+      "projectile_distance_capped_lower_bound_at_units": 32.0,
+      "projectile_margin_lower_bound": 29.795,
+      "distance_pairs_tested": 4016,
+      "artificial_post_falsification_distance": 0.0,
+      "triangles_visual": 28105,
+      "triangles_havok": 10099,
+      "scope": "Static REST angular samples only. Fire/Reset keyframe envelope, between-sample continuous motion, animations of surrounding world objects and Skyrim engine behavior were not measured."
+    },
+    "existing_patrol_marker": {
+      "ref": "0007878A",
+      "world_pos": [
+        15263.40625,
+        -8358.79296875,
+        -4128.0
+      ],
+      "capsule_margin_against_gun_rest": -15.743845901488747,
+      "modified": false,
+      "scope": "Marker retained; a negative margin means its old destination overlaps the new gun. No engine path guarantee."
+    },
+    "engine_verified": false,
+    "success": true,
+    "patrol_marker_adjustment": {
+      "id": "0007878A",
+      "pos": [
+        15283.40625,
+        -8358.79296875,
+        -4128.014013442993
+      ],
+      "old_pos": [
+        15263.40625,
+        -8358.79296875,
+        -4128.0
+      ],
+      "rot_rad": [
+        0.0,
+        -0.0,
+        3.2832040786743164
+      ],
+      "nav": [
+        {
+          "navmesh": "000B8338",
+          "triangle": 3,
+          "z": -4128.0,
+          "triangle_flags": [
+            2048,
+            16512
+          ],
+          "cell": "0000961C"
+        }
+      ],
+      "nav_delta_z": 0.014013442993018543,
+      "capsule_radius": 18,
+      "capsule_height": 128,
+      "vanilla_margin_lower_bound": 40.29507793875968,
+      "gun_rest_margin_lower_bound": 4.256154098511253,
+      "guard_xy_separation": 40.85607697761651,
+      "move_xy_units": 20.0,
+      "floor_foot_z": -4128.014013442993,
+      "footprint_floor_variation": 5.7220458984375e-06,
+      "scope": "Measured destination support and standing capsule only; original rotation preserved, no Skyrim pathfinding test."
+    }
+  }
+}

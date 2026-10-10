@@ -1,0 +1,237 @@
+{
+  "width_units": 84.00000000000001,
+  "horizontal_run_units": 225.73643410852713,
+  "rise_units": 140.0,
+  "angle_degrees": 31.806871124057547,
+  "steps": 11,
+  "riser_units": 12.727272727272727,
+  "tread_units": 20.521494009866103,
+  "handrail_above_ramp_units": 74.0,
+  "stringer_bottom_below_ramp_units": 41.5,
+  "solid_box_sources": [
+    "barrera_baja_0",
+    "barrera_baja_1",
+    "barrera_baja_2",
+    "barrera_baja_3",
+    "barrera_baja_4",
+    "Pilote_bajo_-262_-262",
+    "Pilote_bajo_-262_-128",
+    "Pilote_bajo_-262_+128",
+    "Pilote_bajo_-262_+262",
+    "Pilote_bajo_-128_-262",
+    "Pilote_bajo_-128_-128",
+    "Pilote_bajo_-128_+128",
+    "Pilote_bajo_-128_+262",
+    "Pilote_bajo_+128_-262",
+    "Pilote_bajo_+128_-128",
+    "Pilote_bajo_+128_+128",
+    "Pilote_bajo_+128_+262",
+    "Pilote_bajo_+262_-262",
+    "Pilote_bajo_+262_-128",
+    "Pilote_bajo_+262_+128",
+    "Pilote_bajo_+262_+262",
+    "Riostra_baja_0_-262_-1",
+    "Riostra_baja_0_-262_+1",
+    "Riostra_baja_0_+262_-1",
+    "Riostra_baja_0_+262_+1",
+    "Riostra_baja_1_-262_-1",
+    "Riostra_baja_1_-262_+1",
+    "Riostra_baja_1_+262_-1",
+    "Riostra_baja_1_+262_+1",
+    "Pilote_escalera_bajo_int_0",
+    "Pilote_escalera_bajo_int_1",
+    "Pilote_escalera_bajo_ext_0",
+    "Pilote_escalera_bajo_ext_1",
+    "Vigueta_y-262",
+    "Vigueta_y-128",
+    "Vigueta_y+128",
+    "Vigueta_y+262",
+    "Viga_borde_x-266",
+    "Viga_borde_x+266",
+    "Vigueta_descanso",
+    "Baranda_poste_alto_-273_-273",
+    "Baranda_poste_O_-273_-228",
+    "Baranda_poste_O_-273_-182",
+    "Baranda_poste_O_-273_-136",
+    "Baranda_poste_O_-273_-091",
+    "Baranda_poste_O_-273_-046",
+    "Baranda_poste_O_-273_+000",
+    "Baranda_poste_O_-273_+046",
+    "Baranda_poste_O_-273_+091",
+    "Baranda_poste_O_-273_+136",
+    "Baranda_poste_O_-273_+182",
+    "Baranda_poste_O_-273_+228",
+    "Baranda_poste_alto_-273_+273",
+    "Baranda_poste_S_-228_-273",
+    "Baranda_poste_S_-182_-273",
+    "Baranda_poste_S_-136_-273",
+    "Baranda_poste_S_-091_-273",
+    "Baranda_poste_S_-046_-273",
+    "Baranda_poste_S_+000_-273",
+    "Baranda_poste_S_+046_-273",
+    "Baranda_poste_S_+091_-273",
+    "Baranda_poste_S_+136_-273",
+    "Baranda_poste_S_+182_-273",
+    "Baranda_poste_S_+228_-273",
+    "Baranda_poste_alto_+273_-273",
+    "Baranda_poste_E_+273_-227",
+    "Baranda_poste_E_+273_-180",
+    "Baranda_poste_E_+273_-134",
+    "Baranda_poste_E_+273_-088",
+    "Baranda_poste_E_+273_-042",
+    "Baranda_poste_E_+273_+005",
+    "Baranda_poste_E_+273_+051",
+    "Baranda_poste_E_+273_+097",
+    "Baranda_poste_E_+273_+144",
+    "Baranda_poste_alto_+273_+190",
+    "Baranda_poste_N_-224_+273",
+    "Baranda_poste_N_-176_+273",
+    "Baranda_poste_N_-127_+273",
+    "Baranda_poste_N_-079_+273",
+    "Baranda_poste_N_-030_+273",
+    "Baranda_poste_N_+018_+273",
+    "Baranda_poste_N_+067_+273",
+    "Baranda_poste_N_+115_+273",
+    "Baranda_poste_N_+164_+273",
+    "Baranda_poste_N_+212_+273",
+    "Baranda_poste_N_+261_+273",
+    "Baranda_poste_N_+309_+273",
+    "Baranda_poste_alto_+358_+273",
+    "Baranda_poste_alto_+358_+196",
+    "Baranda_poste_D_+358_+234"
+  ],
+  "pasamanos_soporte_bboxes": [
+    {
+      "name": "Pasamanos_soporte_int_0",
+      "min": [
+        276.5000274364589,
+        -28.45722834209841,
+        -8.522894576197162
+      ],
+      "max": [
+        291.8502279971908,
+        -14.129227227830565,
+        85.50727541479112
+      ]
+    },
+    {
+      "name": "Pasamanos_soporte_int_1",
+      "min": [
+        279.4917441590463,
+        9.885011221209965,
+        5.344266610259345
+      ],
+      "max": [
+        290.1416371254856,
+        20.372365522018946,
+        108.18070070324886
+      ]
+    },
+    {
+      "name": "Pasamanos_soporte_int_2",
+      "min": [
+        280.9875298853124,
+        56.261220229928306,
+        33.82302985644147
+      ],
+      "max": [
+        290.59879816138266,
+        65.92163091745543,
+        136.4537305215912
+      ]
+    },
+    {
+      "name": "Pasamanos_soporte_int_3",
+      "min": [
+        281.1985312132318,
+        101.26222451257743,
+        61.49727068058325
+      ],
+      "max": [
+        290.3601125951944,
+        110.91701463599505,
+        164.51688909517398
+      ]
+    },
+    {
+      "name": "Pasamanos_soporte_int_4",
+      "min": [
+        281.28387523635837,
+        147.32018854434475,
+        89.81092227216858
+      ],
+      "max": [
+        292.55781358385957,
+        157.83535148104184,
+        192.213429127085
+      ]
+    },
+    {
+      "name": "Pasamanos_soporte_ext_0",
+      "min": [
+        354.3026561796578,
+        -28.870792876217116,
+        -8.323975709373366
+      ],
+      "max": [
+        368.2200388955093,
+        -14.75578953404847,
+        86.10619820158426
+      ]
+    },
+    {
+      "name": "Pasamanos_soporte_ext_1",
+      "min": [
+        355.56305108473583,
+        8.325555730296436,
+        5.765158579677427
+      ],
+      "max": [
+        365.90370944030303,
+        18.793981277533007,
+        108.47750339480056
+      ]
+    },
+    {
+      "name": "Pasamanos_soporte_ext_2",
+      "min": [
+        356.7174820699078,
+        56.193629522318915,
+        33.36978097204435
+      ],
+      "max": [
+        366.6906882481413,
+        66.06923172655839,
+        136.54120902077076
+      ]
+    },
+    {
+      "name": "Pasamanos_soporte_ext_3",
+      "min": [
+        356.5906706252486,
+        101.80026623010308,
+        61.327998386052236
+      ],
+      "max": [
+        365.49016949868957,
+        111.86235914485881,
+        164.279973089287
+      ]
+    },
+    {
+      "name": "Pasamanos_soporte_ext_4",
+      "min": [
+        357.3025992809949,
+        144.64770545045494,
+        89.56119474968644
+      ],
+      "max": [
+        368.40866513334583,
+        154.90771288370428,
+        192.66292310566993
+      ]
+    }
+  ],
+  "design_origin": "v11 rustic stair on the v10 ramp (tower_v11_geometry.py)",
+  "game_tested": false
+}

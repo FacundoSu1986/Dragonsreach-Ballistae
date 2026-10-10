@@ -1,0 +1,61 @@
+{
+  "wood": {
+    "donor": "architecture/farmhouse/lumbermill01.nif",
+    "diffuse": "textures\\architecture\\farmhouse\\WoodPost02.dds",
+    "normal": "textures\\architecture\\farmhouse\\WoodPost02_n.dds",
+    "shader": "Default",
+    "source_material": "LumbermillMesh:5 - L1_Posts01:5.Mat"
+  },
+  "floor": {
+    "donor": "architecture/farmhouse/lumbermill01.nif",
+    "diffuse": "textures\\architecture\\farmhouse\\WoodWalkway01.dds",
+    "normal": "textures\\architecture\\farmhouse\\WoodWalkway01_n.dds",
+    "shader": "Default",
+    "source_material": "LumbermillMesh:19 - L1_Posts01:19.Mat"
+  },
+  "rope": {
+    "donor": "architecture/farmhouse/lumbermill01.nif",
+    "diffuse": "textures\\architecture\\farmhouse\\Rope01.dds",
+    "normal": "textures\\architecture\\farmhouse\\Rope01_n.dds",
+    "shader": "Default",
+    "source_material": "L1_Rope:18.Mat"
+  },
+  "metal": {
+    "donor": "clutter/civilwar/catapult/civilwarcatapult01.nif",
+    "diffuse": "textures\\clutter\\CWCatapult01.dds",
+    "normal": "textures\\clutter\\CWCatapult01_n.dds",
+    "shader": "Environment_Map",
+    "source_material": "CatapultArm:4.Mat"
+  },
+  "bolt": {
+    "donor": "dlc01/traps/crossbowtraps/plaincrossbow/plaincrossbowtrap01.nif",
+    "diffuse": "textures\\dlc01\\weapons\\crossbow\\Bolt.dds",
+    "normal": "textures\\dlc01\\weapons\\crossbow\\Bolt_n.dds",
+    "shader": "Default",
+    "source_material": "Bolt01:1.Mat"
+  },
+  "stockade_wood": {
+    "donor": "clutter/stockade/stockadewoodbeam01.nif",
+    "diffuse": "textures\\clutter\\stockade\\StockadeWood01.dds",
+    "normal": "textures\\clutter\\stockade\\StockadeWood01_n.dds",
+    "shader": "Default",
+    "source_material": "StockadeWoodbeam01:0.Mat",
+    "used_by": "torre.nif only"
+  },
+  "stockade_extra": {
+    "donor": "clutter/stockade/stockadewoodbeam01.nif",
+    "diffuse": "textures\\clutter\\stockade\\StockadeExtra01.dds",
+    "normal": "textures\\clutter\\stockade\\StockadeExtra01_n.dds",
+    "shader": "Default",
+    "source_material": "StockadeWoodbeam01:2.Mat.001",
+    "used_by": "torre.nif only"
+  },
+  "stockade_planks": {
+    "donor": "clutter/stockade/stockadescaffoldtop0sided01.nif",
+    "diffuse": "textures\\clutter\\stockade\\StockadePlanks01.dds",
+    "normal": "textures\\clutter\\stockade\\StockadePlanks01_n.dds",
+    "shader": "Default",
+    "source_material": "StockadeScaffoldTop0Sided01:1 - L2_Accessories:1.Mat",
+    "used_by": "torre.nif only"
+  }
+}

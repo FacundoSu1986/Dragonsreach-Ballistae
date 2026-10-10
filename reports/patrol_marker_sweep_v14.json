@@ -1,0 +1,45 @@
+{
+  "success": true,
+  "sites": [
+    {
+      "name": "este",
+      "marker": "00078784",
+      "pos": [
+        17868.0,
+        -8320.0,
+        -3616.0140153503417
+      ],
+      "poses": 861,
+      "gun_sweep_capsule_margin_lower_bound": 3.027633817938831,
+      "worst_pose": [
+        10,
+        -20
+      ],
+      "ok": true
+    },
+    {
+      "name": "oeste",
+      "marker": "0007878A",
+      "pos": [
+        15283.40625,
+        -8358.79296875,
+        -4128.014013442993
+      ],
+      "poses": 273,
+      "gun_sweep_capsule_margin_lower_bound": 2.860574744490183,
+      "worst_pose": [
+        2,
+        0
+      ],
+      "ok": true
+    }
+  ],
+  "ballista_sha256": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
+  "verifier_sha256": "a55afa0f3f163f1580e0d4bc1808903f19419b3b5e73191545b20170878cd803",
+  "geometry_cache_sha256": {
+    "reports/tower_geometry_este_v14.npz": "e7338ffa737ac8ad244cd9528b6b433c5f591f48407d988edbecece09b87d28c",
+    "reports/tower_geometry_oeste_v14.npz": "562ae0a2677a68dc23bd17cfc3014ad068076ba5b4fd334cff2dbbc06091be44",
+    "reports/gun_havok_v14.npz": "8bcf69e0e7bbb72b206153ffc72045eee6f7a39beb2fa0ae13ea8acd3ca1ea7a"
+  },
+  "scope": "Fixed moved patrol-destination capsules sampled against the static-rest angular gun sweep at 1 degree; no actor animation, continuous motion or Skyrim pathfinding verification."
+}

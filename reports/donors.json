@@ -1,0 +1,839 @@
+{
+  "architecture/farmhouse/lumbermill01.nif": [
+    {
+      "name": "LumbermillMesh:6.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\architecture\\farmhouse\\WoodWall01.dds",
+        "BSShaderTextureSet_Normal": "textures\\architecture\\farmhouse\\WoodWall01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\woodwall01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\woodwall01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "L1_Rope:18.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\architecture\\farmhouse\\Rope01.dds",
+        "BSShaderTextureSet_Normal": "textures\\architecture\\farmhouse\\Rope01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\rope01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\rope01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "LumbermillMesh:19 - L1_Posts01:19.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\architecture\\farmhouse\\WoodWalkway01.dds",
+        "BSShaderTextureSet_Normal": "textures\\architecture\\farmhouse\\WoodWalkway01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": "",
+        "NiAlphaProperty_flags": "4844",
+        "NiAlphaProperty_threshold": "200"
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\woodwalkway01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\woodwalkway01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "L1_Rope:22.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\architecture\\farmhouse\\RopeAlpha01.dds",
+        "BSShaderTextureSet_Normal": "textures\\architecture\\farmhouse\\RopeAlpha01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | DECAL | DYNAMIC_DECAL | ZBUFFER_TEST",
+        "Shader_Flags_2": "VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": "",
+        "NiAlphaProperty_flags": "4844",
+        "NiAlphaProperty_threshold": "128"
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\ropealpha01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\ropealpha01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "LumbermillMesh:1.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\architecture\\farmhouse\\StoneWall01.dds",
+        "BSShaderTextureSet_Normal": "textures\\architecture\\farmhouse\\StoneWall01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\stonewall01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\stonewall01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "LumbermillMesh:5 - L1_Posts01:5.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\architecture\\farmhouse\\WoodPost02.dds",
+        "BSShaderTextureSet_Normal": "textures\\architecture\\farmhouse\\WoodPost02_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\woodpost02.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\woodpost02_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "LumbermillMesh:20.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\architecture\\farmhouse\\Roof01.dds",
+        "BSShaderTextureSet_Normal": "textures\\architecture\\farmhouse\\Roof01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": "",
+        "NiAlphaProperty_flags": "4844",
+        "NiAlphaProperty_threshold": "200"
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\roof01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\architecture\\farmhouse\\roof01_n.dds"
+        }
+      ]
+    }
+  ],
+  "clutter/civilwar/catapult/civilwarcatapult01.nif": [
+    {
+      "name": "RopeBase01:2.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "WheelsFront:2.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "Rock01:1.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\trap\\OilTrap01.dds",
+        "BSShaderTextureSet_Normal": "textures\\trap\\OilTrap01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": "",
+        "NiAlphaProperty_flags": "4844",
+        "NiAlphaProperty_threshold": "128"
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\trap\\oiltrap01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\trap\\oiltrap01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "WheelsBack:4.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "BSShaderTextureSet_EnvMap": "textures\\cubemaps\\ShinyDull_e.dds",
+        "shaderFlags": "1",
+        "Shader_Type": "Environment_Map",
+        "Shader_Flags_1": "SPECULAR | ENVIRONMENT_MAPPING | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "TurnWheel:3.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\dungeons\\riften\\RatwayWood01.dds",
+        "BSShaderTextureSet_Normal": "textures\\dungeons\\riften\\RatwayWood01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "Rock01:0.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\effects\\FXembers.dds",
+        "BSShaderTextureSet_Greyscale": "textures\\effects\\gradients\\GradHotCoals.dds",
+        "shaderFlags": "1",
+        "Shader_Type": "Environment_Map",
+        "Shader_Flags_1": "GREYSCALE_COLOR | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS",
+        "LightingInfluence": "255",
+        "falloffStartAngle": "1.0",
+        "falloffStopAngle": "1.0",
+        "softFalloffDepth": "100.0",
+        "envMapScale": "1.0",
+        "BS_Shader_Block_Name": "BSEffectShaderProperty",
+        "BSLSP_Shader_Name": "",
+        "NiAlphaProperty_flags": "4844",
+        "NiAlphaProperty_threshold": "128"
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\effects\\fxembers.dds"
+        },
+        {
+          "node": "Palette Vector",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\effects\\gradients\\gradhotcoals.dds"
+        }
+      ]
+    },
+    {
+      "name": "CatapultArm:3.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\dungeons\\riften\\RatwayWood01.dds",
+        "BSShaderTextureSet_Normal": "textures\\dungeons\\riften\\RatwayWood01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "WheelsBack:2.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "RopeTip01:2.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "CatapultArm:4.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "BSShaderTextureSet_EnvMap": "textures\\cubemaps\\ShinyDull_e.dds",
+        "shaderFlags": "1",
+        "Shader_Type": "Environment_Map",
+        "Shader_Flags_1": "SPECULAR | ENVIRONMENT_MAPPING | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "RopeBase02:2.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "TurnWheel:2.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "RopeTip02:2.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "WheelsFront:3.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\dungeons\\riften\\RatwayWood01.dds",
+        "BSShaderTextureSet_Normal": "textures\\dungeons\\riften\\RatwayWood01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "Details:2.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "WheelsFront:4.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "BSShaderTextureSet_EnvMap": "textures\\cubemaps\\ShinyDull_e.dds",
+        "shaderFlags": "1",
+        "Shader_Type": "Environment_Map",
+        "Shader_Flags_1": "SPECULAR | ENVIRONMENT_MAPPING | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "Cylinder02.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\effects\\VaporTile01.dds",
+        "BSShaderTextureSet_Greyscale": "textures\\effects\\gradients\\GradFireCloak01.dds",
+        "shaderFlags": "1",
+        "Shader_Type": "Environment_Map",
+        "Shader_Flags_1": "VERTEX_ALPHA | GREYSCALE_COLOR | GREYSCALE_ALPHA | USE_FALLOFF | ZBUFFER_TEST",
+        "Shader_Flags_2": "DOUBLE_SIDED | VERTEX_COLORS",
+        "LightingInfluence": "255",
+        "falloffStartAngle": "0.6427876353263855",
+        "falloffStopAngle": "-4.371138828673793e-08",
+        "falloffStartOpacity": "1.0",
+        "softFalloffDepth": "100.0",
+        "envMapScale": "1.0",
+        "BS_Shader_Block_Name": "BSEffectShaderProperty",
+        "BSLSP_Shader_Name": "",
+        "NiAlphaProperty_flags": "4109",
+        "NiAlphaProperty_threshold": "13"
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\effects\\vaportile01.dds"
+        },
+        {
+          "node": "Palette Vector",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\effects\\gradients\\gradfirecloak01.dds"
+        }
+      ]
+    },
+    {
+      "name": "TurnWheel:4.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "BSShaderTextureSet_EnvMap": "textures\\cubemaps\\ShinyDull_e.dds",
+        "shaderFlags": "1",
+        "Shader_Type": "Environment_Map",
+        "Shader_Flags_1": "SPECULAR | ENVIRONMENT_MAPPING | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "Frame01:2.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\clutter\\CWCatapult01.dds",
+        "BSShaderTextureSet_Normal": "textures\\clutter\\CWCatapult01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\clutter\\cwcatapult01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "WheelsBack:3.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\dungeons\\riften\\RatwayWood01.dds",
+        "BSShaderTextureSet_Normal": "textures\\dungeons\\riften\\RatwayWood01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "Frame01:3.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\dungeons\\riften\\RatwayWood01.dds",
+        "BSShaderTextureSet_Normal": "textures\\dungeons\\riften\\RatwayWood01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "Details:3.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\dungeons\\riften\\RatwayWood01.dds",
+        "BSShaderTextureSet_Normal": "textures\\dungeons\\riften\\RatwayWood01_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "Spec_Color": "<bpy id property array [3]>",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dungeons\\riften\\ratwaywood01_n.dds"
+        }
+      ]
+    }
+  ],
+  "dlc01/traps/crossbowtraps/plaincrossbow/plaincrossbowtrap01.nif": [
+    {
+      "name": "Brace01.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\dlc01\\weapons\\crossbow\\Crossbow.dds",
+        "BSShaderTextureSet_Normal": "textures\\dlc01\\weapons\\crossbow\\Crossbow_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dlc01\\weapons\\crossbow\\crossbow.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dlc01\\weapons\\crossbow\\crossbow_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "Bolt01:1.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\dlc01\\weapons\\crossbow\\Bolt.dds",
+        "BSShaderTextureSet_Normal": "textures\\dlc01\\weapons\\crossbow\\Bolt_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dlc01\\weapons\\crossbow\\bolt.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dlc01\\weapons\\crossbow\\bolt_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "Stock01.Mat",
+      "props": {
+        "BSShaderTextureSet_Diffuse": "textures\\dlc01\\weapons\\crossbow\\Crossbow.dds",
+        "BSShaderTextureSet_Normal": "textures\\dlc01\\weapons\\crossbow\\Crossbow_n.dds",
+        "shaderFlags": "1",
+        "Shader_Flags_1": "SPECULAR | SKINNED | RECEIVE_SHADOWS | CAST_SHADOWS | OWN_EMIT | REMAPPABLE_TEXTURES | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS | ENVMAP_LIGHT_FADE",
+        "rimlightPower2": "3.4028234663852886e+38",
+        "wetnessEnvmapScale": "1.0",
+        "BS_Shader_Block_Name": "BSLightingShaderProperty",
+        "BSLSP_Shader_Name": ""
+      },
+      "images": [
+        {
+          "node": "Diffuse_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dlc01\\weapons\\crossbow\\crossbow.dds"
+        },
+        {
+          "node": "Normal_Texture",
+          "path": "e:\\sectores\\sector_varios\\bae extractor\\textures\\dlc01\\weapons\\crossbow\\crossbow_n.dds"
+        }
+      ]
+    },
+    {
+      "name": "EditorMarker.Mat",
+      "props": {
+        "shaderFlags": "1",
+        "Shader_Type": "Environment_Map",
+        "Shader_Flags_1": "VERTEX_ALPHA | ZBUFFER_TEST",
+        "Shader_Flags_2": "ZBUFFER_WRITE | VERTEX_COLORS",
+        "LightingInfluence": "255",
+        "falloffStartAngle": "1.0",
+        "falloffStopAngle": "1.0",
+        "softFalloffDepth": "100.0",
+        "envMapScale": "1.0",
+        "BS_Shader_Block_Name": "BSEffectShaderProperty",
+        "BSLSP_Shader_Name": "",
+        "NiAlphaProperty_flags": "4333",
+        "NiAlphaProperty_threshold": "128"
+      },
+      "images": []
+    }
+  ]
+}

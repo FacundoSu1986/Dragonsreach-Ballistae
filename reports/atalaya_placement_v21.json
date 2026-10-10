@@ -1,0 +1,48 @@
+{
+  "path": "addons\\Atalaya\\AstraAsedio_Atalaya.esp",
+  "sha256": "7491276e651923a8eaf89382e3af8bf676596b48b6e31909c9ee2e5bb1644a02",
+  "bytes": 67906,
+  "records": 21,
+  "site": {
+    "x": 4665.54,
+    "y": -14922.81,
+    "z": -5217.81,
+    "rot_z_deg": 187.63,
+    "cell": "0000963D",
+    "grid": [
+      1,
+      -4
+    ]
+  },
+  "model": "AstraAsedio/torre_atalaya_v20.nif",
+  "nif_sha256": "6042738cdb484f9876da3ccc7a279727f666df69ff8a13f3ca2eb135c80f8a55",
+  "moved_owned_refs": [
+    "04000A00",
+    "04000A01",
+    "04000A02",
+    "04000A43",
+    "04000A44",
+    "04000A45",
+    "04000A46",
+    "04000A47",
+    "04000A48",
+    "04000A49",
+    "04000A4A",
+    "04000A4B",
+    "04000A4C",
+    "04000A4D",
+    "04000A4E"
+  ],
+  "stable_form_ids": true,
+  "ballista_above_origin": 151.55,
+  "LAND_edits": 1,
+  "NAVM_edits": 0,
+  "quest_edits": 0,
+  "vanilla_refs_edited": 2,
+  "disabled_refs": [
+    "000E4396",
+    "000E4397"
+  ],
+  "cell": "0000963D",
+  "game_tested": false
+}

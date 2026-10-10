@@ -1,0 +1,47 @@
+{
+  "revision": "v10",
+  "success": true,
+  "runtime_execution": false,
+  "controller_source_sha256": "39c5d51f31408f56c618a2c0f1f5682d856f27b48061a0fa3afb6553fa9b57a7",
+  "session_source_sha256": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4",
+  "native_api_source_sha256": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
+  "implemented_contract": {
+    "UseSightCamera_default_and_vmad": true,
+    "native_missing_visible_rejection_before_acquire": true,
+    "entry": "Initial look alignment, actual FP state 0, one BeginSight per positive token; IsSightReady polled within 1.5 seconds.",
+    "aim": "Native owns in-session yaw/pitch/node writes; PSC caches validated CaptureAim(false) actual pose.",
+    "shot": "Ammo checked before atomic CaptureAim(true) freeze/snapshot; one native settle tick and cached native preflight; legacy three ticks retained.",
+    "stale_result": "Generation, token, phase, menu and ownership gates discard old reads/freezes/prepare/commit, Reset animation results, reload visual restoration returns and clock reads without releasing or changing a newer lease.",
+    "clock": "OnUpdate, PauseInput and ResumeInput publish lastTick only if the captured generation/token still owns the session; PauseInput captures generation after legitimate shot cancellation.",
+    "input_ownership": "RequestShot, RequestExit, InputReady, SetAimKey and event dispatch capture generation/token before external reads or Trace; stale callbacks cannot adopt a replacement lease or alter its input gates.",
+    "thaw": "Scoped token/generation on precommit cancellation, preparation failure and committed release; pending native boundaries block a replacement freeze on the same token.",
+    "exit": "EndSight before Session.Release, perspective/control restoration and visual/aim cleanup.",
+    "exit_pose": "One coherent cached ApplyAim after End and Release, protected by endingSession plus generation/token guards; next Begin uses that restored initial pose.",
+    "load": "Interrupted controller cleanup recovered through EmergencyCleanup; older stacks invalidated before restored 3D can launch or overwrite a new lease.",
+    "legacy_aim": "Mouse/arrow source paths are available only when UseSightCamera is explicitly false.",
+    "native_ammo_launch_atomic": false
+  },
+  "verification": {
+    "native_sight_test_count": 52,
+    "native_sight_report": "reports/native_sight_behavior.json",
+    "red_logs": [
+      "reports/native_sight_psc_red.txt",
+      "reports/native_sight_psc_lifecycle_red.txt",
+      "reports/native_sight_psc_load_red.txt",
+      "reports/native_sight_psc_context_red.txt",
+      "reports/native_sight_psc_cleanup_red.txt",
+      "reports/native_sight_psc_vmad_red.txt",
+      "reports/native_sight_psc_reset_red.txt",
+      "reports/native_sight_psc_reload_red.txt",
+      "reports/native_sight_psc_clock_red.txt",
+      "reports/native_sight_psc_input_owner_red.txt"
+    ],
+    "bethesda_compile_report": "reports/plugin_compile.json",
+    "legacy_contract_tests": 81
+  },
+  "limits": [
+    "Executes actual PSC scalar branches, array length/range checks and arithmetic with explicit native boundary fixtures.",
+    "Does not execute the Papyrus VM, DLL, scene graph, real input dispatch, frame scheduling or save serialization.",
+    "Native pose fixture represents last applied scene pose; native serialization/token isolation requires separate C++ evidence and game verification."
+  ]
+}

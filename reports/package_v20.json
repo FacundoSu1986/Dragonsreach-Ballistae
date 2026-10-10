@@ -1,0 +1,61 @@
+{
+  "revision": 20,
+  "utc": "2026-10-10T10:15:30.138407+00:00",
+  "verification_report_sha256": "cefe5d4b81bc476e663e5cd89ab256bda2f389d756d7f08c988f76b8cc9a50ef",
+  "qa": [
+    {
+      "path": "dist\\AstraAsedio_QA_v20_MO2.zip",
+      "bytes": 1979280,
+      "sha256": "3fedecc775c86b863b510631503992733b15e7ed00da22d7e25175828a944dea",
+      "entries": 26,
+      "crc_and_hashes_verified": true,
+      "inventory_sha256": {
+        "AstraAsedio.esp": "c74e4ab88910b8bf97b9e84b69b51529dc5e02cfe2db8a70c480028015c3aaa9",
+        "AstraAsedio_Atalaya.esp": "5f817328ac4d30903ca6fcaac05c7d59088505db3933f2b897595fe741d45c52",
+        "Docs/AstraAsedio/Licenses/CommonLibSSE-NG-LICENSE": "253d41f9a66509071e71deeafaad01d9cd5e1d0e235f38d988f33d4f54cb0fe2",
+        "Docs/AstraAsedio/Licenses/fmt-LICENSE": "ae842eaa4d8ac87b936a5f5852bd447e64d2b7dea9fdb12ce5fa96fcfdc82ce6",
+        "Docs/AstraAsedio/Licenses/rapidcsv-LICENSE": "2a07f96569e2cb61824a7cfad718c931ebb43e74338f492d720caff920309a6c",
+        "Docs/AstraAsedio/Licenses/spdlog-LICENSE": "4ccecab18d1ff0b61174fe3d6c430541625d3ddb865b0d5887db296f883c76e7",
+        "Docs/AstraAsedio/README_v20.md": "50dd1a2eb1506665f180067c63c3712ba794d9ca915ca4d27ddf3f569663d95b",
+        "SKSE/Plugins/AstraSight.dll": "93e5f269d132db1851682dcfaf9ff2b9f5a2c8ee32e8a8164d4c983930982153",
+        "meshes/AstraAsedio/ballesta.nif": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
+        "meshes/AstraAsedio/torre.nif": "1dc1ca22e03357cb292f6a122cd504914885cc540b21990dccf31c7b5d0a2679",
+        "meshes/AstraAsedio/torre_atalaya_v20.nif": "6042738cdb484f9876da3ccc7a279727f666df69ff8a13f3ca2eb135c80f8a55",
+        "meshes/AstraAsedio/torre_whiterun.nif": "a9148ea2fa1c4d8692cbb5863425641ac888c6e9f646e443febbfd4b6b7d77b6",
+        "meshes/AstraAsedio/virote.nif": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5",
+        "scripts/AstraAsedioActi.pex": "ee35070666ebb42ef740a899f3164c773d2653897cdf09659d332b75851b50c1",
+        "scripts/AstraAsedioGuard.pex": "210017ea7e674e5c8de0dd177354072cac163e14c293be43d78ed60975bc13de",
+        "scripts/AstraAsedioPlayerAlias.pex": "791d72bed7952a0b81d7a2f77e7276a380a4b8e440152cc8b589dac8398e0be7",
+        "scripts/AstraAsedioSession.pex": "f38732b76a73802bd9ae6fb7676923e526c260b26fa95d49e35ec56d9ba286c5",
+        "scripts/AstraAsedioStation.pex": "4b573435f81dd4d72df26cf04dbace4e5ed734533fe7b20d75fe3dbc13f5d83d",
+        "scripts/AstraSightNative.pex": "6a4b436828de8d4fc2d77621f802e7ffc35f3adff3f304d6de770e3efe1abfc9",
+        "scripts/source/AstraAsedioActi.psc": "a23b1d2288cd85826b25f67e96c632f61b57fd7772daf37751ea6c76acbba856",
+        "scripts/source/AstraAsedioGuard.psc": "520d36e60dda1eeaa6b75731b01223825c3dfa20147724192022067cfad1341c",
+        "scripts/source/AstraAsedioPlayerAlias.psc": "bc51cdb5ba9a525c9860da5291f2d9f78a3305daeb172363f3ab6f331ef31063",
+        "scripts/source/AstraAsedioSession.psc": "b762659b8b339eb99080627371f124aa07acb1fe98e861075c47cf9a51e06d27",
+        "scripts/source/AstraAsedioStation.psc": "bd838873668283d34612552acfddaaed58a546e1e730f2d9db467e0df2ab60c6",
+        "scripts/source/AstraSightNative.psc": "567f332af85cd265fb09d28cd52e18edcee847c26f14e8abfbde0710746e3505",
+        "seq/AstraAsedio.seq": "5907a2bc621a287e138957f9f8f9ad9be9fbfd706b3087db35225b26f391b551"
+      }
+    },
+    {
+      "path": "dist\\AstraAsedio_Atalaya_QA_v20_MO2.zip",
+      "bytes": 439956,
+      "sha256": "c3eed72b8fa8829f2a7b98231a6415e82a578acb2826a9a3b2e3d4fc4475387d",
+      "entries": 3,
+      "crc_and_hashes_verified": true,
+      "inventory_sha256": {
+        "AstraAsedio_Atalaya.esp": "5f817328ac4d30903ca6fcaac05c7d59088505db3933f2b897595fe741d45c52",
+        "Docs/AstraAsedio/README_v20.md": "50dd1a2eb1506665f180067c63c3712ba794d9ca915ca4d27ddf3f569663d95b",
+        "meshes/AstraAsedio/torre_atalaya_v20.nif": "6042738cdb484f9876da3ccc7a279727f666df69ff8a13f3ca2eb135c80f8a55"
+      }
+    }
+  ],
+  "public": [],
+  "nexus_uploaded": false,
+  "in_game_verified": false,
+  "WhiterunTorres_update_required": false,
+  "core_payload_changed": false,
+  "native_payload_changed": false,
+  "shipping_vanilla_geometry": false
+}

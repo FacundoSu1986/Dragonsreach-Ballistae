@@ -1,0 +1,23 @@
+{
+  "revision": "v04",
+  "scope": "Read-only final source reviews; no Skyrim VM or game launch. Artifact integrity is sealed by reports/package.json.",
+  "spec_review": {
+    "agent": "v04_design_review",
+    "status": "PASS",
+    "directed_cases_passed": 59,
+    "no_required_spec_gaps": true
+  },
+  "quality_review": {
+    "agent": "v04_quality_review",
+    "source_status": "PASS",
+    "directed_cases_passed": 59,
+    "original_attack_and_menu_reproductions_passed": true,
+    "remaining_source_blockers": []
+  },
+  "source_sha256": {
+    "mod\\scripts\\source\\AstraAsedioActi.psc": "efda5f5789fcee202ed7d636b0fb24b44918881d674c6b5826ca0bb9d20ee6fc",
+    "mod\\scripts\\source\\AstraAsedioPlayerAlias.psc": "048e868247e792cd7702518a36ea95bc54d98f1d46555379f8eb7c3dafa8831e",
+    "mod\\scripts\\source\\AstraAsedioSession.psc": "e2a040ec14f9515a017c0bda95cfd40bb289b002296c50f95e6e73e964959582"
+  },
+  "compile_receipt_sha256": "e92e6327509424816ff9496e7875caa723f6ff4c196f655a193a638014da1bf4"
+}

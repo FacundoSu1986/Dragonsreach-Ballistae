@@ -1,0 +1,20 @@
+{
+  "installed_mod": "G:\\Modding\\MO2\\SkyrimSE\\mods\\AstraAsedio_QA_v04",
+  "current_files_match_delivery_status_and_profile": true,
+  "file_count": 11,
+  "original_blend_and_v03_archives_unchanged": true,
+  "engine_execution": false,
+  "sha256": {
+    "AstraAsedio.esp": "6847a0520333aa7558889bb5e2979bb857a5b2424bbf4816d86283ea3952d43f",
+    "meshes\\AstraAsedio\\ballesta.nif": "da4c13e01af2d3e789103f1f13f25b3283ce7bb7b9d6cb321a645bb538da5f44",
+    "meshes\\AstraAsedio\\torre.nif": "2eef365dbfb91704d1c15a5e173d5311d06e8a55aa8fa8354ed088c1e03be402",
+    "meshes\\AstraAsedio\\virote.nif": "f27c96e4439b092f902935b5b2151d3d6285b38247afc45db0e36aa3ada11969",
+    "scripts\\AstraAsedioActi.pex": "50d8033336bd8dff8f8aedfde6a5febca4d5796a5eb47a009471aa46bc589824",
+    "scripts\\AstraAsedioPlayerAlias.pex": "dad2d1f0f09e2ed9d39491248b376e84480c2558efde2548e5f8062a884b0df3",
+    "scripts\\AstraAsedioSession.pex": "f888a7f800024e1de731b24cf8aa5836ffb446a802e3557d96a4bb48eb6dd39a",
+    "scripts\\source\\AstraAsedioActi.psc": "efda5f5789fcee202ed7d636b0fb24b44918881d674c6b5826ca0bb9d20ee6fc",
+    "scripts\\source\\AstraAsedioPlayerAlias.psc": "048e868247e792cd7702518a36ea95bc54d98f1d46555379f8eb7c3dafa8831e",
+    "scripts\\source\\AstraAsedioSession.psc": "e2a040ec14f9515a017c0bda95cfd40bb289b002296c50f95e6e73e964959582",
+    "seq\\AstraAsedio.seq": "5907a2bc621a287e138957f9f8f9ad9be9fbfd706b3087db35225b26f391b551"
+  }
+}

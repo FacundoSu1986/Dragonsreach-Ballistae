@@ -1,0 +1,14 @@
+test_final_esp_validator_rejects_silent_legacy_mode (tests.test_native_sight.NativeSightContract.test_final_esp_validator_rejects_silent_legacy_mode) ... FAIL
+
+======================================================================
+FAIL: test_final_esp_validator_rejects_silent_legacy_mode (tests.test_native_sight.NativeSightContract.test_final_esp_validator_rejects_silent_legacy_mode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 163, in test_final_esp_validator_rejects_silent_legacy_mode
+    with self.assertRaisesRegex(ValueError, 'UseSightCamera'):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.082s
+
+FAILED (failures=1)

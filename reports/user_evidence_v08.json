@@ -1,0 +1,76 @@
+{
+  "revision_observed": "v08",
+  "date_local": "2026-10-05",
+  "profile": "AstraAsedio_QA_v08",
+  "user_statement": "la estructura sigue siendo la misma; el disparo explota; la camara cuando pasa los 180 se corre y se pone debajo, como la camara de primera persona, y la ballesta le pega a la cabeza; entrar a menu te quita de la ballesta y la rafaga sigue disparando sin presionar",
+  "logs": {
+    "AstraSight.log": "4bac9a7335874128f748e3e79df1bfbfd62aa562870c139b7b7c60479f68eedc",
+    "Papyrus.0.log": "c5843bae1ac678d0ba20643b9d32b27843141575944d07acc274060b21689611",
+    "skse64.log": "9a74c08c9f272c685b40bdd95f9aa9b72f373a6a53489a929f38b2c4e24daf2a"
+  },
+  "screenshots": {
+    "SkyrimSE 2026-10-05 07-30-06_1.png": {
+      "path": "G:\\Modding\\Skyrim_Runtime_1.6.1170\\SkyrimSE 2026-10-05 07-30-06_1.png",
+      "sha256": "ca97160e3839507f554ac79b95013c7574272bb9c7c14f3fcdce11898a20985f"
+    },
+    "SkyrimSE 2026-10-05 07-30-11_2.png": {
+      "path": "G:\\Modding\\Skyrim_Runtime_1.6.1170\\SkyrimSE 2026-10-05 07-30-11_2.png",
+      "sha256": "b4e323f1ad909f37cea90a8f3fcd7e4f71513014e215e4dab46b352a4ea3a492"
+    },
+    "SkyrimSE 2026-10-05 07-31-20_3.png": {
+      "path": "G:\\Modding\\Skyrim_Runtime_1.6.1170\\SkyrimSE 2026-10-05 07-31-20_3.png",
+      "sha256": "a51f32b9a91580d539ae98f9866af199cfc9126ad7771af47aced73ab01feaad"
+    }
+  },
+  "findings": [
+    {
+      "id": "rafaga",
+      "evidence": "AstraSight.log: 10 freezes 07:31:58-07:32:21 (cadence ~2.27 s) while Papyrus.0.log has no OnKeyDown after 07:31:59",
+      "cause": "RequestShot arms repeatFire after InputReady yields (Utility.IsInMenuMode); an OnKeyUp processed inside that yield is overwritten. A lost release (unregistered menu, focus loss) has the same effect: nothing re-checks the physical key.",
+      "status": "probable (release not traced in v08)"
+    },
+    {
+      "id": "primera_activacion",
+      "evidence": "07:30:03 NATIVE_SIGHT_SAMPLE_FAILED right after calibration epoch=2, gun at yaw 0",
+      "cause": "player heading float(pi) > pi makes the sampled yaw 359.999995; CaptureAim returns float 360.0 and Papyrus rejects nextYaw >= 360",
+      "status": "reproduced numerically"
+    },
+    {
+      "id": "menu",
+      "evidence": "07:32:21 session ends with NATIVE_SIGHT_THAW_FAILED; native session silently invalidated (no warn line)",
+      "cause": "a menu that changes the camera state (TweenMenu) makes AstraSight invalidate the sight; Papyrus then ends the session instead of re-entering after the menu",
+      "status": "mechanism from code; menu name not traced in v08"
+    },
+    {
+      "id": "mensaje_operador",
+      "evidence": "\"OPERATOR_OUT_OF_RANGE dx=-63 dy=56 dz=-11\" while the limit is 160 u horizontal and 64 u vertical",
+      "cause": "sight-mode CanOperate does not call NearOperator; the shot rejection appends the stale operatorFailure text written at activation",
+      "status": "confirmed from code"
+    },
+    {
+      "id": "camara_180",
+      "evidence": "screenshot 07:31:20 (session active, epoch 6, no invalidation until 07:32:21) matches the player-eye render at yaw 180, not the sight render",
+      "cause": "unknown: the rendered camera is not the one AstraSight writes; straight and swept eye-to-sight lines clear the real Havok collision by 123 u (camera collision ruled out)",
+      "status": "open; v09 records the rendered camera natively",
+      "prior_report": "v06 user: camera drifts beyond 180; v07 post-camera write did not fix it"
+    },
+    {
+      "id": "torre",
+      "evidence": "QA profile installs v08 torre.nif; the rustic tower lived in Ballesta_Astra_Escalera_Rustica_v01",
+      "cause": "not installed, and the change was subtle",
+      "status": "v09 adopts it with stronger irregularity"
+    }
+  ],
+  "explosion_reported_working": true,
+  "v08_engine_cases_by_user": "partial: firing, explosion, continuous mode, menus, 180 turn",
+  "skse_plugins_loaded_in_test": [
+    "AstraSight.dll 0x03010000 only (reports/user_evidence_v08/skse64.log)"
+  ],
+  "foreign_camera_plugins_ruled_out": true,
+  "later_unrelated_launch": "skse64.log was overwritten at 08:06 by profile \"Prueva huevo\" (PapyrusUtil, Papyrus Extender, po3 Tweaks, skee, SSEDisplayTweaks...); not the test session",
+  "user_added_mods_2026_10_05": {
+    "PapyrusUtil": "MiscUtil free camera functions; not a v09 dependency",
+    "powerofthree Papyrus Extender 6.5.2": "OnHitEx/OnWeaponHit could log bolt hits in a later QA build; LaunchArrow needs an actor node",
+    "powerofthree Tweaks 1.17.1": "engine tweaks, no relevant Papyrus functions"
+  }
+}

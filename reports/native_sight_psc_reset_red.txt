@@ -1,0 +1,34 @@
+test_fire_reset_return_cannot_end_or_rephase_replacement_shot (tests.test_native_sight.NativeSightContract.test_fire_reset_return_cannot_end_or_rephase_replacement_shot) ... 
+  test_fire_reset_return_cannot_end_or_rephase_replacement_shot (tests.test_native_sight.NativeSightContract.test_fire_reset_return_cannot_end_or_rephase_replacement_shot) (reset_result=False) ... FAIL
+  test_fire_reset_return_cannot_end_or_rephase_replacement_shot (tests.test_native_sight.NativeSightContract.test_fire_reset_return_cannot_end_or_rephase_replacement_shot) (reset_result=True) ... FAIL
+test_cancel_reset_return_cannot_end_replacement_shot (tests.test_native_sight.NativeSightContract.test_cancel_reset_return_cannot_end_replacement_shot) ... 
+  test_cancel_reset_return_cannot_end_replacement_shot (tests.test_native_sight.NativeSightContract.test_cancel_reset_return_cannot_end_replacement_shot) (reset_result=False) ... FAIL
+
+======================================================================
+FAIL: test_fire_reset_return_cannot_end_or_rephase_replacement_shot (tests.test_native_sight.NativeSightContract.test_fire_reset_return_cannot_end_or_rephase_replacement_shot) (reset_result=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 494, in test_fire_reset_return_cannot_end_or_rephase_replacement_shot
+    self.assertTrue(f.vm.state['operating'])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_fire_reset_return_cannot_end_or_rephase_replacement_shot (tests.test_native_sight.NativeSightContract.test_fire_reset_return_cannot_end_or_rephase_replacement_shot) (reset_result=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 497, in test_fire_reset_return_cannot_end_or_rephase_replacement_shot
+    self.assertEqual(f.vm.state['phase'],1)
+AssertionError: 3 != 1
+
+======================================================================
+FAIL: test_cancel_reset_return_cannot_end_replacement_shot (tests.test_native_sight.NativeSightContract.test_cancel_reset_return_cannot_end_replacement_shot) (reset_result=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 521, in test_cancel_reset_return_cannot_end_replacement_shot
+    self.assertTrue(f.vm.state['operating'])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.076s
+
+FAILED (failures=3)

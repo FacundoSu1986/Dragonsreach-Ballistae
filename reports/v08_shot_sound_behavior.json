@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "test_count": 6,
+  "command": [
+    "C:\\Users\\Facu2\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_v08_shot_sound"
+  ],
+  "output": "test_continuous_fire_plays_one_cue_per_cycle (tests.test_v08_shot_sound.ShotSound.test_continuous_fire_plays_one_cue_per_cycle) ... ok\ntest_missing_sound_property_never_blocks_the_shot (tests.test_v08_shot_sound.ShotSound.test_missing_sound_property_never_blocks_the_shot) ... ok\ntest_one_cue_per_launched_bolt_after_the_launch (tests.test_v08_shot_sound.ShotSound.test_one_cue_per_launched_bolt_after_the_launch) ... ok\ntest_refused_shot_without_ammo_is_silent (tests.test_v08_shot_sound.ShotSound.test_refused_shot_without_ammo_is_silent) ... ok\ntest_shot_cancelled_by_a_menu_before_commit_is_silent (tests.test_v08_shot_sound.ShotSound.test_shot_cancelled_by_a_menu_before_commit_is_silent) ... ok\ntest_source_plays_once_in_commit_after_fire (tests.test_v08_shot_sound.ShotSound.test_source_plays_once_in_commit_after_fire) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.324s\n\nOK\n",
+  "test_source_sha256": "4e7da87f7f5d2493e833c72f272dcd8a33d373fbff855c9c62defdd9b628be19",
+  "controller_source_sha256": "39c5d51f31408f56c618a2c0f1f5682d856f27b48061a0fa3afb6553fa9b57a7",
+  "sources_unchanged_during_verification": true,
+  "runtime_execution": false,
+  "dependency_sha256": {
+    "tests\\test_native_sight.py": "b8b29ba32721c86c63d06af4a402f0759047c9e867f8e790a219e65bf00fb7c4",
+    "scripts\\build_plugin.py": "59cd487c06d9d9e789dbaa87a6a36825765eb5c74242a6cdfbc0943d5c87bb8d",
+    "mod\\AstraAsedio.esp": "33e1009d3c36349b9d0e722c6552c1a87816b75616139c9a90861d532876d9e9"
+  },
+  "interpretation": "Actual scalar PSC branches with explicit native fixtures; no Papyrus VM or SKSE event dispatch execution."
+}

@@ -1,0 +1,75 @@
+{
+  "success": true,
+  "new_native_build": false,
+  "reused_verified_build": "v13",
+  "v13_build_receipt_sha256": "61ed299df65d9506e719627ed63ed2888b2c2df4bfe14de131ce9e53414853a4",
+  "unchanged_native_inputs": {
+    "native\\CMakeLists.txt": "68ac32f89e85ec41dbba38e35017b3114b08e0ece47fc340a35df542ef735f8c",
+    "native\\inspect_camera_runtime.py": "e2c653674ce274826023c3a8abdef5c50e2b97c80c25cff40a07670b6151e3b0",
+    "native\\prepare_local_sdk.py": "816001ed9371faa9c009a758aacdf084e788767eaf7aade2e825e16782fefdd8",
+    "native\\prove_freeze_regression.py": "41f7fe1763cbd3f48cbececb0b6e2702cd310a768c895b6d315d058e710c5293",
+    "native\\README.md": "ca3ee3a282a86b5d62cdb223437d3af29f12fcbe077778951fde4bcbeae3fc44",
+    "native\\verify_binary.py": "621b524600e047954676e89fdfa26ea5c9e4dd586f98b0d2e6e2cab4b501e13b",
+    "native\\include\\Astra\\Core.h": "dd8ac30e3363fd7af8c96c5c9c83f4344505830b1a16171328616dd600beed2d",
+    "native\\licenses\\CommonLibSSE-NG-LICENSE": "253d41f9a66509071e71deeafaad01d9cd5e1d0e235f38d988f33d4f54cb0fe2",
+    "native\\licenses\\fmt-LICENSE": "ae842eaa4d8ac87b936a5f5852bd447e64d2b7dea9fdb12ce5fa96fcfdc82ce6",
+    "native\\licenses\\rapidcsv-LICENSE": "2a07f96569e2cb61824a7cfad718c931ebb43e74338f492d720caff920309a6c",
+    "native\\licenses\\spdlog-LICENSE": "4ccecab18d1ff0b61174fe3d6c430541625d3ddb865b0d5887db296f883c76e7",
+    "native\\src\\Core.cpp": "955cc7214ee0286e9aefc85d4e0439d1481b9884ad182eda2f192e8b8c9a4ed0",
+    "native\\src\\Plugin.cpp": "454b8422ec6d06ccdcabe7fde442dd05e64bcc8421363a08a4fb13661f358df5",
+    "native\\tests\\core_tests.cpp": "7e7b403ce066c2c9176544e3952dda73ffb4d730e80c9c35c7e23ef38ad6df0a",
+    "native\\tests\\v07_tests.cpp": "c9b7c8123bbe7b55fbd4ac44268e7d356575faca4b9ec93115d41a7f864656ca",
+    "native\\tests\\v08_tests.cpp": "21bb57bb7d07cfb8cabfdce86918f7f61777e8de783bbd847ee867a0c8a41d08",
+    "native\\tests\\v09_tests.cpp": "ce5e5e964482e5fa699e64056a1b1d17aa61ca7332f69c91c6a90a26ebda4751",
+    "native\\tests\\v10_tests.cpp": "0e3eabd5b46da577f06af9407ba3dfa488bee71b2e4caba2f70ca97ad0d6119f",
+    "scripts\\build_native.py": "d205cfcaf5fe4ea8566d8c93097b46b005e75a515f6b5eaef1c9821ec30ac961",
+    "mod\\scripts\\source\\AstraSightNative.psc": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
+    "mod\\SKSE\\Plugins\\AstraSight.dll": "7cf962b1b16c14033ae62e36261b75a26a1212d4f7e0c692d24131e364cffb2d"
+  },
+  "papyrus_checked_separately": {
+    "mod\\scripts\\source\\AstraAsedioActi.psc": {
+      "v13": "39c5d51f31408f56c618a2c0f1f5682d856f27b48061a0fa3afb6553fa9b57a7",
+      "v14": "cb36b1bcfce9b4c62fe856a24a73846b4e819c3a0a04a5a9aa990803f5170d2e",
+      "verified_by": "fresh Papyrus compile receipt, not native build reuse"
+    }
+  },
+  "dll_sha256": "7cf962b1b16c14033ae62e36261b75a26a1212d4f7e0c692d24131e364cffb2d",
+  "binary_checks_sha256": "b3c5baaf062e486aeb9039bbfd72a59a6f89b502e574ecb0be66dfdf69bb995d",
+  "assertions_passed": 2281,
+  "failures": 0,
+  "tests": [
+    {
+      "name": "AstraCoreTests.exe",
+      "sha256": "cebfc2f3c2d1cccfa3629a47d1f64cc06f597ef7705f3f5ab646153ab8551f64",
+      "assertions": 147,
+      "output": "PASS 147 assertions, 0 failures\n"
+    },
+    {
+      "name": "AstraV07Tests.exe",
+      "sha256": "44b6c9123c2b5b6d71d208c85fcfceb7217b623c0a6504ff4b50e23c63d634d7",
+      "assertions": 302,
+      "output": "PASS 302 v07 assertions, 0 failures\n"
+    },
+    {
+      "name": "AstraV08Tests.exe",
+      "sha256": "f9b689bdb3dabc43469683d12606b611220d1ffcbccbaf7b3434a78b105a83bb",
+      "assertions": 86,
+      "output": "PASS 86 v08 assertions, 0 failures\n"
+    },
+    {
+      "name": "AstraV09Tests.exe",
+      "sha256": "c12f6242719b5c9eebf0c322258b1bfe9474bbd2d3ecc0b99c09a9fcf15d62ef",
+      "assertions": 51,
+      "output": "PASS 51 v09 assertions, 0 failures\n"
+    },
+    {
+      "name": "AstraV10Tests.exe",
+      "sha256": "d5764d4426e4d3b5be3de4fb04c6ddd335fa5b828611c796806bcd7bdf38fa6c",
+      "assertions": 1695,
+      "output": "PASS 1695 v10 assertions, 0 failures\n"
+    }
+  ],
+  "verification_script_sha256": "5754c30a61c65c0060bec1ada508a58aed28182d3483b31b0b9ec08dde9cedfc",
+  "engine_dll_loaded": false,
+  "in_game_verified": false
+}

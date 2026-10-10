@@ -1,0 +1,57 @@
+{
+  "renders": [
+    {
+      "name": "este",
+      "view": "encaje",
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v14\\renders\\v14_torre_este_encaje.png",
+      "sha256": "f0bc51ba08d4c1e953c84fa4c149c102fec0dbf779594b9f1d547cd2a1b6dac0",
+      "gun_scale": 0.75,
+      "camera_local": [
+        480,
+        -630,
+        270
+      ],
+      "caption": "Blender geometric reconstruction from vanilla masters; cyan capsule is an operator envelope (128 u height / 18 u radius), not a real actor or Skyrim capture."
+    },
+    {
+      "name": "este",
+      "view": "contexto",
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v14\\renders\\v14_torre_este_contexto.png",
+      "sha256": "adbddf62575f364131ff3b94c0612df4860d35dc021173730a3f896307514a53",
+      "gun_scale": 0.75,
+      "camera_local": [
+        800,
+        -950,
+        720
+      ],
+      "caption": "Blender geometric reconstruction from vanilla masters; cyan capsule is an operator envelope (128 u height / 18 u radius), not a real actor or Skyrim capture."
+    },
+    {
+      "name": "oeste",
+      "view": "encaje",
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v14\\renders\\v14_torre_oeste_encaje.png",
+      "sha256": "14769ce85a0810a0d1de48cb9295c34974fbb481bca877e1d9ed5e6746c49fc1",
+      "gun_scale": 0.65,
+      "camera_local": [
+        480,
+        -630,
+        270
+      ],
+      "caption": "Blender geometric reconstruction from vanilla masters; cyan capsule is an operator envelope (128 u height / 18 u radius), not a real actor or Skyrim capture."
+    },
+    {
+      "name": "oeste",
+      "view": "contexto",
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v14\\renders\\v14_torre_oeste_contexto.png",
+      "sha256": "00ba26c13607aed1266f313c9719802e6daed71b2df643ee5deffc732c134e89",
+      "gun_scale": 0.65,
+      "camera_local": [
+        800,
+        -950,
+        720
+      ],
+      "caption": "Blender geometric reconstruction from vanilla masters; cyan capsule is an operator envelope (128 u height / 18 u radius), not a real actor or Skyrim capture."
+    }
+  ],
+  "engine_verified": false
+}

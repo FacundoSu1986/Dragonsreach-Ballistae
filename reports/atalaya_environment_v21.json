@@ -1,0 +1,50 @@
+{
+  "site": {
+    "x": 10900.0,
+    "y": -8725.0,
+    "z": -4538.52,
+    "rot_z_deg": 300.0,
+    "cell": "0000961D",
+    "grid": [
+      2,
+      -3
+    ]
+  },
+  "inputs": [
+    {
+      "reference": "Skyrim.esm:03ABE1",
+      "model": "Landscape\\Tundra\\RockTundraLand02.nif",
+      "sha256": "4a1288c3777e2897c55b3d9eb803e0874b5e068e9d1a49110e54e6c1cf7ac7b8",
+      "havok_triangles": 2931,
+      "min": [
+        -1211.48681640625,
+        -442.2959899902344,
+        -514.6657104492188
+      ],
+      "max": [
+        791.485595703125,
+        2489.544189453125,
+        7.199413776397705
+      ],
+      "blocks_initial_entrance": true
+    },
+    {
+      "reference": "Skyrim.esm:10E5D6",
+      "model": "Dungeons\\Mines\\Ore\\MineOreIron01.nif",
+      "sha256": "d9d4ba735ad0638e02b50b2315df350a787a1f1ab8074dc722fbb0c8297f16a9",
+      "havok_triangles": 648,
+      "min": [
+        -452.07763671875,
+        275.23211669921875,
+        -236.59390258789062
+      ],
+      "max": [
+        -69.4764404296875,
+        854.8204956054688,
+        -91.05135345458984
+      ],
+      "blocks_initial_entrance": false
+    }
+  ],
+  "scope": "Read-only vanilla Havok in the tower local frame; research cache never shipped"
+}

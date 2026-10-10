@@ -1,0 +1,25 @@
+{
+  "revision": "v03",
+  "source": "user feedback plus Astra-only installed Papyrus log excerpts",
+  "user_statement": "ok funciona pero en la simulacion el personaje queda congelado sin poder moverse; pide E -> primera persona y apuntar 360 y hacia arriba",
+  "user_preference": "Permanecer junto a la manivela y apuntar con el ratón",
+  "log_path": "C:\\Users\\Facu2\\OneDrive\\Documentos\\My Games\\Skyrim Special Edition\\Logs\\Script\\Papyrus.0.log",
+  "log_sha256": "ec8cd657c0c27fa1ea6dbef9b4629fc306ba72773270c2845b14bf6f0853a832",
+  "astra_only_excerpts": [
+    "[10/03/2026 - 09:20:03PM] AstraAsedio Player alias initialized ref=None session=[astraasediosession <AstraAsedioSessionQuest (0F000806)>]",
+    "[10/03/2026 - 09:20:03PM] AstraAsedio session quest initialized running=TRUE",
+    "[10/03/2026 - 09:20:27PM] AstraAsedio Player alias initialized ref=[ObjectReference < (00000014)>] session=[astraasediosession <AstraAsedioSessionQuest (0F000806)>]",
+    "[10/03/2026 - 09:20:27PM] AstraAsedio session quest initialized running=TRUE"
+  ],
+  "supported": [
+    "Recepción de E, petición de salida y EndSession en log v03.",
+    "Recepción de ataque en log v03.",
+    "El usuario confirma funcionamiento general; solicita nuevo modo de apuntado."
+  ],
+  "not_demonstrated": [
+    "No se documentan aquí todos los casos de QA v03.",
+    "Una traza fire input no demuestra lanzamiento, impacto o daño.",
+    "El bloqueo de caminar se adquiere deliberadamente durante operación."
+  ],
+  "v04_in_game_tested": false
+}

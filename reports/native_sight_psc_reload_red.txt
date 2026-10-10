@@ -1,0 +1,24 @@
+test_reload_visual_return_preserves_replacement_shot_or_menu_context (tests.test_native_sight.NativeSightContract.test_reload_visual_return_preserves_replacement_shot_or_menu_context) ... 
+  test_reload_visual_return_preserves_replacement_shot_or_menu_context (tests.test_native_sight.NativeSightContract.test_reload_visual_return_preserves_replacement_shot_or_menu_context) (interruption='replacement_shot') ... FAIL
+  test_reload_visual_return_preserves_replacement_shot_or_menu_context (tests.test_native_sight.NativeSightContract.test_reload_visual_return_preserves_replacement_shot_or_menu_context) (interruption='menu') ... FAIL
+
+======================================================================
+FAIL: test_reload_visual_return_preserves_replacement_shot_or_menu_context (tests.test_native_sight.NativeSightContract.test_reload_visual_return_preserves_replacement_shot_or_menu_context) (interruption='replacement_shot')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 553, in test_reload_visual_return_preserves_replacement_shot_or_menu_context
+    self.assertEqual(f.vm.state['phase'],1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_reload_visual_return_preserves_replacement_shot_or_menu_context (tests.test_native_sight.NativeSightContract.test_reload_visual_return_preserves_replacement_shot_or_menu_context) (interruption='menu')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Sectores\Sector_Modelado_3D\Ballesta_Astra_Vanilla_SE_v05\tests\test_native_sight.py", line 558, in test_reload_visual_return_preserves_replacement_shot_or_menu_context
+    self.assertEqual(f.vm.state['phase'],3)
+AssertionError: 0 != 3
+
+----------------------------------------------------------------------
+Ran 1 test in 0.016s
+
+FAILED (failures=2)

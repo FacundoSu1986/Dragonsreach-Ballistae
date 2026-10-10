@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "assertions_passed": 2376,
+  "failures": 0,
+  "output": "PASS 147 assertions, 0 failures\nPASS 302 v07 assertions, 0 failures\nPASS 86 v08 assertions, 0 failures\nPASS 51 v09 assertions, 0 failures\nPASS 1695 v10 assertions, 0 failures\nPASS 56 v15 assertions, 0 failures\n15 v17 assertions 0 failures\n16 v18 assertions 0 failures\n8 v19 assertions 0 failures\n",
+  "test_executables_sha256": {
+    "AstraCoreTests.exe": "332055ccb3ff66e18ed8debe2ac1534439271a0b6f5a029b535adba06e8f2142",
+    "AstraV07Tests.exe": "692da28b86668273f50c559f5df91029df1bf6654c74f3c92c53995f1219f602",
+    "AstraV08Tests.exe": "e3082b1c790ecebc41076430e62f73d86e113ed599574282133bba8e31d3ee70",
+    "AstraV09Tests.exe": "851cf1e70825d81dbbb85752db1dfd31bb4670b032c4ced20368159e07565663",
+    "AstraV10Tests.exe": "dcfb256f52c18c47cbe4b8ca82c107f8e903cd1443ca685e251732ee7422b4f1",
+    "AstraV15Tests.exe": "6e70e875eeb137af1d310dd8f4f0ea70939846321bb761d64bbf5468b78bbe41",
+    "AstraV17Tests.exe": "16cf63d6e8d97700c6d76f900f87e81cec6c8c794af2fc483a3159088bb3f738",
+    "AstraV18Tests.exe": "fd0007cd4b74a249638ce68612cf77288aba633af2068f04d62b6d7487515263",
+    "AstraV19Tests.exe": "33a908325f7591d16c5afaf59505102c003c4badfc6704c1f12321550f993164"
+  },
+  "dll_sha256": "93e5f269d132db1851682dcfaf9ff2b9f5a2c8ee32e8a8164d4c983930982153",
+  "native_build_receipt_sha256": "ecfcfac3e2cd8712d4c4a90aac423675c229b922184fcd6201dc439c39558cdb",
+  "verification_script_sha256": "4b1c808a23aaed5d5fc8e886187bed33662581737a34ff333492f457845b207a",
+  "engine_dll_loaded": false,
+  "in_game_verified": false,
+  "scope": "Current PE/input hash checks and portable C++ tests; no Skyrim hooks or Papyrus VM execution."
+}

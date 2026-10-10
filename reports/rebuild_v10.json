@@ -1,0 +1,97 @@
+{
+  "success": true,
+  "inputs_sha256": {
+    "config.json": "d214682015a08a9114bf1c41c9b354987ae5b0716d3b6c1258e271d2c2c8e982",
+    "scripts/build_assets.py": "b235fa23a5985662fff4cd73054a417170ee8bd455def70fed7ecb819d27ae3f",
+    "scripts/verify_assets.py": "4c15431ffd82d2e2a48f50b7fe7590562c3e7663f73721f47dd0ddc595bea60d",
+    "scripts/nif_fisica.py": "f92d1c65ad621f67361956904209fbf2b625a91378dba72bea3bc0d4a93adb1a",
+    "scripts/vendor/nif_nodos.py": "be9141b0a95766d9b1b91ef56dccc6d5f240d3a83a08edde309e4d02f29afc3b",
+    "scripts/mechanism_source_fixes.py": "64cc1be585257c021d90f461f1d0a5d9b6f7c3612def1e8a44aedc3b68876f09",
+    "scripts/limb_tie_fixes.py": "494c39d1565a3cd27097e4328ec3cca9c9478b9d67edb5ee1a584c9aede9dd07",
+    "scripts/retime_v07.py": "01001dddcd60a32598ae4d977d86941b619fa98c0e3b86806dce2b7e02bb45f1",
+    "scripts/build_stairs.py": "552ef8f2d75603989fe7cbdc460e4b3ac41eb6681027b7f8042ff867632eb84a",
+    "scripts/rustico.py": "6a4429abc51bb5b7cfbda875ac27a56aef47796d4ae45e69cd0b5e7a34d3b278",
+    "scripts/sight_pose.py": "7e7493af493254e58bf6e1760c5a27e06b2ddaee872b7352acd54ae4fc5a1a4f"
+  },
+  "scope": "Disposable rebuild from preserved v04 with config v10 (build_assets, build_stairs, verify_assets); Blender export/reimport, not game execution.",
+  "collision_walkable_equal": true,
+  "commands": [
+    "build_assets.py",
+    "build_stairs.py",
+    "verify_assets.py"
+  ],
+  "config_sha256": "d214682015a08a9114bf1c41c9b354987ae5b0716d3b6c1258e271d2c2c8e982",
+  "builder_sha256": "b235fa23a5985662fff4cd73054a417170ee8bd455def70fed7ecb819d27ae3f",
+  "assets_checks": {
+    "visual_budget": true,
+    "collision_budget": true,
+    "tower_shapes": true,
+    "ballesta_shapes": true,
+    "textures": true,
+    "aim_tracks": true,
+    "rope": true,
+    "no_alpha_properties": true,
+    "projectile_box": true
+  },
+  "sequences": {
+    "Fire": {
+      "start": 0.0,
+      "stop": 0.30000001192092896,
+      "targets": [
+        "CTRL_BRAZO_I",
+        "CTRL_BRAZO_D",
+        "Cuerda_I",
+        "Cuerda_D",
+        "VIROTE_VISUAL"
+      ]
+    },
+    "Reset": {
+      "start": 0.0,
+      "stop": 1.2000000476837158,
+      "targets": [
+        "CTRL_BRAZO_I",
+        "CTRL_BRAZO_D",
+        "Cuerda_I",
+        "Cuerda_D",
+        "VIROTE_VISUAL"
+      ]
+    }
+  },
+  "rope_max_gap": 6.103515625e-05,
+  "rope_outer_max_error": 4.57763671875e-05,
+  "visual_triangles": 35604,
+  "collision_triangles": 1088,
+  "projectile_physics": {
+    "layer": "PROJECTILE",
+    "material": "MATERIAL_ARROW",
+    "body": "bhkRigidBodyT",
+    "mass": 15.0,
+    "restitution": 0.10000000149011612,
+    "box_coverage": 1.0,
+    "box_long_axis": "Y",
+    "inertia": [
+      98.54035949707031,
+      0.4804585874080658,
+      98.82951354980469
+    ],
+    "inertia_axis_aligned": true,
+    "vanilla_rules_failures": []
+  },
+  "rebuilt_nif_sha256": {
+    "torre": "41bedca7ae60dfa7cdd9a7850cfc437a6ee667853adf51a9f07bd27476a891c5",
+    "ballesta": "c3fb6bdc1edb542fe4a6a99899aadbcf66a2b57abba61561c710f764ff73dcef",
+    "virote": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5"
+  },
+  "shipped_nif_sha256": {
+    "torre": "41bedca7ae60dfa7cdd9a7850cfc437a6ee667853adf51a9f07bd27476a891c5",
+    "ballesta": "dd1741b8480e32988a10d1711b342d70882da1d1f398564794b8e6581c44bd1d",
+    "virote": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5"
+  },
+  "byte_identical_to_shipped": false,
+  "equivalent_to_shipped": {
+    "torre": true,
+    "ballesta": true,
+    "virote": true
+  },
+  "equivalence_rule": "every block byte-identical except NiDefaultAVObjectPalette, compared as a name->block set (PyNifly writes it in hash-seed order)"
+}

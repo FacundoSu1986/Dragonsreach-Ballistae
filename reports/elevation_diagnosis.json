@@ -1,0 +1,67 @@
+{
+  "nif_sha256": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2",
+  "samples": [
+    {
+      "pitch": -5,
+      "moving_min_z_relative_to_roof": 110.48168182373047,
+      "lowest_shape": "CTRL_ELEVACION_metal",
+      "muzzle_position_error": 0.0,
+      "muzzle_direction_dot": 1.0000000461004674
+    },
+    {
+      "pitch": 0,
+      "moving_min_z_relative_to_roof": 110.4400405883789,
+      "lowest_shape": "CTRL_ELEVACION_metal",
+      "muzzle_position_error": 0.0,
+      "muzzle_direction_dot": 1.0
+    },
+    {
+      "pitch": 35,
+      "moving_min_z_relative_to_roof": 55.49537658691406,
+      "lowest_shape": "CTRL_ELEVACION_bolt",
+      "muzzle_position_error": 3.0517578125e-05,
+      "muzzle_direction_dot": 1.0
+    },
+    {
+      "pitch": 45,
+      "moving_min_z_relative_to_roof": 37.07686233520508,
+      "lowest_shape": "CTRL_ELEVACION_bolt",
+      "muzzle_position_error": 0.0,
+      "muzzle_direction_dot": 0.9999999403953552
+    },
+    {
+      "pitch": 60,
+      "moving_min_z_relative_to_roof": 16.199350357055664,
+      "lowest_shape": "CTRL_ELEVACION_bolt",
+      "muzzle_position_error": 1.52587890625e-05,
+      "muzzle_direction_dot": 0.9999999850988388
+    },
+    {
+      "pitch": 70,
+      "moving_min_z_relative_to_roof": 7.397839069366455,
+      "lowest_shape": "CTRL_ELEVACION_bolt",
+      "muzzle_position_error": 3.0517578125e-05,
+      "muzzle_direction_dot": 0.9999999776482582
+    },
+    {
+      "pitch": 75,
+      "moving_min_z_relative_to_roof": 4.6445722579956055,
+      "lowest_shape": "CTRL_ELEVACION_bolt",
+      "muzzle_position_error": 2.6702880859375e-05,
+      "muzzle_direction_dot": 1.0
+    },
+    {
+      "pitch": 80,
+      "moving_min_z_relative_to_roof": 3.020390272140503,
+      "lowest_shape": "CTRL_ELEVACION_bolt",
+      "muzzle_position_error": 2.6702880859375e-05,
+      "muzzle_direction_dot": 0.9999999236315489
+    }
+  ],
+  "source_read_only": true,
+  "geometry_modified": false,
+  "sample_height_reference": "ballista root/base, conservatively above the real floor",
+  "floor_relative_z": -2.8000000000000114,
+  "floor_minimum_clearance": 5.820390272140514,
+  "muzzle_transforms_verified": true
+}
