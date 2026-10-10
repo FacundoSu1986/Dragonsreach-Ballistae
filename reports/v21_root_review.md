@@ -1,0 +1,21 @@
+# Revisión de la actualización QA v21
+
+El ESP v20 instalado coincide con el entregado: origen 4665,54 / −14922,81 / −5217,81, orientación equivalente a 187,63°. La ballesta está 151,55 unidades sobre el origen. No se certificó la posición efectiva de una referencia en una partida guardada dentro del motor.
+
+En el perfil Prueba huevo inspeccionado faltan el mod y el plugin AstraAsedio_WhiterunTorres.esp. Papyrus.0.log del 10 de octubre registra explícitamente que el archivo no existe o no está cargado. El paquete principal v20 no incluía ese addon: la distribución separada permitió una instalación incompleta. v21 incluye sus tres archivos, sin alterar su ESP ni sus meshes. La instalación real no se modificó.
+
+La verificación v20 estaba limitada a la geometría propia, al acceso del jugador y al terreno cercano de una celda. Omitía los marcadores persistentes de MQ104 y las rutas de los NPC. La nueva prueba continua detecta 444 cruces entre Havok de v20 y el espacio de tránsito aproximado de los NPC. Esto explica el riesgo observado; no identifica por sí solo a un guardia o una ruta concreta del motor.
+
+Se descartó una propuesta al sur en 630 / −18640: evitaba el tránsito después de ajustar los apoyos, pero invadía los límites del marcador vanilla 00093697. La franja del objeto DragonMarkerCrashStrip mide más de 4.000 unidades. Usar sólo una distancia al centro del marcador habría pasado por alto ese problema.
+
+La propuesta final queda sobre RockTundraLand02 al noreste, en 10900 / −8725 / −4538,52, orientación 300°, celda 0000961D. Es más distante: aproximadamente 10.837 unidades del centro de la atalaya occidental. Mantiene la mira dirigida hacia el área del combate. Se compactan los apoyos a ±170/±85 y se adaptan sus riostras y vigas, preservando los travesaños del piso y el descanso originales. El cofre pasa a la roca dentro del área libre de navegación.
+
+Durante la comprobación se corrigieron dos problemas de exportación/acceso: un travesaño adelantado cruzaba la rampa al compactar la cuadrícula; ahora los travesaños del piso conservan sus posiciones. La cuantización del Havok dejaba una fisura diminuta sobre la diagonal central del disco; una placa interior respalda la zona del operador sin ampliar la colisión fuera del disco visible. Se mantuvieron los umbrales de las verificaciones.
+
+El NIF final reimportado pasa 244 muestras de acceso, con un desvío máximo de 0,031 unidades, y 1.512 poses estáticas de apuntado. El Havok propio no cruza las superficies de navegación inspeccionadas ampliadas con radio 24 y altura 144. También se comprueban los OBND conservadores de las otras catorce referencias propias. La envolvente del conjunto deja más de 6.800 unidades respecto de la franja de choque conocida más cercana; también pasa su margen de 256 unidades. No se modifica ni se elimina LAND, NAVM, QUST, PACK, ACHR vanilla ni marcadores.
+
+Los límites son materiales: proxies geométricos, ninguna prueba de IA dentro de Skyrim, ningún cuerpo dinámico del dragón medido y ninguna prueba de migración de partida. Los NIF vanilla de referencia se leen desde el extractor local; no se comprobó una sustitución de esos NIF por otro mod. El muestreo de terreno/objetos y navegación usa el perfil registrado; los plugins Creation Club implícitos no enumerados en plugins.txt no se incluyen en el censo. La franja de editor no prueba por sí sola todos los posibles aterrizajes del dragón. Los registros WRLD/CELL de contenedor y el addon de Whiterun siguen necesitando revisión formal en xEdit/Creation Kit antes de Nexus. La animación corporal del guardia sigue siendo la vanilla, sin HKX corporal propio nuevo.
+
+Se conserva íntegro el core, el addon de Whiterun y los 30 archivos registrados por el recibo de compilación nativa. No se recompiló ni se retocó el disparo que el usuario ya había confirmado. Trece pruebas de la actualización pasan; no se presenta la suite heredada completa como ejecutada nuevamente. El ZIP comprueba CRC, inventario, hashes y metadata anónima de los seis PEX.
+
+Resultado: candidato QA instalable y revisión geométrica mejorada, pendiente de probar MQ104, recuperación de las estaciones y guardado/carga en el juego. No se publicó en Nexus ni se certifica como versión estable.

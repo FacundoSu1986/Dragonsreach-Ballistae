@@ -33,5 +33,29 @@
     "normal": "textures\\dlc01\\weapons\\crossbow\\Bolt_n.dds",
     "shader": "Default",
     "source_material": "Bolt01:1.Mat"
+  },
+  "stockade_wood": {
+    "donor": "clutter/stockade/stockadewoodbeam01.nif",
+    "diffuse": "textures\\clutter\\stockade\\StockadeWood01.dds",
+    "normal": "textures\\clutter\\stockade\\StockadeWood01_n.dds",
+    "shader": "Default",
+    "source_material": "StockadeWoodbeam01:0.Mat",
+    "used_by": "torre.nif only"
+  },
+  "stockade_extra": {
+    "donor": "clutter/stockade/stockadewoodbeam01.nif",
+    "diffuse": "textures\\clutter\\stockade\\StockadeExtra01.dds",
+    "normal": "textures\\clutter\\stockade\\StockadeExtra01_n.dds",
+    "shader": "Default",
+    "source_material": "StockadeWoodbeam01:2.Mat.001",
+    "used_by": "torre.nif only"
+  },
+  "stockade_planks": {
+    "donor": "clutter/stockade/stockadescaffoldtop0sided01.nif",
+    "diffuse": "textures\\clutter\\stockade\\StockadePlanks01.dds",
+    "normal": "textures\\clutter\\stockade\\StockadePlanks01_n.dds",
+    "shader": "Default",
+    "source_material": "StockadeScaffoldTop0Sided01:1 - L2_Accessories:1.Mat",
+    "used_by": "torre.nif only"
   }
 }

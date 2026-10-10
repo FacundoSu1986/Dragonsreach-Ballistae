@@ -7,13 +7,16 @@ def main():
     build=json.loads((ROOT/'reports/native_build_receipt.json').read_text())
     for name,digest in build['files_sha256'].items():
         if sha(ROOT/name)!=digest:raise RuntimeError('Native build evidence is stale: '+name)
+    vendor=build.get('vendor_manifest')
+    if vendor and (not vendor['immutable'] or sha(ROOT/vendor['report'])!=vendor['sha256']):
+        raise RuntimeError('Read-only vendor manifest evidence is stale')
     subprocess.run([sys.executable,str(ROOT/'native/verify_binary.py')],check=True,capture_output=True,text=True)
     output='';total=0;executables={}
-    for name in ['AstraCoreTests.exe','AstraV07Tests.exe','AstraV08Tests.exe','AstraV09Tests.exe','AstraV10Tests.exe']:
-        executable=ROOT/'build/native/release-verified'/name
+    for name in ['AstraCoreTests.exe','AstraV07Tests.exe','AstraV08Tests.exe','AstraV09Tests.exe','AstraV10Tests.exe','AstraV15Tests.exe','AstraV17Tests.exe','AstraV18Tests.exe','AstraV19Tests.exe']:
+        executable=ROOT/build.get('build_dir','build/native/release-verified')/name
         run=subprocess.run([str(executable)],capture_output=True,text=True)
         current=run.stdout+run.stderr;output+=current
-        assertions=re.search(r'(\d+) (?:v(?:0[789]|10) )?assertions.*?(\d+) failures',current)
+        assertions=re.search(r'(\d+) (?:v(?:0[789]|10|15|17|18|19) )?assertions.*?(\d+) failures',current)
         if run.returncode!=0 or not assertions or int(assertions[2])!=0:raise RuntimeError('Portable native tests failed: '+name)
         total+=int(assertions[1]);executables[name]=sha(executable)
     print(output)

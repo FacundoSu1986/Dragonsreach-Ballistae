@@ -67,7 +67,10 @@ WatchEvent CameraWatch::observe(double deviation,double now){
 void CameraWatch::reset(){deviating_=false;since_=lastLog_=max_=0;}
 bool matrixNear(Mat a,Mat b){for(int i=0;i<9;++i)if(std::abs(a.m[i]-b.m[i])>1e-6)return false;return true;}
 bool finite(Transform t){for(auto v:t.rotation.m)if(!std::isfinite(v))return false;return std::isfinite(t.translation.x)&&std::isfinite(t.translation.y)&&std::isfinite(t.translation.z)&&std::isfinite(t.scale)&&std::abs(t.scale)>1e-9;}
-bool Session::begin(Key k,double yaw,double pitch){std::lock_guard l(mutex_);if(active_||!k.handle||k.token<=0||!std::isfinite(yaw)||!std::isfinite(pitch))return false;key_=k;aim_={wrapDegrees(yaw),std::clamp(pitch,-5.,80.)};active_=true;ready_=frozen_=sampled_=suspended_=false;snapshot_={};++epoch_;return true;}
+bool validLimits(AimLimits l){return std::isfinite(l.yawCenter)&&std::isfinite(l.yawHalf)&&std::isfinite(l.pitchMin)&&std::isfinite(l.pitchMax)&&l.yawHalf>0&&l.yawHalf<=180&&l.pitchMin>=-20&&l.pitchMax<=80&&l.pitchMin<=l.pitchMax;}
+Aim limitAim(Aim a,AimLimits l){return {wrapDegrees(l.yawCenter+std::clamp(std::remainder(a.yaw-l.yawCenter,360.),-l.yawHalf,l.yawHalf)),std::clamp(a.pitch,l.pitchMin,l.pitchMax)};}
+bool Session::begin(Key k,double yaw,double pitch){return begin(k,yaw,pitch,AimLimits{});}
+bool Session::begin(Key k,double yaw,double pitch,AimLimits limits){std::lock_guard l(mutex_);if(active_||!k.handle||k.token<=0||!std::isfinite(yaw)||!std::isfinite(pitch)||!validLimits(limits))return false;key_=k;limits_=limits;aim_=limitAim({yaw,pitch},limits);active_=true;ready_=frozen_=sampled_=suspended_=false;snapshot_={};sceneTicket_={};sceneIdentity_=0;++epoch_;return true;}
 bool Session::ready(Key k)const{std::lock_guard l(mutex_);return active_&&ready_&&key_==k;}
 std::optional<Aim> Session::capture(Key k,bool freeze){std::lock_guard l(mutex_);if(!active_||!ready_||key_!=k)return{};if(freeze)frozen_=true;return snapshot_.aim;}
 bool Session::freeze(Key k,bool freeze){std::lock_guard l(mutex_);if(!active_||!ready_||key_!=k)return false;if(frozen_!=freeze)sampled_=false;frozen_=freeze;return true;}
@@ -81,12 +84,21 @@ bool Session::suspend(Ticket t){std::lock_guard l(mutex_);if(!active_||t.epoch!=
 bool Session::suspended()const{std::lock_guard l(mutex_);return active_&&suspended_;}
 void Session::rebase(){std::lock_guard l(mutex_);sampled_=false;}
 Ticket Session::ticket()const{std::lock_guard l(mutex_);return active_?Ticket{key_,epoch_}:Ticket{};}
-bool Session::update(Ticket t,Aim sample,bool paused,const std::function<Snapshot(Aim)>& apply,bool reconcileInput){
+uintptr_t Session::invalidateScene(Ticket t){
+ std::lock_guard l(mutex_);uintptr_t identity=0;
+ if(sceneTicket_.epoch==t.epoch&&sceneTicket_.key==t.key){identity=sceneIdentity_;sceneTicket_={};sceneIdentity_=0;}
+ if(active_&&epoch_==t.epoch&&key_==t.key){active_=ready_=suspended_=false;snapshot_={};++epoch_;}
+ return identity;
+}
+bool Session::update(Ticket t,Aim sample,bool paused,const std::function<Snapshot(Aim)>& apply,bool reconcileInput,uintptr_t sceneIdentity){
  std::lock_guard l(mutex_);
  if(!active_||t.epoch!=epoch_||t.key!=key_)return false;
+ // Record acquisition in the same transaction as pose writes. Even a failed
+ // first apply or End before FastShot arms must clean this original scene.
+ if(sceneIdentity){sceneTicket_=t;sceneIdentity_=sceneIdentity;}
  if(!std::isfinite(sample.yaw)||!std::isfinite(sample.pitch)){active_=ready_=suspended_=false;snapshot_={};++epoch_;return false;}
  // Consume player-look increments even during pause/freeze, discarding concealed motion.
- if(sampled_&&!frozen_&&!paused){double dy=std::remainder(sample.yaw-last_.yaw,360);aim_.yaw=wrapDegrees(aim_.yaw+dy);aim_.pitch=std::clamp(aim_.pitch+sample.pitch-last_.pitch,-5.,80.);}
+ if(sampled_&&!frozen_&&!paused){double dy=std::remainder(sample.yaw-last_.yaw,360);aim_=limitAim({aim_.yaw+dy,aim_.pitch+sample.pitch-last_.pitch},limits_);}
  last_=sample;sampled_=true;
  // Apply, world update and publish are inside the same mutex as Freeze/End.
  auto next=apply(aim_);

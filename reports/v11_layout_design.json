@@ -1,0 +1,19 @@
+{
+  "pieces": 64,
+  "by_role": {
+    "pilote": 24,
+    "cruz": 23,
+    "viga": 12,
+    "pared": 3,
+    "techo": 1,
+    "puerta": 1
+  },
+  "hinge_world": [
+    48.0,
+    -114.0,
+    88.0
+  ],
+  "violations": {},
+  "door_other_side_also_clear": true,
+  "layout_sha256": "d12b373fb7eb1bc0a9d02e7915cbb2118ffc4e50e00258c36ced4afa02ea23a1"
+}

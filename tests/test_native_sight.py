@@ -10,7 +10,7 @@ class NativeSightFixture(AimFixture):
     def __init__(self, camera=0):
         super().__init__(camera)
         self.vm.state['UseSightCamera'] = True
-        self.version = 0x03030000
+        self.version = 0x03040000
         self.available = True
         self.accepted = True
         self.ready = True
@@ -119,7 +119,7 @@ class NativeSightContract(unittest.TestCase):
     def test_session_emergency_native_end_precedes_control_and_camera_restore(self):
         f = NativeControlFixture(SOURCE.read_text(), camera=9)
         gun = f.gun(); gun.UseSightCamera = True
-        f.vm.state['SKSE'] = SimpleNamespace(GetPluginVersion=lambda name: 0x03030000)
+        f.vm.state['SKSE'] = SimpleNamespace(GetPluginVersion=lambda name: 0x03040000)
         f.vm.state['AstraSightNative'].EndSight = lambda ref, token: f.order.append('native_end')
         gun.token = f.vm.run('Acquire', gun)
         f.vm.run('EmergencyCleanup')
@@ -130,7 +130,7 @@ class NativeSightContract(unittest.TestCase):
     def test_session_end_boundary_retains_releasing_guard(self):
         f = NativeControlFixture(SOURCE.read_text())
         gun, contender = f.gun(), f.gun(); gun.UseSightCamera = True
-        f.vm.state['SKSE'] = SimpleNamespace(GetPluginVersion=lambda name: 0x03030000)
+        f.vm.state['SKSE'] = SimpleNamespace(GetPluginVersion=lambda name: 0x03040000)
         observed = []
         f.vm.state['AstraSightNative'].EndSight = lambda ref, token: observed.append(f.vm.run('Acquire', contender))
         gun.token = f.vm.run('Acquire', gun); f.vm.run('Release', gun, gun.token)
@@ -223,7 +223,7 @@ class NativeSightContract(unittest.TestCase):
     def test_invalid_native_snapshot_is_visible_and_releases_controls(self):
         # v09: exactly 360.0 is no longer invalid. The native double yaw in [0,360) reaches
         # Papyrus as float, and 359.99999x rounds to 360.0 (reports/user_evidence_v08.json).
-        for sample in ([], [1.], [1.,2.,3.], [math.nan,0.], [0.,math.inf], [-1.,0.], [360.5,0.], [0.,-6.], [0.,81.]):
+        for sample in ([], [1.], [1.,2.,3.], [math.nan,0.], [0.,math.inf], [-1.,0.], [360.5,0.], [0.,-21.], [0.,81.]):
             f = NativeSightFixture(); f.active(); f.snapshot = sample
             f.vm.run('UpdateAim', .05)
             self.assertFalse(f.vm.state['operating']); self.assertEqual(f.lease.controls, [True]*8)

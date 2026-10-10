@@ -1,7 +1,10 @@
 """Read PE exports and SKSE metadata without loading/launching any binary."""
 from pathlib import Path
 import sys,struct,json,hashlib
-ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'build/native/python'))
+ROOT=Path(__file__).resolve().parents[1]
+receipt=json.loads((ROOT/'reports/native_build_receipt.json').read_text())
+sys.dont_write_bytecode=True
+sys.path.insert(0,str(Path(receipt['vendor_dir'])/'python'))
 import pefile
 DLL=ROOT/'mod/SKSE/Plugins/AstraSight.dll';pe=pefile.PE(str(DLL))
 exports={s.name.decode():s.address for s in pe.DIRECTORY_ENTRY_EXPORT.symbols if s.name}
@@ -11,7 +14,7 @@ data=pe.get_data(exports['SKSEPlugin_Version'],848)
 u32=lambda offset:struct.unpack_from('<I',data,offset)[0]
 name=data[8:264].split(b'\0')[0].decode();compat=[u32(780+4*i) for i in range(16)]
 runtime=(1<<24)|(6<<16)|(1170<<4)
-assert name=='AstraSight' and u32(4)==0x03030000
+assert name=='AstraSight' and u32(4)==0x03050040
 assert data[776]&1 and data[776]&4
 assert compat[0]==runtime and not any(compat[1:])
 assert u32(844)==(2<<24)|(2<<16)|(8<<4)

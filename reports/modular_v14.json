@@ -1,0 +1,645 @@
+{
+  "core": {
+    "path": "mod\\AstraAsedio.esp",
+    "sha256": "c74e4ab88910b8bf97b9e84b69b51529dc5e02cfe2db8a70c480028015c3aaa9",
+    "bytes": 22154,
+    "records": 62,
+    "masters": [
+      "Skyrim.esm",
+      "Update.esm",
+      "Dawnguard.esm"
+    ]
+  },
+  "whiterun_torres": {
+    "path": "addons\\WhiterunTorres\\AstraAsedio_WhiterunTorres.esp",
+    "sha256": "3c25d6086913a68294268a1e01a966561cd2f9221cc01cefe77e087508c4b535",
+    "bytes": 49586,
+    "records": 12,
+    "masters": [
+      "Skyrim.esm",
+      "Update.esm",
+      "Dawnguard.esm",
+      "AstraAsedio.esp"
+    ]
+  },
+  "atalaya": {
+    "path": "addons\\Atalaya\\AstraAsedio_Atalaya.esp",
+    "sha256": "192fc61eebfc35a05c27f7b4e14403cde411812d51593c4062520dc0b5e3f387",
+    "unchanged_from_v13": true
+  },
+  "placements": [
+    {
+      "name": "este",
+      "user_requested": [
+        17801.74,
+        -8324.61,
+        -3615.66
+      ],
+      "gun_pos": [
+        17777.74,
+        -8308.61,
+        -3616.014001998901
+      ],
+      "guard_pos": [
+        17870.74,
+        -8260.61,
+        -3616.0140096282958
+      ],
+      "guard_local_unscaled": [
+        124,
+        64
+      ],
+      "guard_local_scaled": [
+        93.0,
+        48.0
+      ],
+      "yaw_deg": 0,
+      "scale": 0.75,
+      "floor_z": -3616.014007720947,
+      "center_floor_z": -3616.0140115356444,
+      "base_min_z": -5.7220458984375e-06,
+      "base_min_z_unscaled": -7.62939453125e-06,
+      "base_contact_world_z": -3616.014007720947,
+      "cell": "0000961B",
+      "world": "0000003C",
+      "tower_ref": "000684EC",
+      "support_refs_bounds_match": [
+        "00089F3F",
+        "0006AA70",
+        "000684EC"
+      ],
+      "navmesh": {
+        "guard": [
+          {
+            "navmesh": "00089FFD",
+            "triangle": 2,
+            "z": -3615.9030520162755,
+            "triangle_flags": [
+              2048,
+              16512
+            ],
+            "cell": "0000961B"
+          }
+        ],
+        "guard_delta_z": 0.11095761202022913,
+        "gun_axis": [
+          {
+            "navmesh": "00089FFD",
+            "triangle": 3,
+            "z": -3616.0,
+            "triangle_flags": [
+              2048,
+              0
+            ],
+            "cell": "0000961B"
+          }
+        ],
+        "scope": "Geometric NAVM triangle presence; no Skyrim pathfinding or reachability test."
+      },
+      "support": {
+        "ok": true,
+        "floor_source": "all nearby written vanilla Havok",
+        "corners": [
+          {
+            "world": [
+              17708.96500228882,
+              -8375.022502288819,
+              -3616.014007720947
+            ],
+            "support_z": -3616.014013442993,
+            "gap_units": 5.7220458984375e-06
+          },
+          {
+            "world": [
+              17846.49780296326,
+              -8375.022502288819,
+              -3616.014007720947
+            ],
+            "support_z": -3616.0140115356444,
+            "gap_units": 3.814697265625e-06
+          },
+          {
+            "world": [
+              17846.49780296326,
+              -8242.214108810425,
+              -3616.014007720947
+            ],
+            "support_z": -3616.0140096282958,
+            "gap_units": 1.9073486328125e-06
+          },
+          {
+            "world": [
+              17708.96500228882,
+              -8242.214108810425,
+              -3616.014007720947
+            ],
+            "support_z": -3616.014013442993,
+            "gap_units": 5.7220458984375e-06
+          }
+        ],
+        "samples": 81,
+        "max_gap_units": 5.7220458984375e-06,
+        "tolerance_units": 2.0,
+        "interior_height_variation": 9.5367431640625e-06
+      },
+      "body": {
+        "radius": 18,
+        "height": 128,
+        "vanilla_min_margin": 8.259629851988478,
+        "gun_rest_min_margin": 6.242197036743164,
+        "gun_sweep_min_margin": 6.242197036743164,
+        "gun_sweep_worst_pose": [
+          -10,
+          -20
+        ],
+        "crank_xy_distance": 47.17553656292634,
+        "scope": "Fixed operator capsule against visual triangles and written Havok; intentional foot-floor contact excluded. Margins capped at64u are conservative lower bounds."
+      },
+      "route": {
+        "guard_on_existing_navmesh": true,
+        "crank_reach_xy_units": 47.17553656292634,
+        "tested": "Spawn/standing volume and NAVM support only; no route to the tower or live-engine path test."
+      },
+      "pitch_min": -20,
+      "pitch_max": 20,
+      "yaw_center": 0.0,
+      "yaw_half_sector": 10.0,
+      "yaw_min": -10,
+      "yaw_max": 10,
+      "angular_certificate": {
+        "ok": true,
+        "sampling_yaw_deg": 1,
+        "sampling_pitch_deg": 1,
+        "poses": 861,
+        "rest_overlap_pairs": 0,
+        "failed_pose_examples": [],
+        "projectile_radius": 2.205,
+        "minimum_projectile_distance": {
+          "distance": 28.3417455667798,
+          "yaw": -10,
+          "pitch": -20,
+          "ray_start": [
+            17749.45339638533,
+            -8469.03130081863,
+            -3544.909900250489
+          ],
+          "ray_end": [
+            17673.5511334473,
+            -8899.49465886877,
+            -3704.0027244318067
+          ]
+        },
+        "projectile_distance_capped_lower_bound_at_units": 32.0,
+        "projectile_margin_lower_bound": 26.1367455667798,
+        "distance_pairs_tested": 104468,
+        "artificial_post_falsification_distance": 0.0,
+        "triangles_visual": 28105,
+        "triangles_havok": 10099,
+        "scope": "Static REST angular samples only. Fire/Reset keyframe envelope, between-sample continuous motion, animations of surrounding world objects and Skyrim engine behavior were not measured."
+      },
+      "existing_patrol_marker": {
+        "ref": "00078784",
+        "world_pos": [
+          17808.0,
+          -8320.0,
+          -3616.0
+        ],
+        "capsule_margin_against_gun_rest": -18.0,
+        "modified": false,
+        "scope": "Marker retained; a negative margin means its old destination overlaps the new gun. No engine path guarantee."
+      },
+      "engine_verified": false,
+      "success": true,
+      "patrol_marker_adjustment": {
+        "id": "00078784",
+        "pos": [
+          17868.0,
+          -8320.0,
+          -3616.0140153503417
+        ],
+        "old_pos": [
+          17808.0,
+          -8320.0,
+          -3616.0
+        ],
+        "rot_rad": [
+          0.0,
+          -0.0,
+          3.266407012939453
+        ],
+        "nav": [
+          {
+            "navmesh": "00089FFD",
+            "triangle": 2,
+            "z": -3615.968134861112,
+            "triangle_flags": [
+              2048,
+              16512
+            ],
+            "cell": "0000961B"
+          }
+        ],
+        "nav_delta_z": 0.04588048922960297,
+        "capsule_radius": 18,
+        "capsule_height": 128,
+        "vanilla_margin_lower_bound": 56.71994648170538,
+        "gun_rest_margin_lower_bound": 3.5021970367415634,
+        "guard_xy_separation": 59.45317232915279,
+        "move_xy_units": 60.0,
+        "floor_foot_z": -3616.0140153503417,
+        "footprint_floor_variation": 1.9073486328125e-06,
+        "scope": "Measured destination support and standing capsule only; original rotation preserved, no Skyrim pathfinding test.",
+        "angular_rest_sweep": {
+          "name": "este",
+          "marker": "00078784",
+          "pos": [
+            17868.0,
+            -8320.0,
+            -3616.0140153503417
+          ],
+          "poses": 861,
+          "gun_sweep_capsule_margin_lower_bound": 3.027633817938831,
+          "worst_pose": [
+            10,
+            -20
+          ],
+          "ok": true
+        }
+      }
+    },
+    {
+      "name": "oeste",
+      "user_requested": [
+        15225.56,
+        -8306.52,
+        -4127.66
+      ],
+      "gun_pos": [
+        15201.56,
+        -8338.52,
+        -4128.0140046691895
+      ],
+      "guard_pos": [
+        15302.96,
+        -8322.92,
+        -4128.014009628296
+      ],
+      "guard_local_unscaled": [
+        156,
+        24
+      ],
+      "guard_local_scaled": [
+        101.4,
+        15.600000000000001
+      ],
+      "yaw_deg": 0,
+      "scale": 0.65,
+      "floor_z": -4128.014009628296,
+      "center_floor_z": -4128.014013442993,
+      "base_min_z": -4.9591064453125e-06,
+      "base_min_z_unscaled": -7.62939453125e-06,
+      "base_contact_world_z": -4128.014009628296,
+      "cell": "0000961C",
+      "world": "0000003C",
+      "tower_ref": "00063FD0",
+      "support_refs_bounds_match": [
+        "00042516",
+        "00063FD1",
+        "00063FD0"
+      ],
+      "navmesh": {
+        "guard": [
+          {
+            "navmesh": "000B8338",
+            "triangle": 3,
+            "z": -4128.0,
+            "triangle_flags": [
+              2048,
+              16512
+            ],
+            "cell": "0000961C"
+          }
+        ],
+        "guard_delta_z": 0.014009628295752918,
+        "gun_axis": [
+          {
+            "navmesh": "000B8338",
+            "triangle": 2,
+            "z": -4128.0,
+            "triangle_flags": [
+              2048,
+              16512
+            ],
+            "cell": "0000961C"
+          }
+        ],
+        "scope": "Geometric NAVM triangle presence; no Skyrim pathfinding or reachability test."
+      },
+      "support": {
+        "ok": true,
+        "floor_source": "all nearby written vanilla Havok",
+        "corners": [
+          {
+            "world": [
+              15141.955001983642,
+              -8396.077501983644,
+              -4128.014009628296
+            ],
+            "support_z": -4128.014011535644,
+            "gap_units": 1.9073486328125e-06
+          },
+          {
+            "world": [
+              15261.150095901488,
+              -8396.077501983644,
+              -4128.014009628296
+            ],
+            "support_z": -4128.014011535644,
+            "gap_units": 1.9073486328125e-06
+          },
+          {
+            "world": [
+              15261.150095901488,
+              -8280.976894302368,
+              -4128.014009628296
+            ],
+            "support_z": -4128.014013442993,
+            "gap_units": 3.814697265625e-06
+          },
+          {
+            "world": [
+              15141.955001983642,
+              -8280.976894302368,
+              -4128.014009628296
+            ],
+            "support_z": -4128.014013442993,
+            "gap_units": 3.814697265625e-06
+          }
+        ],
+        "samples": 169,
+        "max_gap_units": 3.814697265625e-06,
+        "tolerance_units": 2.0,
+        "interior_height_variation": 7.62939453125e-06
+      },
+      "body": {
+        "radius": 18,
+        "height": 128,
+        "vanilla_min_margin": 25.23309894644786,
+        "gun_rest_min_margin": 23.80990409851075,
+        "gun_sweep_min_margin": 23.80990409851075,
+        "gun_sweep_worst_pose": [
+          -10,
+          -20
+        ],
+        "crank_xy_distance": 73.57500424736652,
+        "scope": "Fixed operator capsule against visual triangles and written Havok; intentional foot-floor contact excluded. Margins capped at64u are conservative lower bounds."
+      },
+      "route": {
+        "guard_on_existing_navmesh": true,
+        "crank_reach_xy_units": 73.57500424736652,
+        "tested": "Spawn/standing volume and NAVM support only; no route to the tower or live-engine path test."
+      },
+      "pitch_min": -20,
+      "pitch_max": 0,
+      "yaw_center": -4.0,
+      "yaw_half_sector": 6.0,
+      "yaw_min": -10,
+      "yaw_max": 2,
+      "angular_certificate": {
+        "ok": true,
+        "sampling_yaw_deg": 1,
+        "sampling_pitch_deg": 1,
+        "poses": 273,
+        "rest_overlap_pairs": 0,
+        "failed_pose_examples": [],
+        "projectile_radius": 2.205,
+        "minimum_projectile_distance": {
+          "distance": 32.0,
+          "yaw": -10,
+          "pitch": -20,
+          "ray_start": [
+            15177.044943533949,
+            -8477.551794042813,
+            -4066.3904498205657
+          ],
+          "ray_end": [
+            15097.371135437239,
+            -8929.40465921965,
+            -4233.388516185671
+          ]
+        },
+        "projectile_distance_capped_lower_bound_at_units": 32.0,
+        "projectile_margin_lower_bound": 29.795,
+        "distance_pairs_tested": 4016,
+        "artificial_post_falsification_distance": 0.0,
+        "triangles_visual": 28105,
+        "triangles_havok": 10099,
+        "scope": "Static REST angular samples only. Fire/Reset keyframe envelope, between-sample continuous motion, animations of surrounding world objects and Skyrim engine behavior were not measured."
+      },
+      "existing_patrol_marker": {
+        "ref": "0007878A",
+        "world_pos": [
+          15263.40625,
+          -8358.79296875,
+          -4128.0
+        ],
+        "capsule_margin_against_gun_rest": -15.743845901488747,
+        "modified": false,
+        "scope": "Marker retained; a negative margin means its old destination overlaps the new gun. No engine path guarantee."
+      },
+      "engine_verified": false,
+      "success": true,
+      "patrol_marker_adjustment": {
+        "id": "0007878A",
+        "pos": [
+          15283.40625,
+          -8358.79296875,
+          -4128.014013442993
+        ],
+        "old_pos": [
+          15263.40625,
+          -8358.79296875,
+          -4128.0
+        ],
+        "rot_rad": [
+          0.0,
+          -0.0,
+          3.2832040786743164
+        ],
+        "nav": [
+          {
+            "navmesh": "000B8338",
+            "triangle": 3,
+            "z": -4128.0,
+            "triangle_flags": [
+              2048,
+              16512
+            ],
+            "cell": "0000961C"
+          }
+        ],
+        "nav_delta_z": 0.014013442993018543,
+        "capsule_radius": 18,
+        "capsule_height": 128,
+        "vanilla_margin_lower_bound": 40.29507793875968,
+        "gun_rest_margin_lower_bound": 4.256154098511253,
+        "guard_xy_separation": 40.85607697761651,
+        "move_xy_units": 20.0,
+        "floor_foot_z": -4128.014013442993,
+        "footprint_floor_variation": 5.7220458984375e-06,
+        "scope": "Measured destination support and standing capsule only; original rotation preserved, no Skyrim pathfinding test.",
+        "angular_rest_sweep": {
+          "name": "oeste",
+          "marker": "0007878A",
+          "pos": [
+            15283.40625,
+            -8358.79296875,
+            -4128.014013442993
+          ],
+          "poses": 273,
+          "gun_sweep_capsule_margin_lower_bound": 2.860574744490183,
+          "worst_pose": [
+            2,
+            0
+          ],
+          "ok": true
+        }
+      }
+    }
+  ],
+  "towers_evidence_sha256": "a670d3854823198881656864ab89bca1c5b06cdb8ff4f2ac7f1f6fd8a57e813d",
+  "compatibility": {
+    "world": "0000003C",
+    "container_cells": [
+      "00000D74"
+    ],
+    "physical_cells": [
+      "0000961B",
+      "0000961C"
+    ],
+    "LAND_edits": 0,
+    "NAVM_edits": 0,
+    "NAVI_edits": 0,
+    "vanilla_reference_edits": 2,
+    "patrol_destination_edits": [
+      {
+        "id": "00078784",
+        "pos": [
+          17868.0,
+          -8320.0,
+          -3616.0140153503417
+        ],
+        "old_pos": [
+          17808.0,
+          -8320.0,
+          -3616.0
+        ],
+        "rot_rad": [
+          0.0,
+          -0.0,
+          3.266407012939453
+        ],
+        "nav": [
+          {
+            "navmesh": "00089FFD",
+            "triangle": 2,
+            "z": -3615.968134861112,
+            "triangle_flags": [
+              2048,
+              16512
+            ],
+            "cell": "0000961B"
+          }
+        ],
+        "nav_delta_z": 0.04588048922960297,
+        "capsule_radius": 18,
+        "capsule_height": 128,
+        "vanilla_margin_lower_bound": 56.71994648170538,
+        "gun_rest_margin_lower_bound": 3.5021970367415634,
+        "guard_xy_separation": 59.45317232915279,
+        "move_xy_units": 60.0,
+        "floor_foot_z": -3616.0140153503417,
+        "footprint_floor_variation": 1.9073486328125e-06,
+        "scope": "Measured destination support and standing capsule only; original rotation preserved, no Skyrim pathfinding test.",
+        "angular_rest_sweep": {
+          "name": "este",
+          "marker": "00078784",
+          "pos": [
+            17868.0,
+            -8320.0,
+            -3616.0140153503417
+          ],
+          "poses": 861,
+          "gun_sweep_capsule_margin_lower_bound": 3.027633817938831,
+          "worst_pose": [
+            10,
+            -20
+          ],
+          "ok": true
+        }
+      },
+      {
+        "id": "0007878A",
+        "pos": [
+          15283.40625,
+          -8358.79296875,
+          -4128.014013442993
+        ],
+        "old_pos": [
+          15263.40625,
+          -8358.79296875,
+          -4128.0
+        ],
+        "rot_rad": [
+          0.0,
+          -0.0,
+          3.2832040786743164
+        ],
+        "nav": [
+          {
+            "navmesh": "000B8338",
+            "triangle": 3,
+            "z": -4128.0,
+            "triangle_flags": [
+              2048,
+              16512
+            ],
+            "cell": "0000961C"
+          }
+        ],
+        "nav_delta_z": 0.014013442993018543,
+        "capsule_radius": 18,
+        "capsule_height": 128,
+        "vanilla_margin_lower_bound": 40.29507793875968,
+        "gun_rest_margin_lower_bound": 4.256154098511253,
+        "guard_xy_separation": 40.85607697761651,
+        "move_xy_units": 20.0,
+        "floor_foot_z": -4128.014013442993,
+        "footprint_floor_variation": 5.7220458984375e-06,
+        "scope": "Measured destination support and standing capsule only; original rotation preserved, no Skyrim pathfinding test.",
+        "angular_rest_sweep": {
+          "name": "oeste",
+          "marker": "0007878A",
+          "pos": [
+            15283.40625,
+            -8358.79296875,
+            -4128.014013442993
+          ],
+          "poses": 273,
+          "gun_sweep_capsule_margin_lower_bound": 2.860574744490183,
+          "worst_pose": [
+            2,
+            0
+          ],
+          "ok": true
+        }
+      }
+    ],
+    "existing_tower_edits": 0,
+    "replace_old_plugin": "AstraAsedio_Whiterun.esp (disable)",
+    "city_save_migration_supported": false,
+    "new_test_save_required": true,
+    "third_party_patches": "deferred",
+    "engine_verified": false
+  }
+}

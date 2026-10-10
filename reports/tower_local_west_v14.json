@@ -1,0 +1,1517 @@
+{
+  "candidates": [],
+  "rejected": [
+    {
+      "xy": [
+        -8,
+        -20
+      ],
+      "yaw": 345,
+      "overlaps": 896,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        -8,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 574,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        -8,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 104,
+      "havok_pairs": 38
+    },
+    {
+      "xy": [
+        -8,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 42,
+      "havok_pairs": 42
+    },
+    {
+      "xy": [
+        -4,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 396,
+      "havok_pairs": 22
+    },
+    {
+      "xy": [
+        -4,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 22,
+      "havok_pairs": 22
+    },
+    {
+      "xy": [
+        -4,
+        -8
+      ],
+      "yaw": 345,
+      "overlaps": 24,
+      "havok_pairs": 24
+    },
+    {
+      "xy": [
+        -4,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        0,
+        -20
+      ],
+      "yaw": 345,
+      "overlaps": 708,
+      "havok_pairs": 18
+    },
+    {
+      "xy": [
+        0,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 360,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        0,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 20,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        0,
+        -8
+      ],
+      "yaw": 345,
+      "overlaps": 24,
+      "havok_pairs": 24
+    },
+    {
+      "xy": [
+        0,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        4,
+        -20
+      ],
+      "yaw": 345,
+      "overlaps": 720,
+      "havok_pairs": 8
+    },
+    {
+      "xy": [
+        4,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 306,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        4,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 20,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        4,
+        -8
+      ],
+      "yaw": 345,
+      "overlaps": 22,
+      "havok_pairs": 22
+    },
+    {
+      "xy": [
+        4,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        8,
+        -20
+      ],
+      "yaw": 345,
+      "overlaps": 698,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        8,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 236,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        8,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 64,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        8,
+        -8
+      ],
+      "yaw": 345,
+      "overlaps": 64,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        8,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 70,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        12,
+        -20
+      ],
+      "yaw": 345,
+      "overlaps": 364,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        12,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 248,
+      "havok_pairs": 18
+    },
+    {
+      "xy": [
+        12,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 248,
+      "havok_pairs": 18
+    },
+    {
+      "xy": [
+        12,
+        -8
+      ],
+      "yaw": 345,
+      "overlaps": 258,
+      "havok_pairs": 18
+    },
+    {
+      "xy": [
+        12,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 264,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        16,
+        -20
+      ],
+      "yaw": 345,
+      "overlaps": 344,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 344,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 344,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -8
+      ],
+      "yaw": 345,
+      "overlaps": 354,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 364,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -20
+      ],
+      "yaw": 345,
+      "overlaps": 356,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 356,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 356,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -8
+      ],
+      "yaw": 345,
+      "overlaps": 410,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 614,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -20
+      ],
+      "yaw": 345,
+      "overlaps": 524,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 524,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 544,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -8
+      ],
+      "yaw": 345,
+      "overlaps": 666,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 890,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        28,
+        -20
+      ],
+      "yaw": 345,
+      "overlaps": 584,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        28,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 598,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        28,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 616,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        28,
+        -8
+      ],
+      "yaw": 345,
+      "overlaps": 616,
+      "havok_pairs": 4
+    },
+    {
+      "xy": [
+        28,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 954,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        32,
+        -16
+      ],
+      "yaw": 345,
+      "overlaps": 401,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        32,
+        -12
+      ],
+      "yaw": 345,
+      "overlaps": 386,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        32,
+        -8
+      ],
+      "yaw": 345,
+      "overlaps": 382,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        32,
+        -4
+      ],
+      "yaw": 345,
+      "overlaps": 388,
+      "havok_pairs": 24
+    },
+    {
+      "xy": [
+        -8,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 172,
+      "havok_pairs": 4
+    },
+    {
+      "xy": [
+        -8,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 714,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        -8,
+        -12
+      ],
+      "yaw": 340,
+      "overlaps": 720,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        -8,
+        -8
+      ],
+      "yaw": 340,
+      "overlaps": 30,
+      "havok_pairs": 30
+    },
+    {
+      "xy": [
+        -4,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 408,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        -4,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 776,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        -4,
+        -12
+      ],
+      "yaw": 340,
+      "overlaps": 688,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        -4,
+        -8
+      ],
+      "yaw": 340,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        0,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 554,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        0,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 594,
+      "havok_pairs": 8
+    },
+    {
+      "xy": [
+        0,
+        -12
+      ],
+      "yaw": 340,
+      "overlaps": 422,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        0,
+        -8
+      ],
+      "yaw": 340,
+      "overlaps": 22,
+      "havok_pairs": 22
+    },
+    {
+      "xy": [
+        4,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 90,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        4,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 92,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        4,
+        -12
+      ],
+      "yaw": 340,
+      "overlaps": 88,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        4,
+        -8
+      ],
+      "yaw": 340,
+      "overlaps": 72,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        8,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 250,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        8,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 254,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        8,
+        -12
+      ],
+      "yaw": 340,
+      "overlaps": 272,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        8,
+        -8
+      ],
+      "yaw": 340,
+      "overlaps": 272,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        12,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 348,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        12,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 356,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        12,
+        -12
+      ],
+      "yaw": 340,
+      "overlaps": 376,
+      "havok_pairs": 8
+    },
+    {
+      "xy": [
+        12,
+        -8
+      ],
+      "yaw": 340,
+      "overlaps": 394,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        16,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 366,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 502,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -12
+      ],
+      "yaw": 340,
+      "overlaps": 672,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -8
+      ],
+      "yaw": 340,
+      "overlaps": 668,
+      "havok_pairs": 18
+    },
+    {
+      "xy": [
+        20,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 568,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 772,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -12
+      ],
+      "yaw": 340,
+      "overlaps": 1064,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -8
+      ],
+      "yaw": 340,
+      "overlaps": 1188,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 644,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 782,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -12
+      ],
+      "yaw": 340,
+      "overlaps": 984,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -8
+      ],
+      "yaw": 340,
+      "overlaps": 1003,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        28,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 374,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        28,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 372,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        28,
+        -12
+      ],
+      "yaw": 340,
+      "overlaps": 382,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        28,
+        -8
+      ],
+      "yaw": 340,
+      "overlaps": 472,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        32,
+        -20
+      ],
+      "yaw": 340,
+      "overlaps": 228,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        32,
+        -16
+      ],
+      "yaw": 340,
+      "overlaps": 228,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        -8,
+        -20
+      ],
+      "yaw": 350,
+      "overlaps": 312,
+      "havok_pairs": 22
+    },
+    {
+      "xy": [
+        -8,
+        -16
+      ],
+      "yaw": 350,
+      "overlaps": 36,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        -8,
+        -12
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        -8,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 32,
+      "havok_pairs": 32
+    },
+    {
+      "xy": [
+        -8,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 30,
+      "havok_pairs": 30
+    },
+    {
+      "xy": [
+        -8,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        -8,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        -4,
+        -20
+      ],
+      "yaw": 350,
+      "overlaps": 312,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        -4,
+        -16
+      ],
+      "yaw": 350,
+      "overlaps": 20,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        -4,
+        -12
+      ],
+      "yaw": 350,
+      "overlaps": 26,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        -4,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        -4,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        -4,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        -4,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        0,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        0,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        0,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        0,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        4,
+        -20
+      ],
+      "yaw": 350,
+      "overlaps": 118,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        4,
+        -16
+      ],
+      "yaw": 350,
+      "overlaps": 20,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        4,
+        -12
+      ],
+      "yaw": 350,
+      "overlaps": 24,
+      "havok_pairs": 24
+    },
+    {
+      "xy": [
+        4,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 28,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        4,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 26,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        4,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 26,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        4,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 26,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        8,
+        -20
+      ],
+      "yaw": 350,
+      "overlaps": 52,
+      "havok_pairs": 18
+    },
+    {
+      "xy": [
+        8,
+        -16
+      ],
+      "yaw": 350,
+      "overlaps": 18,
+      "havok_pairs": 18
+    },
+    {
+      "xy": [
+        8,
+        -12
+      ],
+      "yaw": 350,
+      "overlaps": 20,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        8,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 24,
+      "havok_pairs": 24
+    },
+    {
+      "xy": [
+        8,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 20,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        8,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 20,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        8,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 20,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        12,
+        -20
+      ],
+      "yaw": 350,
+      "overlaps": 32,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        12,
+        -16
+      ],
+      "yaw": 350,
+      "overlaps": 32,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        12,
+        -12
+      ],
+      "yaw": 350,
+      "overlaps": 34,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        12,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 36,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        12,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 36,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        12,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 36,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        12,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 32,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -20
+      ],
+      "yaw": 350,
+      "overlaps": 180,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -16
+      ],
+      "yaw": 350,
+      "overlaps": 180,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -12
+      ],
+      "yaw": 350,
+      "overlaps": 180,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 180,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 186,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 190,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        16,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 190,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -20
+      ],
+      "yaw": 350,
+      "overlaps": 328,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -16
+      ],
+      "yaw": 350,
+      "overlaps": 328,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -12
+      ],
+      "yaw": 350,
+      "overlaps": 328,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 328,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 328,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 328,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        20,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 332,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -20
+      ],
+      "yaw": 350,
+      "overlaps": 596,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -16
+      ],
+      "yaw": 350,
+      "overlaps": 362,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -12
+      ],
+      "yaw": 350,
+      "overlaps": 362,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 362,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 362,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 374,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        24,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 492,
+      "havok_pairs": 8
+    },
+    {
+      "xy": [
+        28,
+        -20
+      ],
+      "yaw": 350,
+      "overlaps": 883,
+      "havok_pairs": 0
+    },
+    {
+      "xy": [
+        28,
+        -16
+      ],
+      "yaw": 350,
+      "overlaps": 615,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        28,
+        -12
+      ],
+      "yaw": 350,
+      "overlaps": 474,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        28,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 474,
+      "havok_pairs": 20
+    },
+    {
+      "xy": [
+        28,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 486,
+      "havok_pairs": 22
+    },
+    {
+      "xy": [
+        28,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 522,
+      "havok_pairs": 24
+    },
+    {
+      "xy": [
+        28,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 746,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        32,
+        -20
+      ],
+      "yaw": 350,
+      "overlaps": 961,
+      "havok_pairs": 24
+    },
+    {
+      "xy": [
+        32,
+        -16
+      ],
+      "yaw": 350,
+      "overlaps": 721,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        32,
+        -12
+      ],
+      "yaw": 350,
+      "overlaps": 606,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        32,
+        -8
+      ],
+      "yaw": 350,
+      "overlaps": 616,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        32,
+        -4
+      ],
+      "yaw": 350,
+      "overlaps": 634,
+      "havok_pairs": 26
+    },
+    {
+      "xy": [
+        32,
+        0
+      ],
+      "yaw": 350,
+      "overlaps": 638,
+      "havok_pairs": 28
+    },
+    {
+      "xy": [
+        32,
+        4
+      ],
+      "yaw": 350,
+      "overlaps": 912,
+      "havok_pairs": 28
+    }
+  ]
+}

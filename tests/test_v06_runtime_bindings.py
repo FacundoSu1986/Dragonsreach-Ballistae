@@ -5,7 +5,7 @@ from pathlib import Path
 from tests.test_native_sight import NativeSightFixture
 
 ROOT = Path(__file__).resolve().parents[1]
-API_V2 = 0x03030000  # current AstraSight 3.3 (v10 tail sight); the name is historical
+API_V2 = 0x03040000  # current AstraSight 3.4 (v13 depression); the name is historical
 
 
 class RuntimeBindingContract(unittest.TestCase):

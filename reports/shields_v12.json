@@ -1,0 +1,188 @@
+{
+  "torre_sha256": "1dc1ca22e03357cb292f6a122cd504914885cc540b21990dccf31c7b5d0a2679",
+  "shields": [
+    {
+      "name": "O",
+      "before": [
+        -291.986212,
+        0.0,
+        183.0
+      ],
+      "after": [
+        -291.862613,
+        0.0,
+        183.0
+      ],
+      "inward_shift_units": 0.12359901182353497,
+      "handle_contact_distance_units": 0.08079776167869568
+    },
+    {
+      "name": "N1",
+      "before": [
+        -78.846154,
+        289.763645,
+        180.57796155222653
+      ],
+      "after": [
+        -78.846154,
+        289.379903,
+        180.577962
+      ],
+      "inward_shift_units": 0.383741682767868,
+      "handle_contact_distance_units": 0.015254165045917034
+    },
+    {
+      "name": "N2",
+      "before": [
+        115.307692,
+        289.203715,
+        176.3633146030282
+      ],
+      "after": [
+        115.307692,
+        289.08909,
+        176.363315
+      ],
+      "inward_shift_units": 0.11462459191679955,
+      "handle_contact_distance_units": 0.06260643899440765
+    },
+    {
+      "name": "E",
+      "before": [
+        280.132208,
+        4.8,
+        183.0
+      ],
+      "after": [
+        280.030732,
+        4.8,
+        183.0
+      ],
+      "inward_shift_units": 0.10147597468458117,
+      "handle_contact_distance_units": 0.04446011781692505
+    },
+    {
+      "name": "S",
+      "before": [
+        0.0,
+        -290.830426,
+        183.0
+      ],
+      "after": [
+        0.0,
+        -290.581308,
+        183.0
+      ],
+      "inward_shift_units": 0.24911815524101258,
+      "handle_contact_distance_units": 0.0742136612534523
+    },
+    {
+      "name": "O2",
+      "before": [
+        -289.571777,
+        -182.0,
+        165.25084426109964
+      ],
+      "after": [
+        -289.454936,
+        -182.0,
+        165.250844
+      ],
+      "inward_shift_units": 0.11684089750051499,
+      "handle_contact_distance_units": 0.03162579983472824
+    },
+    {
+      "name": "O3",
+      "before": [
+        -290.834617,
+        182.0,
+        164.68599993384498
+      ],
+      "after": [
+        -290.726644,
+        182.0,
+        164.686
+      ],
+      "inward_shift_units": 0.10797334779053927,
+      "handle_contact_distance_units": 0.033260833472013474
+    },
+    {
+      "name": "N3",
+      "before": [
+        -175.923077,
+        288.91122,
+        166.62203708778443
+      ],
+      "after": [
+        -175.923077,
+        288.731891,
+        166.622037
+      ],
+      "inward_shift_units": 0.17932893931865693,
+      "handle_contact_distance_units": 0.016727905720472336
+    },
+    {
+      "name": "N4",
+      "before": [
+        212.384615,
+        289.560785,
+        158.82943830294099
+      ],
+      "after": [
+        212.384615,
+        289.434377,
+        158.829438
+      ],
+      "inward_shift_units": 0.12640805952250958,
+      "handle_contact_distance_units": 0.016054168343544006
+    },
+    {
+      "name": "S2",
+      "before": [
+        -182.0,
+        -290.124347,
+        164.90454638705424
+      ],
+      "after": [
+        -182.0,
+        -290.015361,
+        164.904546
+      ],
+      "inward_shift_units": 0.10898607168346644,
+      "handle_contact_distance_units": 0.08167402446269989
+    },
+    {
+      "name": "S3",
+      "before": [
+        182.0,
+        -288.895075,
+        165.4591001959998
+      ],
+      "after": [
+        182.0,
+        -288.771105,
+        165.4591
+      ],
+      "inward_shift_units": 0.12397042885422707,
+      "handle_contact_distance_units": 0.07952198386192322
+    },
+    {
+      "name": "E2",
+      "before": [
+        279.952,
+        -180.4,
+        168.33584451873145
+      ],
+      "after": [
+        279.799709,
+        -180.4,
+        168.335845
+      ],
+      "inward_shift_units": 0.15229095742106438,
+      "handle_contact_distance_units": 0.019491853192448616
+    }
+  ],
+  "max_handle_contact_distance_units": 0.08167402446269989,
+  "method": "Back handle vertices raycast inward against written tower triangles; seat 0.10 u.",
+  "game_tested": false
+}

@@ -135,6 +135,16 @@ class WrittenNif(unittest.TestCase):
 
     def test_sight_path_verification_is_for_these_nifs(self):
         report = json.loads((ROOT/'reports/sight_path_verified.json').read_text())
+        # v14 keeps the spatial NIF bytes and camera config; only registered
+        # animation times change. Prove this instead of relabelling a v13 run.
+        from retime_v14 import retime_parent
+        baseline=ROOT.with_name('Ballesta_Astra_Vanilla_SE_v13')
+        current=json.loads((ROOT/'config.json').read_text())
+        before=json.loads((baseline/'config.json').read_text())
+        changed={k for k in before.keys()|current.keys() if before.get(k)!=current.get(k)}
+        self.assertEqual(changed,{'source','fire_seconds','release_seconds','reset_seconds','cycle_seconds'})
+        retimed,_=retime_parent(baseline/'mod/meshes/AstraAsedio/ballesta.nif',{'Fire':current['fire_seconds'],'Reset':current['reset_seconds']})
+        self.assertEqual(retimed,(ROOT/'mod/meshes/AstraAsedio/ballesta.nif').read_bytes())
         self.assertTrue(report['success'])
         # Fixed thresholds here, not the ones the script wrote: engine sphere ~12-15 u plus margin; near plane 15 u.
         self.assertGreaterEqual(report['min_head_to_camera_collision_clearance'], 25.0)
@@ -147,10 +157,12 @@ class WrittenNif(unittest.TestCase):
         # The pedestal top is a reachable operator position (a jump clears 35 u); it must be sampled.
         self.assertGreater(report['operator_positions_on_pedestal'], 0)
         for name in ('torre', 'ballesta'):
-            self.assertEqual(report['nif_sha256'][name], hashlib.sha256((ROOT/'mod/meshes/AstraAsedio'/f'{name}.nif').read_bytes()).hexdigest())
+            directory=baseline if name=='ballesta' else ROOT
+            self.assertEqual(report['nif_sha256'][name], hashlib.sha256((directory/'mod/meshes/AstraAsedio'/f'{name}.nif').read_bytes()).hexdigest())
         # Camera parameters live outside the NIFs: the evidence must be for these scripts and config.
         for name in ('scripts/sight_pose.py', 'scripts/verify_sight_path.py', 'config.json'):
-            self.assertEqual(report['inputs_sha256'][name], hashlib.sha256((ROOT/name).read_bytes()).hexdigest(), name)
+            directory=baseline if name=='config.json' else ROOT
+            self.assertEqual(report['inputs_sha256'][name], hashlib.sha256((directory/name).read_bytes()).hexdigest(), name)
 
 
 class NativeContract(unittest.TestCase):
@@ -191,9 +203,9 @@ class NativeContract(unittest.TestCase):
         self.assertIn(f'float Property OperatorHeight = {height:.1f} Auto', psc)
         self.assertIn(f'Vec{{0,0,{height:.0f}*rootWorld.scale}}', native)
 
-    def test_controller_requires_astrasight_3_3(self):
+    def test_controller_requires_astrasight_3_4(self):
         psc = (ROOT/'mod/scripts/source/AstraAsedioActi.psc').read_text(encoding='utf-8')
-        self.assertIn('if nativeVersion < 50528256', psc)
+        self.assertIn('if nativeVersion < 50593792', psc)
 
 
 if __name__ == '__main__':

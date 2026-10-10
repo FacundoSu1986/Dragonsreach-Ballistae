@@ -1,0 +1,47 @@
+{
+  "success": true,
+  "scope": "Player laboratory/Atalaya spatial geometry only; new city positions require towers_v14.json.",
+  "config_changes": [
+    "cycle_seconds",
+    "fire_seconds",
+    "release_seconds",
+    "reset_seconds",
+    "source"
+  ],
+  "normalized_animation_spatial_keys_identical": true,
+  "registered_timing_only": true,
+  "v13_ballista_sha256": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2",
+  "v14_ballista_sha256": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
+  "config_sha256": "d31c864b05475fe7e527654b35cf5649c57105e4997bb180c496cac29b62433f",
+  "certificates": [
+    {
+      "parent_report": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v13\\reports\\shot_clearance_v12.json",
+      "parent_report_sha256": "e19e13625deb381423060f05e38a1b51f16ba4e7828b2b8b530ca32721b4202a",
+      "parent_samples": 36360,
+      "reused_spatial_result": true,
+      "new_spatial_run": false
+    },
+    {
+      "parent_report": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v13\\reports\\sight_path_verified.json",
+      "parent_report_sha256": "f4021f7b7e1b56027a6fc581a3f1508f7047c92ccb755c49bb869544882838d4",
+      "parent_samples": 288,
+      "reused_spatial_result": true,
+      "new_spatial_run": false
+    },
+    {
+      "parent_report": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v13\\reports\\sight_anchor_verified.json",
+      "parent_report_sha256": "22c1d5bde6609ff53f9025eae19a3a7ded8a90b6d5964e1f34d4b4082f0c72f5",
+      "parent_samples": 24,
+      "reused_spatial_result": true,
+      "new_spatial_run": false
+    }
+  ],
+  "verifier_sha256": "3dcb57d2cb73050d477f0624039a1116d53e698be966853a92ce9df2240e3ed8",
+  "in_game_verified": false,
+  "laboratory_route_reuse": {
+    "parent_report_sha256": "92021b4408f69bfa815340085bf14f9a4d55ef203dd3313f81032e39ab11f176",
+    "parent_samples": 162,
+    "core_only_timing_vmad_changed": true,
+    "new_route_run": false
+  }
+}

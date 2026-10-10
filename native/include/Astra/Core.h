@@ -10,6 +10,8 @@ struct Vec { double x{},y{},z{}; Vec operator+(Vec) const; Vec operator-(Vec) co
 struct Mat { std::array<double,9> m{1,0,0,0,1,0,0,0,1}; Mat transpose() const; Mat operator*(Mat) const; Vec operator*(Vec) const; };
 struct Transform { Mat rotation; Vec translation; double scale{1}; };
 struct Aim { double yaw{},pitch{}; };
+struct AimLimits { double yawCenter{},yawHalf{180},pitchMin{-20},pitchMax{80}; };
+bool validLimits(AimLimits); Aim limitAim(Aim,AimLimits);
 struct Snapshot { Aim aim; Transform camera; bool valid{}; uintptr_t stateIdentity{}; Transform worldCamera,root,muzzle; bool poseValid{}; };
 struct Key { uint32_t handle{}; int token{}; bool operator==(const Key&) const = default; };
 struct Ticket { Key key; uint64_t epoch{}; explicit operator bool() const { return epoch!=0; } };
@@ -37,14 +39,17 @@ class CameraWatch {
 class Session {
  public:
   bool begin(Key,double,double); bool ready(Key) const; std::optional<Aim> capture(Key,bool); bool freeze(Key,bool); bool end(Key); void invalidate(); bool invalidate(Ticket); void rebase(); Ticket ticket() const;
+  bool begin(Key,double,double,AimLimits);
   // v09: camera left first person; keep the lease. Returns true when newly suspended.
   bool suspend(Ticket); bool suspended() const;
-  bool update(Ticket,Aim,bool,const std::function<Snapshot(Aim)>&,bool reconcileInput=false);
+  bool update(Ticket,Aim,bool,const std::function<Snapshot(Aim)>&,bool reconcileInput=false,uintptr_t sceneIdentity=0);
+  uintptr_t invalidateScene(Ticket);
   std::optional<Snapshot> snapshot() const;
   // Visitor must not call Session or engine originals; serializes final scene writes with EndSight.
   bool visitSnapshot(Ticket,const std::function<void(const Snapshot&)>&) const;
   bool validateShot(Key,Aim,double pivotHeight) const;
  private:
-  mutable std::mutex mutex_; Key key_{}; uint64_t epoch_{1}; bool active_{},ready_{},frozen_{},sampled_{},suspended_{}; Aim aim_{},last_{}; Snapshot snapshot_{};
+  mutable std::mutex mutex_; Key key_{}; uint64_t epoch_{1}; bool active_{},ready_{},frozen_{},sampled_{},suspended_{}; Aim aim_{},last_{}; Snapshot snapshot_{}; AimLimits limits_{};
+  Ticket sceneTicket_{};uintptr_t sceneIdentity_{};
 };
 }

@@ -8,6 +8,11 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts/vendor'))
 import escritor_plugin as W
 from parser_esm import Plugin
+sys.path.insert(0,str(ROOT/'scripts'))
+import v11_layout as L
+# v11: the vanilla pieces of config.json -> tower_v11 as references, after the v10 forms (last 0x933).
+VANILLA_FIRST=0x03000940
+LAST_NAVMESH=None
 MASTERS=['Skyrim.esm','Update.esm','Dawnguard.esm']
 IDS={'tower':0x03000800,'ballesta':0x03000801,'projectile':0x03000802,'ammo':0x03000803,'launcher':0x03000804,'launcher_stat':0x03000805,'session':0x03000806,'cell':0x03000807,'container':0x03000808,'navmesh':0x03000809,'tower_ref':0x03000900,'ballesta_ref':0x03000901,'container_ref':0x03000902,'spawn_ref':0x03000903}
 IDS.update(light_fill=0x0300080A,light_target=0x0300080B)
@@ -170,18 +175,54 @@ def projectile_radius():
 def stat(edid,model,obnd):
  return [W.sub('EDID',W.zstr(edid)),W.sub('OBND',obnd),W.sub('MODL',W.zstr(model)),W.sub('MODT',bytes.fromhex('020000000000000000000000')),W.sub('DNAM',struct.pack('<fI',90.0,0))]
 
-def reference(fid,base,pos,angle=0.0,edid=None,persistent=False,link=0,tipo='REFR'):
- # tipo: 'REFR' para objetos, 'ACHR' para referencias de NPC (el engine solo
- # instancia actores desde ACHR; un REFR con base NPC_ es ignorado).
+def reference(fid,base,pos,angle=0.0,edid=None,persistent=False,rot=None,scale=1.0,link=0,tipo='REFR'):
+ """rot: X/Y/Z radians as stored in DATA (v11_layout.engine_convention says how the engine reads them).
+ tipo: 'REFR' para objetos, 'ACHR' para referencias de NPC (el engine solo
+ instancia actores desde ACHR; un REFR con base NPC_ es ignorado)."""
  ss=[]
  if edid:ss.append(W.sub('EDID',W.zstr(edid)))
- ss+=[W.sub('NAME',U(base)),W.sub('DATA',struct.pack('<6f',*pos,0,0,angle))]
+ ss.append(W.sub('NAME',U(base)))
+ # Skyrim.esm order for scaled references: ... NAME, XSCL, DATA last.
+ if abs(scale-1.0)>1e-9:ss.append(W.sub('XSCL',struct.pack('<f',scale)))
+ ss.append(W.sub('DATA',struct.pack('<6f',*pos,*(rot if rot is not None else (0,0,angle)))))
  if link:ss.append(W.sub('XLKR',struct.pack('<II',link,0)))
  return W.record(tipo,fid,ss,banderas=0x400 if persistent else 0)
 
+def _contains(tri,x,y):
+ (ax,ay,_a),(bx,by,_b),(cx,cy,_c)=tri;d=(by-cy)*(ax-cx)+(cx-bx)*(ay-cy)
+ if abs(d)<1e-9:return False
+ l1=((by-cy)*(x-cx)+(cx-bx)*(y-cy))/d;l2=((cy-ay)*(x-cx)+(ax-cx)*(y-cy))/d
+ return min(l1,l2,1-l1-l2)>=-1e-6
+
+def band_obstacles(cfg):
+ """What stands where an actor walks (0-128 u): the vanilla pieces and the tower's own boxes."""
+ z0,z1=cfg['tower_v11']['spawn_marker']['band']
+ out=L.band_boxes(cfg['tower_v11']['pieces'],z0,z1,cfg=cfg)
+ for b in collision_boxes():
+  if b['min'][2]<z1 and b['max'][2]>z0:out.append({'min':b['min'],'max':b['max'],'name':'torre'})
+ return out
+
+def spawn_marker(cfg,vertices,triangles):
+ """v10's COC marker stays put unless something stands within min_clearance of it in the actor
+ band; then it moves to the nearest free point of a 16 u grid, outside the room, on the navmesh."""
+ spec=cfg['tower_v11']['spawn_marker'];x0,y0,z0=spec['pos'];need=spec['min_clearance']
+ room=cfg['tower_v11']['room'];(rcx,rcy),(sx,sy)=room['center'],room['size']
+ obstacles=band_obstacles(cfg)
+ ground=[[vertices[j] for j in t] for t in triangles if max(vertices[j][2] for j in t)<=10]
+ def clearance(x,y):return min(math.hypot(max(b['min'][0]-x,0,x-b['max'][0]),max(b['min'][1]-y,0,y-b['max'][1])) for b in obstacles)
+ for x,y in sorted(((x0+16*i,y0+16*j) for i in range(-40,41) for j in range(-40,41)),key=lambda p:(math.hypot(p[0]-x0,p[1]-y0),p)):
+  if abs(x-rcx)<sx/2 and abs(y-rcy)<sy/2:continue
+  c=clearance(x,y)
+  if c>=need and any(_contains(tri,x,y) for tri in ground):
+   return {'pos':[x,y,z0],'moved':(x,y)!=(x0,y0),'clearance':c,'original':[x0,y0,z0],'rule':'>= %g u from anything in the %s u band, outside the room, on the navmesh'%(need,spec['band'])}
+ raise ValueError('no free spawn point near the configured marker')
+
 def collision_boxes():
  data=json.loads((ROOT/'reports/collision_walkable.json').read_text())
- boxes=list(data['solid_boxes_units'])
+ boxes=[dict(b, nav_step_units=16.0) if b.get('name','').startswith(('Vigueta_', 'Viga_borde_')) else b for b in data['solid_boxes_units']]
+ # v12: the floor is also a ceiling below the low platform. It blocks ground navigation,
+ # while a 16 u step envelope lets actors finish the ramp onto its leading edge.
+ boxes.extend(dict(b,nav_step_units=16.0) for b in data['floors_units'])
  for b in data.get('stair_edge_barriers_units',[]):
   ramp=next(r for r in data['ramps'] if abs(r['y'][0]-b['min'][1])<.01 and abs(r['y'][1]-b['max'][1])<.01)
   slope=(ramp['z'][1]-ramp['z'][0])/(ramp['y'][1]-ramp['y'][0])
@@ -200,7 +241,7 @@ def triangle_blocked(triangle,box,clearance=18.0,actor_height=128.0):
   box={'min':[box['min'][0],box['min'][1],box['z_intercept']-abs(slope)*clearance],'max':[box['max'][0],box['max'][1],box['z_intercept']+box['rail_height']+abs(slope)*clearance]}
  eps=.01
  lo=[box['min'][0]-clearance+eps,box['min'][1]-clearance+eps,box['min'][2]-actor_height+eps]
- hi=[box['max'][0]+clearance-eps,box['max'][1]+clearance-eps,box['max'][2]-eps]
+ hi=[box['max'][0]+clearance-eps,box['max'][1]+clearance-eps,box['max'][2]-box.get('nav_step_units',0.0)-eps]
  if any(max(p[i] for p in triangle)<lo[i] or min(p[i] for p in triangle)>hi[i] for i in range(3)):return False
  polygon=[tuple(p) for p in triangle]
  for axis in range(3):
@@ -215,8 +256,9 @@ def triangle_blocked(triangle,box,clearance=18.0,actor_height=128.0):
    if not polygon:return False
  return True
 
-def navmesh_geometry():
+def navmesh_geometry(vanilla_obstacles=True):
  # Coarse flat ground grid avoids the tower's blocking footprint.
+ global LAST_NAVMESH
  vertices=[];triangles=[];vertex_ids={}
  def vert(p):
   key=tuple(round(c,4) for c in p)
@@ -228,9 +270,18 @@ def navmesh_geometry():
  if not walkfile.exists():raise ValueError('Collision walking surfaces required before navmesh build')
  data=json.loads(walkfile.read_text());walk_source=str(walkfile.relative_to(ROOT))
  floors=data['floors_units'];ramps=data['ramps'];boxes=collision_boxes()
+ # v11: the room under the platform replaces v10's log cabin (+-140), and the vanilla stilts,
+ # braces, walls and door block the ground where they stand in the actor band (0-128 u) only:
+ # a cross brace does not close its whole bay, and pieces under the stair or the deck do not
+ # touch the navmesh laid on them (spec §3).
+ cfg=json.loads((ROOT/'config.json').read_text());room=cfg['tower_v11']['room']
+ (rcx,rcy),(rsx,rsy)=room['center'],room['size']
+ band=L.band_boxes(cfg['tower_v11']['pieces'],cfg=cfg) if vanilla_obstacles else []
  # A shared 2D subdivision gives matching edges at every landing and corner.
  xs=set(range(-2048,2049,512));ys=set(range(-2560,1537,512))
- xs.update([-140,140]);ys.update([-140,140])
+ xs.update([rcx-rsx/2,rcx+rsx/2]);ys.update([rcy-rsy/2,rcy+rsy/2])
+ for box in band:
+  xs.update(round(v,3) for v in [box['min'][0]-18,box['max'][0]+18]);ys.update(round(v,3) for v in [box['min'][1]-18,box['max'][1]+18])
  for f in floors:
   xs.update(round(v,3) for v in [f['min'][0],f['max'][0]])
   ys.update(round(v,3) for v in [f['min'][1],f['max'][1]])
@@ -241,20 +292,20 @@ def navmesh_geometry():
  xs=sorted(xs);ys=sorted(ys)
  emitted=set();plane_cells=collections.defaultdict(set)
  xi={v:i for i,v in enumerate(xs)};yi={v:i for i,v in enumerate(ys)}
- def emit(x0,x1,y0,y1,zfunc):
+ def emit(x0,x1,y0,y1,zfunc,ground=False):
   corners=[(x0,y0,zfunc(y0)),(x1,y0,zfunc(y0)),(x1,y1,zfunc(y1)),(x0,y1,zfunc(y1))]
   signature=tuple(tuple(round(v,3) for v in q) for q in corners)
   if signature not in emitted:
-   if any(triangle_blocked([signature[0],signature[1],signature[2]],box) or triangle_blocked([signature[0],signature[2],signature[3]],box) for box in boxes):return
+   if any(triangle_blocked([signature[0],signature[1],signature[2]],box) or triangle_blocked([signature[0],signature[2],signature[3]],box) for box in (boxes+band if ground else boxes)):return
    emitted.add(signature)
    slope=(zfunc(y1)-zfunc(y0))/(y1-y0);key=(round(slope,8),round(zfunc(y0)-slope*y0,5))
    plane_cells[key].add((xi[x0],yi[y0]))
  for x0,x1 in zip(xs,xs[1:]):
   for y0,y1 in zip(ys,ys[1:]):
    mx=(x0+x1)/2;my=(y0+y1)/2
-   under_body=-140<mx<140 and -140<my<140
+   in_room=abs(mx-rcx)<rsx/2 and abs(my-rcy)<rsy/2
    lower=ramps[0];under_stair=lower['x'][0]<mx<lower['x'][1] and lower['y'][0]<my<lower['y'][1]
-   if not under_body and not under_stair:emit(x0,x1,y0,y1,lambda y:2.0)
+   if not in_room and not under_stair:emit(x0,x1,y0,y1,lambda y:2.0,ground=True)
    for f in floors:
     if f['min'][0]-.001<mx<f['max'][0]+.001 and f['min'][1]-.001<my<f['max'][1]+.001:
      z=round(f['max'][2],3)+2.0;emit(x0,x1,y0,y1,lambda y,z=z:z)
@@ -316,7 +367,8 @@ def navmesh_geometry():
  mi=struct.pack('<II4fIII',IDS['navmesh'],32,*center,0.0,0,0,0)+b'\1'
  mi+=struct.pack('<6f',*vmin,*vmax)+U(len(triangles))+b''.join(struct.pack('<3H',*t) for t in triangles)
  mi+=U(len(vertices))+b''.join(struct.pack('<3f',*p) for p in vertices)+struct.pack('<III',0xA5E9A03C,0,IDS['cell'])
- return nv,mi,{'vertices':len(vertices),'triangles':len(triangles),'walk_source':walk_source,'bounds':[vmin,vmax],'capsule_clearance_xy':18.0,'actor_height':128.0,'solid_box_count':len(boxes),'merged_rectangles':len(rectangles),'sloped_barrier_count':len(data.get('stair_edge_barriers_units',[])),'clearance_model':'18-unit conservative horizontal capsule envelope and 128-unit actor height; solid AABBs plus sloped stair-rail prisms. Triangle polygon clipping, reciprocal adjacency, one component required.','walkable_disk_units':data.get('walkable_disk_units')}
+ LAST_NAVMESH=(vertices,triangles)
+ return nv,mi,{'vanilla_band_obstacles':len(band),'room_footprint':[rcx-rsx/2,rcy-rsy/2,rcx+rsx/2,rcy+rsy/2],'vertices':len(vertices),'triangles':len(triangles),'walk_source':walk_source,'bounds':[vmin,vmax],'capsule_clearance_xy':18.0,'actor_height':128.0,'solid_box_count':len(boxes),'merged_rectangles':len(rectangles),'sloped_barrier_count':len(data.get('stair_edge_barriers_units',[])),'clearance_model':'18-unit conservative horizontal capsule envelope and 128-unit actor height; solid AABBs plus sloped stair-rail prisms. Triangle polygon clipping, reciprocal adjacency, one component required.','walkable_disk_units':data.get('walkable_disk_units')}
 
 def validate_plugin(path):
  p=Plugin(path);r={};counts=collections.Counter()
@@ -442,6 +494,15 @@ def validate_plugin(path):
  boxes=collision_boxes()
  for i,t in enumerate(ts):
   if any(triangle_blocked([vs[j] for j in t[:3]],box) for box in boxes):raise ValueError('Navmesh triangle intersects expanded collision: '+str(i))
+ # v11: the ground must also clear every vanilla piece where an actor walks.
+ cfg=json.loads((ROOT/'config.json').read_text());pieces=L.resolve_pieces(cfg)
+ band=L.band_boxes(cfg['tower_v11']['pieces'],cfg=cfg)
+ for i,t in enumerate(ts):
+  tri=[vs[j] for j in t[:3]]
+  if max(v[2] for v in tri)<=10 and any(triangle_blocked(tri,b) for b in band):raise ValueError('Ground navmesh triangle intersects a vanilla piece: '+str(i))
+ placed=collections.Counter(struct.unpack('<I',ss['NAME'])[0] for fid,(t,ss) in r.items() if t=='REFR' and VANILLA_FIRST<=fid<VANILLA_FIRST+len(pieces))
+ if placed!=collections.Counter(p['formid'] for p in pieces):raise ValueError('vanilla references do not match the tower_v11 layout')
+ if any('XTEL' in ss for fid,(t,ss) in r.items() if t=='REFR' and struct.unpack('<I',ss['NAME'])[0]==0x000C78A3):raise ValueError('the room door must not teleport')
  mi=r[0x12FB4][1]['NVMI']
  if struct.unpack_from('<I',mi)[0]!=IDS['navmesh'] or struct.unpack_from('<I',mi,len(mi)-4)[0]!=IDS['cell']:raise ValueError('bad map parent')
  unseen=set(range(tc));components=0
@@ -459,11 +520,11 @@ def build():
  sk=find_records(data/'Skyrim.esm',['QASmoke','WRIntFloorSTMid01Large','ArcheryTarget','ArcheryTargetTripod','TreasChestSmallEMPTYNoRespawn','DefaultImageSpace','MagicVoiceDragonRendProjectileLight','TrapBallistaBoltExplosion02'])
  if dg['WPNCrossbowFire']['type']!='SNDR' or sk['TrapBallistaBoltExplosion02']['type']!='EXPL':raise ValueError('v08 sound/explosion donors changed type')
  if sk['DefaultImageSpace']['fid']!=0x167 or struct.unpack('<4f',dict(sk['DefaultImageSpace']['subs'])['TNAM'])!=(0.,1.,1.,1.):raise ValueError('neutral vanilla ImageSpace changed')
- (ROOT/'build/Dawnguard.esm.donors.json').write_text(json.dumps({k:{**{q:v for q,v in d.items() if q!='subs'},'subs':[[k,v.hex()] for k,v in d['subs']]} for k,d in dg.items()},indent=2))
  gcfg=cfg.get('guardia')
  guard_donor=None
  if gcfg:
   guard_donor=find_guard_npc(data/'Skyrim.esm',gcfg['donores_npc'])
+ (ROOT/'build/Dawnguard.esm.donors.json').write_text(json.dumps({k:{**{q:v for q,v in d.items() if q!='subs'},'subs':[[k,v.hex()] for k,v in d['subs']]} for k,d in dg.items()},indent=2))
  groups=[];new=[]
  def add(t,fid,ss,flags=0):
   new.append(fid);return W.record(t,fid,ss,banderas=flags)
@@ -542,7 +603,9 @@ def build():
  groups.append(W.grupo('QUST',[add('QUST',IDS['session'],quest)]))
  cellss=replace_clone(sk['QASmoke'],'AstraAsedioTest',{'FULL':W.zstr('Sala de pruebas de asedio Astra'),'XCLL':neutral_cell_lighting(dict(sk['QASmoke']['subs'])['XCLL']),'XCIM':U(sk['DefaultImageSpace']['fid'])})
  cell=add('CELL',IDS['cell'],cellss)
- persistent=[reference(IDS['ballesta_ref'],IDS['ballesta'],(0,0,cfg['tower_top_units']),edid='AstraAsedioBallestaREF',persistent=True,link=IDS['guardia_ref'] if guard_donor else 0),reference(IDS['spawn_ref'],0x34,(120,250,18),math.pi,edid='AstraAsedioCOCMarker',persistent=True)]
+ # The navmesh first: the spawn marker must land on it (v11 spec §1).
+ nv,mi,nreport=navmesh_geometry();marker=spawn_marker(cfg,*LAST_NAVMESH)
+ persistent=[reference(IDS['ballesta_ref'],IDS['ballesta'],(0,0,cfg['tower_top_units']),edid='AstraAsedioBallestaREF',persistent=True,link=IDS['guardia_ref'] if guard_donor else 0),reference(IDS['spawn_ref'],0x34,tuple(marker['pos']),math.pi,edid='AstraAsedioCOCMarker',persistent=True)]
  new.extend([IDS['ballesta_ref'],IDS['spawn_ref']])
  refs=[reference(IDS['tower_ref'],IDS['tower'],(0,0,0),edid='AstraAsedioTowerREF'),reference(IDS['container_ref'],IDS['container'],(400,380,2),edid='AstraAsedioBoltChestREF')];new.extend([IDS['tower_ref'],IDS['container_ref']])
  if guard_donor:
@@ -564,7 +627,14 @@ def build():
   refs.append(reference(nextid,sk['WRIntFloorSTMid01Large']['fid'],(0,muzzle[1]-dist,target_z-2.0)));new.append(nextid);nextid+=1
  for fid,base,pos in [(0x03000930,IDS['light_fill'],(-650,300,850)),(0x03000931,IDS['light_fill'],(650,-350,850)),(0x03000932,IDS['light_target'],(0,-924,900)),(0x03000933,IDS['light_target'],(0,-2324,900))]:
   refs.append(reference(fid,base,pos));new.append(fid)
- nv,mi,nreport=navmesh_geometry();refs.append(add('NAVM',IDS['navmesh'],[W.sub('NVNM',nv)]))
+ # v11: stilts, braces, room walls and ceiling, and the room door, as references to Skyrim.esm.
+ pieces=L.resolve_pieces(cfg);vanilla_refs=[]
+ for k,p in enumerate(pieces):
+  fid=VANILLA_FIRST+k
+  if fid&0xFFF>=0xFFF:raise ValueError('vanilla references must stay below 0xFFF (ESL range)')
+  refs.append(reference(fid,p['formid'],tuple(p['pos']),rot=tuple(math.radians(a) for a in p['rot_deg']),scale=p['scale']));new.append(fid)
+  vanilla_refs.append({'name':p['name'],'form_id':f'{fid:08X}','base':f'{p["formid"]:08X}','edid':p['edid'],'role':p['role'],'scale':p['scale']})
+ refs.append(add('NAVM',IDS['navmesh'],[W.sub('NVNM',nv)]))
  children=W.grupo(U(IDS['cell']),[W.grupo(U(IDS['cell']),persistent,8),W.grupo(U(IDS['cell']),refs,9)],6)
  local_cell=IDS['cell']&0xffffff;subblock=W.grupo(struct.pack('<i',(local_cell//10)%10),[cell,children],3);block=W.grupo(struct.pack('<i',local_cell%10),[subblock],2)
  groups.append(W.grupo('CELL',[block]))
@@ -576,6 +646,10 @@ def build():
  report=validate_plugin(esp);report.update({'masters':MASTERS,'forms':{k:f'{v:08X}' for k,v in IDS.items()},'muzzle_rest_world':muzzle,'targets':{'10m':[0,muzzle[1]-700,muzzle[2]],'30m':[0,muzzle[1]-2100,muzzle[2]]},'navmesh':nreport,'donors':{k:f'{v["fid"]:08X}' for k,v in dg.items()},'NAVI':'Singleton 00012FB4 with only own NVMI; master files unchanged','limitations':['CK finalization not run','Native shooter attribution and in-game damage not verified','Navmesh avoids expanded collision boxes; CK path tests are pending']})
  report['test_room']={'neutral_imagespace':'00000167 DefaultImageSpace','ambient_rgb':[112,112,112],'directional_rgb':[80,80,80],'fog_max':0.,'native_light_count':4,'shadow_light_count':0,'light_donor':f'{light_donor["fid"]:08X} MagicVoiceDragonRendProjectileLight','light_radii_units':[1450,1450,900,900],'archery_target_form_id':f'{sk["ArcheryTarget"]["fid"]:08X}','target_heading_degrees':90.,'target_front_world_approx':[0.,.94,.34],'heading_source':'https://raw.githubusercontent.com/powerof3/CommonLibSSE/dev/src/RE/N/NiMatrix3.cpp','visual_in_game_verified':False}
  report['siege']={'weapon_damage':V08['weapon_damage'],'ammo_damage':struct.unpack_from('<f',ammo_data,8)[0],'explosion_damage':V08['explosion_damage'],'explosion_radius':V08['explosion_radius'],'explosion_force':V08['explosion_force'],'explosion_donor':'Skyrim.esm TrapBallistaBoltExplosion02','impact_force':V08['impact_force'],'weapon_stagger':V08['weapon_stagger'],'projectile_collision_radius':radius,'projectile_pickable':False,'ammo_playable':False,'shot_sound':'Dawnguard.esm WPNCrossbowFire via Papyrus SOUN','damage_composition_in_game_verified':False}
+ report['vanilla_references']=vanilla_refs
+ report['spawn_marker']=marker
+ report['door']={'base':'000C78A3 FarmhouseAnimDoor01','teleport':False,'opens':cfg['tower_v11']['room']['door_opens'],'swing_verified_in_game':False}
+ report['angle_convention']={k:v for k,v in json.loads((ROOT/'reports/angle_convention.json').read_text()).items() if k in ('decided','order','signs','falsified')}
  report['guardia']={'donante_npc':(guard_donor or {}).get('edid'),'donante_fid':('%08X'%guard_donor['fid']) if guard_donor else None,
   'nombre':gcfg['nombre'] if gcfg else None,'posicion':gcfg['posicion'] if gcfg else None,
   'glob_ocupada':'%08X'%IDS['ocupada'],'auto_script':'AstraGuardiaAuto en la ballesta (segundo VMAD)',

@@ -23,7 +23,7 @@ class V07Integration(unittest.TestCase):
         f=NativeSightFixture();f.version=0x02000000;f.enter()
         self.assertFalse(f.vm.state['operating']);self.assertEqual(f.lease.calls,[])
     def test_both_final_sequences_have_configured_duration_and_scaled_key_times(self):
-        cfg=json.loads((ROOT/'config.json').read_text());report=json.loads((ROOT/'reports/animation_retime.json').read_text())
+        cfg=json.loads((ROOT/'config.json').read_text());report=json.loads((ROOT/'reports/v14_cadence_retime.json').read_text())
         p=ROOT/'mod/meshes/AstraAsedio/ballesta.nif';b=nif_nodos.leer(str(p));raw=b['datos']
         self.assertEqual(hashlib.sha256(raw).hexdigest(),report['after_sha256'])
         for typ,off,size in b['bloques']:

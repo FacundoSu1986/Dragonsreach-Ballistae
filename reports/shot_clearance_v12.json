@@ -1,0 +1,56 @@
+{
+  "ok": true,
+  "hits": 0,
+  "first_hits": [],
+  "worst": {
+    "clearance": 11.276315986933588,
+    "yaw": 128,
+    "pitch": -20,
+    "group": "torre_colision",
+    "triangle": [
+      [
+        -273.0,
+        266.0,
+        147.87
+      ],
+      [
+        358.4,
+        266.0,
+        147.87
+      ],
+      [
+        358.4,
+        280.0,
+        147.87
+      ]
+    ]
+  },
+  "projectile_radius": 2.205,
+  "shots": 36360,
+  "footprint_units": 600.0,
+  "pitch_range": [
+    -20.0,
+    80.0
+  ],
+  "lowest_shot_z": 107.02575027603271,
+  "highest_geometry_z": {
+    "torre_visual": 211.74285888671875,
+    "vanilla": 204.810269958667
+  },
+  "vertical_margin_units": -104.71710861068604,
+  "pairs_tested": 51903092,
+  "triangles": {
+    "torre_visual": 18298,
+    "torre_colision": 1128,
+    "vanilla": 12504
+  },
+  "falsified": true,
+  "falsification_hits": 204,
+  "inputs_sha256": {
+    "mod/meshes/AstraAsedio/torre.nif": "1dc1ca22e03357cb292f6a122cd504914885cc540b21990dccf31c7b5d0a2679",
+    "mod/meshes/AstraAsedio/ballesta.nif": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2",
+    "reports/collision_walkable.json": "31f5d6a8a40db3729a2dc04119456fc76270e47c224e567009e37ce7bbcce6f5",
+    "config.json": "a9012c7cb1c4b5e2eef47f1093264bd1f8a4c72b88673748016f27a367aec1b6",
+    "scripts/verify_shot_clearance_v12.py": "8df2b65cdbb5172fcc1716b8c4c0617f5d3d40fb25fe59ff5cc66d18d28be149"
+  }
+}

@@ -1,4 +1,8 @@
-"""v10: verify the tail sight camera against the camera pull-in found in the v09 log, and render the sight (Blender).
+"""v10/v11: verify the tail sight camera against the camera pull-in found in the v09 log, and render the sight (Blender).
+
+v11: the collision of every vanilla piece of config.json -> tower_v11 (stilts, braces, room, door), placed
+with the shared transform (v11_layout.piece_solids), joins the tower and ballista collision below; the
+thresholds are v10's (spec §4).
 
 The v09 recorder showed Skyrim pulling the camera toward the player head when collision lay between
 the head and the camera (reports/user_evidence_v09.json). On the WRITTEN NIFs this script measures,
@@ -24,6 +28,7 @@ from mathutils.bvhtree import BVHTree
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
 import sight_pose as S
+import v11_layout as L
 CFG = json.loads((ROOT/'config.json').read_text())
 TOP = CFG['tower_top_units']; PIVOT = CFG['pitch_pivot_units']
 SWEEP_CLEARANCE = 25.0      # engine sphere ~12-15 u (fitted to the v09 log) plus margin
@@ -55,6 +60,13 @@ for name in ('torre', 'ballesta'):
             collision_vs += pts; collision_ts += [tuple(base+i for i in t.vertices) for t in o.data.loop_triangles]
         elif name == 'ballesta':
             visual.append(o)
+# v11: the vanilla pieces' collision in place (memory only; nothing vanilla is saved).
+vanilla_triangles = 0
+for piece in CFG['tower_v11']['pieces']:
+    for solid in L.piece_solids(piece, CFG):
+        for tri in L.solid_triangles(solid):
+            base = len(collision_vs); collision_vs += [Vector(p) for p in tri]; collision_ts.append((base, base + 1, base + 2))
+            vanilla_triangles += 1
 collision = BVHTree.FromPolygons(collision_vs, collision_ts, all_triangles=True)
 pedestal_top = max(p.z for p in collision_vs if abs(p.x) < 95 and abs(p.y) < 92 and p.z > TOP - 1)
 anchor_check = bpy.data.objects[CFG['sight']['rear_sight_node']]
@@ -163,7 +175,7 @@ on_pedestal = [f for f in feet if abs(f.z - TOP - CFG['sight']['pedestal_collisi
 floor_heights = sorted({round(f.z - TOP, 1) for f in feet})
 rows = []; worst_sweep = (1e9, None); sampled_sweep = 1e9; worst_camera = (1e9, None); worst_sight = (1e9, None)
 blocked = []; clipped = []; colinear = 0.0; alignment = 0.0
-for elevation in (-5, 0, 15, 35, 38, 45, 60, 70, 80):
+for elevation in (-20, -15, -10, -5, 0, 15, 35, 38, 45, 60, 70, 80):
     for yaw in range(0, 360, 15):
         sp = pose_scene(yaw, elevation)
         cam = Vector(sp['camera']); tgt = Vector(sp['target'])
@@ -196,7 +208,7 @@ probe_face = near_plane_intrusions(cam, sp, [('face', big, BVHTree.FromPolygons(
 sp = pose_scene(0, 80)
 probe_ring = near_plane_intrusions(Vector(sp['camera']), sp, [(ring_mesh.name, world_vertices(ring_mesh), trees([ring_mesh])[0])], near=20.0)
 near_plane_falsified = probe_face == ['face'] and probe_ring == [ring_mesh.name]
-report = {'scope': 'Static geometry on the written NIFs, sampled poses (24 yaws x 9 elevations). The engine sphere radius (~12-15 u) and its start at the eye are fitted to the v09 camera recorder log, not measured in the engine.',
+report = {'scope': 'Static geometry on the written NIFs, sampled poses (24 yaws x 12 elevations including -20 degrees). The engine sphere radius (~12-15 u) and its start at the eye are fitted to the v09 camera recorder log, not measured in the engine.',
     'operator_positions': len(feet), 'operator_positions_on_pedestal': len(on_pedestal), 'operator_foot_heights_above_root': floor_heights,
     'operator_rule': f'within {OPERATOR_RADIUS:.0f} u of the crank foot, |dz| <= {OPERATOR_DZ:.0f}, walkable collision, body radius {BODY_RADIUS:.0f} u free up to 110 u; eye = feet + {EYE_ABOVE_FEET}',
     'poses': len(rows), 'pedestal_collision_top_above_root': pedestal_top - TOP,
@@ -207,12 +219,13 @@ report = {'scope': 'Static geometry on the written NIFs, sampled poses (24 yaws 
     'min_camera_to_sight_meshes': worst_sight[0], 'worst_sight_mesh_case': worst_sight[1], 'required_near_plane': NEAR_PLANE,
     'near_plane_cuts_in_view': clipped[:10], 'near_plane_cut_poses': len(clipped), 'near_plane_check_falsified': near_plane_falsified,
     'near_plane_rule': 'no weapon triangle overlaps, and no weapon vertex lies inside, the view pyramid between the camera and the 15 u near plane (85 degree 16:9 frustum)',
-    'not_covered': 'Tower visual-only geometry is outside the camera, near-plane and sight-line checks (tower collision is in the sweep); the v04 source has only low platform pieces within the 200 u camera radius.',
+    'not_covered': 'Tower visual-only geometry is outside the camera, near-plane and sight-line checks (tower and vanilla collision are in the sweep); within the 200 u camera radius the v11 tower keeps only the v04 turntable and the deck planks, both low.',
+    'vanilla_collision_triangles': vanilla_triangles, 'vanilla_pieces': len(CFG['tower_v11']['pieces']),
     'sight_line_blocked_by_weapon': blocked[:10], 'sight_line_blocked_count': len(blocked),
     'max_sight_colinearity_error': colinear, 'max_sight_alignment_error_units': alignment,
     'alignment_points': 'written rear-ring centre (bounding box of the ring vertices) and written post apex, post node set as Plugin.cpp sets it',
     'nif_sha256': {n: hashlib.sha256((ROOT/'mod/meshes/AstraAsedio'/f'{n}.nif').read_bytes()).hexdigest() for n in ('torre', 'ballesta')},
-    'inputs_sha256': {n: hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in ('scripts/sight_pose.py', 'scripts/verify_sight_path.py', 'config.json')},
+    'inputs_sha256': {n: hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in ('scripts/sight_pose.py', 'scripts/verify_sight_path.py', 'config.json', 'scripts/v11_layout.py', 'reports/angle_convention.json')},
     'rows': rows}
 ok = (worst_sweep[0] >= SWEEP_CLEARANCE and worst_camera[0] >= CAMERA_CLEARANCE and worst_sight[0] >= NEAR_PLANE
       and not blocked and not clipped and near_plane_falsified and colinear < 1e-4 and len(on_pedestal) > 0 and len(feet) > len(on_pedestal))
@@ -231,11 +244,11 @@ for i, (pos, power) in enumerate((((-450, -750, 1100), 7e6), ((800, -350, 600), 
 cd = bpy.data.cameras.new('Sight'); cam_obj = bpy.data.objects.new('Sight', cd); scene.collection.objects.link(cam_obj)
 cd.type = 'PERSP'; cd.sensor_fit = 'HORIZONTAL'; cd.angle = math.radians(85); cd.clip_start = NEAR_PLANE; cd.clip_end = 8000; scene.camera = cam_obj
 images = []
-for elevation in (0, 35, 80):
+for elevation in (-20, 0, 35, 80):
     sp = pose_scene(0, elevation)
     basis = Matrix((Vector(sp['right']), Vector(sp['up']), -Vector(sp['forward']))).transposed()
     cam_obj.matrix_world = Matrix.Translation(Vector(sp['camera'])) @ basis.to_4x4()
-    path = ROOT/f'renders/Astra_mira_v10_{elevation:02d}.png'; scene.render.filepath = str(path); bpy.ops.render.render(write_still=True)
+    path = ROOT/f'renders/Astra_mira_v11_{elevation:02d}.png'; scene.render.filepath = str(path); bpy.ops.render.render(write_still=True)
     images.append(str(path.relative_to(ROOT)))
 report['renders'] = images
 (ROOT/'reports/sight_path_verified.json').write_text(json.dumps(report, indent=2))

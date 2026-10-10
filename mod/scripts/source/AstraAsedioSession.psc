@@ -167,6 +167,32 @@ Function RestoreControls()
     ; invoke an unregistered function; global native load/revert also clears it.
     if oldGun != None && oldGun.UseSightCamera && SKSE.GetPluginVersion("AstraSight") >= 1
         AstraSightNative.EndSight(oldGun, oldToken)
+        if SKSE.GetPluginVersion("AstraSight") >= 50659328
+            ; 500 polls of 0.01s and a 5s clock both end the cleanup wait.
+            ; A stuck native must not leave releasing set: Acquire would
+            ; reject every gun until the next load.
+            bool quiet = AstraSightNative.IsEffectsQuiescent(oldGun, oldToken)
+            int spins = 0
+            float started = 0.0
+            float now = 0.0
+            if !quiet
+                started = Utility.GetCurrentRealTime()
+                now = started
+            endif
+            while !quiet && spins < 500
+                spins += 1
+                now = Utility.GetCurrentRealTime()
+                if now != now || now < started || now >= started + 5.0
+                    spins = 500
+                else
+                    Utility.WaitMenuMode(0.01)
+                    quiet = AstraSightNative.IsEffectsQuiescent(oldGun, oldToken)
+                endif
+            endwhile
+            if !quiet
+                Debug.Trace("AstraAsedio session effects quiescence timed out token=" + oldToken)
+            endif
+        endif
     endif
     Game.EnablePlayerControls(restoreMovement, restoreFighting, restoreCamSwitch, false, false, false, false, false)
     RestorePerspective(previousCamera, restorePerspective)

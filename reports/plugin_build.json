@@ -18,16 +18,16 @@
     "CONT": 1,
     "QUST": 1,
     "CELL": 1,
-    "REFR": 30,
+    "REFR": 94,
     "NAVM": 1,
     "NAVI": 1
   },
-  "navmesh_vertices": 137,
-  "navmesh_triangles": 176,
+  "navmesh_vertices": 403,
+  "navmesh_triangles": 566,
   "ck_finalized_verified": false,
   "in_game_verified": false,
-  "sha256": "9229b0a06887b3e62792c1dfc765aaf6c8f4a714635f57bb6d9c72709f6362ac",
-  "size": 14558,
+  "sha256": "25b24793600f644b23809330f2c499c65dfb32daa62d5f281f331b9e7aca2279",
+  "size": 34936,
   "masters": [
     "Skyrim.esm",
     "Update.esm",
@@ -71,8 +71,15 @@
     ]
   },
   "navmesh": {
-    "vertices": 137,
-    "triangles": 176,
+    "vanilla_band_obstacles": 40,
+    "room_footprint": [
+      -128.0,
+      -128.0,
+      128.0,
+      128.0
+    ],
+    "vertices": 403,
+    "triangles": 566,
     "walk_source": "reports\\collision_walkable.json",
     "bounds": [
       [
@@ -88,8 +95,8 @@
     ],
     "capsule_clearance_xy": 18.0,
     "actor_height": 128.0,
-    "solid_box_count": 79,
-    "merged_rectangles": 33,
+    "solid_box_count": 63,
+    "merged_rectangles": 104,
     "sloped_barrier_count": 2,
     "clearance_model": "18-unit conservative horizontal capsule envelope and 128-unit actor height; solid AABBs plus sloped stair-rail prisms. Triangle polygon clipping, reciprocal adjacency, one component required.",
     "walkable_disk_units": {
@@ -161,6 +168,551 @@
     "ammo_playable": false,
     "shot_sound": "Dawnguard.esm WPNCrossbowFire via Papyrus SOUN",
     "damage_composition_in_game_verified": false
+  },
+  "vanilla_references": [
+    {
+      "name": "pilote_-262_-262",
+      "form_id": "03000940",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_-262_-128",
+      "form_id": "03000941",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_-262_+128",
+      "form_id": "03000942",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_-262_+262",
+      "form_id": "03000943",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_-128_-262",
+      "form_id": "03000944",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_-128_-128",
+      "form_id": "03000945",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_-128_+128",
+      "form_id": "03000946",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_-128_+262",
+      "form_id": "03000947",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_+128_-262",
+      "form_id": "03000948",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_+128_-128",
+      "form_id": "03000949",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_+128_+128",
+      "form_id": "0300094A",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_+128_+262",
+      "form_id": "0300094B",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_+262_-262",
+      "form_id": "0300094C",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_+262_-128",
+      "form_id": "0300094D",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_+262_+128",
+      "form_id": "0300094E",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_+262_+262",
+      "form_id": "0300094F",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_+286_-360",
+      "form_id": "03000950",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "pilote",
+      "scale": 1.0
+    },
+    {
+      "name": "pilote_+361_-360",
+      "form_id": "03000951",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "pilote",
+      "scale": 1.0
+    },
+    {
+      "name": "pilote_+286_-185",
+      "form_id": "03000952",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "pilote",
+      "scale": 1.0
+    },
+    {
+      "name": "pilote_+361_-185",
+      "form_id": "03000953",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "pilote",
+      "scale": 1.0
+    },
+    {
+      "name": "pilote_+286_-009",
+      "form_id": "03000954",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "pilote",
+      "scale": 1.0
+    },
+    {
+      "name": "pilote_+361_-009",
+      "form_id": "03000955",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "pilote",
+      "scale": 1.0
+    },
+    {
+      "name": "pilote_+361_+205",
+      "form_id": "03000956",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "pilote_+361_+271",
+      "form_id": "03000957",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "pilote",
+      "scale": 1.4506
+    },
+    {
+      "name": "cruz_S_1",
+      "form_id": "03000958",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "cruz_S_2",
+      "form_id": "03000959",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_S_c",
+      "form_id": "0300095A",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_S_i",
+      "form_id": "0300095B",
+      "base": "000533D3",
+      "edid": "StockadeWoodbeamShort01",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "diagonal_S_i",
+      "form_id": "0300095C",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_S_d",
+      "form_id": "0300095D",
+      "base": "000533D4",
+      "edid": "StockadeWoodbeamShort02",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "diagonal_S_d",
+      "form_id": "0300095E",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "cruz_N_1",
+      "form_id": "0300095F",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "cruz_N_2",
+      "form_id": "03000960",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_N_c",
+      "form_id": "03000961",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_N_i",
+      "form_id": "03000962",
+      "base": "000533D3",
+      "edid": "StockadeWoodbeamShort01",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "diagonal_N_i",
+      "form_id": "03000963",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_N_d",
+      "form_id": "03000964",
+      "base": "000533D4",
+      "edid": "StockadeWoodbeamShort02",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "diagonal_N_d",
+      "form_id": "03000965",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "cruz_O_1",
+      "form_id": "03000966",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "cruz_O_2",
+      "form_id": "03000967",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_O_c",
+      "form_id": "03000968",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_O_i",
+      "form_id": "03000969",
+      "base": "000533D3",
+      "edid": "StockadeWoodbeamShort01",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "diagonal_O_i",
+      "form_id": "0300096A",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_O_d",
+      "form_id": "0300096B",
+      "base": "000533D4",
+      "edid": "StockadeWoodbeamShort02",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "diagonal_O_d",
+      "form_id": "0300096C",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "cruz_E_1",
+      "form_id": "0300096D",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "cruz_E_2",
+      "form_id": "0300096E",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_E_c",
+      "form_id": "0300096F",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_E_i",
+      "form_id": "03000970",
+      "base": "000533D3",
+      "edid": "StockadeWoodbeamShort01",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "diagonal_E_i",
+      "form_id": "03000971",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "viga_E_d",
+      "form_id": "03000972",
+      "base": "000533D4",
+      "edid": "StockadeWoodbeamShort02",
+      "role": "viga",
+      "scale": 1.0
+    },
+    {
+      "name": "diagonal_E_d",
+      "form_id": "03000973",
+      "base": "000533D2",
+      "edid": "StockadeWoodbeam03",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "escalera_trans_0",
+      "form_id": "03000974",
+      "base": "000533D3",
+      "edid": "StockadeWoodbeamShort01",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "escalera_trans_1",
+      "form_id": "03000975",
+      "base": "000533D4",
+      "edid": "StockadeWoodbeamShort02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "escalera_trans_2",
+      "form_id": "03000976",
+      "base": "000533D3",
+      "edid": "StockadeWoodbeamShort01",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "escalera_long_int_0",
+      "form_id": "03000977",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "escalera_long_int_1",
+      "form_id": "03000978",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "escalera_long_ext_0",
+      "form_id": "03000979",
+      "base": "000533D0",
+      "edid": "StockadeWoodbeam01",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "escalera_long_ext_1",
+      "form_id": "0300097A",
+      "base": "000533D1",
+      "edid": "StockadeWoodbeam02",
+      "role": "cruz",
+      "scale": 1.0
+    },
+    {
+      "name": "pared_N",
+      "form_id": "0300097B",
+      "base": "00054628",
+      "edid": "StockadeBuildingStraight01",
+      "role": "pared",
+      "scale": 1.0
+    },
+    {
+      "name": "pared_O",
+      "form_id": "0300097C",
+      "base": "00054628",
+      "edid": "StockadeBuildingStraight01",
+      "role": "pared",
+      "scale": 1.0
+    },
+    {
+      "name": "pared_E",
+      "form_id": "0300097D",
+      "base": "00054628",
+      "edid": "StockadeBuildingStraight01",
+      "role": "pared",
+      "scale": 1.0
+    },
+    {
+      "name": "techo",
+      "form_id": "0300097E",
+      "base": "000533C0",
+      "edid": "StockadeScaffoldTop0Sided01",
+      "role": "techo",
+      "scale": 1.0
+    },
+    {
+      "name": "puerta",
+      "form_id": "0300097F",
+      "base": "000C78A3",
+      "edid": "FarmhouseAnimDoor01",
+      "role": "puerta",
+      "scale": 1.0
+    }
+  ],
+  "spawn_marker": {
+    "pos": [
+      56,
+      250,
+      18
+    ],
+    "moved": true,
+    "clearance": 49.699679533758655,
+    "original": [
+      120,
+      250,
+      18
+    ],
+    "rule": ">= 40 u from anything in the [0, 128] u band, outside the room, on the navmesh"
+  },
+  "door": {
+    "base": "000C78A3 FarmhouseAnimDoor01",
+    "teleport": false,
+    "opens": "inward",
+    "swing_verified_in_game": false
+  },
+  "angle_convention": {
+    "decided": true,
+    "order": "ZYX",
+    "signs": [
+      -1,
+      -1,
+      -1
+    ],
+    "falsified": true
   },
   "activation": {
     "operator_distance_xy": 160.0,

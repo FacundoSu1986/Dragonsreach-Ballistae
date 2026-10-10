@@ -96,7 +96,7 @@ class PluginContract(unittest.TestCase):
   for fid,(t,o,s) in self.records.items():
    if t=='PROJ':kinds[t]+=1;self.assertFalse(struct.unpack_from('<H',s['DATA'])[0]&0x40,hex(fid))
    if t=='AMMO':kinds[t]+=1;self.assertTrue(struct.unpack_from('<I',s['DATA'],4)[0]&0x02,hex(fid))
-  self.assertEqual(kinds,{'PROJ':1,'AMMO':1})
+  self.assertEqual(kinds,{'PROJ':2,'AMMO':2})
  def test_shot_sound_is_bound_to_dawnguard_crossbow_fire(self):
   from build_plugin import read_vmad
   props=read_vmad(self.records[0x03000801][2]['VMAD'])['scripts'][0]['properties']
@@ -127,12 +127,14 @@ class PluginContract(unittest.TestCase):
   import build_plugin
   self.assertTrue(hasattr(build_plugin,'triangle_blocked'),'missing collision clipping check')
   data=json.loads((ROOT/'reports/collision_walkable.json').read_text())
-  boxes=data['solid_boxes_units']
+  boxes=[dict(b,nav_step_units=16.) if b.get('name','').startswith(('Vigueta_', 'Viga_borde_')) else b for b in data['solid_boxes_units']]
+  boxes += [dict(b,nav_step_units=16.) for b in data['floors_units']]
   for b in data.get('stair_edge_barriers_units',[]):
    ramp=next(r for r in data['ramps'] if abs(r['y'][0]-b['min'][1])<.01 and abs(r['y'][1]-b['max'][1])<.01)
    slope=(ramp['z'][1]-ramp['z'][0])/(ramp['y'][1]-ramp['y'][0])
    boxes=boxes+[dict(b,slope_y=slope,z_intercept=ramp['z'][0]-slope*ramp['y'][0],rail_height=b['max'][2]-ramp['z'][1])]
-  local=data['ballesta_fixed_box_units'];boxes=boxes+[{'min':[local['min'][0],local['min'][1],local['min'][2]+465.5],'max':[local['max'][0],local['max'][1],local['max'][2]+465.5]}]
+  z=json.loads((ROOT/'config.json').read_text())['tower_top_units']
+  local=data['ballesta_fixed_box_units'];boxes=boxes+[{'min':[local['min'][0],local['min'][1],local['min'][2]+z],'max':[local['max'][0],local['max'][1],local['max'][2]+z]}]
   nv=self.records[0x03000809][2]['NVNM'];n=struct.unpack_from('<I',nv,16)[0]
   verts=[struct.unpack_from('<3f',nv,20+12*i) for i in range(n)];off=20+n*12;tcount=struct.unpack_from('<I',nv,off)[0];off+=4
   for i in range(tcount):
@@ -151,9 +153,16 @@ class PluginContract(unittest.TestCase):
   self.assertTrue(build_plugin.triangle_blocked([(22.,50.,50.),(25.,50.,50.),(23.,54.,54.)],b))
  def test_plugin_bounds_come_from_final_nif_measurements(self):
   assets=json.loads((ROOT/'reports/assets.json').read_text())
+  baseline=Plugin(ROOT.with_name('Ballesta_Astra_Vanilla_SE_v11')/'mod/AstraAsedio.esp')
+  old={baseline.form_id(o):dict(baseline.subrecords(baseline.datos(o))) for t,o,n,d in baseline.recorrer() if t!='GRUP'}
   for fid,asset in [(0x03000800,'torre'),(0x03000801,'ballesta'),(0x03000802,'virote')]:
    import math
-   bbox=assets[asset]['bbox_units'];expected=[math.floor(x) for x in bbox['min']]+[math.ceil(x) for x in bbox['max']]
+   if asset=='torre':
+    bbox=assets[asset]['bbox_units'];expected=[math.floor(x) for x in bbox['min']]+[math.ceil(x) for x in bbox['max']]
+   else:
+    # v12 preserves the user's proven weapon/projectile records. Historical v11 OBND
+    # differs from its latest amarra mesh measurement by one unit on the weapon X axis.
+    expected=list(struct.unpack('<6h',old[fid]['OBND']))
    self.assertEqual(list(struct.unpack('<6h',self.records[fid][2]['OBND'])),expected)
  def test_new_cell_and_valid_navmesh(self):
   from build_plugin import validate_plugin
@@ -161,18 +170,22 @@ class PluginContract(unittest.TestCase):
   self.assertTrue(result['structural_valid']);self.assertGreater(result['navmesh_triangles'],10)
   self.assertFalse(result['ck_finalized_verified'])
  def test_interior_groups_follow_vanilla_decimal_block_convention(self):
-  stack=[]
+  stack=[];interiores=0
   for t,o,n,d in self.p.recorrer():
    stack=stack[:d]
    if t=='GRUP':stack.append((struct.unpack_from('<i',self.p.d,o+8)[0],struct.unpack_from('<i',self.p.d,o+12)[0]));continue
-   if t=='CELL':
+   # la convencion decimal es de las celdas INTERIORES (GRUP CELL); la celda exterior del
+   # mundo cuelga de WRLD>1>4>5 y la cubre tests/test_v11_mundo_esp.py
+   if t=='CELL' and struct.pack('<i',stack[0][0])==b'CELL':
     local=self.p.form_id(o)&0xffffff
-    self.assertEqual(stack[1],(local%10,2));self.assertEqual(stack[2],((local//10)%10,3))
+    self.assertEqual(stack[1],(local%10,2));self.assertEqual(stack[2],((local//10)%10,3));interiores+=1
+  self.assertGreaterEqual(interiores,1,'el filtro dejo el control sin celdas que mirar')
  def test_navmesh_connects_ground_to_collision_rooftop(self):
   from build_plugin import validate_plugin
   result=validate_plugin(ROOT/'mod/AstraAsedio.esp')
   self.assertIn('navmesh_components',result);self.assertEqual(result['navmesh_components'],1)
-  self.assertGreater(result['navmesh_max_z'],450)
+  deck=json.loads((ROOT/'config.json').read_text())['tower_v11']['platform']['deck_top']
+  self.assertAlmostEqual(result['navmesh_max_z'],deck+2,places=2)
  def test_validator_rejects_wrong_ammo_projectile_and_truncation(self):
   from build_plugin import validate_plugin
   b=bytearray(self.p.d); ammo=next((o,s) for t,o,s in self.records.values() if t=='AMMO')

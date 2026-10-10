@@ -1,0 +1,62 @@
+{
+  "nota": "Lista cerrada de aserciones heredadas de v10 que v11 cambia a propósito. Cualquier otro test o verificador que falle se arregla en la geometría, no en el test.",
+  "cambios": [
+    {
+      "archivo": "scripts/verify_stair_route.py:34",
+      "vieja": "toda la colisión (incluidas solid_boxes_units) igual a reports/reference_collision_escalera_directa.json",
+      "nueva": "pisos, rampa, barreras de la escalera y disco iguales; los 5 topes bajos exactamente presentes; las demás cajas son las nuevas, con origen en stair_design.json",
+      "motivo": "spec, Invariantes: las cajas de postes se regeneran y las de la cabina se quitan",
+      "nota": "no estaba en el inventario de la Tarea 1; se agregó al encontrarla en la Tarea 10"
+    },
+    {
+      "archivo": "scripts/verify_stair_route.py:101",
+      "vieja": "set(original)==set(editable) (piezas 01_Torre/03_Plataforma contra v04)",
+      "nueva": "reports/v11_tower.json existe, ligado al SHA de torre.nif, con las métricas de irregularidad en ok",
+      "motivo": "spec §4 Escalera: la torre v04 se reemplaza entera"
+    },
+    {
+      "archivo": "scripts/verify_stair_route.py:106",
+      "vieja": "changed>=100",
+      "nueva": "igual que arriba (métricas de irregularidad de verify_v11_tower.py)",
+      "motivo": "spec §4 Escalera"
+    },
+    {
+      "archivo": "scripts/verify_stair_route.py:111",
+      "vieja": "rustic['floor_pieces']>=80",
+      "nueva": "rustic['plank_count'] y rustic['tread_count'] iguales a los que informa build_tower_v11.py, ligados al SHA",
+      "motivo": "spec §4 Escalera"
+    },
+    {
+      "archivo": "scripts/build_plugin.py:215",
+      "vieja": "cortes de grilla en ±140 (cabina)",
+      "nueva": "cortes en los bordes de tower_v11.room",
+      "motivo": "spec §3 navmesh",
+      "estado": "hecho en la Tarea 8"
+    },
+    {
+      "archivo": "scripts/build_plugin.py:237",
+      "vieja": "under_body=-140<mx<140 and -140<my<140",
+      "nueva": "dentro de la huella de tower_v11.room",
+      "motivo": "spec §3 navmesh",
+      "estado": "hecho en la Tarea 8"
+    },
+    {
+      "archivo": "tests/test_plugin_contract.py:130",
+      "vieja": "obstáculos = solid_boxes_units + barreras + pedestal",
+      "nueva": "lo mismo más las band_boxes vanilla (0–128 u); se endurece, no se afloja",
+      "motivo": "spec §3 navmesh: obstáculos vanilla",
+      "estado": "no hizo falta cambiarlo: sigue igual y pasa; el endurecimiento con las cajas vanilla del suelo está en tests/test_v11_plugin.py y en validate_plugin"
+    },
+    {
+      "archivo": "scripts/package_release.py:205-209",
+      "vieja": "reports/v10_baseline.json, mensajes 'v09'",
+      "nueva": "reports/v11_baseline.json (padre v10)",
+      "motivo": "spec §5 entrega"
+    }
+  ],
+  "se_mantiene": [
+    "scripts/verify_stair_route.py old_balcony_collision_absent",
+    "tests/test_plugin_contract.py triangle_blocked y rampa con pendiente",
+    "todos los umbrales de cámara de verify_sight_path.py"
+  ]
+}

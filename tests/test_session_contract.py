@@ -42,6 +42,45 @@ class SessionContract(unittest.TestCase):
   self.assertIn('Game.IsMovementControlsEnabled()',self.s);self.assertIn('Game.IsFightingControlsEnabled()',self.s)
   self.assertRegex(self.s,r'DisablePlayerControls\(acquiredMovement, acquiredFighting, acquiredCamSwitch, false, false, false, false, false\)')
   self.assertRegex(self.s,r'EnablePlayerControls\(restoreMovement, restoreFighting, restoreCamSwitch, false, false, false, false, false\)')
+ def test_fighting_disable_and_lease_acquire_have_no_unpaired_call_site(self):
+  """Sheathing from DisablePlayerControls drops a dragon's combat target.
+
+  The family is every Papyrus call under mod/scripts/source. A new call is a
+  new way to sheathe the player. It must snapshot GetCombatTarget before the
+  disable, on the same path as Session.Acquire, or be an explicit exemption.
+  Adding a file here only to keep the test green leaves the dragon bug in place.
+  City stations are not a second entry: they call Parent.OnActivate.
+  Guard combat targets are the NPC gunner and do not disable player controls.
+  """
+  source=ROOT/'mod/scripts/source'
+  disables={};acquires={}
+  for path in sorted(source.glob('*.psc')):
+   code='\n'.join(line.split(';',1)[0] for line in path.read_text(encoding='utf-8').splitlines())
+   disable_count=code.count('DisablePlayerControls(')
+   acquire_count=code.count('Session.Acquire(')
+   if disable_count:disables[path.name]=disable_count
+   if acquire_count:acquires[path.name]=acquire_count
+  self.assertEqual(disables,{'AstraAsedioSession.psc':1})
+  self.assertEqual(acquires,{'AstraAsedioActi.psc':1})
+  acti='\n'.join(line.split(';',1)[0] for line in (source/'AstraAsedioActi.psc').read_text(encoding='utf-8').splitlines())
+  activate=acti.split('Event OnActivate(')[1].split('EndEvent')[0]
+  self.assertEqual(activate.count('GetCombatTarget('),1)
+  self.assertLess(activate.index('GetCombatTarget('),activate.index('Session.Acquire('))
+  update=acti.split('Event OnUpdate()')[1].split('EndEvent')[0]
+  self.assertEqual(update.count('RetainMountedCombat('),1)
+  retain=acti.split('Function RetainMountedCombat(')[1].split('EndFunction')[0]
+  self.assertEqual(retain.count('StartCombat('),2)
+  self.assertEqual(acti.count('TraceRetainedCombat('),3)
+  self.assertEqual(retain.count('TraceRetainedCombat('),1)
+  self.assertLess(retain.index('TraceRetainedCombat("tick")'),retain.index('target.IsDead()'))
+  self.assertLess(retain.index('retainedCombatTarget != target'),retain.index('StartCombat('))
+  probe=acti.split('Function TraceRetainedCombat(')[1].split('EndFunction')[0]
+  self.assertEqual(probe.count('StartCombat('),0)
+  self.assertNotIn('QALog',probe)
+  for field in ('IsDead()','GetActorValue("Health")','GetCombatState()','GetCombatTarget()','ReadCameraState()','IsFightingControlsEnabled()','IsCamSwitchControlsEnabled()'):
+   self.assertEqual(probe.count(field),1,field)
+  end=acti.split('Function EndSession()')[1].split('EndFunction')[0]
+  self.assertLess(end.index('TraceRetainedCombat("exit")'),end.index('retainedCombatTarget = None'))
  def test_cleanup_on_load_death_and_unload(self):
   alias=(ROOT/'mod/scripts/source/AstraAsedioPlayerAlias.psc').read_text()
   self.assertIn('Event OnPlayerLoadGame()',alias);self.assertIn('Event OnDeath',alias)

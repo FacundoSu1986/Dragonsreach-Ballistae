@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-09T22:31:28.650315+00:00",
+  "attempted": true,
+  "read_only_script": true,
+  "isolated_copies": true,
+  "command": [
+    "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\SSEEdit.exe",
+    "-SSE",
+    "-autoload",
+    "-autoexit",
+    "-NoAutoMarkModified",
+    "-script:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\Scripts\\AstraReadOnly.ssepas",
+    "-P:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\plugins.txt",
+    "-R:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\check.log",
+    "-D:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\Data\\",
+    "-S:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\Scripts\\",
+    "-C:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\Cache\\",
+    "-B:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\Backups\\",
+    "-T:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\Temp\\",
+    "-M:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\Ini\\",
+    "-G:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\Saves\\",
+    "-I:E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\build\\xedit_v19\\Ini\\Skyrim.ini"
+  ],
+  "timed_out": true,
+  "limitation": "Script execution did not finish within the bounded noninteractive run",
+  "completed": false,
+  "errors": null,
+  "files_checked": [],
+  "log": "build\\xedit_v19\\check.log",
+  "log_sha256": null,
+  "originals_unchanged": true,
+  "input_sha256": {
+    "G:\\Modding\\Skyrim_Runtime_1.6.1170\\Data\\Skyrim.esm": "2bbc77fdec35a70ef96b710f8c525e50a1db9e63e11a391a0eb9ee8f56d36107",
+    "G:\\Modding\\Skyrim_Runtime_1.6.1170\\Data\\Update.esm": "c1795e0a1218da45dbfd523f064f1857b42805c49714c46091e75277e525aed9",
+    "G:\\Modding\\Skyrim_Runtime_1.6.1170\\Data\\Dawnguard.esm": "1bda804009a21228acf6b30aa6aa7a692b247ff8a0313fe9aa69b3617ed4a6c4",
+    "G:\\Modding\\Skyrim_Runtime_1.6.1170\\Data\\HearthFires.esm": "ad4ca9f32c81e7ddd3e39ec95e03b07841f20712989e598778442ea69b6e6a97",
+    "G:\\Modding\\Skyrim_Runtime_1.6.1170\\Data\\Dragonborn.esm": "5f44f343552688c04f73bf83de58b90f70c7376b133fbbcb56b6fe33acf8778b",
+    "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\mod\\AstraAsedio.esp": "c74e4ab88910b8bf97b9e84b69b51529dc5e02cfe2db8a70c480028015c3aaa9",
+    "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\addons\\Atalaya\\AstraAsedio_Atalaya.esp": "192fc61eebfc35a05c27f7b4e14403cde411812d51593c4062520dc0b5e3f387",
+    "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v19\\addons\\WhiterunTorres\\AstraAsedio_WhiterunTorres.esp": "b1bf734136892dbddfad835a36be0a0f60aa60f7286c0be7561e7c2d7e80b685"
+  },
+  "success": false
+}

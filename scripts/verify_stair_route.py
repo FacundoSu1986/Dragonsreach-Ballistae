@@ -1,18 +1,21 @@
-"""v09: check the reimported torre.nif collision and explicit feet samples in the written NAVM (Blender).
+"""v09/v11: check the reimported torre.nif collision and explicit feet samples in the written NAVM (Blender).
 
-From Ballesta_Astra_Escalera_Directa_v01, adapted: the rustic pass bends body/roof pieces on purpose,
-so their vertices are bounded instead of identical, and the collision layout must equal the frozen
-square-stair reference.
+From Ballesta_Astra_Escalera_Directa_v01, adapted. v11 (spec §4, 'Escalera'): the vanilla pieces'
+collision joins the body checks; exact equality with the frozen square-stair reference only where
+the spec fixes it (floors, ramp, stair barriers, disk and the five low railing barriers); the v04
+body/roof snapshot gives way to the v11 tower checks (reports/v11_tower.json) and to counts that
+must be those of the current geometry, both bound to this torre.nif.
 """
 import bpy,addon_utils,json,sys,math,struct,hashlib
 from pathlib import Path
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'scripts/vendor'))
+sys.path.insert(0,str(ROOT/'scripts/vendor'));sys.path.insert(0,str(ROOT/'scripts'))
 from parser_esm import Plugin
+import v11_layout as L
+import tower_v11_geometry as G
 cfg=json.loads((ROOT/'config.json').read_text());s=cfg['meters_to_units']
-DRIFT_LIMIT_M=.22   # v09 amplitudes: log ends up to 0.13 m plus thickness and lean
 addon_utils.enable('io_scene_nifly',default_set=True)
 for o in list(bpy.data.objects):bpy.data.objects.remove(o,do_unlink=True)
 bpy.context.view_layer.objects.active=None
@@ -25,13 +28,22 @@ for o in bpy.data.objects:
     vertices.extend(o.matrix_world@v.co for v in o.data.vertices)
     triangles.extend(tuple(base+i for i in t.vertices) for t in o.data.loop_triangles)
 assert vertices
+tower_triangles=len(triangles)
+# v11: the vanilla stilts, braces, room and door stand in the same world.
+for piece in cfg['tower_v11']['pieces']:
+    for solid in L.piece_solids(piece,cfg):
+        for tri in L.solid_triangles(solid):
+            base=len(vertices);vertices.extend(Vector(p) for p in tri);triangles.append((base,base+1,base+2))
 bvh=BVHTree.FromPolygons(vertices,triangles,all_triangles=True)
 walk=json.loads((ROOT/'reports/collision_walkable.json').read_text());r=walk['ramps'][0]
 reference=json.loads((ROOT/'reports/reference_collision_escalera_directa.json').read_text())
-# v10: the ballista pedestal box is lowered on purpose (camera pull-in, reports/user_evidence_v09.json);
-# every stair/tower key must still equal the square-stair reference.
-stair_keys=[k for k in reference if k!='ballesta_fixed_box_units']
+# v10: the ballista pedestal box is lowered on purpose (camera pull-in, reports/user_evidence_v09.json).
+# v11: floors, ramp, stair barriers and disk equal the reference; of the solid boxes, the five low
+# railing barriers must be there unchanged (posts and the front wall are new, the cabin is gone).
+stair_keys=['floors_units','ramps','stair_edge_barriers_units','walkable_disk_units']
 assert {k:walk[k] for k in stair_keys}=={k:reference[k] for k in stair_keys},'Collision layout differs from the square stair reference'
+low=lambda boxes:sorted(json.dumps(b,sort_keys=True) for b in boxes if abs(b['max'][2]-b['min'][2]-24.5)<.6 and b['min'][2]>450)
+assert len(low(reference['solid_boxes_units']))==5 and low(walk['solid_boxes_units'])==low(reference['solid_boxes_units']),'the five low railing barriers changed'
 pedestal=walk['ballesta_fixed_box_units'];ref_pedestal=reference['ballesta_fixed_box_units']
 # Same footprint and base as the reference; only the top is lowered.
 assert pedestal['min']==ref_pedestal['min'] and pedestal['max'][:2]==ref_pedestal['max'][:2],('pedestal footprint differs from the reference',pedestal,ref_pedestal)
@@ -87,37 +99,24 @@ def contains(foot,t):
     return min(u,v,1-u-v)>=-.0001 and abs(z-foot[2]-2)<.03
 uncovered=[(k,p) for k,p in enumerate(route) if not any(contains(p,t) for t in ts)]
 assert not uncovered,uncovered[:10]
-# The rustic pass bends body/roof pieces on purpose: same pieces, bounded drift.
-def snapshot(path):
-    bpy.ops.wm.open_mainfile(filepath=str(path),use_scripts=False)
-    bpy.context.scene.frame_set(1);bpy.context.view_layer.update()
-    result={}
-    for o in bpy.context.scene.objects:
-        if o.type=='MESH' and any(c.name in ('01_Torre','03_Plataforma') for c in o.users_collection):
-            result[o.name]=[[round(x,6) for x in o.matrix_world@v.co] for v in o.data.vertices]
-    return result
-original=snapshot(ROOT/'source/Torre_Ballesta_lowpoly_v04.blend')
-editable=snapshot(ROOT/'source/Torre_escalera_rustica.blend')
-assert set(original)==set(editable),'Body/roof pieces added or removed'
-def box(vs):return [min(v[j] for v in vs) for j in range(3)]+[max(v[j] for v in vs) for j in range(3)]
-drift=max(abs(a-b) for n in original for a,b in zip(box(original[n]),box(editable[n])))
-changed=sum(1 for n in original if box(original[n])!=box(editable[n]))
-assert drift<=DRIFT_LIMIT_M,('Body/roof drift too large',drift)
-assert changed>=100,('Rustic pass did not reach the body/roof pieces',changed)
-# Walk surfaces (treads, roof planks, landing) are generated or bent before export; their measured
-# vertical drift is bound to this exact torre.nif and must stay within the floor limit.
+# v11: the rustic geometry is generated, not bent from v04. Its counts must be those of the current
+# geometry code and config, and the tower checks (contacts, room, door, irregularity, walk surfaces
+# measured on the written NIF) must have passed on this very torre.nif.
+sha=hashlib.sha256((ROOT/'mod/meshes/AstraAsedio/torre.nif').read_bytes()).hexdigest()
 rustic=json.loads((ROOT/'reports/rustico.json').read_text())
-assert rustic['torre_nif_sha256']==hashlib.sha256((ROOT/'mod/meshes/AstraAsedio/torre.nif').read_bytes()).hexdigest(),'rustico.json is for another torre.nif'
-assert rustic['floor_pieces']>=80,('floor pieces missing from the rustic report',rustic['floor_pieces'])
-assert rustic['floor_vertical_measured_m']<=rustic['floor_vertical_limit_m']+1e-6,('floor pieces moved vertically',rustic['floor_vertical_measured_m'])
-report={'success':True,'collision_mesh_triangles':len(triangles),'route_samples':len(route),'max_floor_error_units':max(errors),
+assert rustic['torre_nif_sha256']==sha,'rustico.json is for another torre.nif'
+counts=G.build(cfg)['counts']
+assert counts==rustic['counts'],('rustico.json counts are not those of the current geometry',counts,rustic['counts'])
+tower=json.loads((ROOT/'reports/v11_tower.json').read_text())
+assert tower['torre_nif_sha256']==sha and tower['ok'],'verify_v11_tower.py has not passed on this torre.nif'
+report={'success':True,'collision_mesh_triangles':tower_triangles,'vanilla_collision_triangles':len(triangles)-tower_triangles,'route_samples':len(route),'max_floor_error_units':max(errors),
     'diagonal_edge_probe_recoveries':edge_probe_recoveries,'edge_probe_max_offset_units':.02,
     'clearance_sample_rays':len(route[1:])*3*8,'body_clearance_blocking_hits':body_hits,'side_barrier_rays':len(rail_hits),
     'old_balcony_collision_absent':removed_checks,'navmesh_covered_route_samples':len(route),'uncovered_navmesh_samples':uncovered,
-    'collision_layout_equal_to_reference':True,'reference':'reports/reference_collision_escalera_directa.json',
-    'body_and_roof_pieces':len(original),'floor_pieces':rustic['floor_pieces'],'floor_vertical_measured_m':rustic['floor_vertical_measured_m'],'body_and_roof_pieces_bent':changed,'body_and_roof_max_bbox_drift_m':drift,'drift_limit_m':DRIFT_LIMIT_M,
-    'nif_sha256':hashlib.sha256((ROOT/'mod/meshes/AstraAsedio/torre.nif').read_bytes()).hexdigest(),
+    'collision_layout_equal_to_reference':stair_keys+['five low railing barriers'],'reference':'reports/reference_collision_escalera_directa.json',
+    'counts':counts,'v11_tower_checks':'reports/v11_tower.json ok on this torre.nif',
+    'nif_sha256':sha,
     'esp_sha256':hashlib.sha256((ROOT/'mod/AstraAsedio.esp').read_bytes()).hexdigest(),
-    'engine_movement_tested':False,'scope':'Static geometric samples of reimported Havok and NAVM; not an engine actor simulation.'}
+    'engine_movement_tested':False,'scope':'Static geometric samples of reimported Havok, the vanilla pieces collision and NAVM; not an engine actor simulation.'}
 (ROOT/'reports/stair_route_verified.json').write_text(json.dumps(report,indent=2))
-print('STAIR_ROUTE_VERIFIED',len(route),'samples;',changed,'of',len(original),'body/roof pieces bent; drift',round(drift,3))
+print('STAIR_ROUTE_VERIFIED',len(route),'samples; vanilla triangles',len(triangles)-tower_triangles,'counts',counts)

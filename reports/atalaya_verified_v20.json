@@ -1,0 +1,299 @@
+{
+  "success": true,
+  "nif_sha256": "6042738cdb484f9876da3ccc7a279727f666df69ff8a13f3ca2eb135c80f8a55",
+  "visual_triangles": 19378,
+  "havok_triangles": 1328,
+  "walk_samples": 244,
+  "walk_max_support_gap": 9.65802001953125,
+  "capsule_blocked": [],
+  "vanilla_access_blocked": [],
+  "static_aim_poses": 1512,
+  "pose_increment_degrees": 5,
+  "gun_contacts": [],
+  "initial_shot_hits": [],
+  "initial_shot_min_clearance": 11.24289838248767,
+  "supports": [
+    {
+      "name": "Pilote_bajo_-262_-262",
+      "bottom": -110.59734410592121,
+      "top": 112.83468495661849,
+      "ground_min": -92.55334915625554,
+      "ground_max": -91.39902915041421,
+      "bottom_below_ground": 18.043994949665674
+    },
+    {
+      "name": "Pilote_bajo_-262_-128",
+      "bottom": -96.92955615801922,
+      "top": 112.60251644167059,
+      "ground_min": -79.32271075828794,
+      "ground_max": -75.20590541516958,
+      "bottom_below_ground": 17.606845399731284
+    },
+    {
+      "name": "Pilote_bajo_-262_+128",
+      "bottom": -65.46661079893836,
+      "top": 113.59792585207947,
+      "ground_min": -48.21392382583144,
+      "ground_max": -46.58860602743789,
+      "bottom_below_ground": 17.25268697310692
+    },
+    {
+      "name": "Pilote_bajo_-262_+262",
+      "bottom": -56.45212519704005,
+      "top": 112.88534285616853,
+      "ground_min": -39.92235313490073,
+      "ground_max": -38.24307224981476,
+      "bottom_below_ground": 16.529772062139315
+    },
+    {
+      "name": "Pilote_bajo_-128_-262",
+      "bottom": -108.1196879279809,
+      "top": 114.25229270304234,
+      "ground_min": -91.00058311740122,
+      "ground_max": -86.75395684953855,
+      "bottom_below_ground": 17.119104810579685
+    },
+    {
+      "name": "Pilote_bajo_-128_-128",
+      "bottom": -94.29737783070259,
+      "top": 114.01492737704399,
+      "ground_min": -77.1940932904754,
+      "ground_max": -74.79163239840636,
+      "bottom_below_ground": 17.103284540227193
+    },
+    {
+      "name": "Pilote_bajo_-128_+128",
+      "bottom": -69.27268606879021,
+      "top": 113.26265148787584,
+      "ground_min": -51.74345363964312,
+      "ground_max": -48.60191209529421,
+      "bottom_below_ground": 17.529232429147086
+    },
+    {
+      "name": "Pilote_bajo_-128_+262",
+      "bottom": -62.664967927997296,
+      "top": 113.694618680666,
+      "ground_min": -45.742959679307205,
+      "ground_max": -44.48979593882541,
+      "bottom_below_ground": 16.92200824869009
+    },
+    {
+      "name": "Pilote_bajo_+128_-262",
+      "bottom": -81.44807192024423,
+      "top": 113.97981644864929,
+      "ground_min": -65.65666641263199,
+      "ground_max": -46.48339720991149,
+      "bottom_below_ground": 15.79140550761224
+    },
+    {
+      "name": "Pilote_bajo_+128_-128",
+      "bottom": -113.33635664302577,
+      "top": 114.3214812607355,
+      "ground_min": -97.54204799710533,
+      "ground_max": -80.30202648023115,
+      "bottom_below_ground": 15.794308645920438
+    },
+    {
+      "name": "Pilote_bajo_+128_+128",
+      "bottom": -86.65784874252535,
+      "top": 113.21430930432335,
+      "ground_min": -68.81017843873815,
+      "ground_max": -63.52154828803668,
+      "bottom_below_ground": 17.847670303787197
+    },
+    {
+      "name": "Pilote_bajo_+128_+262",
+      "bottom": -68.06367733131626,
+      "top": 113.17710036208817,
+      "ground_min": -51.18575363837772,
+      "ground_max": -49.51115108333488,
+      "bottom_below_ground": 16.877923692938538
+    },
+    {
+      "name": "Pilote_bajo_+262_-262",
+      "bottom": -81.98651547836481,
+      "top": 114.34130328034846,
+      "ground_min": -66.50035850363014,
+      "ground_max": -56.664791774989084,
+      "bottom_below_ground": 15.48615697473467
+    },
+    {
+      "name": "Pilote_bajo_+262_-128",
+      "bottom": -83.83830087963993,
+      "top": 112.99663910401503,
+      "ground_min": -66.64429318182518,
+      "ground_max": -60.13254832320753,
+      "bottom_below_ground": 17.194007697814754
+    },
+    {
+      "name": "Pilote_bajo_+262_+128",
+      "bottom": -108.38472876948929,
+      "top": 114.07428108296618,
+      "ground_min": -91.07450402487757,
+      "ground_max": -81.71706976971382,
+      "bottom_below_ground": 17.310224744611716
+    },
+    {
+      "name": "Pilote_bajo_+262_+262",
+      "bottom": -79.61658179639085,
+      "top": 114.17786815747155,
+      "ground_min": -63.72643736938153,
+      "ground_max": -57.56081239915784,
+      "bottom_below_ground": 15.890144427009318
+    },
+    {
+      "name": "Pilote_escalera_bajo_int_0",
+      "bottom": -121.36802247788331,
+      "top": 25.027101847735327,
+      "ground_min": -103.933875294063,
+      "ground_max": -97.98112756179034,
+      "bottom_below_ground": 17.434147183820315
+    },
+    {
+      "name": "Pilote_escalera_bajo_int_1",
+      "bottom": -109.19505648107818,
+      "top": 67.75571548974732,
+      "ground_min": -92.46934930593943,
+      "ground_max": -84.51356284865233,
+      "bottom_below_ground": 16.72570717513875
+    },
+    {
+      "name": "Pilote_escalera_bajo_ext_0",
+      "bottom": -137.09459506721925,
+      "top": 24.99686065477704,
+      "ground_min": -120.36087520303317,
+      "ground_max": -113.45850276542296,
+      "bottom_below_ground": 16.73371986418607
+    },
+    {
+      "name": "Pilote_escalera_bajo_ext_1",
+      "bottom": -127.72601481515635,
+      "top": 67.4018431248251,
+      "ground_min": -110.89870741315826,
+      "ground_max": -102.92846872147402,
+      "bottom_below_ground": 16.827307401998084
+    },
+    {
+      "name": "Atalaya_entrada_pilote_int_0",
+      "bottom": -85.14354829646646,
+      "top": -71.73913726417234,
+      "ground_min": -80.0006804733307,
+      "ground_max": -64.56601506655925,
+      "bottom_below_ground": 5.142867823135759
+    },
+    {
+      "name": "Atalaya_entrada_pilote_int_1",
+      "bottom": -127.63112034180233,
+      "top": -39.57625042499489,
+      "ground_min": -112.60294245095702,
+      "ground_max": -109.01082698610571,
+      "bottom_below_ground": 15.028177890845313
+    },
+    {
+      "name": "Atalaya_entrada_pilote_ext_0",
+      "bottom": -136.1396861660844,
+      "top": -73.13165739090053,
+      "ground_min": -124.47068979396226,
+      "ground_max": -113.74410550606899,
+      "bottom_below_ground": 11.668996372122137
+    },
+    {
+      "name": "Atalaya_entrada_pilote_ext_1",
+      "bottom": -142.76794053553408,
+      "top": -39.62087301451292,
+      "ground_min": -128.89679241360136,
+      "ground_max": -120.7292956737765,
+      "bottom_below_ground": 13.87114812193272
+    }
+  ],
+  "stair_ground_max_overlap": 1.0000000129062698,
+  "nearby_vanilla": [
+    {
+      "reference": "0003ABB8",
+      "model": "Landscape\\Roads\\RoadChunkS01.nif",
+      "sha256": "f994e34e2faa34809a40ea9427ccc6cc583ab08fc8989c6ae30c23fdbc25f968",
+      "havok_triangles": 34
+    },
+    {
+      "reference": "0003ABB7",
+      "model": "Landscape\\Roads\\RoadChunkS01.nif",
+      "sha256": "f994e34e2faa34809a40ea9427ccc6cc583ab08fc8989c6ae30c23fdbc25f968",
+      "havok_triangles": 34
+    },
+    {
+      "reference": "0003ABB6",
+      "model": "Landscape\\Roads\\RoadChunkS03.nif",
+      "sha256": "79f6b051b47314af777e0cb915da9a127bc29d403f6498576445b68d5075d805",
+      "havok_triangles": 26
+    },
+    {
+      "reference": "0003ABB5",
+      "model": "Landscape\\Roads\\RoadChunkS02.nif",
+      "sha256": "738599a4efe357a82591c7bc288b024fa5c13c0f6d55c553f796226f866571c3",
+      "havok_triangles": 31
+    },
+    {
+      "reference": "0003ABB4",
+      "model": "Landscape\\Roads\\RoadChunkM03.nif",
+      "sha256": "cb9ff5447025c319aa7356480f7cdc93783b85c6870e0efba5a6a2b43450da82",
+      "havok_triangles": 44
+    },
+    {
+      "reference": "0003ABA9",
+      "model": "Landscape\\Roads\\RoadStraightLong01.nif",
+      "sha256": "c01516c288646ee7eaa8445fb082133a56929c0286f7d531019156668f9e68c5",
+      "havok_triangles": 120
+    },
+    {
+      "reference": "0003ABA8",
+      "model": "Landscape\\Roads\\RoadCurve90R01.nif",
+      "sha256": "1335bd2ab8692b3957279102d212ea756d2d5546b564543db23ae3039d5d58d3",
+      "havok_triangles": 387
+    },
+    {
+      "reference": "000E4396",
+      "model": "Dungeons\\Imperial\\Exterior\\ImpExtRubble03.nif",
+      "sha256": "5bf3479f8b76124d7fc654283818f40a12c6c9233e00434e1d4348acb94ded3b",
+      "havok_triangles": 149
+    },
+    {
+      "reference": "000E4397",
+      "model": "Dungeons\\Imperial\\Exterior\\ImpExtRubble02.nif",
+      "sha256": "0ca861499b2ebb9748335f552da68298a4acc4749861899fefe947e9eddb6417",
+      "havok_triangles": 313
+    },
+    {
+      "reference": "000E439F",
+      "model": "Landscape\\Rocks\\RockPileS02.nif",
+      "sha256": "5d4ca65b6b6841861c25f4414219d3b3f7839f34ba87c2447ddda5d6cc27383c",
+      "havok_triangles": 46
+    },
+    {
+      "reference": "000E43A0",
+      "model": "Landscape\\Rocks\\RockPileS02.nif",
+      "sha256": "5d4ca65b6b6841861c25f4414219d3b3f7839f34ba87c2447ddda5d6cc27383c",
+      "havok_triangles": 46
+    }
+  ],
+  "LAND_edits": 0,
+  "NAVM_edits": 0,
+  "game_tested": false,
+  "scope": "Written NIF reimport; geometric walking capsule and 5-degree static rest-pose/initial-shot grid. No NPC route, animated bounds, quest, save migration, or engine test.",
+  "inputs_sha256": {
+    "config.json": "7abc4d4fc528034e7a5dc1cdc0aec6b9cd08b28e307f0cc07a7ab51c030507da",
+    "scripts/atalaya_v20_geometry.py": "79a244a3123c80644c9e72ffd5190c23b7e5be025a75cb3e856f102276a3c12c",
+    "scripts/verify_atalaya_v20.py": "850eda37f2c59d72ede62b1c5137fc7cd78cfc0866b228d65ae4d1a71d73fdbd",
+    "scripts/tower_v12_geometry.py": "5bd6a007f2b89a5f2a6736756fd2db40f8ba2c20946869ffb4e3ac01c74dad76",
+    "scripts/tower_fit_v14.py": "a55afa0f3f163f1580e0d4bc1808903f19419b3b5e73191545b20170878cd803",
+    "scripts/probe_towers_v14.py": "c33c3459bddc9cc253544766c0fe5a6cbe984b444da80f24e9d7f6220f5f57f6",
+    "scripts/render_v12.py": "4d7a741a25f414983477e6474f9c006126f787391d098f549beb673be2bb5c67",
+    "scripts/verify_shot_clearance_v12.py": "8df2b65cdbb5172fcc1716b8c4c0617f5d3d40fb25fe59ff5cc66d18d28be149",
+    "scripts/v11_layout.py": "dd52ec2c6d5b89f3688345d2261119bc134ceb6c2018a6d8cab8e8e388533505",
+    "reports/atalaya_context_v20.json": "bd5107004e2103de6a136cd75de7f9ad57b0ed21de846e504c72aef8e3db6a1c",
+    "reports/atalaya_environment_v20.json": "b2f5ff52b80f280b63096196762c32d83b40dee9532fa55420f2c6e06d7f1f24",
+    "reports/atalaya_rocks_v20.npz": "eed0a45e7c03f64b45f654ab18072c51b9005a165182a123c980f7471a9472ce",
+    "reports/atalaya_existing_havok_v20.npz": "cb8717f8f20cfc8e90e7291a7ec34f5ff23255e85d099cecea5ed515837162a8",
+    "mod/meshes/AstraAsedio/ballesta.nif": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
+    "addons/Atalaya/meshes/AstraAsedio/torre_atalaya_v20.nif": "6042738cdb484f9876da3ccc7a279727f666df69ff8a13f3ca2eb135c80f8a55"
+  }
+}

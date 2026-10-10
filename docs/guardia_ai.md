@@ -48,18 +48,28 @@ El validador del propio build (`validate_plugin`) ahora verifica: 2 scripts en e
 y valores del `AstraGuardiaAuto`, GLOB bien formado, VMAD del NPC sin properties, XLKR
 recíprocos y NAME del ref → NPC. El reporte JSON incorpora la sección `guardia`.
 
-## Runbook (máquina Windows del usuario)
+## Runbook (máquina Windows del usuario, sobre v21)
 
-1. `python scripts/build_plugin.py` — regenera `mod/AstraAsedio.esp` con el guardia.
-   Requiere `build/Dawnguard.esm.donors.json` (se genera con el parser del repo); si pide
+> Desde el merge con v21 este sistema convive con las torres de ciudad de los addons
+> (`AstraAsedioGuard` en `addons/Whiterun*`, estaciones autónomas): este híbrido es para
+> LA BALLESTA DEL JUGADOR en la celda de pruebas. No se pisan: wiring distinto, ESP distinto.
+
+1. `python scripts/build_assets.py` (y el resto del pipeline v21, como siempre).
+2. `python scripts/build_plugin.py` — regenera `mod/AstraAsedio.esp` con el guardia
+   (GLOB + NPC_ clon + ACHR + XLKR recíprocos + 2.º script en la ballesta). Si pide
    donante de NPC, revisar `guardia.donores_npc` en xEdit.
-2. `python scripts/compile_papyrus.py` — compila TODOS los `.psc` por glob (los dos nuevos
-   entran solos). Requiere el Skyrim Papyrus Compiler configurado como en las builds previas.
-3. Instalar/reemplazar el ESP + scripts compilados en el perfil MO2 de QA (como siempre).
-   El nativo (`AstraSight.dll`) NO cambia: la IA usa solo Papyrus + SKSE (NetImmerse).
-4. En juego: `coc AstraAsedioTest`, agredir al guardia de la torre (o soltar un dragón/lobos
+3. `python scripts/compile_papyrus.py` — compila TODOS los `.psc` por glob (los dos nuevos
+   entran solos). El nativo NO cambia: la IA usa solo Papyrus + SKSE (NetImmerse).
+4. **Demo del guardia (animación `GuardiaCiclo`)**: la secuencia NO viaja en el NIF del
+   repo — se hornea en tu máquina con `blender --python scripts/build_guardia.py`
+   (después de build_assets). Luego de regenerar el NIF, activar la ballesta **en sigilo**
+   dispara la demo (~22 s); activación normal = operar la ballesta como siempre. Si el
+   log muestra `GUARDIA_CICLO_MISSING`, falta ese paso. **Advertencia v21**: build_guardia
+   fue escrito contra el NIF de v10; si la torre nueva cambió los nodos que recorta
+   (torno/palanca), puede requerir ajuste.
+5. En juego: `coc AstraAsedioTest`, agredir al guardia de la torre (o soltar un dragón/lobos
    cerca) y NO operar la ballesta: el guardia entra en combate → la torre apunta sola,
-   espera ~0,1 s de asiento y dispara el virote real contra el blanco del guardia.
+   espera ~1 frame de asiento y dispara el virote real contra el blanco del guardia.
 
 ## Comportamiento esperado (qué verificar in-game)
 

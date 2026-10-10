@@ -1,17 +1,17 @@
 {
   "dll": "mod\\SKSE\\Plugins\\AstraSight.dll",
-  "sha256": "6b295ab4972b43bc79607d8e9c04d7f0c9af40dbef7d7dfdbac683c9c4609fa6",
-  "size": 635904,
+  "sha256": "93e5f269d132db1851682dcfaf9ff2b9f5a2c8ee32e8a8164d4c983930982153",
+  "size": 715776,
   "machine": "AMD64 (0x8664)",
   "exports": {
-    "SKSEPlugin_Load": 162224,
-    "SKSEPlugin_Query": 163920,
-    "SKSEPlugin_Version": 598016
+    "SKSEPlugin_Load": 168416,
+    "SKSEPlugin_Query": 170112,
+    "SKSEPlugin_Version": 672400
   },
   "metadata": {
     "version_data": 1,
     "plugin_name": "AstraSight",
-    "packed_plugin_version": 50528256,
+    "packed_plugin_version": 50659392,
     "address_library": true,
     "structs_post_629": true,
     "compatible_packed_versions": [

@@ -1,6 +1,7 @@
 """Compile only project sources; runtime is read-only."""
 import hashlib,json,re,shutil,subprocess,tempfile
 from pathlib import Path
+from pex_metadata import anonymize,metadata
 ROOT=Path(__file__).resolve().parents[1]
 def validate_assembly(assembly):
  """Reject the None -> array cast that poisoned ArrayCreate in the v01 VM log.
@@ -52,6 +53,9 @@ def main():
    staged=stage/(p.stem+'.pex');q=out/(p.stem+'.pex');ok=r.returncode==0 and staged.exists() and staged.stat().st_size>128
    output=r.stdout+r.stderr;safety={};asm_exit=None
    if ok:
+    original_pex=staged.read_bytes()
+    staged.write_bytes(anonymize(original_pex))
+    public_metadata,_=metadata(staged.read_bytes())
     a=subprocess.run([str(assembler),p.stem,'-D'],cwd=stage,capture_output=True,text=True)
     asm_exit=a.returncode;output+=a.stdout+a.stderr
     assembly=stage/(p.stem+'.disassemble.pas')
@@ -66,6 +70,7 @@ def main():
      ok=False;output+='\nSOURCE_CHANGED_DURING_COMPILE: recompile the final source before publishing PEX'
     if ok:
      target=bytecode_dir/assembly.name;shutil.copy2(assembly,target);shutil.copy2(staged,q)
+     safety.update({'anonymized_header':public_metadata,'executable_tables_unchanged':True})
      safety.update({'disassembly':str(target.relative_to(ROOT)),'disassembly_sha256':hashlib.sha256(target.read_bytes()).hexdigest()})
   report['scripts'].append({'source_sha256':source_sha256,'source':str(p.relative_to(ROOT)),'pex':str(q.relative_to(ROOT)),'exit_code':r.returncode,'assembler_exit_code':asm_exit,'success':ok,'output':output,'bytecode_safety':safety,'sha256':hashlib.sha256(q.read_bytes()).hexdigest() if ok else None})
   report['success'] &= ok

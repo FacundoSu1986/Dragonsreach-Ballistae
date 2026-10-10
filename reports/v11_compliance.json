@@ -1,0 +1,32 @@
+{
+  "match_threshold": 8,
+  "vanilla_sets": 76,
+  "torre_nif_copies": {},
+  "blend_copies": {
+    "Astra_export.blend": {},
+    "Torre_Ballesta_lowpoly_v04.blend": {},
+    "Torre_escalera_rustica.blend": {},
+    "Torre_rustica_v11 - copia.blend": {},
+    "Torre_rustica_v11.blend": {}
+  },
+  "blend_collision_objects": {
+    "Astra_export.blend": [
+      "bhkBoxShape (8 vertices)",
+      "bhkCompressedMeshShape (1152 vertices)",
+      "bhkCompressedMeshShape.001 (8 vertices)"
+    ],
+    "Torre_Ballesta_lowpoly_v04.blend": [],
+    "Torre_escalera_rustica.blend": [],
+    "Torre_rustica_v11 - copia.blend": [],
+    "Torre_rustica_v11.blend": []
+  },
+  "stray_files": [
+    "auditoria/nif_antes/ballesta.nif",
+    "auditoria/nif_antes/torre.nif",
+    "auditoria/nif_antes/virote.nif"
+  ],
+  "reports_with_vertex_lists": {},
+  "falsified": true,
+  "ok": false,
+  "torre_nif_sha256": "7e2e3efe74ed2a6d2c6d50625670f4e92a31a57405926d3cb511b7d2ce037b4e"
+}

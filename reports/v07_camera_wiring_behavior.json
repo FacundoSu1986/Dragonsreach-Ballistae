@@ -7,17 +7,17 @@
     "unittest",
     "tests.test_v07_camera_contract"
   ],
-  "output": "test_both_final_sequences_have_configured_duration_and_scaled_key_times (tests.test_v07_camera_contract.V07Integration.test_both_final_sequences_have_configured_duration_and_scaled_key_times) ... ok\ntest_esp_timing_and_mode_match_config (tests.test_v07_camera_contract.V07Integration.test_esp_timing_and_mode_match_config) ... ok\ntest_post_camera_adapter_uses_current_parent_and_transaction (tests.test_v07_camera_contract.V07Integration.test_post_camera_adapter_uses_current_parent_and_transaction) ... ok\ntest_v06_api_cannot_enter_new_controller (tests.test_v07_camera_contract.V07Integration.test_v06_api_cannot_enter_new_controller) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.022s\n\nOK\n",
+  "output": "test_both_final_sequences_have_configured_duration_and_scaled_key_times (tests.test_v07_camera_contract.V07Integration.test_both_final_sequences_have_configured_duration_and_scaled_key_times) ... ok\ntest_esp_timing_and_mode_match_config (tests.test_v07_camera_contract.V07Integration.test_esp_timing_and_mode_match_config) ... ok\ntest_post_camera_adapter_uses_current_parent_and_transaction (tests.test_v07_camera_contract.V07Integration.test_post_camera_adapter_uses_current_parent_and_transaction) ... ok\ntest_v06_api_cannot_enter_new_controller (tests.test_v07_camera_contract.V07Integration.test_v06_api_cannot_enter_new_controller) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.128s\n\nOK\n",
   "test_source_sha256": "48352f42771d7bcb5e337f96777c5c0858362ad11e6f7a89cb346e6bd6e77daa",
-  "controller_source_sha256": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+  "controller_source_sha256": "39c5d51f31408f56c618a2c0f1f5682d856f27b48061a0fa3afb6553fa9b57a7",
   "sources_unchanged_during_verification": true,
   "runtime_execution": false,
   "dependency_sha256": {
-    "native\\src\\Plugin.cpp": "ffda9bb94e298db225fd00e92eca5cf2a6e758d10ed0a23c76c28802596ae504",
+    "native\\src\\Plugin.cpp": "454b8422ec6d06ccdcabe7fde442dd05e64bcc8421363a08a4fb13661f358df5",
     "scripts\\retime_v07.py": "01001dddcd60a32598ae4d977d86941b619fa98c0e3b86806dce2b7e02bb45f1",
-    "scripts\\build_plugin.py": "2812d165689c88e0db9abac6dcf20ce290020eff25d7b0f1414adbbb4cb59e36",
-    "config.json": "d214682015a08a9114bf1c41c9b354987ae5b0716d3b6c1258e271d2c2c8e982",
-    "mod\\AstraAsedio.esp": "9229b0a06887b3e62792c1dfc765aaf6c8f4a714635f57bb6d9c72709f6362ac"
+    "scripts\\build_plugin.py": "59cd487c06d9d9e789dbaa87a6a36825765eb5c74242a6cdfbc0943d5c87bb8d",
+    "config.json": "a9012c7cb1c4b5e2eef47f1093264bd1f8a4c72b88673748016f27a367aec1b6",
+    "mod\\AstraAsedio.esp": "33e1009d3c36349b9d0e722c6552c1a87816b75616139c9a90861d532876d9e9"
   },
   "interpretation": "Actual scalar PSC branches with explicit native fixtures; no Papyrus VM or SKSE event dispatch execution."
 }

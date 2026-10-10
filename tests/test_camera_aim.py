@@ -35,12 +35,13 @@ class AimFixture:
         player = SimpleNamespace(
             GetAngleX=lambda: self.angle(0), GetAngleZ=lambda: self.angle(1),
             SetAngle=self.set_angle, IsDead=lambda: self.lease.dead,
-            GetItemCount=lambda ammo: 10,
+            GetItemCount=lambda ammo: 10, GetCombatTarget=lambda: None,
         )
         self.vm.state.update(
             Self=self.self_ref, player=player, rootWorldMatrix=IDENTITY.copy(),
             Camera=self.lease.vm.state['Camera'],
-            Game=SimpleNamespace(GetPlayer=lambda: player, IsLookingControlsEnabled=lambda:self.lease.controls[3]), SKSE=SimpleNamespace(GetVersion=lambda: 2, GetPluginVersion=lambda name: 0x03030000),
+            Game=SimpleNamespace(GetPlayer=lambda: player, IsLookingControlsEnabled=lambda:self.lease.controls[3],
+                IsFightingControlsEnabled=lambda:self.lease.controls[1], IsCamSwitchControlsEnabled=lambda:self.lease.controls[2]), SKSE=SimpleNamespace(GetVersion=lambda: 2, GetPluginVersion=lambda name: 0x03050000),
             AstraSightNative=self.lease.vm.state['AstraSightNative'],
             Launcher=object(), ShotAmmo=object(), SteelBolt=object(),
             NetImmerse=SimpleNamespace(GetNodeWorldRotationMatrix=self.root_matrix),
@@ -60,6 +61,8 @@ class AimFixture:
             RegisterForMenu=lambda *args: None, RegisterForKey=lambda *args: None,
             RegisterForControl=lambda *args: None, BlockActivation=lambda *args: None)
         # CanOperate executes the source guard, with only scene-node natives stubbed.
+        self.vm.state['AstraSightNative'].GetAPIVersion=lambda:4
+        self.vm.state['AstraSightNative'].IsEffectsQuiescent=lambda *args:True
         self.vm.native.pop('CanOperate')
         self.vm.state['NetImmerse'].HasNode = lambda *args: True
 
@@ -183,7 +186,7 @@ class MouseAimContract(unittest.TestCase):
                 self.assertAlmostEqual(yaw, expected, places=5); self.assertAlmostEqual(pitch, 0.)
 
     def test_signed_x_pitch_clamp_and_vertical_yaw_preservation(self):
-        for x, expected in ((-40,40), (320,40), (10,-5), (350,10), (-89,80), (89,-5)):
+        for x, expected in ((-40,40), (320,40), (10,-10), (20,-20), (350,10), (-89,80), (89,-20)):
             yaw, pitch = self.sample(180, x)
             self.assertAlmostEqual(pitch, expected, places=5)
         yaw, pitch = self.sample(45, -90, prior_yaw=123.)
@@ -461,6 +464,85 @@ class FirstPersonEntryContract(unittest.TestCase):
         f.vm.run('OnLoad')
         self.assertFalse(f.vm.state['operating']); self.assertEqual(f.lease.controls,[True]*8)
         self.assertEqual(f.lease.camera_calls,['first','third'])
+
+
+class MountedCombatRetainContract(unittest.TestCase):
+    """The lease still disables fighting controls. The mount tick puts the same actor back."""
+
+    def actor(self, world='tamriel'):
+        actor = SimpleNamespace(world=world, combat=None, starts=[], dead=False, health=100.0, combat_state=1)
+        actor.GetCombatTarget = lambda: actor.combat
+        actor.StartCombat = lambda other: actor.starts.append(other) or setattr(actor, 'combat', other)
+        actor.GetWorldSpace = lambda: actor.world
+        actor.IsDead = lambda: actor.dead
+        actor.GetActorValue = lambda name: actor.health
+        actor.GetCombatState = lambda: actor.combat_state
+        return actor
+
+    def mount(self, dragon):
+        fixture = AimFixture()
+        player = fixture.vm.state['player']
+        player.world = 'tamriel'
+        player.combat = dragon
+        player.starts = []
+        player.GetCombatTarget = lambda: player.combat
+        player.StartCombat = lambda other: player.starts.append(other) or setattr(player, 'combat', other)
+        player.GetWorldSpace = lambda: player.world
+        player.IsDead = lambda: False
+        order = []
+        acquire = fixture.vm.state['Session'].Acquire
+        fixture.vm.state['Session'].Acquire = lambda gun: order.append('acquire') or acquire(gun)
+        player.GetCombatTarget = lambda: order.append('snapshot') or player.combat
+        fixture.enter()
+        self.assertEqual(order, ['snapshot', 'acquire'])
+        self.assertIs(fixture.vm.state['retainedCombatTarget'], dragon)
+        self.assertFalse(fixture.lease.controls[1], 'fighting controls must stay disabled while mounted')
+        player.combat = None
+        dragon.combat = None
+        return fixture, player
+
+    def tick(self, fixture, seconds):
+        fixture.vm.now += seconds
+        fixture.vm.run('OnUpdate')
+
+    def test_tick_reasserts_the_entry_target_then_waits_a_second(self):
+        dragon = self.actor()
+        fixture, player = self.mount(dragon)
+        self.tick(fixture, 0.05)
+        self.assertTrue(fixture.vm.state['operating'])
+        self.assertEqual(dragon.starts, [player])
+        self.assertEqual(player.starts, [dragon])
+        dragon.starts.clear(); player.starts.clear()
+        self.tick(fixture, 0.05)
+        self.assertEqual(dragon.starts, [])
+        self.assertEqual(player.starts, [])
+        dragon.combat = None
+        player.combat = None
+        self.tick(fixture, 1.0)
+        self.assertEqual(dragon.starts, [player])
+        self.assertEqual(player.starts, [dragon])
+
+    def test_stale_generation_dead_target_other_world_and_exit_do_not_restart_combat(self):
+        dragon = self.actor()
+        fixture, player = self.mount(dragon)
+        fixture.vm.run('RetainMountedCombat', fixture.vm.state['generation'] + 1, fixture.vm.state['token'])
+        self.assertEqual(dragon.starts, [])
+        dragon.dead = True
+        self.tick(fixture, 0.05)
+        self.assertTrue(fixture.vm.state['operating'])
+        self.assertEqual(dragon.starts, [])
+        self.assertIsNone(fixture.vm.state['retainedCombatTarget'])
+        dragon.dead = False
+        fixture.vm.state['retainedCombatTarget'] = dragon
+        fixture.vm.state['nextCombatRetain'] = 0.0
+        dragon.world = 'sovereign'
+        self.tick(fixture, 0.05)
+        self.assertEqual(dragon.starts, [])
+        self.assertIsNone(fixture.vm.state['retainedCombatTarget'])
+        fixture.vm.state['retainedCombatTarget'] = dragon
+        fixture.vm.run('EndSession')
+        self.assertIsNone(fixture.vm.state['retainedCombatTarget'])
+        self.assertEqual(fixture.lease.controls[1], True)
 
 
 if __name__=='__main__': unittest.main()

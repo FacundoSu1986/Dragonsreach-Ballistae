@@ -1,0 +1,275 @@
+{
+  "analysis_only": true,
+  "current_mod_unchanged": true,
+  "moving_weapon_and_camera_not_tested": true,
+  "results": [
+    {
+      "pitch": -5,
+      "shots": 360,
+      "tower_hits": 0,
+      "first_hits": [],
+      "lowest_shot_units": 271.7316768271254,
+      "geometric_ground_distance_m": 52.94153254930139,
+      "worst": {
+        "clearance": null
+      }
+    },
+    {
+      "pitch": -10,
+      "shots": 360,
+      "tower_hits": 7,
+      "first_hits": [
+        {
+          "yaw": 126,
+          "pitch": -10,
+          "group": "torre_visual",
+          "clearance": 1.527608239894086
+        },
+        {
+          "yaw": 127,
+          "pitch": -10,
+          "group": "torre_visual",
+          "clearance": 0.21653097190751366
+        },
+        {
+          "yaw": 128,
+          "pitch": -10,
+          "group": "torre_visual",
+          "clearance": 1.5190833876217864
+        }
+      ],
+      "lowest_shot_units": 218.6561793655541,
+      "geometric_ground_distance_m": 26.286583068327722,
+      "worst": {
+        "clearance": 0.0,
+        "yaw": 127,
+        "pitch": -10,
+        "group": "torre_colision",
+        "triangle": [
+          [
+            348.11,
+            263.48,
+            243.47
+          ],
+          [
+            369.04,
+            263.48,
+            243.47
+          ],
+          [
+            369.04,
+            283.02,
+            243.47
+          ]
+        ]
+      }
+    },
+    {
+      "pitch": -15,
+      "shots": 360,
+      "tower_hits": 66,
+      "first_hits": [
+        {
+          "yaw": 44,
+          "pitch": -15,
+          "group": "torre_visual",
+          "clearance": 0.0
+        },
+        {
+          "yaw": 45,
+          "pitch": -15,
+          "group": "torre_visual",
+          "clearance": 0.0
+        },
+        {
+          "yaw": 46,
+          "pitch": -15,
+          "group": "torre_visual",
+          "clearance": 0.0
+        }
+      ],
+      "lowest_shot_units": 164.07190399618878,
+      "geometric_ground_distance_m": 17.318924025833457,
+      "worst": {
+        "clearance": 0.0,
+        "yaw": 44,
+        "pitch": -15,
+        "group": "torre_visual",
+        "triangle": [
+          [
+            271.28,
+            -281.26,
+            216.45
+          ],
+          [
+            277.15,
+            -282.33,
+            243.0
+          ],
+          [
+            271.73,
+            -282.52,
+            243.98
+          ]
+        ]
+      }
+    },
+    {
+      "pitch": -20,
+      "shots": 360,
+      "tower_hits": 392,
+      "first_hits": [
+        {
+          "yaw": 17,
+          "pitch": -20,
+          "group": "torre_visual",
+          "clearance": 0.040208830964498225
+        },
+        {
+          "yaw": 18,
+          "pitch": -20,
+          "group": "torre_visual",
+          "clearance": 0.0
+        },
+        {
+          "yaw": 19,
+          "pitch": -20,
+          "group": "torre_visual",
+          "clearance": 0.04778622844450639
+        }
+      ],
+      "lowest_shot_units": 107.02575027603271,
+      "geometric_ground_distance_m": 12.772154745479856,
+      "worst": {
+        "clearance": 0.0,
+        "yaw": 18,
+        "pitch": -20,
+        "group": "torre_visual",
+        "triangle": [
+          [
+            88.78,
+            -275.61,
+            219.41
+          ],
+          [
+            88.29,
+            -281.35,
+            219.15
+          ],
+          [
+            92.94,
+            -279.55,
+            219.54
+          ]
+        ]
+      }
+    },
+    {
+      "pitch": -25,
+      "shots": 360,
+      "tower_hits": 536,
+      "first_hits": [
+        {
+          "yaw": 0,
+          "pitch": -25,
+          "group": "torre_visual",
+          "clearance": 0.0
+        },
+        {
+          "yaw": 1,
+          "pitch": -25,
+          "group": "torre_visual",
+          "clearance": 0.0
+        },
+        {
+          "yaw": 2,
+          "pitch": -25,
+          "group": "torre_visual",
+          "clearance": 0.6105190302909369
+        }
+      ],
+      "lowest_shot_units": 46.39161905315086,
+      "geometric_ground_distance_m": 9.992673544473215,
+      "worst": {
+        "clearance": 0.0,
+        "yaw": 0,
+        "pitch": -25,
+        "group": "torre_visual",
+        "triangle": [
+          [
+            -1.52,
+            -275.73,
+            176.86
+          ],
+          [
+            3.11,
+            -278.89,
+            198.05
+          ],
+          [
+            -1.26,
+            -276.37,
+            198.25
+          ]
+        ]
+      }
+    },
+    {
+      "pitch": -30,
+      "shots": 360,
+      "tower_hits": 598,
+      "first_hits": [
+        {
+          "yaw": 0,
+          "pitch": -30,
+          "group": "torre_visual",
+          "clearance": 0.0
+        },
+        {
+          "yaw": 1,
+          "pitch": -30,
+          "group": "torre_visual",
+          "clearance": 0.0
+        },
+        {
+          "yaw": 2,
+          "pitch": -30,
+          "group": "torre_visual",
+          "clearance": 1.808152501257742
+        }
+      ],
+      "lowest_shot_units": -19.228023913808215,
+      "geometric_ground_distance_m": 8.095658366459059,
+      "worst": {
+        "clearance": 0.0,
+        "yaw": 0,
+        "pitch": -30,
+        "group": "torre_visual",
+        "triangle": [
+          [
+            -0.34,
+            -267.72,
+            155.48
+          ],
+          [
+            -2.3,
+            -271.07,
+            176.93
+          ],
+          [
+            0.75,
+            -267.4,
+            176.85
+          ]
+        ]
+      }
+    }
+  ],
+  "scope": "Sampled exact inclinations at 360 yaw angles; straight bore segments. Not a verified expanded range, moving-weapon sweep, camera test or game test.",
+  "input_sha256": {
+    "config.json": "6ff6b9c21abc50dbaf8ea8bdc6325cadbdbb6e9da28d6d45bc83451ee4361167",
+    "mod\\AstraAsedio.esp": "a3466477911577126cb23a64d10df8ac36cdf244436601c6639a60eb721f8c79",
+    "mod\\meshes\\AstraAsedio\\torre.nif": "60df23c1850beeaafaf8b36271742081d502ff66d7d9931648b72ea0ffdd40f9",
+    "mod\\meshes\\AstraAsedio\\ballesta.nif": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2"
+  }
+}

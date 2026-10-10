@@ -20,11 +20,21 @@ def surface(parent,rope):
     return BVHTree.FromPolygons(vertices,triangles,all_triangles=True),[o.name for o in objs]
 revision=json.loads((ROOT/'reports/limb_ties_revision.json').read_text())
 lift=Vector((0,0,json.loads((ROOT/'config.json').read_text()).get('mount_raise_units',0.0)))
+base=Vector((0,0,6.65))
+def centers_of(part):
+    """Puntos del centro de la amarra en unidades de NIF.
+
+    Acepta los dos formatos del informe de revision: el viejo, con los puntos en el
+    marco local de la amarra mas su matriz, y el nuevo, que ya los entrega en mundo.
+    """
+    if 'path_world' in part:
+        return [(Vector(p)-base)*70+lift for p in part['path_world']]
+    frame=Matrix(part['source_world_frame'])
+    return [(frame@Vector(p)-base)*70+lift for p in part['path_local']]
 results=[]
 for part in revision['parts']:
     wood,names=surface(part['parent'],False);rope,rope_names=surface(part['parent'],True)
-    frame=Matrix(part['source_world_frame'])
-    centers=[(frame@Vector(p)-Vector((0,0,6.65)))*70+lift for p in part['path_local']]
+    centers=centers_of(part)
     gaps=[wood.find_nearest(p)[3]-revision['rope_radius_m']*70 for p in centers]
     tube_dist=[rope.find_nearest(p)[3] for p in centers]
     if min(gaps)<0 or max(gaps)>0.15:raise RuntimeError('Final binding loose or penetrating: '+part['name'])

@@ -293,13 +293,26 @@ def sequences(nodes, arm_delta, rope_spec):
                 o=bpy.data.objects[name]; o.location=bpy.data.objects['CTRL_ELEVACION'].matrix_world.inverted()@start
                 o.rotation_mode='QUATERNION'; o.rotation_quaternion=Vector((0,1,0)).rotation_difference(direction.normalized())
                 ratio=direction.length/o['rest_length']
+                # Escala uniforme, y tiene que serlo. export() solo recoge la
+                # componente X de la escala (fc.array_index==0) y patch_scale_keys
+                # escribe UN float por clave, asi que el grupo de claves de escala
+                # solo puede transportar un escalar. Poner (1, ratio, 1) haria que
+                # el NIF no estirara la cuerda y el extremo interno se separaria del
+                # nock durante Fire/Reset.
+                # Consecuencia cosmetica conocida: la cuerda adelgaza un 39% al
+                # tensarse, porque el tubo hexagonal se escala en bloque. Arreglarlo
+                # exige un grupo de claves con keySize=3 (tiempo, sx, sy, sz) tanto en
+                # patch_scale_keys como en el importador de verify_assets, y eso hay
+                # que probarlo dentro del juego antes de cambiarlo.
                 o.scale=(ratio,ratio,ratio)
                 for p in ('location','rotation_quaternion','scale'): o.keyframe_insert(data_path=p,frame=frame)
                 bpy.context.view_layer.update(); predicted=o.matrix_world@Vector((0,o['rest_length'],0))
                 endpoint_tests.append({'sequence':seq,'frame':frame,'node':name,'error':(predicted-center).length})
             bolt=bpy.data.objects['VIROTE_VISUAL']
-            visible=seq=='Fire' and t < release_at-1e-6 or seq=='Reset' and frame==final_frame
-            bolt.scale=(1,1,1) if visible else (.001,.001,.001); bolt.keyframe_insert(data_path='scale',frame=frame)
+            # La escala del virote la maneja el Papyrus (SetNodeScale 0.0 al confirmar,
+            # 1.0 al recargar y al salir). tracks de escala del NIF eran un segundo
+            # escritor sobre el mismo canal con otro valor (0.001), y si la animacion
+            # fallaba dejaba el virote invisible sin nada que lo restaurara.
             bolt.location=(0,0,0); bolt.keyframe_insert(data_path='location',frame=frame)
         action.use_frame_range=True; action.frame_start=1; action.frame_end=final_frame
         for layer in action.layers:

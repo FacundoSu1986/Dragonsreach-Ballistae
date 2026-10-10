@@ -1,0 +1,7 @@
+Arrow vtable slot af at 1407c93e0
+1407c93e0: sub ebp, esi
+1407c93e2: ret 
+Arrow vtable slot b0 at 1407c9400
+1407c9400: sub dword ptr [rbx], eax
+1407c9402: push rdi
+Launch44108 1407e46c0

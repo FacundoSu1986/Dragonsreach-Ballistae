@@ -2,6 +2,7 @@
 #include <SKSE/SKSE.h>
 #include <spdlog/sinks/basic_file_sink.h>
 #include "Astra/Core.h"
+#include "Astra/FastShotRuntime.h"
 #include <atomic>
 #include <algorithm>
 #include <chrono>
@@ -10,6 +11,7 @@
 namespace {
 using namespace Astra;
 Session session;
+FastShotRuntime fastShots(session);
 std::atomic_bool available{false};
 using UpdateFn = void (*)(RE::FirstPersonState*, RE::BSTSmartPointer<RE::TESCameraState>&);
 using RotationFn = void (*)(RE::FirstPersonState*, RE::NiQuaternion&);
@@ -224,7 +226,7 @@ void update(RE::FirstPersonState* self,RE::BSTSmartPointer<RE::TESCameraState>& 
   player->SetRotationX(float(-std::asin(std::clamp(expected.z,-1.,1.))));
   player->SetRotationZ(float(rad(wrapDegrees(deg(std::atan2(expected.x,expected.y))))));
   return {aim,output,true,reinterpret_cast<uintptr_t>(self),worldCamera,rootWorld,projectile,true};
- },true);
+ },true,reinterpret_cast<uintptr_t>(root));
  if(!session.ticket()){
   // Session::update drops the lease on a rejected apply or a non-finite look sample. A lease
   // ended elsewhere (EndSight) meanwhile is not a drop and is already logged as "sight end".
@@ -236,6 +238,10 @@ void update(RE::FirstPersonState* self,RE::BSTSmartPointer<RE::TESCameraState>& 
   diag.published=session.snapshot();
   if(wasSuspended)spdlog::info("sight resumed after {:.2f}s yaw={:.2f} pitch={:.2f}",seconds()-diag.suspendedAt,diag.published?diag.published->aim.yaw:NAN,diag.published?diag.published->aim.pitch:NAN);
  }
+ // Runtime evidence shows this state callback running every frame while the
+ // PlayerCamera virtual Update hook is bypassed. Drive firing here, only after
+ // Session::update released its lock and published the coherent scene pose.
+ fastShots.tick();
 }
 
 bool eligible(RE::FirstPersonState* self,const Snapshot& snapshot){return snapshot.stateIdentity==reinterpret_cast<uintptr_t>(self)&&self->camera&&self->camera->currentState.get()==self;}
@@ -271,7 +277,7 @@ void translation(RE::FirstPersonState* self,RE::NiPoint3& out){if(auto snapshot=
 void cameraEnd(RE::FirstPersonState* self){if(auto t=session.ticket())suspendSight(t,"FirstPersonState::End (camera left first person)");originalEnd(self);}
 
 bool IsAvailable(RE::StaticFunctionTag*){return available.load();}
-int GetAPIVersion(RE::StaticFunctionTag*){return 3;}
+int GetAPIVersion(RE::StaticFunctionTag*){return 4;}
 int GetCameraState(RE::StaticFunctionTag*){
  auto camera=RE::PlayerCamera::GetSingleton();
  // Read identity once; never dereference a state pointer on a VM tasklet.
@@ -281,12 +287,22 @@ int GetCameraState(RE::StaticFunctionTag*){
   if(current==camera->cameraStates[i].get())return static_cast<int>(i);
  return -1;
 }
-bool BeginSight(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token,float yaw,float pitch){bool ok=available.load()&&session.begin(key(gun,token),yaw,pitch);spdlog::info("sight begin token={} yaw={} pitch={} accepted={}",token,yaw,pitch,ok);return ok;}
+bool BeginSight(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token,float yaw,float pitch){bool ok=available.load()&&fastShots.beginLegacy(key(gun,token),yaw,pitch);spdlog::info("sight begin token={} yaw={} pitch={} accepted={}",token,yaw,pitch,ok);return ok;}
 bool IsSightReady(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token){return available.load()&&session.ready(key(gun,token));}
 bool ValidateShot(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token,float yaw,float pitch,float pivotHeight){return session.validateShot(key(gun,token),{yaw,pitch},pivotHeight);}
 std::vector<float> CaptureAim(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token,bool freeze){auto k=key(gun,token);auto a=session.capture(k,freeze);if(a&&freeze)spdlog::info("shot freeze handle={} token={} yaw={} pitch={}",k.handle,token,a->yaw,a->pitch);return a?std::vector<float>{papyrusYaw(a->yaw),float(a->pitch)}:std::vector<float>{};}
 bool SetFrozen(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token,bool frozen){auto k=key(gun,token);bool changed=session.freeze(k,frozen);if(changed)spdlog::info("shot frozen={} handle={} token={}",frozen,k.handle,token);return changed;}
-bool EndSight(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token){bool ended=session.end(key(gun,token));if(ended)spdlog::info("sight end token={}",token);return ended;}
+bool BeginFastSight(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token,float yaw,float pitch,RE::TESObjectWEAP* weapon,RE::TESAmmo* ammo,RE::TESAmmo* cost,RE::TESSound* sound,std::vector<float> values,bool continuous){
+ if(!available||!gun||!weapon||!ammo||!cost||values.size()!=12)return false;
+ FastConfig c;c.weapon=weapon->GetFormID();c.ammo=ammo->GetFormID();c.cost=cost->GetFormID();c.sound=sound?sound->GetFormID():0;
+ c.timing={values[0],values[1],values[2],values[3],continuous};c.limits={values[4],values[5],values[6],values[7]};c.pivot=values[8];c.operatorHeight=values[9];c.operatorDistance=values[10];c.operatorTolerance=values[11];
+ bool accepted=fastShots.begin(key(gun,token),yaw,pitch,c);spdlog::info("fast sight begin token={} accepted={} yaw_center={} yaw_half={} pitch_min={} pitch_max={}",token,accepted,c.limits.yawCenter,c.limits.yawHalf,c.limits.pitchMin,c.limits.pitchMax);return accepted;
+}
+bool IsFastSightReady(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token){return fastShots.ready(key(gun,token));}
+bool IsEffectsQuiescent(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token){return fastShots.quiescent(key(gun,token));}
+bool ResetIdleScene(RE::StaticFunctionTag*,RE::TESObjectREFR* gun){return available.load()&&gun&&fastShots.resetIdleScene(key(gun,0));}
+int GetFireMode(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token){return fastShots.mode(key(gun,token));}
+bool EndSight(RE::StaticFunctionTag*,RE::TESObjectREFR* gun,int token){bool ended=fastShots.end(key(gun,token));spdlog::info("sight end request token={} quiescent={}",token,ended);return ended;}
 class CaptureFunction final:public RE::NativeFunction<std::vector<float>(RE::StaticFunctionTag*,RE::TESObjectREFR*,int,bool)> {
  public:
  CaptureFunction():NativeFunction("CaptureAim","AstraSightNative",CaptureAim){}
@@ -308,6 +324,12 @@ bool registerPapyrus(RE::BSScript::IVirtualMachine* vm){
  vm->RegisterFunction("GetAPIVersion","AstraSightNative",GetAPIVersion,true);
  vm->RegisterFunction("GetCameraState","AstraSightNative",GetCameraState,true);
  vm->RegisterFunction("BeginSight","AstraSightNative",BeginSight,true);
+ vm->RegisterFunction("BeginFastSight","AstraSightNative",BeginFastSight,true);
+ vm->RegisterFunction("IsFastSightReady","AstraSightNative",IsFastSightReady,true);
+ vm->RegisterFunction("IsEffectsQuiescent","AstraSightNative",IsEffectsQuiescent,true);
+ // Deliberately not callable from tasklets: this operation mutates loaded 3D.
+ vm->RegisterFunction("ResetIdleScene","AstraSightNative",ResetIdleScene,false);
+ vm->RegisterFunction("GetFireMode","AstraSightNative",GetFireMode,true);
  vm->RegisterFunction("IsSightReady","AstraSightNative",IsSightReady,true);
  vm->RegisterFunction("ValidateShot","AstraSightNative",ValidateShot,true);
  vm->BindNativeMethod(new CaptureFunction);
@@ -316,18 +338,18 @@ bool registerPapyrus(RE::BSScript::IVirtualMachine* vm){
  vm->RegisterFunction("EndSight","AstraSightNative",EndSight,true);
  return true;
 }
-struct MenuEvents:RE::BSTEventSink<RE::MenuOpenCloseEvent>{RE::BSEventNotifyControl ProcessEvent(const RE::MenuOpenCloseEvent* e,RE::BSTEventSource<RE::MenuOpenCloseEvent>*)override{session.rebase();if(e&&session.ticket())spdlog::info("menu {} {}",e->menuName.c_str(),e->opening?"open":"close");return RE::BSEventNotifyControl::kContinue;}} menus;
-void message(SKSE::MessagingInterface::Message* m){switch(m->type){case SKSE::MessagingInterface::kPreLoadGame:case SKSE::MessagingInterface::kPostLoadGame:case SKSE::MessagingInterface::kNewGame:if(session.ticket())spdlog::warn("sight dropped: load or new game");session.invalidate();break;case SKSE::MessagingInterface::kDataLoaded:RE::UI::GetSingleton()->AddEventSink(&menus);break;default:break;}}
-void revert(SKSE::SerializationInterface*){if(session.ticket())spdlog::warn("sight dropped: save revert");session.invalidate();}
+struct MenuEvents:RE::BSTEventSink<RE::MenuOpenCloseEvent>{RE::BSEventNotifyControl ProcessEvent(const RE::MenuOpenCloseEvent* e,RE::BSTEventSource<RE::MenuOpenCloseEvent>*)override{fastShots.menu(e);session.rebase();if(e&&session.ticket())spdlog::info("menu {} {}",e->menuName.c_str(),e->opening?"open":"close");return RE::BSEventNotifyControl::kContinue;}} menus;
+void message(SKSE::MessagingInterface::Message* m){switch(m->type){case SKSE::MessagingInterface::kPreLoadGame:case SKSE::MessagingInterface::kPostLoadGame:case SKSE::MessagingInterface::kNewGame:if(session.ticket())spdlog::warn("sight dropped: load or new game");fastShots.invalidate();break;case SKSE::MessagingInterface::kInputLoaded:RE::BSInputDeviceManager::GetSingleton()->AddEventSink(&fastShots);break;case SKSE::MessagingInterface::kDataLoaded:RE::UI::GetSingleton()->AddEventSink(&menus);break;default:break;}}
+void revert(SKSE::SerializationInterface*){if(session.ticket())spdlog::warn("sight dropped: save revert");fastShots.invalidate();}
 }
 
-extern "C" __declspec(dllexport) constinit SKSE::PluginVersionData SKSEPlugin_Version=[](){SKSE::PluginVersionData v;v.PluginName("AstraSight");v.PluginVersion({3,3,0,0});v.AuthorName("Astra mounted sight");v.UsesAddressLibrary();v.UsesStructsPost629();v.CompatibleVersions({REL::Version{1,6,1170,0}});v.MinimumRequiredXSEVersion({2,2,8,0});return v;}();
-extern "C" __declspec(dllexport) bool SKSEPlugin_Query(const SKSE::QueryInterface* skse,SKSE::PluginInfo* info){info->infoVersion=SKSE::PluginInfo::kVersion;info->name="AstraSight";info->version=0x03030000;return !skse->IsEditor()&&skse->RuntimeVersion()==REL::Version{1,6,1170,0};}
+extern "C" __declspec(dllexport) constinit SKSE::PluginVersionData SKSEPlugin_Version=[](){SKSE::PluginVersionData v;v.PluginName("AstraSight");v.PluginVersion({3,5,4,0});v.AuthorName("Astra mounted sight");v.UsesAddressLibrary();v.UsesStructsPost629();v.CompatibleVersions({REL::Version{1,6,1170,0}});v.MinimumRequiredXSEVersion({2,2,8,0});return v;}();
+extern "C" __declspec(dllexport) bool SKSEPlugin_Query(const SKSE::QueryInterface* skse,SKSE::PluginInfo* info){info->infoVersion=SKSE::PluginInfo::kVersion;info->name="AstraSight";info->version=0x03050040;return !skse->IsEditor()&&skse->RuntimeVersion()==REL::Version{1,6,1170,0};}
 extern "C" __declspec(dllexport) bool SKSEPlugin_Load(const SKSE::LoadInterface* skse){
  if(skse->IsEditor()||skse->RuntimeVersion()!=REL::Version{1,6,1170,0})return false;
  SKSE::Init(skse);
  auto log=SKSE::log::log_directory();if(log){*log/="AstraSight.log";auto logger=std::make_shared<spdlog::logger>("AstraSight",std::make_shared<spdlog::sinks::basic_file_sink_mt>(log->string(),true));spdlog::set_default_logger(logger);spdlog::flush_on(spdlog::level::info);}
- spdlog::info("AstraSight 3.3 API 3 runtime 1.6.1170, tail sight camera with iron sights, zero 75 m, camera recorder");
+ spdlog::info("AstraSight 3.5.4 API 4 runtime 1.6.1170, native input/launch, release 66.7ms, cycle 1s, per-session sectors; engine latency unmeasured");
  if(!SKSE::GetPapyrusInterface()->Register(registerPapyrus))return false;
  if(!SKSE::GetMessagingInterface()->RegisterListener(message))return false;
  SKSE::GetSerializationInterface()->SetUniqueID(0x41535452);SKSE::GetSerializationInterface()->SetRevertCallback(revert);

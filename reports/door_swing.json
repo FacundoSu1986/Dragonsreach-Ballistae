@@ -1,0 +1,166 @@
+{
+  "decided": null,
+  "votes": {
+    "cw": 2,
+    "tie": 15,
+    "ccw": 2
+  },
+  "doors_with_neighbours": 19,
+  "angles_tested_deg": [
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70,
+    75,
+    80,
+    85,
+    90,
+    95
+  ],
+  "contact_units": 1.0,
+  "note": "Open keys turn Door01 from 0 to -95 degrees about Z (NiTransformData); ccw/cw below are seen from +Z in the door frame",
+  "rows": [
+    {
+      "door": "000E3A79",
+      "cell": "000133C6",
+      "hits_local_ccw": 10,
+      "hits_local_cw": 0,
+      "verdict": "cw"
+    },
+    {
+      "door": "000E3A7B",
+      "cell": "000133C6",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000E3A7A",
+      "cell": "000133C6",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 13,
+      "verdict": "ccw"
+    },
+    {
+      "door": "000F63DB",
+      "cell": "00013A80",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000F63DC",
+      "cell": "00013A80",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000F63DD",
+      "cell": "00013A80",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000C7868",
+      "cell": "000C7348",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000C7867",
+      "cell": "000C7348",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000C78A2",
+      "cell": "000C7348",
+      "hits_local_ccw": 2,
+      "hits_local_cw": 1,
+      "verdict": "cw"
+    },
+    {
+      "door": "000C784F",
+      "cell": "000C7348",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 13,
+      "verdict": "ccw"
+    },
+    {
+      "door": "000F477C",
+      "cell": "00013A79",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000F477B",
+      "cell": "00013A79",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000F4778",
+      "cell": "00013A79",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000F60F0",
+      "cell": "000138CC",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000F60EF",
+      "cell": "000138CC",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000F60EE",
+      "cell": "000138CC",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000F660B",
+      "cell": "00013818",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000F660A",
+      "cell": "00013818",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    },
+    {
+      "door": "000F6609",
+      "cell": "00013818",
+      "hits_local_ccw": 0,
+      "hits_local_cw": 0,
+      "verdict": "tie"
+    }
+  ]
+}

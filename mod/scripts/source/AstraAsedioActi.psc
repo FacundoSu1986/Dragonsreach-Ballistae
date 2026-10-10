@@ -5,15 +5,17 @@ Ammo Property ShotAmmo Auto
 Ammo Property SteelBolt Auto
 Sound Property ShotSound Auto
 GlobalVariable Property OcupadaGuardia Auto   ; v-guardia: 1 durante sesión o demo
-float Property FireSeconds = 0.3 Auto
-float Property ReleaseSeconds = 0.1 Auto
-float Property ResetSeconds = 1.2 Auto
-float Property CycleSeconds = 1.5 Auto
+float Property FireSeconds = 0.2 Auto
+float Property ReleaseSeconds = 0.0666667 Auto
+float Property ResetSeconds = 0.8 Auto
+float Property CycleSeconds = 1.0 Auto
 bool Property ContinuousFire = false Auto
 float Property YawSpeed = 40.0 Auto
 float Property PitchSpeed = 20.0 Auto
-float Property PitchMin = -5.0 Auto
+float Property PitchMin = -20.0 Auto
 float Property PitchMax = 80.0 Auto
+float Property YawCenter = 0.0 Auto
+float Property YawHalfSector = 180.0 Auto
 float Property PitchPivotHeight = 153.0 Auto
 bool Property UseMouseAim = true Auto
 bool Property UseSightCamera = true Auto
@@ -93,28 +95,34 @@ int modeReleaseSerial = 0
 ; v09: after a menu the camera passes through tween/transition states while AstraSight
 ; keeps the sight suspended; until this real time those states are waited, not fatal.
 float cameraGraceUntil = 0.0
+; Existing saves initialize this new scalar at zero. Migrate legacy defaults
+; once, then retain valid custom timing even when it equals a former default.
+int timingRevision = 0
+; Captured before Session.Acquire disables fighting controls. That sheath drops
+; a dragon's target; the mount tick reasserts this same actor once a second.
+; Every gun that enters through OnActivate shares this lease, including city stations.
+Actor retainedCombatTarget
+float nextCombatRetain = 0.0
 
 Event OnInit()
     BlockActivation(true)
 EndEvent
 
 Event OnLoad()
-    ; A save may restore pending OnUpdate before the player alias load callback.
-    ; Invalidate that saved active session before any restored 3D can launch.
-    if endingSession
-        ; A saved suspended End has already cleared token/operating. Recover its
-        ; lease through the quest and invalidate that stack before it can resume.
-        endingSession = false
-        generation += 1
-        if Session != None
-            Session.EmergencyCleanup()
-        endif
+    ; v13 migration: Papyrus properties in an existing save retain the old VMAD value.
+    if PitchMin > -20.0
+        PitchMin = -20.0
     endif
+    RecoverStationLoad()
+    ; A reentrant recovery may already have invalidated the saved lease. Keep
+    ; this check before any restored 3D capture, including ordinary towers.
     if operating || nativeSightRequested
         EndSession()
     endif
     endingSession = true
     int loadGeneration = generation
+    ; The saved lease/shot above is invalid before any timing is migrated.
+    NormalizeTimingProperties()
     BlockActivation(true)
     ; NetImmerse local changes are not serialized with the 3D. Reapply saved angles.
     bool captured = CaptureMatrices()
@@ -134,6 +142,60 @@ Event OnLoad()
         endingSession = false
     endif
 EndEvent
+
+Function RecoverStationLoad()
+    ; Shared stations use this recovery without the ordinary OnLoad scene
+    ; capture/restore. Invalidate a saved suspended End before its stack resumes.
+    if endingSession
+        endingSession = false
+        generation += 1
+        if Session != None
+            Session.EmergencyCleanup()
+        endif
+    endif
+    if operating || nativeSightRequested
+        EndSession()
+    endif
+EndFunction
+
+bool Function TimingFinite(float value, float minimum, float maximum)
+    return value == value && value >= minimum && value <= maximum
+EndFunction
+
+Function NormalizeTimingProperties()
+    ; Ranges include the IEEE float values saved by v13 VMAD/PEX. Scalar-only
+    ; checks avoid adding a yielding native boundary during this migration.
+    if timingRevision < 14
+        if FireSeconds >= 0.29999 && FireSeconds <= 0.30001
+            FireSeconds = 0.2
+        endif
+        if ReleaseSeconds >= 0.09999 && ReleaseSeconds <= 0.10001
+            ReleaseSeconds = 0.0666667
+        endif
+        if ResetSeconds >= 1.19999 && ResetSeconds <= 1.20001
+            ResetSeconds = 0.8
+        endif
+        if CycleSeconds >= 1.49999 && CycleSeconds <= 1.50001
+            CycleSeconds = 1.0
+        endif
+        timingRevision = 14
+    endif
+    if !TimingFinite(FireSeconds, 0.2, 2.0)
+        FireSeconds = 0.2
+    endif
+    if !TimingFinite(ReleaseSeconds, 0.0666666, 1.0) || ReleaseSeconds > FireSeconds
+        ReleaseSeconds = 0.0666667
+    endif
+    if !TimingFinite(ResetSeconds, 0.8, 5.0)
+        ResetSeconds = 0.8
+    endif
+    if !TimingFinite(CycleSeconds, 1.0, 7.0)
+        CycleSeconds = 1.0
+    endif
+    if CycleSeconds < FireSeconds + ResetSeconds
+        CycleSeconds = FireSeconds + ResetSeconds
+    endif
+EndFunction
 
 Event OnUnload()
     EndSession()
@@ -204,21 +266,20 @@ Event OnActivate(ObjectReference akActionRef)
         RejectActivation("SKSE_MISSING: inicia Skyrim con SKSE64.")
         return
     endif
-    ; API 3 supplies cached shot preflight; reject mixed version installations.
-    ; v10: AstraSight 3.3 drives the tail sight camera and the front post; older DLLs are rejected.
+    ; API 4 owns input, projectile and the whole cycle outside Papyrus.
     int nativeVersion = SKSE.GetPluginVersion("AstraSight")
     if operating || endingSession || generation != activationGeneration
         return
     endif
-    if nativeVersion < 50528256
-        RejectActivation("NATIVE_SIGHT_MISSING: instala AstraSight.dll 3.3.0 de esta versión.")
+    if nativeVersion < 50659328
+        RejectActivation("NATIVE_SIGHT_MISSING: instala AstraSight.dll 3.5.0 de esta versión.")
         return
     endif
     int nativeAPI = AstraSightNative.GetAPIVersion()
     if operating || endingSession || generation != activationGeneration
         return
     endif
-    if nativeAPI != 3
+    if nativeAPI != 4
         RejectActivation("NATIVE_API_MISMATCH: reinstala los archivos completos de esta versión.")
         return
     endif
@@ -276,6 +337,11 @@ Event OnActivate(ObjectReference akActionRef)
     if operating || endingSession || generation != activationGeneration
         return
     endif
+    ; Snapshot before the lease sheathes the player. A later read is already None.
+    Actor combatAtEntry = None
+    if player != None
+        combatAtEntry = player.GetCombatTarget()
+    endif
     int acquiredToken = Session.Acquire(Self)
     if operating || endingSession || generation != activationGeneration
         ; Acquire owns its rollback; a late result is scoped to that old lease.
@@ -294,6 +360,8 @@ Event OnActivate(ObjectReference akActionRef)
     if OcupadaGuardia
         OcupadaGuardia.SetValue(1)
     endif
+    retainedCombatTarget = combatAtEntry
+    nextCombatRetain = 0.0
     cameraEntryPending = true
     cameraEntryStartedAt = Utility.GetCurrentRealTime()
     ; Scheduled 0.05s ticks are requests, not a guaranteed engine frequency.
@@ -311,7 +379,7 @@ Event OnActivate(ObjectReference akActionRef)
         return
     endif
     phase = 0
-    if needsReset
+    if needsReset && !UseSightCamera
         phase = 3
         elapsed = 0.0
         bool entryResetStarted = PlayGamebryoAnimation("Reset", true)
@@ -459,6 +527,9 @@ Function StopRepeatFire()
 EndFunction
 
 Function RequestFireMode()
+    if UseSightCamera
+        return
+    endif
     int modeGeneration = generation
     int modeToken = token
     int pressReleaseSerial = modeReleaseSerial
@@ -486,6 +557,9 @@ Function RequestFireMode()
 EndFunction
 
 Function TryRepeatShot(int expectedGeneration)
+    if UseSightCamera
+        return
+    endif
     int repeatToken = token
     int expectedRevision = repeatRevision
     if !operating || generation != expectedGeneration || phase != 0 || !ContinuousFire || !repeatFire
@@ -566,9 +640,9 @@ Event OnKeyDown(int keyCode)
     endif
     if keyCode == activateKeyboard || keyCode == activateMouse
         RequestExit("OnKeyDown")
-    elseif keyCode == fireKeyboard || keyCode == fireMouse
+    elseif !UseSightCamera && (keyCode == fireKeyboard || keyCode == fireMouse)
         RequestShot()
-    elseif keyCode == modeKeyboard || keyCode == modeMouse
+    elseif !UseSightCamera && (keyCode == modeKeyboard || keyCode == modeMouse)
         RequestFireMode()
     else
         SetAimKey(keyCode, true)
@@ -577,6 +651,9 @@ EndEvent
 
 Event OnKeyUp(int keyCode, float holdTime)
     if !operating
+        return
+    endif
+    if UseSightCamera
         return
     endif
     SetAimKey(keyCode, false)
@@ -604,14 +681,17 @@ Event OnControlDown(string control)
     endif
     if control == "Activate"
         RequestExit("OnControlDown")
-    elseif control == "Right Attack/Block"
+    elseif !UseSightCamera && control == "Right Attack/Block"
         RequestShot()
-    elseif control == "Sprint"
+    elseif !UseSightCamera && control == "Sprint"
         RequestFireMode()
     endif
 EndEvent
 
 Event OnControlUp(string control, float holdTime)
+    if UseSightCamera
+        return
+    endif
     if operating && control == "Right Attack/Block"
         fireReleaseSerial += 1
         heldFire = false
@@ -648,6 +728,9 @@ Function RequestExit(string inputSource)
 EndFunction
 
 Function RequestShot()
+    if UseSightCamera
+        return
+    endif
     int requestGeneration = generation
     int requestToken = token
     ; v09: InputReady calls natives and may yield. A release handled meanwhile belongs to
@@ -701,6 +784,10 @@ Function PauseInput()
 EndFunction
 
 Function CancelPendingShot()
+    if UseSightCamera
+        ; Native menu sink cancels before commit, including when this VM is late.
+        return
+    endif
     if !shotCommitted && (phase == 1 || phase == 2)
         int cancelledGeneration = shotGeneration
         int cancelledToken = token
@@ -817,7 +904,7 @@ EndFunction
 bool Function CanOperate(int expectedGeneration)
     if UseSightCamera
         ; Readiness includes game-thread life, camera, operator and loaded-node checks.
-        return operating && !cameraEntryPending && generation == expectedGeneration && Session.IsCurrent(Self, token) && AstraSightNative.IsSightReady(Self, token)
+        return operating && !cameraEntryPending && generation == expectedGeneration && Session.IsCurrent(Self, token) && AstraSightNative.IsFastSightReady(Self, token)
     endif
     return operating && !cameraEntryPending && generation == expectedGeneration && Session.IsCurrent(Self, token) && ReadCameraState() == 0 && !player.IsDead() && NearOperator() && NetImmerse.HasNode(Self, "ProjectileNode", false) && NetImmerse.HasNode(Self, YawNode, false) && NetImmerse.HasNode(Self, PitchNode, false) && NetImmerse.HasNode(Self, VisualBoltNode, false) && (!UseSightCamera || AstraSightNative.IsSightReady(Self, token))
 EndFunction
@@ -917,7 +1004,20 @@ bool Function PollFirstPerson(int expectedGeneration)
         if !nativeSightRequested
             ; Mark before the native boundary so exit can invalidate a pending Begin.
             nativeSightRequested = true
-            bool accepted = AstraSightNative.BeginSight(Self, entryToken, yaw, pitch)
+            float[] settings = new float[12]
+            settings[0] = FireSeconds
+            settings[1] = ReleaseSeconds
+            settings[2] = ResetSeconds
+            settings[3] = CycleSeconds
+            settings[4] = YawCenter
+            settings[5] = YawHalfSector
+            settings[6] = PitchMin
+            settings[7] = PitchMax
+            settings[8] = PitchPivotHeight
+            settings[9] = OperatorHeight
+            settings[10] = OperatorDistance
+            settings[11] = OperatorVerticalTolerance
+            bool accepted = AstraSightNative.BeginFastSight(Self, entryToken, yaw, pitch, Launcher, ShotAmmo, SteelBolt, ShotSound, settings, ContinuousFire)
             if !operating || generation != expectedGeneration || token != entryToken
                 ; Begin may have returned after End; old reference+token is safe.
                 AstraSightNative.EndSight(Self, entryToken)
@@ -929,7 +1029,7 @@ bool Function PollFirstPerson(int expectedGeneration)
                 return false
             endif
         endif
-        bool ready = AstraSightNative.IsSightReady(Self, entryToken)
+        bool ready = AstraSightNative.IsFastSightReady(Self, entryToken)
         if !operating || generation != expectedGeneration || token != entryToken
             return false
         endif
@@ -1202,8 +1302,7 @@ EndFunction
 Event OnUpdate()
     ; v-guardia: la ventana de la demo (22 s) se cierra aquí; los ticks de
     ; sesión no se tocan (cuando operating es true esta rama nunca corre).
-    if !operating && !endingSession && OcupadaGuardia && OcupadaGuardia.GetValue() == 1 \
-        && Utility.GetCurrentRealTime() >= demoUntil
+    if !operating && !endingSession && OcupadaGuardia && OcupadaGuardia.GetValue() == 1         && Utility.GetCurrentRealTime() >= demoUntil
         OcupadaGuardia.SetValue(0)
     endif
     if updating || !operating
@@ -1228,6 +1327,11 @@ Event OnUpdate()
     endif
     float dt = now - lastTick
     lastTick = now
+    ; Runs during first-person entry too: the dragon climbs as soon as the sheath lands.
+    if now >= nextCombatRetain
+        nextCombatRetain = now + 1.0
+        RetainMountedCombat(currentGeneration, currentToken)
+    endif
     if cameraEntryPending
         if !PollFirstPerson(currentGeneration)
             updating = false
@@ -1282,7 +1386,7 @@ Event OnUpdate()
         return
     endif
     if UseSightCamera
-        bool sightReady = AstraSightNative.IsSightReady(Self, currentToken)
+        bool sightReady = AstraSightNative.IsFastSightReady(Self, currentToken)
         bool nativeMenuOpen = Utility.IsInMenuMode()
         if !operating || generation != currentGeneration || token != currentToken
             updating = false
@@ -1308,6 +1412,28 @@ Event OnUpdate()
             EndSession()
             return
         endif
+    endif
+    if UseSightCamera
+        ; Native owns phase, freeze, Fire/Reset, cost item, projectile, visual bolt
+        ; and audio. This slow tick only caches angles and reports a mode change.
+        UpdateAim(dt)
+        int nativeMode = AstraSightNative.GetFireMode(Self, currentToken)
+        if operating && generation == currentGeneration && token == currentToken && nativeMode >= 0
+            bool nextContinuous = nativeMode == 1
+            if ContinuousFire != nextContinuous
+                ContinuousFire = nextContinuous
+                if ContinuousFire
+                    Debug.Notification("Astra: tiro continuo. Mantén Ataque; Sprint cambia el modo.")
+                else
+                    Debug.Notification("Astra: tiro individual. Sprint cambia el modo.")
+                endif
+            endif
+        endif
+        updating = false
+        if operating && token == currentToken
+            RegisterForSingleUpdate(TickSeconds)
+        endif
+        return
     endif
     float dtCycle = dt
     if dtCycle < 0.0
@@ -1411,7 +1537,7 @@ Event OnUpdate()
         endif
     elseif phase == 3
         elapsed += dtCycle
-        if elapsed >= ResetSeconds
+        if elapsed >= ResetSeconds && elapsed >= CycleSeconds - FireSeconds
             NetImmerse.SetNodeScale(Self, VisualBoltNode, 1.0, false)
             bool reloadMenuOpen = Utility.IsInMenuMode()
             ; Visual restoration can return after a new shot/lease or menu.
@@ -1483,11 +1609,18 @@ Function UpdateAim(float dt)
 EndFunction
 
 Function BeginShot(int expectedGeneration, int expectedRepeatRevision = -1)
+    if UseSightCamera
+        return
+    endif
     int expectedToken = token
     bool shotSessionValid = InputReady() && CanOperate(expectedGeneration)
     bool shotMenuOpen = Utility.IsInMenuMode()
     if !operating || generation != expectedGeneration || token != expectedToken
         return
+    endif
+    if phase == 0
+        ; Covers a new cycle even when a pending save callback precedes OnLoad.
+        NormalizeTimingProperties()
     endif
     if expectedRepeatRevision >= 0 && (!ContinuousFire || !repeatFire || repeatRevision != expectedRepeatRevision)
         return
@@ -1666,6 +1799,9 @@ bool Function ShotTransformReady()
 EndFunction
 
 Function CommitShot(int expectedGeneration)
+    if UseSightCamera
+        return
+    endif
     int committedToken = token
     if shotCommitted
         return
@@ -1731,13 +1867,73 @@ Function CommitShot(int expectedGeneration)
     endif
 EndFunction
 
+Function TraceRetainedCombat(string where)
+    ; Measurement only. StartCombat stays in RetainMountedCombat, and only while the target reports alive.
+    Actor operator = player
+    Actor target = retainedCombatTarget
+    if operator == None || target == None || target == operator
+        return
+    endif
+    int dead = 0
+    if target.IsDead()
+        dead = 1
+    endif
+    int targetIsPlayer = 0
+    if target.GetCombatTarget() == operator
+        targetIsPlayer = 1
+    endif
+    float health = target.GetActorValue("Health")
+    int combat = target.GetCombatState()
+    int cameraState = ReadCameraState()
+    int fight = 0
+    if Game.IsFightingControlsEnabled()
+        fight = 1
+    endif
+    int camSwitch = 0
+    if Game.IsCamSwitchControlsEnabled()
+        camSwitch = 1
+    endif
+    Debug.Trace("AstraAsedio retain " + where + " ref=" + target + " dead=" + dead + " health=" + health + " combat=" + combat + " targetIsPlayer=" + targetIsPlayer + " cam=" + cameraState + " fight=" + fight + " camSwitch=" + camSwitch)
+EndFunction
+
+Function RetainMountedCombat(int expectedGeneration, int expectedToken)
+    ; Fighting controls stay disabled so the equipped weapon cannot swing.
+    ; Only the actor captured at entry is reasserted, and only while this lease lives.
+    if !operating || generation != expectedGeneration || token != expectedToken
+        return
+    endif
+    Actor operator = player
+    Actor target = retainedCombatTarget
+    if operator == None || target == None || target == operator
+        return
+    endif
+    TraceRetainedCombat("tick")
+    ; The trace can yield. Do not reassert combat if this lease ended inside it.
+    if !operating || generation != expectedGeneration || token != expectedToken || retainedCombatTarget != target
+        return
+    endif
+    if target.IsDead() || operator.IsDead() || operator.GetWorldSpace() != target.GetWorldSpace()
+        retainedCombatTarget = None
+        return
+    endif
+    if target.GetCombatTarget() != operator
+        target.StartCombat(operator)
+    endif
+    if operator.GetCombatTarget() != target
+        operator.StartCombat(target)
+    endif
+EndFunction
+
 Function EndSession()
+    TraceRetainedCombat("exit")
+    retainedCombatTarget = None
+    nextCombatRetain = 0.0
     if endingSession
         return
     endif
     endingSession = true
     int oldToken = token
-    bool restoreSightAim = UseSightCamera && nativeSightRequested && matricesReady
+    bool restoreSightAim = false
     int oldPhase = phase
     bool oldCommitted = shotCommitted
     if phase > 0
@@ -1791,6 +1987,40 @@ Function EndSession()
     endif
     if UseSightCamera && oldToken > 0 && SKSE.GetPluginVersion("AstraSight") >= 1
         AstraSightNative.EndSight(Self, oldToken)
+        if SKSE.GetPluginVersion("AstraSight") >= 50659328
+            ; Keep ownership until the game thread has finished cleanup. No
+            ; controls, scene restore or guard reacquire may overtake this wait.
+            ; 500 polls of 0.01s and a 5s clock both end it. A stuck native
+            ; must not leave endingSession set, or Acquire rejects every gun.
+            bool quiet = AstraSightNative.IsEffectsQuiescent(Self, oldToken)
+            int spins = 0
+            float started = 0.0
+            float now = 0.0
+            if !quiet
+                started = Utility.GetCurrentRealTime()
+                now = started
+            endif
+            while !quiet && spins < 500
+                spins += 1
+                now = Utility.GetCurrentRealTime()
+                if now != now || now < started || now >= started + 5.0
+                    spins = 500
+                else
+                    Utility.WaitMenuMode(0.01)
+                    quiet = AstraSightNative.IsEffectsQuiescent(Self, oldToken)
+                endif
+            endwhile
+            if !quiet
+                Debug.Trace("AstraAsedio EndSession effects quiescence timed out token=" + oldToken)
+            endif
+            if !CleanupCurrent(cleanupGeneration)
+                return
+            endif
+            ; API4 cleanup returns the own controls to neutral on the game thread.
+            yaw = 0.0
+            pitch = 0.0
+            matricesReady = false
+        endif
     endif
     if Session != None
         Session.Release(Self, oldToken)
@@ -1810,11 +2040,15 @@ Function EndSession()
         if !CleanupCurrent(cleanupGeneration)
             return
         endif
-        PlayGamebryoAnimation("Reset", true)
+        if !UseSightCamera
+            PlayGamebryoAnimation("Reset", true)
+        endif
         if !CleanupCurrent(cleanupGeneration)
             return
         endif
-        NetImmerse.SetNodeScale(Self, VisualBoltNode, 1.0, false)
+        if !UseSightCamera
+            NetImmerse.SetNodeScale(Self, VisualBoltNode, 1.0, false)
+        endif
     endif
     if CleanupCurrent(cleanupGeneration)
         endingSession = false
@@ -1823,5 +2057,23 @@ EndFunction
 
 bool Function CleanupCurrent(int expectedGeneration)
     return endingSession && generation == expectedGeneration && token == -1 && !operating
+EndFunction
+
+bool Function IsPlayerOperating()
+    return operating
+EndFunction
+
+bool Function IsPlayerCleanupPending()
+    return endingSession
+EndFunction
+
+Function ResetStationAim()
+    if operating || endingSession
+        return
+    endif
+    ; Station handoff restored neutral 3D before calling this scalar helper.
+    yaw = 0.0
+    pitch = 0.0
+    matricesReady = false
 EndFunction
 

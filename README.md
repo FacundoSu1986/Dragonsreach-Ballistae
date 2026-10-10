@@ -1,17 +1,50 @@
-# Ballesta Astra v10 — cámara en la cola y mira de alza y guion
+# Astra Asedio — QA v21
 
-Para Skyrim SE 1.6.1170, SKSE64 2.2.8 y Address Library para ese runtime. Instalar AstraAsedio_v10_MO2.zip en MO2 y usar el perfil independiente AstraAsedio_QA_v10 (solo Astra y Address Library). Desactivar otras versiones Astra: v10 rechaza las DLL 3.1 (v08) y 3.2 (v09). La preparación no cambia el perfil seleccionado ni inicia Skyrim. Probar con una partida nueva del perfil.
+Paquete de prueba completo para Skyrim SE Steam 1.6.1170, SKSE 2.2.8 y Address Library AE 1170. Mantiene AstraSight 3.5.4/API 4, el disparo, el proyectil y las ballestas de Whiterun. El script de la ballesta conserva el blanco de combate al montar.
 
-`coc AstraAsedioTest`, tomar virotes de acero del cofre, subir por la escalera lateral y activar la manivela. E entra y sale de la mira; el ratón gira 360° y eleva de −5° a +80°; Ataque dispara; Sprint alterna Individual/Continuo.
+## Qué corrige
 
-Cambios v10, a partir de tu prueba de v09 del 2026-10-05 (reports/user_evidence_v09.json):
-- Cámara a 180°, causa encontrada: el registro de cámara de v09 mostró que Skyrim acerca la cámara a tu cabeza cuando hay colisión entre tus ojos y la cámara (el tamaño de la esfera con que el motor lo comprueba está ajustado a ese registro, no medido en el motor). La caja de colisión del pedestal llegaba a 137,6 u, más alta que tus ojos (~109 u); con la ballesta mirando al lado opuesto, la línea ojos→mira la rozaba. Ahora esa caja llega a 35 u y la cámara nunca baja de 65 u, así que la línea ojos→cámara pasa al menos 30 u por encima de ella. Contra toda la colisión (pedestal y torre) se midió cada 15° de giro, en 9 elevaciones y desde todas las posiciones del operador de una grilla de 20 u, incluida la parte de arriba del pedestal (reports/sight_path_verified.json). Pendiente de prueba en juego.
-- Cámara en la cola: en tiro bajo y medio va 120 u detrás del alza, sobre la línea de mira, detrás del torno (donde marcaste el círculo rojo). Al elevar se desliza hacia adelante sobre esa línea; a +80° queda a unos 16 u del alza. Las miras siempre quedan alineadas.
-- Mira fija: alza (anillo de hierro) sobre la caja y guion (poste con punta) sobre un arco en la punta de la caja, por encima del virote. El guion sube hasta 3,9 u (unos 5,5 cm) entre tiro horizontal y +80° para mantener el cero a 75 m: apuntá poniendo la punta del guion en el centro del anillo, sobre el blanco. Con cero a 75 m, entre 10 y 75 m el virote pega algo por encima del guion (hasta ~32 cm hacia los 40 m) y más allá de 75 m, por debajo.
-- Verificado también: la segunda escritura de cámara que agregó v07 nunca se ejecutaba (el registro de v09 lo mostró); la cámara la dan los getters de primera persona.
+- El paquete incluye ahora AstraAsedio_WhiterunTorres.esp y sus dos voladizos. Ese addon faltaba en la instalación inspeccionada; el registro del juego confirmó que no estaba cargado.
+- Reubica la atalaya en el origen X 4665,54 / Y −14922,81 / Z −5217,81, orientación 187,63°, celda 0000963D (1,−4). La ballesta queda en la misma X/Y, 151,55 unidades más arriba. La malla es `torre_atalaya_v20.nif`, la que se ajustó a ese suelo.
+- Conserva los FormID de las quince referencias: torre, ballesta, cofre y doce escudos. No edita NAVM, misiones, guardias vanilla ni marcadores de aterrizaje.
+- Al montar, el juego envaina al jugador y el dragón pierde el blanco. El script guarda ese blanco antes de tomar la ballesta y lo reafirma una vez por segundo. Hay que entrar en combate con el dragón y después montar. Un dragón que aparece recién después de montar no queda agarrado. Salir es la misma activación de siempre.
+- La escalera apoyaba sobre dos escombros (ImpExtRubble03 e ImpExtRubble02). Esos dos quedan desactivados y el suelo del pie de la escalera sube hasta el primer peldaño, un escalón de entre 7 y 16 unidades. El resto del terreno de la celda no cambia.
 
-Siguen de v09: arreglos de ráfaga, menús (la mira queda en pausa y se retoma), primera activación, mensaje del operador, torre rústica con escalera directa. De v08: daño de asedio, virote no recogible, caja Havok del virote, sonido. Limitaciones conocidas: (B5) entre +15° y +45° la parte trasera del carro pasa por el puesto del operador. La caja del pedestal (35 u) frena al caminar, pero de un salto se puede subir: ahí quedás dentro de la base (solo visual; la mira funciona igual y esa posición está medida). Por encima de 35 u la base no tiene colisión: flechas y hechizos la atraviesan. A +80° el anillo del alza queda a ~16,6 u de la cámara: con un fNearDistance mayor que 16 (INI o ENB) se recorta. Fuera de la mira el guion queda donde lo dejó la última pose (hasta 3,9 u) hasta que se recargue la celda.
+## Instalación en MO2
 
-Fuentes: source/Torre_Ballesta_lowpoly_v04.blend es la copia intacta; source/Torre_escalera_rustica.blend es la torre editable; source/Astra_export.blend es la escena de exportación. Reconstrucción: Blender 4.4/PyNifly27 scripts/build_assets.py (incluye las miras y la colisión del pedestal), build_stairs.py y verify_assets.py; Python scripts/build_plugin.py, compile_papyrus.py y build_native.py. check_rebuild_v10.py verifica la reconstrucción desde v04 en un proyecto temporal. No distribuir DDS/ESM/cache/SDK.
+1. Cerrá Skyrim y conservá una copia de tu partida antes de probar una actualización.
+2. Instalá AstraAsedio_QA_v21_Completo_MO2.zip como un mod nuevo llamado **AstraAsedio v21 completo**. Si ya había un v21 instalado, reemplazalo con este zip: el anterior no traía el script del dragón.
+3. Desactivá las instalaciones anteriores de Astra Asedio en el panel izquierdo: paquete principal, addon de la atalaya y addon de Whiterun, si existe. Activá solo este paquete completo.
+4. En el panel derecho activá estos tres plugins, con el principal primero:
+   - AstraAsedio.esp
+   - AstraAsedio_WhiterunTorres.esp
+   - AstraAsedio_Atalaya.esp
+5. Comprobá que MO2 no muestre masters faltantes. La prueba debe usar los ESP y NIF del mismo paquete v21.
+6. Abrí Skyrim desde MO2. Si el juego ya estaba abierto, cerralo por completo —también en el administrador de tareas si el proceso sigue— y volvé a abrirlo. Un script nuevo no entra con una recarga de partida.
 
-Los informes v01–v09 conservados son históricos. Los archivos vigentes se identifican por SHA en los recibos v10. No se cambian fuentes originales, v09, plugins externos ni configuración global de Skyrim.
+No hace falta borrar tus partidas. La actualización de referencias que ya se usaron necesita una comprobación dentro del juego; no se certificó la migración de una partida concreta.
+
+## Cómo encontrar y probar la atalaya
+
+Estas coordenadas son el origen de la torre. La Z queda debajo del piso. La ballesta está en la misma X/Y, con Z −5066,26.
+
+```text
+player.setpos x 4665.54
+player.setpos y -14922.81
+player.setpos z -5217.81
+player.setangle z 187.63
+```
+
+Para quedar junto a la ballesta, repetí X, Y y el ángulo con `player.setpos z -5066`.
+
+Probá subir por la escalera, activar la mira, disparar a tierra y salir de la mira. Para el dragón, entrá en combate primero y recién ahí montá. El cofre de virotes está debajo del piso. En Whiterun deben aparecer las dos estaciones y los dos voladizos.
+
+Para la prueba de MQ104, usá una partida previa al combate y avanzá la misión jugando normalmente. Observá el aterrizaje, el combate y las patrullas; forzar etapas por consola no verifica esa secuencia.
+
+## Verificación y límites
+
+La malla de este sitio se reimportó en su revisión: 244 puntos de acceso y 1.512 poses estáticas de apuntado. El proxy de navegación de esta misma colocación registró obstrucciones; no es el claro del afloramiento del noreste. Otros órdenes de carga y mods que cambien roca, terreno o navmesh necesitan su propia revisión.
+
+Estos controles son geométricos. Falta la prueba en Skyrim de MQ104, la IA, el guardado y la recuperación de las estaciones de Whiterun.
+
+Sigue siendo QA: no es una versión estable lista para Nexus. Quedan pendientes la validación formal en xEdit/Creation Kit y la prueba de juego. Los registros WRLD/CELL que sirven de contenedores todavía requieren revisión de compatibilidad antes de publicar. No se distribuye geometría vanilla extraída ni una animación corporal nueva para los guardias.

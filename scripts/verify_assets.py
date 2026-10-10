@@ -105,7 +105,7 @@ for asset in ('torre','ballesta','virote'):
             # independently from the final bytes and combine them with the
             # imported translation/quaternion channels before measuring.
             t=(frame-1)/30
-            for node in ('Cuerda_I','Cuerda_D','VIROTE_VISUAL'):
+            for node in ('Cuerda_I','Cuerda_D'):
                 keys=scales[(seqname,node)]
                 if t<=keys[0][0]: value=keys[0][1]
                 elif t>=keys[-1][0]: value=keys[-1][1]
@@ -134,6 +134,13 @@ for asset in ('torre','ballesta','virote'):
         report['rope_poses_sampled']=len(samples)
         report['scale_keys_in_binary']={seq+'/'+node:len(keys) for (seq,node),keys in scales.items()}
         report['rope_endpoint_checks_pass']=max(samples)<.03 and max(outer_samples)<.03
+        # El virote NO debe llevar pista de escala en el NIF: su visibilidad la
+        # maneja el Papyrus con SetNodeScale (0.0 al confirmar, 1.0 al recargar y al
+        # salir). Antes habia dos escritores sobre el mismo canal con valores distintos
+        # (0.001 en el NIF y 0.0 en el script) y si la animacion fallaba el virote
+        # quedaba invisible sin nada que lo restaurara.
+        report['bolt_scale_owned_by_papyrus']=not any(n=='VIROTE_VISUAL' for _,n in scales)
+        assert report['bolt_scale_owned_by_papyrus'], 'VIROTE_VISUAL must not carry a scale track'
         report['reimport_ballesta_actions']={a.name:[s.name_display for s in a.slots] for a in bpy.data.actions}
 
 report['visual_triangles_total']=sum(f['triangles'] for f in report['files'].values())

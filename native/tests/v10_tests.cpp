@@ -10,7 +10,7 @@ int main(){
  auto pivot=Vec{0,0,153};
  for(double scale:{1.,2.})for(double yaw:{0.,90.,179.,180.,240.,359.}){
   double previous=1e9;
-  for(double elevation:{-5.,0.,10.,20.,35.,45.,60.,70.,80.}){
+  for(double elevation:{-20.,-15.,-10.,-5.,0.,10.,20.,35.,45.,60.,70.,80.}){
    Mat frame=rz(rad(yaw))*rx(rad(-elevation));
    auto world=[&](Vec local){return (pivot+frame*local)*scale;};
    Vec rear=world({0,80,40}),muzzle=world({0,-224,19.6});

@@ -244,15 +244,15 @@ class SprintLatch(Base):
 
 
 class NativeGate(Base):
-    def test_older_dlls_without_the_tail_sight_are_rejected(self):
-        # v10: the PSC needs AstraSight 3.3 (tail camera + front post); 3.1 (v08) and 3.2 (v09) are refused.
-        for version in (0x03010000, 0x03020000):
+    def test_older_dlls_without_depression_to_minus_twenty_are_rejected(self):
+        # v13 needs 3.4 because older DLLs clamp depression at -5.
+        for version in (0x03010000, 0x03020000, 0x03030000):
             f = NativeSightFixture(); f.version = version; f.enter()
             self.assertFalse(f.vm.state['operating'])
-            self.assertTrue(any(c[0] == 'reject' and 'AstraSight.dll 3.3.0' in c[1] for c in f.calls), f.calls)
+            self.assertTrue(any(c[0] == 'reject' and 'AstraSight.dll 3.4.0' in c[1] for c in f.calls), f.calls)
 
-    def test_v10_dll_is_accepted(self):
-        f = NativeSightFixture(); f.version = 0x03030000; f.enter()
+    def test_v13_dll_is_accepted(self):
+        f = NativeSightFixture(); f.version = 0x03040000; f.enter()
         self.assertTrue(f.vm.state['operating'])
 
 

@@ -11,8 +11,8 @@
       "factor": 0.2727272668160684
     }
   },
-  "timing_floats": 2130,
+  "timing_floats": 1978,
   "spatial_values_shaders_collision_unchanged": true,
-  "before_sha256": "c01ee027b28c6779154b0c7f7dba9483cef65d8cc94ff636a5c4408115c721bd",
-  "after_sha256": "dd1741b8480e32988a10d1711b342d70882da1d1f398564794b8e6581c44bd1d"
+  "before_sha256": "9bea7c900510208b5bc84c70c8c901fab0c089139db8223936b6ec4c54ffec98",
+  "after_sha256": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2"
 }

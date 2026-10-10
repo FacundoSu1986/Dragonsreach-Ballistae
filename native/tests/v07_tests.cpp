@@ -5,7 +5,7 @@
 using namespace Astra;
 int main(){
  int checks=0,failures=0; auto check=[&](bool ok,const char* name){++checks;if(!ok){++failures;std::cerr<<name<<'\n';}};
- for(double yaw:{0.,179.,180.,181.,240.,359.})for(double pitch:{-5.,0.,35.,80.}){
+ for(double yaw:{0.,179.,180.,181.,240.,359.})for(double pitch:{-20.,-5.,0.,35.,80.}){
   Session s;Key k{800,1};s.begin(k,yaw,pitch);auto ticket=s.ticket();
   Transform root{rz(rad(37))*rx(rad(12)),{3000,-4000,600},1.25};
   double p=rad(pitch),y=rad(yaw),ly=-224*std::cos(p)+19.6*std::sin(p);

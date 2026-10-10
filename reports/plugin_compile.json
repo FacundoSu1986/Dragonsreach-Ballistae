@@ -4,7 +4,7 @@
   "runtime_read_only": true,
   "scripts": [
     {
-      "source_sha256": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+      "source_sha256": "237b5db5d05f49dc0ffa309cbcb73281541e0716de4943b803bbcda86a89d4ed",
       "source": "mod\\scripts\\source\\AstraAsedioActi.psc",
       "pex": "mod\\scripts\\AstraAsedioActi.pex",
       "exit_code": 0,
@@ -13,8 +13,8 @@
       "output": "Starting 1 compile threads for 1 files...\nCompiling \"AstraAsedioActi\"...\nStarting assembly of AstraAsedioActi\n0 error(s), 0 warning(s)\nAssembly succeeded\n\nCompilation succeeded.\n\nBatch compile of 1 files finished. 1 succeeded, 0 failed.\nStarting disassembly of AstraAsedioActi\n0 error(s), 0 warning(s)\nDisassembly succeeded\n",
       "bytecode_safety": {
         "no_none_to_array_casts": true,
-        "array_create_count": 8,
-        "functions_inspected": 51,
+        "array_create_count": 9,
+        "functions_inspected": 59,
         "skse_input_events": [
           "OnKeyDown",
           "OnKeyUp",
@@ -30,13 +30,42 @@
         ],
         "own_camera_state_binding": true,
         "runtime_camera_wrappers_absent": true,
+        "anonymized_header": {
+          "source": "AstraAsedioActi.psc",
+          "user": "AstraAsedio",
+          "computer": "Build"
+        },
+        "executable_tables_unchanged": true,
         "disassembly": "reports\\papyrus_bytecode\\AstraAsedioActi.disassemble.pas",
-        "disassembly_sha256": "8c56d03d32e23c16d776247c7757e50c00a39efc3f47ec78f2d8d66c26ede4c5"
+        "disassembly_sha256": "794af5be6c639ff1f7183bd2df02ae11e0a42244f68e9df28d0aec657a4e8ced"
       },
-      "sha256": "3105b2cf5ff403500a26da2c7f1d039ed9b69e8fe26724689e72f5022a9820fd"
+      "sha256": "b50b5fb1504d4b668eb72e7fc6b9bea9e61bd04cd1822ae0c0e81e86c0444c23"
     },
     {
-      "source_sha256": "048e868247e792cd7702518a36ea95bc54d98f1d46555379f8eb7c3dafa8831e",
+      "source_sha256": "46f4e833f233381666e03857469b7b169c24341acf314aa84b2a268548db476f",
+      "source": "mod\\scripts\\source\\AstraAsedioGuard.psc",
+      "pex": "mod\\scripts\\AstraAsedioGuard.pex",
+      "exit_code": 0,
+      "assembler_exit_code": 0,
+      "success": true,
+      "output": "Starting 1 compile threads for 1 files...\nCompiling \"AstraAsedioGuard\"...\nStarting assembly of AstraAsedioGuard\n0 error(s), 0 warning(s)\nAssembly succeeded\n\nCompilation succeeded.\n\nBatch compile of 1 files finished. 1 succeeded, 0 failed.\nStarting disassembly of AstraAsedioGuard\n0 error(s), 0 warning(s)\nDisassembly succeeded\n",
+      "bytecode_safety": {
+        "no_none_to_array_casts": true,
+        "array_create_count": 9,
+        "functions_inspected": 49,
+        "anonymized_header": {
+          "source": "AstraAsedioGuard.psc",
+          "user": "AstraAsedio",
+          "computer": "Build"
+        },
+        "executable_tables_unchanged": true,
+        "disassembly": "reports\\papyrus_bytecode\\AstraAsedioGuard.disassemble.pas",
+        "disassembly_sha256": "e72ec641ceb7f5e919149a410384f242474fb42b134e6621fcbf75f49a8bfa5f"
+      },
+      "sha256": "9e970c52fdb69788290dab027bd4b76812ade0388d23d58e5703b5449f301409"
+    },
+    {
+      "source_sha256": "6ad8ce6822e5349756eaf186afd893c675a874d6a8d1e69c73d6bb2c4aecfc38",
       "source": "mod\\scripts\\source\\AstraAsedioPlayerAlias.psc",
       "pex": "mod\\scripts\\AstraAsedioPlayerAlias.pex",
       "exit_code": 0,
@@ -46,14 +75,20 @@
       "bytecode_safety": {
         "no_none_to_array_casts": true,
         "array_create_count": 0,
-        "functions_inspected": 7,
+        "functions_inspected": 10,
+        "anonymized_header": {
+          "source": "AstraAsedioPlayerAlias.psc",
+          "user": "AstraAsedio",
+          "computer": "Build"
+        },
+        "executable_tables_unchanged": true,
         "disassembly": "reports\\papyrus_bytecode\\AstraAsedioPlayerAlias.disassemble.pas",
-        "disassembly_sha256": "df0acf471ac32c6700e99a701cab197a861d58fd304625ce988bc897866b9b53"
+        "disassembly_sha256": "375623319f39e6bfa4db79ac1f22770b0cf5551636a9e521800d55718eaaded6"
       },
-      "sha256": "e7c7a5a542b10a8bb412ec3d051c02f49e686a10215de8532db86c2770b33d69"
+      "sha256": "0db4a51b2e7e05eea52ac8e2049e695430f2e3f4bba8a1f6caccbfadfe93dadb"
     },
     {
-      "source_sha256": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4",
+      "source_sha256": "a07fbce60ac9b6ad030508cf2c0c5ae9a88b5d03784b9575a21317bf8e6c0775",
       "source": "mod\\scripts\\source\\AstraAsedioSession.psc",
       "pex": "mod\\scripts\\AstraAsedioSession.pex",
       "exit_code": 0,
@@ -66,13 +101,42 @@
         "functions_inspected": 12,
         "own_camera_state_binding": true,
         "runtime_camera_wrappers_absent": true,
+        "anonymized_header": {
+          "source": "AstraAsedioSession.psc",
+          "user": "AstraAsedio",
+          "computer": "Build"
+        },
+        "executable_tables_unchanged": true,
         "disassembly": "reports\\papyrus_bytecode\\AstraAsedioSession.disassemble.pas",
-        "disassembly_sha256": "325209955c1fd948cf2f7361d583cd5c5e2594254cf0d7ef388b706ca286a292"
+        "disassembly_sha256": "22aefc895bf4f0c4f336c32102c9e6e067bd8ba17734e1a9e82eca0048a802cf"
       },
-      "sha256": "7a019b63cbdd1ad812e969f7ea682e6137661c62de0a4cb290b451e45011b52a"
+      "sha256": "1ae8d8c519464b75ff94b74999edecabd0da5f1dc7d102702448217ad5311514"
     },
     {
-      "source_sha256": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
+      "source_sha256": "ff006edb38cff6126673108e90ee2fce81040b89c4964535c95d08b0f7f44643",
+      "source": "mod\\scripts\\source\\AstraAsedioStation.psc",
+      "pex": "mod\\scripts\\AstraAsedioStation.pex",
+      "exit_code": 0,
+      "assembler_exit_code": 0,
+      "success": true,
+      "output": "Starting 1 compile threads for 1 files...\nCompiling \"AstraAsedioStation\"...\nStarting assembly of AstraAsedioStation\n0 error(s), 0 warning(s)\nAssembly succeeded\n\nCompilation succeeded.\n\nBatch compile of 1 files finished. 1 succeeded, 0 failed.\nStarting disassembly of AstraAsedioStation\n0 error(s), 0 warning(s)\nDisassembly succeeded\n",
+      "bytecode_safety": {
+        "no_none_to_array_casts": true,
+        "array_create_count": 0,
+        "functions_inspected": 18,
+        "anonymized_header": {
+          "source": "AstraAsedioStation.psc",
+          "user": "AstraAsedio",
+          "computer": "Build"
+        },
+        "executable_tables_unchanged": true,
+        "disassembly": "reports\\papyrus_bytecode\\AstraAsedioStation.disassemble.pas",
+        "disassembly_sha256": "fbdca427bf0da64a67a01ef3937690d8c82b1b8898e68d44edce0d20a7292d93"
+      },
+      "sha256": "3151c1d892c0041a2f1710a4be6f92bc9a67afc2650411313306104611b9440f"
+    },
+    {
+      "source_sha256": "567f332af85cd265fb09d28cd52e18edcee847c26f14e8abfbde0710746e3505",
       "source": "mod\\scripts\\source\\AstraSightNative.psc",
       "pex": "mod\\scripts\\AstraSightNative.pex",
       "exit_code": 0,
@@ -82,11 +146,17 @@
       "bytecode_safety": {
         "no_none_to_array_casts": true,
         "array_create_count": 0,
-        "functions_inspected": 13,
+        "functions_inspected": 18,
+        "anonymized_header": {
+          "source": "AstraSightNative.psc",
+          "user": "AstraAsedio",
+          "computer": "Build"
+        },
+        "executable_tables_unchanged": true,
         "disassembly": "reports\\papyrus_bytecode\\AstraSightNative.disassemble.pas",
-        "disassembly_sha256": "d836c96f89ea3173f32570da7b93445cb14c99a5925a3e9f1758b622d3c031b1"
+        "disassembly_sha256": "13bfa6f1f7037257ada62e100afa2e7f9bc11dcb2f87846bd9bf8f3fadbd57bc"
       },
-      "sha256": "73e1505387179774d689b83141474fd9dddbffd7ebf8bca4d490f6b5afcc57aa"
+      "sha256": "83c8c855b61b9e7c5009639b03c688c789edec1082a182847fa00ad1440fec25"
     }
   ],
   "success": true,

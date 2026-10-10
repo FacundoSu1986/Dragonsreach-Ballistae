@@ -1,13 +1,13 @@
 .info
 	.source "AstraSightNative.psc"
-	.modifyTime 1791142172 ;Sun Oct 04 16:29:32 2026 Local
-	.compileTime 1791224423 ;Mon Oct 05 15:20:23 2026 Local
-	.user "Facu2"
-	.computer "DESKTOP-DF3S14S"
+	.modifyTime 1791576007 ;Fri Oct 09 17:00:07 2026 Local
+	.compileTime 1791649531 ;Sat Oct 10 13:25:31 2026 Local
+	.user "AstraAsedio"
+	.computer "Build"
 .endInfo
 .userFlagsRef
-	.flag hidden 0	; 0x00000000
 	.flag conditional 1	; 0x00000001
+	.flag hidden 0	; 0x00000000
 .endUserFlagsRef
 .objectTable
 	.object AstraSightNative 
@@ -20,17 +20,20 @@
 		.endPropertyTable
 		.stateTable
 			.state 
+				.function SetFrozen native static
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param gun ObjectReference
+						.param token Int
+						.param frozen Bool
+					.endParamTable
+				.endFunction
 				.function GetCameraState native static
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
 					.return Int
-					.paramTable
-					.endParamTable
-				.endFunction
-				.function IsAvailable native static
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
 					.paramTable
 					.endParamTable
 				.endFunction
@@ -39,15 +42,6 @@
 					.docString ""
 					.return Int
 					.paramTable
-					.endParamTable
-				.endFunction
-				.function EndSight native static
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param gun ObjectReference
-						.param token Int
 					.endParamTable
 				.endFunction
 				.function BeginSight native static
@@ -61,6 +55,25 @@
 						.param initialPitch Float
 					.endParamTable
 				.endFunction
+				.function EndSight native static
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param gun ObjectReference
+						.param token Int
+					.endParamTable
+				.endFunction
+				.function CaptureAim native static
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Float[]
+					.paramTable
+						.param gun ObjectReference
+						.param token Int
+						.param freeze Bool
+					.endParamTable
+				.endFunction
 				.function IsSightReady native static
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
@@ -70,14 +83,21 @@
 						.param token Int
 					.endParamTable
 				.endFunction
-				.function SetFrozen native static
+				.function BeginFastSight native static
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
 					.return Bool
 					.paramTable
 						.param gun ObjectReference
 						.param token Int
-						.param frozen Bool
+						.param initialYaw Float
+						.param initialPitch Float
+						.param launcher Weapon
+						.param shotAmmo Ammo
+						.param costAmmo Ammo
+						.param shotSound Sound
+						.param settings Float[]
+						.param continuous Bool
 					.endParamTable
 				.endFunction
 				.function ValidateShot native static
@@ -92,26 +112,47 @@
 						.param pivotHeight Float
 					.endParamTable
 				.endFunction
-				.function CaptureAim native static
+				.function GetFireMode native static
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
-					.return Float[]
+					.return Int
 					.paramTable
 						.param gun ObjectReference
 						.param token Int
-						.param freeze Bool
 					.endParamTable
 				.endFunction
-				.function onBeginState
+				.function IsFastSightReady native static
 					.userFlags 0	; Flags: 0x00000000
-					.docString "Event received when this state is switched to"
-					.return None
+					.docString ""
+					.return Bool
+					.paramTable
+						.param gun ObjectReference
+						.param token Int
+					.endParamTable
+				.endFunction
+				.function ResetIdleScene native static
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param gun ObjectReference
+					.endParamTable
+				.endFunction
+				.function IsAvailable native static
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
 					.paramTable
 					.endParamTable
-					.localTable
-					.endLocalTable
-					.code
-					.endCode
+				.endFunction
+				.function IsEffectsQuiescent native static
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param gun ObjectReference
+						.param token Int
+					.endParamTable
 				.endFunction
 				.function GotoState
 					.userFlags 0	; Flags: 0x00000000
@@ -129,17 +170,6 @@
 						CallMethod onBeginState self ::NoneVar                   ;@line ??
 					.endCode
 				.endFunction
-				.function onEndState
-					.userFlags 0	; Flags: 0x00000000
-					.docString "Event received when this state is switched away from"
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-					.endLocalTable
-					.code
-					.endCode
-				.endFunction
 				.function GetState
 					.userFlags 0	; Flags: 0x00000000
 					.docString "Function that returns the current state"
@@ -150,6 +180,28 @@
 					.endLocalTable
 					.code
 						Return ::State                                           ;@line ??
+					.endCode
+				.endFunction
+				.function onBeginState
+					.userFlags 0	; Flags: 0x00000000
+					.docString "Event received when this state is switched to"
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+					.endLocalTable
+					.code
+					.endCode
+				.endFunction
+				.function onEndState
+					.userFlags 0	; Flags: 0x00000000
+					.docString "Event received when this state is switched away from"
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+					.endLocalTable
+					.code
 					.endCode
 				.endFunction
 			.endState

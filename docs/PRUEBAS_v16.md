@@ -1,0 +1,12 @@
+# Prueba de v16 en Skyrim
+
+Cerrar el juego antes de cambiar los archivos. Verificar que la primera línea de `Documents/My Games/Skyrim Special Edition/SKSE/AstraSight.log` identifica **AstraSight 3.5.1 API4**. En este equipo Documents está en `C:/Users/Facu2/OneDrive/Documentos`.
+
+1. Cargar una copia de la partida de pruebas de v15, fuera de una sesión de mira. Visitar ambas torres de Whiterun. Confirmar que la ballesta está sobre el voladizo, que Puesto y guardia coinciden con el operador y que Standby permite dejar libre la manivela. Comparar las coordenadas del README si hace falta. No usar disable/delete/markfordelete sobre referencias.
+2. Activar la ballesta, esperar a entrar y soltar Ataque. Hacer un clic nuevo con al menos un virote de acero en inventario. Confirmar un proyectil, un coste de munición, Fire/Reset y permanencia en la mira. Probar también laboratorio y Atalaya, donde aparecía el mismo error en el log del usuario.
+3. En AstraSight.log deben aparecer `fast sight begin`, **`shot armed`**, `shot input admitted` y `shot launch ... valid=true`. La fila launch informa `input_to_launch_ms`, cobro y devolución; no mide el clic físico ni la aparición del proyectil en pantalla. Si aparece `shot frame pump waiting`, registrar también sus campos modal/snapshot/loaded3D/Fire/Reset. Ese registro identifica una espera de contexto; no indica un lanzamiento.
+4. Salir con E y volver a entrar. Verificar devolución de controles y guardia en Puesto. Probar Individual/Continuo, un clic durante recarga, menú abierto y cierre. No debe haber tiros acumulados al salir de un menú.
+5. Guardar/cargar la partida de prueba fuera de la mira y repetir ambos puestos. Después probar, en otra copia de prueba, guardar/cargar durante entrada y salida. Confirmar que no queda el guardia en la posición del jugador ni reaparece un traslado viejo después de activarse la mira.
+6. Recorrer accesos y observar las patrullas originales. El acceso Este conserva los escalones cortos de v15; el certificado geométrico tolera contactos de contrahuella y no demuestra el tránsito real. Revisar también disparo hacia el suelo, combate y postura de los guardias.
+
+Papyrus registra `AstraAsedioGuard placement ready` al completar la verificación de colocación. Ese mensaje confirma el retorno del código, no una inspección visual del motor. Si falta o sigue dentro de la torre, comparar una partida nueva y conservar los logs de esa prueba.

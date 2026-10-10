@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "route_samples": 162,
+  "floor_error_max_units": 0.0315704345703125,
+  "body_blocking_hits": 0,
+  "navmesh_route_uncovered": 0,
+  "navmesh_triangle_body_hits": 0,
+  "actor_height_units": 128,
+  "actor_radius_units": 18,
+  "navmesh_triangles_checked": 313,
+  "world_route_same_rigid_transform": true,
+  "world_ground_datum_delta_units": -0.8800000000001091,
+  "torre_sha256": "1dc1ca22e03357cb292f6a122cd504914885cc540b21990dccf31c7b5d0a2679",
+  "esp_sha256": "08a0573f4a902f1af23b2e8abeb5c0b9fa1dd49f7763dd41645baae9e3979449",
+  "game_tested": false
+}

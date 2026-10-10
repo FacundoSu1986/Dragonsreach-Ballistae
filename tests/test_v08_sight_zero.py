@@ -67,8 +67,8 @@ class SightZero(unittest.TestCase):
         self.assertIn('length(anchorForward-expected)>0.02||length(anchorForward-projectile.rotation*Vec{0,1,0})>0.02', source)
         # Player look is still reconciled to the bore, not to the tilted view.
         self.assertIn('player->SetRotationX(float(-std::asin(std::clamp(expected.z,-1.,1.))));', source)
-        self.assertIn('v.PluginVersion({3,3,0,0})', source)
-        self.assertIn('info->version=0x03030000', source)
+        self.assertIn('v.PluginVersion({3,4,0,0})', source)
+        self.assertIn('info->version=0x03040000', source)
 
     def test_controller_refuses_the_v07_dll_before_any_native_call(self):
         from tests.test_native_sight import NativeSightFixture

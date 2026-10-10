@@ -5,7 +5,7 @@ from tests.test_native_sight import NativeSightFixture
 class ContinuousFiring(unittest.TestCase):
     def fixture(self):
         f=NativeSightFixture();f.active()
-        f.version=0x03030000
+        f.version=0x03040000
         f.vm.state['AstraSightNative'].GetAPIVersion=lambda:3
         f.vm.state['AstraSightNative'].ValidateShot=lambda *args: True
         f.vm.native.pop('RejectShot')
@@ -26,9 +26,10 @@ class ContinuousFiring(unittest.TestCase):
             self.assertEqual(f.vm.state['phase'],1,boundary);self.assertTrue(f.frozen,boundary)
             tick();self.assertEqual(f.vm.state['phase'],2)
             f.vm.now+=.11;f.vm.run('OnUpdate');self.assertEqual(f.launches,1)
-    def test_fast_defaults(self):
+    def test_moderate_defaults(self):
         f=self.fixture()
-        self.assertEqual([f.vm.state[n] for n in ['FireSeconds','ReleaseSeconds','ResetSeconds','CycleSeconds']],[.3,.1,1.2,1.5])
+        for name,expected in zip(['FireSeconds','ReleaseSeconds','ResetSeconds','CycleSeconds'],[.2,1/15,.8,1.]):
+            self.assertAlmostEqual(f.vm.state[name],expected,places=6)
     def test_native_can_operate_does_not_poll_scene_nodes_or_operator(self):
         f=self.fixture()
         f.vm.native['NearOperator']=lambda:self.fail('expensive Papyrus operator poll')

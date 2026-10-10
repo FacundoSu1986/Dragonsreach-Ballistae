@@ -1,0 +1,111 @@
+{
+  "success": true,
+  "site": {
+    "x": 10900.0,
+    "y": -8725.0,
+    "z": -4538.52,
+    "rot_z_deg": 300.0,
+    "cell": "0000961D",
+    "grid": [
+      2,
+      -3
+    ]
+  },
+  "navigation_triangles": 8860,
+  "radius": 24,
+  "height": 144,
+  "tower_obstructions": 0,
+  "samples": [],
+  "other_owned_refs": [
+    {
+      "form": "04000A00",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A02",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A43",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A44",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A45",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A46",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A47",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A48",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A49",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A4A",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A4B",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A4C",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A4D",
+      "conservative_bound_obstructions": 0
+    },
+    {
+      "form": "04000A4E",
+      "conservative_bound_obstructions": 0
+    }
+  ],
+  "landing_strip_bounds": [
+    {
+      "reference": "Skyrim.esm:0936C3",
+      "edid": "",
+      "editor_bound_separation": 7596.946925681859,
+      "intersects_256_unit_buffer": false
+    },
+    {
+      "reference": "Skyrim.esm:093697",
+      "edid": "",
+      "editor_bound_separation": 10600.223788241954,
+      "intersects_256_unit_buffer": false
+    },
+    {
+      "reference": "Skyrim.esm:05A6D1",
+      "edid": "MQ104FortAmolLandingMarker",
+      "editor_bound_separation": 6832.857471628738,
+      "intersects_256_unit_buffer": false
+    }
+  ],
+  "watchtower_center_distance": 10837.475383815181,
+  "inputs_sha256": {
+    "config.json": "026613b98d96350a6b17ac10cc7afe6d7d1c58e2e482f9d5d6a5134ce37fca06",
+    "scripts/nav_clearance_v21.py": "95e12556592de1e18ea9f80643f3bcc7db433e959ee196c4e95959bd363a0ee5",
+    "scripts/verify_site_v21.py": "33071076fc7d702ef6d20201d26b0aad4e9927803f4e1df469602c0a84e2b06e",
+    "reports/site_audit_v21.json": "88b1f4a480b5bc0e4e1830ec064b484221edd9ca648c26f8190eaaae1cfaf3a6",
+    "reports/atalaya_written_v21.npz": "ec1900db89d619c623512d2ec84d4d05d6771cb984ca8ff1b1780951bb42e62f",
+    "reports/atalaya_context_v21.json": "efc1657cf6f1a72804a69ae5e1e34f294b71bf87796c3abac220f246e7ddc9d7",
+    "mod/AstraAsedio.esp": "c74e4ab88910b8bf97b9e84b69b51529dc5e02cfe2db8a70c480028015c3aaa9",
+    "addons/Atalaya/AstraAsedio_Atalaya.esp": "68c4bb70c6f8e753a611db64f1833af8508a41dc99d2816ddd02386dd63e6ede",
+    "addons/Atalaya/meshes/AstraAsedio/torre_atalaya_v21.nif": "22580ed56d8e31275404372da4eb667769e49c3163a70f6b4617c5d70e0a1af9"
+  },
+  "game_tested": false,
+  "scope": "Actual tower Havok, conservative OBND for other owned refs, and known crash-strip editor bounds; continuous NPC-space proxy. No engine AI, dynamic dragon body, quest playthrough, save migration, or other load orders."
+}

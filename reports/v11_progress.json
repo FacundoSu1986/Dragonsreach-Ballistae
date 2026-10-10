@@ -1,0 +1,224 @@
+{
+  "tarea_1": {
+    "estado": "ok",
+    "fecha": "2026-10-06",
+    "suite_heredada": "245 tests OK, EXIT 0 (tras copiar la caché build/ de primer nivel desde v10)",
+    "baseline": "reports/v11_baseline.json, 11 archivos invariantes",
+    "aserciones_que_cambian": "reports/v11_assertions_changed.json (7)"
+  },
+  "tarea_2": {
+    "estado": "ok",
+    "tests": "tests/test_v11_layout.py, 6 tests de transformación"
+  },
+  "tarea_3": {
+    "estado": "ok",
+    "resultado": "ZYX con signos (-1,-1,-1): R = Rx(-x)·Ry(-y)·Rz(-z); el ángulo Z positivo del DATA gira en sentido horario visto desde arriba",
+    "desvio_del_plan": "El criterio '≥95 % de pares vecinos se tocan' no lo cumple ninguna convención: la distancia vértice a vértice es una aproximación gruesa y la mayoría de los vecinos a <400 u no son uniones. Se reemplazó por un criterio estadístico por par: entre los pares que se tocan a ≤10 u bajo su mejor convención con margen ≥3 u (64 pares), la ganadora ZYX [-1, -1, -1] gana 14 (p=5.2e-11 contra el azar uniforme de 48 convenciones) y la segunda XYZ [-1, 1, 1] gana 4 (p=4.5e-02). La misma ganadora sale a 5, 10 y 20 u (a 20 u: 28 contra 6). Falsificación: invertir cualquier signo de la ganadora la deja con ≤1/3 de sus victorias.",
+    "informe": "reports/angle_convention.json"
+  },
+  "tarea_4": {
+    "estado": "ok",
+    "layout": "config.json -> tower_v11, 64 piezas {'pilote': 24, 'cruz': 23, 'viga': 12, 'pared': 3, 'techo': 1, 'puerta': 1}; generado por scripts/design_tower_v11.py (semilla 2026), sha 6198069a286a1e86",
+    "piezas_vanilla": {
+      "pilotes": "StockadeWoodbeam01/02/03 verticales (24: 16 grilla 4x4 en ±262/±128, 6 escalera, 2 descanso), escala hasta 1,45 para llegar a z 423",
+      "cruces_y_vigas": "StockadeWoodbeam01/02/03 y StockadeWoodbeamShort01/02 (35)",
+      "cuarto": "3 StockadeBuildingStraight01 hundidas 64 u (paredes de 192 visibles, como StockadeBuildingCorner01) + StockadeScaffoldTop0Sided01 de techo",
+      "puerta": "FarmhouseAnimDoor01 en (0,-118,0) girada 180: bisagra en (-48,-122)"
+    },
+    "puerta_sentido": "Open gira el nodo Door01 de 0 a -95 grados en Z (asienta en -92). Con las rotaciones elementales horarias de Gamebryo (las mismas que dieron la convención de las referencias) la hoja abre hacia -y local, o sea hacia adentro del cuarto. Por si el signo fuera el otro, el diseño verifica que los dos lados queden libres (door_outward_also_clear=true); la Tarea 11 lo vuelve a medir.",
+    "tests": "tests/test_v11_layout.py: 24 OK (incluye falsificación de cada chequeo del diseño)",
+    "suite": "269 tests, 1 falla esperada: test_v10_sight.test_sight_path_verification_is_for_these_nifs (el informe de cámara de v10 quedó viejo porque cambió config.json; se rehace en la Tarea 10)",
+    "correcciones_de_paso": [
+      "config.json source apuntaba al .blend de v10; start_v11.py lo pasa a v11 y un test lo exige",
+      "mojibake por reescribir con PowerShell 5.1 en probe_angle_convention.py y test_v11_layout.py, arreglado con Python",
+      "lector de mallas vanilla movido a v11_layout.py; la sonda ya no lee sys.argv al importarse; su caché se invalida por pares y código"
+    ]
+  },
+  "tarea_5": {
+    "estado": "ok",
+    "implementacion": "v11_layout.py: collision_solids (bhkBoxShape, bhkCapsuleShape, bhkConvexVerticesShape; cualquier otra forma o la falta de colision lanza ValueError), piece_solids, solid_vertices, solid_triangles, band_box, band_boxes",
+    "modelo": "cada forma Havok se convierte en un poliedro convexo que la contiene (planos tangentes, sin el redondeo del radio convexo): conservador para los chequeos de despeje",
+    "hallazgos": [
+      "bhkRigidBody (no T) guarda en su traslacion la pose del nodo (puerta: 48,4,88 = nodo Door01); solo bhkRigidBodyT se aplica, si no la colision de la puerta quedaria corrida dos veces",
+      "los planos de bhkConvexVerticesShape estan 0,035-0,05 Havok fuera de los vertices; se reconstruyen a exactamente el radio convexo",
+      "las cajas de la franja guardan su altura real recortada (un pilote bajo la escalera termina 17,5 u bajo la rampa y no debe bloquear el navmesh de la rampa)"
+    ],
+    "franja_0_128": "40 cajas de 40 piezas: 24 pilotes, 3 paredes, la puerta cerrada y 12 riostras (6 diagonales laterales que bajan a ~117 u junto a los pilotes del medio, 6 de la escalera bajo la rampa)",
+    "desvio_del_plan": "sin cache en build/: leer las 8 mallas tarda milisegundos (12 tests en 0,18 s)",
+    "tests": "tests/test_v11_collision.py: 12 OK (incluye cruz en X sintetica, MOPP y malla sin colision que fallan cerradas, superficies cerradas y falsificacion subiendo un pilote)",
+    "suite": "281 tests, 1 falla esperada (informe de camara de v10, Tarea 10)"
+  },
+  "tarea_6": {
+    "estado": "ok",
+    "modulo": "scripts/rustico_v11.py (puro, sin bpy): tronco, tablon, amarre, axis_at, radius_at",
+    "desvio_del_plan": "el plan decía modificar rustico.py, pero ese módulo importa bmesh al cargarse y no se puede probar fuera de Blender; las primitivas van en un módulo nuevo y rustico.py de v10 queda igual",
+    "garantias_medidas_en_la_malla": [
+      "curvatura del eje 1-3 % del largo (siempre hay un anillo a mitad del largo: con anillos impares se medía 0,87 de la curva)",
+      "conicidad 8-20 % en los anillos de las puntas",
+      "cortes de punta de 2-12 grados y distintos entre puntas",
+      "tablón: ancho ±15 %, puntas ±12 u, giro ≤1,2 grados alrededor de su eje de arriba (el centro de la cara de arriba no se mueve)",
+      "soga: radio interno 0,1-0,5 u sobre la corteza más alta, en ejes inclinados también"
+    ],
+    "tests": "tests/test_v11_rustico.py: 11 OK, 30 troncos de 100-460 u y radios 8-22 u"
+  },
+  "tarea_7": {
+    "estado": "ok",
+    "archivos": [
+      "scripts/tower_v11_geometry.py (geometria propia, Python puro, probada sin Blender)",
+      "scripts/build_tower_v11.py (Blender: materiales stockade, invariantes, export)",
+      "tests/test_v11_tower.py (16 tests)",
+      "scripts/render_v11.py (adelantado de la Tarea 13 para revisar la forma)"
+    ],
+    "torre_nif_sha256": "14ee8383ecc072b7ebedff0db41d6e84d8a498b475ca0cffceba29fdf953b502",
+    "verify_assets": {
+      "ok": true,
+      "triangulos_visibles_total": 38262,
+      "torre": 17662,
+      "shapes_torre": 6
+    },
+    "desvios_del_plan": [
+      "los materiales stockade los agrega build_tower_v11.py (como build_stairs.py en v10), no build_assets.py: asi ballesta.nif no se reconstruye y conserva sus bytes de v10",
+      "la geometria propia va en un modulo puro (tower_v11_geometry.py) para probarla sin Blender",
+      "pilotes de la escalera: tope a 41,5 u bajo la rampa (larguero de tronco inclinado), guardado en config tower_v11.stair.pile_drop",
+      "postes altos de esquina sobre la linea de la baranda (+-273), no sobre el eje del pilote (+-262): los rieles los tocan; la viga de borde y el piso tapan el corrimiento de 11 u"
+    ],
+    "errores_encontrados_y_arreglados": [
+      "tablones superpuestos hasta 3,9 u (ancho nominal ya variado)",
+      "sogas flotando ~1 u sobre pilotes (seccion triangular)",
+      "larguero que no apoyaba en su pilote por curvatura lateral de 17 u",
+      "ranura sobre la puerta por conicidad del dintel",
+      "cantos de tablones rayados por UV compartidas entre cara y canto",
+      "render: hoja de la puerta girada dos veces (nodo y shape)"
+    ],
+    "suite": "310 tests; fallan los 6 que dependen del ESP de v10 (navmesh contra las cajas nuevas, OBND de la torre) y del informe de camara: se rehacen en las Tareas 8 y 10"
+  },
+  "tarea_8": {
+    "estado": "ok",
+    "esp_sha256": "a0d8bc0fa805d60d0f8c4cfc2f0389af77bbaa0be27359b479baaad2cd60531f",
+    "referencias_vanilla": "64 (FormID 0x03000940-0x0300097F, debajo de 0xFFF), DATA con X/Y/Z en radianes y XSCL antes de DATA como en Skyrim.esm",
+    "puerta": "FarmhouseAnimDoor01 (000C78A3), sin XTEL",
+    "navmesh": {
+      "triangulos": 554,
+      "vertices": 395,
+      "componentes": 1,
+      "obstaculos_vanilla_en_el_suelo": 40,
+      "huella_cuarto": [
+        -128.0,
+        -128.0,
+        128.0,
+        128.0
+      ]
+    },
+    "marcador": {
+      "pos": [
+        56,
+        250,
+        18
+      ],
+      "moved": true,
+      "clearance": 49.757101474442095,
+      "original": [
+        120,
+        250,
+        18
+      ],
+      "rule": ">= 40 u from anything in the [0, 128] u band, outside the room, on the navmesh"
+    },
+    "validacion": "validate_plugin agrega: suelo contra piezas vanilla, referencias = layout, puerta sin XTEL; verificar_plugin.py de la skill: ok, EXIT 0 (110 records, 94 referencias)",
+    "tests": "tests/test_v11_plugin.py: 9 OK (incluye falsificacion: sin obstaculos vanilla el suelo atraviesa pilotes)",
+    "suite": "319 tests; 1 falla esperada (informe de camara, Tarea 10)"
+  },
+  "tarea_9": {
+    "estado": "ok",
+    "script": "scripts/verify_shot_clearance.py -> reports/shot_clearance_v11.json",
+    "resultado": "30960 tiros (360 de giro x 86 de elevacion), 0 contactos; el tiro mas bajo dentro de la huella pasa a z 585.7 y lo mas alto de la torre (postes de esquina) llega a 559.5: margen 26.1 u contra un radio de virote de 2.205 u",
+    "falsificacion": "poste sintetico de 600 u en la esquina SE: 159 contactos",
+    "pose": "nodos, rotaciones de reposo y eje de ProjectileNode leidos de ballesta.nif; giro Rz(yaw) y elevacion Rx(-pitch) como Plugin.cpp",
+    "hallazgo": "highest_geometry_z.vanilla is the vanilla collision: StockadeWoodbeam02/03 carry an off-centre capsule (y -168..144.5 against a -152.7..152.7 mesh), so at scale 1.45 a stilt collision ends 22 u above or 12 u below its visible top depending on which end is up. Visible stilt tops are all at 423."
+  },
+  "tarea_10": {
+    "estado": "ok",
+    "camara": "verify_sight_path.py con la colision vanilla (3080 triangulos): pies 186 (52 en pedestal), barrido 29.83 u (minimo 25), camara 10.3 u, alza 16.5 u (plano cercano 15), sin bloqueos ni cortes, falsificacion ok",
+    "escalera": "verify_stair_route.py con la colision vanilla: 127 muestras sin choques, navmesh cubre la ruta, pisos/rampa/barreras/disco y los 5 topes iguales a la referencia, conteos iguales a la geometria actual, v11_tower.json ok sobre este torre.nif",
+    "asercion_agregada": "verify_stair_route.py:34 (igualdad total de la colision con la referencia) no estaba en el inventario de la Tarea 1; agregada a reports/v11_assertions_changed.json"
+  },
+  "tarea_11": {
+    "estado": "ok",
+    "script": "scripts/verify_v11_tower.py -> reports/v11_tower.json (Blender, no guarda nada)",
+    "resultado": {
+      "stilts": {
+        "ok": true,
+        "falsificado": true
+      },
+      "braces": {
+        "ok": true,
+        "falsificado": true
+      },
+      "room": {
+        "ok": true,
+        "falsificado": true
+      },
+      "door": {
+        "ok": true,
+        "falsificado": true
+      },
+      "path": {
+        "ok": true,
+        "falsificado": true
+      },
+      "spawn_marker": {
+        "ok": true,
+        "falsificado": true
+      }
+    },
+    "irregularidad": {
+      "logs": 120,
+      "bend_at_least_1pct": 73,
+      "taper_in_range": 120,
+      "posts_measured": 70,
+      "posts_tilt_in_range": 70,
+      "deck_top_max_deviation": 0.33052368164061363,
+      "treads": 34,
+      "tread_centre_max_deviation": 8.614246723936958e-06
+    },
+    "hallazgos_y_arreglos": [
+      "PUERTA: las claves XYZ de animacion giran en sentido antihorario para un valor positivo (al reves que los angulos de las referencias): scripts/probe_key_rotation.py lo decidio con muebles vanilla que solo abren para un lado (4 votos a 0: armario, dos cofres de ruina, ataud de la Madre Noche). La puerta estaba colocada para abrir hacia afuera y su esquina chocaba el marco; ahora va sin giro, abre hacia el cuarto, y el marco esta 5 u hacia afuera de la pared",
+      "probe_door_swing.py (colocaciones vanilla de la puerta) no decidio: 2 a 2 y 15 empates; queda como evidencia",
+      "cruz_E_2 pasaba 2,78 u al costado de su pilote (distancia exacta entre triangulos): desplazamiento de -18 a -14",
+      "las vigas vanilla terminan en un corte inclinado (4,7-4,9 u, x1,45): los pilotes bajo apoyos horizontales suben 3,5-6,2 u hasta que el punto mas bajo del corte quede 1 u dentro de la vigueta",
+      "la medicion de apoyo por vertices tomaba las sogas como apoyo (la falsificacion no fallaba): ahora mide la superficie del tope contra troncos y tablas, sin sogas"
+    ],
+    "falsificaciones": {
+      "stilts": "pilote_-262_-262 lowered 10 u",
+      "braces": "cruz_O_1 moved 40 u off its face",
+      "room": "west wall removed",
+      "door": "a panel inside the room across the swing",
+      "path": "a wall across the whole approach at y -200",
+      "spawn_marker": "marker beside pilote_+128_+262"
+    }
+  },
+  "estado_general": {
+    "suite": "319 tests OK, EXIT 0",
+    "torre_nif_sha256": "7e2e3efe74ed2a6d2c6d50625670f4e92a31a57405926d3cb511b7d2ce037b4e",
+    "esp_sha256": "25b24793600f644b23809330f2c499c65dfb32daa62d5f281f331b9e7aca2279"
+  },
+  "tarea_12": {
+    "estado": "ok",
+    "script": "scripts/verify_v11_compliance.py -> reports/v11_compliance.json (Blender, solo lectura)",
+    "resultado": "torre.nif: ninguna shape repite vertices de las mallas vanilla del layout ni de los donantes (en su marco ni colocadas); los 4 .blend de source/: ningun objeto los repite; sin NIF/DDS/ESM/BSA ajenos fuera de build/; ningun informe copia vertices vanilla; falsificacion detectada",
+    "observacion": "Astra_export.blend (heredado de v10, no se regenera en v11) guarda la caja Havok del proyectil que build_assets.py copio de BoltProjectile.nif: 8 esquinas de una caja definida por sus semiejes, no una malla. Las otras colisiones de ese archivo son propias.",
+    "regla_ajustada": "los informes heredados limb_ties_* (vertices de piezas propias de la ballesta) y projectile_donor.json (esquinas de cajas envolventes) no son mallas vanilla: la regla compara contra las mallas en vez de marcar toda lista de puntos"
+  },
+  "tarea_13": {
+    "estado": "renders enviados al usuario; esperando su visto bueno antes de empaquetar",
+    "renders": [
+      "renders/v11_comparacion.png (referencia del usuario y render lado a lado)",
+      "renders/v11_referencia.png",
+      "renders/v11_escalera.png",
+      "renders/v11_uniones.png",
+      "renders/v11_puerta.png (puerta abierta hacia el cuarto, con el sentido medido)",
+      "renders/v11_bajo_plataforma.png"
+    ],
+    "script": "scripts/render_v11.py (Blender, no guarda .blend; piezas vanilla solo en memoria)"
+  }
+}

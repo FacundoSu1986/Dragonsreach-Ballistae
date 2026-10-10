@@ -1,19 +1,19 @@
 {
   "runtime": "G:\\Modding\\Skyrim_Runtime_1.6.1170",
   "extracted": "E:\\Sectores\\Sector_Varios\\bae extractor",
-  "source": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v10\\source\\Torre_Ballesta_lowpoly_v04.blend",
+  "source": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v21\\source\\Torre_Ballesta_lowpoly_v04.blend",
   "meters_to_units": 70.0,
-  "fire_seconds": 0.3,
-  "release_seconds": 0.1,
-  "reset_seconds": 1.2,
-  "cycle_seconds": 1.5,
+  "fire_seconds": 0.2,
+  "release_seconds": 0.06666666666666667,
+  "reset_seconds": 0.8,
+  "cycle_seconds": 1.0,
   "yaw_speed": 40.0,
   "pitch_speed": 20.0,
-  "pitch_min": -5.0,
+  "pitch_min": -20.0,
   "pitch_max": 80.0,
   "controller_hz": 20.0,
   "operator_distance": 160.0,
-  "tower_top_units": 465.5,
+  "tower_top_units": 151.55,
   "mount_raise_units": 20.0,
   "pitch_pivot_units": 153.0,
   "mouse_aim": true,
@@ -24,7 +24,7 @@
     80,
     40
   ],
-  "native_api_version": 3,
+  "native_api_version": 4,
   "continuous_fire": false,
   "projectile_body": {
     "mass": 15.0,
@@ -40,6 +40,361 @@
     "min_camera_distance_units": 0.0,
     "pedestal_collision_height_units": 35.0,
     "note": "v10: camera on the line rear sight (anchor) -> zero target at sight_zero_meters, slid back up to tail_distance; front post placed on that line natively."
+  },
+  "tower_v11": {
+    "note": "v13: low tower, railing fitted below the -20 degree firing envelope.",
+    "room": {
+      "center": [
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "wall_thickness": 20.0,
+      "wall_height": 192.0,
+      "door_side": "-y",
+      "door_opens": "inward",
+      "door_opening": [
+        100,
+        178
+      ],
+      "removed": true
+    },
+    "platform": {
+      "grid": [
+        -262.0,
+        -128.0,
+        128.0,
+        262.0
+      ],
+      "pile_top": 109.05000000000001,
+      "deck_top": 140.0
+    },
+    "corner_posts": {
+      "top_z": 246.05
+    },
+    "stair": {
+      "pile_drop": 41.5,
+      "pile_t": [
+        0.24,
+        0.48,
+        0.72
+      ],
+      "pile_x": [
+        285.6,
+        361.2
+      ]
+    },
+    "irregularity": {
+      "seed": 1105,
+      "log_bend_min_fraction": 0.01,
+      "log_tilt_deg": [
+        0.5,
+        3.0
+      ],
+      "log_taper": [
+        0.08,
+        0.2
+      ],
+      "plank_width_variation": 0.15,
+      "plank_end_shift_units": 12.0,
+      "plank_twist_deg": 1.2,
+      "walk_surface_tolerance_units": 1.2,
+      "tread_edge_tolerance_units": 6.7
+    },
+    "vanilla_jitter": {
+      "seed": 2026,
+      "pile_tilt_deg": 1.2,
+      "brace_tilt_deg": 0.8
+    },
+    "spawn_marker": {
+      "pos": [
+        120,
+        250,
+        18
+      ],
+      "min_clearance": 40,
+      "band": [
+        0,
+        128
+      ]
+    },
+    "pieces": [],
+    "escudos": {
+      "nota": "v12: 12 shields. Individual handle-to-wood fitting measured on written torre.nif.",
+      "edid": "ArmorIronShield",
+      "modl": "Armor\\Iron\\Shield.nif",
+      "donor_stat": "StockadeWoodbeam01",
+      "items": [
+        {
+          "nombre": "O",
+          "pos": [
+            -291.862613,
+            0.0,
+            183.0
+          ],
+          "mirar": [
+            -1.0,
+            0.0
+          ],
+          "rot_deg": [
+            -90.0,
+            -90.0,
+            -0.0
+          ],
+          "escala": 1.0,
+          "side": "O",
+          "wood_contact_units": 0.080798
+        },
+        {
+          "nombre": "N1",
+          "pos": [
+            -78.846154,
+            289.379903,
+            180.577962
+          ],
+          "mirar": [
+            0.0,
+            1.0
+          ],
+          "rot_deg": [
+            -90.0,
+            0.0,
+            0.0
+          ],
+          "escala": 1.0,
+          "side": "N",
+          "wood_contact_units": 0.015254
+        },
+        {
+          "nombre": "N2",
+          "pos": [
+            115.307692,
+            289.08909,
+            176.363315
+          ],
+          "mirar": [
+            0.0,
+            1.0
+          ],
+          "rot_deg": [
+            -90.0,
+            0.0,
+            0.0
+          ],
+          "escala": 1.0,
+          "side": "N",
+          "wood_contact_units": 0.062606
+        },
+        {
+          "nombre": "E",
+          "pos": [
+            280.030732,
+            4.8,
+            183.0
+          ],
+          "mirar": [
+            1.0,
+            0.0
+          ],
+          "rot_deg": [
+            -90.0,
+            90.0,
+            -0.0
+          ],
+          "escala": 1.0,
+          "side": "E",
+          "wood_contact_units": 0.04446
+        },
+        {
+          "nombre": "S",
+          "pos": [
+            0.0,
+            -290.581308,
+            183.0
+          ],
+          "mirar": [
+            0.0,
+            -1.0
+          ],
+          "rot_deg": [
+            90.0,
+            0.0,
+            180.0
+          ],
+          "escala": 1.0,
+          "side": "S",
+          "wood_contact_units": 0.074214
+        },
+        {
+          "nombre": "O2",
+          "pos": [
+            -289.454936,
+            -182.0,
+            165.250844
+          ],
+          "mirar": [
+            -1.0,
+            0.0
+          ],
+          "rot_deg": [
+            -90.0,
+            -90.0,
+            -0.0
+          ],
+          "escala": 1.0,
+          "side": "O",
+          "wood_contact_units": 0.031626
+        },
+        {
+          "nombre": "O3",
+          "pos": [
+            -290.726644,
+            182.0,
+            164.686
+          ],
+          "mirar": [
+            -1.0,
+            0.0
+          ],
+          "rot_deg": [
+            -90.0,
+            -90.0,
+            -0.0
+          ],
+          "escala": 1.0,
+          "side": "O",
+          "wood_contact_units": 0.033261
+        },
+        {
+          "nombre": "N3",
+          "pos": [
+            -175.923077,
+            288.731891,
+            166.622037
+          ],
+          "mirar": [
+            0.0,
+            1.0
+          ],
+          "rot_deg": [
+            -90.0,
+            0.0,
+            0.0
+          ],
+          "escala": 1.0,
+          "side": "N",
+          "wood_contact_units": 0.016728
+        },
+        {
+          "nombre": "N4",
+          "pos": [
+            212.384615,
+            289.434377,
+            158.829438
+          ],
+          "mirar": [
+            0.0,
+            1.0
+          ],
+          "rot_deg": [
+            -90.0,
+            0.0,
+            0.0
+          ],
+          "escala": 1.0,
+          "side": "N",
+          "wood_contact_units": 0.016054
+        },
+        {
+          "nombre": "S2",
+          "pos": [
+            -182.0,
+            -290.015361,
+            164.904546
+          ],
+          "mirar": [
+            0.0,
+            -1.0
+          ],
+          "rot_deg": [
+            90.0,
+            0.0,
+            180.0
+          ],
+          "escala": 1.0,
+          "side": "S",
+          "wood_contact_units": 0.081674
+        },
+        {
+          "nombre": "S3",
+          "pos": [
+            182.0,
+            -288.771105,
+            165.4591
+          ],
+          "mirar": [
+            0.0,
+            -1.0
+          ],
+          "rot_deg": [
+            90.0,
+            0.0,
+            180.0
+          ],
+          "escala": 1.0,
+          "side": "S",
+          "wood_contact_units": 0.079522
+        },
+        {
+          "nombre": "E2",
+          "pos": [
+            279.799709,
+            -180.4,
+            168.335845
+          ],
+          "mirar": [
+            1.0,
+            0.0
+          ],
+          "rot_deg": [
+            -90.0,
+            90.0,
+            -0.0
+          ],
+          "escala": 1.0,
+          "side": "E",
+          "wood_contact_units": 0.019492
+        }
+      ]
+    },
+    "mundo": {
+      "x": 4665.54,
+      "y": -14922.81,
+      "z": -5217.81,
+      "rot_z_deg": 187.63,
+      "cell": "0000963D",
+      "grid": [
+        1,
+        -4
+      ]
+    }
+  },
+  "revision_v12": {
+    "deck_units": 140.0,
+    "delta_units": -313.95,
+    "room_removed": true,
+    "source_project": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v11",
+    "game_tested": false
+  },
+  "revision_v13": {
+    "base": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v12",
+    "depression": -20.0,
+    "game_tested": false,
+    "core_has_world_placements": false,
+    "city_placements_optional": true
   },
   "guardia": {
     "donores_npc": [
@@ -69,6 +424,6 @@
     "anticipacion": 0.5,
     "tick_segundos": 0.08,
     "qa_log": false,
-    "nota": "donores_npc: EDIDs de NPC_ de Skyrim.esm probados en orden; el guardia clonado conserva paquetes/facciones/combate del donante (sandbox anclado a la ubicaci\u00f3n del editor). Bal\u00edstica id\u00e9ntica al PROJ donante: 5400 u/s y g=0.35*9.81*70=240.345 u/s^2 (native/src/Core.cpp)."
+    "nota": "donores_npc: EDIDs de NPC_ de Skyrim.esm probados en orden; el guardia clonado conserva paquetes/facciones/combate del donante (sandbox anclado a la ubicaci\u00f3n del editor). Bal\u00edstica id\u00e9ntica al PROJ donante: 5400 u/s y g=0.35*9.81*70=240.345 u/s^2 (native/src/Core.cpp). IA de la ballesta DEL JUGADOR (celda de pruebas); las torres de ciudad usan AstraAsedioGuard (addons)."
   }
 }

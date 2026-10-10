@@ -1,0 +1,53 @@
+{
+  "path": "addons\\Atalaya\\AstraAsedio_Atalaya.esp",
+  "sha256": "5f817328ac4d30903ca6fcaac05c7d59088505db3933f2b897595fe741d45c52",
+  "bytes": 49724,
+  "records": 18,
+  "masters": [
+    "Skyrim.esm",
+    "Update.esm",
+    "Dawnguard.esm",
+    "AstraAsedio.esp"
+  ],
+  "source_sha256": "192fc61eebfc35a05c27f7b4e14403cde411812d51593c4062520dc0b5e3f387",
+  "site": {
+    "x": 4665.54,
+    "y": -14922.81,
+    "z": -5217.81,
+    "rot_z_deg": 187.63,
+    "cell": "0000963D",
+    "grid": [
+      1,
+      -4
+    ]
+  },
+  "removed_overrides": [
+    "0000A63D",
+    "00039615",
+    "00039617",
+    "00039619",
+    "000C9C74"
+  ],
+  "moved_owned_refs": [
+    "04000A00",
+    "04000A01",
+    "04000A02",
+    "04000A43",
+    "04000A44",
+    "04000A45",
+    "04000A46",
+    "04000A47",
+    "04000A48",
+    "04000A49",
+    "04000A4A",
+    "04000A4B",
+    "04000A4C",
+    "04000A4D",
+    "04000A4E"
+  ],
+  "stable_form_ids": true,
+  "LAND_edits": 0,
+  "NAVM_edits": 0,
+  "vanilla_refs_edited": 0,
+  "game_tested": false
+}

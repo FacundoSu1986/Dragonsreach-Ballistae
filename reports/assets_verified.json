@@ -1,21 +1,21 @@
 {
   "files": {
     "torre": {
-      "sha256": "41bedca7ae60dfa7cdd9a7850cfc437a6ee667853adf51a9f07bd27476a891c5",
-      "shapes": 3,
-      "triangles": 15004,
-      "vertices": 16156,
-      "collision_triangles": 1064,
+      "sha256": "1dc1ca22e03357cb292f6a122cd504914885cc540b21990dccf31c7b5d0a2679",
+      "shapes": 6,
+      "triangles": 18298,
+      "vertices": 15312,
+      "collision_triangles": 1232,
       "bbox_units": {
         "min": [
-          -284.3592529296875,
-          -540.3952026367188,
-          -18.10491943359375
+          -297.9536437988281,
+          -297.6689453125,
+          -60.10198974609375
         ],
         "max": [
-          372.1043701171875,
-          283.9925537109375,
-          536.3679809570312
+          376.7051696777344,
+          297.72052001953125,
+          211.74285888671875
         ]
       },
       "sequences": [],
@@ -41,22 +41,22 @@
           "children": []
         }
       },
-      "bytes": 645045
+      "bytes": 642617
     },
     "ballesta": {
-      "sha256": "dd1741b8480e32988a10d1711b342d70882da1d1f398564794b8e6581c44bd1d",
+      "sha256": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
       "shapes": 20,
-      "triangles": 20120,
-      "vertices": 16622,
+      "triangles": 20484,
+      "vertices": 16839,
       "collision_triangles": 12,
       "bbox_units": {
         "min": [
-          -134.4008331298828,
+          -134.97705078125,
           -211.39999389648438,
           -7.62939453125e-06
         ],
         "max": [
-          134.4008331298828,
+          135.0433349609375,
           149.80001831054688,
           200.60000610351562
         ]
@@ -68,7 +68,7 @@
       "sequence_details": {
         "Fire": {
           "start": 0.0,
-          "stop": 0.30000001192092896,
+          "stop": 0.20000000298023224,
           "targets": [
             "CTRL_BRAZO_I",
             "CTRL_BRAZO_D",
@@ -79,7 +79,7 @@
         },
         "Reset": {
           "start": 0.0,
-          "stop": 1.2000000476837158,
+          "stop": 0.800000011920929,
           "targets": [
             "CTRL_BRAZO_I",
             "CTRL_BRAZO_D",
@@ -333,7 +333,7 @@
           "children": []
         }
       },
-      "bytes": 706270
+      "bytes": 714174
     },
     "virote": {
       "sha256": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5",
@@ -386,18 +386,17 @@
     "virote": []
   },
   "aim_nodes_have_no_animation_tracks": true,
-  "rope_reimport_max_gap": 6.103515625e-05,
+  "rope_reimport_max_gap": 6.115424935104904e-05,
   "rope_outer_attachment_max_error": 4.57763671875e-05,
   "rope_poses_sampled": 152,
   "scale_keys_in_binary": {
     "Fire/Cuerda_I": 19,
     "Fire/Cuerda_D": 19,
-    "Fire/VIROTE_VISUAL": 19,
     "Reset/Cuerda_I": 133,
-    "Reset/Cuerda_D": 133,
-    "Reset/VIROTE_VISUAL": 133
+    "Reset/Cuerda_D": 133
   },
   "rope_endpoint_checks_pass": true,
+  "bolt_scale_owned_by_papyrus": true,
   "reimport_ballesta_actions": {
     "Fire": [
       "CTRL_BRAZO_I",
@@ -431,8 +430,8 @@
     "vanilla_rules_failures": []
   },
   "projectile_box_ok": true,
-  "visual_triangles_total": 35604,
-  "collision_triangles_total": 1088,
+  "visual_triangles_total": 39262,
+  "collision_triangles_total": 1256,
   "texture_paths": [
     "textures\\architecture\\farmhouse\\rope01.dds",
     "textures\\architecture\\farmhouse\\rope01_n.dds",
@@ -442,6 +441,12 @@
     "textures\\architecture\\farmhouse\\woodwalkway01_n.dds",
     "textures\\clutter\\cwcatapult01.dds",
     "textures\\clutter\\cwcatapult01_n.dds",
+    "textures\\clutter\\stockade\\stockadeextra01.dds",
+    "textures\\clutter\\stockade\\stockadeextra01_n.dds",
+    "textures\\clutter\\stockade\\stockadeplanks01.dds",
+    "textures\\clutter\\stockade\\stockadeplanks01_n.dds",
+    "textures\\clutter\\stockade\\stockadewood01.dds",
+    "textures\\clutter\\stockade\\stockadewood01_n.dds",
     "textures\\cubemaps\\ShinyDull_e.dds",
     "textures\\dlc01\\weapons\\crossbow\\bolt.dds",
     "textures\\dlc01\\weapons\\crossbow\\bolt_n.dds"

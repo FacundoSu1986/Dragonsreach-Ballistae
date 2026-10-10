@@ -1,0 +1,37 @@
+{
+  "revision": "QA v12 baja",
+  "deck_meters": 2.0,
+  "shields_per_tower": 12,
+  "game_tested": false,
+  "proven_v11_files_preserved": {
+    "meshes/AstraAsedio/ballesta.nif": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2",
+    "meshes/AstraAsedio/virote.nif": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5",
+    "scripts/AstraAsedioActi.pex": "3105b2cf5ff403500a26da2c7f1d039ed9b69e8fe26724689e72f5022a9820fd",
+    "scripts/AstraAsedioPlayerAlias.pex": "e7c7a5a542b10a8bb412ec3d051c02f49e686a10215de8532db86c2770b33d69",
+    "scripts/AstraAsedioSession.pex": "7a019b63cbdd1ad812e969f7ea682e6137661c62de0a4cb290b451e45011b52a",
+    "scripts/AstraSightNative.pex": "73e1505387179774d689b83141474fd9dddbffd7ebf8bca4d490f6b5afcc57aa",
+    "scripts/source/AstraAsedioActi.psc": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+    "scripts/source/AstraAsedioPlayerAlias.psc": "048e868247e792cd7702518a36ea95bc54d98f1d46555379f8eb7c3dafa8831e",
+    "scripts/source/AstraAsedioSession.psc": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4",
+    "scripts/source/AstraSightNative.psc": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
+    "seq/AstraAsedio.seq": "5907a2bc621a287e138957f9f8f9ad9be9fbfd706b3087db35225b26f391b551",
+    "SKSE/Plugins/AstraSight.dll": "6b295ab4972b43bc79607d8e9c04d7f0c9af40dbef7d7dfdbac683c9c4609fa6"
+  },
+  "plugin_patch_idempotent": true,
+  "sha256_payload": {
+    "AstraAsedio.esp": "a3466477911577126cb23a64d10df8ac36cdf244436601c6639a60eb721f8c79",
+    "meshes/AstraAsedio/ballesta.nif": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2",
+    "meshes/AstraAsedio/torre.nif": "60df23c1850beeaafaf8b36271742081d502ff66d7d9931648b72ea0ffdd40f9",
+    "meshes/AstraAsedio/virote.nif": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5",
+    "scripts/AstraAsedioActi.pex": "3105b2cf5ff403500a26da2c7f1d039ed9b69e8fe26724689e72f5022a9820fd",
+    "scripts/AstraAsedioPlayerAlias.pex": "e7c7a5a542b10a8bb412ec3d051c02f49e686a10215de8532db86c2770b33d69",
+    "scripts/AstraAsedioSession.pex": "7a019b63cbdd1ad812e969f7ea682e6137661c62de0a4cb290b451e45011b52a",
+    "scripts/AstraSightNative.pex": "73e1505387179774d689b83141474fd9dddbffd7ebf8bca4d490f6b5afcc57aa",
+    "scripts/source/AstraAsedioActi.psc": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+    "scripts/source/AstraAsedioPlayerAlias.psc": "048e868247e792cd7702518a36ea95bc54d98f1d46555379f8eb7c3dafa8831e",
+    "scripts/source/AstraAsedioSession.psc": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4",
+    "scripts/source/AstraSightNative.psc": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
+    "seq/AstraAsedio.seq": "5907a2bc621a287e138957f9f8f9ad9be9fbfd706b3087db35225b26f391b551",
+    "SKSE/Plugins/AstraSight.dll": "6b295ab4972b43bc79607d8e9c04d7f0c9af40dbef7d7dfdbac683c9c4609fa6"
+  }
+}

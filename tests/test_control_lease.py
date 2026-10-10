@@ -49,6 +49,9 @@ class SessionSourceEvaluator:
         calls = {name: (lambda *args, _name=name: self.run(_name, *args)) for name in self.bodies}
         value = re.sub(r'new float\[(\d+)\]', r'[0.0]*\1', value)
         value = re.sub(r'\b(\w+)\.Length\b', r'len(\1)', value, flags=re.I)
+        # Placement fixtures return actual reference-shaped objects or None.
+        # This evaluator does not establish the VM's runtime Form cast.
+        value = re.sub(r'\s+as\s+(?:ObjectReference|AstraAsedioGuard)\b', '', value, flags=re.I)
         if value.strip().startswith('Debug.'):
             # Real PSC Trace strings coerce scalars/reference values in +.
             # Enable these native boundaries only for fixtures supplying Debug.
@@ -132,7 +135,7 @@ class SessionSourceEvaluator:
                 return self.expr(line[7:], local)
             if line.startswith('Debug.') and 'Debug' not in self.state:
                 continue
-            declaration = re.fullmatch(r'(?:bool|int|float(?:\[\])?|string|Actor|AstraAsedioActi) (\w+) = (.+)', line)
+            declaration = re.fullmatch(r'(?:bool|int|float(?:\[\])?|string|Actor|ObjectReference|AstraAsedioActi|AstraAsedioGuard) (\w+) = (.+)', line)
             if declaration:
                 local[declaration[1]] = self.expr(declaration[2], local)
                 continue

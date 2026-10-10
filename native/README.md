@@ -1,37 +1,41 @@
-# AstraSight native controller
+# AstraSight 3.5.4 — API 4
 
-Target: SkyrimSE 1.6.1170.0, SKSE64 2.2.8, existing Address Library `versionlib-1-6-1170-0.bin`. Runtime metadata and Load/Query gates reject other runtimes. Plugin name is `AstraSight`, version 1. No FOV or global control settings are changed.
+Target: Steam Skyrim SE 1.6.1170.0, SKSE 2.2.8 and matching Address Library. Runtime checks reject other game versions. SKSE 2.2.6 exposes the interfaces used here, but is untested with this DLL and below the supported minimum. Use the appropriate older Steam build from the official SKSE Nexus files page.
 
-Build from the project root with Python 3.11:
+Native code owns player sight, the Fire/Release/Reset cycle and projectile launch. Reference handles and loaded scene identity are validated each update; effects serialize against teardown. Projectile speed is normalized to ShotAmmo's projectile record. A successful projectile handle is required before ammunition cost is committed. No FOV setting changes.
+
+3.5.4 adds ResetIdleScene, a main-thread-only Papyrus binding. It rejects ownership, pending cleanup, missing nodes and scene replacement, and settles the existing Reset sequence at its final phase without replaying the legacy whole-reference animation. Guard handoff waits for restoration and any pending guard Launcher.Fire. API remains 4; check DLL version 3.5.4 before calling this additive binding.
+
+Guard firing uses a separate Papyrus Weapon.Fire path. Player flight measurements do not establish NPC ballistics. Player sight and flight were confirmed with 3.5.3; the 3.5.4 handoff change requires game testing. Portable tests establish math and ordering, not Skyrim rendering or VM scheduling.
+
+## Source build
+
+The source archive includes native C++ and six PSC files. It excludes Bethesda files, SDKs, dependency source trees and the historical ESP/NIF/Blender pipeline. Use an x64 MSVC developer shell, CMake 3.26+, Ninja and C++23. Release toolchain: MSVC 14.51.36231, Windows SDK 10.0.26100.0. Other toolchains are uncertified.
+
+Clone these into a local vendor directory at exactly these commits:
+
+| Directory | Upstream | Commit |
+| --- | --- | --- |
+| CommonLibSSE-NG | https://github.com/CharmedBaryon/CommonLibSSE-NG | b93280e832f263dbef44e44cbe2936622a02f91a |
+| spdlog | https://github.com/gabime/spdlog | 486b55554f11c9cccc913e11a87085b2a91f706f |
+| rapidcsv | https://github.com/d99kris/rapidcsv | 03133b59e17ca92ecf886b611d87a03ad2bb2a8f |
+
+From the source archive root:
 
 ```powershell
-& 'C:\Users\Facu2\AppData\Local\Programs\Python\Python311\python.exe' scripts/build_native.py
+cmake -S native -B out -G Ninja -DCMAKE_BUILD_TYPE=Release -DASTRA_VENDOR="$PWD/vendor"
+cmake --build out --parallel 4
+ctest --test-dir out --output-on-failure
 ```
 
-`build_native.py` pins CommonLibSSE-NG, spdlog and rapidcsv under `build/native`, builds with installed x64 MSVC and bundled Ninja/CMake, runs CTest, then copies the DLL to `mod/SKSE/Plugins`. Installed UCRT headers on this machine contained all-zero bytes. `prepare_local_sdk.py` performs administrative extraction of the already cached official SDK packages to `build/native/windows_sdk`; it neither repairs nor installs the global SDK. SDK inputs and executable runtime files are build inputs only and must be excluded from distribution.
+CMake detects the compiler language by default. Only if its include-prefix detection fails, set ASTRA_SHOWINCLUDES_PREFIX to the exact compiler diagnostic prefix. Install out/AstraSight.dll into Data/SKSE/Plugins. For pure tests without Skyrim headers use -DASTRA_BUILD_PLUGIN=OFF. Nine targets cover 2,376 assertions.
 
-Dependency revisions and license copies are in the build receipt and `native/licenses`. spdlog includes fmt 12.0.0; its embedded license is retained too. CommonLib is linked statically. The resulting DLL uses the usual installed Windows/MSVC runtime DLLs listed in `native_binary_checks.json`.
+Compile PSC files with the Skyrim Creation Kit Papyrus compiler and matching SKSE source imports. Binary PEX was disassembled after anonymizing compiler user/host fields; executable tables remain byte-identical. Changing PSC alone does not update installed PEX. The local build_native.py helper is machine-specific and excluded from the public source archive.
 
-## Ownership and ordering
+## Notices and limits
 
-Papyrus owns the operator lease, controls, inventory and firing. `BeginSight` records reference handle age/index plus token and initial degrees; it does not touch scene data. `IsSightReady` becomes true only after a successful FP game-update transaction. VM callbacks read or modify only protected requests/snapshots. `CaptureAim` has a dedicated float-array dispatcher: unavailable results preserve the `kFloatArray` type even when the VM represents a zero-length array with a null array pointer.
+Third-party notices, including spdlog's embedded fmt, are in licenses. The DLL links Windows and Microsoft C++ runtime libraries and retains a few compiler diagnostic paths into the SDK checkout. Public packages exclude logs, profiles and machine configuration. The source archive grants no additional game-asset or original-asset rights; publisher permissions apply.
 
-The game thread resolves the reference handle each update using CommonLib's `LookupReferenceByHandle`, retaining no reference pointer between updates. A scene cache retains NiPointers plus loaded3D identity and internal epoch. CameraRoot and its parent identities are checked too. Acquisition strips the existing initial yaw/pitch rotations from the cached rest bases once. Only local rotations of CTRL_GIRO_360 and CTRL_ELEVACION are changed; translations, pivots and scales are retained.
+Tests do not establish engine hooks, NPC ballistics, damage, navigation or camera-mod compatibility. Camera transactions retain the existing Session mutex discipline; concurrent engine reentrancy remains a game verification topic.
 
-Per-frame validation failures invalidate only the ticket's matching key and epoch under the session mutex. An old frame cannot cancel a newer lease accepted between its ticket read and validation. Global FP End/load/revert cleanup still invalidates the active session unconditionally.
-
-FP Update, GetRotation, GetTranslation and End slots 3, 4, 5 and 2 are hooked. The original Update/getters/End are called outside the session mutex. Getters read a single coherent snapshot and check its FP state identity; they never apply scene data. FP End, SKSE pre/post load, new game and revert clear readiness and the override. Update also rejects death, missing reference/3D/nodes, changed 3D identity and ineligible camera.
-
-Applying rotations, recursively calling transform-only UpdateWorldData, validating ProjectileNode/anchor, and publishing yaw/pitch/camera occurs inside one mutex transaction shared with CaptureAim(freeze), SetFrozen and EndSight. A prepared mouse sample cannot bypass a later freeze. EndSight waits for any in-flight transaction; after it returns no update from that epoch can write the lease's transforms. No transform restoration occurs natively; Papyrus can restore after EndSight returns.
-
-Mouse aim consumes changes in player's logical look transformed through root transpose. After a valid applied pose, Update reconciles player's logical X/Z look angles to the same world direction and rebases its sample to applied yaw/pitch inside the transaction. This discards over-limit motion and avoids local-Euler folding for tilted roots. Player position is never changed. During freeze or pause the sample is rebased too; transition out of freeze and menu-open/close events discard the first unsampled movement. Overshoot at either limit is discarded, so reversing starts immediately. Yaw wraps continuously; pitch clamps to -5..80 degrees.
-
-## Camera convention and remaining engine verification
-
-The NIF camera anchor is a logical +Y-forward/+Z-up basis; it is not copied to the FP quaternion. At acquisition, the original FP quaternion is normalized, mapped to a rotation basis and compared with player logical look to derive an optical-axis adapter. With an identity cameraRoot parent, local and world spaces coincide. With a nonidentity parent, original getter pose is compared to cameraRoot local/world poses; ambiguous or distant calibration rejects readiness. Position is divided by parent scale when returning local translation, and rotation is composed with parent inverse when returning local orientation. Adapter and selected spaces are logged to AstraSight.log. Camera and ProjectileNode +Y forwards must match the root-relative gun -Y direction after the same world update.
-
-`inspect_camera_runtime.py` reads the existing executable and Address Library only. Static vtable pointers can be resolved, but the installed Steam executable's text bytes are packed/encrypted; the recorded disassembly is not evidence of frame order or getter consumer semantics. Those are still pending visual verification in Skyrim. CTest checks portable math and lease ordering; PE checks establish architecture, exports and metadata only. No native UI or game launch was used.
-
-Required in-game checks: rigid camera across 360 yaw and -5..80 pitch, direct reversal after overshoot, menus and freeze/reload resuming without jumps, near/far projectile parallax, entry from first/third person, death/load/camera transition cleanup, and restored camera after E exit. Other camera-mod hook conflicts and actual camera consumer timing also require that game test.
-
-Primary API evidence: [CommonLib FirstPersonState](https://github.com/CharmedBaryon/CommonLibSSE-NG/blob/b93280e832f263dbef44e44cbe2936622a02f91a/include/RE/F/FirstPersonState.h), [TESCamera](https://github.com/CharmedBaryon/CommonLibSSE-NG/blob/b93280e832f263dbef44e44cbe2936622a02f91a/include/RE/T/TESCamera.h), [NativeFunction marshalling](https://github.com/CharmedBaryon/CommonLibSSE-NG/blob/b93280e832f263dbef44e44cbe2936622a02f91a/include/RE/N/NativeFunction.h), [handle resolution](https://github.com/CharmedBaryon/CommonLibSSE-NG/blob/b93280e832f263dbef44e44cbe2936622a02f91a/include/RE/B/BSPointerHandle.h).
+API evidence: [FirstPersonState](https://github.com/CharmedBaryon/CommonLibSSE-NG/blob/b93280e832f263dbef44e44cbe2936622a02f91a/include/RE/F/FirstPersonState.h), [native marshalling](https://github.com/CharmedBaryon/CommonLibSSE-NG/blob/b93280e832f263dbef44e44cbe2936622a02f91a/include/RE/N/NativeFunction.h), [handle resolution](https://github.com/CharmedBaryon/CommonLibSSE-NG/blob/b93280e832f263dbef44e44cbe2936622a02f91a/include/RE/B/BSPointerHandle.h).

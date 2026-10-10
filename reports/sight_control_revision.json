@@ -2,7 +2,7 @@
   "revision": "v10",
   "success": true,
   "runtime_execution": false,
-  "controller_source_sha256": "37715f9584805d65ff55a381c14d03d3d346e25b70f3bdd50cac0e6c7fd1ec26",
+  "controller_source_sha256": "39c5d51f31408f56c618a2c0f1f5682d856f27b48061a0fa3afb6553fa9b57a7",
   "session_source_sha256": "d51c40b02132699a4bd0096d850583d0310bbb39a9c0c0e671a09c34403d41a4",
   "native_api_source_sha256": "a81cb2b6faf28c1db7d637b362a67915ad538c674f91b16bf0d44198ead6ed29",
   "implemented_contract": {
