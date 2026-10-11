@@ -1,7 +1,7 @@
 {
   "revision": 22,
   "success": true,
-  "utc": "2026-10-11T01:45:54.895945+00:00",
+  "utc": "2026-10-11T10:40:36.318100+00:00",
   "checks": {
     "contrato_v22": {
       "ok": true,
@@ -18,6 +18,10 @@
     "guard_compile": {
       "ok": true,
       "detalle": "el .pex congelado es un compilado fiel"
+    },
+    "plugin_compile": {
+      "ok": true,
+      "detalle": "la entrada del guardia refleja el .pex congelado"
     }
   },
   "design": {
@@ -38,12 +42,12 @@
     "regla_de_seguridad": "ninguna colocacion ACTIVA del ACTI bajo activa AllowPlayerTakeover ni UseSightCamera"
   },
   "guard_pex_frozen": "3aa60a9d1f3b782004fe0de88b1b3731d8590b5b12a6b8345367f32d461a1352",
-  "guard_pex_recompiled": "5dcca030f6665135cdd629ba77adfe542a706dac1ba6e748a7f12624ba27af9f",
+  "guard_pex_recompiled": "8466a3b24eaa79eca34536ccdea7751fe91110460174e04bb233a8842ac78aaa",
   "papyrus_compiler_deterministic": false,
   "requires_open_animation_replacer": true,
   "bundles_open_animation_replacer": false,
   "known_debt": [
-    "reports/plugin_compile.json sigue anclado al .psc del guardia de v21 (46f4e833\u2026); regenerarlo exige compile_papyrus.py, que compila en el lugar y pisaria el .pex congelado. La fidelidad del .pex la cubre guard_compile.json.",
+    "La entrada del guardia en reports/plugin_compile.json esta CONGELADA (frozen: true) y la mantiene scripts/reconcile_plugin_compile.py. No correr compile_papyrus.py sobre esa entrada: escribe los .pex en el lugar y pisaria el .pex congelado.",
     "La suite completa arrastra fallos heredados: ver reports/tests_v22_diff.json. Ninguno es nuevo respecto de HEAD.",
     "Los hashes fijados sobre .json y .psc valen para la forma canonica del repo (.gitattributes: text eol=lf) tal como la materializa core.autocrlf=true en Windows. Un clon en otro sistema, con LF, no reproduce esos hashes. Es una propiedad heredada de todo el repo, no de v22."
   ],
@@ -56,10 +60,11 @@
   "live_installation_modified": false,
   "package": {
     "path": "dist\\AstraAsedio_QA_v22_Completo_MO2.zip",
-    "bytes": 2605485,
-    "sha256": "8df4fcbdef62df2a5d49c07a08b723596238c677ee8bfcdade296e594a7def30",
+    "bytes": 2605744,
+    "sha256": "2e5d5791d99f249de16145397a18f9f9254215e027ffba8d0177960fb5cc178b",
     "entries": 44,
-    "crc_and_hashes_verified": true
+    "crc_and_hashes_verified": true,
+    "reproducible": true
   },
   "inventory_sha256": {
     "AstraAsedio.esp": "f91b135fa1235f0b4f3c7a6b7a2da0e3d827bd9d846054a450c92b3e0d3c7a7c",
@@ -70,7 +75,7 @@
     "Docs/AstraAsedio/Licenses/fmt-LICENSE": "ae842eaa4d8ac87b936a5f5852bd447e64d2b7dea9fdb12ce5fa96fcfdc82ce6",
     "Docs/AstraAsedio/Licenses/rapidcsv-LICENSE": "2a07f96569e2cb61824a7cfad718c931ebb43e74338f492d720caff920309a6c",
     "Docs/AstraAsedio/Licenses/spdlog-LICENSE": "4ccecab18d1ff0b61174fe3d6c430541625d3ddb865b0d5887db296f883c76e7",
-    "Docs/AstraAsedio/README_v22.md": "016ed44fffa0535c23ee76b4e2bb227d64d1416160f99d5c69f5058183f94480",
+    "Docs/AstraAsedio/README_v22.md": "3cd25b7e0dbaeb37d33d3f5064055d9470a1d090f38c4f1c317b36bb84843266",
     "SKSE/Plugins/AstraSight.dll": "93e5f269d132db1851682dcfaf9ff2b9f5a2c8ee32e8a8164d4c983930982153",
     "meshes/AstraAsedio/ballesta.nif": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
     "meshes/AstraAsedio/ballesta_guardia.nif": "ebe715e73d90b136c8d7880f1a230e37bd4bf13e864f24acca384910210aabae",

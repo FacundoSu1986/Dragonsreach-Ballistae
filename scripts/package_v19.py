@@ -6,7 +6,14 @@ ROOT=Path(__file__).resolve().parents[1]
 SUFFIXES={'.esp','.dll','.pex','.psc','.seq','.nif'}
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
-def archive(filename,entries,public=False):
+def archive(filename,entries,public=False,stamp=None):
+    """Empaqueta `entries` en dist/<filename>.
+
+    `stamp` es un date_time de zip (year,month,day,hour,min,sec). Si se pasa, todas las
+    entradas lo usan y el ZIP queda **reproducible**: el mismo contenido da el mismo sha.
+    Sin `stamp` se conserva el comportamiento historico (`z.write`, que guarda el mtime
+    del archivo) y el sha cambia cada vez que se reescribe una fuente.
+    """
     path=ROOT/'dist'/filename;path.parent.mkdir(parents=True,exist_ok=True)
     assert len(entries)==len({n.casefold() for n in entries})
     for n,p in entries.items():
@@ -17,7 +24,13 @@ def archive(filename,entries,public=False):
                 data=p.read_text(encoding='utf-8-sig')
                 assert not re.search(r'[A-Z]:[\\/]|Facu2|DESKTOP-DF3S14S',data),n
     with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED,compresslevel=9,strict_timestamps=False) as z:
-        for n,p in sorted(entries.items()):z.write(p,n)
+        for n,p in sorted(entries.items()):
+            if stamp is None:z.write(p,n)
+            else:
+                info=zipfile.ZipInfo(n,date_time=stamp)
+                info.compress_type=zipfile.ZIP_DEFLATED
+                info.external_attr=0o644<<16
+                z.writestr(info,p.read_bytes(),compress_type=zipfile.ZIP_DEFLATED,compresslevel=9)
     with zipfile.ZipFile(path) as z:
         assert z.testzip() is None and set(z.namelist())==set(entries)
         for n,p in entries.items():

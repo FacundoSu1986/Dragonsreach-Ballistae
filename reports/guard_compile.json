@@ -3,8 +3,8 @@
   "source_sha256": "43a146aa163cb4ee84c1b4b012740d412cbd6a41689e5d29bdfe2e40c24fcd29",
   "pex_sha256": "3aa60a9d1f3b782004fe0de88b1b3731d8590b5b12a6b8345367f32d461a1352",
   "disassembly_sha256": "9ee247c774e13713418dd6b985c5e3bb98268e38607b2d7c2702aeb3f33eb458",
-  "pex_recompiled_sha256": "5dcca030f6665135cdd629ba77adfe542a706dac1ba6e748a7f12624ba27af9f",
-  "disassembly_recompiled_sha256": "6658e81c11ab04bbe16f477e3b21536ea92ce133731e6e48f2885079e98977b1",
+  "pex_recompiled_sha256": "8466a3b24eaa79eca34536ccdea7751fe91110460174e04bb233a8842ac78aaa",
+  "disassembly_recompiled_sha256": "9a74482992167da4e233bdcbfcc245ff82dce84c4cc8fc75d948345e51d5a297",
   "compiler_deterministic": false,
   "frozen_pex_is_faithful_compile": true,
   "bytecode_safety": {

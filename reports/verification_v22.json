@@ -1,7 +1,7 @@
 {
   "revision": 22,
   "success": true,
-  "utc": "2026-10-11T01:45:54.895945+00:00",
+  "utc": "2026-10-11T10:40:36.318100+00:00",
   "checks": {
     "contrato_v22": {
       "ok": true,
@@ -18,6 +18,10 @@
     "guard_compile": {
       "ok": true,
       "detalle": "el .pex congelado es un compilado fiel"
+    },
+    "plugin_compile": {
+      "ok": true,
+      "detalle": "la entrada del guardia refleja el .pex congelado"
     }
   },
   "design": {
@@ -38,12 +42,12 @@
     "regla_de_seguridad": "ninguna colocacion ACTIVA del ACTI bajo activa AllowPlayerTakeover ni UseSightCamera"
   },
   "guard_pex_frozen": "3aa60a9d1f3b782004fe0de88b1b3731d8590b5b12a6b8345367f32d461a1352",
-  "guard_pex_recompiled": "5dcca030f6665135cdd629ba77adfe542a706dac1ba6e748a7f12624ba27af9f",
+  "guard_pex_recompiled": "8466a3b24eaa79eca34536ccdea7751fe91110460174e04bb233a8842ac78aaa",
   "papyrus_compiler_deterministic": false,
   "requires_open_animation_replacer": true,
   "bundles_open_animation_replacer": false,
   "known_debt": [
-    "reports/plugin_compile.json sigue anclado al .psc del guardia de v21 (46f4e833\u2026); regenerarlo exige compile_papyrus.py, que compila en el lugar y pisaria el .pex congelado. La fidelidad del .pex la cubre guard_compile.json.",
+    "La entrada del guardia en reports/plugin_compile.json esta CONGELADA (frozen: true) y la mantiene scripts/reconcile_plugin_compile.py. No correr compile_papyrus.py sobre esa entrada: escribe los .pex en el lugar y pisaria el .pex congelado.",
     "La suite completa arrastra fallos heredados: ver reports/tests_v22_diff.json. Ninguno es nuevo respecto de HEAD.",
     "Los hashes fijados sobre .json y .psc valen para la forma canonica del repo (.gitattributes: text eol=lf) tal como la materializa core.autocrlf=true en Windows. Un clon en otro sistema, con LF, no reproduce esos hashes. Es una propiedad heredada de todo el repo, no de v22."
   ],
@@ -58,8 +62,9 @@
     "config.json": "159d35a51fb9cf4ffb2b7571f845f18872d4dfeff835ca5aa004bd873e48612a",
     "reports/base_archive.json": "6580e3bd33cb72e6b9709e3eb6e87a0a3ec229eb4431658c75f2425ac97fd5bf",
     "reports/bridge_v22.json": "a2e4f81d5a1fe86447c78772f6e3bcd22bc1045b6cdcf312f53833102c47c385",
-    "reports/guard_compile.json": "93eb6de99aa652276697151dc632bee81791abc3ede586db812a9bdd06c1de66",
+    "reports/guard_compile.json": "3ecd7f45c3cb5b4d316ec3600dc8e2bee59c1042b5509cd8df93d039596f4d6f",
     "reports/torreta_baja_v22.json": "d2c0cfb37bd268668fcb4cc004f41fb128e7b5d0d19c007d890fabd2343beb32",
+    "reports/plugin_compile.json": "10162668818c3fa0e11fbbb2c783d69beeb1f7204dbf662fea6101b0fa8d1479",
     "mod/AstraAsedio.esp": "f91b135fa1235f0b4f3c7a6b7a2da0e3d827bd9d846054a450c92b3e0d3c7a7c",
     "mod/meshes/AstraAsedio/ballesta.nif": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
     "mod/meshes/AstraAsedio/ballesta_guardia.nif": "ebe715e73d90b136c8d7880f1a230e37bd4bf13e864f24acca384910210aabae",
@@ -76,6 +81,7 @@
     "scripts/verify_torreta_baja_v22.py": "3a53fa75d6dabfdb09c96c2fbf99391bef3c30d93bcc1645707f9464d382d911",
     "scripts/build_guard_bajada.py": "d94c7920f11953df10de8e35fff384c9b65979217f2439475c958ed0a59c3b9e",
     "scripts/verify_suite_v22.py": "96ef2aec9e0699d7c4dea73ca1acbd8084b6d9e86a2eeab89abdd46d72c0315b",
-    "reports/tests_v22_diff.json": "97f013806895117b6bfb86413ce063d9ed137184d74c7f8540ea58d0cc7fae39"
+    "reports/tests_v22_diff.json": "2d37e315bde17651ce8726e7ad92afa916f4b04a459639c6151e7c8d3df581b5",
+    "scripts/reconcile_plugin_compile.py": "5a1bdb8ba0aeb8fcf9a4ec0135fd0d4b0178c98f0fd4b9f1549e34213197eeca"
   }
 }

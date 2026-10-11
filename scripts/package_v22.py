@@ -13,6 +13,11 @@ from package_v19 import archive
 SUFFIXES = {'.esp', '.dll', '.pex', '.psc', '.seq', '.nif'}
 GUARD_SUFFIXES = {'.esp', '.hkx', '.json'}
 
+# Sello fijo para las entradas del ZIP. Sin esto el sha cambia en cada corrida: el sello
+# de verificacion corre build_bridge.py, que reescribe el .psc del guardia y el .esp del
+# addon con el mismo contenido pero mtime nuevo, y `z.write` guarda el mtime.
+STAMP = (1980, 1, 1, 0, 0, 0)
+
 
 def sha(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -49,7 +54,14 @@ def main():
     assert {n for n in entries if n.endswith('.esp')} == {
         'AstraAsedio.esp', 'AstraAsedio_WhiterunTorres.esp',
         'AstraAsedio_Atalaya.esp', 'AstraAsedio_GuardAnim.esp'}
-    package = archive('AstraAsedio_QA_v22_Completo_MO2.zip', entries)
+    package = archive('AstraAsedio_QA_v22_Completo_MO2.zip', entries, stamp=STAMP)
+
+    # Gate de reproducibilidad: reconstruir y exigir el mismo sha. El sello de verificacion
+    # reescribe fuentes antes de empaquetar, asi que sin el sello fijo esto fallaria.
+    again = archive('AstraAsedio_QA_v22_Completo_MO2.zip', entries, stamp=STAMP)
+    assert again['sha256'] == package['sha256'], 'el ZIP no es reproducible byte a byte'
+    assert again['inventory_sha256'] == package['inventory_sha256'], 'el contenido cambio entre corridas'
+    package['reproducible'] = True
 
     report = {k: v for k, v in verified.items() if k != 'inputs_sha256'}
     report['package'] = {k: v for k, v in package.items() if k != 'inventory_sha256'}

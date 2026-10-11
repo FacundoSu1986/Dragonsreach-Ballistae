@@ -50,9 +50,16 @@ def main():
     if not checks['guard_compile']['ok']:
         print(out[-4000:])
 
+    ok, out = run_script('scripts/reconcile_plugin_compile.py')
+    checks['plugin_compile'] = {'ok': ok and 'PLUGIN_COMPILE_RECONCILED' in out,
+                                'detalle': 'la entrada del guardia refleja el .pex congelado'}
+    if not checks['plugin_compile']['ok']:
+        print(out[-4000:])
+
     compile_report = json.loads((ROOT / 'reports/guard_compile.json').read_text())
     inputs = ['config.json', 'reports/base_archive.json', 'reports/bridge_v22.json',
               'reports/guard_compile.json', 'reports/torreta_baja_v22.json',
+              'reports/plugin_compile.json',
               'mod/AstraAsedio.esp', 'mod/meshes/AstraAsedio/ballesta.nif',
               'mod/meshes/AstraAsedio/ballesta_guardia.nif',
               'mod/scripts/source/AstraAsedioGuard.psc', 'mod/scripts/AstraAsedioGuard.pex',
@@ -62,7 +69,8 @@ def main():
               'scripts/build_bridge.py', 'scripts/compile_bridge.py', 'scripts/guard_pose.pscinc',
               'scripts/bajar_ballesta.py', 'scripts/verify_core_v22.py',
               'scripts/verify_torreta_baja_v22.py', 'scripts/build_guard_bajada.py',
-              'scripts/verify_suite_v22.py', 'reports/tests_v22_diff.json']
+              'scripts/verify_suite_v22.py', 'reports/tests_v22_diff.json',
+              'scripts/reconcile_plugin_compile.py']
 
     success = all(c['ok'] for c in checks.values())
     report = {
@@ -83,9 +91,10 @@ def main():
         'requires_open_animation_replacer': True,
         'bundles_open_animation_replacer': False,
         'known_debt': [
-            'reports/plugin_compile.json sigue anclado al .psc del guardia de v21 '
-            '(46f4e833…); regenerarlo exige compile_papyrus.py, que compila en el lugar '
-            'y pisaria el .pex congelado. La fidelidad del .pex la cubre guard_compile.json.',
+            'La entrada del guardia en reports/plugin_compile.json esta CONGELADA '
+            '(frozen: true) y la mantiene scripts/reconcile_plugin_compile.py. No correr '
+            'compile_papyrus.py sobre esa entrada: escribe los .pex en el lugar y pisaria '
+            'el .pex congelado.',
             'La suite completa arrastra fallos heredados: ver reports/tests_v22_diff.json. '
             'Ninguno es nuevo respecto de HEAD.',
             'Los hashes fijados sobre .json y .psc valen para la forma canonica del repo '
