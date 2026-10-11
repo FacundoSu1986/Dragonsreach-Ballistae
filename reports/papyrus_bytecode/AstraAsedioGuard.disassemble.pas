@@ -1,7 +1,7 @@
 .info
 	.source "AstraAsedioGuard.psc"
-	.modifyTime 1791645499 ;Sat Oct 10 12:18:19 2026 Local
-	.compileTime 1791679481 ;Sat Oct 10 21:44:41 2026 Local
+	.modifyTime 1791657005 ;Sat Oct 10 15:30:05 2026 Local
+	.compileTime 1791657006 ;Sat Oct 10 15:30:06 2026 Local
 	.user "AstraAsedio"
 	.computer "Build"
 .endInfo
@@ -15,187 +15,19 @@
 		.docString ""
 		.autoState 
 		.variableTable
-			.variable playerSerial Int
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0
-			.endVariable
-			.variable token Int
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue -1
-			.endVariable
-			.variable ::ShotSound_var sound
+			.variable exitIdle Idle
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue None
 			.endVariable
-			.variable aimZ Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.000000
-			.endVariable
-			.variable pinBusy Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable ::PitchMax_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 45.000000
-			.endVariable
-			.variable playerRestored Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable ::Launcher_var weapon
+			.variable rootWorldMatrix Float[]
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue None
 			.endVariable
-			.variable ::VisualBoltNode_var String
+			.variable ::ProjectileSpeed_var Float
 				.userFlags 0	; Flags: 0x00000000
-				.initialValue "VIROTE_VISUAL"
-			.endVariable
-			.variable ownedGuard actor
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable muzzleWorldMatrix Float[]
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable ::ResetSeconds_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.800000
-			.endVariable
-			.variable yawBase Float[]
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable ::YawNode_var String
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue "CTRL_GIRO_360"
-			.endVariable
-			.variable generation Int
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0
-			.endVariable
-			.variable ::MuzzleNode_var String
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue "ProjectileNode"
-			.endVariable
-			.variable serial Int
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0
-			.endVariable
-			.variable pitchBase Float[]
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable pitchMatrix Float[]
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable recovering Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable desiredYaw Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.000000
-			.endVariable
-			.variable ::PitchMin_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue -20.000000
-			.endVariable
-			.variable muzzlePosition Float[]
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable ::Artillero_var actor
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable stationRetired Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable destroyed Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable ::CadenceSeconds_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 2.500000
+				.initialValue 5400.000000
 			.endVariable
 			.variable ::YawCenter_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.000000
-			.endVariable
-			.variable phaseAt Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.000000
-			.endVariable
-			.variable ::Standby_var ObjectReference
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable playerReserved Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable lastTick Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.000000
-			.endVariable
-			.variable yawMatrix Float[]
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable ::Puesto_var ObjectReference
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable ::TargetHeight_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 60.000000
-			.endVariable
-			.variable phase Int
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0
-			.endVariable
-			.variable desiredPitch Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.000000
-			.endVariable
-			.variable faulted Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable rootPosition Float[]
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable ::TurnRate_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 30.000000
-			.endVariable
-			.variable nextShotAt Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.000000
-			.endVariable
-			.variable matricesReady Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable ::AllowPlayerTakeover_var Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable aimY Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue -1.000000
-			.endVariable
-			.variable ::ProjectileGravity_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 240.345001
-			.endVariable
-			.variable targetHorizontal Float
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0.000000
 			.endVariable
@@ -203,59 +35,23 @@
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0.000000
 			.endVariable
-			.variable playerReady Bool
+			.variable guardPoseStarted Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
-			.variable ::PitchNode_var String
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue "CTRL_ELEVACION"
-			.endVariable
-			.variable updating Bool
+			.variable sceneBusy Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
-			.variable ::ReleaseSeconds_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.066667
-			.endVariable
-			.variable ::ProjectileSpeed_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 5400.000000
-			.endVariable
-			.variable recoveryRequested Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable ::FireSeconds_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.200000
-			.endVariable
-			.variable ::ShotAmmo_var ammo
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable pitch Float
+			.variable desiredPitch Float
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0.000000
 			.endVariable
-			.variable aimX Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.000000
-			.endVariable
-			.variable timingRevision Int
+			.variable serial Int
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0
 			.endVariable
-			.variable ::YawHalfSector_var Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 60.000000
-			.endVariable
-			.variable running Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable rootWorldMatrix Float[]
+			.variable ::Puesto_var ObjectReference
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue None
 			.endVariable
@@ -263,60 +59,345 @@
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue None
 			.endVariable
-			.variable sceneBusy Bool
+			.variable guardPoseFireAt Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable ::VisualBoltNode_var String
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue "VIROTE_VISUAL"
+			.endVariable
+			.variable yawMatrix Float[]
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable aimY Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue -1.000000
+			.endVariable
+			.variable ::PitchMin_var Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue -20.000000
+			.endVariable
+			.variable aimZ Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable muzzlePosition Float[]
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable ::PitchNode_var String
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue "CTRL_ELEVACION"
+			.endVariable
+			.variable recoveryRequested Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
+			.endVariable
+			.variable ::Standby_var ObjectReference
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable ::FireSeconds_var Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.200000
+			.endVariable
+			.variable desiredYaw Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable pitchBase Float[]
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable updating Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable pinBusy Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable aimX Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable phaseAt Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable playerReady Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable ::TurnRate_var Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 30.000000
+			.endVariable
+			.variable token Int
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue -1
+			.endVariable
+			.variable ::YawNode_var String
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue "CTRL_GIRO_360"
+			.endVariable
+			.variable guardPoseFiring Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable generation Int
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0
+			.endVariable
+			.variable ::TargetHeight_var Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 60.000000
 			.endVariable
 			.variable playerLease Int
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0
 			.endVariable
+			.variable muzzleWorldMatrix Float[]
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable holdIdle Idle
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable ::ShotSound_var sound
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable ::Launcher_var weapon
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable nextShotAt Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable running Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable ::AllowPlayerTakeover_var Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable pitchMatrix Float[]
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable destroyed Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable fireFaction Faction
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable ownedGuard actor
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable matricesReady Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable visualScanAt Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable ::MuzzleNode_var String
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue "ProjectileNode"
+			.endVariable
+			.variable ::YawHalfSector_var Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 60.000000
+			.endVariable
+			.variable ::Artillero_var actor
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable ::ReleaseSeconds_var Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.066667
+			.endVariable
+			.variable playerReserved Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable recovering Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable yawBase Float[]
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable poseFaction Faction
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable stationRetired Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable ::ResetSeconds_var Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.800000
+			.endVariable
+			.variable ::ShotAmmo_var ammo
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable playerRestored Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable ::ProjectileGravity_var Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 240.345001
+			.endVariable
+			.variable phase Int
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0
+			.endVariable
+			.variable ::CadenceSeconds_var Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 2.500000
+			.endVariable
+			.variable ::PitchMax_var Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 45.000000
+			.endVariable
+			.variable rootPosition Float[]
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable targetHorizontal Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable lastTick Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable faulted Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable visualTarget actor
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable playerSerial Int
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0
+			.endVariable
+			.variable pitch Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable timingRevision Int
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0
+			.endVariable
 		.endVariableTable
 		.propertyTable
+			.property CadenceSeconds Float auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::CadenceSeconds_var
+			.endProperty
 			.property MuzzleNode String auto
 				.userFlags 0	; Flags: 0x00000000
 				.docString ""
 				.autoVar ::MuzzleNode_var
 			.endProperty
-			.property ResetSeconds Float auto
+			.property ProjectileGravity Float auto
 				.userFlags 0	; Flags: 0x00000000
 				.docString ""
-				.autoVar ::ResetSeconds_var
-			.endProperty
-			.property PitchMax Float auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::PitchMax_var
-			.endProperty
-			.property ShotAmmo ammo auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::ShotAmmo_var
-			.endProperty
-			.property Artillero actor auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::Artillero_var
-			.endProperty
-			.property Standby ObjectReference auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::Standby_var
-			.endProperty
-			.property ProjectileSpeed Float auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::ProjectileSpeed_var
+				.autoVar ::ProjectileGravity_var
 			.endProperty
 			.property PitchNode String auto
 				.userFlags 0	; Flags: 0x00000000
 				.docString ""
 				.autoVar ::PitchNode_var
 			.endProperty
-			.property CadenceSeconds Float auto
+			.property YawNode String auto
 				.userFlags 0	; Flags: 0x00000000
 				.docString ""
-				.autoVar ::CadenceSeconds_var
+				.autoVar ::YawNode_var
+			.endProperty
+			.property Artillero actor auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::Artillero_var
+			.endProperty
+			.property VisualBoltNode String auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::VisualBoltNode_var
+			.endProperty
+			.property ProjectileSpeed Float auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::ProjectileSpeed_var
+			.endProperty
+			.property YawHalfSector Float auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::YawHalfSector_var
+			.endProperty
+			.property Launcher weapon auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::Launcher_var
+			.endProperty
+			.property Puesto ObjectReference auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::Puesto_var
+			.endProperty
+			.property YawCenter Float auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::YawCenter_var
+			.endProperty
+			.property Standby ObjectReference auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::Standby_var
+			.endProperty
+			.property ReleaseSeconds Float auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::ReleaseSeconds_var
+			.endProperty
+			.property AllowPlayerTakeover Bool auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::AllowPlayerTakeover_var
+			.endProperty
+			.property PitchMin Float auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::PitchMin_var
+			.endProperty
+			.property TargetHeight Float auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::TargetHeight_var
+			.endProperty
+			.property ShotSound sound auto
+				.userFlags 0	; Flags: 0x00000000
+				.docString ""
+				.autoVar ::ShotSound_var
 			.endProperty
 			.property TurnRate Float auto
 				.userFlags 0	; Flags: 0x00000000
@@ -328,70 +409,427 @@
 				.docString ""
 				.autoVar ::FireSeconds_var
 			.endProperty
-			.property YawCenter Float auto
+			.property PitchMax Float auto
 				.userFlags 0	; Flags: 0x00000000
 				.docString ""
-				.autoVar ::YawCenter_var
+				.autoVar ::PitchMax_var
 			.endProperty
-			.property TargetHeight Float auto
+			.property ResetSeconds Float auto
 				.userFlags 0	; Flags: 0x00000000
 				.docString ""
-				.autoVar ::TargetHeight_var
+				.autoVar ::ResetSeconds_var
 			.endProperty
-			.property PitchMin Float auto
+			.property ShotAmmo ammo auto
 				.userFlags 0	; Flags: 0x00000000
 				.docString ""
-				.autoVar ::PitchMin_var
-			.endProperty
-			.property ProjectileGravity Float auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::ProjectileGravity_var
-			.endProperty
-			.property YawNode String auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::YawNode_var
-			.endProperty
-			.property AllowPlayerTakeover Bool auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::AllowPlayerTakeover_var
-			.endProperty
-			.property YawHalfSector Float auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::YawHalfSector_var
-			.endProperty
-			.property ShotSound sound auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::ShotSound_var
-			.endProperty
-			.property Puesto ObjectReference auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::Puesto_var
-			.endProperty
-			.property VisualBoltNode String auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::VisualBoltNode_var
-			.endProperty
-			.property ReleaseSeconds Float auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::ReleaseSeconds_var
-			.endProperty
-			.property Launcher weapon auto
-				.userFlags 0	; Flags: 0x00000000
-				.docString ""
-				.autoVar ::Launcher_var
+				.autoVar ::ShotAmmo_var
 			.endProperty
 		.endPropertyTable
 		.stateTable
 			.state 
-				.function FinishSceneEffect
+				.function ReservePlayerLease
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Int
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp13 Bool
+						.local ::temp14 ObjectReference
+						.local ::temp15 Bool
+						.local ::temp16 actor
+						.local ::temp17 Int
+						.local ::NoneVar None
+						.local player actor
+						.local lease Int
+					.endLocalTable
+					.code
+						Not ::temp13 ::AllowPlayerTakeover_var                   ;@line 167
+						Cast ::temp13 ::temp13                                   ;@line 167
+						JumpT ::temp13 _label0                                   ;@line 167
+						Cast ::temp13 stationRetired                             ;@line 167
+					_label0:
+						Cast ::temp13 ::temp13                                   ;@line 167
+						JumpT ::temp13 _label1                                   ;@line 167
+						Cast ::temp13 destroyed                                  ;@line 167
+					_label1:
+						Cast ::temp13 ::temp13                                   ;@line 167
+						JumpT ::temp13 _label2                                   ;@line 167
+						Cast ::temp13 playerReserved                             ;@line 167
+					_label2:
+						Cast ::temp13 ::temp13                                   ;@line 167
+						JumpT ::temp13 _label3                                   ;@line 167
+						Cast ::temp14 None                                       ;@line 167
+						CompareEQ ::temp15 ::Standby_var ::temp14                ;@line 167
+						Cast ::temp13 ::temp15                                   ;@line 167
+					_label3:
+						Cast ::temp13 ::temp13                                   ;@line 167
+						JumpT ::temp13 _label4                                   ;@line 167
+						CompareGTE ::temp15 playerSerial 2000000000              ;@line 167
+						Cast ::temp13 ::temp15                                   ;@line 167
+					_label4:
+						JumpF ::temp13 _label5                                   ;@line 167
+						Return -1                                                ;@line 168
+						Jump _label5                                             ;@line 168
+					_label5:
+						CallStatic game GetPlayer ::temp16                       ;@line 170
+						Assign player ::temp16                                   ;@line 170
+						Cast ::temp15 playerReserved                             ;@line 171
+						JumpT ::temp15 _label6                                   ;@line 171
+						Cast ::temp15 destroyed                                  ;@line 171
+					_label6:
+						Cast ::temp15 ::temp15                                   ;@line 171
+						JumpT ::temp15 _label7                                   ;@line 171
+						Not ::temp13 ::AllowPlayerTakeover_var                   ;@line 171
+						Cast ::temp15 ::temp13                                   ;@line 171
+					_label7:
+						Cast ::temp15 ::temp15                                   ;@line 171
+						JumpT ::temp15 _label8                                   ;@line 171
+						Cast ::temp14 None                                       ;@line 171
+						CompareEQ ::temp13 ::Standby_var ::temp14                ;@line 171
+						Cast ::temp15 ::temp13                                   ;@line 171
+					_label8:
+						Cast ::temp15 ::temp15                                   ;@line 171
+						JumpT ::temp15 _label9                                   ;@line 171
+						CompareEQ ::temp13 ::Artillero_var player                ;@line 171
+						Cast ::temp15 ::temp13                                   ;@line 171
+					_label9:
+						JumpF ::temp15 _label10                                  ;@line 171
+						Return -1                                                ;@line 172
+						Jump _label10                                            ;@line 172
+					_label10:
+						IAdd ::temp17 playerSerial 1                             ;@line 174
+						Assign playerSerial ::temp17                             ;@line 174
+						Assign lease playerSerial                                ;@line 175
+						Assign playerLease lease                                 ;@line 176
+						Assign playerReserved True                               ;@line 177
+						Assign playerReady False                                 ;@line 178
+						Assign playerRestored False                              ;@line 179
+						CallMethod Shutdown self ::NoneVar                       ;@line 182
+						CallMethod PlayerLeaseCurrent self ::temp13 lease        ;@line 183
+						Not ::temp15 ::temp13                                    ;@line 183
+						JumpF ::temp15 _label11                                  ;@line 183
+						Return -1                                                ;@line 184
+						Jump _label11                                            ;@line 184
+					_label11:
+						Return lease                                             ;@line 186
+					.endCode
+				.endFunction
+				.function SampleVisualTarget
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param target actor
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp175 Bool
+						.local ::temp176 Bool
+						.local ::temp177 Float
+						.local ::temp178 Float
+						.local dx Float
+						.local dy Float
+						.local distanceSquared Float
+						.local lx Float
+						.local ly Float
+						.local angle Float
+					.endLocalTable
+					.code
+						CallMethod VisualTargetValid self ::temp175 target expectedGeneration expectedToken  ;@line 1387
+						Not ::temp175 ::temp175                                  ;@line 1387
+						Cast ::temp175 ::temp175                                 ;@line 1387
+						JumpT ::temp175 _label12                                 ;@line 1387
+						CallMethod ReadPose self ::temp176 expectedGeneration expectedToken  ;@line 1387
+						Not ::temp176 ::temp176                                  ;@line 1387
+						Cast ::temp175 ::temp176                                 ;@line 1387
+					_label12:
+						JumpF ::temp175 _label13                                 ;@line 1387
+						Return False                                             ;@line 1388
+						Jump _label13                                            ;@line 1388
+					_label13:
+						CallMethod GetPositionX target ::temp177                 ;@line 1390
+						ArrayGetElement ::temp178 rootPosition 0                 ;@line 1390
+						FSubtract ::temp177 ::temp177 ::temp178                  ;@line 1390
+						Assign dx ::temp177                                      ;@line 1390
+						CallMethod GetPositionY target ::temp178                 ;@line 1391
+						ArrayGetElement ::temp177 rootPosition 1                 ;@line 1391
+						FSubtract ::temp178 ::temp178 ::temp177                  ;@line 1391
+						Assign dy ::temp178                                      ;@line 1391
+						FMultiply ::temp177 dx dx                                ;@line 1392
+						FMultiply ::temp178 dy dy                                ;@line 1392
+						FAdd ::temp177 ::temp177 ::temp178                       ;@line 1392
+						Assign distanceSquared ::temp177                         ;@line 1392
+						CallMethod Current self ::temp176 expectedGeneration expectedToken  ;@line 1393
+						Not ::temp175 ::temp176                                  ;@line 1393
+						Cast ::temp175 ::temp175                                 ;@line 1393
+						JumpT ::temp175 _label14                                 ;@line 1393
+						CallMethod Finite self ::temp176 distanceSquared 6400.000000 36000000.000000  ;@line 1393
+						Not ::temp176 ::temp176                                  ;@line 1393
+						Cast ::temp175 ::temp176                                 ;@line 1393
+					_label14:
+						JumpF ::temp175 _label15                                 ;@line 1393
+						Return False                                             ;@line 1394
+						Jump _label15                                            ;@line 1394
+					_label15:
+						ArrayGetElement ::temp178 rootWorldMatrix 0              ;@line 1396
+						FMultiply ::temp177 ::temp178 dx                         ;@line 1396
+						ArrayGetElement ::temp178 rootWorldMatrix 3              ;@line 1396
+						FMultiply ::temp178 ::temp178 dy                         ;@line 1396
+						FAdd ::temp177 ::temp177 ::temp178                       ;@line 1396
+						Assign lx ::temp177                                      ;@line 1396
+						ArrayGetElement ::temp178 rootWorldMatrix 1              ;@line 1397
+						FMultiply ::temp177 ::temp178 dx                         ;@line 1397
+						ArrayGetElement ::temp178 rootWorldMatrix 4              ;@line 1397
+						FMultiply ::temp178 ::temp178 dy                         ;@line 1397
+						FAdd ::temp177 ::temp177 ::temp178                       ;@line 1397
+						Assign ly ::temp177                                      ;@line 1397
+						FNegate ::temp178 ly                                     ;@line 1398
+						CallMethod HeadingFromVector self ::temp177 lx ::temp178 yaw  ;@line 1398
+						Assign angle ::temp177                                   ;@line 1398
+						CompareGT ::temp176 angle 180.000000                     ;@line 1399
+						JumpF ::temp176 _label16                                 ;@line 1399
+						FSubtract ::temp178 angle 360.000000                     ;@line 1400
+						Assign angle ::temp178                                   ;@line 1400
+						Jump _label16                                            ;@line 1400
+					_label16:
+						CallMethod Finite self ::temp175 ::YawHalfSector_var 1.000000 60.000000  ;@line 1402
+						Not ::temp176 ::temp175                                  ;@line 1402
+						Cast ::temp176 ::temp176                                 ;@line 1402
+						JumpT ::temp176 _label17                                 ;@line 1402
+						FAdd ::temp177 -60.000000 ::YawHalfSector_var            ;@line 1402
+						FSubtract ::temp178 60.000000 ::YawHalfSector_var        ;@line 1402
+						CallMethod Finite self ::temp175 ::YawCenter_var ::temp177 ::temp178  ;@line 1402
+						Not ::temp175 ::temp175                                  ;@line 1402
+						Cast ::temp176 ::temp175                                 ;@line 1402
+					_label17:
+						Cast ::temp176 ::temp176                                 ;@line 1402
+						JumpT ::temp176 _label18                                 ;@line 1402
+						FSubtract ::temp177 ::YawCenter_var ::YawHalfSector_var  ;@line 1402
+						FAdd ::temp178 ::YawCenter_var ::YawHalfSector_var       ;@line 1402
+						CallMethod Finite self ::temp175 angle ::temp177 ::temp178  ;@line 1402
+						Not ::temp175 ::temp175                                  ;@line 1402
+						Cast ::temp176 ::temp175                                 ;@line 1402
+					_label18:
+						Cast ::temp176 ::temp176                                 ;@line 1402
+						JumpT ::temp176 _label19                                 ;@line 1402
+						CallMethod Current self ::temp175 expectedGeneration expectedToken  ;@line 1402
+						Not ::temp175 ::temp175                                  ;@line 1402
+						Cast ::temp176 ::temp175                                 ;@line 1402
+					_label19:
+						JumpF ::temp176 _label20                                 ;@line 1402
+						Return False                                             ;@line 1403
+						Jump _label20                                            ;@line 1403
+					_label20:
+						Assign desiredYaw angle                                  ;@line 1405
+						Assign desiredPitch 0.000000                             ;@line 1406
+						Return True                                              ;@line 1407
+					.endCode
+				.endFunction
+				.function ChooseVisualTarget
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return actor
+					.paramTable
+						.param now Float
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp179 actor
+						.local ::temp180 Bool
+						.local ::temp181 Bool
+						.local ::temp182 Float
+						.local enemy actor
+						.local candidate actor
+						.local attempt Int
+						.local ::temp183 Float
+						.local ::temp184 Float
+						.local ::temp185 Int
+					.endLocalTable
+					.code
+						CallMethod GetCombatTarget ::Artillero_var ::temp179     ;@line 1411
+						Assign enemy ::temp179                                   ;@line 1411
+						CallMethod ValidTarget self ::temp180 enemy expectedGeneration expectedToken  ;@line 1412
+						Cast ::temp180 ::temp180                                 ;@line 1412
+						JumpF ::temp180 _label21                                 ;@line 1412
+						CallMethod SampleVisualTarget self ::temp181 enemy expectedGeneration expectedToken  ;@line 1412
+						Cast ::temp180 ::temp181                                 ;@line 1412
+					_label21:
+						JumpF ::temp180 _label22                                 ;@line 1412
+						Assign visualTarget enemy                                ;@line 1413
+						Return enemy                                             ;@line 1414
+						Jump _label22                                            ;@line 1414
+					_label22:
+						CallMethod SampleVisualTarget self ::temp181 visualTarget expectedGeneration expectedToken  ;@line 1416
+						JumpF ::temp181 _label23                                 ;@line 1416
+						Return visualTarget                                      ;@line 1417
+						Jump _label23                                            ;@line 1417
+					_label23:
+						Cast ::temp179 None                                      ;@line 1419
+						Assign visualTarget ::temp179                            ;@line 1419
+						CompareLT ::temp180 now visualScanAt                     ;@line 1420
+						Cast ::temp180 ::temp180                                 ;@line 1420
+						JumpT ::temp180 _label24                                 ;@line 1420
+						CallMethod Current self ::temp181 expectedGeneration expectedToken  ;@line 1420
+						Not ::temp181 ::temp181                                  ;@line 1420
+						Cast ::temp180 ::temp181                                 ;@line 1420
+					_label24:
+						JumpF ::temp180 _label25                                 ;@line 1420
+						Cast ::temp179 None                                      ;@line 1421
+						Return ::temp179                                         ;@line 1421
+						Jump _label25                                            ;@line 1421
+					_label25:
+						FAdd ::temp182 now 1.000000                              ;@line 1423
+						Assign visualScanAt ::temp182                            ;@line 1423
+						CallStatic game GetPlayer ::temp179                      ;@line 1424
+						Assign candidate ::temp179                               ;@line 1424
+						CallMethod SampleVisualTarget self ::temp181 candidate expectedGeneration expectedToken  ;@line 1425
+						JumpF ::temp181 _label26                                 ;@line 1425
+						Assign visualTarget candidate                            ;@line 1426
+						Return candidate                                         ;@line 1427
+						Jump _label26                                            ;@line 1427
+					_label26:
+						Assign attempt 0                                         ;@line 1429
+					_label30:
+						CompareLT ::temp180 attempt 6                            ;@line 1430
+						Cast ::temp180 ::temp180                                 ;@line 1430
+						JumpF ::temp180 _label27                                 ;@line 1430
+						CallMethod Current self ::temp181 expectedGeneration expectedToken  ;@line 1430
+						Cast ::temp180 ::temp181                                 ;@line 1430
+					_label27:
+						JumpF ::temp180 _label28                                 ;@line 1430
+						ArrayGetElement ::temp182 rootPosition 0                 ;@line 1431
+						ArrayGetElement ::temp183 rootPosition 1                 ;@line 1431
+						ArrayGetElement ::temp184 rootPosition 2                 ;@line 1431
+						CallStatic game FindRandomActor ::temp179 ::temp182 ::temp183 ::temp184 6000.000000  ;@line 1431
+						Assign candidate ::temp179                               ;@line 1431
+						CallMethod SampleVisualTarget self ::temp181 candidate expectedGeneration expectedToken  ;@line 1432
+						JumpF ::temp181 _label29                                 ;@line 1432
+						Assign visualTarget candidate                            ;@line 1433
+						Return candidate                                         ;@line 1434
+						Jump _label29                                            ;@line 1434
+					_label29:
+						IAdd ::temp185 attempt 1                                 ;@line 1436
+						Assign attempt ::temp185                                 ;@line 1436
+						Jump _label30                                            ;@line 1436
+					_label28:
+						Cast ::temp179 None                                      ;@line 1438
+						Return ::temp179                                         ;@line 1438
+					.endCode
+				.endFunction
+				.function ValidTarget
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param target actor
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp97 Bool
+						.local ::temp98 actor
+						.local ::temp99 Bool
+						.local ::temp100 Int
+						.local ::temp101 ObjectReference
+						.local player actor
+						.local valid Bool
+						.local visible Bool
+						.local combatTarget actor
+					.endLocalTable
+					.code
+						CallMethod GuardReady self ::temp97 expectedGeneration expectedToken  ;@line 823
+						Not ::temp97 ::temp97                                    ;@line 823
+						Cast ::temp97 ::temp97                                   ;@line 823
+						JumpT ::temp97 _label31                                  ;@line 823
+						Cast ::temp98 None                                       ;@line 823
+						CompareEQ ::temp99 target ::temp98                       ;@line 823
+						Cast ::temp97 ::temp99                                   ;@line 823
+					_label31:
+						Cast ::temp97 ::temp97                                   ;@line 823
+						JumpT ::temp97 _label32                                  ;@line 823
+						CompareEQ ::temp99 target ::Artillero_var                ;@line 823
+						Cast ::temp97 ::temp99                                   ;@line 823
+					_label32:
+						JumpF ::temp97 _label33                                  ;@line 823
+						Return False                                             ;@line 824
+						Jump _label33                                            ;@line 824
+					_label33:
+						CallStatic game GetPlayer ::temp98                       ;@line 826
+						Assign player ::temp98                                   ;@line 826
+						CallMethod Current self ::temp99 expectedGeneration expectedToken  ;@line 827
+						Not ::temp97 ::temp99                                    ;@line 827
+						Cast ::temp97 ::temp97                                   ;@line 827
+						JumpT ::temp97 _label34                                  ;@line 827
+						CompareEQ ::temp99 target player                         ;@line 827
+						Cast ::temp97 ::temp99                                   ;@line 827
+					_label34:
+						JumpF ::temp97 _label35                                  ;@line 827
+						Return False                                             ;@line 828
+						Jump _label35                                            ;@line 828
+					_label35:
+						CallMethod Is3DLoaded target ::temp99                    ;@line 830
+						Cast ::temp99 ::temp99                                   ;@line 830
+						JumpF ::temp99 _label36                                  ;@line 830
+						CallMethod IsDisabled target ::temp97                    ;@line 830
+						Not ::temp97 ::temp97                                    ;@line 830
+						Cast ::temp99 ::temp97                                   ;@line 830
+					_label36:
+						Cast ::temp99 ::temp99                                   ;@line 830
+						JumpF ::temp99 _label37                                  ;@line 830
+						CallMethod IsDead target ::temp97                        ;@line 830
+						Not ::temp97 ::temp97                                    ;@line 830
+						Cast ::temp99 ::temp97                                   ;@line 830
+					_label37:
+						Cast ::temp99 ::temp99                                   ;@line 830
+						JumpF ::temp99 _label38                                  ;@line 830
+						CallMethod IsPlayerTeammate target ::temp97              ;@line 830
+						Not ::temp97 ::temp97                                    ;@line 830
+						Cast ::temp99 ::temp97                                   ;@line 830
+					_label38:
+						Cast ::temp99 ::temp99                                   ;@line 830
+						JumpF ::temp99 _label39                                  ;@line 830
+						CallMethod IsHostileToActor target ::temp97 ::Artillero_var  ;@line 830
+						Cast ::temp99 ::temp97                                   ;@line 830
+					_label39:
+						Cast ::temp99 ::temp99                                   ;@line 830
+						JumpF ::temp99 _label40                                  ;@line 830
+						CallMethod GetCombatState target ::temp100               ;@line 830
+						CompareGT ::temp97 ::temp100 0                           ;@line 830
+						Cast ::temp99 ::temp97                                   ;@line 830
+					_label40:
+						Cast ::temp99 ::temp99                                   ;@line 830
+						JumpF ::temp99 _label41                                  ;@line 830
+						CallMethod GetCombatState ::Artillero_var ::temp100      ;@line 830
+						CompareEQ ::temp97 ::temp100 1                           ;@line 830
+						Cast ::temp99 ::temp97                                   ;@line 830
+					_label41:
+						Assign valid ::temp99                                    ;@line 830
+						Cast ::temp101 target                                    ;@line 831
+						CallMethod HasLOS ::Artillero_var ::temp97 ::temp101     ;@line 831
+						Assign visible ::temp97                                  ;@line 831
+						CallMethod GetCombatTarget ::Artillero_var ::temp98      ;@line 832
+						Assign combatTarget ::temp98                             ;@line 832
+						CallMethod Current self ::temp99 expectedGeneration expectedToken  ;@line 833
+						Cast ::temp97 ::temp99                                   ;@line 833
+						JumpF ::temp97 _label42                                  ;@line 833
+						Cast ::temp97 valid                                      ;@line 833
+					_label42:
+						Cast ::temp99 ::temp97                                   ;@line 833
+						JumpF ::temp99 _label43                                  ;@line 833
+						Cast ::temp99 visible                                    ;@line 833
+					_label43:
+						Cast ::temp99 ::temp99                                   ;@line 833
+						JumpF ::temp99 _label44                                  ;@line 833
+						CompareEQ ::temp97 combatTarget target                   ;@line 833
+						Cast ::temp99 ::temp97                                   ;@line 833
+					_label44:
+						Return ::temp99                                          ;@line 833
+					.endCode
+				.endFunction
+				.function GuardReady
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
 					.return Bool
@@ -400,21 +838,2276 @@
 						.param expectedToken Int
 					.endParamTable
 					.localTable
-						.local ::temp60 Bool
-						.local valid Bool
+						.local ::temp92 Bool
+						.local ::temp93 actor
+						.local ::temp94 Bool
+						.local ::temp95 ObjectReference
+						.local ::temp96 Float
+						.local ready Bool
+						.local distance Float
+					.endLocalTable
+					.code
+						CallMethod Current self ::temp92 expectedGeneration expectedToken  ;@line 814
+						Not ::temp92 ::temp92                                    ;@line 814
+						Cast ::temp92 ::temp92                                   ;@line 814
+						JumpT ::temp92 _label45                                  ;@line 814
+						Cast ::temp93 None                                       ;@line 814
+						CompareEQ ::temp94 ownedGuard ::temp93                   ;@line 814
+						Cast ::temp92 ::temp94                                   ;@line 814
+					_label45:
+						Cast ::temp92 ::temp92                                   ;@line 814
+						JumpT ::temp92 _label46                                  ;@line 814
+						CompareEQ ::temp94 ownedGuard ::Artillero_var            ;@line 814
+						Not ::temp94 ::temp94                                    ;@line 814
+						Cast ::temp92 ::temp94                                   ;@line 814
+					_label46:
+						JumpF ::temp92 _label47                                  ;@line 814
+						Return False                                             ;@line 815
+						Jump _label47                                            ;@line 815
+					_label47:
+						CallMethod Is3DLoaded self ::temp94                      ;@line 817
+						Cast ::temp94 ::temp94                                   ;@line 817
+						JumpF ::temp94 _label48                                  ;@line 817
+						CallMethod IsDisabled self ::temp92                      ;@line 817
+						Not ::temp92 ::temp92                                    ;@line 817
+						Cast ::temp94 ::temp92                                   ;@line 817
+					_label48:
+						Cast ::temp94 ::temp94                                   ;@line 817
+						JumpF ::temp94 _label49                                  ;@line 817
+						CallMethod Is3DLoaded ownedGuard ::temp92                ;@line 817
+						Cast ::temp94 ::temp92                                   ;@line 817
+					_label49:
+						Cast ::temp94 ::temp94                                   ;@line 817
+						JumpF ::temp94 _label50                                  ;@line 817
+						CallMethod IsDead ownedGuard ::temp92                    ;@line 817
+						Not ::temp92 ::temp92                                    ;@line 817
+						Cast ::temp94 ::temp92                                   ;@line 817
+					_label50:
+						Cast ::temp94 ::temp94                                   ;@line 817
+						JumpF ::temp94 _label51                                  ;@line 817
+						CallMethod IsDisabled ownedGuard ::temp92                ;@line 817
+						Not ::temp92 ::temp92                                    ;@line 817
+						Cast ::temp94 ::temp92                                   ;@line 817
+					_label51:
+						Assign ready ::temp94                                    ;@line 817
+						Cast ::temp95 self                                       ;@line 818
+						CallMethod GetDistance ownedGuard ::temp96 ::temp95      ;@line 818
+						Assign distance ::temp96                                 ;@line 818
+						CallMethod Current self ::temp92 expectedGeneration expectedToken  ;@line 819
+						Cast ::temp94 ::temp92                                   ;@line 819
+						JumpF ::temp94 _label52                                  ;@line 819
+						Cast ::temp94 ready                                      ;@line 819
+					_label52:
+						Cast ::temp94 ::temp94                                   ;@line 819
+						JumpF ::temp94 _label53                                  ;@line 819
+						CallMethod Finite self ::temp92 distance 0.000000 240.000000  ;@line 819
+						Cast ::temp94 ::temp92                                   ;@line 819
+					_label53:
+						Return ::temp94                                          ;@line 819
+					.endCode
+				.endFunction
+				.function Finite
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param value Float
+						.param minimum Float
+						.param maximum Float
+					.endParamTable
+					.localTable
+						.local ::temp27 Bool
+						.local ::temp28 Bool
+					.endLocalTable
+					.code
+						CompareEQ ::temp27 value value                           ;@line 296
+						Cast ::temp27 ::temp27                                   ;@line 296
+						JumpF ::temp27 _label54                                  ;@line 296
+						CompareGTE ::temp28 value minimum                        ;@line 296
+						Cast ::temp27 ::temp28                                   ;@line 296
+					_label54:
+						Cast ::temp27 ::temp27                                   ;@line 296
+						JumpF ::temp27 _label55                                  ;@line 296
+						CompareLTE ::temp28 value maximum                        ;@line 296
+						Cast ::temp27 ::temp28                                   ;@line 296
+					_label55:
+						Return ::temp27                                          ;@line 296
+					.endCode
+				.endFunction
+				.function ReleasePlayerLease
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param lease Int
+					.endParamTable
+					.localTable
+						.local ::temp26 Bool
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CallMethod Current self ::temp60 expectedGeneration expectedToken  ;@line 631
-						Assign valid ::temp60                                    ;@line 631
-						Not ::temp60 valid                                       ;@line 632
-						JumpF ::temp60 _label0                                   ;@line 632
-						CallMethod RestoreNeutralScene self ::NoneVar            ;@line 633
-						Jump _label0                                             ;@line 633
-					_label0:
-						Assign sceneBusy False                                   ;@line 635
-						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 636
-						Return valid                                             ;@line 637
+						CallMethod PlayerLeaseCurrent self ::temp26 lease        ;@line 284
+						Not ::temp26 ::temp26                                    ;@line 284
+						JumpF ::temp26 _label56                                  ;@line 284
+						Return False                                             ;@line 285
+						Jump _label56                                            ;@line 285
+					_label56:
+						CallMethod InvalidatePlayerLease self ::NoneVar          ;@line 287
+						CallMethod Shutdown self ::NoneVar                       ;@line 288
+						CallMethod BeginRecovery self ::NoneVar                  ;@line 291
+						Return True                                              ;@line 292
+					.endCode
+				.endFunction
+				.function PositionOperator
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp166 Bool
+						.local ::temp167 Bool
+						.local ::temp168 Float
+						.local ::temp169 Float
+						.local ::temp170 Float
+						.local ::NoneVar None
+						.local localX Float
+						.local localY Float
+						.local px Float
+						.local py Float
+						.local frontX Float
+						.local frontY Float
+						.local heading Float
+						.local candidate actor
+					.endLocalTable
+					.code
+						Cast ::temp166 pinBusy                                   ;@line 1354
+						JumpT ::temp166 _label57                                 ;@line 1354
+						CallMethod GuardReady self ::temp166 expectedGeneration expectedToken  ;@line 1354
+						Not ::temp166 ::temp166                                  ;@line 1354
+						Cast ::temp166 ::temp166                                 ;@line 1354
+					_label57:
+						Cast ::temp166 ::temp166                                 ;@line 1354
+						JumpT ::temp166 _label58                                 ;@line 1354
+						CallMethod ReadPose self ::temp167 expectedGeneration expectedToken  ;@line 1354
+						Not ::temp167 ::temp167                                  ;@line 1354
+						Cast ::temp166 ::temp167                                 ;@line 1354
+					_label58:
+						JumpF ::temp166 _label59                                 ;@line 1354
+						Return False                                             ;@line 1355
+						Jump _label59                                            ;@line 1355
+					_label59:
+						CallStatic math Sin ::temp168 yaw                        ;@line 1358
+						FMultiply ::temp168 -151.000000 ::temp168                ;@line 1358
+						Assign localX ::temp168                                  ;@line 1358
+						CallStatic math Cos ::temp168 yaw                        ;@line 1359
+						FMultiply ::temp168 151.000000 ::temp168                 ;@line 1359
+						Assign localY ::temp168                                  ;@line 1359
+						ArrayGetElement ::temp168 rootPosition 0                 ;@line 1360
+						ArrayGetElement ::temp169 rootWorldMatrix 0              ;@line 1360
+						FMultiply ::temp169 ::temp169 localX                     ;@line 1360
+						FAdd ::temp168 ::temp168 ::temp169                       ;@line 1360
+						ArrayGetElement ::temp169 rootWorldMatrix 1              ;@line 1360
+						FMultiply ::temp169 ::temp169 localY                     ;@line 1360
+						FAdd ::temp168 ::temp168 ::temp169                       ;@line 1360
+						Assign px ::temp168                                      ;@line 1360
+						ArrayGetElement ::temp169 rootPosition 1                 ;@line 1361
+						ArrayGetElement ::temp168 rootWorldMatrix 3              ;@line 1361
+						FMultiply ::temp168 ::temp168 localX                     ;@line 1361
+						FAdd ::temp169 ::temp169 ::temp168                       ;@line 1361
+						ArrayGetElement ::temp168 rootWorldMatrix 4              ;@line 1361
+						FMultiply ::temp168 ::temp168 localY                     ;@line 1361
+						FAdd ::temp169 ::temp169 ::temp168                       ;@line 1361
+						Assign py ::temp169                                      ;@line 1361
+						ArrayGetElement ::temp168 rootWorldMatrix 0              ;@line 1362
+						CallStatic math Sin ::temp169 yaw                        ;@line 1362
+						FMultiply ::temp168 ::temp168 ::temp169                  ;@line 1362
+						ArrayGetElement ::temp169 rootWorldMatrix 1              ;@line 1362
+						CallStatic math Cos ::temp170 yaw                        ;@line 1362
+						FMultiply ::temp169 ::temp169 ::temp170                  ;@line 1362
+						FSubtract ::temp170 ::temp168 ::temp169                  ;@line 1362
+						Assign frontX ::temp170                                  ;@line 1362
+						ArrayGetElement ::temp168 rootWorldMatrix 3              ;@line 1363
+						CallStatic math Sin ::temp169 yaw                        ;@line 1363
+						FMultiply ::temp170 ::temp168 ::temp169                  ;@line 1363
+						ArrayGetElement ::temp168 rootWorldMatrix 4              ;@line 1363
+						CallStatic math Cos ::temp169 yaw                        ;@line 1363
+						FMultiply ::temp168 ::temp168 ::temp169                  ;@line 1363
+						FSubtract ::temp169 ::temp170 ::temp168                  ;@line 1363
+						Assign frontY ::temp169                                  ;@line 1363
+						CallMethod HeadingFromVector self ::temp170 frontX frontY 0.000000  ;@line 1364
+						Assign heading ::temp170                                 ;@line 1364
+						CallMethod Current self ::temp167 expectedGeneration expectedToken  ;@line 1365
+						Not ::temp166 ::temp167                                  ;@line 1365
+						JumpF ::temp166 _label60                                 ;@line 1365
+						Return False                                             ;@line 1366
+						Jump _label60                                            ;@line 1366
+					_label60:
+						Assign candidate ownedGuard                              ;@line 1368
+						Assign pinBusy True                                      ;@line 1369
+						ArrayGetElement ::temp168 rootPosition 2                 ;@line 1370
+						CallMethod SetPosition candidate ::NoneVar px py ::temp168  ;@line 1370
+						CallMethod Current self ::temp167 expectedGeneration expectedToken  ;@line 1371
+						JumpF ::temp167 _label61                                 ;@line 1371
+						CallMethod SetAngle candidate ::NoneVar 0.000000 0.000000 heading  ;@line 1372
+						Jump _label61                                            ;@line 1372
+					_label61:
+						CallMethod FinishGuardEffect self ::temp166 candidate expectedGeneration expectedToken  ;@line 1374
+						Return ::temp166                                         ;@line 1374
+					.endCode
+				.endFunction
+				.function OnDestructionStageChanged
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param aiOldStage Int
+						.param aiCurrentStage Int
+					.endParamTable
+					.localTable
+						.local ::temp0 Bool
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CompareGT ::temp0 aiCurrentStage 0                       ;@line 109
+						JumpF ::temp0 _label62                                   ;@line 109
+						Assign destroyed True                                    ;@line 110
+						CallMethod Shutdown self ::NoneVar                       ;@line 111
+						Jump _label62                                            ;@line 111
+					_label62:
+					.endCode
+				.endFunction
+				.function ReadPose
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp86 Bool
+						.local ::temp87 Bool
+						.local ::temp88 ObjectReference
+						.local rootRead Bool
+						.local muzzleRead Bool
+						.local rootPointRead Bool
+						.local muzzlePointRead Bool
+						.local i Int
+						.local ::temp89 Float
+						.local ::temp90 Bool
+						.local ::temp91 Int
+					.endLocalTable
+					.code
+						CallMethod Current self ::temp86 expectedGeneration expectedToken  ;@line 781
+						Not ::temp86 ::temp86                                    ;@line 781
+						Cast ::temp86 ::temp86                                   ;@line 781
+						JumpT ::temp86 _label63                                  ;@line 781
+						Not ::temp87 matricesReady                               ;@line 781
+						Cast ::temp86 ::temp87                                   ;@line 781
+					_label63:
+						JumpF ::temp86 _label64                                  ;@line 781
+						Return False                                             ;@line 782
+						Jump _label64                                            ;@line 782
+					_label64:
+						Cast ::temp88 self                                       ;@line 784
+						CallStatic netimmerse GetNodeWorldRotationMatrix ::temp87 ::temp88 "" rootWorldMatrix False  ;@line 784
+						Assign rootRead ::temp87                                 ;@line 784
+						CallMethod Current self ::temp86 expectedGeneration expectedToken  ;@line 785
+						Not ::temp87 ::temp86                                    ;@line 785
+						Cast ::temp87 ::temp87                                   ;@line 785
+						JumpT ::temp87 _label65                                  ;@line 785
+						Not ::temp86 rootRead                                    ;@line 785
+						Cast ::temp87 ::temp86                                   ;@line 785
+					_label65:
+						JumpF ::temp87 _label66                                  ;@line 785
+						Return False                                             ;@line 786
+						Jump _label66                                            ;@line 786
+					_label66:
+						Cast ::temp88 self                                       ;@line 788
+						CallStatic netimmerse GetNodeWorldRotationMatrix ::temp86 ::temp88 ::MuzzleNode_var muzzleWorldMatrix False  ;@line 788
+						Assign muzzleRead ::temp86                               ;@line 788
+						CallMethod Current self ::temp87 expectedGeneration expectedToken  ;@line 789
+						Not ::temp86 ::temp87                                    ;@line 789
+						Cast ::temp86 ::temp86                                   ;@line 789
+						JumpT ::temp86 _label67                                  ;@line 789
+						Not ::temp87 muzzleRead                                  ;@line 789
+						Cast ::temp86 ::temp87                                   ;@line 789
+					_label67:
+						JumpF ::temp86 _label68                                  ;@line 789
+						Return False                                             ;@line 790
+						Jump _label68                                            ;@line 790
+					_label68:
+						Cast ::temp88 self                                       ;@line 792
+						CallStatic netimmerse GetNodeWorldPosition ::temp87 ::temp88 "" rootPosition False  ;@line 792
+						Assign rootPointRead ::temp87                            ;@line 792
+						CallMethod Current self ::temp86 expectedGeneration expectedToken  ;@line 793
+						Not ::temp87 ::temp86                                    ;@line 793
+						Cast ::temp87 ::temp87                                   ;@line 793
+						JumpT ::temp87 _label69                                  ;@line 793
+						Not ::temp86 rootPointRead                               ;@line 793
+						Cast ::temp87 ::temp86                                   ;@line 793
+					_label69:
+						JumpF ::temp87 _label70                                  ;@line 793
+						Return False                                             ;@line 794
+						Jump _label70                                            ;@line 794
+					_label70:
+						Cast ::temp88 self                                       ;@line 796
+						CallStatic netimmerse GetNodeWorldPosition ::temp86 ::temp88 ::MuzzleNode_var muzzlePosition False  ;@line 796
+						Assign muzzlePointRead ::temp86                          ;@line 796
+						CallMethod Current self ::temp87 expectedGeneration expectedToken  ;@line 797
+						Not ::temp86 ::temp87                                    ;@line 797
+						Cast ::temp86 ::temp86                                   ;@line 797
+						JumpT ::temp86 _label71                                  ;@line 797
+						Not ::temp87 muzzlePointRead                             ;@line 797
+						Cast ::temp86 ::temp87                                   ;@line 797
+					_label71:
+						JumpF ::temp86 _label72                                  ;@line 797
+						Return False                                             ;@line 798
+						Jump _label72                                            ;@line 798
+					_label72:
+						CallMethod RotationValid self ::temp87 rootWorldMatrix   ;@line 800
+						Not ::temp86 ::temp87                                    ;@line 800
+						Cast ::temp86 ::temp86                                   ;@line 800
+						JumpT ::temp86 _label73                                  ;@line 800
+						CallMethod RotationValid self ::temp87 muzzleWorldMatrix  ;@line 800
+						Not ::temp87 ::temp87                                    ;@line 800
+						Cast ::temp86 ::temp87                                   ;@line 800
+					_label73:
+						JumpF ::temp86 _label74                                  ;@line 800
+						Return False                                             ;@line 801
+						Jump _label74                                            ;@line 801
+					_label74:
+						Assign i 0                                               ;@line 803
+					_label78:
+						CompareLT ::temp87 i 3                                   ;@line 804
+						JumpF ::temp87 _label75                                  ;@line 804
+						ArrayGetElement ::temp89 rootPosition i                  ;@line 805
+						CallMethod Finite self ::temp86 ::temp89 -1000000.000000 1000000.000000  ;@line 805
+						Not ::temp86 ::temp86                                    ;@line 805
+						Cast ::temp86 ::temp86                                   ;@line 805
+						JumpT ::temp86 _label76                                  ;@line 805
+						ArrayGetElement ::temp89 muzzlePosition i                ;@line 805
+						CallMethod Finite self ::temp90 ::temp89 -1000000.000000 1000000.000000  ;@line 805
+						Not ::temp90 ::temp90                                    ;@line 805
+						Cast ::temp86 ::temp90                                   ;@line 805
+					_label76:
+						JumpF ::temp86 _label77                                  ;@line 805
+						Return False                                             ;@line 806
+						Jump _label77                                            ;@line 806
+					_label77:
+						IAdd ::temp91 i 1                                        ;@line 808
+						Assign i ::temp91                                        ;@line 808
+						Jump _label78                                            ;@line 808
+					_label75:
+						CallMethod Current self ::temp90 expectedGeneration expectedToken  ;@line 810
+						Return ::temp90                                          ;@line 810
+					.endCode
+				.endFunction
+				.function RotationValid
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param matrix Float[]
+					.endParamTable
+					.localTable
+						.local ::temp78 Bool
+						.local ::temp82 Float
+						.local ::temp83 Float
+						.local ::temp84 Float
+						.local ::temp85 Float
+						.local i Int
+						.local ::temp79 Float
+						.local ::temp80 Bool
+						.local ::temp81 Int
+						.local a Float
+						.local b Float
+						.local c Float
+						.local ab Float
+						.local ac Float
+						.local bc Float
+						.local determinant Float
+					.endLocalTable
+					.code
+						Assign i 0                                               ;@line 763
+					_label81:
+						CompareLT ::temp78 i 9                                   ;@line 764
+						JumpF ::temp78 _label79                                  ;@line 764
+						ArrayGetElement ::temp79 matrix i                        ;@line 765
+						CallMethod Finite self ::temp80 ::temp79 -1.050000 1.050000  ;@line 765
+						Not ::temp80 ::temp80                                    ;@line 765
+						JumpF ::temp80 _label80                                  ;@line 765
+						Return False                                             ;@line 766
+						Jump _label80                                            ;@line 766
+					_label80:
+						IAdd ::temp81 i 1                                        ;@line 768
+						Assign i ::temp81                                        ;@line 768
+						Jump _label81                                            ;@line 768
+					_label79:
+						ArrayGetElement ::temp79 matrix 0                        ;@line 770
+						ArrayGetElement ::temp82 matrix 0                        ;@line 770
+						FMultiply ::temp79 ::temp79 ::temp82                     ;@line 770
+						ArrayGetElement ::temp82 matrix 3                        ;@line 770
+						ArrayGetElement ::temp83 matrix 3                        ;@line 770
+						FMultiply ::temp82 ::temp82 ::temp83                     ;@line 770
+						FAdd ::temp83 ::temp79 ::temp82                          ;@line 770
+						ArrayGetElement ::temp79 matrix 6                        ;@line 770
+						ArrayGetElement ::temp82 matrix 6                        ;@line 770
+						FMultiply ::temp79 ::temp79 ::temp82                     ;@line 770
+						FAdd ::temp82 ::temp83 ::temp79                          ;@line 770
+						Assign a ::temp82                                        ;@line 770
+						ArrayGetElement ::temp83 matrix 1                        ;@line 771
+						ArrayGetElement ::temp79 matrix 1                        ;@line 771
+						FMultiply ::temp82 ::temp83 ::temp79                     ;@line 771
+						ArrayGetElement ::temp83 matrix 4                        ;@line 771
+						ArrayGetElement ::temp79 matrix 4                        ;@line 771
+						FMultiply ::temp83 ::temp83 ::temp79                     ;@line 771
+						FAdd ::temp79 ::temp82 ::temp83                          ;@line 771
+						ArrayGetElement ::temp82 matrix 7                        ;@line 771
+						ArrayGetElement ::temp83 matrix 7                        ;@line 771
+						FMultiply ::temp82 ::temp82 ::temp83                     ;@line 771
+						FAdd ::temp83 ::temp79 ::temp82                          ;@line 771
+						Assign b ::temp83                                        ;@line 771
+						ArrayGetElement ::temp79 matrix 2                        ;@line 772
+						ArrayGetElement ::temp82 matrix 2                        ;@line 772
+						FMultiply ::temp83 ::temp79 ::temp82                     ;@line 772
+						ArrayGetElement ::temp79 matrix 5                        ;@line 772
+						ArrayGetElement ::temp82 matrix 5                        ;@line 772
+						FMultiply ::temp79 ::temp79 ::temp82                     ;@line 772
+						FAdd ::temp82 ::temp83 ::temp79                          ;@line 772
+						ArrayGetElement ::temp83 matrix 8                        ;@line 772
+						ArrayGetElement ::temp79 matrix 8                        ;@line 772
+						FMultiply ::temp83 ::temp83 ::temp79                     ;@line 772
+						FAdd ::temp79 ::temp82 ::temp83                          ;@line 772
+						Assign c ::temp79                                        ;@line 772
+						ArrayGetElement ::temp82 matrix 0                        ;@line 773
+						ArrayGetElement ::temp83 matrix 1                        ;@line 773
+						FMultiply ::temp79 ::temp82 ::temp83                     ;@line 773
+						ArrayGetElement ::temp82 matrix 3                        ;@line 773
+						ArrayGetElement ::temp83 matrix 4                        ;@line 773
+						FMultiply ::temp82 ::temp82 ::temp83                     ;@line 773
+						FAdd ::temp83 ::temp79 ::temp82                          ;@line 773
+						ArrayGetElement ::temp79 matrix 6                        ;@line 773
+						ArrayGetElement ::temp82 matrix 7                        ;@line 773
+						FMultiply ::temp79 ::temp79 ::temp82                     ;@line 773
+						FAdd ::temp82 ::temp83 ::temp79                          ;@line 773
+						Assign ab ::temp82                                       ;@line 773
+						ArrayGetElement ::temp83 matrix 0                        ;@line 774
+						ArrayGetElement ::temp79 matrix 2                        ;@line 774
+						FMultiply ::temp82 ::temp83 ::temp79                     ;@line 774
+						ArrayGetElement ::temp83 matrix 3                        ;@line 774
+						ArrayGetElement ::temp79 matrix 5                        ;@line 774
+						FMultiply ::temp83 ::temp83 ::temp79                     ;@line 774
+						FAdd ::temp79 ::temp82 ::temp83                          ;@line 774
+						ArrayGetElement ::temp82 matrix 6                        ;@line 774
+						ArrayGetElement ::temp83 matrix 8                        ;@line 774
+						FMultiply ::temp82 ::temp82 ::temp83                     ;@line 774
+						FAdd ::temp83 ::temp79 ::temp82                          ;@line 774
+						Assign ac ::temp83                                       ;@line 774
+						ArrayGetElement ::temp79 matrix 1                        ;@line 775
+						ArrayGetElement ::temp82 matrix 2                        ;@line 775
+						FMultiply ::temp83 ::temp79 ::temp82                     ;@line 775
+						ArrayGetElement ::temp79 matrix 4                        ;@line 775
+						ArrayGetElement ::temp82 matrix 5                        ;@line 775
+						FMultiply ::temp79 ::temp79 ::temp82                     ;@line 775
+						FAdd ::temp82 ::temp83 ::temp79                          ;@line 775
+						ArrayGetElement ::temp83 matrix 7                        ;@line 775
+						ArrayGetElement ::temp79 matrix 8                        ;@line 775
+						FMultiply ::temp83 ::temp83 ::temp79                     ;@line 775
+						FAdd ::temp79 ::temp82 ::temp83                          ;@line 775
+						Assign bc ::temp79                                       ;@line 775
+						ArrayGetElement ::temp82 matrix 0                        ;@line 776
+						ArrayGetElement ::temp83 matrix 4                        ;@line 776
+						ArrayGetElement ::temp79 matrix 8                        ;@line 776
+						FMultiply ::temp83 ::temp83 ::temp79                     ;@line 776
+						ArrayGetElement ::temp79 matrix 5                        ;@line 776
+						ArrayGetElement ::temp84 matrix 7                        ;@line 776
+						FMultiply ::temp79 ::temp79 ::temp84                     ;@line 776
+						FSubtract ::temp84 ::temp83 ::temp79                     ;@line 776
+						FMultiply ::temp83 ::temp82 ::temp84                     ;@line 776
+						ArrayGetElement ::temp79 matrix 1                        ;@line 776
+						ArrayGetElement ::temp82 matrix 3                        ;@line 776
+						ArrayGetElement ::temp84 matrix 8                        ;@line 776
+						FMultiply ::temp82 ::temp82 ::temp84                     ;@line 776
+						ArrayGetElement ::temp84 matrix 5                        ;@line 776
+						ArrayGetElement ::temp85 matrix 6                        ;@line 776
+						FMultiply ::temp84 ::temp84 ::temp85                     ;@line 776
+						FSubtract ::temp85 ::temp82 ::temp84                     ;@line 776
+						FMultiply ::temp82 ::temp79 ::temp85                     ;@line 776
+						FSubtract ::temp84 ::temp83 ::temp82                     ;@line 776
+						ArrayGetElement ::temp79 matrix 2                        ;@line 776
+						ArrayGetElement ::temp85 matrix 3                        ;@line 776
+						ArrayGetElement ::temp83 matrix 7                        ;@line 776
+						FMultiply ::temp82 ::temp85 ::temp83                     ;@line 776
+						ArrayGetElement ::temp85 matrix 4                        ;@line 776
+						ArrayGetElement ::temp83 matrix 6                        ;@line 776
+						FMultiply ::temp85 ::temp85 ::temp83                     ;@line 776
+						FSubtract ::temp83 ::temp82 ::temp85                     ;@line 776
+						FMultiply ::temp82 ::temp79 ::temp83                     ;@line 776
+						FAdd ::temp85 ::temp84 ::temp82                          ;@line 776
+						Assign determinant ::temp85                              ;@line 776
+						FSubtract ::temp79 a 1.000000                            ;@line 777
+						CallStatic math Abs ::temp83 ::temp79                    ;@line 777
+						CompareLTE ::temp80 ::temp83 0.002000                    ;@line 777
+						Cast ::temp80 ::temp80                                   ;@line 777
+						JumpF ::temp80 _label82                                  ;@line 777
+						FSubtract ::temp84 b 1.000000                            ;@line 777
+						CallStatic math Abs ::temp82 ::temp84                    ;@line 777
+						CompareLTE ::temp78 ::temp82 0.002000                    ;@line 777
+						Cast ::temp80 ::temp78                                   ;@line 777
+					_label82:
+						Cast ::temp80 ::temp80                                   ;@line 777
+						JumpF ::temp80 _label83                                  ;@line 777
+						FSubtract ::temp85 c 1.000000                            ;@line 777
+						CallStatic math Abs ::temp79 ::temp85                    ;@line 777
+						CompareLTE ::temp78 ::temp79 0.002000                    ;@line 777
+						Cast ::temp80 ::temp78                                   ;@line 777
+					_label83:
+						Cast ::temp80 ::temp80                                   ;@line 777
+						JumpF ::temp80 _label84                                  ;@line 777
+						CallStatic math Abs ::temp83 ab                          ;@line 777
+						CompareLTE ::temp78 ::temp83 0.002000                    ;@line 777
+						Cast ::temp80 ::temp78                                   ;@line 777
+					_label84:
+						Cast ::temp80 ::temp80                                   ;@line 777
+						JumpF ::temp80 _label85                                  ;@line 777
+						CallStatic math Abs ::temp84 ac                          ;@line 777
+						CompareLTE ::temp78 ::temp84 0.002000                    ;@line 777
+						Cast ::temp80 ::temp78                                   ;@line 777
+					_label85:
+						Cast ::temp80 ::temp80                                   ;@line 777
+						JumpF ::temp80 _label86                                  ;@line 777
+						CallStatic math Abs ::temp82 bc                          ;@line 777
+						CompareLTE ::temp78 ::temp82 0.002000                    ;@line 777
+						Cast ::temp80 ::temp78                                   ;@line 777
+					_label86:
+						Cast ::temp80 ::temp80                                   ;@line 777
+						JumpF ::temp80 _label87                                  ;@line 777
+						FSubtract ::temp85 determinant 1.000000                  ;@line 777
+						CallStatic math Abs ::temp79 ::temp85                    ;@line 777
+						CompareLTE ::temp78 ::temp79 0.004000                    ;@line 777
+						Cast ::temp80 ::temp78                                   ;@line 777
+					_label87:
+						Return ::temp80                                          ;@line 777
+					.endCode
+				.endFunction
+				.function PreparePlayerLease
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param lease Int
+					.endParamTable
+					.localTable
+						.local ::temp18 Bool
+						.local ::temp19 Bool
+						.local ::temp20 Int
+						.local ::NoneVar None
+						.local ::temp25 actor
+						.local sceneFree Bool
+						.local scenePluginVersion Int
+						.local placed Bool
+						.local ::temp21 ObjectReference
+						.local ::temp22 Bool
+						.local ::temp23 Float[]
+						.local ::temp24 Float
+						.local loaded Bool
+						.local controls Bool
+						.local rest Float[]
+						.local settled Bool
+						.local candidate actor
+						.local player actor
+						.local usable Bool
+						.local waitPoint ObjectReference
+					.endLocalTable
+					.code
+						CallMethod PlayerLeaseCurrent self ::temp18 lease        ;@line 190
+						Not ::temp18 ::temp18                                    ;@line 190
+						Cast ::temp18 ::temp18                                   ;@line 190
+						JumpT ::temp18 _label88                                  ;@line 190
+						Cast ::temp18 pinBusy                                    ;@line 190
+					_label88:
+						Cast ::temp18 ::temp18                                   ;@line 190
+						JumpT ::temp18 _label89                                  ;@line 190
+						Cast ::temp18 sceneBusy                                  ;@line 190
+					_label89:
+						Cast ::temp18 ::temp18                                   ;@line 190
+						JumpT ::temp18 _label90                                  ;@line 190
+						Cast ::temp18 recovering                                 ;@line 190
+					_label90:
+						Cast ::temp18 ::temp18                                   ;@line 190
+						JumpT ::temp18 _label91                                  ;@line 190
+						Cast ::temp18 running                                    ;@line 190
+					_label91:
+						JumpF ::temp18 _label92                                  ;@line 190
+						Return False                                             ;@line 191
+						Jump _label92                                            ;@line 191
+					_label92:
+						JumpF playerReady _label93                               ;@line 193
+						Return True                                              ;@line 194
+						Jump _label93                                            ;@line 194
+					_label93:
+						CallMethod StationSceneAvailable self ::temp18           ;@line 196
+						Assign sceneFree ::temp18                                ;@line 196
+						CallMethod PlayerLeaseCurrent self ::temp18 lease        ;@line 197
+						Not ::temp18 ::temp18                                    ;@line 197
+						Cast ::temp18 ::temp18                                   ;@line 197
+						JumpT ::temp18 _label94                                  ;@line 197
+						Cast ::temp18 pinBusy                                    ;@line 197
+					_label94:
+						Cast ::temp18 ::temp18                                   ;@line 197
+						JumpT ::temp18 _label95                                  ;@line 197
+						Cast ::temp18 sceneBusy                                  ;@line 197
+					_label95:
+						Cast ::temp18 ::temp18                                   ;@line 197
+						JumpT ::temp18 _label96                                  ;@line 197
+						Not ::temp19 sceneFree                                   ;@line 197
+						Cast ::temp18 ::temp19                                   ;@line 197
+					_label96:
+						JumpF ::temp18 _label97                                  ;@line 197
+						Return False                                             ;@line 198
+						Jump _label97                                            ;@line 198
+					_label97:
+						CallStatic skse GetPluginVersion ::temp20 "AstraSight"   ;@line 200
+						Assign scenePluginVersion ::temp20                       ;@line 200
+						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 201
+						Not ::temp18 ::temp19                                    ;@line 201
+						Cast ::temp18 ::temp18                                   ;@line 201
+						JumpT ::temp18 _label98                                  ;@line 201
+						CompareLT ::temp19 scenePluginVersion 50659392           ;@line 201
+						Cast ::temp18 ::temp19                                   ;@line 201
+					_label98:
+						JumpF ::temp18 _label99                                  ;@line 201
+						Return False                                             ;@line 202
+						Jump _label99                                            ;@line 202
+					_label99:
+						CallMethod ReleaseOwnedGuard self ::NoneVar              ;@line 204
+						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 205
+						Not ::temp18 ::temp19                                    ;@line 205
+						Cast ::temp19 ::temp18                                   ;@line 205
+						JumpT ::temp19 _label100                                 ;@line 205
+						Cast ::temp19 pinBusy                                    ;@line 205
+					_label100:
+						Cast ::temp18 ::temp19                                   ;@line 205
+						JumpT ::temp18 _label101                                 ;@line 205
+						Cast ::temp18 sceneBusy                                  ;@line 205
+					_label101:
+						JumpF ::temp18 _label102                                 ;@line 205
+						Return False                                             ;@line 206
+						Jump _label102                                           ;@line 206
+					_label102:
+						CallMethod EnsureCityPlacement self ::temp19 generation lease  ;@line 208
+						Assign placed ::temp19                                   ;@line 208
+						CallMethod PlayerLeaseCurrent self ::temp18 lease        ;@line 209
+						Not ::temp19 ::temp18                                    ;@line 209
+						Cast ::temp18 ::temp19                                   ;@line 209
+						JumpT ::temp18 _label103                                 ;@line 209
+						Cast ::temp18 pinBusy                                    ;@line 209
+					_label103:
+						Cast ::temp19 ::temp18                                   ;@line 209
+						JumpT ::temp19 _label104                                 ;@line 209
+						Cast ::temp19 sceneBusy                                  ;@line 209
+					_label104:
+						Cast ::temp19 ::temp19                                   ;@line 209
+						JumpT ::temp19 _label105                                 ;@line 209
+						Not ::temp18 placed                                      ;@line 209
+						Cast ::temp19 ::temp18                                   ;@line 209
+					_label105:
+						JumpF ::temp19 _label106                                 ;@line 209
+						Return False                                             ;@line 210
+						Jump _label106                                           ;@line 210
+					_label106:
+						Not ::temp18 playerRestored                              ;@line 212
+						JumpF ::temp18 _label107                                 ;@line 212
+						CallMethod Is3DLoaded self ::temp19                      ;@line 213
+						Assign loaded ::temp19                                   ;@line 213
+						Cast ::temp21 self                                       ;@line 214
+						CallStatic netimmerse HasNode ::temp19 ::temp21 ::YawNode_var False  ;@line 214
+						Cast ::temp19 ::temp19                                   ;@line 214
+						JumpF ::temp19 _label108                                 ;@line 214
+						Cast ::temp21 self                                       ;@line 214
+						CallStatic netimmerse HasNode ::temp22 ::temp21 ::PitchNode_var False  ;@line 214
+						Cast ::temp19 ::temp22                                   ;@line 214
+					_label108:
+						Assign controls ::temp19                                 ;@line 214
+						CallMethod PlayerLeaseCurrent self ::temp22 lease        ;@line 215
+						Not ::temp19 ::temp22                                    ;@line 215
+						Cast ::temp22 ::temp19                                   ;@line 215
+						JumpT ::temp22 _label109                                 ;@line 215
+						Cast ::temp22 pinBusy                                    ;@line 215
+					_label109:
+						Cast ::temp19 ::temp22                                   ;@line 215
+						JumpT ::temp19 _label110                                 ;@line 215
+						Cast ::temp19 sceneBusy                                  ;@line 215
+					_label110:
+						Cast ::temp19 ::temp19                                   ;@line 215
+						JumpT ::temp19 _label111                                 ;@line 215
+						Not ::temp22 loaded                                      ;@line 215
+						Cast ::temp19 ::temp22                                   ;@line 215
+					_label111:
+						Cast ::temp19 ::temp19                                   ;@line 215
+						JumpT ::temp19 _label112                                 ;@line 215
+						Not ::temp22 controls                                    ;@line 215
+						Cast ::temp19 ::temp22                                   ;@line 215
+					_label112:
+						JumpF ::temp19 _label113                                 ;@line 215
+						Return False                                             ;@line 216
+						Jump _label113                                           ;@line 216
+					_label113:
+						ArrayCreate ::temp23 9                                   ;@line 220
+						Assign rest ::temp23                                     ;@line 220
+						Assign ::temp24 1.000000                                 ;@line 221
+						ArraySetElement rest 0 ::temp24                          ;@line 221
+						Assign ::temp24 1.000000                                 ;@line 222
+						ArraySetElement rest 4 ::temp24                          ;@line 222
+						Assign ::temp24 1.000000                                 ;@line 223
+						ArraySetElement rest 8 ::temp24                          ;@line 223
+						Assign sceneBusy True                                    ;@line 224
+						Cast ::temp21 self                                       ;@line 225
+						CallStatic astrasightnative ResetIdleScene ::temp22 ::temp21  ;@line 225
+						Assign settled ::temp22                                  ;@line 225
+						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 226
+						Cast ::temp22 ::temp19                                   ;@line 226
+						JumpF ::temp22 _label114                                 ;@line 226
+						Cast ::temp22 settled                                    ;@line 226
+					_label114:
+						JumpF ::temp22 _label115                                 ;@line 226
+						Cast ::temp21 self                                       ;@line 227
+						CallStatic netimmerse SetNodeLocalRotationMatrix ::temp19 ::temp21 ::YawNode_var rest False  ;@line 227
+						Jump _label115                                           ;@line 227
+					_label115:
+						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 229
+						Cast ::temp22 ::temp19                                   ;@line 229
+						JumpF ::temp22 _label116                                 ;@line 229
+						Cast ::temp22 settled                                    ;@line 229
+					_label116:
+						JumpF ::temp22 _label117                                 ;@line 229
+						Cast ::temp21 self                                       ;@line 230
+						CallStatic netimmerse SetNodeLocalRotationMatrix ::temp19 ::temp21 ::PitchNode_var rest False  ;@line 230
+						Jump _label117                                           ;@line 230
+					_label117:
+						Assign sceneBusy False                                   ;@line 232
+						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 233
+						Not ::temp22 ::temp19                                    ;@line 233
+						JumpF ::temp22 _label118                                 ;@line 233
+						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 234
+						Return False                                             ;@line 235
+						Jump _label118                                           ;@line 235
+					_label118:
+						Not ::temp19 settled                                     ;@line 237
+						JumpF ::temp19 _label119                                 ;@line 237
+						Return False                                             ;@line 238
+						Jump _label119                                           ;@line 238
+					_label119:
+						Assign yaw 0.000000                                      ;@line 240
+						Assign pitch 0.000000                                    ;@line 241
+						Assign playerRestored True                               ;@line 242
+						Jump _label107                                           ;@line 242
+					_label107:
+						Assign candidate ::Artillero_var                         ;@line 244
+						CallStatic game GetPlayer ::temp25                       ;@line 245
+						Assign player ::temp25                                   ;@line 245
+						CallMethod PlayerLeaseCurrent self ::temp22 lease        ;@line 246
+						Not ::temp19 ::temp22                                    ;@line 246
+						Cast ::temp18 ::temp19                                   ;@line 246
+						JumpT ::temp18 _label120                                 ;@line 246
+						Cast ::temp18 pinBusy                                    ;@line 246
+					_label120:
+						Cast ::temp22 ::temp18                                   ;@line 246
+						JumpT ::temp22 _label121                                 ;@line 246
+						Cast ::temp22 sceneBusy                                  ;@line 246
+					_label121:
+						Cast ::temp18 ::temp22                                   ;@line 246
+						JumpT ::temp18 _label122                                 ;@line 246
+						CompareEQ ::temp19 candidate player                      ;@line 246
+						Cast ::temp18 ::temp19                                   ;@line 246
+					_label122:
+						JumpF ::temp18 _label123                                 ;@line 246
+						Return False                                             ;@line 247
+						Jump _label123                                           ;@line 247
+					_label123:
+						Cast ::temp25 None                                       ;@line 249
+						CompareEQ ::temp22 candidate ::temp25                    ;@line 249
+						Not ::temp22 ::temp22                                    ;@line 249
+						JumpF ::temp22 _label124                                 ;@line 249
+						CallMethod IsDead candidate ::temp19                     ;@line 250
+						Not ::temp18 ::temp19                                    ;@line 250
+						Cast ::temp18 ::temp18                                   ;@line 250
+						JumpF ::temp18 _label125                                 ;@line 250
+						CallMethod IsDisabled candidate ::temp19                 ;@line 250
+						Not ::temp19 ::temp19                                    ;@line 250
+						Cast ::temp18 ::temp19                                   ;@line 250
+					_label125:
+						Cast ::temp18 ::temp18                                   ;@line 250
+						JumpF ::temp18 _label126                                 ;@line 250
+						CallMethod Is3DLoaded candidate ::temp19                 ;@line 250
+						Cast ::temp18 ::temp19                                   ;@line 250
+					_label126:
+						Assign usable ::temp18                                   ;@line 250
+						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 251
+						Not ::temp18 ::temp19                                    ;@line 251
+						Cast ::temp19 ::temp18                                   ;@line 251
+						JumpT ::temp19 _label127                                 ;@line 251
+						Cast ::temp19 pinBusy                                    ;@line 251
+					_label127:
+						Cast ::temp18 ::temp19                                   ;@line 251
+						JumpT ::temp18 _label128                                 ;@line 251
+						Cast ::temp18 sceneBusy                                  ;@line 251
+					_label128:
+						JumpF ::temp18 _label129                                 ;@line 251
+						Return False                                             ;@line 252
+						Jump _label129                                           ;@line 252
+					_label129:
+						JumpF usable _label130                                   ;@line 254
+						Assign waitPoint ::Standby_var                           ;@line 255
+						Cast ::temp21 None                                       ;@line 256
+						CompareEQ ::temp19 waitPoint ::temp21                    ;@line 256
+						JumpF ::temp19 _label131                                 ;@line 256
+						Return False                                             ;@line 257
+						Jump _label131                                           ;@line 257
+					_label131:
+						Assign pinBusy True                                      ;@line 259
+						CallMethod MoveTo candidate ::NoneVar waitPoint 0.000000 0.000000 0.000000 True  ;@line 260
+						CallMethod PlayerLeaseCurrent self ::temp18 lease        ;@line 261
+						JumpF ::temp18 _label132                                 ;@line 261
+						CallMethod SetDontMove candidate ::NoneVar True          ;@line 262
+						Jump _label132                                           ;@line 262
+					_label132:
+						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 264
+						Not ::temp18 ::temp19                                    ;@line 264
+						JumpF ::temp18 _label133                                 ;@line 264
+						CallMethod SetDontMove candidate ::NoneVar False         ;@line 267
+						Assign pinBusy False                                     ;@line 268
+						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 269
+						Return False                                             ;@line 270
+						Jump _label133                                           ;@line 270
+					_label133:
+						Assign ownedGuard candidate                              ;@line 272
+						Assign pinBusy False                                     ;@line 273
+						Jump _label130                                           ;@line 273
+					_label130:
+						Jump _label124                                           ;@line 273
+					_label124:
+						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 276
+						Not ::temp18 ::temp19                                    ;@line 276
+						Cast ::temp22 ::temp18                                   ;@line 276
+						JumpT ::temp22 _label134                                 ;@line 276
+						Cast ::temp22 pinBusy                                    ;@line 276
+					_label134:
+						Cast ::temp19 ::temp22                                   ;@line 276
+						JumpT ::temp19 _label135                                 ;@line 276
+						Cast ::temp19 sceneBusy                                  ;@line 276
+					_label135:
+						JumpF ::temp19 _label136                                 ;@line 276
+						Return False                                             ;@line 277
+						Jump _label136                                           ;@line 277
+					_label136:
+						Assign playerReady True                                  ;@line 279
+						Return True                                              ;@line 280
+					.endCode
+				.endFunction
+				.function BeginShot
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param target actor
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp128 Bool
+						.local ::temp129 Bool
+						.local ::temp130 Float
+						.local now Float
+						.local bodyStarted Bool
+						.local cadence Float
+						.local started Bool
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod Current self ::temp128 expectedGeneration expectedToken  ;@line 990
+						Not ::temp128 ::temp128                                  ;@line 990
+						Cast ::temp128 ::temp128                                 ;@line 990
+						JumpT ::temp128 _label137                                ;@line 990
+						CompareEQ ::temp129 phase 0                              ;@line 990
+						Not ::temp129 ::temp129                                  ;@line 990
+						Cast ::temp128 ::temp129                                 ;@line 990
+					_label137:
+						JumpF ::temp128 _label138                                ;@line 990
+						Return None                                              ;@line 991
+						Jump _label138                                           ;@line 991
+					_label138:
+						CallStatic utility GetCurrentRealTime ::temp130          ;@line 993
+						Assign now ::temp130                                     ;@line 993
+						CallMethod Current self ::temp129 expectedGeneration expectedToken  ;@line 994
+						Not ::temp128 ::temp129                                  ;@line 994
+						Cast ::temp128 ::temp128                                 ;@line 994
+						JumpT ::temp128 _label139                                ;@line 994
+						CompareEQ ::temp129 phase 0                              ;@line 994
+						Not ::temp129 ::temp129                                  ;@line 994
+						Cast ::temp128 ::temp129                                 ;@line 994
+					_label139:
+						Cast ::temp128 ::temp128                                 ;@line 994
+						JumpT ::temp128 _label140                                ;@line 994
+						CallMethod Finite self ::temp129 now 0.000000 1000000000.000000  ;@line 994
+						Not ::temp129 ::temp129                                  ;@line 994
+						Cast ::temp128 ::temp129                                 ;@line 994
+					_label140:
+						Cast ::temp128 ::temp128                                 ;@line 994
+						JumpT ::temp128 _label141                                ;@line 994
+						CompareLT ::temp129 now nextShotAt                       ;@line 994
+						Cast ::temp128 ::temp129                                 ;@line 994
+					_label141:
+						JumpF ::temp128 _label142                                ;@line 994
+						Return None                                              ;@line 995
+						Jump _label142                                           ;@line 995
+					_label142:
+						CallMethod SetGuardFirePose self ::temp129 True expectedGeneration expectedToken  ;@line 997
+						Assign bodyStarted ::temp129                             ;@line 997
+						CallMethod Current self ::temp128 expectedGeneration expectedToken  ;@line 998
+						Not ::temp129 ::temp128                                  ;@line 998
+						Cast ::temp129 ::temp129                                 ;@line 998
+						JumpT ::temp129 _label143                                ;@line 998
+						Not ::temp128 bodyStarted                                ;@line 998
+						Cast ::temp129 ::temp128                                 ;@line 998
+					_label143:
+						JumpF ::temp129 _label144                                ;@line 998
+						Return None                                              ;@line 999
+						Jump _label144                                           ;@line 999
+					_label144:
+						Assign guardPoseFireAt now                               ;@line 1001
+						Assign phase 1                                           ;@line 1002
+						Assign phaseAt now                                       ;@line 1003
+						Assign shotTarget target                                 ;@line 1004
+						CallMethod SafeCadenceSeconds self ::temp130             ;@line 1005
+						Assign cadence ::temp130                                 ;@line 1005
+						FAdd ::temp130 now cadence                               ;@line 1006
+						Assign nextShotAt ::temp130                              ;@line 1006
+						CallMethod PlaySceneAnimation self ::temp128 "Fire" expectedGeneration expectedToken  ;@line 1007
+						Assign started ::temp128                                 ;@line 1007
+						CallMethod Current self ::temp129 expectedGeneration expectedToken  ;@line 1008
+						Not ::temp128 ::temp129                                  ;@line 1008
+						Cast ::temp128 ::temp128                                 ;@line 1008
+						JumpT ::temp128 _label145                                ;@line 1008
+						CompareEQ ::temp129 phase 1                              ;@line 1008
+						Not ::temp129 ::temp129                                  ;@line 1008
+						Cast ::temp128 ::temp129                                 ;@line 1008
+					_label145:
+						Cast ::temp128 ::temp128                                 ;@line 1008
+						JumpT ::temp128 _label146                                ;@line 1008
+						CompareEQ ::temp129 shotTarget target                    ;@line 1008
+						Not ::temp129 ::temp129                                  ;@line 1008
+						Cast ::temp128 ::temp129                                 ;@line 1008
+					_label146:
+						JumpF ::temp128 _label147                                ;@line 1008
+						Return None                                              ;@line 1009
+						Jump _label147                                           ;@line 1009
+					_label147:
+						Not ::temp129 started                                    ;@line 1011
+						JumpF ::temp129 _label148                                ;@line 1011
+						CallMethod AbortShot self ::NoneVar expectedGeneration expectedToken  ;@line 1012
+						Jump _label148                                           ;@line 1012
+					_label148:
+					.endCode
+				.endFunction
+				.function CommitShot
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param target actor
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp131 Bool
+						.local ::temp132 Bool
+						.local ::temp133 Float
+						.local ::temp134 ObjectReference
+						.local ::temp135 sound
+						.local now Float
+						.local safe Bool
+						.local ::NoneVar None
+						.local cadence Float
+						.local launchCurrent Bool
+						.local launchedAt Float
+						.local ::temp136 Int
+					.endLocalTable
+					.code
+						Cast ::temp131 sceneBusy                                 ;@line 1017
+						JumpT ::temp131 _label149                                ;@line 1017
+						CallMethod Current self ::temp131 expectedGeneration expectedToken  ;@line 1017
+						Not ::temp131 ::temp131                                  ;@line 1017
+						Cast ::temp131 ::temp131                                 ;@line 1017
+					_label149:
+						Cast ::temp131 ::temp131                                 ;@line 1017
+						JumpT ::temp131 _label150                                ;@line 1017
+						CompareEQ ::temp132 phase 1                              ;@line 1017
+						Not ::temp132 ::temp132                                  ;@line 1017
+						Cast ::temp131 ::temp132                                 ;@line 1017
+					_label150:
+						Cast ::temp131 ::temp131                                 ;@line 1017
+						JumpT ::temp131 _label151                                ;@line 1017
+						CompareEQ ::temp132 shotTarget target                    ;@line 1017
+						Not ::temp132 ::temp132                                  ;@line 1017
+						Cast ::temp131 ::temp132                                 ;@line 1017
+					_label151:
+						JumpF ::temp131 _label152                                ;@line 1017
+						Return None                                              ;@line 1018
+						Jump _label152                                           ;@line 1018
+					_label152:
+						CallStatic utility GetCurrentRealTime ::temp133          ;@line 1020
+						Assign now ::temp133                                     ;@line 1020
+						CallMethod ShotPreflight self ::temp132 target expectedGeneration expectedToken  ;@line 1023
+						Assign safe ::temp132                                    ;@line 1023
+						CallMethod Current self ::temp131 expectedGeneration expectedToken  ;@line 1024
+						Not ::temp132 ::temp131                                  ;@line 1024
+						Cast ::temp132 ::temp132                                 ;@line 1024
+						JumpT ::temp132 _label153                                ;@line 1024
+						CompareEQ ::temp131 phase 1                              ;@line 1024
+						Not ::temp131 ::temp131                                  ;@line 1024
+						Cast ::temp132 ::temp131                                 ;@line 1024
+					_label153:
+						Cast ::temp132 ::temp132                                 ;@line 1024
+						JumpT ::temp132 _label154                                ;@line 1024
+						CompareEQ ::temp131 shotTarget target                    ;@line 1024
+						Not ::temp131 ::temp131                                  ;@line 1024
+						Cast ::temp132 ::temp131                                 ;@line 1024
+					_label154:
+						JumpF ::temp132 _label155                                ;@line 1024
+						Return None                                              ;@line 1025
+						Jump _label155                                           ;@line 1025
+					_label155:
+						Not ::temp131 safe                                       ;@line 1027
+						Cast ::temp131 ::temp131                                 ;@line 1027
+						JumpT ::temp131 _label156                                ;@line 1027
+						CallMethod Finite self ::temp132 now 0.000000 1000000000.000000  ;@line 1027
+						Not ::temp132 ::temp132                                  ;@line 1027
+						Cast ::temp131 ::temp132                                 ;@line 1027
+					_label156:
+						JumpF ::temp131 _label157                                ;@line 1027
+						CallMethod AbortShot self ::NoneVar expectedGeneration expectedToken  ;@line 1028
+						Return None                                              ;@line 1029
+						Jump _label157                                           ;@line 1029
+					_label157:
+						CallMethod SafeCadenceSeconds self ::temp133             ;@line 1031
+						Assign cadence ::temp133                                 ;@line 1031
+						FAdd ::temp133 now cadence                               ;@line 1032
+						CompareLT ::temp132 nextShotAt ::temp133                 ;@line 1032
+						JumpF ::temp132 _label158                                ;@line 1032
+						FAdd ::temp133 now cadence                               ;@line 1033
+						Assign nextShotAt ::temp133                              ;@line 1033
+						Jump _label158                                           ;@line 1033
+					_label158:
+						Assign phase 2                                           ;@line 1037
+						Assign phaseAt now                                       ;@line 1038
+						CallMethod Current self ::temp131 expectedGeneration expectedToken  ;@line 1039
+						Not ::temp132 ::temp131                                  ;@line 1039
+						Cast ::temp132 ::temp132                                 ;@line 1039
+						JumpT ::temp132 _label159                                ;@line 1039
+						CompareEQ ::temp131 phase 2                              ;@line 1039
+						Not ::temp131 ::temp131                                  ;@line 1039
+						Cast ::temp132 ::temp131                                 ;@line 1039
+					_label159:
+						Cast ::temp132 ::temp132                                 ;@line 1039
+						JumpT ::temp132 _label160                                ;@line 1039
+						CompareEQ ::temp131 shotTarget target                    ;@line 1039
+						Not ::temp131 ::temp131                                  ;@line 1039
+						Cast ::temp132 ::temp131                                 ;@line 1039
+					_label160:
+						JumpF ::temp132 _label161                                ;@line 1039
+						Return None                                              ;@line 1040
+						Jump _label161                                           ;@line 1040
+					_label161:
+						Assign sceneBusy True                                    ;@line 1045
+						Cast ::temp134 self                                      ;@line 1046
+						CallMethod Fire ::Launcher_var ::NoneVar ::temp134 ::ShotAmmo_var  ;@line 1046
+						CallMethod FinishSceneEffect self ::temp131 expectedGeneration expectedToken  ;@line 1047
+						Assign launchCurrent ::temp131                           ;@line 1047
+						Not ::temp132 launchCurrent                              ;@line 1048
+						Cast ::temp132 ::temp132                                 ;@line 1048
+						JumpT ::temp132 _label162                                ;@line 1048
+						CallMethod Current self ::temp131 expectedGeneration expectedToken  ;@line 1048
+						Not ::temp131 ::temp131                                  ;@line 1048
+						Cast ::temp132 ::temp131                                 ;@line 1048
+					_label162:
+						Cast ::temp132 ::temp132                                 ;@line 1048
+						JumpT ::temp132 _label163                                ;@line 1048
+						CompareEQ ::temp131 phase 2                              ;@line 1048
+						Not ::temp131 ::temp131                                  ;@line 1048
+						Cast ::temp132 ::temp131                                 ;@line 1048
+					_label163:
+						JumpF ::temp132 _label164                                ;@line 1048
+						Return None                                              ;@line 1049
+						Jump _label164                                           ;@line 1049
+					_label164:
+						CallStatic utility GetCurrentRealTime ::temp133          ;@line 1053
+						Assign launchedAt ::temp133                              ;@line 1053
+						CallMethod Current self ::temp131 expectedGeneration expectedToken  ;@line 1054
+						Not ::temp132 ::temp131                                  ;@line 1054
+						Cast ::temp132 ::temp132                                 ;@line 1054
+						JumpT ::temp132 _label165                                ;@line 1054
+						CompareEQ ::temp131 phase 2                              ;@line 1054
+						Not ::temp131 ::temp131                                  ;@line 1054
+						Cast ::temp132 ::temp131                                 ;@line 1054
+					_label165:
+						JumpF ::temp132 _label166                                ;@line 1054
+						Return None                                              ;@line 1055
+						Jump _label166                                           ;@line 1055
+					_label166:
+						CallMethod Finite self ::temp131 launchedAt 0.000000 1000000000.000000  ;@line 1057
+						Not ::temp132 ::temp131                                  ;@line 1057
+						JumpF ::temp132 _label167                                ;@line 1057
+						Assign faulted True                                      ;@line 1058
+						CallMethod Shutdown self ::NoneVar                       ;@line 1059
+						Return None                                              ;@line 1060
+						Jump _label167                                           ;@line 1060
+					_label167:
+						Assign phaseAt launchedAt                                ;@line 1062
+						FAdd ::temp133 launchedAt cadence                        ;@line 1063
+						CompareLT ::temp131 nextShotAt ::temp133                 ;@line 1063
+						JumpF ::temp131 _label168                                ;@line 1063
+						FAdd ::temp133 launchedAt cadence                        ;@line 1064
+						Assign nextShotAt ::temp133                              ;@line 1064
+						Jump _label168                                           ;@line 1064
+					_label168:
+						CallMethod SetVisualBolt self ::NoneVar 0.000000 expectedGeneration expectedToken  ;@line 1066
+						CallMethod Current self ::temp132 expectedGeneration expectedToken  ;@line 1067
+						Not ::temp131 ::temp132                                  ;@line 1067
+						Cast ::temp131 ::temp131                                 ;@line 1067
+						JumpT ::temp131 _label169                                ;@line 1067
+						CompareEQ ::temp132 phase 2                              ;@line 1067
+						Not ::temp132 ::temp132                                  ;@line 1067
+						Cast ::temp131 ::temp132                                 ;@line 1067
+					_label169:
+						JumpF ::temp131 _label170                                ;@line 1067
+						Return None                                              ;@line 1068
+						Jump _label170                                           ;@line 1068
+					_label170:
+						Cast ::temp135 None                                      ;@line 1070
+						CompareEQ ::temp132 ::ShotSound_var ::temp135            ;@line 1070
+						Not ::temp132 ::temp132                                  ;@line 1070
+						JumpF ::temp132 _label171                                ;@line 1070
+						Cast ::temp134 self                                      ;@line 1071
+						CallMethod Play ::ShotSound_var ::temp136 ::temp134      ;@line 1071
+						Jump _label171                                           ;@line 1071
+					_label171:
+					.endCode
+				.endFunction
+				.function AbortShot
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp137 Bool
+						.local ::temp138 Bool
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod Current self ::temp137 expectedGeneration expectedToken  ;@line 1076
+						Not ::temp137 ::temp137                                  ;@line 1076
+						Cast ::temp137 ::temp137                                 ;@line 1076
+						JumpT ::temp137 _label172                                ;@line 1076
+						CompareEQ ::temp138 phase 0                              ;@line 1076
+						Cast ::temp137 ::temp138                                 ;@line 1076
+					_label172:
+						JumpF ::temp137 _label173                                ;@line 1076
+						Return None                                              ;@line 1077
+						Jump _label173                                           ;@line 1077
+					_label173:
+						CallMethod SetGuardFirePose self ::temp138 False expectedGeneration expectedToken  ;@line 1079
+						CallMethod Current self ::temp137 expectedGeneration expectedToken  ;@line 1080
+						JumpF ::temp137 _label174                                ;@line 1080
+						CallMethod StartReset self ::NoneVar expectedGeneration expectedToken  ;@line 1081
+						Jump _label174                                           ;@line 1081
+					_label174:
+					.endCode
+				.endFunction
+				.function SampleHorizontalTarget
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param target actor
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp190 Bool
+						.local ::temp191 Bool
+						.local ::temp192 Float
+						.local ::temp193 Float
+						.local dx Float
+						.local dy Float
+						.local horizontal Float
+						.local wx Float
+						.local wy Float
+						.local lx Float
+						.local ly Float
+						.local angle Float
+					.endLocalTable
+					.code
+						CallMethod ValidTarget self ::temp190 target expectedGeneration expectedToken  ;@line 1454
+						Not ::temp190 ::temp190                                  ;@line 1454
+						Cast ::temp190 ::temp190                                 ;@line 1454
+						JumpT ::temp190 _label175                                ;@line 1454
+						CallMethod ReadPose self ::temp191 expectedGeneration expectedToken  ;@line 1454
+						Not ::temp191 ::temp191                                  ;@line 1454
+						Cast ::temp190 ::temp191                                 ;@line 1454
+					_label175:
+						JumpF ::temp190 _label176                                ;@line 1454
+						Return False                                             ;@line 1455
+						Jump _label176                                           ;@line 1455
+					_label176:
+						CallMethod GetPositionX target ::temp192                 ;@line 1457
+						ArrayGetElement ::temp193 muzzlePosition 0               ;@line 1457
+						FSubtract ::temp192 ::temp192 ::temp193                  ;@line 1457
+						Assign dx ::temp192                                      ;@line 1457
+						CallMethod GetPositionY target ::temp193                 ;@line 1458
+						ArrayGetElement ::temp192 muzzlePosition 1               ;@line 1458
+						FSubtract ::temp193 ::temp193 ::temp192                  ;@line 1458
+						Assign dy ::temp193                                      ;@line 1458
+						FMultiply ::temp192 dx dx                                ;@line 1459
+						FMultiply ::temp193 dy dy                                ;@line 1459
+						FAdd ::temp192 ::temp192 ::temp193                       ;@line 1459
+						CallStatic math Sqrt ::temp193 ::temp192                 ;@line 1459
+						Assign horizontal ::temp193                              ;@line 1459
+						CallMethod HorizontalReachable self ::temp191 target horizontal expectedGeneration expectedToken  ;@line 1460
+						Not ::temp190 ::temp191                                  ;@line 1460
+						JumpF ::temp190 _label177                                ;@line 1460
+						Return False                                             ;@line 1461
+						Jump _label177                                           ;@line 1461
+					_label177:
+						FDivide ::temp192 dx horizontal                          ;@line 1463
+						Assign wx ::temp192                                      ;@line 1463
+						FDivide ::temp193 dy horizontal                          ;@line 1464
+						Assign wy ::temp193                                      ;@line 1464
+						ArrayGetElement ::temp192 rootWorldMatrix 0              ;@line 1465
+						FMultiply ::temp193 ::temp192 wx                         ;@line 1465
+						ArrayGetElement ::temp192 rootWorldMatrix 3              ;@line 1465
+						FMultiply ::temp192 ::temp192 wy                         ;@line 1465
+						FAdd ::temp193 ::temp193 ::temp192                       ;@line 1465
+						Assign lx ::temp193                                      ;@line 1465
+						ArrayGetElement ::temp192 rootWorldMatrix 1              ;@line 1466
+						FMultiply ::temp193 ::temp192 wx                         ;@line 1466
+						ArrayGetElement ::temp192 rootWorldMatrix 4              ;@line 1466
+						FMultiply ::temp192 ::temp192 wy                         ;@line 1466
+						FAdd ::temp193 ::temp193 ::temp192                       ;@line 1466
+						Assign ly ::temp193                                      ;@line 1466
+						FNegate ::temp192 ly                                     ;@line 1467
+						CallMethod HeadingFromVector self ::temp193 lx ::temp192 yaw  ;@line 1467
+						Assign angle ::temp193                                   ;@line 1467
+						CompareGT ::temp191 angle 180.000000                     ;@line 1468
+						JumpF ::temp191 _label178                                ;@line 1468
+						FSubtract ::temp192 angle 360.000000                     ;@line 1469
+						Assign angle ::temp192                                   ;@line 1469
+						Jump _label178                                           ;@line 1469
+					_label178:
+						FSubtract ::temp193 ::YawCenter_var ::YawHalfSector_var  ;@line 1471
+						FAdd ::temp192 ::YawCenter_var ::YawHalfSector_var       ;@line 1471
+						CallMethod Finite self ::temp190 angle ::temp193 ::temp192  ;@line 1471
+						Not ::temp191 ::temp190                                  ;@line 1471
+						Cast ::temp191 ::temp191                                 ;@line 1471
+						JumpT ::temp191 _label179                                ;@line 1471
+						CallMethod Current self ::temp190 expectedGeneration expectedToken  ;@line 1471
+						Not ::temp190 ::temp190                                  ;@line 1471
+						Cast ::temp191 ::temp190                                 ;@line 1471
+					_label179:
+						JumpF ::temp191 _label180                                ;@line 1471
+						Return False                                             ;@line 1472
+						Jump _label180                                           ;@line 1472
+					_label180:
+						Assign desiredYaw angle                                  ;@line 1474
+						Assign desiredPitch 0.000000                             ;@line 1475
+						Assign aimX wx                                           ;@line 1476
+						Assign aimY wy                                           ;@line 1477
+						Assign aimZ 0.000000                                     ;@line 1478
+						Assign targetHorizontal horizontal                       ;@line 1479
+						Return True                                              ;@line 1480
+					.endCode
+				.endFunction
+				.function StartGuardPose
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp162 Bool
+						.local ::NoneVar None
+						.local candidate actor
+						.local started Bool
+						.local ::temp163 Bool
+						.local valid Bool
+					.endLocalTable
+					.code
+						Cast ::temp162 pinBusy                                   ;@line 1308
+						JumpT ::temp162 _label181                                ;@line 1308
+						CallMethod GuardReady self ::temp162 expectedGeneration expectedToken  ;@line 1308
+						Not ::temp162 ::temp162                                  ;@line 1308
+						Cast ::temp162 ::temp162                                 ;@line 1308
+					_label181:
+						JumpF ::temp162 _label182                                ;@line 1308
+						Return False                                             ;@line 1309
+						Jump _label182                                           ;@line 1309
+					_label182:
+						Assign candidate ownedGuard                              ;@line 1311
+						Assign pinBusy True                                      ;@line 1312
+						CallMethod RemoveFromFaction candidate ::NoneVar fireFaction  ;@line 1313
+						CallMethod Current self ::temp162 expectedGeneration expectedToken  ;@line 1314
+						JumpF ::temp162 _label183                                ;@line 1314
+						CallMethod SetFactionRank candidate ::NoneVar poseFaction 0  ;@line 1315
+						Jump _label183                                           ;@line 1315
+					_label183:
+						CallMethod Current self ::temp162 expectedGeneration expectedToken  ;@line 1317
+						JumpF ::temp162 _label184                                ;@line 1317
+						CallMethod SetHeadTracking candidate ::NoneVar False     ;@line 1318
+						Jump _label184                                           ;@line 1318
+					_label184:
+						CallMethod Current self ::temp162 expectedGeneration expectedToken  ;@line 1320
+						JumpF ::temp162 _label185                                ;@line 1320
+						CallMethod SheatheWeapon candidate ::NoneVar             ;@line 1321
+						Jump _label185                                           ;@line 1321
+					_label185:
+						Assign started False                                     ;@line 1323
+						CallMethod Current self ::temp162 expectedGeneration expectedToken  ;@line 1324
+						JumpF ::temp162 _label186                                ;@line 1324
+						CallMethod PlayIdle candidate ::temp163 holdIdle         ;@line 1325
+						Assign started ::temp163                                 ;@line 1325
+						Jump _label186                                           ;@line 1325
+					_label186:
+						CallMethod FinishGuardEffect self ::temp163 candidate expectedGeneration expectedToken  ;@line 1327
+						Assign valid ::temp163                                   ;@line 1327
+						JumpF valid _label187                                    ;@line 1328
+						Assign guardPoseStarted started                          ;@line 1329
+						Assign guardPoseFiring False                             ;@line 1330
+						Jump _label187                                           ;@line 1330
+					_label187:
+						Cast ::temp162 valid                                     ;@line 1332
+						JumpF ::temp162 _label188                                ;@line 1332
+						Cast ::temp162 started                                   ;@line 1332
+					_label188:
+						Return ::temp162                                         ;@line 1332
+					.endCode
+				.endFunction
+				.function AcquirePin
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param expectedGeneration Int
+					.endParamTable
+					.localTable
+						.local ::temp50 Bool
+						.local ::temp51 Bool
+						.local animationReady Bool
+						.local ::NoneVar None
+						.local candidate actor
+					.endLocalTable
+					.code
+						Cast ::temp50 pinBusy                                    ;@line 582
+						JumpT ::temp50 _label189                                 ;@line 582
+						CompareEQ ::temp50 generation expectedGeneration         ;@line 582
+						Not ::temp50 ::temp50                                    ;@line 582
+						Cast ::temp50 ::temp50                                   ;@line 582
+					_label189:
+						Cast ::temp50 ::temp50                                   ;@line 582
+						JumpT ::temp50 _label190                                 ;@line 582
+						CompareEQ ::temp51 token -1                              ;@line 582
+						Not ::temp51 ::temp51                                    ;@line 582
+						Cast ::temp50 ::temp51                                   ;@line 582
+					_label190:
+						Cast ::temp50 ::temp50                                   ;@line 582
+						JumpT ::temp50 _label191                                 ;@line 582
+						Not ::temp51 recovering                                  ;@line 582
+						Cast ::temp50 ::temp51                                   ;@line 582
+					_label191:
+						Cast ::temp51 ::temp50                                   ;@line 582
+						JumpT ::temp51 _label192                                 ;@line 582
+						Cast ::temp51 destroyed                                  ;@line 582
+					_label192:
+						Cast ::temp50 ::temp51                                   ;@line 582
+						JumpT ::temp50 _label193                                 ;@line 582
+						Cast ::temp50 faulted                                    ;@line 582
+					_label193:
+						JumpF ::temp50 _label194                                 ;@line 582
+						Return False                                             ;@line 583
+						Jump _label194                                           ;@line 583
+					_label194:
+						CallMethod LoadGuardAnimation self ::temp51              ;@line 585
+						Assign animationReady ::temp51                           ;@line 585
+						CompareEQ ::temp50 generation expectedGeneration         ;@line 586
+						Not ::temp50 ::temp50                                    ;@line 586
+						Cast ::temp50 ::temp50                                   ;@line 586
+						JumpT ::temp50 _label195                                 ;@line 586
+						Not ::temp51 animationReady                              ;@line 586
+						Cast ::temp50 ::temp51                                   ;@line 586
+					_label195:
+						JumpF ::temp50 _label196                                 ;@line 586
+						CallStatic debug Trace ::NoneVar "AstraAsedioGuard: enable OAR and AstraAsedio_GuardAnim.esp to operate the NPC." 0  ;@line 587
+						Return False                                             ;@line 588
+						Jump _label196                                           ;@line 588
+					_label196:
+						Assign candidate ::Artillero_var                         ;@line 590
+						Assign pinBusy True                                      ;@line 591
+						CallMethod SetDontMove candidate ::NoneVar True          ;@line 592
+						CompareEQ ::temp51 generation expectedGeneration         ;@line 593
+						Not ::temp51 ::temp51                                    ;@line 593
+						Cast ::temp51 ::temp51                                   ;@line 593
+						JumpT ::temp51 _label197                                 ;@line 593
+						CompareEQ ::temp50 token -1                              ;@line 593
+						Not ::temp50 ::temp50                                    ;@line 593
+						Cast ::temp51 ::temp50                                   ;@line 593
+					_label197:
+						Cast ::temp51 ::temp51                                   ;@line 593
+						JumpT ::temp51 _label198                                 ;@line 593
+						Not ::temp50 recovering                                  ;@line 593
+						Cast ::temp51 ::temp50                                   ;@line 593
+					_label198:
+						Cast ::temp50 ::temp51                                   ;@line 593
+						JumpT ::temp50 _label199                                 ;@line 593
+						Cast ::temp50 destroyed                                  ;@line 593
+					_label199:
+						Cast ::temp51 ::temp50                                   ;@line 593
+						JumpT ::temp51 _label200                                 ;@line 593
+						Cast ::temp51 faulted                                    ;@line 593
+					_label200:
+						JumpF ::temp51 _label201                                 ;@line 593
+						CallMethod SetDontMove candidate ::NoneVar False         ;@line 597
+						Assign pinBusy False                                     ;@line 598
+						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 599
+						Return False                                             ;@line 600
+						Jump _label201                                           ;@line 600
+					_label201:
+						Assign ownedGuard candidate                              ;@line 602
+						Assign pinBusy False                                     ;@line 603
+						Return True                                              ;@line 604
+					.endCode
+				.endFunction
+				.function OnInit
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod BlockActivation self ::NoneVar True           ;@line 87
+						CallMethod BeginRecovery self ::NoneVar                  ;@line 88
+					.endCode
+				.endFunction
+				.function SetGuardFirePose
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param Fire Bool
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp164 Bool
+						.local ::temp165 Bool
+						.local candidate actor
+						.local ::NoneVar None
+						.local valid Bool
+					.endLocalTable
+					.code
+						Cast ::temp164 pinBusy                                   ;@line 1336
+						JumpT ::temp164 _label202                                ;@line 1336
+						CallMethod GuardReady self ::temp164 expectedGeneration expectedToken  ;@line 1336
+						Not ::temp164 ::temp164                                  ;@line 1336
+						Cast ::temp164 ::temp164                                 ;@line 1336
+					_label202:
+						Cast ::temp164 ::temp164                                 ;@line 1336
+						JumpT ::temp164 _label203                                ;@line 1336
+						Not ::temp165 guardPoseStarted                           ;@line 1336
+						Cast ::temp164 ::temp165                                 ;@line 1336
+					_label203:
+						JumpF ::temp164 _label204                                ;@line 1336
+						Return False                                             ;@line 1337
+						Jump _label204                                           ;@line 1337
+					_label204:
+						Assign candidate ownedGuard                              ;@line 1339
+						Assign pinBusy True                                      ;@line 1340
+						JumpF Fire _label205                                     ;@line 1341
+						CallMethod SetFactionRank candidate ::NoneVar fireFaction 0  ;@line 1342
+						Jump _label206                                           ;@line 1342
+					_label205:
+						CallMethod RemoveFromFaction candidate ::NoneVar fireFaction  ;@line 1344
+					_label206:
+						CallMethod FinishGuardEffect self ::temp165 candidate expectedGeneration expectedToken  ;@line 1346
+						Assign valid ::temp165                                   ;@line 1346
+						JumpF valid _label207                                    ;@line 1347
+						Assign guardPoseFiring Fire                              ;@line 1348
+						Jump _label207                                           ;@line 1348
+					_label207:
+						Return valid                                             ;@line 1350
+					.endCode
+				.endFunction
+				.function OnUpdate
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp142 Bool
+						.local ::temp143 Float
+						.local ::NoneVar None
+						.local updateGeneration Int
+						.local updateToken Int
+						.local now Float
+						.local dt Float
+						.local ready Bool
+						.local ::temp144 Bool
+						.local ::temp145 Bool
+						.local dead Bool
+						.local guardLoaded Bool
+						.local gunLoaded Bool
+						.local menuOpen Bool
+						.local releaseDelay Float
+						.local fireDelay Float
+						.local resetDelay Float
+						.local ::temp146 Bool
+						.local ::temp147 actor
+						.local target actor
+						.local sampled Bool
+						.local positioned Bool
+						.local aligned Bool
+					.endLocalTable
+					.code
+						Cast ::temp142 updating                                  ;@line 1111
+						JumpT ::temp142 _label208                                ;@line 1111
+						Cast ::temp142 recovering                                ;@line 1111
+					_label208:
+						Cast ::temp142 ::temp142                                 ;@line 1111
+						JumpT ::temp142 _label209                                ;@line 1111
+						Cast ::temp142 pinBusy                                   ;@line 1111
+					_label209:
+						Cast ::temp142 ::temp142                                 ;@line 1111
+						JumpT ::temp142 _label210                                ;@line 1111
+						Cast ::temp142 sceneBusy                                 ;@line 1111
+					_label210:
+						Cast ::temp142 ::temp142                                 ;@line 1111
+						JumpT ::temp142 _label211                                ;@line 1111
+						Cast ::temp142 destroyed                                 ;@line 1111
+					_label211:
+						Cast ::temp142 ::temp142                                 ;@line 1111
+						JumpT ::temp142 _label212                                ;@line 1111
+						Cast ::temp142 faulted                                   ;@line 1111
+					_label212:
+						JumpF ::temp142 _label213                                ;@line 1111
+						Return None                                              ;@line 1112
+						Jump _label213                                           ;@line 1112
+					_label213:
+						Not ::temp142 running                                    ;@line 1114
+						JumpF ::temp142 _label214                                ;@line 1114
+						CallMethod BeginRecovery self ::NoneVar                  ;@line 1115
+						Return None                                              ;@line 1116
+						Jump _label214                                           ;@line 1116
+					_label214:
+						Assign updating True                                     ;@line 1118
+						Assign updateGeneration generation                       ;@line 1119
+						Assign updateToken token                                 ;@line 1120
+						CallStatic utility GetCurrentRealTime ::temp143          ;@line 1121
+						Assign now ::temp143                                     ;@line 1121
+						CallMethod Current self ::temp142 updateGeneration updateToken  ;@line 1122
+						Not ::temp142 ::temp142                                  ;@line 1122
+						JumpF ::temp142 _label215                                ;@line 1122
+						Return None                                              ;@line 1123
+						Jump _label215                                           ;@line 1123
+					_label215:
+						CallMethod Finite self ::temp142 now 0.000000 1000000000.000000  ;@line 1125
+						Not ::temp142 ::temp142                                  ;@line 1125
+						JumpF ::temp142 _label216                                ;@line 1125
+						Assign faulted True                                      ;@line 1126
+						CallMethod Shutdown self ::NoneVar                       ;@line 1127
+						Return None                                              ;@line 1128
+						Jump _label216                                           ;@line 1128
+					_label216:
+						CompareLT ::temp142 now lastTick                         ;@line 1130
+						JumpF ::temp142 _label217                                ;@line 1130
+						CallMethod BeginRecovery self ::NoneVar                  ;@line 1133
+						Return None                                              ;@line 1134
+						Jump _label217                                           ;@line 1134
+					_label217:
+						FSubtract ::temp143 now lastTick                         ;@line 1136
+						Assign dt ::temp143                                      ;@line 1136
+						CompareGT ::temp142 dt 0.400000                          ;@line 1137
+						JumpF ::temp142 _label218                                ;@line 1137
+						Assign dt 0.400000                                       ;@line 1138
+						Jump _label218                                           ;@line 1138
+					_label218:
+						Assign lastTick now                                      ;@line 1140
+						CallMethod GuardReady self ::temp142 updateGeneration updateToken  ;@line 1141
+						Assign ready ::temp142                                   ;@line 1141
+						CallMethod Current self ::temp142 updateGeneration updateToken  ;@line 1142
+						Not ::temp142 ::temp142                                  ;@line 1142
+						JumpF ::temp142 _label219                                ;@line 1142
+						Return None                                              ;@line 1143
+						Jump _label219                                           ;@line 1143
+					_label219:
+						Not ::temp142 ready                                      ;@line 1145
+						JumpF ::temp142 _label220                                ;@line 1145
+						CallMethod IsDead ::Artillero_var ::temp144              ;@line 1146
+						Assign dead ::temp144                                    ;@line 1146
+						CallMethod Is3DLoaded ::Artillero_var ::temp144          ;@line 1147
+						Assign guardLoaded ::temp144                             ;@line 1147
+						CallMethod Is3DLoaded self ::temp144                     ;@line 1148
+						Assign gunLoaded ::temp144                               ;@line 1148
+						CallMethod Current self ::temp144 updateGeneration updateToken  ;@line 1149
+						Not ::temp144 ::temp144                                  ;@line 1149
+						JumpF ::temp144 _label221                                ;@line 1149
+						Return None                                              ;@line 1150
+						Jump _label221                                           ;@line 1150
+					_label221:
+						Cast ::temp144 dead                                      ;@line 1154
+						JumpT ::temp144 _label222                                ;@line 1154
+						Cast ::temp144 guardLoaded                               ;@line 1154
+					_label222:
+						Assign faulted ::temp144                                 ;@line 1154
+						CallMethod Shutdown self ::NoneVar                       ;@line 1155
+						Not ::temp144 faulted                                    ;@line 1156
+						Cast ::temp144 ::temp144                                 ;@line 1156
+						JumpF ::temp144 _label223                                ;@line 1156
+						Cast ::temp144 gunLoaded                                 ;@line 1156
+					_label223:
+						Cast ::temp144 ::temp144                                 ;@line 1156
+						JumpF ::temp144 _label224                                ;@line 1156
+						Not ::temp145 destroyed                                  ;@line 1156
+						Cast ::temp144 ::temp145                                 ;@line 1156
+					_label224:
+						JumpF ::temp144 _label225                                ;@line 1156
+						CallMethod RegisterForSingleUpdate self ::NoneVar 1.000000  ;@line 1157
+						Jump _label225                                           ;@line 1157
+					_label225:
+						Return None                                              ;@line 1159
+						Jump _label220                                           ;@line 1159
+					_label220:
+						Cast ::temp144 guardPoseFiring                           ;@line 1161
+						JumpF ::temp144 _label226                                ;@line 1161
+						FAdd ::temp143 guardPoseFireAt 1.000000                  ;@line 1161
+						CompareGTE ::temp145 now ::temp143                       ;@line 1161
+						Cast ::temp144 ::temp145                                 ;@line 1161
+					_label226:
+						JumpF ::temp144 _label227                                ;@line 1161
+						CallMethod SetGuardFirePose self ::temp142 False updateGeneration updateToken  ;@line 1162
+						Jump _label227                                           ;@line 1162
+					_label227:
+						CallMethod Current self ::temp145 updateGeneration updateToken  ;@line 1164
+						Not ::temp142 ::temp145                                  ;@line 1164
+						JumpF ::temp142 _label228                                ;@line 1164
+						Return None                                              ;@line 1165
+						Jump _label228                                           ;@line 1165
+					_label228:
+						CallStatic utility IsInMenuMode ::temp144                ;@line 1167
+						Assign menuOpen ::temp144                                ;@line 1167
+						CallMethod Current self ::temp145 updateGeneration updateToken  ;@line 1168
+						Not ::temp142 ::temp145                                  ;@line 1168
+						JumpF ::temp142 _label229                                ;@line 1168
+						Return None                                              ;@line 1169
+						Jump _label229                                           ;@line 1169
+					_label229:
+						Cast ::temp144 menuOpen                                  ;@line 1171
+						JumpF ::temp144 _label230                                ;@line 1171
+						CompareEQ ::temp144 phase 1                              ;@line 1171
+						Cast ::temp142 ::temp144                                 ;@line 1171
+						JumpT ::temp142 _label231                                ;@line 1171
+						CompareEQ ::temp145 phase 2                              ;@line 1171
+						Cast ::temp142 ::temp145                                 ;@line 1171
+					_label231:
+						Cast ::temp144 ::temp142                                 ;@line 1171
+					_label230:
+						JumpF ::temp144 _label232                                ;@line 1171
+						CallMethod AbortShot self ::NoneVar updateGeneration updateToken  ;@line 1172
+						Jump _label232                                           ;@line 1172
+					_label232:
+						CallMethod Current self ::temp145 updateGeneration updateToken  ;@line 1174
+						Not ::temp142 ::temp145                                  ;@line 1174
+						JumpF ::temp142 _label233                                ;@line 1174
+						Return None                                              ;@line 1175
+						Jump _label233                                           ;@line 1175
+					_label233:
+						CompareEQ ::temp144 phase 1                              ;@line 1177
+						JumpF ::temp144 _label234                                ;@line 1177
+						Assign releaseDelay ::ReleaseSeconds_var                 ;@line 1179
+						CallMethod Finite self ::temp145 releaseDelay 0.066667 1.000000  ;@line 1180
+						Not ::temp142 ::temp145                                  ;@line 1180
+						Cast ::temp142 ::temp142                                 ;@line 1180
+						JumpT ::temp142 _label235                                ;@line 1180
+						CompareGT ::temp145 releaseDelay ::FireSeconds_var       ;@line 1180
+						Cast ::temp142 ::temp145                                 ;@line 1180
+					_label235:
+						JumpF ::temp142 _label236                                ;@line 1180
+						Assign releaseDelay 0.066667                             ;@line 1181
+						Jump _label236                                           ;@line 1181
+					_label236:
+						FAdd ::temp143 phaseAt releaseDelay                      ;@line 1183
+						CompareGTE ::temp145 now ::temp143                       ;@line 1183
+						JumpF ::temp145 _label237                                ;@line 1183
+						CallMethod CommitShot self ::NoneVar shotTarget updateGeneration updateToken  ;@line 1184
+						Jump _label237                                           ;@line 1184
+					_label237:
+						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 0.050000  ;@line 1186
+						Return None                                              ;@line 1187
+						Jump _label238                                           ;@line 1187
+					_label234:
+						CompareEQ ::temp142 phase 2                              ;@line 1188
+						JumpF ::temp142 _label239                                ;@line 1188
+						Assign fireDelay ::FireSeconds_var                       ;@line 1189
+						CallMethod Finite self ::temp145 fireDelay 0.200000 2.000000  ;@line 1190
+						Not ::temp145 ::temp145                                  ;@line 1190
+						JumpF ::temp145 _label240                                ;@line 1190
+						Assign fireDelay 0.200000                                ;@line 1191
+						Jump _label240                                           ;@line 1191
+					_label240:
+						FAdd ::temp143 phaseAt fireDelay                         ;@line 1193
+						CompareGTE ::temp145 now ::temp143                       ;@line 1193
+						JumpF ::temp145 _label241                                ;@line 1193
+						CallMethod StartReset self ::NoneVar updateGeneration updateToken  ;@line 1194
+						Jump _label241                                           ;@line 1194
+					_label241:
+						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 0.050000  ;@line 1196
+						Return None                                              ;@line 1197
+						Jump _label238                                           ;@line 1197
+					_label239:
+						CompareEQ ::temp145 phase 3                              ;@line 1198
+						JumpF ::temp145 _label238                                ;@line 1198
+						Assign resetDelay ::ResetSeconds_var                     ;@line 1199
+						CallMethod Finite self ::temp142 resetDelay 0.800000 5.000000  ;@line 1200
+						Not ::temp142 ::temp142                                  ;@line 1200
+						JumpF ::temp142 _label242                                ;@line 1200
+						Assign resetDelay 0.800000                               ;@line 1201
+						Jump _label242                                           ;@line 1201
+					_label242:
+						FAdd ::temp143 phaseAt resetDelay                        ;@line 1203
+						CompareGTE ::temp142 now ::temp143                       ;@line 1203
+						JumpF ::temp142 _label243                                ;@line 1203
+						CallMethod SetVisualBolt self ::NoneVar 1.000000 updateGeneration updateToken  ;@line 1204
+						CallMethod Current self ::temp146 updateGeneration updateToken  ;@line 1205
+						Not ::temp146 ::temp146                                  ;@line 1205
+						JumpF ::temp146 _label244                                ;@line 1205
+						Return None                                              ;@line 1206
+						Jump _label244                                           ;@line 1206
+					_label244:
+						Assign phase 0                                           ;@line 1208
+						Cast ::temp147 None                                      ;@line 1209
+						Assign shotTarget ::temp147                              ;@line 1209
+						Jump _label243                                           ;@line 1209
+					_label243:
+						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 0.050000  ;@line 1211
+						Return None                                              ;@line 1212
+						Jump _label238                                           ;@line 1212
+					_label238:
+						JumpF menuOpen _label245                                 ;@line 1214
+						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 1.000000  ;@line 1215
+						Return None                                              ;@line 1216
+						Jump _label245                                           ;@line 1216
+					_label245:
+						CallMethod ChooseVisualTarget self ::temp147 now updateGeneration updateToken  ;@line 1218
+						Assign target ::temp147                                  ;@line 1218
+						CallMethod SampleVisualTarget self ::temp146 target updateGeneration updateToken  ;@line 1219
+						Assign sampled ::temp146                                 ;@line 1219
+						CallMethod Current self ::temp142 updateGeneration updateToken  ;@line 1220
+						Not ::temp145 ::temp142                                  ;@line 1220
+						JumpF ::temp145 _label246                                ;@line 1220
+						Return None                                              ;@line 1221
+						Jump _label246                                           ;@line 1221
+					_label246:
+						Cast ::temp146 sampled                                   ;@line 1224
+						JumpF ::temp146 _label247                                ;@line 1224
+						CallMethod ValidTarget self ::temp144 target updateGeneration updateToken  ;@line 1224
+						Cast ::temp146 ::temp144                                 ;@line 1224
+					_label247:
+						JumpF ::temp146 _label248                                ;@line 1224
+						CallMethod SampleTarget self ::temp142 target updateGeneration updateToken  ;@line 1225
+						Jump _label248                                           ;@line 1225
+					_label248:
+						CallMethod Current self ::temp145 updateGeneration updateToken  ;@line 1227
+						Not ::temp144 ::temp145                                  ;@line 1227
+						JumpF ::temp144 _label249                                ;@line 1227
+						Return None                                              ;@line 1228
+						Jump _label249                                           ;@line 1228
+					_label249:
+						JumpF sampled _label250                                  ;@line 1230
+						CallMethod TurnToward self ::NoneVar dt updateGeneration updateToken  ;@line 1231
+						Jump _label250                                           ;@line 1231
+					_label250:
+						CallMethod Current self ::temp142 updateGeneration updateToken  ;@line 1233
+						Not ::temp146 ::temp142                                  ;@line 1233
+						JumpF ::temp146 _label251                                ;@line 1233
+						Return None                                              ;@line 1234
+						Jump _label251                                           ;@line 1234
+					_label251:
+						CallMethod PositionOperator self ::temp145 updateGeneration updateToken  ;@line 1236
+						Assign positioned ::temp145                              ;@line 1236
+						CallMethod Current self ::temp144 updateGeneration updateToken  ;@line 1237
+						Not ::temp142 ::temp144                                  ;@line 1237
+						JumpF ::temp142 _label252                                ;@line 1237
+						Return None                                              ;@line 1238
+						Jump _label252                                           ;@line 1238
+					_label252:
+						Not ::temp146 positioned                                 ;@line 1240
+						JumpF ::temp146 _label253                                ;@line 1240
+						Assign faulted True                                      ;@line 1241
+						CallMethod Shutdown self ::NoneVar                       ;@line 1242
+						Return None                                              ;@line 1243
+						Jump _label253                                           ;@line 1243
+					_label253:
+						CompareGTE ::temp145 now nextShotAt                      ;@line 1246
+						JumpF ::temp145 _label254                                ;@line 1246
+						CallMethod ShotPreflight self ::temp144 target updateGeneration updateToken  ;@line 1247
+						Assign aligned ::temp144                                 ;@line 1247
+						CallMethod Current self ::temp142 updateGeneration updateToken  ;@line 1248
+						Not ::temp146 ::temp142                                  ;@line 1248
+						JumpF ::temp146 _label255                                ;@line 1248
+						Return None                                              ;@line 1249
+						Jump _label255                                           ;@line 1249
+					_label255:
+						JumpF aligned _label256                                  ;@line 1251
+						CallMethod BeginShot self ::NoneVar target updateGeneration updateToken  ;@line 1252
+						Jump _label256                                           ;@line 1252
+					_label256:
+						Jump _label254                                           ;@line 1252
+					_label254:
+						CallMethod Current self ::temp144 updateGeneration updateToken  ;@line 1255
+						JumpF ::temp144 _label257                                ;@line 1255
+						CompareEQ ::temp142 phase 1                              ;@line 1256
+						JumpF ::temp142 _label258                                ;@line 1256
+						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 0.020000  ;@line 1257
+						Jump _label259                                           ;@line 1257
+					_label258:
+						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 0.050000  ;@line 1259
+					_label259:
+						Jump _label257                                           ;@line 1259
+					_label257:
+					.endCode
+				.endFunction
+				.function PlayerLeaseCurrent
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param lease Int
+					.endParamTable
+					.localTable
+						.local ::temp8 Bool
+						.local ::temp9 Bool
+					.endLocalTable
+					.code
+						Cast ::temp8 ::AllowPlayerTakeover_var                   ;@line 148
+						JumpF ::temp8 _label260                                  ;@line 148
+						Not ::temp8 stationRetired                               ;@line 148
+						Cast ::temp8 ::temp8                                     ;@line 148
+					_label260:
+						Cast ::temp8 ::temp8                                     ;@line 148
+						JumpF ::temp8 _label261                                  ;@line 148
+						Not ::temp9 destroyed                                    ;@line 148
+						Cast ::temp8 ::temp9                                     ;@line 148
+					_label261:
+						Cast ::temp9 ::temp8                                     ;@line 148
+						JumpF ::temp9 _label262                                  ;@line 148
+						Cast ::temp9 playerReserved                              ;@line 148
+					_label262:
+						Cast ::temp9 ::temp9                                     ;@line 148
+						JumpF ::temp9 _label263                                  ;@line 148
+						CompareGT ::temp8 lease 0                                ;@line 148
+						Cast ::temp9 ::temp8                                     ;@line 148
+					_label263:
+						Cast ::temp9 ::temp9                                     ;@line 148
+						JumpF ::temp9 _label264                                  ;@line 148
+						CompareEQ ::temp8 playerLease lease                      ;@line 148
+						Cast ::temp9 ::temp8                                     ;@line 148
+					_label264:
+						Return ::temp9                                           ;@line 148
+					.endCode
+				.endFunction
+				.function StationSceneAvailable
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp10 Bool
+						.local ::temp11 Int
+						.local ::temp12 ObjectReference
+					.endLocalTable
+					.code
+						Not ::temp10 ::AllowPlayerTakeover_var                   ;@line 152
+						JumpF ::temp10 _label265                                 ;@line 152
+						Return True                                              ;@line 153
+						Jump _label265                                           ;@line 153
+					_label265:
+						CallStatic skse GetPluginVersion ::temp11 "AstraSight"   ;@line 158
+						CompareLT ::temp10 ::temp11 50659328                     ;@line 158
+						JumpF ::temp10 _label266                                 ;@line 158
+						Return True                                              ;@line 159
+						Jump _label266                                           ;@line 159
+					_label266:
+						Cast ::temp12 self                                       ;@line 163
+						CallStatic astrasightnative IsEffectsQuiescent ::temp10 ::temp12 0  ;@line 163
+						Return ::temp10                                          ;@line 163
+					.endCode
+				.endFunction
+				.function LoadGuardAnimation
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp148 form
+						.local ::temp149 Faction
+						.local ::temp150 Idle
+						.local ::temp151 Int
+						.local ::temp152 Bool
+						.local ::temp153 Bool
+					.endLocalTable
+					.code
+						CallStatic game GetFormFromFile ::temp148 2048 "AstraAsedio_GuardAnim.esp"  ;@line 1266
+						Cast ::temp149 ::temp148                                 ;@line 1266
+						Assign poseFaction ::temp149                             ;@line 1266
+						CallStatic game GetFormFromFile ::temp148 2049 "AstraAsedio_GuardAnim.esp"  ;@line 1267
+						Cast ::temp149 ::temp148                                 ;@line 1267
+						Assign fireFaction ::temp149                             ;@line 1267
+						CallStatic game GetFormFromFile ::temp148 2050 "AstraAsedio_GuardAnim.esp"  ;@line 1268
+						Cast ::temp150 ::temp148                                 ;@line 1268
+						Assign holdIdle ::temp150                                ;@line 1268
+						CallStatic game GetFormFromFile ::temp148 2051 "AstraAsedio_GuardAnim.esp"  ;@line 1269
+						Cast ::temp150 ::temp148                                 ;@line 1269
+						Assign exitIdle ::temp150                                ;@line 1269
+						CallStatic skse GetPluginVersion ::temp151 "OpenAnimationReplacer"  ;@line 1270
+						CompareGTE ::temp152 ::temp151 0                         ;@line 1270
+						Cast ::temp152 ::temp152                                 ;@line 1270
+						JumpF ::temp152 _label267                                ;@line 1270
+						Cast ::temp149 None                                      ;@line 1270
+						CompareEQ ::temp153 poseFaction ::temp149                ;@line 1270
+						Not ::temp153 ::temp153                                  ;@line 1270
+						Cast ::temp152 ::temp153                                 ;@line 1270
+					_label267:
+						Cast ::temp152 ::temp152                                 ;@line 1270
+						JumpF ::temp152 _label268                                ;@line 1270
+						Cast ::temp149 None                                      ;@line 1270
+						CompareEQ ::temp153 fireFaction ::temp149                ;@line 1270
+						Not ::temp153 ::temp153                                  ;@line 1270
+						Cast ::temp152 ::temp153                                 ;@line 1270
+					_label268:
+						Cast ::temp152 ::temp152                                 ;@line 1270
+						JumpF ::temp152 _label269                                ;@line 1270
+						Cast ::temp150 None                                      ;@line 1270
+						CompareEQ ::temp153 holdIdle ::temp150                   ;@line 1270
+						Not ::temp153 ::temp153                                  ;@line 1270
+						Cast ::temp152 ::temp153                                 ;@line 1270
+					_label269:
+						Cast ::temp152 ::temp152                                 ;@line 1270
+						JumpF ::temp152 _label270                                ;@line 1270
+						Cast ::temp150 None                                      ;@line 1270
+						CompareEQ ::temp153 exitIdle ::temp150                   ;@line 1270
+						Not ::temp153 ::temp153                                  ;@line 1270
+						Cast ::temp152 ::temp153                                 ;@line 1270
+					_label270:
+						Return ::temp152                                         ;@line 1270
+					.endCode
+				.endFunction
+				.function ApplyAim
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp72 Bool
+						.local ::temp73 Bool
+						.local ::temp74 Float
+						.local ::NoneVar None
+						.local yc Float
+						.local ys Float
+						.local pc Float
+						.local ps Float
+						.local j Int
+						.local ::temp75 Float
+						.local ::temp76 Int
+						.local ::temp77 Float
+					.endLocalTable
+					.code
+						CallMethod Current self ::temp72 expectedGeneration expectedToken  ;@line 733
+						Not ::temp72 ::temp72                                    ;@line 733
+						Cast ::temp72 ::temp72                                   ;@line 733
+						JumpT ::temp72 _label271                                 ;@line 733
+						Not ::temp73 matricesReady                               ;@line 733
+						Cast ::temp72 ::temp73                                   ;@line 733
+					_label271:
+						JumpF ::temp72 _label272                                 ;@line 733
+						Return None                                              ;@line 734
+						Jump _label272                                           ;@line 734
+					_label272:
+						CallStatic math Cos ::temp74 yaw                         ;@line 736
+						Assign yc ::temp74                                       ;@line 736
+						CallStatic math Sin ::temp74 yaw                         ;@line 737
+						Assign ys ::temp74                                       ;@line 737
+						FNegate ::temp74 pitch                                   ;@line 738
+						CallStatic math Cos ::temp74 ::temp74                    ;@line 738
+						Assign pc ::temp74                                       ;@line 738
+						FNegate ::temp74 pitch                                   ;@line 739
+						CallStatic math Sin ::temp74 ::temp74                    ;@line 739
+						Assign ps ::temp74                                       ;@line 739
+						CallMethod Current self ::temp73 expectedGeneration expectedToken  ;@line 740
+						Not ::temp72 ::temp73                                    ;@line 740
+						JumpF ::temp72 _label273                                 ;@line 740
+						Return None                                              ;@line 741
+						Jump _label273                                           ;@line 741
+					_label273:
+						Assign j 0                                               ;@line 743
+					_label275:
+						CompareLT ::temp73 j 3                                   ;@line 744
+						JumpF ::temp73 _label274                                 ;@line 744
+						ArrayGetElement ::temp75 yawBase j                       ;@line 745
+						FMultiply ::temp75 yc ::temp75                           ;@line 745
+						IAdd ::temp76 j 3                                        ;@line 745
+						ArrayGetElement ::temp77 yawBase ::temp76                ;@line 745
+						FMultiply ::temp77 ys ::temp77                           ;@line 745
+						FSubtract ::temp75 ::temp75 ::temp77                     ;@line 745
+						Assign ::temp74 ::temp75                                 ;@line 745
+						ArraySetElement yawMatrix j ::temp74                     ;@line 745
+						ArrayGetElement ::temp74 yawBase j                       ;@line 746
+						FMultiply ::temp75 ys ::temp74                           ;@line 746
+						IAdd ::temp76 j 3                                        ;@line 746
+						ArrayGetElement ::temp74 yawBase ::temp76                ;@line 746
+						FMultiply ::temp74 yc ::temp74                           ;@line 746
+						FAdd ::temp75 ::temp75 ::temp74                          ;@line 746
+						Assign ::temp77 ::temp75                                 ;@line 746
+						IAdd ::temp76 j 3                                        ;@line 746
+						ArraySetElement yawMatrix ::temp76 ::temp77              ;@line 746
+						IAdd ::temp76 j 6                                        ;@line 747
+						ArrayGetElement ::temp77 yawBase ::temp76                ;@line 747
+						Assign ::temp74 ::temp77                                 ;@line 747
+						IAdd ::temp76 j 6                                        ;@line 747
+						ArraySetElement yawMatrix ::temp76 ::temp74              ;@line 747
+						ArrayGetElement ::temp74 pitchBase j                     ;@line 748
+						Assign ::temp75 ::temp74                                 ;@line 748
+						ArraySetElement pitchMatrix j ::temp75                   ;@line 748
+						IAdd ::temp76 j 3                                        ;@line 749
+						ArrayGetElement ::temp75 pitchBase ::temp76              ;@line 749
+						FMultiply ::temp74 pc ::temp75                           ;@line 749
+						IAdd ::temp76 j 6                                        ;@line 749
+						ArrayGetElement ::temp75 pitchBase ::temp76              ;@line 749
+						FMultiply ::temp75 ps ::temp75                           ;@line 749
+						FSubtract ::temp74 ::temp74 ::temp75                     ;@line 749
+						Assign ::temp77 ::temp74                                 ;@line 749
+						IAdd ::temp76 j 3                                        ;@line 749
+						ArraySetElement pitchMatrix ::temp76 ::temp77            ;@line 749
+						IAdd ::temp76 j 3                                        ;@line 750
+						ArrayGetElement ::temp77 pitchBase ::temp76              ;@line 750
+						FMultiply ::temp74 ps ::temp77                           ;@line 750
+						IAdd ::temp76 j 6                                        ;@line 750
+						ArrayGetElement ::temp77 pitchBase ::temp76              ;@line 750
+						FMultiply ::temp77 pc ::temp77                           ;@line 750
+						FAdd ::temp74 ::temp74 ::temp77                          ;@line 750
+						Assign ::temp75 ::temp74                                 ;@line 750
+						IAdd ::temp76 j 6                                        ;@line 750
+						ArraySetElement pitchMatrix ::temp76 ::temp75            ;@line 750
+						IAdd ::temp76 j 1                                        ;@line 751
+						Assign j ::temp76                                        ;@line 751
+						Jump _label275                                           ;@line 751
+					_label274:
+						CallMethod WriteAimNode self ::NoneVar ::YawNode_var yawMatrix expectedGeneration expectedToken  ;@line 755
+						CallMethod Current self ::temp72 expectedGeneration expectedToken  ;@line 756
+						Not ::temp73 ::temp72                                    ;@line 756
+						JumpF ::temp73 _label276                                 ;@line 756
+						Return None                                              ;@line 757
+						Jump _label276                                           ;@line 757
+					_label276:
+						CallMethod WriteAimNode self ::NoneVar ::PitchNode_var pitchMatrix expectedGeneration expectedToken  ;@line 759
+					.endCode
+				.endFunction
+				.function WriteAimNode
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param node String
+						.param matrix Float[]
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp64 Bool
+						.local ::temp65 ObjectReference
+					.endLocalTable
+					.code
+						Cast ::temp64 sceneBusy                                  ;@line 692
+						JumpT ::temp64 _label277                                 ;@line 692
+						CallMethod Current self ::temp64 expectedGeneration expectedToken  ;@line 692
+						Not ::temp64 ::temp64                                    ;@line 692
+						Cast ::temp64 ::temp64                                   ;@line 692
+					_label277:
+						JumpF ::temp64 _label278                                 ;@line 692
+						Return None                                              ;@line 693
+						Jump _label278                                           ;@line 693
+					_label278:
+						Assign sceneBusy True                                    ;@line 695
+						Cast ::temp65 self                                       ;@line 696
+						CallStatic netimmerse SetNodeLocalRotationMatrix ::temp64 ::temp65 node matrix False  ;@line 696
+						CallMethod FinishSceneEffect self ::temp64 expectedGeneration expectedToken  ;@line 697
+					.endCode
+				.endFunction
+				.function PlaySceneAnimation
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param name String
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp61 Bool
+						.local started Bool
+						.local valid Bool
+					.endLocalTable
+					.code
+						Cast ::temp61 sceneBusy                                  ;@line 673
+						JumpT ::temp61 _label279                                 ;@line 673
+						CallMethod Current self ::temp61 expectedGeneration expectedToken  ;@line 673
+						Not ::temp61 ::temp61                                    ;@line 673
+						Cast ::temp61 ::temp61                                   ;@line 673
+					_label279:
+						JumpF ::temp61 _label280                                 ;@line 673
+						Return False                                             ;@line 674
+						Jump _label280                                           ;@line 674
+					_label280:
+						Assign sceneBusy True                                    ;@line 676
+						CallMethod PlayGamebryoAnimation self ::temp61 name True 0.000000  ;@line 677
+						Assign started ::temp61                                  ;@line 677
+						CallMethod FinishSceneEffect self ::temp61 expectedGeneration expectedToken  ;@line 678
+						Assign valid ::temp61                                    ;@line 678
+						Cast ::temp61 valid                                      ;@line 679
+						JumpF ::temp61 _label281                                 ;@line 679
+						Cast ::temp61 started                                    ;@line 679
+					_label281:
+						Return ::temp61                                          ;@line 679
+					.endCode
+				.endFunction
+				.function CaptureMatrices
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp66 Int
+						.local ::temp67 Bool
+						.local ::temp68 Bool
+						.local ::temp69 ObjectReference
+						.local ::temp70 Float[]
+						.local ::temp71 Float
+						.local captureGeneration Int
+					.endLocalTable
+					.code
+						Assign captureGeneration generation                      ;@line 701
+						CallStatic skse GetVersion ::temp66                      ;@line 702
+						CompareLT ::temp67 ::temp66 2                            ;@line 702
+						Cast ::temp67 ::temp67                                   ;@line 702
+						JumpT ::temp67 _label282                                 ;@line 702
+						CallMethod Is3DLoaded self ::temp68                      ;@line 702
+						Not ::temp68 ::temp68                                    ;@line 702
+						Cast ::temp67 ::temp68                                   ;@line 702
+					_label282:
+						JumpF ::temp67 _label283                                 ;@line 702
+						Return False                                             ;@line 703
+						Jump _label283                                           ;@line 703
+					_label283:
+						Cast ::temp69 self                                       ;@line 705
+						CallStatic netimmerse HasNode ::temp68 ::temp69 ::YawNode_var False  ;@line 705
+						Not ::temp67 ::temp68                                    ;@line 705
+						Cast ::temp67 ::temp67                                   ;@line 705
+						JumpT ::temp67 _label284                                 ;@line 705
+						Cast ::temp69 self                                       ;@line 705
+						CallStatic netimmerse HasNode ::temp68 ::temp69 ::PitchNode_var False  ;@line 705
+						Not ::temp68 ::temp68                                    ;@line 705
+						Cast ::temp67 ::temp68                                   ;@line 705
+					_label284:
+						Cast ::temp67 ::temp67                                   ;@line 705
+						JumpT ::temp67 _label285                                 ;@line 705
+						Cast ::temp69 self                                       ;@line 705
+						CallStatic netimmerse HasNode ::temp68 ::temp69 ::MuzzleNode_var False  ;@line 705
+						Not ::temp68 ::temp68                                    ;@line 705
+						Cast ::temp67 ::temp68                                   ;@line 705
+					_label285:
+						Cast ::temp67 ::temp67                                   ;@line 705
+						JumpT ::temp67 _label286                                 ;@line 705
+						Cast ::temp69 self                                       ;@line 705
+						CallStatic netimmerse HasNode ::temp68 ::temp69 ::VisualBoltNode_var False  ;@line 705
+						Not ::temp68 ::temp68                                    ;@line 705
+						Cast ::temp67 ::temp68                                   ;@line 705
+					_label286:
+						JumpF ::temp67 _label287                                 ;@line 705
+						Return False                                             ;@line 706
+						Jump _label287                                           ;@line 706
+					_label287:
+						CompareEQ ::temp68 generation captureGeneration          ;@line 708
+						Not ::temp68 ::temp68                                    ;@line 708
+						Cast ::temp68 ::temp68                                   ;@line 708
+						JumpT ::temp68 _label288                                 ;@line 708
+						CompareEQ ::temp67 token -1                              ;@line 708
+						Not ::temp67 ::temp67                                    ;@line 708
+						Cast ::temp68 ::temp67                                   ;@line 708
+					_label288:
+						Cast ::temp68 ::temp68                                   ;@line 708
+						JumpT ::temp68 _label289                                 ;@line 708
+						Not ::temp67 recovering                                  ;@line 708
+						Cast ::temp68 ::temp67                                   ;@line 708
+					_label289:
+						JumpF ::temp68 _label290                                 ;@line 708
+						Return False                                             ;@line 709
+						Jump _label290                                           ;@line 709
+					_label290:
+						ArrayCreate ::temp70 9                                   ;@line 714
+						Assign yawBase ::temp70                                  ;@line 714
+						ArrayCreate ::temp70 9                                   ;@line 715
+						Assign pitchBase ::temp70                                ;@line 715
+						ArrayCreate ::temp70 9                                   ;@line 716
+						Assign yawMatrix ::temp70                                ;@line 716
+						ArrayCreate ::temp70 9                                   ;@line 717
+						Assign pitchMatrix ::temp70                              ;@line 717
+						ArrayCreate ::temp70 9                                   ;@line 718
+						Assign rootWorldMatrix ::temp70                          ;@line 718
+						ArrayCreate ::temp70 9                                   ;@line 719
+						Assign muzzleWorldMatrix ::temp70                        ;@line 719
+						ArrayCreate ::temp70 3                                   ;@line 720
+						Assign rootPosition ::temp70                             ;@line 720
+						ArrayCreate ::temp70 3                                   ;@line 721
+						Assign muzzlePosition ::temp70                           ;@line 721
+						Assign ::temp71 1.000000                                 ;@line 722
+						ArraySetElement yawBase 0 ::temp71                       ;@line 722
+						Assign ::temp71 1.000000                                 ;@line 723
+						ArraySetElement yawBase 4 ::temp71                       ;@line 723
+						Assign ::temp71 1.000000                                 ;@line 724
+						ArraySetElement yawBase 8 ::temp71                       ;@line 724
+						Assign ::temp71 1.000000                                 ;@line 725
+						ArraySetElement pitchBase 0 ::temp71                     ;@line 725
+						Assign ::temp71 1.000000                                 ;@line 726
+						ArraySetElement pitchBase 4 ::temp71                     ;@line 726
+						Assign ::temp71 1.000000                                 ;@line 727
+						ArraySetElement pitchBase 8 ::temp71                     ;@line 727
+						Assign matricesReady True                                ;@line 728
+						Return True                                              ;@line 729
 					.endCode
 				.endFunction
 				.function StartReset
@@ -426,37 +3119,37 @@
 						.param expectedToken Int
 					.endParamTable
 					.localTable
-						.local ::temp143 Float
-						.local ::temp144 Bool
+						.local ::temp139 Float
+						.local ::temp140 Bool
 						.local now Float
 						.local started Bool
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CallStatic utility GetCurrentRealTime ::temp143          ;@line 1120
-						Assign now ::temp143                                     ;@line 1120
-						CallMethod Current self ::temp144 expectedGeneration expectedToken  ;@line 1121
-						Not ::temp144 ::temp144                                  ;@line 1121
-						JumpF ::temp144 _label1                                  ;@line 1121
-						Return None                                              ;@line 1122
-						Jump _label1                                             ;@line 1122
-					_label1:
-						Assign phase 3                                           ;@line 1124
-						Assign phaseAt now                                       ;@line 1125
-						CallMethod PlaySceneAnimation self ::temp144 "Reset" expectedGeneration expectedToken  ;@line 1126
-						Assign started ::temp144                                 ;@line 1126
-						CallMethod Current self ::temp144 expectedGeneration expectedToken  ;@line 1127
-						Not ::temp144 ::temp144                                  ;@line 1127
-						JumpF ::temp144 _label2                                  ;@line 1127
-						Return None                                              ;@line 1128
-						Jump _label2                                             ;@line 1128
-					_label2:
-						Not ::temp144 started                                    ;@line 1130
-						JumpF ::temp144 _label3                                  ;@line 1130
-						Assign faulted True                                      ;@line 1131
-						CallMethod Shutdown self ::NoneVar                       ;@line 1132
-						Jump _label3                                             ;@line 1132
-					_label3:
+						CallStatic utility GetCurrentRealTime ::temp139          ;@line 1086
+						Assign now ::temp139                                     ;@line 1086
+						CallMethod Current self ::temp140 expectedGeneration expectedToken  ;@line 1087
+						Not ::temp140 ::temp140                                  ;@line 1087
+						JumpF ::temp140 _label291                                ;@line 1087
+						Return None                                              ;@line 1088
+						Jump _label291                                           ;@line 1088
+					_label291:
+						Assign phase 3                                           ;@line 1090
+						Assign phaseAt now                                       ;@line 1091
+						CallMethod PlaySceneAnimation self ::temp140 "Reset" expectedGeneration expectedToken  ;@line 1092
+						Assign started ::temp140                                 ;@line 1092
+						CallMethod Current self ::temp140 expectedGeneration expectedToken  ;@line 1093
+						Not ::temp140 ::temp140                                  ;@line 1093
+						JumpF ::temp140 _label292                                ;@line 1093
+						Return None                                              ;@line 1094
+						Jump _label292                                           ;@line 1094
+					_label292:
+						Not ::temp140 started                                    ;@line 1096
+						JumpF ::temp140 _label293                                ;@line 1096
+						Assign faulted True                                      ;@line 1097
+						CallMethod Shutdown self ::NoneVar                       ;@line 1098
+						Jump _label293                                           ;@line 1098
+					_label293:
 					.endCode
 				.endFunction
 				.function RetireStation
@@ -472,35 +3165,134 @@
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						Not ::temp3 stationRetired                               ;@line 113
-						JumpF ::temp3 _label4                                    ;@line 113
-						Assign stationRetired True                               ;@line 114
-						CallMethod InvalidatePlayerLease self ::NoneVar          ;@line 115
-						CallMethod Shutdown self ::NoneVar                       ;@line 116
-						Jump _label4                                             ;@line 116
-					_label4:
-						Cast ::temp3 pinBusy                                     ;@line 118
-						JumpT ::temp3 _label5                                    ;@line 118
-						Cast ::temp3 sceneBusy                                   ;@line 118
-					_label5:
-						JumpF ::temp3 _label6                                    ;@line 118
-						Return False                                             ;@line 119
-						Jump _label6                                             ;@line 119
-					_label6:
-						CallMethod ReleaseOwnedGuard self ::NoneVar              ;@line 121
-						Not ::temp3 pinBusy                                      ;@line 122
-						Cast ::temp3 ::temp3                                     ;@line 122
-						JumpF ::temp3 _label7                                    ;@line 122
-						Not ::temp4 sceneBusy                                    ;@line 122
-						Cast ::temp3 ::temp4                                     ;@line 122
-					_label7:
-						Cast ::temp3 ::temp3                                     ;@line 122
-						JumpF ::temp3 _label8                                    ;@line 122
-						Cast ::temp5 None                                        ;@line 122
-						CompareEQ ::temp4 ownedGuard ::temp5                     ;@line 122
-						Cast ::temp3 ::temp4                                     ;@line 122
-					_label8:
-						Return ::temp3                                           ;@line 122
+						Not ::temp3 stationRetired                               ;@line 124
+						JumpF ::temp3 _label294                                  ;@line 124
+						Assign stationRetired True                               ;@line 125
+						CallMethod InvalidatePlayerLease self ::NoneVar          ;@line 126
+						CallMethod Shutdown self ::NoneVar                       ;@line 127
+						Jump _label294                                           ;@line 127
+					_label294:
+						Cast ::temp3 pinBusy                                     ;@line 129
+						JumpT ::temp3 _label295                                  ;@line 129
+						Cast ::temp3 sceneBusy                                   ;@line 129
+					_label295:
+						JumpF ::temp3 _label296                                  ;@line 129
+						Return False                                             ;@line 130
+						Jump _label296                                           ;@line 130
+					_label296:
+						CallMethod ReleaseOwnedGuard self ::NoneVar              ;@line 132
+						Not ::temp3 pinBusy                                      ;@line 133
+						Cast ::temp3 ::temp3                                     ;@line 133
+						JumpF ::temp3 _label297                                  ;@line 133
+						Not ::temp4 sceneBusy                                    ;@line 133
+						Cast ::temp3 ::temp4                                     ;@line 133
+					_label297:
+						Cast ::temp3 ::temp3                                     ;@line 133
+						JumpF ::temp3 _label298                                  ;@line 133
+						Cast ::temp5 None                                        ;@line 133
+						CompareEQ ::temp4 ownedGuard ::temp5                     ;@line 133
+						Cast ::temp3 ::temp4                                     ;@line 133
+					_label298:
+						Return ::temp3                                           ;@line 133
+					.endCode
+				.endFunction
+				.function SetVisualBolt
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param scale Float
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp62 Bool
+						.local ::temp63 ObjectReference
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						Cast ::temp62 sceneBusy                                  ;@line 683
+						JumpT ::temp62 _label299                                 ;@line 683
+						CallMethod Current self ::temp62 expectedGeneration expectedToken  ;@line 683
+						Not ::temp62 ::temp62                                    ;@line 683
+						Cast ::temp62 ::temp62                                   ;@line 683
+					_label299:
+						JumpF ::temp62 _label300                                 ;@line 683
+						Return None                                              ;@line 684
+						Jump _label300                                           ;@line 684
+					_label300:
+						Assign sceneBusy True                                    ;@line 686
+						Cast ::temp63 self                                       ;@line 687
+						CallStatic netimmerse SetNodeScale ::NoneVar ::temp63 ::VisualBoltNode_var scale False  ;@line 687
+						CallMethod FinishSceneEffect self ::temp62 expectedGeneration expectedToken  ;@line 688
+					.endCode
+				.endFunction
+				.function FinishSceneEffect
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp60 Bool
+						.local valid Bool
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod Current self ::temp60 expectedGeneration expectedToken  ;@line 663
+						Assign valid ::temp60                                    ;@line 663
+						Not ::temp60 valid                                       ;@line 664
+						JumpF ::temp60 _label301                                 ;@line 664
+						CallMethod RestoreNeutralScene self ::NoneVar            ;@line 665
+						Jump _label301                                           ;@line 665
+					_label301:
+						Assign sceneBusy False                                   ;@line 667
+						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 668
+						Return valid                                             ;@line 669
+					.endCode
+				.endFunction
+				.function InvalidatePlayerLease
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp6 Bool
+						.local ::temp7 Int
+					.endLocalTable
+					.code
+						Assign playerReserved False                              ;@line 138
+						Assign playerReady False                                 ;@line 139
+						Assign playerRestored False                              ;@line 140
+						Assign playerLease 0                                     ;@line 141
+						CompareLT ::temp6 playerSerial 2000000000                ;@line 142
+						JumpF ::temp6 _label302                                  ;@line 142
+						IAdd ::temp7 playerSerial 1                              ;@line 143
+						Assign playerSerial ::temp7                              ;@line 143
+						Jump _label302                                           ;@line 143
+					_label302:
+					.endCode
+				.endFunction
+				.function SafeCadenceSeconds
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Float
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp33 Bool
+					.endLocalTable
+					.code
+						CallMethod Finite self ::temp33 ::CadenceSeconds_var 2.500000 60.000000  ;@line 330
+						Not ::temp33 ::temp33                                    ;@line 330
+						JumpF ::temp33 _label303                                 ;@line 330
+						Return 2.500000                                          ;@line 331
+						Jump _label303                                           ;@line 331
+					_label303:
+						Return ::CadenceSeconds_var                              ;@line 333
 					.endCode
 				.endFunction
 				.function RestoreNeutralScene
@@ -518,31 +3310,31 @@
 						.local ::temp59 Bool
 					.endLocalTable
 					.code
-						CallMethod StationSceneAvailable self ::temp56           ;@line 609
-						Not ::temp56 ::temp56                                    ;@line 609
-						JumpF ::temp56 _label9                                   ;@line 609
-						Return None                                              ;@line 610
-						Jump _label9                                             ;@line 610
-					_label9:
-						CallMethod Is3DLoaded self ::temp56                      ;@line 615
-						Assign loaded ::temp56                                   ;@line 615
-						JumpF loaded _label10                                    ;@line 616
-						JumpF ::AllowPlayerTakeover_var _label11                 ;@line 617
-						CallStatic skse GetPluginVersion ::temp57 "AstraSight"   ;@line 620
-						CompareGTE ::temp56 ::temp57 50659392                    ;@line 620
-						JumpF ::temp56 _label12                                  ;@line 620
-						Cast ::temp58 self                                       ;@line 621
-						CallStatic astrasightnative ResetIdleScene ::temp59 ::temp58  ;@line 621
-						Jump _label12                                            ;@line 621
-					_label12:
-						Jump _label13                                            ;@line 621
-					_label11:
-						CallMethod PlayGamebryoAnimation self ::temp59 "Reset" True 0.000000  ;@line 624
-					_label13:
-						Cast ::temp58 self                                       ;@line 626
-						CallStatic netimmerse SetNodeScale ::NoneVar ::temp58 ::VisualBoltNode_var 1.000000 False  ;@line 626
-						Jump _label10                                            ;@line 626
-					_label10:
+						CallMethod StationSceneAvailable self ::temp56           ;@line 641
+						Not ::temp56 ::temp56                                    ;@line 641
+						JumpF ::temp56 _label304                                 ;@line 641
+						Return None                                              ;@line 642
+						Jump _label304                                           ;@line 642
+					_label304:
+						CallMethod Is3DLoaded self ::temp56                      ;@line 647
+						Assign loaded ::temp56                                   ;@line 647
+						JumpF loaded _label305                                   ;@line 648
+						JumpF ::AllowPlayerTakeover_var _label306                ;@line 649
+						CallStatic skse GetPluginVersion ::temp57 "AstraSight"   ;@line 652
+						CompareGTE ::temp56 ::temp57 50659392                    ;@line 652
+						JumpF ::temp56 _label307                                 ;@line 652
+						Cast ::temp58 self                                       ;@line 653
+						CallStatic astrasightnative ResetIdleScene ::temp59 ::temp58  ;@line 653
+						Jump _label307                                           ;@line 653
+					_label307:
+						Jump _label308                                           ;@line 653
+					_label306:
+						CallMethod PlayGamebryoAnimation self ::temp59 "Reset" True 0.000000  ;@line 656
+					_label308:
+						Cast ::temp58 self                                       ;@line 658
+						CallStatic netimmerse SetNodeScale ::NoneVar ::temp58 ::VisualBoltNode_var 1.000000 False  ;@line 658
+						Jump _label305                                           ;@line 658
+					_label305:
 					.endCode
 				.endFunction
 				.function GotoState
@@ -561,46 +3353,85 @@
 						CallMethod onBeginState self ::NoneVar                   ;@line ??
 					.endCode
 				.endFunction
-				.function InvalidatePlayerLease
+				.function ReleaseOwnedGuard
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
 					.return None
 					.paramTable
 					.endParamTable
 					.localTable
-						.local ::temp6 Bool
-						.local ::temp7 Int
+						.local ::temp52 actor
+						.local ::temp53 Bool
+						.local previousGuard actor
+						.local player actor
+						.local ::NoneVar None
 					.endLocalTable
 					.code
-						Assign playerReserved False                              ;@line 127
-						Assign playerReady False                                 ;@line 128
-						Assign playerRestored False                              ;@line 129
-						Assign playerLease 0                                     ;@line 130
-						CompareLT ::temp6 playerSerial 2000000000                ;@line 131
-						JumpF ::temp6 _label14                                   ;@line 131
-						IAdd ::temp7 playerSerial 1                              ;@line 132
-						Assign playerSerial ::temp7                              ;@line 132
-						Jump _label14                                            ;@line 132
-					_label14:
+						JumpF pinBusy _label309                                  ;@line 608
+						Return None                                              ;@line 609
+						Jump _label309                                           ;@line 609
+					_label309:
+						Assign previousGuard ownedGuard                          ;@line 611
+						Cast ::temp52 None                                       ;@line 612
+						Assign ownedGuard ::temp52                               ;@line 612
+						Cast ::temp52 None                                       ;@line 613
+						CompareEQ ::temp53 previousGuard ::temp52                ;@line 613
+						JumpF ::temp53 _label310                                 ;@line 613
+						Return None                                              ;@line 614
+						Jump _label310                                           ;@line 614
+					_label310:
+						Assign pinBusy True                                      ;@line 616
+						CallStatic game GetPlayer ::temp52                       ;@line 617
+						Assign player ::temp52                                   ;@line 617
+						CompareEQ ::temp53 previousGuard player                  ;@line 618
+						Not ::temp53 ::temp53                                    ;@line 618
+						JumpF ::temp53 _label311                                 ;@line 618
+						CallMethod StopGuardPose self ::NoneVar previousGuard    ;@line 619
+						CallMethod SetDontMove previousGuard ::NoneVar False     ;@line 620
+						Jump _label311                                           ;@line 620
+					_label311:
+						Assign pinBusy False                                     ;@line 622
+						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 623
 					.endCode
 				.endFunction
-				.function SafeCadenceSeconds
+				.function TurnToward
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
-					.return Float
+					.return None
 					.paramTable
+						.param dt Float
+						.param expectedGeneration Int
+						.param expectedToken Int
 					.endParamTable
 					.localTable
-						.local ::temp33 Bool
+						.local ::temp111 Bool
+						.local ::temp112 Float
+						.local ::NoneVar None
+						.local rate Float
+						.local nextYaw Float
+						.local nextPitch Float
 					.endLocalTable
 					.code
-						CallMethod Finite self ::temp33 ::CadenceSeconds_var 2.500000 60.000000  ;@line 319
-						Not ::temp33 ::temp33                                    ;@line 319
-						JumpF ::temp33 _label15                                  ;@line 319
-						Return 2.500000                                          ;@line 320
-						Jump _label15                                            ;@line 320
-					_label15:
-						Return ::CadenceSeconds_var                              ;@line 322
+						Assign rate ::TurnRate_var                               ;@line 873
+						CallMethod Finite self ::temp111 rate 1.000000 30.000000  ;@line 874
+						Not ::temp111 ::temp111                                  ;@line 874
+						JumpF ::temp111 _label312                                ;@line 874
+						Assign rate 30.000000                                    ;@line 875
+						Jump _label312                                           ;@line 875
+					_label312:
+						FMultiply ::temp112 rate dt                              ;@line 877
+						CallMethod Approach self ::temp112 yaw desiredYaw ::temp112  ;@line 877
+						Assign nextYaw ::temp112                                 ;@line 877
+						Assign nextPitch 0.000000                                ;@line 878
+						CallMethod Current self ::temp111 expectedGeneration expectedToken  ;@line 879
+						Not ::temp111 ::temp111                                  ;@line 879
+						JumpF ::temp111 _label313                                ;@line 879
+						Return None                                              ;@line 880
+						Jump _label313                                           ;@line 880
+					_label313:
+						Assign yaw nextYaw                                       ;@line 882
+						Assign pitch nextPitch                                   ;@line 883
+						CallMethod ApplyAim self ::NoneVar expectedGeneration expectedToken  ;@line 884
 					.endCode
 				.endFunction
 				.function EnsureCityPlacement
@@ -617,55 +3448,55 @@
 						.local ::temp36 Bool
 					.endLocalTable
 					.code
-						Cast ::temp34 pinBusy                                    ;@line 329
-						JumpT ::temp34 _label16                                  ;@line 329
-						Cast ::temp34 sceneBusy                                  ;@line 329
-					_label16:
-						Cast ::temp34 ::temp34                                   ;@line 329
-						JumpT ::temp34 _label17                                  ;@line 329
-						CompareEQ ::temp35 generation expectedGeneration         ;@line 329
-						Not ::temp35 ::temp35                                    ;@line 329
-						Cast ::temp34 ::temp35                                   ;@line 329
-					_label17:
-						Cast ::temp35 ::temp34                                   ;@line 329
-						JumpT ::temp35 _label18                                  ;@line 329
-						Cast ::temp35 destroyed                                  ;@line 329
-					_label18:
-						Cast ::temp34 ::temp35                                   ;@line 329
-						JumpT ::temp34 _label19                                  ;@line 329
-						Cast ::temp34 stationRetired                             ;@line 329
-					_label19:
-						JumpF ::temp34 _label20                                  ;@line 329
-						Return False                                             ;@line 330
-						Jump _label20                                            ;@line 330
-					_label20:
-						Not ::temp35 ::AllowPlayerTakeover_var                   ;@line 332
-						JumpF ::temp35 _label21                                  ;@line 332
-						Return True                                              ;@line 333
-						Jump _label21                                            ;@line 333
-					_label21:
-						CompareGT ::temp34 lease 0                               ;@line 335
-						JumpF ::temp34 _label22                                  ;@line 335
-						CallMethod PlayerLeaseCurrent self ::temp35 lease        ;@line 336
-						Return ::temp35                                          ;@line 336
-						Jump _label22                                            ;@line 336
-					_label22:
-						Cast ::temp34 recovering                                 ;@line 338
-						JumpF ::temp34 _label23                                  ;@line 338
-						Not ::temp34 playerReserved                              ;@line 338
-						Cast ::temp34 ::temp34                                   ;@line 338
-					_label23:
-						Cast ::temp34 ::temp34                                   ;@line 338
-						JumpF ::temp34 _label24                                  ;@line 338
-						CompareEQ ::temp36 token -1                              ;@line 338
-						Cast ::temp34 ::temp36                                   ;@line 338
-					_label24:
-						Cast ::temp34 ::temp34                                   ;@line 338
-						JumpF ::temp34 _label25                                  ;@line 338
-						Not ::temp36 faulted                                     ;@line 338
-						Cast ::temp34 ::temp36                                   ;@line 338
-					_label25:
-						Return ::temp34                                          ;@line 338
+						Cast ::temp34 pinBusy                                    ;@line 340
+						JumpT ::temp34 _label314                                 ;@line 340
+						Cast ::temp34 sceneBusy                                  ;@line 340
+					_label314:
+						Cast ::temp34 ::temp34                                   ;@line 340
+						JumpT ::temp34 _label315                                 ;@line 340
+						CompareEQ ::temp35 generation expectedGeneration         ;@line 340
+						Not ::temp35 ::temp35                                    ;@line 340
+						Cast ::temp34 ::temp35                                   ;@line 340
+					_label315:
+						Cast ::temp35 ::temp34                                   ;@line 340
+						JumpT ::temp35 _label316                                 ;@line 340
+						Cast ::temp35 destroyed                                  ;@line 340
+					_label316:
+						Cast ::temp34 ::temp35                                   ;@line 340
+						JumpT ::temp34 _label317                                 ;@line 340
+						Cast ::temp34 stationRetired                             ;@line 340
+					_label317:
+						JumpF ::temp34 _label318                                 ;@line 340
+						Return False                                             ;@line 341
+						Jump _label318                                           ;@line 341
+					_label318:
+						Not ::temp35 ::AllowPlayerTakeover_var                   ;@line 343
+						JumpF ::temp35 _label319                                 ;@line 343
+						Return True                                              ;@line 344
+						Jump _label319                                           ;@line 344
+					_label319:
+						CompareGT ::temp34 lease 0                               ;@line 346
+						JumpF ::temp34 _label320                                 ;@line 346
+						CallMethod PlayerLeaseCurrent self ::temp35 lease        ;@line 347
+						Return ::temp35                                          ;@line 347
+						Jump _label320                                           ;@line 347
+					_label320:
+						Cast ::temp34 recovering                                 ;@line 349
+						JumpF ::temp34 _label321                                 ;@line 349
+						Not ::temp34 playerReserved                              ;@line 349
+						Cast ::temp34 ::temp34                                   ;@line 349
+					_label321:
+						Cast ::temp34 ::temp34                                   ;@line 349
+						JumpF ::temp34 _label322                                 ;@line 349
+						CompareEQ ::temp36 token -1                              ;@line 349
+						Cast ::temp34 ::temp36                                   ;@line 349
+					_label322:
+						Cast ::temp34 ::temp34                                   ;@line 349
+						JumpF ::temp34 _label323                                 ;@line 349
+						Not ::temp36 faulted                                     ;@line 349
+						Cast ::temp34 ::temp36                                   ;@line 349
+					_label323:
+						Return ::temp34                                          ;@line 349
 					.endCode
 				.endFunction
 				.function OnActivate
@@ -679,7 +3510,131 @@
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CallMethod BlockActivation self ::NoneVar True           ;@line 105
+						CallMethod BlockActivation self ::NoneVar True           ;@line 116
+					.endCode
+				.endFunction
+				.function Shutdown
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp46 Int
+						.local ::temp47 actor
+						.local ::NoneVar None
+						.local ::temp48 Bool
+						.local ::temp49 Bool
+						.local cleanupGeneration Int
+					.endLocalTable
+					.code
+						Assign running False                                     ;@line 551
+						IAdd ::temp46 generation 1                               ;@line 552
+						Assign generation ::temp46                               ;@line 552
+						Assign cleanupGeneration generation                      ;@line 553
+						Assign token -1                                          ;@line 554
+						Assign recovering False                                  ;@line 555
+						Assign updating False                                    ;@line 556
+						Assign phase 0                                           ;@line 557
+						Cast ::temp47 None                                       ;@line 558
+						Assign shotTarget ::temp47                               ;@line 558
+						Cast ::temp47 None                                       ;@line 559
+						Assign visualTarget ::temp47                             ;@line 559
+						Assign visualScanAt 0.000000                             ;@line 560
+						Assign matricesReady False                               ;@line 561
+						Assign recoveryRequested False                           ;@line 562
+						CallMethod UnregisterForUpdate self ::NoneVar            ;@line 563
+						CompareEQ ::temp48 generation cleanupGeneration          ;@line 564
+						Not ::temp48 ::temp48                                    ;@line 564
+						Cast ::temp48 ::temp48                                   ;@line 564
+						JumpT ::temp48 _label324                                 ;@line 564
+						CompareEQ ::temp49 token -1                              ;@line 564
+						Not ::temp49 ::temp49                                    ;@line 564
+						Cast ::temp48 ::temp49                                   ;@line 564
+					_label324:
+						JumpF ::temp48 _label325                                 ;@line 564
+						Return None                                              ;@line 565
+						Jump _label325                                           ;@line 565
+					_label325:
+						CallMethod ReleaseOwnedGuard self ::NoneVar              ;@line 569
+						CompareEQ ::temp49 generation cleanupGeneration          ;@line 570
+						Not ::temp49 ::temp49                                    ;@line 570
+						Cast ::temp49 ::temp49                                   ;@line 570
+						JumpT ::temp49 _label326                                 ;@line 570
+						CompareEQ ::temp48 token -1                              ;@line 570
+						Not ::temp48 ::temp48                                    ;@line 570
+						Cast ::temp49 ::temp48                                   ;@line 570
+					_label326:
+						JumpF ::temp49 _label327                                 ;@line 570
+						Return None                                              ;@line 571
+						Jump _label327                                           ;@line 571
+					_label327:
+						Not ::temp48 sceneBusy                                   ;@line 573
+						JumpF ::temp48 _label328                                 ;@line 573
+						Assign sceneBusy True                                    ;@line 574
+						CallMethod RestoreNeutralScene self ::NoneVar            ;@line 575
+						Assign sceneBusy False                                   ;@line 576
+						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 577
+						Jump _label328                                           ;@line 577
+					_label328:
+					.endCode
+				.endFunction
+				.function HeadingFromVector
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Float
+					.paramTable
+						.param vectorX Float
+						.param vectorY Float
+						.param fallback Float
+					.endParamTable
+					.localTable
+						.local ::temp102 Float
+						.local ::temp103 Float
+						.local ::temp104 Bool
+						.local ::temp105 Bool
+						.local horizontal Float
+						.local cosine Float
+						.local angle Float
+					.endLocalTable
+					.code
+						FMultiply ::temp102 vectorX vectorX                      ;@line 837
+						FMultiply ::temp103 vectorY vectorY                      ;@line 837
+						FAdd ::temp102 ::temp102 ::temp103                       ;@line 837
+						CallStatic math Sqrt ::temp103 ::temp102                 ;@line 837
+						Assign horizontal ::temp103                              ;@line 837
+						CompareLT ::temp104 horizontal 0.000010                  ;@line 838
+						JumpF ::temp104 _label329                                ;@line 838
+						Return fallback                                          ;@line 839
+						Jump _label329                                           ;@line 839
+					_label329:
+						FDivide ::temp102 vectorY horizontal                     ;@line 841
+						Assign cosine ::temp102                                  ;@line 841
+						CompareGT ::temp104 cosine 1.000000                      ;@line 842
+						JumpF ::temp104 _label330                                ;@line 842
+						Assign cosine 1.000000                                   ;@line 843
+						Jump _label331                                           ;@line 843
+					_label330:
+						CompareLT ::temp105 cosine -1.000000                     ;@line 844
+						JumpF ::temp105 _label331                                ;@line 844
+						Assign cosine -1.000000                                  ;@line 845
+						Jump _label331                                           ;@line 845
+					_label331:
+						CallStatic math ACos ::temp103 cosine                    ;@line 847
+						Assign angle ::temp103                                   ;@line 847
+						CompareLT ::temp105 vectorX 0.000000                     ;@line 848
+						JumpF ::temp105 _label332                                ;@line 848
+						FSubtract ::temp102 360.000000 angle                     ;@line 849
+						Assign angle ::temp102                                   ;@line 849
+						Jump _label332                                           ;@line 849
+					_label332:
+						CompareGTE ::temp104 angle 360.000000                    ;@line 851
+						JumpF ::temp104 _label333                                ;@line 851
+						FSubtract ::temp103 angle 360.000000                     ;@line 852
+						Assign angle ::temp103                                   ;@line 852
+						Jump _label333                                           ;@line 852
+					_label333:
+						Return angle                                             ;@line 854
 					.endCode
 				.endFunction
 				.function Current
@@ -695,47 +3650,47 @@
 						.local ::temp2 Bool
 					.endLocalTable
 					.code
-						Cast ::temp1 running                                     ;@line 109
-						JumpF ::temp1 _label26                                   ;@line 109
-						Not ::temp1 stationRetired                               ;@line 109
-						Cast ::temp1 ::temp1                                     ;@line 109
-					_label26:
-						Cast ::temp1 ::temp1                                     ;@line 109
-						JumpF ::temp1 _label27                                   ;@line 109
-						Not ::temp2 playerReserved                               ;@line 109
-						Cast ::temp1 ::temp2                                     ;@line 109
-					_label27:
-						Cast ::temp1 ::temp1                                     ;@line 109
-						JumpF ::temp1 _label28                                   ;@line 109
-						Not ::temp2 recovering                                   ;@line 109
-						Cast ::temp1 ::temp2                                     ;@line 109
-					_label28:
-						Cast ::temp1 ::temp1                                     ;@line 109
-						JumpF ::temp1 _label29                                   ;@line 109
-						Not ::temp2 destroyed                                    ;@line 109
-						Cast ::temp1 ::temp2                                     ;@line 109
-					_label29:
-						Cast ::temp1 ::temp1                                     ;@line 109
-						JumpF ::temp1 _label30                                   ;@line 109
-						Not ::temp2 faulted                                      ;@line 109
-						Cast ::temp1 ::temp2                                     ;@line 109
-					_label30:
-						Cast ::temp1 ::temp1                                     ;@line 109
-						JumpF ::temp1 _label31                                   ;@line 109
-						CompareEQ ::temp2 generation expectedGeneration          ;@line 109
-						Cast ::temp1 ::temp2                                     ;@line 109
-					_label31:
-						Cast ::temp1 ::temp1                                     ;@line 109
-						JumpF ::temp1 _label32                                   ;@line 109
-						CompareEQ ::temp2 token expectedToken                    ;@line 109
-						Cast ::temp1 ::temp2                                     ;@line 109
-					_label32:
-						Cast ::temp1 ::temp1                                     ;@line 109
-						JumpF ::temp1 _label33                                   ;@line 109
-						CompareGT ::temp2 token 0                                ;@line 109
-						Cast ::temp1 ::temp2                                     ;@line 109
-					_label33:
-						Return ::temp1                                           ;@line 109
+						Cast ::temp1 running                                     ;@line 120
+						JumpF ::temp1 _label334                                  ;@line 120
+						Not ::temp1 stationRetired                               ;@line 120
+						Cast ::temp1 ::temp1                                     ;@line 120
+					_label334:
+						Cast ::temp1 ::temp1                                     ;@line 120
+						JumpF ::temp1 _label335                                  ;@line 120
+						Not ::temp2 playerReserved                               ;@line 120
+						Cast ::temp1 ::temp2                                     ;@line 120
+					_label335:
+						Cast ::temp1 ::temp1                                     ;@line 120
+						JumpF ::temp1 _label336                                  ;@line 120
+						Not ::temp2 recovering                                   ;@line 120
+						Cast ::temp1 ::temp2                                     ;@line 120
+					_label336:
+						Cast ::temp1 ::temp1                                     ;@line 120
+						JumpF ::temp1 _label337                                  ;@line 120
+						Not ::temp2 destroyed                                    ;@line 120
+						Cast ::temp1 ::temp2                                     ;@line 120
+					_label337:
+						Cast ::temp1 ::temp1                                     ;@line 120
+						JumpF ::temp1 _label338                                  ;@line 120
+						Not ::temp2 faulted                                      ;@line 120
+						Cast ::temp1 ::temp2                                     ;@line 120
+					_label338:
+						Cast ::temp1 ::temp1                                     ;@line 120
+						JumpF ::temp1 _label339                                  ;@line 120
+						CompareEQ ::temp2 generation expectedGeneration          ;@line 120
+						Cast ::temp1 ::temp2                                     ;@line 120
+					_label339:
+						Cast ::temp1 ::temp1                                     ;@line 120
+						JumpF ::temp1 _label340                                  ;@line 120
+						CompareEQ ::temp2 token expectedToken                    ;@line 120
+						Cast ::temp1 ::temp2                                     ;@line 120
+					_label340:
+						Cast ::temp1 ::temp1                                     ;@line 120
+						JumpF ::temp1 _label341                                  ;@line 120
+						CompareGT ::temp2 token 0                                ;@line 120
+						Cast ::temp1 ::temp2                                     ;@line 120
+					_label341:
+						Return ::temp1                                           ;@line 120
 					.endCode
 				.endFunction
 				.function BeginRecovery
@@ -776,600 +3731,479 @@
 						.local recoveryToken Int
 						.local now Float
 						.local resetStarted Bool
+						.local positioned Bool
+						.local posed Bool
 					.endLocalTable
 					.code
-						Cast ::temp37 playerReserved                             ;@line 342
-						JumpT ::temp37 _label34                                  ;@line 342
-						Cast ::temp37 stationRetired                             ;@line 342
-					_label34:
-						JumpF ::temp37 _label35                                  ;@line 342
-						Return None                                              ;@line 343
-						Jump _label35                                            ;@line 343
-					_label35:
-						Assign probeGeneration generation                        ;@line 345
-						CallMethod StationSceneAvailable self ::temp37           ;@line 346
-						Assign sceneFree ::temp37                                ;@line 346
-						CompareEQ ::temp37 generation probeGeneration            ;@line 347
-						Not ::temp37 ::temp37                                    ;@line 347
-						Cast ::temp37 ::temp37                                   ;@line 347
-						JumpT ::temp37 _label36                                  ;@line 347
-						Cast ::temp37 playerReserved                             ;@line 347
-					_label36:
-						JumpF ::temp37 _label37                                  ;@line 347
-						Return None                                              ;@line 348
-						Jump _label37                                            ;@line 348
-					_label37:
-						Not ::temp37 sceneFree                                   ;@line 350
-						JumpF ::temp37 _label38                                  ;@line 350
-						Assign running False                                     ;@line 351
-						IAdd ::temp38 generation 1                               ;@line 352
-						Assign generation ::temp38                               ;@line 352
-						Assign deferredGeneration generation                     ;@line 353
-						Assign token -1                                          ;@line 354
-						Assign recovering False                                  ;@line 355
-						Assign updating False                                    ;@line 356
-						Assign phase 0                                           ;@line 357
-						Cast ::temp39 None                                       ;@line 358
-						Assign shotTarget ::temp39                               ;@line 358
-						Assign matricesReady False                               ;@line 359
-						Assign recoveryRequested True                            ;@line 360
-						CallMethod Is3DLoaded self ::temp40                      ;@line 361
-						Assign loaded ::temp40                                   ;@line 361
-						Cast ::temp40 loaded                                     ;@line 362
-						JumpF ::temp40 _label39                                  ;@line 362
-						CompareEQ ::temp40 generation deferredGeneration         ;@line 362
-						Cast ::temp40 ::temp40                                   ;@line 362
-					_label39:
-						Cast ::temp40 ::temp40                                   ;@line 362
-						JumpF ::temp40 _label40                                  ;@line 362
-						Not ::temp41 playerReserved                              ;@line 362
-						Cast ::temp40 ::temp41                                   ;@line 362
-					_label40:
-						Cast ::temp40 ::temp40                                   ;@line 362
-						JumpF ::temp40 _label41                                  ;@line 362
-						Not ::temp41 pinBusy                                     ;@line 362
-						Cast ::temp40 ::temp41                                   ;@line 362
-					_label41:
-						Cast ::temp40 ::temp40                                   ;@line 362
-						JumpF ::temp40 _label42                                  ;@line 362
-						Not ::temp41 sceneBusy                                   ;@line 362
-						Cast ::temp40 ::temp41                                   ;@line 362
-					_label42:
-						JumpF ::temp40 _label43                                  ;@line 362
-						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 363
-						Jump _label43                                            ;@line 363
-					_label43:
-						Return None                                              ;@line 365
-						Jump _label38                                            ;@line 365
-					_label38:
-						Assign running False                                     ;@line 367
-						IAdd ::temp38 generation 1                               ;@line 368
-						Assign generation ::temp38                               ;@line 368
-						Assign recoveryGeneration generation                     ;@line 369
-						Assign token -1                                          ;@line 370
-						IAdd ::temp38 serial 1                                   ;@line 371
-						Assign serial ::temp38                                   ;@line 371
-						Assign recovering True                                   ;@line 372
-						Assign updating False                                    ;@line 373
-						Assign phase 0                                           ;@line 374
-						Cast ::temp39 None                                       ;@line 375
-						Assign shotTarget ::temp39                               ;@line 375
-						Assign faulted False                                     ;@line 376
-						Assign matricesReady False                               ;@line 377
-						Assign recoveryRequested False                           ;@line 378
-						CallMethod NormalizeTimingProperties self ::NoneVar      ;@line 380
-						Cast ::temp41 pinBusy                                    ;@line 381
-						JumpT ::temp41 _label44                                  ;@line 381
-						Cast ::temp41 sceneBusy                                  ;@line 381
-					_label44:
-						JumpF ::temp41 _label45                                  ;@line 381
-						Assign recoveryRequested True                            ;@line 384
-						Assign recovering False                                  ;@line 385
-						Return None                                              ;@line 386
-						Jump _label45                                            ;@line 386
-					_label45:
-						CallMethod UnregisterForUpdate self ::NoneVar            ;@line 388
-						CompareEQ ::temp40 generation recoveryGeneration         ;@line 389
-						Not ::temp40 ::temp40                                    ;@line 389
-						Cast ::temp41 ::temp40                                   ;@line 389
-						JumpT ::temp41 _label46                                  ;@line 389
-						CompareEQ ::temp37 token -1                              ;@line 389
-						Not ::temp37 ::temp37                                    ;@line 389
-						Cast ::temp41 ::temp37                                   ;@line 389
-					_label46:
-						JumpF ::temp41 _label47                                  ;@line 389
-						Return None                                              ;@line 390
-						Jump _label47                                            ;@line 390
-					_label47:
-						CallMethod ReleaseOwnedGuard self ::NoneVar              ;@line 392
-						CompareEQ ::temp40 generation recoveryGeneration         ;@line 393
-						Not ::temp40 ::temp40                                    ;@line 393
-						Cast ::temp41 ::temp40                                   ;@line 393
-						JumpT ::temp41 _label48                                  ;@line 393
-						CompareEQ ::temp37 token -1                              ;@line 393
-						Not ::temp37 ::temp37                                    ;@line 393
-						Cast ::temp41 ::temp37                                   ;@line 393
-					_label48:
-						JumpF ::temp41 _label49                                  ;@line 393
-						Return None                                              ;@line 394
-						Jump _label49                                            ;@line 394
-					_label49:
-						CallStatic game GetPlayer ::temp39                       ;@line 396
-						Assign player ::temp39                                   ;@line 396
-						CompareEQ ::temp40 generation recoveryGeneration         ;@line 397
-						Not ::temp40 ::temp40                                    ;@line 397
-						Cast ::temp41 ::temp40                                   ;@line 397
-						JumpT ::temp41 _label50                                  ;@line 397
-						CompareEQ ::temp37 token -1                              ;@line 397
-						Not ::temp37 ::temp37                                    ;@line 397
-						Cast ::temp41 ::temp37                                   ;@line 397
-					_label50:
-						JumpF ::temp41 _label51                                  ;@line 397
-						Return None                                              ;@line 398
-						Jump _label51                                            ;@line 398
-					_label51:
-						CallMethod BlockActivation self ::NoneVar True           ;@line 400
-						CompareEQ ::temp40 generation recoveryGeneration         ;@line 401
-						Not ::temp40 ::temp40                                    ;@line 401
-						Cast ::temp41 ::temp40                                   ;@line 401
-						JumpT ::temp41 _label52                                  ;@line 401
-						CompareEQ ::temp37 token -1                              ;@line 401
-						Not ::temp37 ::temp37                                    ;@line 401
-						Cast ::temp41 ::temp37                                   ;@line 401
-					_label52:
-						JumpF ::temp41 _label53                                  ;@line 401
-						Return None                                              ;@line 402
-						Jump _label53                                            ;@line 402
-					_label53:
-						Cast ::temp37 destroyed                                  ;@line 404
-						JumpT ::temp37 _label54                                  ;@line 404
-						Cast ::temp39 None                                       ;@line 404
-						CompareEQ ::temp40 ::Artillero_var ::temp39              ;@line 404
-						Cast ::temp37 ::temp40                                   ;@line 404
-					_label54:
-						Cast ::temp40 ::temp37                                   ;@line 404
-						JumpT ::temp40 _label55                                  ;@line 404
-						CompareEQ ::temp41 ::Artillero_var player                ;@line 404
-						Cast ::temp40 ::temp41                                   ;@line 404
-					_label55:
+						Cast ::temp37 playerReserved                             ;@line 353
+						JumpT ::temp37 _label342                                 ;@line 353
+						Cast ::temp37 stationRetired                             ;@line 353
+					_label342:
+						JumpF ::temp37 _label343                                 ;@line 353
+						Return None                                              ;@line 354
+						Jump _label343                                           ;@line 354
+					_label343:
+						Assign probeGeneration generation                        ;@line 356
+						CallMethod StationSceneAvailable self ::temp37           ;@line 357
+						Assign sceneFree ::temp37                                ;@line 357
+						CompareEQ ::temp37 generation probeGeneration            ;@line 358
+						Not ::temp37 ::temp37                                    ;@line 358
+						Cast ::temp37 ::temp37                                   ;@line 358
+						JumpT ::temp37 _label344                                 ;@line 358
+						Cast ::temp37 playerReserved                             ;@line 358
+					_label344:
+						JumpF ::temp37 _label345                                 ;@line 358
+						Return None                                              ;@line 359
+						Jump _label345                                           ;@line 359
+					_label345:
+						Not ::temp37 sceneFree                                   ;@line 361
+						JumpF ::temp37 _label346                                 ;@line 361
+						Assign running False                                     ;@line 362
+						IAdd ::temp38 generation 1                               ;@line 363
+						Assign generation ::temp38                               ;@line 363
+						Assign deferredGeneration generation                     ;@line 364
+						Assign token -1                                          ;@line 365
+						Assign recovering False                                  ;@line 366
+						Assign updating False                                    ;@line 367
+						Assign phase 0                                           ;@line 368
+						Cast ::temp39 None                                       ;@line 369
+						Assign shotTarget ::temp39                               ;@line 369
+						Assign matricesReady False                               ;@line 370
+						Assign recoveryRequested True                            ;@line 371
+						CallMethod Is3DLoaded self ::temp40                      ;@line 372
+						Assign loaded ::temp40                                   ;@line 372
+						Cast ::temp40 loaded                                     ;@line 373
+						JumpF ::temp40 _label347                                 ;@line 373
+						CompareEQ ::temp40 generation deferredGeneration         ;@line 373
+						Cast ::temp40 ::temp40                                   ;@line 373
+					_label347:
+						Cast ::temp40 ::temp40                                   ;@line 373
+						JumpF ::temp40 _label348                                 ;@line 373
+						Not ::temp41 playerReserved                              ;@line 373
+						Cast ::temp40 ::temp41                                   ;@line 373
+					_label348:
+						Cast ::temp40 ::temp40                                   ;@line 373
+						JumpF ::temp40 _label349                                 ;@line 373
+						Not ::temp41 pinBusy                                     ;@line 373
+						Cast ::temp40 ::temp41                                   ;@line 373
+					_label349:
+						Cast ::temp40 ::temp40                                   ;@line 373
+						JumpF ::temp40 _label350                                 ;@line 373
+						Not ::temp41 sceneBusy                                   ;@line 373
+						Cast ::temp40 ::temp41                                   ;@line 373
+					_label350:
+						JumpF ::temp40 _label351                                 ;@line 373
+						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 374
+						Jump _label351                                           ;@line 374
+					_label351:
+						Return None                                              ;@line 376
+						Jump _label346                                           ;@line 376
+					_label346:
+						Assign running False                                     ;@line 378
+						IAdd ::temp38 generation 1                               ;@line 379
+						Assign generation ::temp38                               ;@line 379
+						Assign recoveryGeneration generation                     ;@line 380
+						Assign token -1                                          ;@line 381
+						IAdd ::temp38 serial 1                                   ;@line 382
+						Assign serial ::temp38                                   ;@line 382
+						Assign recovering True                                   ;@line 383
+						Assign updating False                                    ;@line 384
+						Assign phase 0                                           ;@line 385
+						Cast ::temp39 None                                       ;@line 386
+						Assign shotTarget ::temp39                               ;@line 386
+						Assign faulted False                                     ;@line 387
+						Assign matricesReady False                               ;@line 388
+						Assign recoveryRequested False                           ;@line 389
+						CallMethod NormalizeTimingProperties self ::NoneVar      ;@line 391
+						Cast ::temp41 pinBusy                                    ;@line 392
+						JumpT ::temp41 _label352                                 ;@line 392
+						Cast ::temp41 sceneBusy                                  ;@line 392
+					_label352:
+						JumpF ::temp41 _label353                                 ;@line 392
+						Assign recoveryRequested True                            ;@line 395
+						Assign recovering False                                  ;@line 396
+						Return None                                              ;@line 397
+						Jump _label353                                           ;@line 397
+					_label353:
+						CallMethod UnregisterForUpdate self ::NoneVar            ;@line 399
+						CompareEQ ::temp40 generation recoveryGeneration         ;@line 400
+						Not ::temp40 ::temp40                                    ;@line 400
+						Cast ::temp41 ::temp40                                   ;@line 400
+						JumpT ::temp41 _label354                                 ;@line 400
+						CompareEQ ::temp37 token -1                              ;@line 400
+						Not ::temp37 ::temp37                                    ;@line 400
+						Cast ::temp41 ::temp37                                   ;@line 400
+					_label354:
+						JumpF ::temp41 _label355                                 ;@line 400
+						Return None                                              ;@line 401
+						Jump _label355                                           ;@line 401
+					_label355:
+						CallMethod ReleaseOwnedGuard self ::NoneVar              ;@line 403
+						CompareEQ ::temp40 generation recoveryGeneration         ;@line 404
+						Not ::temp40 ::temp40                                    ;@line 404
 						Cast ::temp41 ::temp40                                   ;@line 404
-						JumpT ::temp41 _label56                                  ;@line 404
-						Cast ::temp42 None                                       ;@line 404
-						CompareEQ ::temp37 ::Puesto_var ::temp42                 ;@line 404
+						JumpT ::temp41 _label356                                 ;@line 404
+						CompareEQ ::temp37 token -1                              ;@line 404
+						Not ::temp37 ::temp37                                    ;@line 404
 						Cast ::temp41 ::temp37                                   ;@line 404
-					_label56:
-						Cast ::temp37 ::temp41                                   ;@line 404
-						JumpT ::temp37 _label57                                  ;@line 404
-						Cast ::temp43 None                                       ;@line 404
-						CompareEQ ::temp40 ::Launcher_var ::temp43               ;@line 404
-						Cast ::temp37 ::temp40                                   ;@line 404
-					_label57:
-						Cast ::temp40 ::temp37                                   ;@line 404
-						JumpT ::temp40 _label58                                  ;@line 404
-						Cast ::temp44 None                                       ;@line 404
-						CompareEQ ::temp41 ::ShotAmmo_var ::temp44               ;@line 404
-						Cast ::temp40 ::temp41                                   ;@line 404
-					_label58:
-						JumpF ::temp40 _label59                                  ;@line 404
-						Assign faulted True                                      ;@line 405
-						Assign recovering False                                  ;@line 406
-						Return None                                              ;@line 407
-						Jump _label59                                            ;@line 407
-					_label59:
-						CallMethod Is3DLoaded self ::temp37                      ;@line 409
-						Assign gunLoaded ::temp37                                ;@line 409
-						CallMethod Is3DLoaded ::Artillero_var ::temp41           ;@line 410
-						Assign guardLoaded ::temp41                              ;@line 410
-						CallMethod IsDead ::Artillero_var ::temp40               ;@line 411
-						Assign guardDead ::temp40                                ;@line 411
-						CallMethod IsDisabled ::Artillero_var ::temp37           ;@line 412
-						Assign guardDisabled ::temp37                            ;@line 412
-						CompareEQ ::temp41 generation recoveryGeneration         ;@line 413
-						Not ::temp41 ::temp41                                    ;@line 413
-						Cast ::temp37 ::temp41                                   ;@line 413
-						JumpT ::temp37 _label60                                  ;@line 413
-						CompareEQ ::temp40 token -1                              ;@line 413
-						Not ::temp40 ::temp40                                    ;@line 413
-						Cast ::temp37 ::temp40                                   ;@line 413
-					_label60:
-						JumpF ::temp37 _label61                                  ;@line 413
-						Return None                                              ;@line 414
-						Jump _label61                                            ;@line 414
-					_label61:
-						Cast ::temp41 guardDead                                  ;@line 416
-						JumpT ::temp41 _label62                                  ;@line 416
-						Cast ::temp41 guardDisabled                              ;@line 416
-					_label62:
-						Cast ::temp40 ::temp41                                   ;@line 416
-						JumpT ::temp40 _label63                                  ;@line 416
-						Cast ::temp40 destroyed                                  ;@line 416
-					_label63:
-						JumpF ::temp40 _label64                                  ;@line 416
-						Assign faulted True                                      ;@line 417
-						Assign recovering False                                  ;@line 418
-						Return None                                              ;@line 419
-						Jump _label64                                            ;@line 419
-					_label64:
-						Not ::temp37 gunLoaded                                   ;@line 421
-						Cast ::temp40 ::temp37                                   ;@line 421
-						JumpT ::temp40 _label65                                  ;@line 421
-						Not ::temp41 guardLoaded                                 ;@line 421
-						Cast ::temp40 ::temp41                                   ;@line 421
-					_label65:
-						JumpF ::temp40 _label66                                  ;@line 421
-						Assign recovering False                                  ;@line 422
-						JumpF gunLoaded _label67                                 ;@line 423
-						CallMethod RegisterForSingleUpdate self ::NoneVar 1.000000  ;@line 424
-						Jump _label67                                            ;@line 424
-					_label67:
-						Return None                                              ;@line 426
-						Jump _label66                                            ;@line 426
-					_label66:
-						CallMethod EnsureCityPlacement self ::temp37 recoveryGeneration 0  ;@line 428
-						Assign placed ::temp37                                   ;@line 428
-						CompareEQ ::temp41 generation recoveryGeneration         ;@line 429
-						Not ::temp41 ::temp41                                    ;@line 429
-						Cast ::temp37 ::temp41                                   ;@line 429
-						JumpT ::temp37 _label68                                  ;@line 429
-						CompareEQ ::temp40 token -1                              ;@line 429
-						Not ::temp40 ::temp40                                    ;@line 429
-						Cast ::temp37 ::temp40                                   ;@line 429
-					_label68:
-						JumpF ::temp37 _label69                                  ;@line 429
+					_label356:
+						JumpF ::temp41 _label357                                 ;@line 404
+						Return None                                              ;@line 405
+						Jump _label357                                           ;@line 405
+					_label357:
+						CallStatic game GetPlayer ::temp39                       ;@line 407
+						Assign player ::temp39                                   ;@line 407
+						CompareEQ ::temp40 generation recoveryGeneration         ;@line 408
+						Not ::temp40 ::temp40                                    ;@line 408
+						Cast ::temp41 ::temp40                                   ;@line 408
+						JumpT ::temp41 _label358                                 ;@line 408
+						CompareEQ ::temp37 token -1                              ;@line 408
+						Not ::temp37 ::temp37                                    ;@line 408
+						Cast ::temp41 ::temp37                                   ;@line 408
+					_label358:
+						JumpF ::temp41 _label359                                 ;@line 408
+						Return None                                              ;@line 409
+						Jump _label359                                           ;@line 409
+					_label359:
+						CallMethod BlockActivation self ::NoneVar True           ;@line 411
+						CompareEQ ::temp40 generation recoveryGeneration         ;@line 412
+						Not ::temp40 ::temp40                                    ;@line 412
+						Cast ::temp41 ::temp40                                   ;@line 412
+						JumpT ::temp41 _label360                                 ;@line 412
+						CompareEQ ::temp37 token -1                              ;@line 412
+						Not ::temp37 ::temp37                                    ;@line 412
+						Cast ::temp41 ::temp37                                   ;@line 412
+					_label360:
+						JumpF ::temp41 _label361                                 ;@line 412
+						Return None                                              ;@line 413
+						Jump _label361                                           ;@line 413
+					_label361:
+						Cast ::temp37 destroyed                                  ;@line 415
+						JumpT ::temp37 _label362                                 ;@line 415
+						Cast ::temp39 None                                       ;@line 415
+						CompareEQ ::temp40 ::Artillero_var ::temp39              ;@line 415
+						Cast ::temp37 ::temp40                                   ;@line 415
+					_label362:
+						Cast ::temp40 ::temp37                                   ;@line 415
+						JumpT ::temp40 _label363                                 ;@line 415
+						CompareEQ ::temp41 ::Artillero_var player                ;@line 415
+						Cast ::temp40 ::temp41                                   ;@line 415
+					_label363:
+						Cast ::temp41 ::temp40                                   ;@line 415
+						JumpT ::temp41 _label364                                 ;@line 415
+						Cast ::temp42 None                                       ;@line 415
+						CompareEQ ::temp37 ::Puesto_var ::temp42                 ;@line 415
+						Cast ::temp41 ::temp37                                   ;@line 415
+					_label364:
+						Cast ::temp37 ::temp41                                   ;@line 415
+						JumpT ::temp37 _label365                                 ;@line 415
+						Cast ::temp43 None                                       ;@line 415
+						CompareEQ ::temp40 ::Launcher_var ::temp43               ;@line 415
+						Cast ::temp37 ::temp40                                   ;@line 415
+					_label365:
+						Cast ::temp40 ::temp37                                   ;@line 415
+						JumpT ::temp40 _label366                                 ;@line 415
+						Cast ::temp44 None                                       ;@line 415
+						CompareEQ ::temp41 ::ShotAmmo_var ::temp44               ;@line 415
+						Cast ::temp40 ::temp41                                   ;@line 415
+					_label366:
+						JumpF ::temp40 _label367                                 ;@line 415
+						Assign faulted True                                      ;@line 416
+						Assign recovering False                                  ;@line 417
+						Return None                                              ;@line 418
+						Jump _label367                                           ;@line 418
+					_label367:
+						CallMethod Is3DLoaded self ::temp37                      ;@line 420
+						Assign gunLoaded ::temp37                                ;@line 420
+						CallMethod Is3DLoaded ::Artillero_var ::temp41           ;@line 421
+						Assign guardLoaded ::temp41                              ;@line 421
+						CallMethod IsDead ::Artillero_var ::temp40               ;@line 422
+						Assign guardDead ::temp40                                ;@line 422
+						CallMethod IsDisabled ::Artillero_var ::temp37           ;@line 423
+						Assign guardDisabled ::temp37                            ;@line 423
+						CompareEQ ::temp41 generation recoveryGeneration         ;@line 424
+						Not ::temp41 ::temp41                                    ;@line 424
+						Cast ::temp37 ::temp41                                   ;@line 424
+						JumpT ::temp37 _label368                                 ;@line 424
+						CompareEQ ::temp40 token -1                              ;@line 424
+						Not ::temp40 ::temp40                                    ;@line 424
+						Cast ::temp37 ::temp40                                   ;@line 424
+					_label368:
+						JumpF ::temp37 _label369                                 ;@line 424
+						Return None                                              ;@line 425
+						Jump _label369                                           ;@line 425
+					_label369:
+						Cast ::temp41 guardDead                                  ;@line 427
+						JumpT ::temp41 _label370                                 ;@line 427
+						Cast ::temp41 guardDisabled                              ;@line 427
+					_label370:
+						Cast ::temp40 ::temp41                                   ;@line 427
+						JumpT ::temp40 _label371                                 ;@line 427
+						Cast ::temp40 destroyed                                  ;@line 427
+					_label371:
+						JumpF ::temp40 _label372                                 ;@line 427
+						Assign faulted True                                      ;@line 428
+						Assign recovering False                                  ;@line 429
 						Return None                                              ;@line 430
-						Jump _label69                                            ;@line 430
-					_label69:
-						Not ::temp41 placed                                      ;@line 432
-						JumpF ::temp41 _label70                                  ;@line 432
+						Jump _label372                                           ;@line 430
+					_label372:
+						Not ::temp37 gunLoaded                                   ;@line 432
+						Cast ::temp40 ::temp37                                   ;@line 432
+						JumpT ::temp40 _label373                                 ;@line 432
+						Not ::temp41 guardLoaded                                 ;@line 432
+						Cast ::temp40 ::temp41                                   ;@line 432
+					_label373:
+						JumpF ::temp40 _label374                                 ;@line 432
 						Assign recovering False                                  ;@line 433
-						Assign recoveryRequested True                            ;@line 434
-						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 435
-						Return None                                              ;@line 436
-						Jump _label70                                            ;@line 436
-					_label70:
-						CallMethod CaptureMatrices self ::temp40                 ;@line 438
-						Assign captured ::temp40                                 ;@line 438
-						CompareEQ ::temp37 generation recoveryGeneration         ;@line 439
-						Not ::temp37 ::temp37                                    ;@line 439
-						Cast ::temp40 ::temp37                                   ;@line 439
-						JumpT ::temp40 _label71                                  ;@line 439
-						CompareEQ ::temp41 token -1                              ;@line 439
-						Not ::temp41 ::temp41                                    ;@line 439
-						Cast ::temp40 ::temp41                                   ;@line 439
-					_label71:
-						JumpF ::temp40 _label72                                  ;@line 439
-						Return None                                              ;@line 440
-						Jump _label72                                            ;@line 440
-					_label72:
-						Not ::temp37 captured                                    ;@line 442
-						JumpF ::temp37 _label73                                  ;@line 442
-						Assign faulted True                                      ;@line 443
+						JumpF gunLoaded _label375                                ;@line 434
+						CallMethod RegisterForSingleUpdate self ::NoneVar 1.000000  ;@line 435
+						Jump _label375                                           ;@line 435
+					_label375:
+						Return None                                              ;@line 437
+						Jump _label374                                           ;@line 437
+					_label374:
+						CallMethod EnsureCityPlacement self ::temp37 recoveryGeneration 0  ;@line 439
+						Assign placed ::temp37                                   ;@line 439
+						CompareEQ ::temp41 generation recoveryGeneration         ;@line 440
+						Not ::temp41 ::temp41                                    ;@line 440
+						Cast ::temp37 ::temp41                                   ;@line 440
+						JumpT ::temp37 _label376                                 ;@line 440
+						CompareEQ ::temp40 token -1                              ;@line 440
+						Not ::temp40 ::temp40                                    ;@line 440
+						Cast ::temp37 ::temp40                                   ;@line 440
+					_label376:
+						JumpF ::temp37 _label377                                 ;@line 440
+						Return None                                              ;@line 441
+						Jump _label377                                           ;@line 441
+					_label377:
+						Not ::temp41 placed                                      ;@line 443
+						JumpF ::temp41 _label378                                 ;@line 443
 						Assign recovering False                                  ;@line 444
-						CallStatic debug Trace ::NoneVar "AstraAsedioGuard: missing or invalid model controls; controller stopped." 0  ;@line 445
-						Return None                                              ;@line 446
-						Jump _label73                                            ;@line 446
-					_label73:
-						CallMethod GetDistance ::Artillero_var ::temp45 ::Puesto_var  ;@line 448
-						Assign distance ::temp45                                 ;@line 448
-						CompareEQ ::temp41 generation recoveryGeneration         ;@line 449
-						Not ::temp41 ::temp41                                    ;@line 449
-						Cast ::temp37 ::temp41                                   ;@line 449
-						JumpT ::temp37 _label74                                  ;@line 449
-						CompareEQ ::temp40 token -1                              ;@line 449
-						Not ::temp40 ::temp40                                    ;@line 449
-						Cast ::temp37 ::temp40                                   ;@line 449
-					_label74:
-						JumpF ::temp37 _label75                                  ;@line 449
-						Return None                                              ;@line 450
-						Jump _label75                                            ;@line 450
-					_label75:
-						CallMethod Finite self ::temp41 distance 0.000000 1000000.000000  ;@line 452
-						Not ::temp40 ::temp41                                    ;@line 452
-						JumpF ::temp40 _label76                                  ;@line 452
-						Assign faulted True                                      ;@line 453
-						Assign recovering False                                  ;@line 454
-						Return None                                              ;@line 455
-						Jump _label76                                            ;@line 455
-					_label76:
-						CompareGT ::temp37 distance 64.000000                    ;@line 457
-						JumpF ::temp37 _label77                                  ;@line 457
-						Assign movingGuard ::Artillero_var                       ;@line 461
-						Assign recoveryPoint ::Puesto_var                        ;@line 462
-						Assign pinBusy True                                      ;@line 463
-						CallMethod MoveTo movingGuard ::NoneVar recoveryPoint 0.000000 0.000000 0.000000 True  ;@line 464
-						CompareEQ ::temp41 generation recoveryGeneration         ;@line 465
-						Cast ::temp41 ::temp41                                   ;@line 465
-						JumpF ::temp41 _label78                                  ;@line 465
-						CompareEQ ::temp40 token -1                              ;@line 465
-						Cast ::temp41 ::temp40                                   ;@line 465
-					_label78:
-						Cast ::temp40 ::temp41                                   ;@line 465
-						JumpF ::temp40 _label79                                  ;@line 465
-						Cast ::temp40 recovering                                 ;@line 465
-					_label79:
-						Cast ::temp40 ::temp40                                   ;@line 465
-						JumpF ::temp40 _label80                                  ;@line 465
-						Not ::temp41 playerReserved                              ;@line 465
-						Cast ::temp40 ::temp41                                   ;@line 465
-					_label80:
-						Cast ::temp40 ::temp40                                   ;@line 465
-						JumpF ::temp40 _label81                                  ;@line 465
-						Not ::temp41 destroyed                                   ;@line 465
-						Cast ::temp40 ::temp41                                   ;@line 465
-					_label81:
-						Cast ::temp40 ::temp40                                   ;@line 465
-						JumpF ::temp40 _label82                                  ;@line 465
-						Not ::temp41 faulted                                     ;@line 465
-						Cast ::temp40 ::temp41                                   ;@line 465
-					_label82:
-						Assign moveCurrent ::temp40                              ;@line 465
-						Assign pinBusy False                                     ;@line 466
-						Not ::temp41 moveCurrent                                 ;@line 467
-						JumpF ::temp41 _label83                                  ;@line 467
-						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 468
-						Return None                                              ;@line 469
-						Jump _label83                                            ;@line 469
-					_label83:
-						Jump _label77                                            ;@line 469
-					_label77:
-						CallMethod IsDead ::Artillero_var ::temp40               ;@line 472
-						Not ::temp41 ::temp40                                    ;@line 472
-						Cast ::temp37 ::temp41                                   ;@line 472
-						JumpF ::temp37 _label84                                  ;@line 472
-						CallMethod IsDisabled ::Artillero_var ::temp37           ;@line 472
-						Not ::temp40 ::temp37                                    ;@line 472
-						Cast ::temp37 ::temp40                                   ;@line 472
-					_label84:
-						Cast ::temp40 ::temp37                                   ;@line 472
-						JumpF ::temp40 _label85                                  ;@line 472
-						CallMethod Is3DLoaded ::Artillero_var ::temp41           ;@line 472
-						Cast ::temp40 ::temp41                                   ;@line 472
-					_label85:
-						Assign aliveAfterMove ::temp40                           ;@line 472
-						CompareEQ ::temp37 generation recoveryGeneration         ;@line 473
-						Not ::temp37 ::temp37                                    ;@line 473
-						Cast ::temp40 ::temp37                                   ;@line 473
-						JumpT ::temp40 _label86                                  ;@line 473
-						CompareEQ ::temp41 token -1                              ;@line 473
-						Not ::temp41 ::temp41                                    ;@line 473
-						Cast ::temp40 ::temp41                                   ;@line 473
-					_label86:
-						JumpF ::temp40 _label87                                  ;@line 473
-						Return None                                              ;@line 474
-						Jump _label87                                            ;@line 474
-					_label87:
-						Not ::temp37 aliveAfterMove                              ;@line 476
-						JumpF ::temp37 _label88                                  ;@line 476
-						Assign faulted True                                      ;@line 477
-						Assign recovering False                                  ;@line 478
-						Return None                                              ;@line 479
-						Jump _label88                                            ;@line 479
-					_label88:
-						CallMethod AcquirePin self ::temp41 recoveryGeneration   ;@line 481
-						Assign pinAcquired ::temp41                              ;@line 481
-						CompareEQ ::temp40 generation recoveryGeneration         ;@line 482
-						Not ::temp40 ::temp40                                    ;@line 482
-						Cast ::temp41 ::temp40                                   ;@line 482
-						JumpT ::temp41 _label89                                  ;@line 482
-						CompareEQ ::temp37 token -1                              ;@line 482
-						Not ::temp37 ::temp37                                    ;@line 482
-						Cast ::temp41 ::temp37                                   ;@line 482
-					_label89:
-						JumpF ::temp41 _label90                                  ;@line 482
-						Return None                                              ;@line 483
-						Jump _label90                                            ;@line 483
-					_label90:
-						Not ::temp40 pinAcquired                                 ;@line 485
-						JumpF ::temp40 _label91                                  ;@line 485
-						Assign faulted True                                      ;@line 486
-						Assign recovering False                                  ;@line 487
-						Return None                                              ;@line 488
-						Jump _label91                                            ;@line 488
-					_label91:
-						Assign yaw 0.000000                                      ;@line 490
-						Assign pitch 0.000000                                    ;@line 491
-						Assign token serial                                      ;@line 492
-						Assign running True                                      ;@line 493
-						Assign recovering False                                  ;@line 494
-						Assign recoveryToken token                               ;@line 495
-						CallStatic utility GetCurrentRealTime ::temp45           ;@line 496
-						Assign now ::temp45                                      ;@line 496
-						CallMethod Current self ::temp37 recoveryGeneration recoveryToken  ;@line 497
-						Not ::temp41 ::temp37                                    ;@line 497
-						JumpF ::temp41 _label92                                  ;@line 497
-						Return None                                              ;@line 498
-						Jump _label92                                            ;@line 498
-					_label92:
-						CallMethod Finite self ::temp40 now 0.000000 1000000000.000000  ;@line 500
-						Not ::temp37 ::temp40                                    ;@line 500
-						JumpF ::temp37 _label93                                  ;@line 500
-						Assign faulted True                                      ;@line 501
-						CallMethod Shutdown self ::NoneVar                       ;@line 502
-						Return None                                              ;@line 503
-						Jump _label93                                            ;@line 503
-					_label93:
-						Assign lastTick now                                      ;@line 505
-						CallMethod SafeCadenceSeconds self ::temp45              ;@line 506
-						FAdd ::temp45 now ::temp45                               ;@line 506
-						Assign nextShotAt ::temp45                               ;@line 506
-						CallMethod PlaySceneAnimation self ::temp41 "Reset" recoveryGeneration recoveryToken  ;@line 507
-						Assign resetStarted ::temp41                             ;@line 507
-						CallMethod Current self ::temp40 recoveryGeneration recoveryToken  ;@line 508
-						Not ::temp37 ::temp40                                    ;@line 508
-						JumpF ::temp37 _label94                                  ;@line 508
+						Assign recoveryRequested True                            ;@line 445
+						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 446
+						Return None                                              ;@line 447
+						Jump _label378                                           ;@line 447
+					_label378:
+						CallMethod CaptureMatrices self ::temp40                 ;@line 449
+						Assign captured ::temp40                                 ;@line 449
+						CompareEQ ::temp37 generation recoveryGeneration         ;@line 450
+						Not ::temp37 ::temp37                                    ;@line 450
+						Cast ::temp40 ::temp37                                   ;@line 450
+						JumpT ::temp40 _label379                                 ;@line 450
+						CompareEQ ::temp41 token -1                              ;@line 450
+						Not ::temp41 ::temp41                                    ;@line 450
+						Cast ::temp40 ::temp41                                   ;@line 450
+					_label379:
+						JumpF ::temp40 _label380                                 ;@line 450
+						Return None                                              ;@line 451
+						Jump _label380                                           ;@line 451
+					_label380:
+						Not ::temp37 captured                                    ;@line 453
+						JumpF ::temp37 _label381                                 ;@line 453
+						Assign faulted True                                      ;@line 454
+						Assign recovering False                                  ;@line 455
+						CallStatic debug Trace ::NoneVar "AstraAsedioGuard: missing or invalid model controls; controller stopped." 0  ;@line 456
+						Return None                                              ;@line 457
+						Jump _label381                                           ;@line 457
+					_label381:
+						CallMethod GetDistance ::Artillero_var ::temp45 ::Puesto_var  ;@line 459
+						Assign distance ::temp45                                 ;@line 459
+						CompareEQ ::temp41 generation recoveryGeneration         ;@line 460
+						Not ::temp41 ::temp41                                    ;@line 460
+						Cast ::temp37 ::temp41                                   ;@line 460
+						JumpT ::temp37 _label382                                 ;@line 460
+						CompareEQ ::temp40 token -1                              ;@line 460
+						Not ::temp40 ::temp40                                    ;@line 460
+						Cast ::temp37 ::temp40                                   ;@line 460
+					_label382:
+						JumpF ::temp37 _label383                                 ;@line 460
+						Return None                                              ;@line 461
+						Jump _label383                                           ;@line 461
+					_label383:
+						CallMethod Finite self ::temp41 distance 0.000000 1000000.000000  ;@line 463
+						Not ::temp40 ::temp41                                    ;@line 463
+						JumpF ::temp40 _label384                                 ;@line 463
+						Assign faulted True                                      ;@line 464
+						Assign recovering False                                  ;@line 465
+						Return None                                              ;@line 466
+						Jump _label384                                           ;@line 466
+					_label384:
+						CompareGT ::temp37 distance 64.000000                    ;@line 468
+						JumpF ::temp37 _label385                                 ;@line 468
+						Assign movingGuard ::Artillero_var                       ;@line 472
+						Assign recoveryPoint ::Puesto_var                        ;@line 473
+						Assign pinBusy True                                      ;@line 474
+						CallMethod MoveTo movingGuard ::NoneVar recoveryPoint 0.000000 0.000000 0.000000 True  ;@line 475
+						CompareEQ ::temp41 generation recoveryGeneration         ;@line 476
+						Cast ::temp41 ::temp41                                   ;@line 476
+						JumpF ::temp41 _label386                                 ;@line 476
+						CompareEQ ::temp40 token -1                              ;@line 476
+						Cast ::temp41 ::temp40                                   ;@line 476
+					_label386:
+						Cast ::temp40 ::temp41                                   ;@line 476
+						JumpF ::temp40 _label387                                 ;@line 476
+						Cast ::temp40 recovering                                 ;@line 476
+					_label387:
+						Cast ::temp40 ::temp40                                   ;@line 476
+						JumpF ::temp40 _label388                                 ;@line 476
+						Not ::temp41 playerReserved                              ;@line 476
+						Cast ::temp40 ::temp41                                   ;@line 476
+					_label388:
+						Cast ::temp40 ::temp40                                   ;@line 476
+						JumpF ::temp40 _label389                                 ;@line 476
+						Not ::temp41 destroyed                                   ;@line 476
+						Cast ::temp40 ::temp41                                   ;@line 476
+					_label389:
+						Cast ::temp40 ::temp40                                   ;@line 476
+						JumpF ::temp40 _label390                                 ;@line 476
+						Not ::temp41 faulted                                     ;@line 476
+						Cast ::temp40 ::temp41                                   ;@line 476
+					_label390:
+						Assign moveCurrent ::temp40                              ;@line 476
+						Assign pinBusy False                                     ;@line 477
+						Not ::temp41 moveCurrent                                 ;@line 478
+						JumpF ::temp41 _label391                                 ;@line 478
+						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 479
+						Return None                                              ;@line 480
+						Jump _label391                                           ;@line 480
+					_label391:
+						Jump _label385                                           ;@line 480
+					_label385:
+						CallMethod IsDead ::Artillero_var ::temp40               ;@line 483
+						Not ::temp41 ::temp40                                    ;@line 483
+						Cast ::temp37 ::temp41                                   ;@line 483
+						JumpF ::temp37 _label392                                 ;@line 483
+						CallMethod IsDisabled ::Artillero_var ::temp37           ;@line 483
+						Not ::temp40 ::temp37                                    ;@line 483
+						Cast ::temp37 ::temp40                                   ;@line 483
+					_label392:
+						Cast ::temp40 ::temp37                                   ;@line 483
+						JumpF ::temp40 _label393                                 ;@line 483
+						CallMethod Is3DLoaded ::Artillero_var ::temp41           ;@line 483
+						Cast ::temp40 ::temp41                                   ;@line 483
+					_label393:
+						Assign aliveAfterMove ::temp40                           ;@line 483
+						CompareEQ ::temp37 generation recoveryGeneration         ;@line 484
+						Not ::temp37 ::temp37                                    ;@line 484
+						Cast ::temp40 ::temp37                                   ;@line 484
+						JumpT ::temp40 _label394                                 ;@line 484
+						CompareEQ ::temp41 token -1                              ;@line 484
+						Not ::temp41 ::temp41                                    ;@line 484
+						Cast ::temp40 ::temp41                                   ;@line 484
+					_label394:
+						JumpF ::temp40 _label395                                 ;@line 484
+						Return None                                              ;@line 485
+						Jump _label395                                           ;@line 485
+					_label395:
+						Not ::temp37 aliveAfterMove                              ;@line 487
+						JumpF ::temp37 _label396                                 ;@line 487
+						Assign faulted True                                      ;@line 488
+						Assign recovering False                                  ;@line 489
+						Return None                                              ;@line 490
+						Jump _label396                                           ;@line 490
+					_label396:
+						CallMethod AcquirePin self ::temp41 recoveryGeneration   ;@line 492
+						Assign pinAcquired ::temp41                              ;@line 492
+						CompareEQ ::temp40 generation recoveryGeneration         ;@line 493
+						Not ::temp40 ::temp40                                    ;@line 493
+						Cast ::temp41 ::temp40                                   ;@line 493
+						JumpT ::temp41 _label397                                 ;@line 493
+						CompareEQ ::temp37 token -1                              ;@line 493
+						Not ::temp37 ::temp37                                    ;@line 493
+						Cast ::temp41 ::temp37                                   ;@line 493
+					_label397:
+						JumpF ::temp41 _label398                                 ;@line 493
+						Return None                                              ;@line 494
+						Jump _label398                                           ;@line 494
+					_label398:
+						Not ::temp40 pinAcquired                                 ;@line 496
+						JumpF ::temp40 _label399                                 ;@line 496
+						Assign faulted True                                      ;@line 497
+						Assign recovering False                                  ;@line 498
+						Return None                                              ;@line 499
+						Jump _label399                                           ;@line 499
+					_label399:
+						Assign yaw 0.000000                                      ;@line 501
+						Assign pitch 0.000000                                    ;@line 502
+						Assign token serial                                      ;@line 503
+						Assign running True                                      ;@line 504
+						Assign recovering False                                  ;@line 505
+						Assign recoveryToken token                               ;@line 506
+						CallStatic utility GetCurrentRealTime ::temp45           ;@line 507
+						Assign now ::temp45                                      ;@line 507
+						CallMethod Current self ::temp37 recoveryGeneration recoveryToken  ;@line 508
+						Not ::temp41 ::temp37                                    ;@line 508
+						JumpF ::temp41 _label400                                 ;@line 508
 						Return None                                              ;@line 509
-						Jump _label94                                            ;@line 509
-					_label94:
-						Not ::temp41 resetStarted                                ;@line 511
-						JumpF ::temp41 _label95                                  ;@line 511
+						Jump _label400                                           ;@line 509
+					_label400:
+						CallMethod Finite self ::temp40 now 0.000000 1000000000.000000  ;@line 511
+						Not ::temp37 ::temp40                                    ;@line 511
+						JumpF ::temp37 _label401                                 ;@line 511
 						Assign faulted True                                      ;@line 512
 						CallMethod Shutdown self ::NoneVar                       ;@line 513
 						Return None                                              ;@line 514
-						Jump _label95                                            ;@line 514
-					_label95:
-						CallMethod ApplyAim self ::NoneVar recoveryGeneration recoveryToken  ;@line 516
-						CallMethod Current self ::temp40 recoveryGeneration recoveryToken  ;@line 517
-						Not ::temp37 ::temp40                                    ;@line 517
-						JumpF ::temp37 _label96                                  ;@line 517
-						Return None                                              ;@line 518
-						Jump _label96                                            ;@line 518
-					_label96:
-						CallMethod SetVisualBolt self ::NoneVar 1.000000 recoveryGeneration recoveryToken  ;@line 520
-						CallMethod Current self ::temp41 recoveryGeneration recoveryToken  ;@line 521
-						JumpF ::temp41 _label97                                  ;@line 521
-						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 522
-						Jump _label97                                            ;@line 522
-					_label97:
-					.endCode
-				.endFunction
-				.function Shutdown
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp46 Int
-						.local ::temp47 actor
-						.local ::NoneVar None
-						.local ::temp48 Bool
-						.local ::temp49 Bool
-						.local cleanupGeneration Int
-					.endLocalTable
-					.code
-						Assign running False                                     ;@line 527
-						IAdd ::temp46 generation 1                               ;@line 528
-						Assign generation ::temp46                               ;@line 528
-						Assign cleanupGeneration generation                      ;@line 529
-						Assign token -1                                          ;@line 530
-						Assign recovering False                                  ;@line 531
-						Assign updating False                                    ;@line 532
-						Assign phase 0                                           ;@line 533
-						Cast ::temp47 None                                       ;@line 534
-						Assign shotTarget ::temp47                               ;@line 534
-						Assign matricesReady False                               ;@line 535
-						Assign recoveryRequested False                           ;@line 536
-						CallMethod UnregisterForUpdate self ::NoneVar            ;@line 537
-						CompareEQ ::temp48 generation cleanupGeneration          ;@line 538
-						Not ::temp48 ::temp48                                    ;@line 538
-						Cast ::temp48 ::temp48                                   ;@line 538
-						JumpT ::temp48 _label98                                  ;@line 538
-						CompareEQ ::temp49 token -1                              ;@line 538
-						Not ::temp49 ::temp49                                    ;@line 538
-						Cast ::temp48 ::temp49                                   ;@line 538
-					_label98:
-						JumpF ::temp48 _label99                                  ;@line 538
-						Return None                                              ;@line 539
-						Jump _label99                                            ;@line 539
-					_label99:
-						CallMethod ReleaseOwnedGuard self ::NoneVar              ;@line 543
-						CompareEQ ::temp49 generation cleanupGeneration          ;@line 544
-						Not ::temp49 ::temp49                                    ;@line 544
-						Cast ::temp49 ::temp49                                   ;@line 544
-						JumpT ::temp49 _label100                                 ;@line 544
-						CompareEQ ::temp48 token -1                              ;@line 544
-						Not ::temp48 ::temp48                                    ;@line 544
-						Cast ::temp49 ::temp48                                   ;@line 544
-					_label100:
-						JumpF ::temp49 _label101                                 ;@line 544
-						Return None                                              ;@line 545
-						Jump _label101                                           ;@line 545
-					_label101:
-						Not ::temp48 sceneBusy                                   ;@line 547
-						JumpF ::temp48 _label102                                 ;@line 547
-						Assign sceneBusy True                                    ;@line 548
-						CallMethod RestoreNeutralScene self ::NoneVar            ;@line 549
-						Assign sceneBusy False                                   ;@line 550
-						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 551
-						Jump _label102                                           ;@line 551
-					_label102:
-					.endCode
-				.endFunction
-				.function PointNearSegment
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param px Float
-						.param py Float
-						.param pz Float
-						.param ax Float
-						.param ay Float
-						.param az Float
-						.param bx Float
-						.param by Float
-						.param bz Float
-						.param radius Float
-					.endParamTable
-					.localTable
-						.local ::temp117 Float
-						.local ::temp118 Float
-						.local ::temp119 Bool
-						.local ::temp120 Bool
-						.local dx Float
-						.local dy Float
-						.local dz Float
-						.local lengthSquared Float
-						.local along Float
-					.endLocalTable
-					.code
-						FSubtract ::temp117 bx ax                                ;@line 930
-						Assign dx ::temp117                                      ;@line 930
-						FSubtract ::temp117 by ay                                ;@line 931
-						Assign dy ::temp117                                      ;@line 931
-						FSubtract ::temp117 bz az                                ;@line 932
-						Assign dz ::temp117                                      ;@line 932
-						FMultiply ::temp117 dx dx                                ;@line 933
-						FMultiply ::temp118 dy dy                                ;@line 933
-						FAdd ::temp117 ::temp117 ::temp118                       ;@line 933
-						FMultiply ::temp118 dz dz                                ;@line 933
-						FAdd ::temp117 ::temp117 ::temp118                       ;@line 933
-						Assign lengthSquared ::temp117                           ;@line 933
-						CompareLTE ::temp119 lengthSquared 0.000010              ;@line 934
-						JumpF ::temp119 _label103                                ;@line 934
-						Return True                                              ;@line 935
-						Jump _label103                                           ;@line 935
-					_label103:
-						FSubtract ::temp118 px ax                                ;@line 937
-						FMultiply ::temp117 ::temp118 dx                         ;@line 937
-						FSubtract ::temp118 py ay                                ;@line 937
-						FMultiply ::temp118 ::temp118 dy                         ;@line 937
-						FAdd ::temp117 ::temp117 ::temp118                       ;@line 937
-						FSubtract ::temp118 pz az                                ;@line 937
-						FMultiply ::temp118 ::temp118 dz                         ;@line 937
-						FAdd ::temp117 ::temp117 ::temp118                       ;@line 937
-						FDivide ::temp118 ::temp117 lengthSquared                ;@line 937
-						Assign along ::temp118                                   ;@line 937
-						CompareLT ::temp119 along 0.000000                       ;@line 938
-						JumpF ::temp119 _label104                                ;@line 938
-						Assign along 0.000000                                    ;@line 939
-						Jump _label105                                           ;@line 939
-					_label104:
-						CompareGT ::temp120 along 1.000000                       ;@line 940
-						JumpF ::temp120 _label105                                ;@line 940
-						Assign along 1.000000                                    ;@line 941
-						Jump _label105                                           ;@line 941
-					_label105:
-						FMultiply ::temp117 along dx                             ;@line 943
-						FAdd ::temp118 ax ::temp117                              ;@line 943
-						FSubtract ::temp117 px ::temp118                         ;@line 943
-						Assign dx ::temp117                                      ;@line 943
-						FMultiply ::temp118 along dy                             ;@line 944
-						FAdd ::temp117 ay ::temp118                              ;@line 944
-						FSubtract ::temp118 py ::temp117                         ;@line 944
-						Assign dy ::temp118                                      ;@line 944
-						FMultiply ::temp117 along dz                             ;@line 945
-						FAdd ::temp118 az ::temp117                              ;@line 945
-						FSubtract ::temp117 pz ::temp118                         ;@line 945
-						Assign dz ::temp117                                      ;@line 945
-						FMultiply ::temp118 dx dx                                ;@line 946
-						FMultiply ::temp117 dy dy                                ;@line 946
-						FAdd ::temp118 ::temp118 ::temp117                       ;@line 946
-						FMultiply ::temp117 dz dz                                ;@line 946
-						FAdd ::temp118 ::temp118 ::temp117                       ;@line 946
-						FMultiply ::temp117 radius radius                        ;@line 946
-						CompareLTE ::temp120 ::temp118 ::temp117                 ;@line 946
-						Return ::temp120                                         ;@line 946
+						Jump _label401                                           ;@line 514
+					_label401:
+						Assign lastTick now                                      ;@line 516
+						CallMethod SafeCadenceSeconds self ::temp45              ;@line 517
+						FAdd ::temp45 now ::temp45                               ;@line 517
+						Assign nextShotAt ::temp45                               ;@line 517
+						CallMethod PlaySceneAnimation self ::temp41 "Reset" recoveryGeneration recoveryToken  ;@line 518
+						Assign resetStarted ::temp41                             ;@line 518
+						CallMethod Current self ::temp40 recoveryGeneration recoveryToken  ;@line 519
+						Not ::temp37 ::temp40                                    ;@line 519
+						JumpF ::temp37 _label402                                 ;@line 519
+						Return None                                              ;@line 520
+						Jump _label402                                           ;@line 520
+					_label402:
+						Not ::temp41 resetStarted                                ;@line 522
+						JumpF ::temp41 _label403                                 ;@line 522
+						Assign faulted True                                      ;@line 523
+						CallMethod Shutdown self ::NoneVar                       ;@line 524
+						Return None                                              ;@line 525
+						Jump _label403                                           ;@line 525
+					_label403:
+						CallMethod ApplyAim self ::NoneVar recoveryGeneration recoveryToken  ;@line 527
+						CallMethod Current self ::temp40 recoveryGeneration recoveryToken  ;@line 528
+						Not ::temp37 ::temp40                                    ;@line 528
+						JumpF ::temp37 _label404                                 ;@line 528
+						Return None                                              ;@line 529
+						Jump _label404                                           ;@line 529
+					_label404:
+						CallMethod PositionOperator self ::temp41 recoveryGeneration recoveryToken  ;@line 531
+						Assign positioned ::temp41                               ;@line 531
+						CallMethod Current self ::temp40 recoveryGeneration recoveryToken  ;@line 532
+						Not ::temp37 ::temp40                                    ;@line 532
+						JumpF ::temp37 _label405                                 ;@line 532
+						Return None                                              ;@line 533
+						Jump _label405                                           ;@line 533
+					_label405:
+						Cast ::temp40 positioned                                 ;@line 535
+						JumpF ::temp40 _label406                                 ;@line 535
+						CallMethod StartGuardPose self ::temp41 recoveryGeneration recoveryToken  ;@line 535
+						Cast ::temp40 ::temp41                                   ;@line 535
+					_label406:
+						Assign posed ::temp40                                    ;@line 535
+						CallMethod Current self ::temp37 recoveryGeneration recoveryToken  ;@line 536
+						Not ::temp41 ::temp37                                    ;@line 536
+						JumpF ::temp41 _label407                                 ;@line 536
+						Return None                                              ;@line 537
+						Jump _label407                                           ;@line 537
+					_label407:
+						Not ::temp40 posed                                       ;@line 539
+						JumpF ::temp40 _label408                                 ;@line 539
+						Assign faulted True                                      ;@line 540
+						CallMethod Shutdown self ::NoneVar                       ;@line 541
+						Return None                                              ;@line 542
+						Jump _label408                                           ;@line 542
+					_label408:
+						CallMethod SetVisualBolt self ::NoneVar 1.000000 recoveryGeneration recoveryToken  ;@line 544
+						CallMethod Current self ::temp37 recoveryGeneration recoveryToken  ;@line 545
+						JumpF ::temp37 _label409                                 ;@line 545
+						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 546
+						Jump _label409                                           ;@line 546
+					_label409:
 					.endCode
 				.endFunction
 				.function PlayerClear
@@ -1381,11 +4215,11 @@
 						.param expectedToken Int
 					.endParamTable
 					.localTable
-						.local ::temp121 actor
-						.local ::temp122 Bool
-						.local ::temp123 Bool
-						.local ::temp124 Float
-						.local ::temp125 Float
+						.local ::temp117 actor
+						.local ::temp118 Bool
+						.local ::temp119 Bool
+						.local ::temp120 Float
+						.local ::temp121 Float
 						.local player actor
 						.local playerLoaded Bool
 						.local px Float
@@ -1407,184 +4241,403 @@
 						.local ey Float
 						.local ez Float
 						.local sample Int
-						.local ::temp126 Bool
-						.local ::temp127 Int
+						.local ::temp122 Bool
+						.local ::temp123 Int
 					.endLocalTable
 					.code
-						CallStatic game GetPlayer ::temp121                      ;@line 950
-						Assign player ::temp121                                  ;@line 950
-						CallMethod Current self ::temp122 expectedGeneration expectedToken  ;@line 951
-						Not ::temp122 ::temp122                                  ;@line 951
-						Cast ::temp122 ::temp122                                 ;@line 951
-						JumpT ::temp122 _label106                                ;@line 951
-						Cast ::temp121 None                                      ;@line 951
-						CompareEQ ::temp123 player ::temp121                     ;@line 951
-						Cast ::temp122 ::temp123                                 ;@line 951
-					_label106:
-						JumpF ::temp122 _label107                                ;@line 951
+						CallStatic game GetPlayer ::temp117                      ;@line 908
+						Assign player ::temp117                                  ;@line 908
+						CallMethod Current self ::temp118 expectedGeneration expectedToken  ;@line 909
+						Not ::temp118 ::temp118                                  ;@line 909
+						Cast ::temp118 ::temp118                                 ;@line 909
+						JumpT ::temp118 _label410                                ;@line 909
+						Cast ::temp117 None                                      ;@line 909
+						CompareEQ ::temp119 player ::temp117                     ;@line 909
+						Cast ::temp118 ::temp119                                 ;@line 909
+					_label410:
+						JumpF ::temp118 _label411                                ;@line 909
+						Return False                                             ;@line 910
+						Jump _label411                                           ;@line 910
+					_label411:
+						CallMethod Is3DLoaded player ::temp119                   ;@line 912
+						Assign playerLoaded ::temp119                            ;@line 912
+						CallMethod GetPositionX player ::temp120                 ;@line 913
+						Assign px ::temp120                                      ;@line 913
+						CallMethod GetPositionY player ::temp120                 ;@line 914
+						Assign py ::temp120                                      ;@line 914
+						CallMethod GetPositionZ player ::temp120                 ;@line 915
+						Assign pz ::temp120                                      ;@line 915
+						CallMethod GetHeight player ::temp120                    ;@line 916
+						Assign height ::temp120                                  ;@line 916
+						CallMethod Current self ::temp118 expectedGeneration expectedToken  ;@line 917
+						Not ::temp119 ::temp118                                  ;@line 917
+						Cast ::temp119 ::temp119                                 ;@line 917
+						JumpT ::temp119 _label412                                ;@line 917
+						Not ::temp118 playerLoaded                               ;@line 917
+						Cast ::temp119 ::temp118                                 ;@line 917
+					_label412:
+						Cast ::temp119 ::temp119                                 ;@line 917
+						JumpT ::temp119 _label413                                ;@line 917
+						CallMethod Finite self ::temp118 px -1000000.000000 1000000.000000  ;@line 917
+						Not ::temp118 ::temp118                                  ;@line 917
+						Cast ::temp119 ::temp118                                 ;@line 917
+					_label413:
+						Cast ::temp119 ::temp119                                 ;@line 917
+						JumpT ::temp119 _label414                                ;@line 917
+						CallMethod Finite self ::temp118 py -1000000.000000 1000000.000000  ;@line 917
+						Not ::temp118 ::temp118                                  ;@line 917
+						Cast ::temp119 ::temp118                                 ;@line 917
+					_label414:
+						Cast ::temp119 ::temp119                                 ;@line 917
+						JumpT ::temp119 _label415                                ;@line 917
+						CallMethod Finite self ::temp118 pz -1000000.000000 1000000.000000  ;@line 917
+						Not ::temp118 ::temp118                                  ;@line 917
+						Cast ::temp119 ::temp118                                 ;@line 917
+					_label415:
+						Cast ::temp119 ::temp119                                 ;@line 917
+						JumpT ::temp119 _label416                                ;@line 917
+						CallMethod Finite self ::temp118 height 1.000000 512.000000  ;@line 917
+						Not ::temp118 ::temp118                                  ;@line 917
+						Cast ::temp119 ::temp118                                 ;@line 917
+					_label416:
+						JumpF ::temp119 _label417                                ;@line 917
+						Return False                                             ;@line 918
+						Jump _label417                                           ;@line 918
+					_label417:
+						CompareLT ::temp118 height 128.000000                    ;@line 920
+						JumpF ::temp118 _label418                                ;@line 920
+						Assign height 128.000000                                 ;@line 921
+						Jump _label418                                           ;@line 921
+					_label418:
+						FAdd ::temp120 height 64.000000                          ;@line 923
+						Assign height ::temp120                                  ;@line 923
+						FDivide ::temp120 height 8.000000                        ;@line 928
+						FAdd ::temp120 80.000000 ::temp120                       ;@line 928
+						Assign radius ::temp120                                  ;@line 928
+						ArrayGetElement ::temp120 muzzleWorldMatrix 1            ;@line 929
+						Assign bx ::temp120                                      ;@line 929
+						ArrayGetElement ::temp120 muzzleWorldMatrix 4            ;@line 930
+						Assign by ::temp120                                      ;@line 930
+						ArrayGetElement ::temp120 muzzleWorldMatrix 7            ;@line 931
+						Assign bz ::temp120                                      ;@line 931
+						FMultiply ::temp120 bx bx                                ;@line 932
+						FMultiply ::temp121 by by                                ;@line 932
+						FAdd ::temp120 ::temp120 ::temp121                       ;@line 932
+						CallStatic math Sqrt ::temp121 ::temp120                 ;@line 932
+						Assign boreHorizontal ::temp121                          ;@line 932
+						CompareLT ::temp119 boreHorizontal 0.010000              ;@line 933
+						JumpF ::temp119 _label419                                ;@line 933
+						Return False                                             ;@line 934
+						Jump _label419                                           ;@line 934
+					_label419:
+						FMultiply ::temp120 ::ProjectileSpeed_var boreHorizontal  ;@line 936
+						FDivide ::temp121 targetHorizontal ::temp120             ;@line 936
+						Assign totalTime ::temp121                               ;@line 936
+						CallMethod Finite self ::temp118 totalTime 0.000010 30.000000  ;@line 937
+						Not ::temp119 ::temp118                                  ;@line 937
+						JumpF ::temp119 _label420                                ;@line 937
+						Return False                                             ;@line 938
+						Jump _label420                                           ;@line 938
+					_label420:
+						ArrayGetElement ::temp120 muzzlePosition 0               ;@line 940
+						Assign ax ::temp120                                      ;@line 940
+						ArrayGetElement ::temp121 muzzlePosition 1               ;@line 941
+						Assign ay ::temp121                                      ;@line 941
+						ArrayGetElement ::temp120 muzzlePosition 2               ;@line 942
+						Assign az ::temp120                                      ;@line 942
+						Assign step 1                                            ;@line 943
+					_label425:
+						CompareLTE ::temp118 step 8                              ;@line 944
+						JumpF ::temp118 _label421                                ;@line 944
+						Cast ::temp121 step                                      ;@line 945
+						FMultiply ::temp120 totalTime ::temp121                  ;@line 945
+						FDivide ::temp121 ::temp120 8.000000                     ;@line 945
+						Assign t ::temp121                                       ;@line 945
+						ArrayGetElement ::temp120 muzzlePosition 0               ;@line 946
+						FMultiply ::temp121 bx ::ProjectileSpeed_var             ;@line 946
+						FMultiply ::temp121 ::temp121 t                          ;@line 946
+						FAdd ::temp120 ::temp120 ::temp121                       ;@line 946
+						Assign ex ::temp120                                      ;@line 946
+						ArrayGetElement ::temp121 muzzlePosition 1               ;@line 947
+						FMultiply ::temp120 by ::ProjectileSpeed_var             ;@line 947
+						FMultiply ::temp120 ::temp120 t                          ;@line 947
+						FAdd ::temp121 ::temp121 ::temp120                       ;@line 947
+						Assign ey ::temp121                                      ;@line 947
+						ArrayGetElement ::temp120 muzzlePosition 2               ;@line 948
+						FMultiply ::temp121 bz ::ProjectileSpeed_var             ;@line 948
+						FMultiply ::temp121 ::temp121 t                          ;@line 948
+						FAdd ::temp120 ::temp120 ::temp121                       ;@line 948
+						FMultiply ::temp121 0.500000 ::ProjectileGravity_var     ;@line 948
+						FMultiply ::temp121 ::temp121 t                          ;@line 948
+						FMultiply ::temp121 ::temp121 t                          ;@line 948
+						FSubtract ::temp120 ::temp120 ::temp121                  ;@line 948
+						Assign ez ::temp120                                      ;@line 948
+						Assign sample 0                                          ;@line 949
+					_label424:
+						CompareLTE ::temp119 sample 4                            ;@line 950
+						JumpF ::temp119 _label422                                ;@line 950
+						Cast ::temp121 sample                                    ;@line 951
+						FMultiply ::temp120 height ::temp121                     ;@line 951
+						FDivide ::temp121 ::temp120 4.000000                     ;@line 951
+						FAdd ::temp120 pz ::temp121                              ;@line 951
+						CallMethod PointNearSegment self ::temp122 px py ::temp120 ax ay az ex ey ez radius  ;@line 951
+						JumpF ::temp122 _label423                                ;@line 951
 						Return False                                             ;@line 952
-						Jump _label107                                           ;@line 952
-					_label107:
-						CallMethod Is3DLoaded player ::temp123                   ;@line 954
-						Assign playerLoaded ::temp123                            ;@line 954
-						CallMethod GetPositionX player ::temp124                 ;@line 955
-						Assign px ::temp124                                      ;@line 955
-						CallMethod GetPositionY player ::temp124                 ;@line 956
-						Assign py ::temp124                                      ;@line 956
-						CallMethod GetPositionZ player ::temp124                 ;@line 957
-						Assign pz ::temp124                                      ;@line 957
-						CallMethod GetHeight player ::temp124                    ;@line 958
-						Assign height ::temp124                                  ;@line 958
-						CallMethod Current self ::temp122 expectedGeneration expectedToken  ;@line 959
-						Not ::temp123 ::temp122                                  ;@line 959
-						Cast ::temp123 ::temp123                                 ;@line 959
-						JumpT ::temp123 _label108                                ;@line 959
-						Not ::temp122 playerLoaded                               ;@line 959
-						Cast ::temp123 ::temp122                                 ;@line 959
-					_label108:
-						Cast ::temp123 ::temp123                                 ;@line 959
-						JumpT ::temp123 _label109                                ;@line 959
-						CallMethod Finite self ::temp122 px -1000000.000000 1000000.000000  ;@line 959
-						Not ::temp122 ::temp122                                  ;@line 959
-						Cast ::temp123 ::temp122                                 ;@line 959
-					_label109:
-						Cast ::temp123 ::temp123                                 ;@line 959
-						JumpT ::temp123 _label110                                ;@line 959
-						CallMethod Finite self ::temp122 py -1000000.000000 1000000.000000  ;@line 959
-						Not ::temp122 ::temp122                                  ;@line 959
-						Cast ::temp123 ::temp122                                 ;@line 959
-					_label110:
-						Cast ::temp123 ::temp123                                 ;@line 959
-						JumpT ::temp123 _label111                                ;@line 959
-						CallMethod Finite self ::temp122 pz -1000000.000000 1000000.000000  ;@line 959
-						Not ::temp122 ::temp122                                  ;@line 959
-						Cast ::temp123 ::temp122                                 ;@line 959
-					_label111:
-						Cast ::temp123 ::temp123                                 ;@line 959
-						JumpT ::temp123 _label112                                ;@line 959
-						CallMethod Finite self ::temp122 height 1.000000 512.000000  ;@line 959
-						Not ::temp122 ::temp122                                  ;@line 959
-						Cast ::temp123 ::temp122                                 ;@line 959
-					_label112:
-						JumpF ::temp123 _label113                                ;@line 959
-						Return False                                             ;@line 960
-						Jump _label113                                           ;@line 960
-					_label113:
-						CompareLT ::temp122 height 128.000000                    ;@line 962
-						JumpF ::temp122 _label114                                ;@line 962
-						Assign height 128.000000                                 ;@line 963
-						Jump _label114                                           ;@line 963
-					_label114:
-						FAdd ::temp124 height 64.000000                          ;@line 965
-						Assign height ::temp124                                  ;@line 965
-						FDivide ::temp124 height 8.000000                        ;@line 970
-						FAdd ::temp124 80.000000 ::temp124                       ;@line 970
-						Assign radius ::temp124                                  ;@line 970
-						ArrayGetElement ::temp124 muzzleWorldMatrix 1            ;@line 971
-						Assign bx ::temp124                                      ;@line 971
-						ArrayGetElement ::temp124 muzzleWorldMatrix 4            ;@line 972
-						Assign by ::temp124                                      ;@line 972
-						ArrayGetElement ::temp124 muzzleWorldMatrix 7            ;@line 973
-						Assign bz ::temp124                                      ;@line 973
-						FMultiply ::temp124 bx bx                                ;@line 974
-						FMultiply ::temp125 by by                                ;@line 974
-						FAdd ::temp124 ::temp124 ::temp125                       ;@line 974
-						CallStatic math Sqrt ::temp125 ::temp124                 ;@line 974
-						Assign boreHorizontal ::temp125                          ;@line 974
-						CompareLT ::temp123 boreHorizontal 0.010000              ;@line 975
-						JumpF ::temp123 _label115                                ;@line 975
-						Return False                                             ;@line 976
-						Jump _label115                                           ;@line 976
-					_label115:
-						FMultiply ::temp124 ::ProjectileSpeed_var boreHorizontal  ;@line 978
-						FDivide ::temp125 targetHorizontal ::temp124             ;@line 978
-						Assign totalTime ::temp125                               ;@line 978
-						CallMethod Finite self ::temp122 totalTime 0.000010 30.000000  ;@line 979
-						Not ::temp123 ::temp122                                  ;@line 979
-						JumpF ::temp123 _label116                                ;@line 979
-						Return False                                             ;@line 980
-						Jump _label116                                           ;@line 980
-					_label116:
-						ArrayGetElement ::temp124 muzzlePosition 0               ;@line 982
-						Assign ax ::temp124                                      ;@line 982
-						ArrayGetElement ::temp125 muzzlePosition 1               ;@line 983
-						Assign ay ::temp125                                      ;@line 983
-						ArrayGetElement ::temp124 muzzlePosition 2               ;@line 984
-						Assign az ::temp124                                      ;@line 984
-						Assign step 1                                            ;@line 985
-					_label121:
-						CompareLTE ::temp122 step 8                              ;@line 986
-						JumpF ::temp122 _label117                                ;@line 986
-						Cast ::temp125 step                                      ;@line 987
-						FMultiply ::temp124 totalTime ::temp125                  ;@line 987
-						FDivide ::temp125 ::temp124 8.000000                     ;@line 987
-						Assign t ::temp125                                       ;@line 987
-						ArrayGetElement ::temp124 muzzlePosition 0               ;@line 988
-						FMultiply ::temp125 bx ::ProjectileSpeed_var             ;@line 988
-						FMultiply ::temp125 ::temp125 t                          ;@line 988
-						FAdd ::temp124 ::temp124 ::temp125                       ;@line 988
-						Assign ex ::temp124                                      ;@line 988
-						ArrayGetElement ::temp125 muzzlePosition 1               ;@line 989
-						FMultiply ::temp124 by ::ProjectileSpeed_var             ;@line 989
-						FMultiply ::temp124 ::temp124 t                          ;@line 989
-						FAdd ::temp125 ::temp125 ::temp124                       ;@line 989
-						Assign ey ::temp125                                      ;@line 989
-						ArrayGetElement ::temp124 muzzlePosition 2               ;@line 990
-						FMultiply ::temp125 bz ::ProjectileSpeed_var             ;@line 990
-						FMultiply ::temp125 ::temp125 t                          ;@line 990
-						FAdd ::temp124 ::temp124 ::temp125                       ;@line 990
-						FMultiply ::temp125 0.500000 ::ProjectileGravity_var     ;@line 990
-						FMultiply ::temp125 ::temp125 t                          ;@line 990
-						FMultiply ::temp125 ::temp125 t                          ;@line 990
-						FSubtract ::temp124 ::temp124 ::temp125                  ;@line 990
-						Assign ez ::temp124                                      ;@line 990
-						Assign sample 0                                          ;@line 991
-					_label120:
-						CompareLTE ::temp123 sample 4                            ;@line 992
-						JumpF ::temp123 _label118                                ;@line 992
-						Cast ::temp125 sample                                    ;@line 993
-						FMultiply ::temp124 height ::temp125                     ;@line 993
-						FDivide ::temp125 ::temp124 4.000000                     ;@line 993
-						FAdd ::temp124 pz ::temp125                              ;@line 993
-						CallMethod PointNearSegment self ::temp126 px py ::temp124 ax ay az ex ey ez radius  ;@line 993
-						JumpF ::temp126 _label119                                ;@line 993
-						Return False                                             ;@line 994
-						Jump _label119                                           ;@line 994
-					_label119:
-						IAdd ::temp127 sample 1                                  ;@line 996
-						Assign sample ::temp127                                  ;@line 996
-						Jump _label120                                           ;@line 996
-					_label118:
-						Assign ax ex                                             ;@line 998
-						Assign ay ey                                             ;@line 999
-						Assign az ez                                             ;@line 1000
-						IAdd ::temp127 step 1                                    ;@line 1001
-						Assign step ::temp127                                    ;@line 1001
-						Jump _label121                                           ;@line 1001
-					_label117:
-						CallMethod Current self ::temp126 expectedGeneration expectedToken  ;@line 1003
-						Return ::temp126                                         ;@line 1003
+						Jump _label423                                           ;@line 952
+					_label423:
+						IAdd ::temp123 sample 1                                  ;@line 954
+						Assign sample ::temp123                                  ;@line 954
+						Jump _label424                                           ;@line 954
+					_label422:
+						Assign ax ex                                             ;@line 956
+						Assign ay ey                                             ;@line 957
+						Assign az ez                                             ;@line 958
+						IAdd ::temp123 step 1                                    ;@line 959
+						Assign step ::temp123                                    ;@line 959
+						Jump _label425                                           ;@line 959
+					_label421:
+						CallMethod Current self ::temp122 expectedGeneration expectedToken  ;@line 961
+						Return ::temp122                                         ;@line 961
 					.endCode
 				.endFunction
-				.function OnDestructionStageChanged
+				.function VisualTargetValid
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param target actor
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp171 Bool
+						.local ::temp172 actor
+						.local ::temp173 Bool
+						.local ::temp174 ObjectReference
+						.local valid Bool
+						.local visible Bool
+					.endLocalTable
+					.code
+						CallMethod GuardReady self ::temp171 expectedGeneration expectedToken  ;@line 1378
+						Not ::temp171 ::temp171                                  ;@line 1378
+						Cast ::temp171 ::temp171                                 ;@line 1378
+						JumpT ::temp171 _label426                                ;@line 1378
+						Cast ::temp172 None                                      ;@line 1378
+						CompareEQ ::temp173 target ::temp172                     ;@line 1378
+						Cast ::temp171 ::temp173                                 ;@line 1378
+					_label426:
+						Cast ::temp171 ::temp171                                 ;@line 1378
+						JumpT ::temp171 _label427                                ;@line 1378
+						CompareEQ ::temp173 target ::Artillero_var               ;@line 1378
+						Cast ::temp171 ::temp173                                 ;@line 1378
+					_label427:
+						JumpF ::temp171 _label428                                ;@line 1378
+						Return False                                             ;@line 1379
+						Jump _label428                                           ;@line 1379
+					_label428:
+						CallMethod Is3DLoaded target ::temp173                   ;@line 1381
+						Cast ::temp173 ::temp173                                 ;@line 1381
+						JumpF ::temp173 _label429                                ;@line 1381
+						CallMethod IsDisabled target ::temp171                   ;@line 1381
+						Not ::temp171 ::temp171                                  ;@line 1381
+						Cast ::temp173 ::temp171                                 ;@line 1381
+					_label429:
+						Cast ::temp173 ::temp173                                 ;@line 1381
+						JumpF ::temp173 _label430                                ;@line 1381
+						CallMethod IsDead target ::temp171                       ;@line 1381
+						Not ::temp171 ::temp171                                  ;@line 1381
+						Cast ::temp173 ::temp171                                 ;@line 1381
+					_label430:
+						Assign valid ::temp173                                   ;@line 1381
+						Cast ::temp174 target                                    ;@line 1382
+						CallMethod HasLOS ::Artillero_var ::temp171 ::temp174    ;@line 1382
+						Assign visible ::temp171                                 ;@line 1382
+						CallMethod Current self ::temp173 expectedGeneration expectedToken  ;@line 1383
+						Cast ::temp171 ::temp173                                 ;@line 1383
+						JumpF ::temp171 _label431                                ;@line 1383
+						Cast ::temp171 valid                                     ;@line 1383
+					_label431:
+						Cast ::temp173 ::temp171                                 ;@line 1383
+						JumpF ::temp173 _label432                                ;@line 1383
+						Cast ::temp173 visible                                   ;@line 1383
+					_label432:
+						Return ::temp173                                         ;@line 1383
+					.endCode
+				.endFunction
+				.function StopGuardPose
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
 					.return None
 					.paramTable
-						.param aiOldStage Int
-						.param aiCurrentStage Int
+						.param candidate actor
 					.endParamTable
 					.localTable
-						.local ::temp0 Bool
+						.local ::temp154 actor
+						.local ::temp155 Bool
+						.local ::temp156 Bool
+						.local ::temp157 Faction
+						.local ::temp158 Idle
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CompareGT ::temp0 aiCurrentStage 0                       ;@line 98
-						JumpF ::temp0 _label122                                  ;@line 98
-						Assign destroyed True                                    ;@line 99
-						CallMethod Shutdown self ::NoneVar                       ;@line 100
-						Jump _label122                                           ;@line 100
-					_label122:
+						Cast ::temp154 None                                      ;@line 1274
+						CompareEQ ::temp155 candidate ::temp154                  ;@line 1274
+						Cast ::temp155 ::temp155                                 ;@line 1274
+						JumpT ::temp155 _label433                                ;@line 1274
+						CallStatic game GetPlayer ::temp154                      ;@line 1274
+						CompareEQ ::temp156 candidate ::temp154                  ;@line 1274
+						Cast ::temp155 ::temp156                                 ;@line 1274
+					_label433:
+						JumpF ::temp155 _label434                                ;@line 1274
+						Return None                                              ;@line 1275
+						Jump _label434                                           ;@line 1275
+					_label434:
+						Cast ::temp157 None                                      ;@line 1277
+						CompareEQ ::temp156 fireFaction ::temp157                ;@line 1277
+						Not ::temp156 ::temp156                                  ;@line 1277
+						JumpF ::temp156 _label435                                ;@line 1277
+						CallMethod RemoveFromFaction candidate ::NoneVar fireFaction  ;@line 1278
+						Jump _label435                                           ;@line 1278
+					_label435:
+						Cast ::temp157 None                                      ;@line 1280
+						CompareEQ ::temp155 poseFaction ::temp157                ;@line 1280
+						Not ::temp155 ::temp155                                  ;@line 1280
+						JumpF ::temp155 _label436                                ;@line 1280
+						CallMethod RemoveFromFaction candidate ::NoneVar poseFaction  ;@line 1281
+						Jump _label436                                           ;@line 1281
+					_label436:
+						Cast ::temp158 None                                      ;@line 1283
+						CompareEQ ::temp156 exitIdle ::temp158                   ;@line 1283
+						Not ::temp156 ::temp156                                  ;@line 1283
+						Cast ::temp156 ::temp156                                 ;@line 1283
+						JumpF ::temp156 _label437                                ;@line 1283
+						CallMethod Is3DLoaded candidate ::temp155                ;@line 1283
+						Cast ::temp156 ::temp155                                 ;@line 1283
+					_label437:
+						Cast ::temp156 ::temp156                                 ;@line 1283
+						JumpF ::temp156 _label438                                ;@line 1283
+						CallMethod IsDead candidate ::temp155                    ;@line 1283
+						Not ::temp155 ::temp155                                  ;@line 1283
+						Cast ::temp156 ::temp155                                 ;@line 1283
+					_label438:
+						JumpF ::temp156 _label439                                ;@line 1283
+						CallMethod PlayIdle candidate ::temp155 exitIdle         ;@line 1284
+						Jump _label439                                           ;@line 1284
+					_label439:
+						CallMethod SetHeadTracking candidate ::NoneVar True      ;@line 1286
+						Assign guardPoseFiring False                             ;@line 1287
+						Assign guardPoseStarted False                            ;@line 1288
+					.endCode
+				.endFunction
+				.function PointNearSegment
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param px Float
+						.param py Float
+						.param pz Float
+						.param ax Float
+						.param ay Float
+						.param az Float
+						.param bx Float
+						.param by Float
+						.param bz Float
+						.param radius Float
+					.endParamTable
+					.localTable
+						.local ::temp113 Float
+						.local ::temp114 Float
+						.local ::temp115 Bool
+						.local ::temp116 Bool
+						.local dx Float
+						.local dy Float
+						.local dz Float
+						.local lengthSquared Float
+						.local along Float
+					.endLocalTable
+					.code
+						FSubtract ::temp113 bx ax                                ;@line 888
+						Assign dx ::temp113                                      ;@line 888
+						FSubtract ::temp113 by ay                                ;@line 889
+						Assign dy ::temp113                                      ;@line 889
+						FSubtract ::temp113 bz az                                ;@line 890
+						Assign dz ::temp113                                      ;@line 890
+						FMultiply ::temp113 dx dx                                ;@line 891
+						FMultiply ::temp114 dy dy                                ;@line 891
+						FAdd ::temp113 ::temp113 ::temp114                       ;@line 891
+						FMultiply ::temp114 dz dz                                ;@line 891
+						FAdd ::temp113 ::temp113 ::temp114                       ;@line 891
+						Assign lengthSquared ::temp113                           ;@line 891
+						CompareLTE ::temp115 lengthSquared 0.000010              ;@line 892
+						JumpF ::temp115 _label440                                ;@line 892
+						Return True                                              ;@line 893
+						Jump _label440                                           ;@line 893
+					_label440:
+						FSubtract ::temp114 px ax                                ;@line 895
+						FMultiply ::temp113 ::temp114 dx                         ;@line 895
+						FSubtract ::temp114 py ay                                ;@line 895
+						FMultiply ::temp114 ::temp114 dy                         ;@line 895
+						FAdd ::temp113 ::temp113 ::temp114                       ;@line 895
+						FSubtract ::temp114 pz az                                ;@line 895
+						FMultiply ::temp114 ::temp114 dz                         ;@line 895
+						FAdd ::temp113 ::temp113 ::temp114                       ;@line 895
+						FDivide ::temp114 ::temp113 lengthSquared                ;@line 895
+						Assign along ::temp114                                   ;@line 895
+						CompareLT ::temp115 along 0.000000                       ;@line 896
+						JumpF ::temp115 _label441                                ;@line 896
+						Assign along 0.000000                                    ;@line 897
+						Jump _label442                                           ;@line 897
+					_label441:
+						CompareGT ::temp116 along 1.000000                       ;@line 898
+						JumpF ::temp116 _label442                                ;@line 898
+						Assign along 1.000000                                    ;@line 899
+						Jump _label442                                           ;@line 899
+					_label442:
+						FMultiply ::temp113 along dx                             ;@line 901
+						FAdd ::temp114 ax ::temp113                              ;@line 901
+						FSubtract ::temp113 px ::temp114                         ;@line 901
+						Assign dx ::temp113                                      ;@line 901
+						FMultiply ::temp114 along dy                             ;@line 902
+						FAdd ::temp113 ay ::temp114                              ;@line 902
+						FSubtract ::temp114 py ::temp113                         ;@line 902
+						Assign dy ::temp114                                      ;@line 902
+						FMultiply ::temp113 along dz                             ;@line 903
+						FAdd ::temp114 az ::temp113                              ;@line 903
+						FSubtract ::temp113 pz ::temp114                         ;@line 903
+						Assign dz ::temp113                                      ;@line 903
+						FMultiply ::temp114 dx dx                                ;@line 904
+						FMultiply ::temp113 dy dy                                ;@line 904
+						FAdd ::temp114 ::temp114 ::temp113                       ;@line 904
+						FMultiply ::temp113 dz dz                                ;@line 904
+						FAdd ::temp114 ::temp114 ::temp113                       ;@line 904
+						FMultiply ::temp113 radius radius                        ;@line 904
+						CompareLTE ::temp116 ::temp114 ::temp113                 ;@line 904
+						Return ::temp116                                         ;@line 904
+					.endCode
+				.endFunction
+				.function FinishUpdate
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param expectedGeneration Int
+						.param expectedToken Int
+						.param delay Float
+					.endParamTable
+					.localTable
+						.local ::temp141 Bool
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod Current self ::temp141 expectedGeneration expectedToken  ;@line 1103
+						Not ::temp141 ::temp141                                  ;@line 1103
+						JumpF ::temp141 _label443                                ;@line 1103
+						Return None                                              ;@line 1104
+						Jump _label443                                           ;@line 1104
+					_label443:
+						Assign updating False                                    ;@line 1106
+						CallMethod RegisterForSingleUpdate self ::NoneVar delay  ;@line 1107
 					.endCode
 				.endFunction
 				.function ShotPreflight
@@ -1597,10 +4650,10 @@
 						.param expectedToken Int
 					.endParamTable
 					.localTable
-						.local ::temp128 Bool
-						.local ::temp129 Float
-						.local ::temp130 Float
-						.local ::temp131 Bool
+						.local ::temp124 Bool
+						.local ::temp125 Float
+						.local ::temp126 Float
+						.local ::temp127 Bool
 						.local yc Float
 						.local ys Float
 						.local pc Float
@@ -1617,109 +4670,261 @@
 						.local targetValid Bool
 					.endLocalTable
 					.code
-						CallMethod SampleTarget self ::temp128 target expectedGeneration expectedToken  ;@line 1007
-						Not ::temp128 ::temp128                                  ;@line 1007
-						JumpF ::temp128 _label123                                ;@line 1007
-						Return False                                             ;@line 1008
-						Jump _label123                                           ;@line 1008
-					_label123:
-						CallStatic math Cos ::temp129 yaw                        ;@line 1011
-						Assign yc ::temp129                                      ;@line 1011
-						CallStatic math Sin ::temp129 yaw                        ;@line 1012
-						Assign ys ::temp129                                      ;@line 1012
-						CallStatic math Cos ::temp129 pitch                      ;@line 1013
-						Assign pc ::temp129                                      ;@line 1013
-						CallStatic math Sin ::temp129 pitch                      ;@line 1014
-						Assign ps ::temp129                                      ;@line 1014
-						FMultiply ::temp129 ys pc                                ;@line 1015
-						Assign lx ::temp129                                      ;@line 1015
-						FNegate ::temp129 yc                                     ;@line 1016
-						FMultiply ::temp129 ::temp129 pc                         ;@line 1016
-						Assign ly ::temp129                                      ;@line 1016
-						ArrayGetElement ::temp129 rootWorldMatrix 0              ;@line 1017
-						FMultiply ::temp129 ::temp129 lx                         ;@line 1017
-						ArrayGetElement ::temp130 rootWorldMatrix 1              ;@line 1017
-						FMultiply ::temp130 ::temp130 ly                         ;@line 1017
-						FAdd ::temp129 ::temp129 ::temp130                       ;@line 1017
-						ArrayGetElement ::temp130 rootWorldMatrix 2              ;@line 1017
-						FMultiply ::temp130 ::temp130 ps                         ;@line 1017
-						FAdd ::temp129 ::temp129 ::temp130                       ;@line 1017
-						Assign wx ::temp129                                      ;@line 1017
-						ArrayGetElement ::temp130 rootWorldMatrix 3              ;@line 1018
-						FMultiply ::temp129 ::temp130 lx                         ;@line 1018
-						ArrayGetElement ::temp130 rootWorldMatrix 4              ;@line 1018
-						FMultiply ::temp130 ::temp130 ly                         ;@line 1018
-						FAdd ::temp129 ::temp129 ::temp130                       ;@line 1018
-						ArrayGetElement ::temp130 rootWorldMatrix 5              ;@line 1018
-						FMultiply ::temp130 ::temp130 ps                         ;@line 1018
-						FAdd ::temp129 ::temp129 ::temp130                       ;@line 1018
-						Assign wy ::temp129                                      ;@line 1018
-						ArrayGetElement ::temp130 rootWorldMatrix 6              ;@line 1019
-						FMultiply ::temp129 ::temp130 lx                         ;@line 1019
-						ArrayGetElement ::temp130 rootWorldMatrix 7              ;@line 1019
-						FMultiply ::temp130 ::temp130 ly                         ;@line 1019
-						FAdd ::temp129 ::temp129 ::temp130                       ;@line 1019
-						ArrayGetElement ::temp130 rootWorldMatrix 8              ;@line 1019
-						FMultiply ::temp130 ::temp130 ps                         ;@line 1019
-						FAdd ::temp129 ::temp129 ::temp130                       ;@line 1019
-						Assign wz ::temp129                                      ;@line 1019
-						ArrayGetElement ::temp130 muzzleWorldMatrix 1            ;@line 1020
-						FMultiply ::temp129 wx ::temp130                         ;@line 1020
-						ArrayGetElement ::temp130 muzzleWorldMatrix 4            ;@line 1020
-						FMultiply ::temp130 wy ::temp130                         ;@line 1020
-						FAdd ::temp129 ::temp129 ::temp130                       ;@line 1020
-						ArrayGetElement ::temp130 muzzleWorldMatrix 7            ;@line 1020
-						FMultiply ::temp130 wz ::temp130                         ;@line 1020
-						FAdd ::temp129 ::temp129 ::temp130                       ;@line 1020
-						Assign poseDot ::temp129                                 ;@line 1020
-						ArrayGetElement ::temp130 muzzleWorldMatrix 1            ;@line 1021
-						FMultiply ::temp129 aimX ::temp130                       ;@line 1021
-						ArrayGetElement ::temp130 muzzleWorldMatrix 4            ;@line 1021
-						FMultiply ::temp130 aimY ::temp130                       ;@line 1021
-						FAdd ::temp129 ::temp129 ::temp130                       ;@line 1021
-						ArrayGetElement ::temp130 muzzleWorldMatrix 7            ;@line 1021
-						FMultiply ::temp130 aimZ ::temp130                       ;@line 1021
-						FAdd ::temp129 ::temp129 ::temp130                       ;@line 1021
-						Assign targetDot ::temp129                               ;@line 1021
-						CallMethod Finite self ::temp128 poseDot 0.999950 1.002000  ;@line 1022
-						Not ::temp128 ::temp128                                  ;@line 1022
-						Cast ::temp128 ::temp128                                 ;@line 1022
-						JumpT ::temp128 _label124                                ;@line 1022
-						CallMethod Finite self ::temp131 targetDot 0.999950 1.002000  ;@line 1022
-						Not ::temp131 ::temp131                                  ;@line 1022
-						Cast ::temp128 ::temp131                                 ;@line 1022
-					_label124:
-						Cast ::temp128 ::temp128                                 ;@line 1022
-						JumpT ::temp128 _label125                                ;@line 1022
-						CallMethod Current self ::temp131 expectedGeneration expectedToken  ;@line 1022
-						Not ::temp131 ::temp131                                  ;@line 1022
-						Cast ::temp128 ::temp131                                 ;@line 1022
-					_label125:
-						JumpF ::temp128 _label126                                ;@line 1022
-						Return False                                             ;@line 1023
-						Jump _label126                                           ;@line 1023
-					_label126:
-						CallMethod PlayerClear self ::temp131 expectedGeneration expectedToken  ;@line 1025
-						Assign clear ::temp131                                   ;@line 1025
-						CallStatic utility IsInMenuMode ::temp128                ;@line 1026
-						Assign menuOpen ::temp128                                ;@line 1026
-						CallMethod ValidTarget self ::temp131 target expectedGeneration expectedToken  ;@line 1027
-						Assign targetValid ::temp131                             ;@line 1027
-						CallMethod Current self ::temp128 expectedGeneration expectedToken  ;@line 1028
-						Cast ::temp131 ::temp128                                 ;@line 1028
-						JumpF ::temp131 _label127                                ;@line 1028
-						Cast ::temp131 clear                                     ;@line 1028
-					_label127:
-						Cast ::temp131 ::temp131                                 ;@line 1028
-						JumpF ::temp131 _label128                                ;@line 1028
-						Not ::temp128 menuOpen                                   ;@line 1028
-						Cast ::temp131 ::temp128                                 ;@line 1028
-					_label128:
-						Cast ::temp128 ::temp131                                 ;@line 1028
-						JumpF ::temp128 _label129                                ;@line 1028
-						Cast ::temp128 targetValid                               ;@line 1028
-					_label129:
-						Return ::temp128                                         ;@line 1028
+						CallMethod SampleTarget self ::temp124 target expectedGeneration expectedToken  ;@line 965
+						Not ::temp124 ::temp124                                  ;@line 965
+						JumpF ::temp124 _label444                                ;@line 965
+						Return False                                             ;@line 966
+						Jump _label444                                           ;@line 966
+					_label444:
+						CallStatic math Cos ::temp125 yaw                        ;@line 969
+						Assign yc ::temp125                                      ;@line 969
+						CallStatic math Sin ::temp125 yaw                        ;@line 970
+						Assign ys ::temp125                                      ;@line 970
+						CallStatic math Cos ::temp125 pitch                      ;@line 971
+						Assign pc ::temp125                                      ;@line 971
+						CallStatic math Sin ::temp125 pitch                      ;@line 972
+						Assign ps ::temp125                                      ;@line 972
+						FMultiply ::temp125 ys pc                                ;@line 973
+						Assign lx ::temp125                                      ;@line 973
+						FNegate ::temp125 yc                                     ;@line 974
+						FMultiply ::temp125 ::temp125 pc                         ;@line 974
+						Assign ly ::temp125                                      ;@line 974
+						ArrayGetElement ::temp125 rootWorldMatrix 0              ;@line 975
+						FMultiply ::temp125 ::temp125 lx                         ;@line 975
+						ArrayGetElement ::temp126 rootWorldMatrix 1              ;@line 975
+						FMultiply ::temp126 ::temp126 ly                         ;@line 975
+						FAdd ::temp125 ::temp125 ::temp126                       ;@line 975
+						ArrayGetElement ::temp126 rootWorldMatrix 2              ;@line 975
+						FMultiply ::temp126 ::temp126 ps                         ;@line 975
+						FAdd ::temp125 ::temp125 ::temp126                       ;@line 975
+						Assign wx ::temp125                                      ;@line 975
+						ArrayGetElement ::temp126 rootWorldMatrix 3              ;@line 976
+						FMultiply ::temp125 ::temp126 lx                         ;@line 976
+						ArrayGetElement ::temp126 rootWorldMatrix 4              ;@line 976
+						FMultiply ::temp126 ::temp126 ly                         ;@line 976
+						FAdd ::temp125 ::temp125 ::temp126                       ;@line 976
+						ArrayGetElement ::temp126 rootWorldMatrix 5              ;@line 976
+						FMultiply ::temp126 ::temp126 ps                         ;@line 976
+						FAdd ::temp125 ::temp125 ::temp126                       ;@line 976
+						Assign wy ::temp125                                      ;@line 976
+						ArrayGetElement ::temp126 rootWorldMatrix 6              ;@line 977
+						FMultiply ::temp125 ::temp126 lx                         ;@line 977
+						ArrayGetElement ::temp126 rootWorldMatrix 7              ;@line 977
+						FMultiply ::temp126 ::temp126 ly                         ;@line 977
+						FAdd ::temp125 ::temp125 ::temp126                       ;@line 977
+						ArrayGetElement ::temp126 rootWorldMatrix 8              ;@line 977
+						FMultiply ::temp126 ::temp126 ps                         ;@line 977
+						FAdd ::temp125 ::temp125 ::temp126                       ;@line 977
+						Assign wz ::temp125                                      ;@line 977
+						ArrayGetElement ::temp126 muzzleWorldMatrix 1            ;@line 978
+						FMultiply ::temp125 wx ::temp126                         ;@line 978
+						ArrayGetElement ::temp126 muzzleWorldMatrix 4            ;@line 978
+						FMultiply ::temp126 wy ::temp126                         ;@line 978
+						FAdd ::temp125 ::temp125 ::temp126                       ;@line 978
+						ArrayGetElement ::temp126 muzzleWorldMatrix 7            ;@line 978
+						FMultiply ::temp126 wz ::temp126                         ;@line 978
+						FAdd ::temp125 ::temp125 ::temp126                       ;@line 978
+						Assign poseDot ::temp125                                 ;@line 978
+						ArrayGetElement ::temp126 muzzleWorldMatrix 1            ;@line 979
+						FMultiply ::temp125 aimX ::temp126                       ;@line 979
+						ArrayGetElement ::temp126 muzzleWorldMatrix 4            ;@line 979
+						FMultiply ::temp126 aimY ::temp126                       ;@line 979
+						FAdd ::temp125 ::temp125 ::temp126                       ;@line 979
+						ArrayGetElement ::temp126 muzzleWorldMatrix 7            ;@line 979
+						FMultiply ::temp126 aimZ ::temp126                       ;@line 979
+						FAdd ::temp125 ::temp125 ::temp126                       ;@line 979
+						Assign targetDot ::temp125                               ;@line 979
+						CallMethod Finite self ::temp124 poseDot 0.999950 1.002000  ;@line 980
+						Not ::temp124 ::temp124                                  ;@line 980
+						Cast ::temp124 ::temp124                                 ;@line 980
+						JumpT ::temp124 _label445                                ;@line 980
+						CallMethod Finite self ::temp127 targetDot 0.999950 1.002000  ;@line 980
+						Not ::temp127 ::temp127                                  ;@line 980
+						Cast ::temp124 ::temp127                                 ;@line 980
+					_label445:
+						Cast ::temp124 ::temp124                                 ;@line 980
+						JumpT ::temp124 _label446                                ;@line 980
+						CallMethod Current self ::temp127 expectedGeneration expectedToken  ;@line 980
+						Not ::temp127 ::temp127                                  ;@line 980
+						Cast ::temp124 ::temp127                                 ;@line 980
+					_label446:
+						JumpF ::temp124 _label447                                ;@line 980
+						Return False                                             ;@line 981
+						Jump _label447                                           ;@line 981
+					_label447:
+						CallMethod PlayerClear self ::temp127 expectedGeneration expectedToken  ;@line 983
+						Assign clear ::temp127                                   ;@line 983
+						CallStatic utility IsInMenuMode ::temp124                ;@line 984
+						Assign menuOpen ::temp124                                ;@line 984
+						CallMethod ValidTarget self ::temp127 target expectedGeneration expectedToken  ;@line 985
+						Assign targetValid ::temp127                             ;@line 985
+						CallMethod Current self ::temp124 expectedGeneration expectedToken  ;@line 986
+						Cast ::temp127 ::temp124                                 ;@line 986
+						JumpF ::temp127 _label448                                ;@line 986
+						Cast ::temp127 clear                                     ;@line 986
+					_label448:
+						Cast ::temp127 ::temp127                                 ;@line 986
+						JumpF ::temp127 _label449                                ;@line 986
+						Not ::temp124 menuOpen                                   ;@line 986
+						Cast ::temp127 ::temp124                                 ;@line 986
+					_label449:
+						Cast ::temp124 ::temp127                                 ;@line 986
+						JumpF ::temp124 _label450                                ;@line 986
+						Cast ::temp124 targetValid                               ;@line 986
+					_label450:
+						Return ::temp124                                         ;@line 986
+					.endCode
+				.endFunction
+				.function HorizontalReachable
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param target actor
+						.param horizontal Float
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp186 Bool
+						.local ::temp187 Bool
+						.local ::temp188 Float
+						.local ::temp189 Float
+						.local baseZ Float
+						.local height Float
+						.local travel Float
+						.local boltZ Float
+						.local validHeights Bool
+					.endLocalTable
+					.code
+						CallMethod Current self ::temp186 expectedGeneration expectedToken  ;@line 1442
+						Not ::temp186 ::temp186                                  ;@line 1442
+						Cast ::temp186 ::temp186                                 ;@line 1442
+						JumpT ::temp186 _label451                                ;@line 1442
+						CallMethod Finite self ::temp187 horizontal 80.000000 6000.000000  ;@line 1442
+						Not ::temp187 ::temp187                                  ;@line 1442
+						Cast ::temp186 ::temp187                                 ;@line 1442
+					_label451:
+						Cast ::temp186 ::temp186                                 ;@line 1442
+						JumpT ::temp186 _label452                                ;@line 1442
+						CallMethod Finite self ::temp187 ::ProjectileSpeed_var 1.000000 100000.000000  ;@line 1442
+						Not ::temp187 ::temp187                                  ;@line 1442
+						Cast ::temp186 ::temp187                                 ;@line 1442
+					_label452:
+						Cast ::temp186 ::temp186                                 ;@line 1442
+						JumpT ::temp186 _label453                                ;@line 1442
+						CallMethod Finite self ::temp187 ::ProjectileGravity_var 0.000000 5000.000000  ;@line 1442
+						Not ::temp187 ::temp187                                  ;@line 1442
+						Cast ::temp186 ::temp187                                 ;@line 1442
+					_label453:
+						JumpF ::temp186 _label454                                ;@line 1442
+						Return False                                             ;@line 1443
+						Jump _label454                                           ;@line 1443
+					_label454:
+						CallMethod GetPositionZ target ::temp188                 ;@line 1445
+						Assign baseZ ::temp188                                   ;@line 1445
+						CallMethod GetHeight target ::temp188                    ;@line 1446
+						Assign height ::temp188                                  ;@line 1446
+						FDivide ::temp188 horizontal ::ProjectileSpeed_var       ;@line 1447
+						Assign travel ::temp188                                  ;@line 1447
+						ArrayGetElement ::temp188 muzzlePosition 2               ;@line 1448
+						FMultiply ::temp189 0.500000 ::ProjectileGravity_var     ;@line 1448
+						FMultiply ::temp189 ::temp189 travel                     ;@line 1448
+						FMultiply ::temp189 ::temp189 travel                     ;@line 1448
+						FSubtract ::temp188 ::temp188 ::temp189                  ;@line 1448
+						Assign boltZ ::temp188                                   ;@line 1448
+						CallMethod Finite self ::temp187 baseZ -1000000.000000 1000000.000000  ;@line 1449
+						Cast ::temp187 ::temp187                                 ;@line 1449
+						JumpF ::temp187 _label455                                ;@line 1449
+						CallMethod Finite self ::temp186 height 24.000000 8192.000000  ;@line 1449
+						Cast ::temp187 ::temp186                                 ;@line 1449
+					_label455:
+						Assign validHeights ::temp187                            ;@line 1449
+						CallMethod Current self ::temp186 expectedGeneration expectedToken  ;@line 1450
+						Cast ::temp187 ::temp186                                 ;@line 1450
+						JumpF ::temp187 _label456                                ;@line 1450
+						Cast ::temp187 validHeights                              ;@line 1450
+					_label456:
+						Cast ::temp187 ::temp187                                 ;@line 1450
+						JumpF ::temp187 _label457                                ;@line 1450
+						FAdd ::temp189 baseZ 8.000000                            ;@line 1450
+						CompareGTE ::temp186 boltZ ::temp189                     ;@line 1450
+						Cast ::temp187 ::temp186                                 ;@line 1450
+					_label457:
+						Cast ::temp187 ::temp187                                 ;@line 1450
+						JumpF ::temp187 _label458                                ;@line 1450
+						FAdd ::temp188 baseZ height                              ;@line 1450
+						FSubtract ::temp189 ::temp188 8.000000                   ;@line 1450
+						CompareLTE ::temp186 boltZ ::temp189                     ;@line 1450
+						Cast ::temp187 ::temp186                                 ;@line 1450
+					_label458:
+						Return ::temp187                                         ;@line 1450
+					.endCode
+				.endFunction
+				.function OnCellDetach
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod InvalidatePlayerLease self ::NoneVar          ;@line 104
+						CallMethod Shutdown self ::NoneVar                       ;@line 105
+					.endCode
+				.endFunction
+				.function SampleTarget
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param target actor
+						.param expectedGeneration Int
+						.param expectedToken Int
+					.endParamTable
+					.localTable
+						.local ::temp106 Bool
+					.endLocalTable
+					.code
+						CallMethod SampleHorizontalTarget self ::temp106 target expectedGeneration expectedToken  ;@line 858
+						Return ::temp106                                         ;@line 858
+					.endCode
+				.endFunction
+				.function Approach
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Float
+					.paramTable
+						.param value Float
+						.param goal Float
+						.param maximumStep Float
+					.endParamTable
+					.localTable
+						.local ::temp107 Float
+						.local ::temp108 Bool
+						.local ::temp109 Float
+						.local ::temp110 Bool
+						.local difference Float
+					.endLocalTable
+					.code
+						FSubtract ::temp107 goal value                           ;@line 862
+						Assign difference ::temp107                              ;@line 862
+						CompareGT ::temp108 difference maximumStep               ;@line 863
+						JumpF ::temp108 _label459                                ;@line 863
+						FAdd ::temp107 value maximumStep                         ;@line 864
+						Return ::temp107                                         ;@line 864
+						Jump _label460                                           ;@line 864
+					_label459:
+						FNegate ::temp109 maximumStep                            ;@line 865
+						CompareLT ::temp110 difference ::temp109                 ;@line 865
+						JumpF ::temp110 _label460                                ;@line 865
+						FSubtract ::temp109 value maximumStep                    ;@line 866
+						Return ::temp109                                         ;@line 866
+						Jump _label460                                           ;@line 866
+					_label460:
+						Return goal                                              ;@line 868
 					.endCode
 				.endFunction
 				.function QueueDeferredRecovery
@@ -1736,65 +4941,65 @@
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						Cast ::temp54 playerReserved                             ;@line 595
-						JumpT ::temp54 _label130                                 ;@line 595
-						Cast ::temp54 pinBusy                                    ;@line 595
-					_label130:
-						Cast ::temp54 ::temp54                                   ;@line 595
-						JumpT ::temp54 _label131                                 ;@line 595
-						Cast ::temp54 sceneBusy                                  ;@line 595
-					_label131:
-						Cast ::temp54 ::temp54                                   ;@line 595
-						JumpT ::temp54 _label132                                 ;@line 595
-						Not ::temp55 recoveryRequested                           ;@line 595
-						Cast ::temp54 ::temp55                                   ;@line 595
-					_label132:
-						Cast ::temp55 ::temp54                                   ;@line 595
-						JumpT ::temp55 _label133                                 ;@line 595
-						Cast ::temp55 destroyed                                  ;@line 595
-					_label133:
-						Cast ::temp54 ::temp55                                   ;@line 595
-						JumpT ::temp54 _label134                                 ;@line 595
-						Cast ::temp54 faulted                                    ;@line 595
-					_label134:
-						JumpF ::temp54 _label135                                 ;@line 595
-						Return None                                              ;@line 596
-						Jump _label135                                           ;@line 596
-					_label135:
-						Assign queueGeneration generation                        ;@line 598
-						CallMethod Is3DLoaded self ::temp55                      ;@line 599
-						Assign loaded ::temp55                                   ;@line 599
-						CompareEQ ::temp54 generation queueGeneration            ;@line 600
-						Not ::temp54 ::temp54                                    ;@line 600
-						Cast ::temp55 ::temp54                                   ;@line 600
-						JumpT ::temp55 _label136                                 ;@line 600
-						Cast ::temp55 pinBusy                                    ;@line 600
-					_label136:
-						Cast ::temp54 ::temp55                                   ;@line 600
-						JumpT ::temp54 _label137                                 ;@line 600
-						Cast ::temp54 sceneBusy                                  ;@line 600
-					_label137:
-						Cast ::temp54 ::temp54                                   ;@line 600
-						JumpT ::temp54 _label138                                 ;@line 600
-						Not ::temp55 recoveryRequested                           ;@line 600
-						Cast ::temp54 ::temp55                                   ;@line 600
-					_label138:
-						Cast ::temp55 ::temp54                                   ;@line 600
-						JumpT ::temp55 _label139                                 ;@line 600
-						Cast ::temp55 destroyed                                  ;@line 600
-					_label139:
-						Cast ::temp54 ::temp55                                   ;@line 600
-						JumpT ::temp54 _label140                                 ;@line 600
-						Cast ::temp54 faulted                                    ;@line 600
-					_label140:
-						JumpF ::temp54 _label141                                 ;@line 600
-						Return None                                              ;@line 601
-						Jump _label141                                           ;@line 601
-					_label141:
-						JumpF loaded _label142                                   ;@line 603
-						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 604
-						Jump _label142                                           ;@line 604
-					_label142:
+						Cast ::temp54 playerReserved                             ;@line 627
+						JumpT ::temp54 _label461                                 ;@line 627
+						Cast ::temp54 pinBusy                                    ;@line 627
+					_label461:
+						Cast ::temp54 ::temp54                                   ;@line 627
+						JumpT ::temp54 _label462                                 ;@line 627
+						Cast ::temp54 sceneBusy                                  ;@line 627
+					_label462:
+						Cast ::temp54 ::temp54                                   ;@line 627
+						JumpT ::temp54 _label463                                 ;@line 627
+						Not ::temp55 recoveryRequested                           ;@line 627
+						Cast ::temp54 ::temp55                                   ;@line 627
+					_label463:
+						Cast ::temp55 ::temp54                                   ;@line 627
+						JumpT ::temp55 _label464                                 ;@line 627
+						Cast ::temp55 destroyed                                  ;@line 627
+					_label464:
+						Cast ::temp54 ::temp55                                   ;@line 627
+						JumpT ::temp54 _label465                                 ;@line 627
+						Cast ::temp54 faulted                                    ;@line 627
+					_label465:
+						JumpF ::temp54 _label466                                 ;@line 627
+						Return None                                              ;@line 628
+						Jump _label466                                           ;@line 628
+					_label466:
+						Assign queueGeneration generation                        ;@line 630
+						CallMethod Is3DLoaded self ::temp55                      ;@line 631
+						Assign loaded ::temp55                                   ;@line 631
+						CompareEQ ::temp54 generation queueGeneration            ;@line 632
+						Not ::temp54 ::temp54                                    ;@line 632
+						Cast ::temp55 ::temp54                                   ;@line 632
+						JumpT ::temp55 _label467                                 ;@line 632
+						Cast ::temp55 pinBusy                                    ;@line 632
+					_label467:
+						Cast ::temp54 ::temp55                                   ;@line 632
+						JumpT ::temp54 _label468                                 ;@line 632
+						Cast ::temp54 sceneBusy                                  ;@line 632
+					_label468:
+						Cast ::temp54 ::temp54                                   ;@line 632
+						JumpT ::temp54 _label469                                 ;@line 632
+						Not ::temp55 recoveryRequested                           ;@line 632
+						Cast ::temp54 ::temp55                                   ;@line 632
+					_label469:
+						Cast ::temp55 ::temp54                                   ;@line 632
+						JumpT ::temp55 _label470                                 ;@line 632
+						Cast ::temp55 destroyed                                  ;@line 632
+					_label470:
+						Cast ::temp54 ::temp55                                   ;@line 632
+						JumpT ::temp54 _label471                                 ;@line 632
+						Cast ::temp54 faulted                                    ;@line 632
+					_label471:
+						JumpF ::temp54 _label472                                 ;@line 632
+						Return None                                              ;@line 633
+						Jump _label472                                           ;@line 633
+					_label472:
+						JumpF loaded _label473                                   ;@line 635
+						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 636
+						Jump _label473                                           ;@line 636
+					_label473:
 					.endCode
 				.endFunction
 				.function GetState
@@ -1809,39 +5014,18 @@
 						Return ::State                                           ;@line ??
 					.endCode
 				.endFunction
-				.function Approach
+				.function OnUnload
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
-					.return Float
+					.return None
 					.paramTable
-						.param value Float
-						.param goal Float
-						.param maximumStep Float
 					.endParamTable
 					.localTable
-						.local ::temp111 Float
-						.local ::temp112 Bool
-						.local ::temp113 Float
-						.local ::temp114 Bool
-						.local difference Float
+						.local ::NoneVar None
 					.endLocalTable
 					.code
-						FSubtract ::temp111 goal value                           ;@line 904
-						Assign difference ::temp111                              ;@line 904
-						CompareGT ::temp112 difference maximumStep               ;@line 905
-						JumpF ::temp112 _label143                                ;@line 905
-						FAdd ::temp111 value maximumStep                         ;@line 906
-						Return ::temp111                                         ;@line 906
-						Jump _label144                                           ;@line 906
-					_label143:
-						FNegate ::temp113 maximumStep                            ;@line 907
-						CompareLT ::temp114 difference ::temp113                 ;@line 907
-						JumpF ::temp114 _label144                                ;@line 907
-						FSubtract ::temp113 value maximumStep                    ;@line 908
-						Return ::temp113                                         ;@line 908
-						Jump _label144                                           ;@line 908
-					_label144:
-						Return goal                                              ;@line 910
+						CallMethod InvalidatePlayerLease self ::NoneVar          ;@line 99
+						CallMethod Shutdown self ::NoneVar                       ;@line 100
 					.endCode
 				.endFunction
 				.function OnLoad
@@ -1854,154 +5038,49 @@
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CallMethod InvalidatePlayerLease self ::NoneVar          ;@line 81
-						CallMethod BeginRecovery self ::NoneVar                  ;@line 84
+						CallMethod InvalidatePlayerLease self ::NoneVar          ;@line 92
+						CallMethod BeginRecovery self ::NoneVar                  ;@line 95
 					.endCode
 				.endFunction
-				.function HeadingFromVector
+				.function FinishGuardEffect
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
-					.return Float
+					.return Bool
 					.paramTable
-						.param vectorX Float
-						.param vectorY Float
-						.param fallback Float
+						.param candidate actor
+						.param expectedGeneration Int
+						.param expectedToken Int
 					.endParamTable
 					.localTable
-						.local ::temp101 Float
-						.local ::temp102 Float
-						.local ::temp103 Bool
-						.local ::temp104 Bool
-						.local horizontal Float
-						.local cosine Float
-						.local angle Float
-					.endLocalTable
-					.code
-						FMultiply ::temp101 vectorX vectorX                      ;@line 805
-						FMultiply ::temp102 vectorY vectorY                      ;@line 805
-						FAdd ::temp101 ::temp101 ::temp102                       ;@line 805
-						CallStatic math Sqrt ::temp102 ::temp101                 ;@line 805
-						Assign horizontal ::temp102                              ;@line 805
-						CompareLT ::temp103 horizontal 0.000010                  ;@line 806
-						JumpF ::temp103 _label145                                ;@line 806
-						Return fallback                                          ;@line 807
-						Jump _label145                                           ;@line 807
-					_label145:
-						FDivide ::temp101 vectorY horizontal                     ;@line 809
-						Assign cosine ::temp101                                  ;@line 809
-						CompareGT ::temp103 cosine 1.000000                      ;@line 810
-						JumpF ::temp103 _label146                                ;@line 810
-						Assign cosine 1.000000                                   ;@line 811
-						Jump _label147                                           ;@line 811
-					_label146:
-						CompareLT ::temp104 cosine -1.000000                     ;@line 812
-						JumpF ::temp104 _label147                                ;@line 812
-						Assign cosine -1.000000                                  ;@line 813
-						Jump _label147                                           ;@line 813
-					_label147:
-						CallStatic math ACos ::temp102 cosine                    ;@line 815
-						Assign angle ::temp102                                   ;@line 815
-						CompareLT ::temp104 vectorX 0.000000                     ;@line 816
-						JumpF ::temp104 _label148                                ;@line 816
-						FSubtract ::temp101 360.000000 angle                     ;@line 817
-						Assign angle ::temp101                                   ;@line 817
-						Jump _label148                                           ;@line 817
-					_label148:
-						CompareGTE ::temp103 angle 360.000000                    ;@line 819
-						JumpF ::temp103 _label149                                ;@line 819
-						FSubtract ::temp102 angle 360.000000                     ;@line 820
-						Assign angle ::temp102                                   ;@line 820
-						Jump _label149                                           ;@line 820
-					_label149:
-						Return angle                                             ;@line 822
-					.endCode
-				.endFunction
-				.function ReservePlayerLease
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Int
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp13 Bool
-						.local ::temp14 ObjectReference
-						.local ::temp15 Bool
-						.local ::temp16 actor
-						.local ::temp17 Int
+						.local ::temp159 Bool
+						.local ::temp160 Bool
+						.local valid Bool
 						.local ::NoneVar None
-						.local player actor
-						.local lease Int
+						.local ::temp161 actor
 					.endLocalTable
 					.code
-						Not ::temp13 ::AllowPlayerTakeover_var                   ;@line 156
-						Cast ::temp13 ::temp13                                   ;@line 156
-						JumpT ::temp13 _label150                                 ;@line 156
-						Cast ::temp13 stationRetired                             ;@line 156
-					_label150:
-						Cast ::temp13 ::temp13                                   ;@line 156
-						JumpT ::temp13 _label151                                 ;@line 156
-						Cast ::temp13 destroyed                                  ;@line 156
-					_label151:
-						Cast ::temp13 ::temp13                                   ;@line 156
-						JumpT ::temp13 _label152                                 ;@line 156
-						Cast ::temp13 playerReserved                             ;@line 156
-					_label152:
-						Cast ::temp13 ::temp13                                   ;@line 156
-						JumpT ::temp13 _label153                                 ;@line 156
-						Cast ::temp14 None                                       ;@line 156
-						CompareEQ ::temp15 ::Standby_var ::temp14                ;@line 156
-						Cast ::temp13 ::temp15                                   ;@line 156
-					_label153:
-						Cast ::temp13 ::temp13                                   ;@line 156
-						JumpT ::temp13 _label154                                 ;@line 156
-						CompareGTE ::temp15 playerSerial 2000000000              ;@line 156
-						Cast ::temp13 ::temp15                                   ;@line 156
-					_label154:
-						JumpF ::temp13 _label155                                 ;@line 156
-						Return -1                                                ;@line 157
-						Jump _label155                                           ;@line 157
-					_label155:
-						CallStatic game GetPlayer ::temp16                       ;@line 159
-						Assign player ::temp16                                   ;@line 159
-						Cast ::temp15 playerReserved                             ;@line 160
-						JumpT ::temp15 _label156                                 ;@line 160
-						Cast ::temp15 destroyed                                  ;@line 160
-					_label156:
-						Cast ::temp15 ::temp15                                   ;@line 160
-						JumpT ::temp15 _label157                                 ;@line 160
-						Not ::temp13 ::AllowPlayerTakeover_var                   ;@line 160
-						Cast ::temp15 ::temp13                                   ;@line 160
-					_label157:
-						Cast ::temp15 ::temp15                                   ;@line 160
-						JumpT ::temp15 _label158                                 ;@line 160
-						Cast ::temp14 None                                       ;@line 160
-						CompareEQ ::temp13 ::Standby_var ::temp14                ;@line 160
-						Cast ::temp15 ::temp13                                   ;@line 160
-					_label158:
-						Cast ::temp15 ::temp15                                   ;@line 160
-						JumpT ::temp15 _label159                                 ;@line 160
-						CompareEQ ::temp13 ::Artillero_var player                ;@line 160
-						Cast ::temp15 ::temp13                                   ;@line 160
-					_label159:
-						JumpF ::temp15 _label160                                 ;@line 160
-						Return -1                                                ;@line 161
-						Jump _label160                                           ;@line 161
-					_label160:
-						IAdd ::temp17 playerSerial 1                             ;@line 163
-						Assign playerSerial ::temp17                             ;@line 163
-						Assign lease playerSerial                                ;@line 164
-						Assign playerLease lease                                 ;@line 165
-						Assign playerReserved True                               ;@line 166
-						Assign playerReady False                                 ;@line 167
-						Assign playerRestored False                              ;@line 168
-						CallMethod Shutdown self ::NoneVar                       ;@line 171
-						CallMethod PlayerLeaseCurrent self ::temp13 lease        ;@line 172
-						Not ::temp15 ::temp13                                    ;@line 172
-						JumpF ::temp15 _label161                                 ;@line 172
-						Return -1                                                ;@line 173
-						Jump _label161                                           ;@line 173
-					_label161:
-						Return lease                                             ;@line 175
+						CallMethod Current self ::temp159 expectedGeneration expectedToken  ;@line 1294
+						Cast ::temp159 ::temp159                                 ;@line 1294
+						JumpF ::temp159 _label474                                ;@line 1294
+						CompareEQ ::temp160 ownedGuard candidate                 ;@line 1294
+						Cast ::temp159 ::temp160                                 ;@line 1294
+					_label474:
+						Assign valid ::temp159                                   ;@line 1294
+						Not ::temp160 valid                                      ;@line 1295
+						JumpF ::temp160 _label475                                ;@line 1295
+						CallMethod StopGuardPose self ::NoneVar candidate        ;@line 1296
+						CallMethod SetDontMove candidate ::NoneVar False         ;@line 1297
+						CompareEQ ::temp159 ownedGuard candidate                 ;@line 1298
+						JumpF ::temp159 _label476                                ;@line 1298
+						Cast ::temp161 None                                      ;@line 1299
+						Assign ownedGuard ::temp161                              ;@line 1299
+						Jump _label476                                           ;@line 1299
+					_label476:
+						Jump _label475                                           ;@line 1299
+					_label475:
+						Assign pinBusy False                                     ;@line 1302
+						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 1303
+						Return valid                                             ;@line 1304
 					.endCode
 				.endFunction
 				.function NormalizeTimingProperties
@@ -2017,2466 +5096,76 @@
 						.local ::temp31 Bool
 					.endLocalTable
 					.code
-						CompareLT ::temp29 timingRevision 14                     ;@line 291
-						JumpF ::temp29 _label162                                 ;@line 291
-						CompareGTE ::temp30 ::FireSeconds_var 0.299990           ;@line 292
-						Cast ::temp30 ::temp30                                   ;@line 292
-						JumpF ::temp30 _label163                                 ;@line 292
-						CompareLTE ::temp31 ::FireSeconds_var 0.300010           ;@line 292
-						Cast ::temp30 ::temp31                                   ;@line 292
-					_label163:
-						JumpF ::temp30 _label164                                 ;@line 292
-						Assign ::FireSeconds_var 0.200000                        ;@line 293
-						Jump _label164                                           ;@line 293
-					_label164:
-						CompareGTE ::temp31 ::ReleaseSeconds_var 0.099990        ;@line 295
-						Cast ::temp31 ::temp31                                   ;@line 295
-						JumpF ::temp31 _label165                                 ;@line 295
-						CompareLTE ::temp30 ::ReleaseSeconds_var 0.100010        ;@line 295
-						Cast ::temp31 ::temp30                                   ;@line 295
-					_label165:
-						JumpF ::temp31 _label166                                 ;@line 295
-						Assign ::ReleaseSeconds_var 0.066667                     ;@line 296
-						Jump _label166                                           ;@line 296
-					_label166:
-						CompareGTE ::temp30 ::ResetSeconds_var 1.199990          ;@line 298
-						Cast ::temp30 ::temp30                                   ;@line 298
-						JumpF ::temp30 _label167                                 ;@line 298
-						CompareLTE ::temp31 ::ResetSeconds_var 1.200010          ;@line 298
-						Cast ::temp30 ::temp31                                   ;@line 298
-					_label167:
-						JumpF ::temp30 _label168                                 ;@line 298
-						Assign ::ResetSeconds_var 0.800000                       ;@line 299
-						Jump _label168                                           ;@line 299
-					_label168:
-						CompareGTE ::temp31 ::CadenceSeconds_var 3.999990        ;@line 301
-						Cast ::temp31 ::temp31                                   ;@line 301
-						JumpF ::temp31 _label169                                 ;@line 301
-						CompareLTE ::temp30 ::CadenceSeconds_var 4.000010        ;@line 301
-						Cast ::temp31 ::temp30                                   ;@line 301
-					_label169:
-						JumpF ::temp31 _label170                                 ;@line 301
-						Assign ::CadenceSeconds_var 2.500000                     ;@line 302
-						Jump _label170                                           ;@line 302
-					_label170:
-						Assign timingRevision 14                                 ;@line 304
-						Jump _label162                                           ;@line 304
-					_label162:
-						CallMethod Finite self ::temp30 ::FireSeconds_var 0.200000 2.000000  ;@line 306
-						Not ::temp31 ::temp30                                    ;@line 306
-						JumpF ::temp31 _label171                                 ;@line 306
-						Assign ::FireSeconds_var 0.200000                        ;@line 307
-						Jump _label171                                           ;@line 307
-					_label171:
-						CallMethod Finite self ::temp29 ::ReleaseSeconds_var 0.066667 1.000000  ;@line 309
-						Not ::temp30 ::temp29                                    ;@line 309
-						Cast ::temp29 ::temp30                                   ;@line 309
-						JumpT ::temp29 _label172                                 ;@line 309
-						CompareGT ::temp31 ::ReleaseSeconds_var ::FireSeconds_var  ;@line 309
-						Cast ::temp29 ::temp31                                   ;@line 309
-					_label172:
-						JumpF ::temp29 _label173                                 ;@line 309
-						Assign ::ReleaseSeconds_var 0.066667                     ;@line 310
-						Jump _label173                                           ;@line 310
-					_label173:
-						CallMethod Finite self ::temp30 ::ResetSeconds_var 0.800000 5.000000  ;@line 312
-						Not ::temp31 ::temp30                                    ;@line 312
-						JumpF ::temp31 _label174                                 ;@line 312
-						Assign ::ResetSeconds_var 0.800000                       ;@line 313
-						Jump _label174                                           ;@line 313
-					_label174:
-						CallMethod SafeCadenceSeconds self ::temp32              ;@line 315
-						Assign ::CadenceSeconds_var ::temp32                     ;@line 315
-					.endCode
-				.endFunction
-				.function ValidTarget
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param target actor
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp96 Bool
-						.local ::temp97 actor
-						.local ::temp98 Bool
-						.local ::temp99 Int
-						.local ::temp100 ObjectReference
-						.local player actor
-						.local valid Bool
-						.local visible Bool
-						.local combatTarget actor
-					.endLocalTable
-					.code
-						CallMethod GuardReady self ::temp96 expectedGeneration expectedToken  ;@line 791
-						Not ::temp96 ::temp96                                    ;@line 791
-						Cast ::temp96 ::temp96                                   ;@line 791
-						JumpT ::temp96 _label175                                 ;@line 791
-						Cast ::temp97 None                                       ;@line 791
-						CompareEQ ::temp98 target ::temp97                       ;@line 791
-						Cast ::temp96 ::temp98                                   ;@line 791
-					_label175:
-						Cast ::temp96 ::temp96                                   ;@line 791
-						JumpT ::temp96 _label176                                 ;@line 791
-						CompareEQ ::temp98 target ::Artillero_var                ;@line 791
-						Cast ::temp96 ::temp98                                   ;@line 791
-					_label176:
-						JumpF ::temp96 _label177                                 ;@line 791
-						Return False                                             ;@line 792
-						Jump _label177                                           ;@line 792
-					_label177:
-						CallStatic game GetPlayer ::temp97                       ;@line 794
-						Assign player ::temp97                                   ;@line 794
-						CallMethod Current self ::temp98 expectedGeneration expectedToken  ;@line 795
-						Not ::temp96 ::temp98                                    ;@line 795
-						Cast ::temp96 ::temp96                                   ;@line 795
-						JumpT ::temp96 _label178                                 ;@line 795
-						CompareEQ ::temp98 target player                         ;@line 795
-						Cast ::temp96 ::temp98                                   ;@line 795
-					_label178:
-						JumpF ::temp96 _label179                                 ;@line 795
-						Return False                                             ;@line 796
-						Jump _label179                                           ;@line 796
-					_label179:
-						CallMethod Is3DLoaded target ::temp98                    ;@line 798
-						Cast ::temp98 ::temp98                                   ;@line 798
-						JumpF ::temp98 _label180                                 ;@line 798
-						CallMethod IsDisabled target ::temp96                    ;@line 798
-						Not ::temp96 ::temp96                                    ;@line 798
-						Cast ::temp98 ::temp96                                   ;@line 798
-					_label180:
-						Cast ::temp98 ::temp98                                   ;@line 798
-						JumpF ::temp98 _label181                                 ;@line 798
-						CallMethod IsDead target ::temp96                        ;@line 798
-						Not ::temp96 ::temp96                                    ;@line 798
-						Cast ::temp98 ::temp96                                   ;@line 798
-					_label181:
-						Cast ::temp98 ::temp98                                   ;@line 798
-						JumpF ::temp98 _label182                                 ;@line 798
-						CallMethod IsPlayerTeammate target ::temp96              ;@line 798
-						Not ::temp96 ::temp96                                    ;@line 798
-						Cast ::temp98 ::temp96                                   ;@line 798
-					_label182:
-						Cast ::temp98 ::temp98                                   ;@line 798
-						JumpF ::temp98 _label183                                 ;@line 798
-						CallMethod IsHostileToActor target ::temp96 ::Artillero_var  ;@line 798
-						Cast ::temp98 ::temp96                                   ;@line 798
-					_label183:
-						Cast ::temp98 ::temp98                                   ;@line 798
-						JumpF ::temp98 _label184                                 ;@line 798
-						CallMethod GetCombatState target ::temp99                ;@line 798
-						CompareGT ::temp96 ::temp99 0                            ;@line 798
-						Cast ::temp98 ::temp96                                   ;@line 798
-					_label184:
-						Cast ::temp98 ::temp98                                   ;@line 798
-						JumpF ::temp98 _label185                                 ;@line 798
-						CallMethod GetCombatState ::Artillero_var ::temp99       ;@line 798
-						CompareEQ ::temp96 ::temp99 1                            ;@line 798
-						Cast ::temp98 ::temp96                                   ;@line 798
-					_label185:
-						Assign valid ::temp98                                    ;@line 798
-						Cast ::temp100 target                                    ;@line 799
-						CallMethod HasLOS ::Artillero_var ::temp96 ::temp100     ;@line 799
-						Assign visible ::temp96                                  ;@line 799
-						CallMethod GetCombatTarget ::Artillero_var ::temp97      ;@line 800
-						Assign combatTarget ::temp97                             ;@line 800
-						CallMethod Current self ::temp98 expectedGeneration expectedToken  ;@line 801
-						Cast ::temp96 ::temp98                                   ;@line 801
-						JumpF ::temp96 _label186                                 ;@line 801
-						Cast ::temp96 valid                                      ;@line 801
-					_label186:
-						Cast ::temp98 ::temp96                                   ;@line 801
-						JumpF ::temp98 _label187                                 ;@line 801
-						Cast ::temp98 visible                                    ;@line 801
-					_label187:
-						Cast ::temp98 ::temp98                                   ;@line 801
-						JumpF ::temp98 _label188                                 ;@line 801
-						CompareEQ ::temp96 combatTarget target                   ;@line 801
-						Cast ::temp98 ::temp96                                   ;@line 801
-					_label188:
-						Return ::temp98                                          ;@line 801
-					.endCode
-				.endFunction
-				.function AcquirePin
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param expectedGeneration Int
-					.endParamTable
-					.localTable
-						.local ::temp50 Bool
-						.local ::temp51 Bool
-						.local ::NoneVar None
-						.local candidate actor
-					.endLocalTable
-					.code
-						Cast ::temp50 pinBusy                                    ;@line 556
-						JumpT ::temp50 _label189                                 ;@line 556
-						CompareEQ ::temp50 generation expectedGeneration         ;@line 556
-						Not ::temp50 ::temp50                                    ;@line 556
-						Cast ::temp50 ::temp50                                   ;@line 556
-					_label189:
-						Cast ::temp50 ::temp50                                   ;@line 556
-						JumpT ::temp50 _label190                                 ;@line 556
-						CompareEQ ::temp51 token -1                              ;@line 556
-						Not ::temp51 ::temp51                                    ;@line 556
-						Cast ::temp50 ::temp51                                   ;@line 556
-					_label190:
-						Cast ::temp50 ::temp50                                   ;@line 556
-						JumpT ::temp50 _label191                                 ;@line 556
-						Not ::temp51 recovering                                  ;@line 556
-						Cast ::temp50 ::temp51                                   ;@line 556
-					_label191:
-						Cast ::temp51 ::temp50                                   ;@line 556
-						JumpT ::temp51 _label192                                 ;@line 556
-						Cast ::temp51 destroyed                                  ;@line 556
-					_label192:
-						Cast ::temp50 ::temp51                                   ;@line 556
-						JumpT ::temp50 _label193                                 ;@line 556
-						Cast ::temp50 faulted                                    ;@line 556
-					_label193:
-						JumpF ::temp50 _label194                                 ;@line 556
-						Return False                                             ;@line 557
-						Jump _label194                                           ;@line 557
-					_label194:
-						Assign candidate ::Artillero_var                         ;@line 559
-						Assign pinBusy True                                      ;@line 560
-						CallMethod SetDontMove candidate ::NoneVar True          ;@line 561
-						CompareEQ ::temp51 generation expectedGeneration         ;@line 562
-						Not ::temp51 ::temp51                                    ;@line 562
-						Cast ::temp51 ::temp51                                   ;@line 562
-						JumpT ::temp51 _label195                                 ;@line 562
-						CompareEQ ::temp50 token -1                              ;@line 562
-						Not ::temp50 ::temp50                                    ;@line 562
-						Cast ::temp51 ::temp50                                   ;@line 562
-					_label195:
-						Cast ::temp51 ::temp51                                   ;@line 562
-						JumpT ::temp51 _label196                                 ;@line 562
-						Not ::temp50 recovering                                  ;@line 562
-						Cast ::temp51 ::temp50                                   ;@line 562
-					_label196:
-						Cast ::temp50 ::temp51                                   ;@line 562
-						JumpT ::temp50 _label197                                 ;@line 562
-						Cast ::temp50 destroyed                                  ;@line 562
-					_label197:
-						Cast ::temp51 ::temp50                                   ;@line 562
-						JumpT ::temp51 _label198                                 ;@line 562
-						Cast ::temp51 faulted                                    ;@line 562
-					_label198:
-						JumpF ::temp51 _label199                                 ;@line 562
-						CallMethod SetDontMove candidate ::NoneVar False         ;@line 566
-						Assign pinBusy False                                     ;@line 567
-						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 568
-						Return False                                             ;@line 569
-						Jump _label199                                           ;@line 569
-					_label199:
-						Assign ownedGuard candidate                              ;@line 571
-						Assign pinBusy False                                     ;@line 572
-						Return True                                              ;@line 573
-					.endCode
-				.endFunction
-				.function ReleasePlayerLease
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param lease Int
-					.endParamTable
-					.localTable
-						.local ::temp26 Bool
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod PlayerLeaseCurrent self ::temp26 lease        ;@line 273
-						Not ::temp26 ::temp26                                    ;@line 273
-						JumpF ::temp26 _label200                                 ;@line 273
-						Return False                                             ;@line 274
-						Jump _label200                                           ;@line 274
-					_label200:
-						CallMethod InvalidatePlayerLease self ::NoneVar          ;@line 276
-						CallMethod Shutdown self ::NoneVar                       ;@line 277
-						CallMethod BeginRecovery self ::NoneVar                  ;@line 280
-						Return True                                              ;@line 281
-					.endCode
-				.endFunction
-				.function PreparePlayerLease
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param lease Int
-					.endParamTable
-					.localTable
-						.local ::temp18 Bool
-						.local ::temp19 Bool
-						.local ::temp20 Int
-						.local ::NoneVar None
-						.local ::temp25 actor
-						.local sceneFree Bool
-						.local scenePluginVersion Int
-						.local placed Bool
-						.local ::temp21 ObjectReference
-						.local ::temp22 Bool
-						.local ::temp23 Float[]
-						.local ::temp24 Float
-						.local loaded Bool
-						.local controls Bool
-						.local rest Float[]
-						.local settled Bool
-						.local candidate actor
-						.local player actor
-						.local usable Bool
-						.local waitPoint ObjectReference
-					.endLocalTable
-					.code
-						CallMethod PlayerLeaseCurrent self ::temp18 lease        ;@line 179
-						Not ::temp18 ::temp18                                    ;@line 179
-						Cast ::temp18 ::temp18                                   ;@line 179
-						JumpT ::temp18 _label201                                 ;@line 179
-						Cast ::temp18 pinBusy                                    ;@line 179
-					_label201:
-						Cast ::temp18 ::temp18                                   ;@line 179
-						JumpT ::temp18 _label202                                 ;@line 179
-						Cast ::temp18 sceneBusy                                  ;@line 179
-					_label202:
-						Cast ::temp18 ::temp18                                   ;@line 179
-						JumpT ::temp18 _label203                                 ;@line 179
-						Cast ::temp18 recovering                                 ;@line 179
-					_label203:
-						Cast ::temp18 ::temp18                                   ;@line 179
-						JumpT ::temp18 _label204                                 ;@line 179
-						Cast ::temp18 running                                    ;@line 179
-					_label204:
-						JumpF ::temp18 _label205                                 ;@line 179
-						Return False                                             ;@line 180
-						Jump _label205                                           ;@line 180
-					_label205:
-						JumpF playerReady _label206                              ;@line 182
-						Return True                                              ;@line 183
-						Jump _label206                                           ;@line 183
-					_label206:
-						CallMethod StationSceneAvailable self ::temp18           ;@line 185
-						Assign sceneFree ::temp18                                ;@line 185
-						CallMethod PlayerLeaseCurrent self ::temp18 lease        ;@line 186
-						Not ::temp18 ::temp18                                    ;@line 186
-						Cast ::temp18 ::temp18                                   ;@line 186
-						JumpT ::temp18 _label207                                 ;@line 186
-						Cast ::temp18 pinBusy                                    ;@line 186
-					_label207:
-						Cast ::temp18 ::temp18                                   ;@line 186
-						JumpT ::temp18 _label208                                 ;@line 186
-						Cast ::temp18 sceneBusy                                  ;@line 186
-					_label208:
-						Cast ::temp18 ::temp18                                   ;@line 186
-						JumpT ::temp18 _label209                                 ;@line 186
-						Not ::temp19 sceneFree                                   ;@line 186
-						Cast ::temp18 ::temp19                                   ;@line 186
-					_label209:
-						JumpF ::temp18 _label210                                 ;@line 186
-						Return False                                             ;@line 187
-						Jump _label210                                           ;@line 187
-					_label210:
-						CallStatic skse GetPluginVersion ::temp20 "AstraSight"   ;@line 189
-						Assign scenePluginVersion ::temp20                       ;@line 189
-						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 190
-						Not ::temp18 ::temp19                                    ;@line 190
-						Cast ::temp18 ::temp18                                   ;@line 190
-						JumpT ::temp18 _label211                                 ;@line 190
-						CompareLT ::temp19 scenePluginVersion 50659392           ;@line 190
-						Cast ::temp18 ::temp19                                   ;@line 190
-					_label211:
-						JumpF ::temp18 _label212                                 ;@line 190
-						Return False                                             ;@line 191
-						Jump _label212                                           ;@line 191
-					_label212:
-						CallMethod ReleaseOwnedGuard self ::NoneVar              ;@line 193
-						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 194
-						Not ::temp18 ::temp19                                    ;@line 194
-						Cast ::temp19 ::temp18                                   ;@line 194
-						JumpT ::temp19 _label213                                 ;@line 194
-						Cast ::temp19 pinBusy                                    ;@line 194
-					_label213:
-						Cast ::temp18 ::temp19                                   ;@line 194
-						JumpT ::temp18 _label214                                 ;@line 194
-						Cast ::temp18 sceneBusy                                  ;@line 194
-					_label214:
-						JumpF ::temp18 _label215                                 ;@line 194
-						Return False                                             ;@line 195
-						Jump _label215                                           ;@line 195
-					_label215:
-						CallMethod EnsureCityPlacement self ::temp19 generation lease  ;@line 197
-						Assign placed ::temp19                                   ;@line 197
-						CallMethod PlayerLeaseCurrent self ::temp18 lease        ;@line 198
-						Not ::temp19 ::temp18                                    ;@line 198
-						Cast ::temp18 ::temp19                                   ;@line 198
-						JumpT ::temp18 _label216                                 ;@line 198
-						Cast ::temp18 pinBusy                                    ;@line 198
-					_label216:
-						Cast ::temp19 ::temp18                                   ;@line 198
-						JumpT ::temp19 _label217                                 ;@line 198
-						Cast ::temp19 sceneBusy                                  ;@line 198
-					_label217:
-						Cast ::temp19 ::temp19                                   ;@line 198
-						JumpT ::temp19 _label218                                 ;@line 198
-						Not ::temp18 placed                                      ;@line 198
-						Cast ::temp19 ::temp18                                   ;@line 198
-					_label218:
-						JumpF ::temp19 _label219                                 ;@line 198
-						Return False                                             ;@line 199
-						Jump _label219                                           ;@line 199
-					_label219:
-						Not ::temp18 playerRestored                              ;@line 201
-						JumpF ::temp18 _label220                                 ;@line 201
-						CallMethod Is3DLoaded self ::temp19                      ;@line 202
-						Assign loaded ::temp19                                   ;@line 202
-						Cast ::temp21 self                                       ;@line 203
-						CallStatic netimmerse HasNode ::temp19 ::temp21 ::YawNode_var False  ;@line 203
-						Cast ::temp19 ::temp19                                   ;@line 203
-						JumpF ::temp19 _label221                                 ;@line 203
-						Cast ::temp21 self                                       ;@line 203
-						CallStatic netimmerse HasNode ::temp22 ::temp21 ::PitchNode_var False  ;@line 203
-						Cast ::temp19 ::temp22                                   ;@line 203
-					_label221:
-						Assign controls ::temp19                                 ;@line 203
-						CallMethod PlayerLeaseCurrent self ::temp22 lease        ;@line 204
-						Not ::temp19 ::temp22                                    ;@line 204
-						Cast ::temp22 ::temp19                                   ;@line 204
-						JumpT ::temp22 _label222                                 ;@line 204
-						Cast ::temp22 pinBusy                                    ;@line 204
-					_label222:
-						Cast ::temp19 ::temp22                                   ;@line 204
-						JumpT ::temp19 _label223                                 ;@line 204
-						Cast ::temp19 sceneBusy                                  ;@line 204
-					_label223:
-						Cast ::temp19 ::temp19                                   ;@line 204
-						JumpT ::temp19 _label224                                 ;@line 204
-						Not ::temp22 loaded                                      ;@line 204
-						Cast ::temp19 ::temp22                                   ;@line 204
-					_label224:
-						Cast ::temp19 ::temp19                                   ;@line 204
-						JumpT ::temp19 _label225                                 ;@line 204
-						Not ::temp22 controls                                    ;@line 204
-						Cast ::temp19 ::temp22                                   ;@line 204
-					_label225:
-						JumpF ::temp19 _label226                                 ;@line 204
-						Return False                                             ;@line 205
-						Jump _label226                                           ;@line 205
-					_label226:
-						ArrayCreate ::temp23 9                                   ;@line 209
-						Assign rest ::temp23                                     ;@line 209
-						Assign ::temp24 1.000000                                 ;@line 210
-						ArraySetElement rest 0 ::temp24                          ;@line 210
-						Assign ::temp24 1.000000                                 ;@line 211
-						ArraySetElement rest 4 ::temp24                          ;@line 211
-						Assign ::temp24 1.000000                                 ;@line 212
-						ArraySetElement rest 8 ::temp24                          ;@line 212
-						Assign sceneBusy True                                    ;@line 213
-						Cast ::temp21 self                                       ;@line 214
-						CallStatic astrasightnative ResetIdleScene ::temp22 ::temp21  ;@line 214
-						Assign settled ::temp22                                  ;@line 214
-						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 215
-						Cast ::temp22 ::temp19                                   ;@line 215
-						JumpF ::temp22 _label227                                 ;@line 215
-						Cast ::temp22 settled                                    ;@line 215
-					_label227:
-						JumpF ::temp22 _label228                                 ;@line 215
-						Cast ::temp21 self                                       ;@line 216
-						CallStatic netimmerse SetNodeLocalRotationMatrix ::temp19 ::temp21 ::YawNode_var rest False  ;@line 216
-						Jump _label228                                           ;@line 216
-					_label228:
-						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 218
-						Cast ::temp22 ::temp19                                   ;@line 218
-						JumpF ::temp22 _label229                                 ;@line 218
-						Cast ::temp22 settled                                    ;@line 218
-					_label229:
-						JumpF ::temp22 _label230                                 ;@line 218
-						Cast ::temp21 self                                       ;@line 219
-						CallStatic netimmerse SetNodeLocalRotationMatrix ::temp19 ::temp21 ::PitchNode_var rest False  ;@line 219
-						Jump _label230                                           ;@line 219
-					_label230:
-						Assign sceneBusy False                                   ;@line 221
-						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 222
-						Not ::temp22 ::temp19                                    ;@line 222
-						JumpF ::temp22 _label231                                 ;@line 222
-						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 223
-						Return False                                             ;@line 224
-						Jump _label231                                           ;@line 224
-					_label231:
-						Not ::temp19 settled                                     ;@line 226
-						JumpF ::temp19 _label232                                 ;@line 226
-						Return False                                             ;@line 227
-						Jump _label232                                           ;@line 227
-					_label232:
-						Assign yaw 0.000000                                      ;@line 229
-						Assign pitch 0.000000                                    ;@line 230
-						Assign playerRestored True                               ;@line 231
-						Jump _label220                                           ;@line 231
-					_label220:
-						Assign candidate ::Artillero_var                         ;@line 233
-						CallStatic game GetPlayer ::temp25                       ;@line 234
-						Assign player ::temp25                                   ;@line 234
-						CallMethod PlayerLeaseCurrent self ::temp22 lease        ;@line 235
-						Not ::temp19 ::temp22                                    ;@line 235
-						Cast ::temp18 ::temp19                                   ;@line 235
-						JumpT ::temp18 _label233                                 ;@line 235
-						Cast ::temp18 pinBusy                                    ;@line 235
-					_label233:
-						Cast ::temp22 ::temp18                                   ;@line 235
-						JumpT ::temp22 _label234                                 ;@line 235
-						Cast ::temp22 sceneBusy                                  ;@line 235
-					_label234:
-						Cast ::temp18 ::temp22                                   ;@line 235
-						JumpT ::temp18 _label235                                 ;@line 235
-						CompareEQ ::temp19 candidate player                      ;@line 235
-						Cast ::temp18 ::temp19                                   ;@line 235
-					_label235:
-						JumpF ::temp18 _label236                                 ;@line 235
-						Return False                                             ;@line 236
-						Jump _label236                                           ;@line 236
-					_label236:
-						Cast ::temp25 None                                       ;@line 238
-						CompareEQ ::temp22 candidate ::temp25                    ;@line 238
-						Not ::temp22 ::temp22                                    ;@line 238
-						JumpF ::temp22 _label237                                 ;@line 238
-						CallMethod IsDead candidate ::temp19                     ;@line 239
-						Not ::temp18 ::temp19                                    ;@line 239
-						Cast ::temp18 ::temp18                                   ;@line 239
-						JumpF ::temp18 _label238                                 ;@line 239
-						CallMethod IsDisabled candidate ::temp19                 ;@line 239
-						Not ::temp19 ::temp19                                    ;@line 239
-						Cast ::temp18 ::temp19                                   ;@line 239
-					_label238:
-						Cast ::temp18 ::temp18                                   ;@line 239
-						JumpF ::temp18 _label239                                 ;@line 239
-						CallMethod Is3DLoaded candidate ::temp19                 ;@line 239
-						Cast ::temp18 ::temp19                                   ;@line 239
-					_label239:
-						Assign usable ::temp18                                   ;@line 239
-						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 240
-						Not ::temp18 ::temp19                                    ;@line 240
-						Cast ::temp19 ::temp18                                   ;@line 240
-						JumpT ::temp19 _label240                                 ;@line 240
-						Cast ::temp19 pinBusy                                    ;@line 240
-					_label240:
-						Cast ::temp18 ::temp19                                   ;@line 240
-						JumpT ::temp18 _label241                                 ;@line 240
-						Cast ::temp18 sceneBusy                                  ;@line 240
-					_label241:
-						JumpF ::temp18 _label242                                 ;@line 240
-						Return False                                             ;@line 241
-						Jump _label242                                           ;@line 241
-					_label242:
-						JumpF usable _label243                                   ;@line 243
-						Assign waitPoint ::Standby_var                           ;@line 244
-						Cast ::temp21 None                                       ;@line 245
-						CompareEQ ::temp19 waitPoint ::temp21                    ;@line 245
-						JumpF ::temp19 _label244                                 ;@line 245
-						Return False                                             ;@line 246
-						Jump _label244                                           ;@line 246
-					_label244:
-						Assign pinBusy True                                      ;@line 248
-						CallMethod MoveTo candidate ::NoneVar waitPoint 0.000000 0.000000 0.000000 True  ;@line 249
-						CallMethod PlayerLeaseCurrent self ::temp18 lease        ;@line 250
-						JumpF ::temp18 _label245                                 ;@line 250
-						CallMethod SetDontMove candidate ::NoneVar True          ;@line 251
-						Jump _label245                                           ;@line 251
-					_label245:
-						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 253
-						Not ::temp18 ::temp19                                    ;@line 253
-						JumpF ::temp18 _label246                                 ;@line 253
-						CallMethod SetDontMove candidate ::NoneVar False         ;@line 256
-						Assign pinBusy False                                     ;@line 257
-						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 258
-						Return False                                             ;@line 259
-						Jump _label246                                           ;@line 259
-					_label246:
-						Assign ownedGuard candidate                              ;@line 261
-						Assign pinBusy False                                     ;@line 262
-						Jump _label243                                           ;@line 262
-					_label243:
-						Jump _label237                                           ;@line 262
-					_label237:
-						CallMethod PlayerLeaseCurrent self ::temp19 lease        ;@line 265
-						Not ::temp18 ::temp19                                    ;@line 265
-						Cast ::temp22 ::temp18                                   ;@line 265
-						JumpT ::temp22 _label247                                 ;@line 265
-						Cast ::temp22 pinBusy                                    ;@line 265
-					_label247:
-						Cast ::temp19 ::temp22                                   ;@line 265
-						JumpT ::temp19 _label248                                 ;@line 265
-						Cast ::temp19 sceneBusy                                  ;@line 265
-					_label248:
-						JumpF ::temp19 _label249                                 ;@line 265
-						Return False                                             ;@line 266
-						Jump _label249                                           ;@line 266
-					_label249:
-						Assign playerReady True                                  ;@line 268
-						Return True                                              ;@line 269
-					.endCode
-				.endFunction
-				.function GuardReady
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp92 Bool
-						.local ::temp93 actor
-						.local ::temp94 Bool
-						.local ::temp95 Float
-						.local ready Bool
-						.local distance Float
-					.endLocalTable
-					.code
-						CallMethod Current self ::temp92 expectedGeneration expectedToken  ;@line 782
-						Not ::temp92 ::temp92                                    ;@line 782
-						Cast ::temp92 ::temp92                                   ;@line 782
-						JumpT ::temp92 _label250                                 ;@line 782
-						Cast ::temp93 None                                       ;@line 782
-						CompareEQ ::temp94 ownedGuard ::temp93                   ;@line 782
-						Cast ::temp92 ::temp94                                   ;@line 782
-					_label250:
-						Cast ::temp92 ::temp92                                   ;@line 782
-						JumpT ::temp92 _label251                                 ;@line 782
-						CompareEQ ::temp94 ownedGuard ::Artillero_var            ;@line 782
-						Not ::temp94 ::temp94                                    ;@line 782
-						Cast ::temp92 ::temp94                                   ;@line 782
-					_label251:
-						JumpF ::temp92 _label252                                 ;@line 782
-						Return False                                             ;@line 783
-						Jump _label252                                           ;@line 783
-					_label252:
-						CallMethod Is3DLoaded self ::temp94                      ;@line 785
-						Cast ::temp94 ::temp94                                   ;@line 785
-						JumpF ::temp94 _label253                                 ;@line 785
-						CallMethod IsDisabled self ::temp92                      ;@line 785
-						Not ::temp92 ::temp92                                    ;@line 785
-						Cast ::temp94 ::temp92                                   ;@line 785
-					_label253:
-						Cast ::temp94 ::temp94                                   ;@line 785
-						JumpF ::temp94 _label254                                 ;@line 785
-						CallMethod Is3DLoaded ownedGuard ::temp92                ;@line 785
-						Cast ::temp94 ::temp92                                   ;@line 785
-					_label254:
-						Cast ::temp94 ::temp94                                   ;@line 785
-						JumpF ::temp94 _label255                                 ;@line 785
-						CallMethod IsDead ownedGuard ::temp92                    ;@line 785
-						Not ::temp92 ::temp92                                    ;@line 785
-						Cast ::temp94 ::temp92                                   ;@line 785
-					_label255:
-						Cast ::temp94 ::temp94                                   ;@line 785
-						JumpF ::temp94 _label256                                 ;@line 785
-						CallMethod IsDisabled ownedGuard ::temp92                ;@line 785
-						Not ::temp92 ::temp92                                    ;@line 785
-						Cast ::temp94 ::temp92                                   ;@line 785
-					_label256:
-						Assign ready ::temp94                                    ;@line 785
-						CallMethod GetDistance ownedGuard ::temp95 ::Puesto_var  ;@line 786
-						Assign distance ::temp95                                 ;@line 786
-						CallMethod Current self ::temp92 expectedGeneration expectedToken  ;@line 787
-						Cast ::temp94 ::temp92                                   ;@line 787
-						JumpF ::temp94 _label257                                 ;@line 787
-						Cast ::temp94 ready                                      ;@line 787
-					_label257:
-						Cast ::temp94 ::temp94                                   ;@line 787
-						JumpF ::temp94 _label258                                 ;@line 787
-						CallMethod Finite self ::temp92 distance 0.000000 64.000000  ;@line 787
-						Cast ::temp94 ::temp92                                   ;@line 787
-					_label258:
-						Return ::temp94                                          ;@line 787
-					.endCode
-				.endFunction
-				.function Finite
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param value Float
-						.param minimum Float
-						.param maximum Float
-					.endParamTable
-					.localTable
-						.local ::temp27 Bool
-						.local ::temp28 Bool
-					.endLocalTable
-					.code
-						CompareEQ ::temp27 value value                           ;@line 285
-						Cast ::temp27 ::temp27                                   ;@line 285
-						JumpF ::temp27 _label259                                 ;@line 285
-						CompareGTE ::temp28 value minimum                        ;@line 285
-						Cast ::temp27 ::temp28                                   ;@line 285
-					_label259:
-						Cast ::temp27 ::temp27                                   ;@line 285
-						JumpF ::temp27 _label260                                 ;@line 285
-						CompareLTE ::temp28 value maximum                        ;@line 285
-						Cast ::temp27 ::temp28                                   ;@line 285
-					_label260:
-						Return ::temp27                                          ;@line 285
-					.endCode
-				.endFunction
-				.function RotationValid
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param matrix Float[]
-					.endParamTable
-					.localTable
-						.local ::temp78 Bool
-						.local ::temp82 Float
-						.local ::temp83 Float
-						.local ::temp84 Float
-						.local ::temp85 Float
-						.local i Int
-						.local ::temp79 Float
-						.local ::temp80 Bool
-						.local ::temp81 Int
-						.local a Float
-						.local b Float
-						.local c Float
-						.local ab Float
-						.local ac Float
-						.local bc Float
-						.local determinant Float
-					.endLocalTable
-					.code
-						Assign i 0                                               ;@line 731
-					_label263:
-						CompareLT ::temp78 i 9                                   ;@line 732
-						JumpF ::temp78 _label261                                 ;@line 732
-						ArrayGetElement ::temp79 matrix i                        ;@line 733
-						CallMethod Finite self ::temp80 ::temp79 -1.050000 1.050000  ;@line 733
-						Not ::temp80 ::temp80                                    ;@line 733
-						JumpF ::temp80 _label262                                 ;@line 733
-						Return False                                             ;@line 734
-						Jump _label262                                           ;@line 734
-					_label262:
-						IAdd ::temp81 i 1                                        ;@line 736
-						Assign i ::temp81                                        ;@line 736
-						Jump _label263                                           ;@line 736
-					_label261:
-						ArrayGetElement ::temp79 matrix 0                        ;@line 738
-						ArrayGetElement ::temp82 matrix 0                        ;@line 738
-						FMultiply ::temp79 ::temp79 ::temp82                     ;@line 738
-						ArrayGetElement ::temp82 matrix 3                        ;@line 738
-						ArrayGetElement ::temp83 matrix 3                        ;@line 738
-						FMultiply ::temp82 ::temp82 ::temp83                     ;@line 738
-						FAdd ::temp83 ::temp79 ::temp82                          ;@line 738
-						ArrayGetElement ::temp79 matrix 6                        ;@line 738
-						ArrayGetElement ::temp82 matrix 6                        ;@line 738
-						FMultiply ::temp79 ::temp79 ::temp82                     ;@line 738
-						FAdd ::temp82 ::temp83 ::temp79                          ;@line 738
-						Assign a ::temp82                                        ;@line 738
-						ArrayGetElement ::temp83 matrix 1                        ;@line 739
-						ArrayGetElement ::temp79 matrix 1                        ;@line 739
-						FMultiply ::temp82 ::temp83 ::temp79                     ;@line 739
-						ArrayGetElement ::temp83 matrix 4                        ;@line 739
-						ArrayGetElement ::temp79 matrix 4                        ;@line 739
-						FMultiply ::temp83 ::temp83 ::temp79                     ;@line 739
-						FAdd ::temp79 ::temp82 ::temp83                          ;@line 739
-						ArrayGetElement ::temp82 matrix 7                        ;@line 739
-						ArrayGetElement ::temp83 matrix 7                        ;@line 739
-						FMultiply ::temp82 ::temp82 ::temp83                     ;@line 739
-						FAdd ::temp83 ::temp79 ::temp82                          ;@line 739
-						Assign b ::temp83                                        ;@line 739
-						ArrayGetElement ::temp79 matrix 2                        ;@line 740
-						ArrayGetElement ::temp82 matrix 2                        ;@line 740
-						FMultiply ::temp83 ::temp79 ::temp82                     ;@line 740
-						ArrayGetElement ::temp79 matrix 5                        ;@line 740
-						ArrayGetElement ::temp82 matrix 5                        ;@line 740
-						FMultiply ::temp79 ::temp79 ::temp82                     ;@line 740
-						FAdd ::temp82 ::temp83 ::temp79                          ;@line 740
-						ArrayGetElement ::temp83 matrix 8                        ;@line 740
-						ArrayGetElement ::temp79 matrix 8                        ;@line 740
-						FMultiply ::temp83 ::temp83 ::temp79                     ;@line 740
-						FAdd ::temp79 ::temp82 ::temp83                          ;@line 740
-						Assign c ::temp79                                        ;@line 740
-						ArrayGetElement ::temp82 matrix 0                        ;@line 741
-						ArrayGetElement ::temp83 matrix 1                        ;@line 741
-						FMultiply ::temp79 ::temp82 ::temp83                     ;@line 741
-						ArrayGetElement ::temp82 matrix 3                        ;@line 741
-						ArrayGetElement ::temp83 matrix 4                        ;@line 741
-						FMultiply ::temp82 ::temp82 ::temp83                     ;@line 741
-						FAdd ::temp83 ::temp79 ::temp82                          ;@line 741
-						ArrayGetElement ::temp79 matrix 6                        ;@line 741
-						ArrayGetElement ::temp82 matrix 7                        ;@line 741
-						FMultiply ::temp79 ::temp79 ::temp82                     ;@line 741
-						FAdd ::temp82 ::temp83 ::temp79                          ;@line 741
-						Assign ab ::temp82                                       ;@line 741
-						ArrayGetElement ::temp83 matrix 0                        ;@line 742
-						ArrayGetElement ::temp79 matrix 2                        ;@line 742
-						FMultiply ::temp82 ::temp83 ::temp79                     ;@line 742
-						ArrayGetElement ::temp83 matrix 3                        ;@line 742
-						ArrayGetElement ::temp79 matrix 5                        ;@line 742
-						FMultiply ::temp83 ::temp83 ::temp79                     ;@line 742
-						FAdd ::temp79 ::temp82 ::temp83                          ;@line 742
-						ArrayGetElement ::temp82 matrix 6                        ;@line 742
-						ArrayGetElement ::temp83 matrix 8                        ;@line 742
-						FMultiply ::temp82 ::temp82 ::temp83                     ;@line 742
-						FAdd ::temp83 ::temp79 ::temp82                          ;@line 742
-						Assign ac ::temp83                                       ;@line 742
-						ArrayGetElement ::temp79 matrix 1                        ;@line 743
-						ArrayGetElement ::temp82 matrix 2                        ;@line 743
-						FMultiply ::temp83 ::temp79 ::temp82                     ;@line 743
-						ArrayGetElement ::temp79 matrix 4                        ;@line 743
-						ArrayGetElement ::temp82 matrix 5                        ;@line 743
-						FMultiply ::temp79 ::temp79 ::temp82                     ;@line 743
-						FAdd ::temp82 ::temp83 ::temp79                          ;@line 743
-						ArrayGetElement ::temp83 matrix 7                        ;@line 743
-						ArrayGetElement ::temp79 matrix 8                        ;@line 743
-						FMultiply ::temp83 ::temp83 ::temp79                     ;@line 743
-						FAdd ::temp79 ::temp82 ::temp83                          ;@line 743
-						Assign bc ::temp79                                       ;@line 743
-						ArrayGetElement ::temp82 matrix 0                        ;@line 744
-						ArrayGetElement ::temp83 matrix 4                        ;@line 744
-						ArrayGetElement ::temp79 matrix 8                        ;@line 744
-						FMultiply ::temp83 ::temp83 ::temp79                     ;@line 744
-						ArrayGetElement ::temp79 matrix 5                        ;@line 744
-						ArrayGetElement ::temp84 matrix 7                        ;@line 744
-						FMultiply ::temp79 ::temp79 ::temp84                     ;@line 744
-						FSubtract ::temp84 ::temp83 ::temp79                     ;@line 744
-						FMultiply ::temp83 ::temp82 ::temp84                     ;@line 744
-						ArrayGetElement ::temp79 matrix 1                        ;@line 744
-						ArrayGetElement ::temp82 matrix 3                        ;@line 744
-						ArrayGetElement ::temp84 matrix 8                        ;@line 744
-						FMultiply ::temp82 ::temp82 ::temp84                     ;@line 744
-						ArrayGetElement ::temp84 matrix 5                        ;@line 744
-						ArrayGetElement ::temp85 matrix 6                        ;@line 744
-						FMultiply ::temp84 ::temp84 ::temp85                     ;@line 744
-						FSubtract ::temp85 ::temp82 ::temp84                     ;@line 744
-						FMultiply ::temp82 ::temp79 ::temp85                     ;@line 744
-						FSubtract ::temp84 ::temp83 ::temp82                     ;@line 744
-						ArrayGetElement ::temp79 matrix 2                        ;@line 744
-						ArrayGetElement ::temp85 matrix 3                        ;@line 744
-						ArrayGetElement ::temp83 matrix 7                        ;@line 744
-						FMultiply ::temp82 ::temp85 ::temp83                     ;@line 744
-						ArrayGetElement ::temp85 matrix 4                        ;@line 744
-						ArrayGetElement ::temp83 matrix 6                        ;@line 744
-						FMultiply ::temp85 ::temp85 ::temp83                     ;@line 744
-						FSubtract ::temp83 ::temp82 ::temp85                     ;@line 744
-						FMultiply ::temp82 ::temp79 ::temp83                     ;@line 744
-						FAdd ::temp85 ::temp84 ::temp82                          ;@line 744
-						Assign determinant ::temp85                              ;@line 744
-						FSubtract ::temp79 a 1.000000                            ;@line 745
-						CallStatic math Abs ::temp83 ::temp79                    ;@line 745
-						CompareLTE ::temp80 ::temp83 0.002000                    ;@line 745
-						Cast ::temp80 ::temp80                                   ;@line 745
-						JumpF ::temp80 _label264                                 ;@line 745
-						FSubtract ::temp84 b 1.000000                            ;@line 745
-						CallStatic math Abs ::temp82 ::temp84                    ;@line 745
-						CompareLTE ::temp78 ::temp82 0.002000                    ;@line 745
-						Cast ::temp80 ::temp78                                   ;@line 745
-					_label264:
-						Cast ::temp80 ::temp80                                   ;@line 745
-						JumpF ::temp80 _label265                                 ;@line 745
-						FSubtract ::temp85 c 1.000000                            ;@line 745
-						CallStatic math Abs ::temp79 ::temp85                    ;@line 745
-						CompareLTE ::temp78 ::temp79 0.002000                    ;@line 745
-						Cast ::temp80 ::temp78                                   ;@line 745
-					_label265:
-						Cast ::temp80 ::temp80                                   ;@line 745
-						JumpF ::temp80 _label266                                 ;@line 745
-						CallStatic math Abs ::temp83 ab                          ;@line 745
-						CompareLTE ::temp78 ::temp83 0.002000                    ;@line 745
-						Cast ::temp80 ::temp78                                   ;@line 745
-					_label266:
-						Cast ::temp80 ::temp80                                   ;@line 745
-						JumpF ::temp80 _label267                                 ;@line 745
-						CallStatic math Abs ::temp84 ac                          ;@line 745
-						CompareLTE ::temp78 ::temp84 0.002000                    ;@line 745
-						Cast ::temp80 ::temp78                                   ;@line 745
-					_label267:
-						Cast ::temp80 ::temp80                                   ;@line 745
-						JumpF ::temp80 _label268                                 ;@line 745
-						CallStatic math Abs ::temp82 bc                          ;@line 745
-						CompareLTE ::temp78 ::temp82 0.002000                    ;@line 745
-						Cast ::temp80 ::temp78                                   ;@line 745
-					_label268:
-						Cast ::temp80 ::temp80                                   ;@line 745
-						JumpF ::temp80 _label269                                 ;@line 745
-						FSubtract ::temp85 determinant 1.000000                  ;@line 745
-						CallStatic math Abs ::temp79 ::temp85                    ;@line 745
-						CompareLTE ::temp78 ::temp79 0.004000                    ;@line 745
-						Cast ::temp80 ::temp78                                   ;@line 745
-					_label269:
-						Return ::temp80                                          ;@line 745
-					.endCode
-				.endFunction
-				.function OnUnload
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod InvalidatePlayerLease self ::NoneVar          ;@line 88
-						CallMethod Shutdown self ::NoneVar                       ;@line 89
-					.endCode
-				.endFunction
-				.function TurnToward
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param dt Float
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp115 Bool
-						.local ::temp116 Float
-						.local ::NoneVar None
-						.local rate Float
-						.local nextYaw Float
-						.local nextPitch Float
-					.endLocalTable
-					.code
-						Assign rate ::TurnRate_var                               ;@line 915
-						CallMethod Finite self ::temp115 rate 1.000000 30.000000  ;@line 916
-						Not ::temp115 ::temp115                                  ;@line 916
-						JumpF ::temp115 _label270                                ;@line 916
-						Assign rate 30.000000                                    ;@line 917
-						Jump _label270                                           ;@line 917
-					_label270:
-						FMultiply ::temp116 rate dt                              ;@line 919
-						CallMethod Approach self ::temp116 yaw desiredYaw ::temp116  ;@line 919
-						Assign nextYaw ::temp116                                 ;@line 919
-						FMultiply ::temp116 rate dt                              ;@line 920
-						CallMethod Approach self ::temp116 pitch desiredPitch ::temp116  ;@line 920
-						Assign nextPitch ::temp116                               ;@line 920
-						CallMethod Current self ::temp115 expectedGeneration expectedToken  ;@line 921
-						Not ::temp115 ::temp115                                  ;@line 921
-						JumpF ::temp115 _label271                                ;@line 921
-						Return None                                              ;@line 922
-						Jump _label271                                           ;@line 922
-					_label271:
-						Assign yaw nextYaw                                       ;@line 924
-						Assign pitch nextPitch                                   ;@line 925
-						CallMethod ApplyAim self ::NoneVar expectedGeneration expectedToken  ;@line 926
-					.endCode
-				.endFunction
-				.function ReadPose
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp86 Bool
-						.local ::temp87 Bool
-						.local ::temp88 ObjectReference
-						.local rootRead Bool
-						.local muzzleRead Bool
-						.local rootPointRead Bool
-						.local muzzlePointRead Bool
-						.local i Int
-						.local ::temp89 Float
-						.local ::temp90 Bool
-						.local ::temp91 Int
-					.endLocalTable
-					.code
-						CallMethod Current self ::temp86 expectedGeneration expectedToken  ;@line 749
-						Not ::temp86 ::temp86                                    ;@line 749
-						Cast ::temp86 ::temp86                                   ;@line 749
-						JumpT ::temp86 _label272                                 ;@line 749
-						Not ::temp87 matricesReady                               ;@line 749
-						Cast ::temp86 ::temp87                                   ;@line 749
-					_label272:
-						JumpF ::temp86 _label273                                 ;@line 749
-						Return False                                             ;@line 750
-						Jump _label273                                           ;@line 750
-					_label273:
-						Cast ::temp88 self                                       ;@line 752
-						CallStatic netimmerse GetNodeWorldRotationMatrix ::temp87 ::temp88 "" rootWorldMatrix False  ;@line 752
-						Assign rootRead ::temp87                                 ;@line 752
-						CallMethod Current self ::temp86 expectedGeneration expectedToken  ;@line 753
-						Not ::temp87 ::temp86                                    ;@line 753
-						Cast ::temp87 ::temp87                                   ;@line 753
-						JumpT ::temp87 _label274                                 ;@line 753
-						Not ::temp86 rootRead                                    ;@line 753
-						Cast ::temp87 ::temp86                                   ;@line 753
-					_label274:
-						JumpF ::temp87 _label275                                 ;@line 753
-						Return False                                             ;@line 754
-						Jump _label275                                           ;@line 754
-					_label275:
-						Cast ::temp88 self                                       ;@line 756
-						CallStatic netimmerse GetNodeWorldRotationMatrix ::temp86 ::temp88 ::MuzzleNode_var muzzleWorldMatrix False  ;@line 756
-						Assign muzzleRead ::temp86                               ;@line 756
-						CallMethod Current self ::temp87 expectedGeneration expectedToken  ;@line 757
-						Not ::temp86 ::temp87                                    ;@line 757
-						Cast ::temp86 ::temp86                                   ;@line 757
-						JumpT ::temp86 _label276                                 ;@line 757
-						Not ::temp87 muzzleRead                                  ;@line 757
-						Cast ::temp86 ::temp87                                   ;@line 757
-					_label276:
-						JumpF ::temp86 _label277                                 ;@line 757
-						Return False                                             ;@line 758
-						Jump _label277                                           ;@line 758
-					_label277:
-						Cast ::temp88 self                                       ;@line 760
-						CallStatic netimmerse GetNodeWorldPosition ::temp87 ::temp88 "" rootPosition False  ;@line 760
-						Assign rootPointRead ::temp87                            ;@line 760
-						CallMethod Current self ::temp86 expectedGeneration expectedToken  ;@line 761
-						Not ::temp87 ::temp86                                    ;@line 761
-						Cast ::temp87 ::temp87                                   ;@line 761
-						JumpT ::temp87 _label278                                 ;@line 761
-						Not ::temp86 rootPointRead                               ;@line 761
-						Cast ::temp87 ::temp86                                   ;@line 761
-					_label278:
-						JumpF ::temp87 _label279                                 ;@line 761
-						Return False                                             ;@line 762
-						Jump _label279                                           ;@line 762
-					_label279:
-						Cast ::temp88 self                                       ;@line 764
-						CallStatic netimmerse GetNodeWorldPosition ::temp86 ::temp88 ::MuzzleNode_var muzzlePosition False  ;@line 764
-						Assign muzzlePointRead ::temp86                          ;@line 764
-						CallMethod Current self ::temp87 expectedGeneration expectedToken  ;@line 765
-						Not ::temp86 ::temp87                                    ;@line 765
-						Cast ::temp86 ::temp86                                   ;@line 765
-						JumpT ::temp86 _label280                                 ;@line 765
-						Not ::temp87 muzzlePointRead                             ;@line 765
-						Cast ::temp86 ::temp87                                   ;@line 765
-					_label280:
-						JumpF ::temp86 _label281                                 ;@line 765
-						Return False                                             ;@line 766
-						Jump _label281                                           ;@line 766
-					_label281:
-						CallMethod RotationValid self ::temp87 rootWorldMatrix   ;@line 768
-						Not ::temp86 ::temp87                                    ;@line 768
-						Cast ::temp86 ::temp86                                   ;@line 768
-						JumpT ::temp86 _label282                                 ;@line 768
-						CallMethod RotationValid self ::temp87 muzzleWorldMatrix  ;@line 768
-						Not ::temp87 ::temp87                                    ;@line 768
-						Cast ::temp86 ::temp87                                   ;@line 768
-					_label282:
-						JumpF ::temp86 _label283                                 ;@line 768
-						Return False                                             ;@line 769
-						Jump _label283                                           ;@line 769
-					_label283:
-						Assign i 0                                               ;@line 771
-					_label287:
-						CompareLT ::temp87 i 3                                   ;@line 772
-						JumpF ::temp87 _label284                                 ;@line 772
-						ArrayGetElement ::temp89 rootPosition i                  ;@line 773
-						CallMethod Finite self ::temp86 ::temp89 -1000000.000000 1000000.000000  ;@line 773
-						Not ::temp86 ::temp86                                    ;@line 773
-						Cast ::temp86 ::temp86                                   ;@line 773
-						JumpT ::temp86 _label285                                 ;@line 773
-						ArrayGetElement ::temp89 muzzlePosition i                ;@line 773
-						CallMethod Finite self ::temp90 ::temp89 -1000000.000000 1000000.000000  ;@line 773
-						Not ::temp90 ::temp90                                    ;@line 773
-						Cast ::temp86 ::temp90                                   ;@line 773
-					_label285:
-						JumpF ::temp86 _label286                                 ;@line 773
-						Return False                                             ;@line 774
-						Jump _label286                                           ;@line 774
-					_label286:
-						IAdd ::temp91 i 1                                        ;@line 776
-						Assign i ::temp91                                        ;@line 776
-						Jump _label287                                           ;@line 776
-					_label284:
-						CallMethod Current self ::temp90 expectedGeneration expectedToken  ;@line 778
-						Return ::temp90                                          ;@line 778
-					.endCode
-				.endFunction
-				.function ApplyAim
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp72 Bool
-						.local ::temp73 Bool
-						.local ::temp74 Float
-						.local ::NoneVar None
-						.local yc Float
-						.local ys Float
-						.local pc Float
-						.local ps Float
-						.local j Int
-						.local ::temp75 Float
-						.local ::temp76 Int
-						.local ::temp77 Float
-					.endLocalTable
-					.code
-						CallMethod Current self ::temp72 expectedGeneration expectedToken  ;@line 701
-						Not ::temp72 ::temp72                                    ;@line 701
-						Cast ::temp72 ::temp72                                   ;@line 701
-						JumpT ::temp72 _label288                                 ;@line 701
-						Not ::temp73 matricesReady                               ;@line 701
-						Cast ::temp72 ::temp73                                   ;@line 701
-					_label288:
-						JumpF ::temp72 _label289                                 ;@line 701
-						Return None                                              ;@line 702
-						Jump _label289                                           ;@line 702
-					_label289:
-						CallStatic math Cos ::temp74 yaw                         ;@line 704
-						Assign yc ::temp74                                       ;@line 704
-						CallStatic math Sin ::temp74 yaw                         ;@line 705
-						Assign ys ::temp74                                       ;@line 705
-						FNegate ::temp74 pitch                                   ;@line 706
-						CallStatic math Cos ::temp74 ::temp74                    ;@line 706
-						Assign pc ::temp74                                       ;@line 706
-						FNegate ::temp74 pitch                                   ;@line 707
-						CallStatic math Sin ::temp74 ::temp74                    ;@line 707
-						Assign ps ::temp74                                       ;@line 707
-						CallMethod Current self ::temp73 expectedGeneration expectedToken  ;@line 708
-						Not ::temp72 ::temp73                                    ;@line 708
-						JumpF ::temp72 _label290                                 ;@line 708
-						Return None                                              ;@line 709
-						Jump _label290                                           ;@line 709
-					_label290:
-						Assign j 0                                               ;@line 711
-					_label292:
-						CompareLT ::temp73 j 3                                   ;@line 712
-						JumpF ::temp73 _label291                                 ;@line 712
-						ArrayGetElement ::temp75 yawBase j                       ;@line 713
-						FMultiply ::temp75 yc ::temp75                           ;@line 713
-						IAdd ::temp76 j 3                                        ;@line 713
-						ArrayGetElement ::temp77 yawBase ::temp76                ;@line 713
-						FMultiply ::temp77 ys ::temp77                           ;@line 713
-						FSubtract ::temp75 ::temp75 ::temp77                     ;@line 713
-						Assign ::temp74 ::temp75                                 ;@line 713
-						ArraySetElement yawMatrix j ::temp74                     ;@line 713
-						ArrayGetElement ::temp74 yawBase j                       ;@line 714
-						FMultiply ::temp75 ys ::temp74                           ;@line 714
-						IAdd ::temp76 j 3                                        ;@line 714
-						ArrayGetElement ::temp74 yawBase ::temp76                ;@line 714
-						FMultiply ::temp74 yc ::temp74                           ;@line 714
-						FAdd ::temp75 ::temp75 ::temp74                          ;@line 714
-						Assign ::temp77 ::temp75                                 ;@line 714
-						IAdd ::temp76 j 3                                        ;@line 714
-						ArraySetElement yawMatrix ::temp76 ::temp77              ;@line 714
-						IAdd ::temp76 j 6                                        ;@line 715
-						ArrayGetElement ::temp77 yawBase ::temp76                ;@line 715
-						Assign ::temp74 ::temp77                                 ;@line 715
-						IAdd ::temp76 j 6                                        ;@line 715
-						ArraySetElement yawMatrix ::temp76 ::temp74              ;@line 715
-						ArrayGetElement ::temp74 pitchBase j                     ;@line 716
-						Assign ::temp75 ::temp74                                 ;@line 716
-						ArraySetElement pitchMatrix j ::temp75                   ;@line 716
-						IAdd ::temp76 j 3                                        ;@line 717
-						ArrayGetElement ::temp75 pitchBase ::temp76              ;@line 717
-						FMultiply ::temp74 pc ::temp75                           ;@line 717
-						IAdd ::temp76 j 6                                        ;@line 717
-						ArrayGetElement ::temp75 pitchBase ::temp76              ;@line 717
-						FMultiply ::temp75 ps ::temp75                           ;@line 717
-						FSubtract ::temp74 ::temp74 ::temp75                     ;@line 717
-						Assign ::temp77 ::temp74                                 ;@line 717
-						IAdd ::temp76 j 3                                        ;@line 717
-						ArraySetElement pitchMatrix ::temp76 ::temp77            ;@line 717
-						IAdd ::temp76 j 3                                        ;@line 718
-						ArrayGetElement ::temp77 pitchBase ::temp76              ;@line 718
-						FMultiply ::temp74 ps ::temp77                           ;@line 718
-						IAdd ::temp76 j 6                                        ;@line 718
-						ArrayGetElement ::temp77 pitchBase ::temp76              ;@line 718
-						FMultiply ::temp77 pc ::temp77                           ;@line 718
-						FAdd ::temp74 ::temp74 ::temp77                          ;@line 718
-						Assign ::temp75 ::temp74                                 ;@line 718
-						IAdd ::temp76 j 6                                        ;@line 718
-						ArraySetElement pitchMatrix ::temp76 ::temp75            ;@line 718
-						IAdd ::temp76 j 1                                        ;@line 719
-						Assign j ::temp76                                        ;@line 719
-						Jump _label292                                           ;@line 719
-					_label291:
-						CallMethod WriteAimNode self ::NoneVar ::YawNode_var yawMatrix expectedGeneration expectedToken  ;@line 723
-						CallMethod Current self ::temp72 expectedGeneration expectedToken  ;@line 724
-						Not ::temp73 ::temp72                                    ;@line 724
-						JumpF ::temp73 _label293                                 ;@line 724
-						Return None                                              ;@line 725
-						Jump _label293                                           ;@line 725
-					_label293:
-						CallMethod WriteAimNode self ::NoneVar ::PitchNode_var pitchMatrix expectedGeneration expectedToken  ;@line 727
-					.endCode
-				.endFunction
-				.function ReleaseOwnedGuard
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp52 actor
-						.local ::temp53 Bool
-						.local previousGuard actor
-						.local player actor
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						JumpF pinBusy _label294                                  ;@line 577
-						Return None                                              ;@line 578
-						Jump _label294                                           ;@line 578
-					_label294:
-						Assign previousGuard ownedGuard                          ;@line 580
-						Cast ::temp52 None                                       ;@line 581
-						Assign ownedGuard ::temp52                               ;@line 581
-						Cast ::temp52 None                                       ;@line 582
-						CompareEQ ::temp53 previousGuard ::temp52                ;@line 582
-						JumpF ::temp53 _label295                                 ;@line 582
-						Return None                                              ;@line 583
-						Jump _label295                                           ;@line 583
-					_label295:
-						Assign pinBusy True                                      ;@line 585
-						CallStatic game GetPlayer ::temp52                       ;@line 586
-						Assign player ::temp52                                   ;@line 586
-						CompareEQ ::temp53 previousGuard player                  ;@line 587
-						Not ::temp53 ::temp53                                    ;@line 587
-						JumpF ::temp53 _label296                                 ;@line 587
-						CallMethod SetDontMove previousGuard ::NoneVar False     ;@line 588
-						Jump _label296                                           ;@line 588
-					_label296:
-						Assign pinBusy False                                     ;@line 590
-						CallMethod QueueDeferredRecovery self ::NoneVar          ;@line 591
-					.endCode
-				.endFunction
-				.function AbortShot
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp141 Bool
-						.local ::temp142 Bool
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod Current self ::temp141 expectedGeneration expectedToken  ;@line 1113
-						Not ::temp141 ::temp141                                  ;@line 1113
-						Cast ::temp141 ::temp141                                 ;@line 1113
-						JumpT ::temp141 _label297                                ;@line 1113
-						CompareEQ ::temp142 phase 0                              ;@line 1113
-						Cast ::temp141 ::temp142                                 ;@line 1113
-					_label297:
-						JumpF ::temp141 _label298                                ;@line 1113
-						Return None                                              ;@line 1114
-						Jump _label298                                           ;@line 1114
-					_label298:
-						CallMethod StartReset self ::NoneVar expectedGeneration expectedToken  ;@line 1116
-					.endCode
-				.endFunction
-				.function CommitShot
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param target actor
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp135 Bool
-						.local ::temp136 Bool
-						.local ::temp137 Float
-						.local ::temp138 ObjectReference
-						.local ::temp139 sound
-						.local now Float
-						.local safe Bool
-						.local ::NoneVar None
-						.local cadence Float
-						.local launchCurrent Bool
-						.local launchedAt Float
-						.local ::temp140 Int
-					.endLocalTable
-					.code
-						Cast ::temp135 sceneBusy                                 ;@line 1054
-						JumpT ::temp135 _label299                                ;@line 1054
-						CallMethod Current self ::temp135 expectedGeneration expectedToken  ;@line 1054
-						Not ::temp135 ::temp135                                  ;@line 1054
-						Cast ::temp135 ::temp135                                 ;@line 1054
-					_label299:
-						Cast ::temp135 ::temp135                                 ;@line 1054
-						JumpT ::temp135 _label300                                ;@line 1054
-						CompareEQ ::temp136 phase 1                              ;@line 1054
-						Not ::temp136 ::temp136                                  ;@line 1054
-						Cast ::temp135 ::temp136                                 ;@line 1054
-					_label300:
-						Cast ::temp135 ::temp135                                 ;@line 1054
-						JumpT ::temp135 _label301                                ;@line 1054
-						CompareEQ ::temp136 shotTarget target                    ;@line 1054
-						Not ::temp136 ::temp136                                  ;@line 1054
-						Cast ::temp135 ::temp136                                 ;@line 1054
-					_label301:
-						JumpF ::temp135 _label302                                ;@line 1054
-						Return None                                              ;@line 1055
-						Jump _label302                                           ;@line 1055
-					_label302:
-						CallStatic utility GetCurrentRealTime ::temp137          ;@line 1057
-						Assign now ::temp137                                     ;@line 1057
-						CallMethod ShotPreflight self ::temp136 target expectedGeneration expectedToken  ;@line 1060
-						Assign safe ::temp136                                    ;@line 1060
-						CallMethod Current self ::temp135 expectedGeneration expectedToken  ;@line 1061
-						Not ::temp136 ::temp135                                  ;@line 1061
-						Cast ::temp136 ::temp136                                 ;@line 1061
-						JumpT ::temp136 _label303                                ;@line 1061
-						CompareEQ ::temp135 phase 1                              ;@line 1061
-						Not ::temp135 ::temp135                                  ;@line 1061
-						Cast ::temp136 ::temp135                                 ;@line 1061
-					_label303:
-						Cast ::temp136 ::temp136                                 ;@line 1061
-						JumpT ::temp136 _label304                                ;@line 1061
-						CompareEQ ::temp135 shotTarget target                    ;@line 1061
-						Not ::temp135 ::temp135                                  ;@line 1061
-						Cast ::temp136 ::temp135                                 ;@line 1061
-					_label304:
-						JumpF ::temp136 _label305                                ;@line 1061
-						Return None                                              ;@line 1062
-						Jump _label305                                           ;@line 1062
-					_label305:
-						Not ::temp135 safe                                       ;@line 1064
-						Cast ::temp135 ::temp135                                 ;@line 1064
-						JumpT ::temp135 _label306                                ;@line 1064
-						CallMethod Finite self ::temp136 now 0.000000 1000000000.000000  ;@line 1064
-						Not ::temp136 ::temp136                                  ;@line 1064
-						Cast ::temp135 ::temp136                                 ;@line 1064
-					_label306:
-						JumpF ::temp135 _label307                                ;@line 1064
-						CallMethod AbortShot self ::NoneVar expectedGeneration expectedToken  ;@line 1065
-						Return None                                              ;@line 1066
-						Jump _label307                                           ;@line 1066
-					_label307:
-						CallMethod SafeCadenceSeconds self ::temp137             ;@line 1068
-						Assign cadence ::temp137                                 ;@line 1068
-						FAdd ::temp137 now cadence                               ;@line 1069
-						CompareLT ::temp136 nextShotAt ::temp137                 ;@line 1069
-						JumpF ::temp136 _label308                                ;@line 1069
-						FAdd ::temp137 now cadence                               ;@line 1070
-						Assign nextShotAt ::temp137                              ;@line 1070
-						Jump _label308                                           ;@line 1070
-					_label308:
-						Assign phase 2                                           ;@line 1074
-						Assign phaseAt now                                       ;@line 1075
-						CallMethod Current self ::temp135 expectedGeneration expectedToken  ;@line 1076
-						Not ::temp136 ::temp135                                  ;@line 1076
-						Cast ::temp136 ::temp136                                 ;@line 1076
-						JumpT ::temp136 _label309                                ;@line 1076
-						CompareEQ ::temp135 phase 2                              ;@line 1076
-						Not ::temp135 ::temp135                                  ;@line 1076
-						Cast ::temp136 ::temp135                                 ;@line 1076
-					_label309:
-						Cast ::temp136 ::temp136                                 ;@line 1076
-						JumpT ::temp136 _label310                                ;@line 1076
-						CompareEQ ::temp135 shotTarget target                    ;@line 1076
-						Not ::temp135 ::temp135                                  ;@line 1076
-						Cast ::temp136 ::temp135                                 ;@line 1076
-					_label310:
-						JumpF ::temp136 _label311                                ;@line 1076
-						Return None                                              ;@line 1077
-						Jump _label311                                           ;@line 1077
-					_label311:
-						Assign sceneBusy True                                    ;@line 1082
-						Cast ::temp138 self                                      ;@line 1083
-						CallMethod Fire ::Launcher_var ::NoneVar ::temp138 ::ShotAmmo_var  ;@line 1083
-						CallMethod FinishSceneEffect self ::temp135 expectedGeneration expectedToken  ;@line 1084
-						Assign launchCurrent ::temp135                           ;@line 1084
-						Not ::temp136 launchCurrent                              ;@line 1085
-						Cast ::temp136 ::temp136                                 ;@line 1085
-						JumpT ::temp136 _label312                                ;@line 1085
-						CallMethod Current self ::temp135 expectedGeneration expectedToken  ;@line 1085
-						Not ::temp135 ::temp135                                  ;@line 1085
-						Cast ::temp136 ::temp135                                 ;@line 1085
-					_label312:
-						Cast ::temp136 ::temp136                                 ;@line 1085
-						JumpT ::temp136 _label313                                ;@line 1085
-						CompareEQ ::temp135 phase 2                              ;@line 1085
-						Not ::temp135 ::temp135                                  ;@line 1085
-						Cast ::temp136 ::temp135                                 ;@line 1085
-					_label313:
-						JumpF ::temp136 _label314                                ;@line 1085
-						Return None                                              ;@line 1086
-						Jump _label314                                           ;@line 1086
-					_label314:
-						CallStatic utility GetCurrentRealTime ::temp137          ;@line 1090
-						Assign launchedAt ::temp137                              ;@line 1090
-						CallMethod Current self ::temp135 expectedGeneration expectedToken  ;@line 1091
-						Not ::temp136 ::temp135                                  ;@line 1091
-						Cast ::temp136 ::temp136                                 ;@line 1091
-						JumpT ::temp136 _label315                                ;@line 1091
-						CompareEQ ::temp135 phase 2                              ;@line 1091
-						Not ::temp135 ::temp135                                  ;@line 1091
-						Cast ::temp136 ::temp135                                 ;@line 1091
-					_label315:
-						JumpF ::temp136 _label316                                ;@line 1091
-						Return None                                              ;@line 1092
-						Jump _label316                                           ;@line 1092
-					_label316:
-						CallMethod Finite self ::temp135 launchedAt 0.000000 1000000000.000000  ;@line 1094
-						Not ::temp136 ::temp135                                  ;@line 1094
-						JumpF ::temp136 _label317                                ;@line 1094
-						Assign faulted True                                      ;@line 1095
-						CallMethod Shutdown self ::NoneVar                       ;@line 1096
-						Return None                                              ;@line 1097
-						Jump _label317                                           ;@line 1097
-					_label317:
-						Assign phaseAt launchedAt                                ;@line 1099
-						FAdd ::temp137 launchedAt cadence                        ;@line 1100
-						CompareLT ::temp135 nextShotAt ::temp137                 ;@line 1100
-						JumpF ::temp135 _label318                                ;@line 1100
-						FAdd ::temp137 launchedAt cadence                        ;@line 1101
-						Assign nextShotAt ::temp137                              ;@line 1101
-						Jump _label318                                           ;@line 1101
-					_label318:
-						CallMethod SetVisualBolt self ::NoneVar 0.000000 expectedGeneration expectedToken  ;@line 1103
-						CallMethod Current self ::temp136 expectedGeneration expectedToken  ;@line 1104
-						Not ::temp135 ::temp136                                  ;@line 1104
-						Cast ::temp135 ::temp135                                 ;@line 1104
-						JumpT ::temp135 _label319                                ;@line 1104
-						CompareEQ ::temp136 phase 2                              ;@line 1104
-						Not ::temp136 ::temp136                                  ;@line 1104
-						Cast ::temp135 ::temp136                                 ;@line 1104
-					_label319:
-						JumpF ::temp135 _label320                                ;@line 1104
-						Return None                                              ;@line 1105
-						Jump _label320                                           ;@line 1105
-					_label320:
-						Cast ::temp139 None                                      ;@line 1107
-						CompareEQ ::temp136 ::ShotSound_var ::temp139            ;@line 1107
-						Not ::temp136 ::temp136                                  ;@line 1107
-						JumpF ::temp136 _label321                                ;@line 1107
-						Cast ::temp138 self                                      ;@line 1108
-						CallMethod Play ::ShotSound_var ::temp140 ::temp138      ;@line 1108
-						Jump _label321                                           ;@line 1108
-					_label321:
-					.endCode
-				.endFunction
-				.function OnInit
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod BlockActivation self ::NoneVar True           ;@line 76
-						CallMethod BeginRecovery self ::NoneVar                  ;@line 77
-					.endCode
-				.endFunction
-				.function OnCellDetach
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod InvalidatePlayerLease self ::NoneVar          ;@line 93
-						CallMethod Shutdown self ::NoneVar                       ;@line 94
-					.endCode
-				.endFunction
-				.function BeginShot
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param target actor
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp132 Bool
-						.local ::temp133 Bool
-						.local ::temp134 Float
-						.local now Float
-						.local cadence Float
-						.local started Bool
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod Current self ::temp132 expectedGeneration expectedToken  ;@line 1032
-						Not ::temp132 ::temp132                                  ;@line 1032
-						Cast ::temp132 ::temp132                                 ;@line 1032
-						JumpT ::temp132 _label322                                ;@line 1032
-						CompareEQ ::temp133 phase 0                              ;@line 1032
-						Not ::temp133 ::temp133                                  ;@line 1032
-						Cast ::temp132 ::temp133                                 ;@line 1032
-					_label322:
-						JumpF ::temp132 _label323                                ;@line 1032
-						Return None                                              ;@line 1033
-						Jump _label323                                           ;@line 1033
-					_label323:
-						CallStatic utility GetCurrentRealTime ::temp134          ;@line 1035
-						Assign now ::temp134                                     ;@line 1035
-						CallMethod Current self ::temp133 expectedGeneration expectedToken  ;@line 1036
-						Not ::temp132 ::temp133                                  ;@line 1036
-						Cast ::temp132 ::temp132                                 ;@line 1036
-						JumpT ::temp132 _label324                                ;@line 1036
-						CompareEQ ::temp133 phase 0                              ;@line 1036
-						Not ::temp133 ::temp133                                  ;@line 1036
-						Cast ::temp132 ::temp133                                 ;@line 1036
-					_label324:
-						Cast ::temp132 ::temp132                                 ;@line 1036
-						JumpT ::temp132 _label325                                ;@line 1036
-						CallMethod Finite self ::temp133 now 0.000000 1000000000.000000  ;@line 1036
-						Not ::temp133 ::temp133                                  ;@line 1036
-						Cast ::temp132 ::temp133                                 ;@line 1036
-					_label325:
-						Cast ::temp132 ::temp132                                 ;@line 1036
-						JumpT ::temp132 _label326                                ;@line 1036
-						CompareLT ::temp133 now nextShotAt                       ;@line 1036
-						Cast ::temp132 ::temp133                                 ;@line 1036
-					_label326:
-						JumpF ::temp132 _label327                                ;@line 1036
-						Return None                                              ;@line 1037
-						Jump _label327                                           ;@line 1037
-					_label327:
-						Assign phase 1                                           ;@line 1039
-						Assign phaseAt now                                       ;@line 1040
-						Assign shotTarget target                                 ;@line 1041
-						CallMethod SafeCadenceSeconds self ::temp134             ;@line 1042
-						Assign cadence ::temp134                                 ;@line 1042
-						FAdd ::temp134 now cadence                               ;@line 1043
-						Assign nextShotAt ::temp134                              ;@line 1043
-						CallMethod PlaySceneAnimation self ::temp133 "Fire" expectedGeneration expectedToken  ;@line 1044
-						Assign started ::temp133                                 ;@line 1044
-						CallMethod Current self ::temp132 expectedGeneration expectedToken  ;@line 1045
-						Not ::temp133 ::temp132                                  ;@line 1045
-						Cast ::temp133 ::temp133                                 ;@line 1045
-						JumpT ::temp133 _label328                                ;@line 1045
-						CompareEQ ::temp132 phase 1                              ;@line 1045
-						Not ::temp132 ::temp132                                  ;@line 1045
-						Cast ::temp133 ::temp132                                 ;@line 1045
-					_label328:
-						Cast ::temp133 ::temp133                                 ;@line 1045
-						JumpT ::temp133 _label329                                ;@line 1045
-						CompareEQ ::temp132 shotTarget target                    ;@line 1045
-						Not ::temp132 ::temp132                                  ;@line 1045
-						Cast ::temp133 ::temp132                                 ;@line 1045
-					_label329:
-						JumpF ::temp133 _label330                                ;@line 1045
-						Return None                                              ;@line 1046
-						Jump _label330                                           ;@line 1046
-					_label330:
-						Not ::temp132 started                                    ;@line 1048
-						JumpF ::temp132 _label331                                ;@line 1048
-						CallMethod AbortShot self ::NoneVar expectedGeneration expectedToken  ;@line 1049
-						Jump _label331                                           ;@line 1049
-					_label331:
-					.endCode
-				.endFunction
-				.function SampleTarget
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param target actor
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp105 Bool
-						.local ::temp106 Bool
-						.local ::temp107 Float
-						.local ::temp108 Float
-						.local tx Float
-						.local ty Float
-						.local tz Float
-						.local dx Float
-						.local dy Float
-						.local dz Float
-						.local rangeSquared Float
-						.local horizontal Float
-						.local tangent Float
-						.local ::temp109 Float
-						.local ::temp110 Bool
-						.local speedSquared Float
-						.local discriminant Float
-						.local horizontalFactor Float
-						.local wx Float
-						.local wy Float
-						.local wz Float
-						.local lx Float
-						.local ly Float
-						.local lz Float
-						.local nextYaw Float
-						.local nextPitch Float
-						.local certifiedPitchMax Float
-					.endLocalTable
-					.code
-						CallMethod ValidTarget self ::temp105 target expectedGeneration expectedToken  ;@line 826
-						Not ::temp105 ::temp105                                  ;@line 826
-						Cast ::temp105 ::temp105                                 ;@line 826
-						JumpT ::temp105 _label332                                ;@line 826
-						CallMethod ReadPose self ::temp106 expectedGeneration expectedToken  ;@line 826
-						Not ::temp106 ::temp106                                  ;@line 826
-						Cast ::temp105 ::temp106                                 ;@line 826
-					_label332:
-						JumpF ::temp105 _label333                                ;@line 826
-						Return False                                             ;@line 827
-						Jump _label333                                           ;@line 827
-					_label333:
-						CallMethod GetPositionX target ::temp107                 ;@line 829
-						Assign tx ::temp107                                      ;@line 829
-						CallMethod GetPositionY target ::temp107                 ;@line 830
-						Assign ty ::temp107                                      ;@line 830
-						CallMethod GetPositionZ target ::temp107                 ;@line 831
-						FAdd ::temp107 ::temp107 ::TargetHeight_var              ;@line 831
-						Assign tz ::temp107                                      ;@line 831
-						CallMethod Current self ::temp106 expectedGeneration expectedToken  ;@line 832
-						Not ::temp105 ::temp106                                  ;@line 832
-						Cast ::temp105 ::temp105                                 ;@line 832
-						JumpT ::temp105 _label334                                ;@line 832
-						CallMethod Finite self ::temp106 tx -1000000.000000 1000000.000000  ;@line 832
-						Not ::temp106 ::temp106                                  ;@line 832
-						Cast ::temp105 ::temp106                                 ;@line 832
-					_label334:
-						Cast ::temp105 ::temp105                                 ;@line 832
-						JumpT ::temp105 _label335                                ;@line 832
-						CallMethod Finite self ::temp106 ty -1000000.000000 1000000.000000  ;@line 832
-						Not ::temp106 ::temp106                                  ;@line 832
-						Cast ::temp105 ::temp106                                 ;@line 832
-					_label335:
-						Cast ::temp105 ::temp105                                 ;@line 832
-						JumpT ::temp105 _label336                                ;@line 832
-						CallMethod Finite self ::temp106 tz -1000000.000000 1000000.000000  ;@line 832
-						Not ::temp106 ::temp106                                  ;@line 832
-						Cast ::temp105 ::temp106                                 ;@line 832
-					_label336:
-						JumpF ::temp105 _label337                                ;@line 832
-						Return False                                             ;@line 833
-						Jump _label337                                           ;@line 833
-					_label337:
-						ArrayGetElement ::temp107 muzzlePosition 0               ;@line 835
-						FSubtract ::temp107 tx ::temp107                         ;@line 835
-						Assign dx ::temp107                                      ;@line 835
-						ArrayGetElement ::temp107 muzzlePosition 1               ;@line 836
-						FSubtract ::temp107 ty ::temp107                         ;@line 836
-						Assign dy ::temp107                                      ;@line 836
-						ArrayGetElement ::temp107 muzzlePosition 2               ;@line 837
-						FSubtract ::temp107 tz ::temp107                         ;@line 837
-						Assign dz ::temp107                                      ;@line 837
-						FMultiply ::temp107 dx dx                                ;@line 838
-						FMultiply ::temp108 dy dy                                ;@line 838
-						FAdd ::temp107 ::temp107 ::temp108                       ;@line 838
-						FMultiply ::temp108 dz dz                                ;@line 838
-						FAdd ::temp107 ::temp107 ::temp108                       ;@line 838
-						Assign rangeSquared ::temp107                            ;@line 838
-						CallMethod Finite self ::temp106 rangeSquared 6400.000000 36000000.000000  ;@line 839
-						Not ::temp105 ::temp106                                  ;@line 839
-						Cast ::temp105 ::temp105                                 ;@line 839
-						JumpT ::temp105 _label338                                ;@line 839
-						CallMethod Finite self ::temp106 ::ProjectileSpeed_var 1.000000 100000.000000  ;@line 839
-						Not ::temp106 ::temp106                                  ;@line 839
-						Cast ::temp105 ::temp106                                 ;@line 839
-					_label338:
-						Cast ::temp105 ::temp105                                 ;@line 839
-						JumpT ::temp105 _label339                                ;@line 839
-						CallMethod Finite self ::temp106 ::ProjectileGravity_var 0.000000 5000.000000  ;@line 839
-						Not ::temp106 ::temp106                                  ;@line 839
-						Cast ::temp105 ::temp106                                 ;@line 839
-					_label339:
-						JumpF ::temp105 _label340                                ;@line 839
-						Return False                                             ;@line 840
-						Jump _label340                                           ;@line 840
-					_label340:
-						FMultiply ::temp108 dx dx                                ;@line 842
-						FMultiply ::temp107 dy dy                                ;@line 842
-						FAdd ::temp108 ::temp108 ::temp107                       ;@line 842
-						CallStatic math Sqrt ::temp107 ::temp108                 ;@line 842
-						Assign horizontal ::temp107                              ;@line 842
-						CompareLT ::temp106 horizontal 0.010000                  ;@line 843
-						JumpF ::temp106 _label341                                ;@line 843
-						Return False                                             ;@line 844
-						Jump _label341                                           ;@line 844
-					_label341:
-						FDivide ::temp108 dz horizontal                          ;@line 846
-						Assign tangent ::temp108                                 ;@line 846
-						CompareGT ::temp105 ::ProjectileGravity_var 0.000000     ;@line 847
-						JumpF ::temp105 _label342                                ;@line 847
-						FMultiply ::temp107 ::ProjectileSpeed_var ::ProjectileSpeed_var  ;@line 851
-						Assign speedSquared ::temp107                            ;@line 851
-						FMultiply ::temp108 speedSquared speedSquared            ;@line 852
-						FMultiply ::temp107 ::ProjectileGravity_var horizontal   ;@line 852
-						FMultiply ::temp107 ::temp107 horizontal                 ;@line 852
-						FMultiply ::temp109 2.000000 dz                          ;@line 852
-						FMultiply ::temp109 ::temp109 speedSquared               ;@line 852
-						FAdd ::temp107 ::temp107 ::temp109                       ;@line 852
-						FMultiply ::temp109 ::ProjectileGravity_var ::temp107    ;@line 852
-						FSubtract ::temp107 ::temp108 ::temp109                  ;@line 852
-						Assign discriminant ::temp107                            ;@line 852
-						CompareLT ::temp106 discriminant 0.000000                ;@line 853
-						Cast ::temp106 ::temp106                                 ;@line 853
-						JumpT ::temp106 _label343                                ;@line 853
-						CompareEQ ::temp110 discriminant discriminant            ;@line 853
-						Not ::temp110 ::temp110                                  ;@line 853
-						Cast ::temp106 ::temp110                                 ;@line 853
-					_label343:
-						JumpF ::temp106 _label344                                ;@line 853
-						Return False                                             ;@line 854
-						Jump _label344                                           ;@line 854
-					_label344:
-						FMultiply ::temp108 ::ProjectileGravity_var horizontal   ;@line 856
-						FMultiply ::temp109 ::temp108 horizontal                 ;@line 856
-						FMultiply ::temp107 2.000000 dz                          ;@line 856
-						FMultiply ::temp108 ::temp107 speedSquared               ;@line 856
-						FAdd ::temp107 ::temp109 ::temp108                       ;@line 856
-						CallStatic math Sqrt ::temp109 discriminant              ;@line 856
-						FAdd ::temp108 speedSquared ::temp109                    ;@line 856
-						FMultiply ::temp109 horizontal ::temp108                 ;@line 856
-						FDivide ::temp108 ::temp107 ::temp109                    ;@line 856
-						Assign tangent ::temp108                                 ;@line 856
-						Jump _label342                                           ;@line 856
-					_label342:
-						FMultiply ::temp107 tangent tangent                      ;@line 858
-						FAdd ::temp109 1.000000 ::temp107                        ;@line 858
-						CallStatic math Sqrt ::temp108 ::temp109                 ;@line 858
-						FDivide ::temp107 1.000000 ::temp108                     ;@line 858
-						Assign horizontalFactor ::temp107                        ;@line 858
-						FDivide ::temp109 dx horizontal                          ;@line 859
-						FMultiply ::temp108 ::temp109 horizontalFactor           ;@line 859
-						Assign wx ::temp108                                      ;@line 859
-						FDivide ::temp107 dy horizontal                          ;@line 860
-						FMultiply ::temp109 ::temp107 horizontalFactor           ;@line 860
-						Assign wy ::temp109                                      ;@line 860
-						FMultiply ::temp108 tangent horizontalFactor             ;@line 861
-						Assign wz ::temp108                                      ;@line 861
-						ArrayGetElement ::temp107 rootWorldMatrix 0              ;@line 863
-						FMultiply ::temp109 ::temp107 wx                         ;@line 863
-						ArrayGetElement ::temp108 rootWorldMatrix 3              ;@line 863
-						FMultiply ::temp107 ::temp108 wy                         ;@line 863
-						FAdd ::temp108 ::temp109 ::temp107                       ;@line 863
-						ArrayGetElement ::temp109 rootWorldMatrix 6              ;@line 863
-						FMultiply ::temp107 ::temp109 wz                         ;@line 863
-						FAdd ::temp109 ::temp108 ::temp107                       ;@line 863
-						Assign lx ::temp109                                      ;@line 863
-						ArrayGetElement ::temp108 rootWorldMatrix 1              ;@line 864
-						FMultiply ::temp107 ::temp108 wx                         ;@line 864
-						ArrayGetElement ::temp109 rootWorldMatrix 4              ;@line 864
-						FMultiply ::temp108 ::temp109 wy                         ;@line 864
-						FAdd ::temp109 ::temp107 ::temp108                       ;@line 864
-						ArrayGetElement ::temp107 rootWorldMatrix 7              ;@line 864
-						FMultiply ::temp108 ::temp107 wz                         ;@line 864
-						FAdd ::temp107 ::temp109 ::temp108                       ;@line 864
-						Assign ly ::temp107                                      ;@line 864
-						ArrayGetElement ::temp109 rootWorldMatrix 2              ;@line 865
-						FMultiply ::temp108 ::temp109 wx                         ;@line 865
-						ArrayGetElement ::temp107 rootWorldMatrix 5              ;@line 865
-						FMultiply ::temp109 ::temp107 wy                         ;@line 865
-						FAdd ::temp107 ::temp108 ::temp109                       ;@line 865
-						ArrayGetElement ::temp108 rootWorldMatrix 8              ;@line 865
-						FMultiply ::temp109 ::temp108 wz                         ;@line 865
-						FAdd ::temp108 ::temp107 ::temp109                       ;@line 865
-						Assign lz ::temp108                                      ;@line 865
-						CompareGT ::temp110 lz 1.000000                          ;@line 866
-						JumpF ::temp110 _label345                                ;@line 866
-						Assign lz 1.000000                                       ;@line 867
-						Jump _label346                                           ;@line 867
-					_label345:
-						CompareLT ::temp106 lz -1.000000                         ;@line 868
-						JumpF ::temp106 _label346                                ;@line 868
-						Assign lz -1.000000                                      ;@line 869
-						Jump _label346                                           ;@line 869
-					_label346:
-						FNegate ::temp107 ly                                     ;@line 871
-						CallMethod HeadingFromVector self ::temp109 lx ::temp107 yaw  ;@line 871
-						Assign nextYaw ::temp109                                 ;@line 871
-						CompareGT ::temp105 nextYaw 180.000000                   ;@line 872
-						JumpF ::temp105 _label347                                ;@line 872
-						FSubtract ::temp108 nextYaw 360.000000                   ;@line 873
-						Assign nextYaw ::temp108                                 ;@line 873
-						Jump _label347                                           ;@line 873
-					_label347:
-						CallStatic math ASin ::temp107 lz                        ;@line 875
-						Assign nextPitch ::temp107                               ;@line 875
-						Assign certifiedPitchMax 45.000000                       ;@line 877
-						JumpF ::AllowPlayerTakeover_var _label348                ;@line 878
-						Assign certifiedPitchMax 80.000000                       ;@line 880
-						Jump _label348                                           ;@line 880
-					_label348:
-						CallMethod Finite self ::temp106 ::PitchMin_var -20.000000 certifiedPitchMax  ;@line 882
-						Not ::temp110 ::temp106                                  ;@line 882
-						Cast ::temp105 ::temp110                                 ;@line 882
-						JumpT ::temp105 _label349                                ;@line 882
-						CallMethod Finite self ::temp105 ::PitchMax_var -20.000000 certifiedPitchMax  ;@line 882
-						Not ::temp106 ::temp105                                  ;@line 882
-						Cast ::temp105 ::temp106                                 ;@line 882
-					_label349:
-						Cast ::temp106 ::temp105                                 ;@line 882
-						JumpT ::temp106 _label350                                ;@line 882
-						CompareGTE ::temp110 ::PitchMin_var ::PitchMax_var       ;@line 882
-						Cast ::temp106 ::temp110                                 ;@line 882
-					_label350:
-						JumpF ::temp106 _label351                                ;@line 882
-						Return False                                             ;@line 883
-						Jump _label351                                           ;@line 883
-					_label351:
-						CallMethod Finite self ::temp105 ::YawHalfSector_var 1.000000 60.000000  ;@line 885
-						Not ::temp110 ::temp105                                  ;@line 885
-						JumpF ::temp110 _label352                                ;@line 885
-						Return False                                             ;@line 886
-						Jump _label352                                           ;@line 886
-					_label352:
-						FAdd ::temp109 -60.000000 ::YawHalfSector_var            ;@line 888
-						FSubtract ::temp108 60.000000 ::YawHalfSector_var        ;@line 888
-						CallMethod Finite self ::temp106 ::YawCenter_var ::temp109 ::temp108  ;@line 888
-						Not ::temp105 ::temp106                                  ;@line 888
-						JumpF ::temp105 _label353                                ;@line 888
-						Return False                                             ;@line 889
-						Jump _label353                                           ;@line 889
-					_label353:
-						FSubtract ::temp107 ::YawCenter_var ::YawHalfSector_var  ;@line 891
-						FAdd ::temp109 ::YawCenter_var ::YawHalfSector_var       ;@line 891
-						CallMethod Finite self ::temp110 nextYaw ::temp107 ::temp109  ;@line 891
-						Not ::temp106 ::temp110                                  ;@line 891
-						Cast ::temp105 ::temp106                                 ;@line 891
-						JumpT ::temp105 _label354                                ;@line 891
-						CallMethod Finite self ::temp105 nextPitch ::PitchMin_var ::PitchMax_var  ;@line 891
-						Not ::temp110 ::temp105                                  ;@line 891
-						Cast ::temp105 ::temp110                                 ;@line 891
-					_label354:
-						Cast ::temp106 ::temp105                                 ;@line 891
-						JumpT ::temp106 _label355                                ;@line 891
-						CallMethod Current self ::temp106 expectedGeneration expectedToken  ;@line 891
-						Not ::temp110 ::temp106                                  ;@line 891
-						Cast ::temp106 ::temp110                                 ;@line 891
-					_label355:
-						JumpF ::temp106 _label356                                ;@line 891
-						Return False                                             ;@line 892
-						Jump _label356                                           ;@line 892
-					_label356:
-						Assign desiredYaw nextYaw                                ;@line 894
-						Assign desiredPitch nextPitch                            ;@line 895
-						Assign aimX wx                                           ;@line 896
-						Assign aimY wy                                           ;@line 897
-						Assign aimZ wz                                           ;@line 898
-						Assign targetHorizontal horizontal                       ;@line 899
-						Return True                                              ;@line 900
-					.endCode
-				.endFunction
-				.function StationSceneAvailable
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp10 Bool
-						.local ::temp11 Int
-						.local ::temp12 ObjectReference
-					.endLocalTable
-					.code
-						Not ::temp10 ::AllowPlayerTakeover_var                   ;@line 141
-						JumpF ::temp10 _label357                                 ;@line 141
-						Return True                                              ;@line 142
-						Jump _label357                                           ;@line 142
-					_label357:
-						CallStatic skse GetPluginVersion ::temp11 "AstraSight"   ;@line 147
-						CompareLT ::temp10 ::temp11 50659328                     ;@line 147
-						JumpF ::temp10 _label358                                 ;@line 147
-						Return True                                              ;@line 148
-						Jump _label358                                           ;@line 148
-					_label358:
-						Cast ::temp12 self                                       ;@line 152
-						CallStatic astrasightnative IsEffectsQuiescent ::temp10 ::temp12 0  ;@line 152
-						Return ::temp10                                          ;@line 152
-					.endCode
-				.endFunction
-				.function SetVisualBolt
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param scale Float
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp62 Bool
-						.local ::temp63 ObjectReference
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						Cast ::temp62 sceneBusy                                  ;@line 651
-						JumpT ::temp62 _label359                                 ;@line 651
-						CallMethod Current self ::temp62 expectedGeneration expectedToken  ;@line 651
-						Not ::temp62 ::temp62                                    ;@line 651
-						Cast ::temp62 ::temp62                                   ;@line 651
-					_label359:
-						JumpF ::temp62 _label360                                 ;@line 651
-						Return None                                              ;@line 652
-						Jump _label360                                           ;@line 652
-					_label360:
-						Assign sceneBusy True                                    ;@line 654
-						Cast ::temp63 self                                       ;@line 655
-						CallStatic netimmerse SetNodeScale ::NoneVar ::temp63 ::VisualBoltNode_var scale False  ;@line 655
-						CallMethod FinishSceneEffect self ::temp62 expectedGeneration expectedToken  ;@line 656
-					.endCode
-				.endFunction
-				.function FinishUpdate
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param expectedGeneration Int
-						.param expectedToken Int
-						.param delay Float
-					.endParamTable
-					.localTable
-						.local ::temp145 Bool
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod Current self ::temp145 expectedGeneration expectedToken  ;@line 1137
-						Not ::temp145 ::temp145                                  ;@line 1137
-						JumpF ::temp145 _label361                                ;@line 1137
-						Return None                                              ;@line 1138
-						Jump _label361                                           ;@line 1138
-					_label361:
-						Assign updating False                                    ;@line 1140
-						CallMethod RegisterForSingleUpdate self ::NoneVar delay  ;@line 1141
-					.endCode
-				.endFunction
-				.function PlayerLeaseCurrent
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param lease Int
-					.endParamTable
-					.localTable
-						.local ::temp8 Bool
-						.local ::temp9 Bool
-					.endLocalTable
-					.code
-						Cast ::temp8 ::AllowPlayerTakeover_var                   ;@line 137
-						JumpF ::temp8 _label362                                  ;@line 137
-						Not ::temp8 stationRetired                               ;@line 137
-						Cast ::temp8 ::temp8                                     ;@line 137
-					_label362:
-						Cast ::temp8 ::temp8                                     ;@line 137
-						JumpF ::temp8 _label363                                  ;@line 137
-						Not ::temp9 destroyed                                    ;@line 137
-						Cast ::temp8 ::temp9                                     ;@line 137
-					_label363:
-						Cast ::temp9 ::temp8                                     ;@line 137
-						JumpF ::temp9 _label364                                  ;@line 137
-						Cast ::temp9 playerReserved                              ;@line 137
-					_label364:
-						Cast ::temp9 ::temp9                                     ;@line 137
-						JumpF ::temp9 _label365                                  ;@line 137
-						CompareGT ::temp8 lease 0                                ;@line 137
-						Cast ::temp9 ::temp8                                     ;@line 137
-					_label365:
-						Cast ::temp9 ::temp9                                     ;@line 137
-						JumpF ::temp9 _label366                                  ;@line 137
-						CompareEQ ::temp8 playerLease lease                      ;@line 137
-						Cast ::temp9 ::temp8                                     ;@line 137
-					_label366:
-						Return ::temp9                                           ;@line 137
-					.endCode
-				.endFunction
-				.function PlaySceneAnimation
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param name String
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp61 Bool
-						.local started Bool
-						.local valid Bool
-					.endLocalTable
-					.code
-						Cast ::temp61 sceneBusy                                  ;@line 641
-						JumpT ::temp61 _label367                                 ;@line 641
-						CallMethod Current self ::temp61 expectedGeneration expectedToken  ;@line 641
-						Not ::temp61 ::temp61                                    ;@line 641
-						Cast ::temp61 ::temp61                                   ;@line 641
-					_label367:
-						JumpF ::temp61 _label368                                 ;@line 641
-						Return False                                             ;@line 642
-						Jump _label368                                           ;@line 642
-					_label368:
-						Assign sceneBusy True                                    ;@line 644
-						CallMethod PlayGamebryoAnimation self ::temp61 name True 0.000000  ;@line 645
-						Assign started ::temp61                                  ;@line 645
-						CallMethod FinishSceneEffect self ::temp61 expectedGeneration expectedToken  ;@line 646
-						Assign valid ::temp61                                    ;@line 646
-						Cast ::temp61 valid                                      ;@line 647
-						JumpF ::temp61 _label369                                 ;@line 647
-						Cast ::temp61 started                                    ;@line 647
-					_label369:
-						Return ::temp61                                          ;@line 647
-					.endCode
-				.endFunction
-				.function WriteAimNode
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param node String
-						.param matrix Float[]
-						.param expectedGeneration Int
-						.param expectedToken Int
-					.endParamTable
-					.localTable
-						.local ::temp64 Bool
-						.local ::temp65 ObjectReference
-					.endLocalTable
-					.code
-						Cast ::temp64 sceneBusy                                  ;@line 660
-						JumpT ::temp64 _label370                                 ;@line 660
-						CallMethod Current self ::temp64 expectedGeneration expectedToken  ;@line 660
-						Not ::temp64 ::temp64                                    ;@line 660
-						Cast ::temp64 ::temp64                                   ;@line 660
-					_label370:
-						JumpF ::temp64 _label371                                 ;@line 660
-						Return None                                              ;@line 661
-						Jump _label371                                           ;@line 661
-					_label371:
-						Assign sceneBusy True                                    ;@line 663
-						Cast ::temp65 self                                       ;@line 664
-						CallStatic netimmerse SetNodeLocalRotationMatrix ::temp64 ::temp65 node matrix False  ;@line 664
-						CallMethod FinishSceneEffect self ::temp64 expectedGeneration expectedToken  ;@line 665
-					.endCode
-				.endFunction
-				.function OnUpdate
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp146 Bool
-						.local ::temp147 Float
-						.local ::NoneVar None
-						.local updateGeneration Int
-						.local updateToken Int
-						.local now Float
-						.local dt Float
-						.local ready Bool
-						.local ::temp148 Bool
-						.local ::temp149 Bool
-						.local dead Bool
-						.local guardLoaded Bool
-						.local gunLoaded Bool
-						.local menuOpen Bool
-						.local releaseDelay Float
-						.local fireDelay Float
-						.local resetDelay Float
-						.local ::temp150 Bool
-						.local ::temp151 actor
-						.local target actor
-						.local sampled Bool
-						.local poseRead Bool
-						.local ::temp152 Float
-						.local heading Float
-						.local aligned Bool
-					.endLocalTable
-					.code
-						Cast ::temp146 updating                                  ;@line 1145
-						JumpT ::temp146 _label372                                ;@line 1145
-						Cast ::temp146 recovering                                ;@line 1145
-					_label372:
-						Cast ::temp146 ::temp146                                 ;@line 1145
-						JumpT ::temp146 _label373                                ;@line 1145
-						Cast ::temp146 pinBusy                                   ;@line 1145
-					_label373:
-						Cast ::temp146 ::temp146                                 ;@line 1145
-						JumpT ::temp146 _label374                                ;@line 1145
-						Cast ::temp146 sceneBusy                                 ;@line 1145
-					_label374:
-						Cast ::temp146 ::temp146                                 ;@line 1145
-						JumpT ::temp146 _label375                                ;@line 1145
-						Cast ::temp146 destroyed                                 ;@line 1145
-					_label375:
-						Cast ::temp146 ::temp146                                 ;@line 1145
-						JumpT ::temp146 _label376                                ;@line 1145
-						Cast ::temp146 faulted                                   ;@line 1145
-					_label376:
-						JumpF ::temp146 _label377                                ;@line 1145
-						Return None                                              ;@line 1146
-						Jump _label377                                           ;@line 1146
-					_label377:
-						Not ::temp146 running                                    ;@line 1148
-						JumpF ::temp146 _label378                                ;@line 1148
-						CallMethod BeginRecovery self ::NoneVar                  ;@line 1149
-						Return None                                              ;@line 1150
-						Jump _label378                                           ;@line 1150
-					_label378:
-						Assign updating True                                     ;@line 1152
-						Assign updateGeneration generation                       ;@line 1153
-						Assign updateToken token                                 ;@line 1154
-						CallStatic utility GetCurrentRealTime ::temp147          ;@line 1155
-						Assign now ::temp147                                     ;@line 1155
-						CallMethod Current self ::temp146 updateGeneration updateToken  ;@line 1156
-						Not ::temp146 ::temp146                                  ;@line 1156
-						JumpF ::temp146 _label379                                ;@line 1156
-						Return None                                              ;@line 1157
-						Jump _label379                                           ;@line 1157
-					_label379:
-						CallMethod Finite self ::temp146 now 0.000000 1000000000.000000  ;@line 1159
-						Not ::temp146 ::temp146                                  ;@line 1159
-						JumpF ::temp146 _label380                                ;@line 1159
-						Assign faulted True                                      ;@line 1160
-						CallMethod Shutdown self ::NoneVar                       ;@line 1161
-						Return None                                              ;@line 1162
-						Jump _label380                                           ;@line 1162
-					_label380:
-						CompareLT ::temp146 now lastTick                         ;@line 1164
-						JumpF ::temp146 _label381                                ;@line 1164
-						CallMethod BeginRecovery self ::NoneVar                  ;@line 1167
-						Return None                                              ;@line 1168
-						Jump _label381                                           ;@line 1168
-					_label381:
-						FSubtract ::temp147 now lastTick                         ;@line 1170
-						Assign dt ::temp147                                      ;@line 1170
-						CompareGT ::temp146 dt 0.400000                          ;@line 1171
-						JumpF ::temp146 _label382                                ;@line 1171
-						Assign dt 0.400000                                       ;@line 1172
-						Jump _label382                                           ;@line 1172
-					_label382:
-						Assign lastTick now                                      ;@line 1174
-						CallMethod GuardReady self ::temp146 updateGeneration updateToken  ;@line 1175
-						Assign ready ::temp146                                   ;@line 1175
-						CallMethod Current self ::temp146 updateGeneration updateToken  ;@line 1176
-						Not ::temp146 ::temp146                                  ;@line 1176
-						JumpF ::temp146 _label383                                ;@line 1176
-						Return None                                              ;@line 1177
-						Jump _label383                                           ;@line 1177
-					_label383:
-						Not ::temp146 ready                                      ;@line 1179
-						JumpF ::temp146 _label384                                ;@line 1179
-						CallMethod IsDead ::Artillero_var ::temp148              ;@line 1180
-						Assign dead ::temp148                                    ;@line 1180
-						CallMethod Is3DLoaded ::Artillero_var ::temp148          ;@line 1181
-						Assign guardLoaded ::temp148                             ;@line 1181
-						CallMethod Is3DLoaded self ::temp148                     ;@line 1182
-						Assign gunLoaded ::temp148                               ;@line 1182
-						CallMethod Current self ::temp148 updateGeneration updateToken  ;@line 1183
-						Not ::temp148 ::temp148                                  ;@line 1183
-						JumpF ::temp148 _label385                                ;@line 1183
-						Return None                                              ;@line 1184
-						Jump _label385                                           ;@line 1184
-					_label385:
-						Cast ::temp148 dead                                      ;@line 1188
-						JumpT ::temp148 _label386                                ;@line 1188
-						Cast ::temp148 guardLoaded                               ;@line 1188
-					_label386:
-						Assign faulted ::temp148                                 ;@line 1188
-						CallMethod Shutdown self ::NoneVar                       ;@line 1189
-						Not ::temp148 faulted                                    ;@line 1190
-						Cast ::temp148 ::temp148                                 ;@line 1190
-						JumpF ::temp148 _label387                                ;@line 1190
-						Cast ::temp148 gunLoaded                                 ;@line 1190
-					_label387:
-						Cast ::temp148 ::temp148                                 ;@line 1190
-						JumpF ::temp148 _label388                                ;@line 1190
-						Not ::temp149 destroyed                                  ;@line 1190
-						Cast ::temp148 ::temp149                                 ;@line 1190
-					_label388:
-						JumpF ::temp148 _label389                                ;@line 1190
-						CallMethod RegisterForSingleUpdate self ::NoneVar 1.000000  ;@line 1191
-						Jump _label389                                           ;@line 1191
-					_label389:
-						Return None                                              ;@line 1193
-						Jump _label384                                           ;@line 1193
-					_label384:
-						CallStatic utility IsInMenuMode ::temp149                ;@line 1195
-						Assign menuOpen ::temp149                                ;@line 1195
-						CallMethod Current self ::temp148 updateGeneration updateToken  ;@line 1196
-						Not ::temp146 ::temp148                                  ;@line 1196
-						JumpF ::temp146 _label390                                ;@line 1196
-						Return None                                              ;@line 1197
-						Jump _label390                                           ;@line 1197
-					_label390:
-						Cast ::temp149 menuOpen                                  ;@line 1199
-						JumpF ::temp149 _label391                                ;@line 1199
-						CompareEQ ::temp149 phase 1                              ;@line 1199
-						Cast ::temp146 ::temp149                                 ;@line 1199
-						JumpT ::temp146 _label392                                ;@line 1199
-						CompareEQ ::temp148 phase 2                              ;@line 1199
-						Cast ::temp146 ::temp148                                 ;@line 1199
-					_label392:
-						Cast ::temp149 ::temp146                                 ;@line 1199
-					_label391:
-						JumpF ::temp149 _label393                                ;@line 1199
-						CallMethod AbortShot self ::NoneVar updateGeneration updateToken  ;@line 1200
-						Jump _label393                                           ;@line 1200
-					_label393:
-						CallMethod Current self ::temp148 updateGeneration updateToken  ;@line 1202
-						Not ::temp146 ::temp148                                  ;@line 1202
-						JumpF ::temp146 _label394                                ;@line 1202
-						Return None                                              ;@line 1203
-						Jump _label394                                           ;@line 1203
-					_label394:
-						CompareEQ ::temp149 phase 1                              ;@line 1205
-						JumpF ::temp149 _label395                                ;@line 1205
-						Assign releaseDelay ::ReleaseSeconds_var                 ;@line 1207
-						CallMethod Finite self ::temp148 releaseDelay 0.066667 1.000000  ;@line 1208
-						Not ::temp146 ::temp148                                  ;@line 1208
-						Cast ::temp146 ::temp146                                 ;@line 1208
-						JumpT ::temp146 _label396                                ;@line 1208
-						CompareGT ::temp148 releaseDelay ::FireSeconds_var       ;@line 1208
-						Cast ::temp146 ::temp148                                 ;@line 1208
-					_label396:
-						JumpF ::temp146 _label397                                ;@line 1208
-						Assign releaseDelay 0.066667                             ;@line 1209
-						Jump _label397                                           ;@line 1209
-					_label397:
-						FAdd ::temp147 phaseAt releaseDelay                      ;@line 1211
-						CompareGTE ::temp148 now ::temp147                       ;@line 1211
-						JumpF ::temp148 _label398                                ;@line 1211
-						CallMethod CommitShot self ::NoneVar shotTarget updateGeneration updateToken  ;@line 1212
-						Jump _label398                                           ;@line 1212
-					_label398:
-						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 0.200000  ;@line 1214
-						Return None                                              ;@line 1215
-						Jump _label399                                           ;@line 1215
-					_label395:
-						CompareEQ ::temp146 phase 2                              ;@line 1216
-						JumpF ::temp146 _label400                                ;@line 1216
-						Assign fireDelay ::FireSeconds_var                       ;@line 1217
-						CallMethod Finite self ::temp148 fireDelay 0.200000 2.000000  ;@line 1218
-						Not ::temp148 ::temp148                                  ;@line 1218
-						JumpF ::temp148 _label401                                ;@line 1218
-						Assign fireDelay 0.200000                                ;@line 1219
-						Jump _label401                                           ;@line 1219
-					_label401:
-						FAdd ::temp147 phaseAt fireDelay                         ;@line 1221
-						CompareGTE ::temp148 now ::temp147                       ;@line 1221
-						JumpF ::temp148 _label402                                ;@line 1221
-						CallMethod StartReset self ::NoneVar updateGeneration updateToken  ;@line 1222
-						Jump _label402                                           ;@line 1222
-					_label402:
-						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 0.200000  ;@line 1224
-						Return None                                              ;@line 1225
-						Jump _label399                                           ;@line 1225
-					_label400:
-						CompareEQ ::temp148 phase 3                              ;@line 1226
-						JumpF ::temp148 _label399                                ;@line 1226
-						Assign resetDelay ::ResetSeconds_var                     ;@line 1227
-						CallMethod Finite self ::temp146 resetDelay 0.800000 5.000000  ;@line 1228
-						Not ::temp146 ::temp146                                  ;@line 1228
-						JumpF ::temp146 _label403                                ;@line 1228
-						Assign resetDelay 0.800000                               ;@line 1229
-						Jump _label403                                           ;@line 1229
-					_label403:
-						FAdd ::temp147 phaseAt resetDelay                        ;@line 1231
-						CompareGTE ::temp146 now ::temp147                       ;@line 1231
-						JumpF ::temp146 _label404                                ;@line 1231
-						CallMethod SetVisualBolt self ::NoneVar 1.000000 updateGeneration updateToken  ;@line 1232
-						CallMethod Current self ::temp150 updateGeneration updateToken  ;@line 1233
-						Not ::temp150 ::temp150                                  ;@line 1233
-						JumpF ::temp150 _label405                                ;@line 1233
-						Return None                                              ;@line 1234
-						Jump _label405                                           ;@line 1234
-					_label405:
-						Assign phase 0                                           ;@line 1236
-						Cast ::temp151 None                                      ;@line 1237
-						Assign shotTarget ::temp151                              ;@line 1237
-						Jump _label404                                           ;@line 1237
-					_label404:
-						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 0.200000  ;@line 1239
-						Return None                                              ;@line 1240
-						Jump _label399                                           ;@line 1240
-					_label399:
-						JumpF menuOpen _label406                                 ;@line 1242
-						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 1.000000  ;@line 1243
-						Return None                                              ;@line 1244
-						Jump _label406                                           ;@line 1244
-					_label406:
-						CallMethod GetCombatTarget ::Artillero_var ::temp151     ;@line 1246
-						Assign target ::temp151                                  ;@line 1246
-						CallMethod SampleTarget self ::temp150 target updateGeneration updateToken  ;@line 1247
-						Assign sampled ::temp150                                 ;@line 1247
-						CallMethod Current self ::temp146 updateGeneration updateToken  ;@line 1248
-						Not ::temp148 ::temp146                                  ;@line 1248
-						JumpF ::temp148 _label407                                ;@line 1248
-						Return None                                              ;@line 1249
-						Jump _label407                                           ;@line 1249
-					_label407:
-						Not ::temp149 sampled                                    ;@line 1251
-						JumpF ::temp149 _label408                                ;@line 1251
-						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 1.000000  ;@line 1252
-						Return None                                              ;@line 1253
-						Jump _label408                                           ;@line 1253
-					_label408:
-						CallMethod TurnToward self ::NoneVar dt updateGeneration updateToken  ;@line 1255
-						CallMethod Current self ::temp150 updateGeneration updateToken  ;@line 1256
-						Not ::temp146 ::temp150                                  ;@line 1256
-						JumpF ::temp146 _label409                                ;@line 1256
-						Return None                                              ;@line 1257
-						Jump _label409                                           ;@line 1257
-					_label409:
-						CallMethod ReadPose self ::temp148 updateGeneration updateToken  ;@line 1259
-						Assign poseRead ::temp148                                ;@line 1259
-						CallMethod Current self ::temp149 updateGeneration updateToken  ;@line 1260
-						Not ::temp150 ::temp149                                  ;@line 1260
-						JumpF ::temp150 _label410                                ;@line 1260
-						Return None                                              ;@line 1261
-						Jump _label410                                           ;@line 1261
-					_label410:
-						JumpF poseRead _label411                                 ;@line 1263
-						ArrayGetElement ::temp147 muzzleWorldMatrix 1            ;@line 1264
-						ArrayGetElement ::temp152 muzzleWorldMatrix 4            ;@line 1264
-						CallMethod HeadingFromVector self ::temp147 ::temp147 ::temp152 0.000000  ;@line 1264
-						Assign heading ::temp147                                 ;@line 1264
-						CallMethod Current self ::temp146 updateGeneration updateToken  ;@line 1265
-						Not ::temp148 ::temp146                                  ;@line 1265
-						JumpF ::temp148 _label412                                ;@line 1265
-						Return None                                              ;@line 1266
-						Jump _label412                                           ;@line 1266
-					_label412:
-						CallMethod SetAngle ::Artillero_var ::NoneVar 0.000000 0.000000 heading  ;@line 1268
-						Jump _label411                                           ;@line 1268
-					_label411:
-						CompareGTE ::temp149 now nextShotAt                      ;@line 1271
-						JumpF ::temp149 _label413                                ;@line 1271
-						CallMethod ShotPreflight self ::temp150 target updateGeneration updateToken  ;@line 1272
-						Assign aligned ::temp150                                 ;@line 1272
-						CallMethod Current self ::temp146 updateGeneration updateToken  ;@line 1273
-						Not ::temp148 ::temp146                                  ;@line 1273
-						JumpF ::temp148 _label414                                ;@line 1273
-						Return None                                              ;@line 1274
-						Jump _label414                                           ;@line 1274
-					_label414:
-						JumpF aligned _label415                                  ;@line 1276
-						CallMethod BeginShot self ::NoneVar target updateGeneration updateToken  ;@line 1277
-						Jump _label415                                           ;@line 1277
-					_label415:
-						Jump _label413                                           ;@line 1277
-					_label413:
-						CallMethod Current self ::temp150 updateGeneration updateToken  ;@line 1280
-						JumpF ::temp150 _label416                                ;@line 1280
-						CompareEQ ::temp146 phase 1                              ;@line 1281
-						JumpF ::temp146 _label417                                ;@line 1281
-						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 0.100000  ;@line 1282
-						Jump _label418                                           ;@line 1282
-					_label417:
-						CallMethod FinishUpdate self ::NoneVar updateGeneration updateToken 0.200000  ;@line 1284
-					_label418:
-						Jump _label416                                           ;@line 1284
-					_label416:
-					.endCode
-				.endFunction
-				.function CaptureMatrices
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp66 Int
-						.local ::temp67 Bool
-						.local ::temp68 Bool
-						.local ::temp69 ObjectReference
-						.local ::temp70 Float[]
-						.local ::temp71 Float
-						.local captureGeneration Int
-					.endLocalTable
-					.code
-						Assign captureGeneration generation                      ;@line 669
-						CallStatic skse GetVersion ::temp66                      ;@line 670
-						CompareLT ::temp67 ::temp66 2                            ;@line 670
-						Cast ::temp67 ::temp67                                   ;@line 670
-						JumpT ::temp67 _label419                                 ;@line 670
-						CallMethod Is3DLoaded self ::temp68                      ;@line 670
-						Not ::temp68 ::temp68                                    ;@line 670
-						Cast ::temp67 ::temp68                                   ;@line 670
-					_label419:
-						JumpF ::temp67 _label420                                 ;@line 670
-						Return False                                             ;@line 671
-						Jump _label420                                           ;@line 671
-					_label420:
-						Cast ::temp69 self                                       ;@line 673
-						CallStatic netimmerse HasNode ::temp68 ::temp69 ::YawNode_var False  ;@line 673
-						Not ::temp67 ::temp68                                    ;@line 673
-						Cast ::temp67 ::temp67                                   ;@line 673
-						JumpT ::temp67 _label421                                 ;@line 673
-						Cast ::temp69 self                                       ;@line 673
-						CallStatic netimmerse HasNode ::temp68 ::temp69 ::PitchNode_var False  ;@line 673
-						Not ::temp68 ::temp68                                    ;@line 673
-						Cast ::temp67 ::temp68                                   ;@line 673
-					_label421:
-						Cast ::temp67 ::temp67                                   ;@line 673
-						JumpT ::temp67 _label422                                 ;@line 673
-						Cast ::temp69 self                                       ;@line 673
-						CallStatic netimmerse HasNode ::temp68 ::temp69 ::MuzzleNode_var False  ;@line 673
-						Not ::temp68 ::temp68                                    ;@line 673
-						Cast ::temp67 ::temp68                                   ;@line 673
-					_label422:
-						Cast ::temp67 ::temp67                                   ;@line 673
-						JumpT ::temp67 _label423                                 ;@line 673
-						Cast ::temp69 self                                       ;@line 673
-						CallStatic netimmerse HasNode ::temp68 ::temp69 ::VisualBoltNode_var False  ;@line 673
-						Not ::temp68 ::temp68                                    ;@line 673
-						Cast ::temp67 ::temp68                                   ;@line 673
-					_label423:
-						JumpF ::temp67 _label424                                 ;@line 673
-						Return False                                             ;@line 674
-						Jump _label424                                           ;@line 674
-					_label424:
-						CompareEQ ::temp68 generation captureGeneration          ;@line 676
-						Not ::temp68 ::temp68                                    ;@line 676
-						Cast ::temp68 ::temp68                                   ;@line 676
-						JumpT ::temp68 _label425                                 ;@line 676
-						CompareEQ ::temp67 token -1                              ;@line 676
-						Not ::temp67 ::temp67                                    ;@line 676
-						Cast ::temp68 ::temp67                                   ;@line 676
-					_label425:
-						Cast ::temp68 ::temp68                                   ;@line 676
-						JumpT ::temp68 _label426                                 ;@line 676
-						Not ::temp67 recovering                                  ;@line 676
-						Cast ::temp68 ::temp67                                   ;@line 676
-					_label426:
-						JumpF ::temp68 _label427                                 ;@line 676
-						Return False                                             ;@line 677
-						Jump _label427                                           ;@line 677
-					_label427:
-						ArrayCreate ::temp70 9                                   ;@line 682
-						Assign yawBase ::temp70                                  ;@line 682
-						ArrayCreate ::temp70 9                                   ;@line 683
-						Assign pitchBase ::temp70                                ;@line 683
-						ArrayCreate ::temp70 9                                   ;@line 684
-						Assign yawMatrix ::temp70                                ;@line 684
-						ArrayCreate ::temp70 9                                   ;@line 685
-						Assign pitchMatrix ::temp70                              ;@line 685
-						ArrayCreate ::temp70 9                                   ;@line 686
-						Assign rootWorldMatrix ::temp70                          ;@line 686
-						ArrayCreate ::temp70 9                                   ;@line 687
-						Assign muzzleWorldMatrix ::temp70                        ;@line 687
-						ArrayCreate ::temp70 3                                   ;@line 688
-						Assign rootPosition ::temp70                             ;@line 688
-						ArrayCreate ::temp70 3                                   ;@line 689
-						Assign muzzlePosition ::temp70                           ;@line 689
-						Assign ::temp71 1.000000                                 ;@line 690
-						ArraySetElement yawBase 0 ::temp71                       ;@line 690
-						Assign ::temp71 1.000000                                 ;@line 691
-						ArraySetElement yawBase 4 ::temp71                       ;@line 691
-						Assign ::temp71 1.000000                                 ;@line 692
-						ArraySetElement yawBase 8 ::temp71                       ;@line 692
-						Assign ::temp71 1.000000                                 ;@line 693
-						ArraySetElement pitchBase 0 ::temp71                     ;@line 693
-						Assign ::temp71 1.000000                                 ;@line 694
-						ArraySetElement pitchBase 4 ::temp71                     ;@line 694
-						Assign ::temp71 1.000000                                 ;@line 695
-						ArraySetElement pitchBase 8 ::temp71                     ;@line 695
-						Assign matricesReady True                                ;@line 696
-						Return True                                              ;@line 697
+						CompareLT ::temp29 timingRevision 14                     ;@line 302
+						JumpF ::temp29 _label477                                 ;@line 302
+						CompareGTE ::temp30 ::FireSeconds_var 0.299990           ;@line 303
+						Cast ::temp30 ::temp30                                   ;@line 303
+						JumpF ::temp30 _label478                                 ;@line 303
+						CompareLTE ::temp31 ::FireSeconds_var 0.300010           ;@line 303
+						Cast ::temp30 ::temp31                                   ;@line 303
+					_label478:
+						JumpF ::temp30 _label479                                 ;@line 303
+						Assign ::FireSeconds_var 0.200000                        ;@line 304
+						Jump _label479                                           ;@line 304
+					_label479:
+						CompareGTE ::temp31 ::ReleaseSeconds_var 0.099990        ;@line 306
+						Cast ::temp31 ::temp31                                   ;@line 306
+						JumpF ::temp31 _label480                                 ;@line 306
+						CompareLTE ::temp30 ::ReleaseSeconds_var 0.100010        ;@line 306
+						Cast ::temp31 ::temp30                                   ;@line 306
+					_label480:
+						JumpF ::temp31 _label481                                 ;@line 306
+						Assign ::ReleaseSeconds_var 0.066667                     ;@line 307
+						Jump _label481                                           ;@line 307
+					_label481:
+						CompareGTE ::temp30 ::ResetSeconds_var 1.199990          ;@line 309
+						Cast ::temp30 ::temp30                                   ;@line 309
+						JumpF ::temp30 _label482                                 ;@line 309
+						CompareLTE ::temp31 ::ResetSeconds_var 1.200010          ;@line 309
+						Cast ::temp30 ::temp31                                   ;@line 309
+					_label482:
+						JumpF ::temp30 _label483                                 ;@line 309
+						Assign ::ResetSeconds_var 0.800000                       ;@line 310
+						Jump _label483                                           ;@line 310
+					_label483:
+						CompareGTE ::temp31 ::CadenceSeconds_var 3.999990        ;@line 312
+						Cast ::temp31 ::temp31                                   ;@line 312
+						JumpF ::temp31 _label484                                 ;@line 312
+						CompareLTE ::temp30 ::CadenceSeconds_var 4.000010        ;@line 312
+						Cast ::temp31 ::temp30                                   ;@line 312
+					_label484:
+						JumpF ::temp31 _label485                                 ;@line 312
+						Assign ::CadenceSeconds_var 2.500000                     ;@line 313
+						Jump _label485                                           ;@line 313
+					_label485:
+						Assign timingRevision 14                                 ;@line 315
+						Jump _label477                                           ;@line 315
+					_label477:
+						CallMethod Finite self ::temp30 ::FireSeconds_var 0.200000 2.000000  ;@line 317
+						Not ::temp31 ::temp30                                    ;@line 317
+						JumpF ::temp31 _label486                                 ;@line 317
+						Assign ::FireSeconds_var 0.200000                        ;@line 318
+						Jump _label486                                           ;@line 318
+					_label486:
+						CallMethod Finite self ::temp29 ::ReleaseSeconds_var 0.066667 1.000000  ;@line 320
+						Not ::temp30 ::temp29                                    ;@line 320
+						Cast ::temp29 ::temp30                                   ;@line 320
+						JumpT ::temp29 _label487                                 ;@line 320
+						CompareGT ::temp31 ::ReleaseSeconds_var ::FireSeconds_var  ;@line 320
+						Cast ::temp29 ::temp31                                   ;@line 320
+					_label487:
+						JumpF ::temp29 _label488                                 ;@line 320
+						Assign ::ReleaseSeconds_var 0.066667                     ;@line 321
+						Jump _label488                                           ;@line 321
+					_label488:
+						CallMethod Finite self ::temp30 ::ResetSeconds_var 0.800000 5.000000  ;@line 323
+						Not ::temp31 ::temp30                                    ;@line 323
+						JumpF ::temp31 _label489                                 ;@line 323
+						Assign ::ResetSeconds_var 0.800000                       ;@line 324
+						Jump _label489                                           ;@line 324
+					_label489:
+						CallMethod SafeCadenceSeconds self ::temp32              ;@line 326
+						Assign ::CadenceSeconds_var ::temp32                     ;@line 326
 					.endCode
 				.endFunction
 			.endState

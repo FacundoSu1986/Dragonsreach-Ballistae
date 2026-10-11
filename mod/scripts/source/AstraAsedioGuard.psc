@@ -29,6 +29,17 @@ string Property PitchNode = "CTRL_ELEVACION" Auto
 string Property MuzzleNode = "ProjectileNode" Auto
 string Property VisualBoltNode = "VIROTE_VISUAL" Auto
 
+; GuardAnim v01: private OAR bridge; player controller remains byte-identical.
+Faction poseFaction
+Faction fireFaction
+Idle holdIdle
+Idle exitIdle
+Actor visualTarget
+float visualScanAt = 0.0
+bool guardPoseStarted = false
+bool guardPoseFiring = false
+float guardPoseFireAt = 0.0
+
 bool running = false
 bool recovering = false
 bool updating = false
@@ -517,6 +528,19 @@ Function BeginRecovery()
     if !Current(recoveryGeneration, recoveryToken)
         return
     endif
+    bool positioned = PositionOperator(recoveryGeneration, recoveryToken)
+    if !Current(recoveryGeneration, recoveryToken)
+        return
+    endif
+    bool posed = positioned && StartGuardPose(recoveryGeneration, recoveryToken)
+    if !Current(recoveryGeneration, recoveryToken)
+        return
+    endif
+    if !posed
+        faulted = true
+        Shutdown()
+        return
+    endif
     SetVisualBolt(1.0, recoveryGeneration, recoveryToken)
     if Current(recoveryGeneration, recoveryToken)
         RegisterForSingleUpdate(0.2)
@@ -532,6 +556,8 @@ Function Shutdown()
     updating = false
     phase = 0
     shotTarget = None
+    visualTarget = None
+    visualScanAt = 0.0
     matricesReady = false
     recoveryRequested = false
     UnregisterForUpdate()
@@ -554,6 +580,11 @@ EndFunction
 
 bool Function AcquirePin(int expectedGeneration)
     if pinBusy || generation != expectedGeneration || token != -1 || !recovering || destroyed || faulted
+        return false
+    endif
+    bool animationReady = LoadGuardAnimation()
+    if generation != expectedGeneration || !animationReady
+        Debug.Trace("AstraAsedioGuard: enable OAR and AstraAsedio_GuardAnim.esp to operate the NPC.")
         return false
     endif
     Actor candidate = Artillero
@@ -585,6 +616,7 @@ Function ReleaseOwnedGuard()
     pinBusy = true
     Actor player = Game.GetPlayer()
     if previousGuard != player
+        StopGuardPose(previousGuard)
         previousGuard.SetDontMove(false)
     endif
     pinBusy = false
@@ -783,8 +815,8 @@ bool Function GuardReady(int expectedGeneration, int expectedToken)
         return false
     endif
     bool ready = Is3DLoaded() && !IsDisabled() && ownedGuard.Is3DLoaded() && !ownedGuard.IsDead() && !ownedGuard.IsDisabled()
-    float distance = ownedGuard.GetDistance(Puesto)
-    return Current(expectedGeneration, expectedToken) && ready && Finite(distance, 0.0, 64.0)
+    float distance = ownedGuard.GetDistance(Self)
+    return Current(expectedGeneration, expectedToken) && ready && Finite(distance, 0.0, 240.0)
 EndFunction
 
 bool Function ValidTarget(Actor target, int expectedGeneration, int expectedToken)
@@ -823,81 +855,7 @@ float Function HeadingFromVector(float vectorX, float vectorY, float fallback)
 EndFunction
 
 bool Function SampleTarget(Actor target, int expectedGeneration, int expectedToken)
-    if !ValidTarget(target, expectedGeneration, expectedToken) || !ReadPose(expectedGeneration, expectedToken)
-        return false
-    endif
-    float tx = target.GetPositionX()
-    float ty = target.GetPositionY()
-    float tz = target.GetPositionZ() + TargetHeight
-    if !Current(expectedGeneration, expectedToken) || !Finite(tx, -1000000.0, 1000000.0) || !Finite(ty, -1000000.0, 1000000.0) || !Finite(tz, -1000000.0, 1000000.0)
-        return false
-    endif
-    float dx = tx - muzzlePosition[0]
-    float dy = ty - muzzlePosition[1]
-    float dz = tz - muzzlePosition[2]
-    float rangeSquared = dx*dx + dy*dy + dz*dz
-    if !Finite(rangeSquared, 6400.0, 36000000.0) || !Finite(ProjectileSpeed, 1.0, 100000.0) || !Finite(ProjectileGravity, 0.0, 5000.0)
-        return false
-    endif
-    float horizontal = Math.Sqrt(dx*dx + dy*dy)
-    if horizontal < 0.01
-        return false
-    endif
-    float tangent = dz/horizontal
-    if ProjectileGravity > 0.0
-        ; Analytical low arc from z = h*tan(theta) - g*h²/(2*v²*cos²(theta)).
-        ; The rationalized lower root avoids subtracting almost equal v² and
-        ; sqrt(discriminant) values in Papyrus float arithmetic.
-        float speedSquared = ProjectileSpeed*ProjectileSpeed
-        float discriminant = speedSquared*speedSquared - ProjectileGravity*(ProjectileGravity*horizontal*horizontal + 2.0*dz*speedSquared)
-        if discriminant < 0.0 || discriminant != discriminant
-            return false
-        endif
-        tangent = (ProjectileGravity*horizontal*horizontal + 2.0*dz*speedSquared)/(horizontal*(speedSquared + Math.Sqrt(discriminant)))
-    endif
-    float horizontalFactor = 1.0/Math.Sqrt(1.0 + tangent*tangent)
-    float wx = dx/horizontal*horizontalFactor
-    float wy = dy/horizontal*horizontalFactor
-    float wz = tangent*horizontalFactor
-    ; Row-major transpose maps world launch direction to the root's local frame.
-    float lx = rootWorldMatrix[0]*wx + rootWorldMatrix[3]*wy + rootWorldMatrix[6]*wz
-    float ly = rootWorldMatrix[1]*wx + rootWorldMatrix[4]*wy + rootWorldMatrix[7]*wz
-    float lz = rootWorldMatrix[2]*wx + rootWorldMatrix[5]*wy + rootWorldMatrix[8]*wz
-    if lz > 1.0
-        lz = 1.0
-    elseif lz < -1.0
-        lz = -1.0
-    endif
-    float nextYaw = HeadingFromVector(lx, -ly, yaw)
-    if nextYaw > 180.0
-        nextYaw -= 360.0
-    endif
-    float nextPitch = Math.ASin(lz)
-    ; Reject outside the NPC sector; never clamp an unreachable target into it.
-    float certifiedPitchMax = 45.0
-    if AllowPlayerTakeover
-        ; V15 shared stations certify the complete -20..80 static envelope.
-        certifiedPitchMax = 80.0
-    endif
-    if !Finite(PitchMin, -20.0, certifiedPitchMax) || !Finite(PitchMax, -20.0, certifiedPitchMax) || PitchMin >= PitchMax
-        return false
-    endif
-    if !Finite(YawHalfSector, 1.0, 60.0)
-        return false
-    endif
-    if !Finite(YawCenter, -60.0+YawHalfSector, 60.0-YawHalfSector)
-        return false
-    endif
-    if !Finite(nextYaw, YawCenter-YawHalfSector, YawCenter+YawHalfSector) || !Finite(nextPitch, PitchMin, PitchMax) || !Current(expectedGeneration, expectedToken)
-        return false
-    endif
-    desiredYaw = nextYaw
-    desiredPitch = nextPitch
-    aimX = wx
-    aimY = wy
-    aimZ = wz
-    targetHorizontal = horizontal
-    return true
+    return SampleHorizontalTarget(target, expectedGeneration, expectedToken)
 EndFunction
 
 float Function Approach(float value, float goal, float maximumStep)
@@ -917,7 +875,7 @@ Function TurnToward(float dt, int expectedGeneration, int expectedToken)
         rate = 30.0
     endif
     float nextYaw = Approach(yaw, desiredYaw, rate*dt)
-    float nextPitch = Approach(pitch, desiredPitch, rate*dt)
+    float nextPitch = 0.0
     if !Current(expectedGeneration, expectedToken)
         return
     endif
@@ -1036,6 +994,11 @@ Function BeginShot(Actor target, int expectedGeneration, int expectedToken)
     if !Current(expectedGeneration, expectedToken) || phase != 0 || !Finite(now, 0.0, 1000000000.0) || now < nextShotAt
         return
     endif
+    bool bodyStarted = SetGuardFirePose(true, expectedGeneration, expectedToken)
+    if !Current(expectedGeneration, expectedToken) || !bodyStarted
+        return
+    endif
+    guardPoseFireAt = now
     phase = 1
     phaseAt = now
     shotTarget = target
@@ -1113,7 +1076,10 @@ Function AbortShot(int expectedGeneration, int expectedToken)
     if !Current(expectedGeneration, expectedToken) || phase == 0
         return
     endif
-    StartReset(expectedGeneration, expectedToken)
+    SetGuardFirePose(false, expectedGeneration, expectedToken)
+    if Current(expectedGeneration, expectedToken)
+        StartReset(expectedGeneration, expectedToken)
+    endif
 EndFunction
 
 Function StartReset(int expectedGeneration, int expectedToken)
@@ -1192,6 +1158,12 @@ Event OnUpdate()
         endif
         return
     endif
+    if guardPoseFiring && now >= guardPoseFireAt+1.0
+        SetGuardFirePose(false, updateGeneration, updateToken)
+    endif
+    if !Current(updateGeneration, updateToken)
+        return
+    endif
     bool menuOpen = Utility.IsInMenuMode()
     if !Current(updateGeneration, updateToken)
         return
@@ -1211,7 +1183,7 @@ Event OnUpdate()
         if now >= phaseAt+releaseDelay
             CommitShot(shotTarget, updateGeneration, updateToken)
         endif
-        FinishUpdate(updateGeneration, updateToken, 0.2)
+        FinishUpdate(updateGeneration, updateToken, 0.05)
         return
     elseif phase == 2
         float fireDelay = FireSeconds
@@ -1221,7 +1193,7 @@ Event OnUpdate()
         if now >= phaseAt+fireDelay
             StartReset(updateGeneration, updateToken)
         endif
-        FinishUpdate(updateGeneration, updateToken, 0.2)
+        FinishUpdate(updateGeneration, updateToken, 0.05)
         return
     elseif phase == 3
         float resetDelay = ResetSeconds
@@ -1236,36 +1208,39 @@ Event OnUpdate()
             phase = 0
             shotTarget = None
         endif
-        FinishUpdate(updateGeneration, updateToken, 0.2)
+        FinishUpdate(updateGeneration, updateToken, 0.05)
         return
     endif
     if menuOpen
         FinishUpdate(updateGeneration, updateToken, 1.0)
         return
     endif
-    Actor target = Artillero.GetCombatTarget()
-    bool sampled = SampleTarget(target, updateGeneration, updateToken)
+    Actor target = ChooseVisualTarget(now, updateGeneration, updateToken)
+    bool sampled = SampleVisualTarget(target, updateGeneration, updateToken)
     if !Current(updateGeneration, updateToken)
         return
     endif
-    if !sampled
-        FinishUpdate(updateGeneration, updateToken, 1.0)
-        return
+    ; A reachable enemy refines yaw from the actual muzzle rather than root.
+    if sampled && ValidTarget(target, updateGeneration, updateToken)
+        SampleTarget(target, updateGeneration, updateToken)
     endif
-    TurnToward(dt, updateGeneration, updateToken)
     if !Current(updateGeneration, updateToken)
         return
     endif
-    bool poseRead = ReadPose(updateGeneration, updateToken)
+    if sampled
+        TurnToward(dt, updateGeneration, updateToken)
+    endif
     if !Current(updateGeneration, updateToken)
         return
     endif
-    if poseRead
-        float heading = HeadingFromVector(muzzleWorldMatrix[1], muzzleWorldMatrix[4], 0.0)
-        if !Current(updateGeneration, updateToken)
-            return
-        endif
-        Artillero.SetAngle(0.0, 0.0, heading)
+    bool positioned = PositionOperator(updateGeneration, updateToken)
+    if !Current(updateGeneration, updateToken)
+        return
+    endif
+    if !positioned
+        faulted = true
+        Shutdown()
+        return
     endif
     ; The bounded player trajectory check is needed only when a shot is due.
     if now >= nextShotAt
@@ -1279,9 +1254,228 @@ Event OnUpdate()
     endif
     if Current(updateGeneration, updateToken)
         if phase == 1
-            FinishUpdate(updateGeneration, updateToken, 0.1)
+            FinishUpdate(updateGeneration, updateToken, 0.02)
         else
-            FinishUpdate(updateGeneration, updateToken, 0.2)
+            FinishUpdate(updateGeneration, updateToken, 0.05)
         endif
     endif
 EndEvent
+
+; Private OAR membership is held only while this controller owns its NPC.
+bool Function LoadGuardAnimation()
+    poseFaction = Game.GetFormFromFile(0x800, "AstraAsedio_GuardAnim.esp") as Faction
+    fireFaction = Game.GetFormFromFile(0x801, "AstraAsedio_GuardAnim.esp") as Faction
+    holdIdle = Game.GetFormFromFile(0x802, "AstraAsedio_GuardAnim.esp") as Idle
+    exitIdle = Game.GetFormFromFile(0x803, "AstraAsedio_GuardAnim.esp") as Idle
+    return SKSE.GetPluginVersion("OpenAnimationReplacer") >= 0 && poseFaction != None && fireFaction != None && holdIdle != None && exitIdle != None
+EndFunction
+
+Function StopGuardPose(Actor candidate)
+    if candidate == None || candidate == Game.GetPlayer()
+        return
+    endif
+    if fireFaction != None
+        candidate.RemoveFromFaction(fireFaction)
+    endif
+    if poseFaction != None
+        candidate.RemoveFromFaction(poseFaction)
+    endif
+    if exitIdle != None && candidate.Is3DLoaded() && !candidate.IsDead()
+        candidate.PlayIdle(exitIdle)
+    endif
+    candidate.SetHeadTracking(true)
+    guardPoseFiring = false
+    guardPoseStarted = false
+EndFunction
+
+; The existing handoff waits for pinBusy. Keep it across every actor effect;
+; a cancelled stack undoes its old effects before a new owner may move the NPC.
+bool Function FinishGuardEffect(Actor candidate, int expectedGeneration, int expectedToken)
+    bool valid = Current(expectedGeneration, expectedToken) && ownedGuard == candidate
+    if !valid
+        StopGuardPose(candidate)
+        candidate.SetDontMove(false)
+        if ownedGuard == candidate
+            ownedGuard = None
+        endif
+    endif
+    pinBusy = false
+    QueueDeferredRecovery()
+    return valid
+EndFunction
+
+bool Function StartGuardPose(int expectedGeneration, int expectedToken)
+    if pinBusy || !GuardReady(expectedGeneration, expectedToken)
+        return false
+    endif
+    Actor candidate = ownedGuard
+    pinBusy = true
+    candidate.RemoveFromFaction(fireFaction)
+    if Current(expectedGeneration, expectedToken)
+        candidate.SetFactionRank(poseFaction, 0)
+    endif
+    if Current(expectedGeneration, expectedToken)
+        candidate.SetHeadTracking(false)
+    endif
+    if Current(expectedGeneration, expectedToken)
+        candidate.SheatheWeapon()
+    endif
+    bool started = false
+    if Current(expectedGeneration, expectedToken)
+        started = candidate.PlayIdle(holdIdle)
+    endif
+    bool valid = FinishGuardEffect(candidate, expectedGeneration, expectedToken)
+    if valid
+        guardPoseStarted = started
+        guardPoseFiring = false
+    endif
+    return valid && started
+EndFunction
+
+bool Function SetGuardFirePose(bool fire, int expectedGeneration, int expectedToken)
+    if pinBusy || !GuardReady(expectedGeneration, expectedToken) || !guardPoseStarted
+        return false
+    endif
+    Actor candidate = ownedGuard
+    pinBusy = true
+    if fire
+        candidate.SetFactionRank(fireFaction, 0)
+    else
+        candidate.RemoveFromFaction(fireFaction)
+    endif
+    bool valid = FinishGuardEffect(candidate, expectedGeneration, expectedToken)
+    if valid
+        guardPoseFiring = fire
+    endif
+    return valid
+EndFunction
+
+bool Function PositionOperator(int expectedGeneration, int expectedToken)
+    if pinBusy || !GuardReady(expectedGeneration, expectedToken) || !ReadPose(expectedGeneration, expectedToken)
+        return false
+    endif
+    ; Root is level in the station records. Keep Z fixed even during the sweep.
+    float localX = -151.0*Math.Sin(yaw)
+    float localY = 151.0*Math.Cos(yaw)
+    float px = rootPosition[0] + rootWorldMatrix[0]*localX + rootWorldMatrix[1]*localY
+    float py = rootPosition[1] + rootWorldMatrix[3]*localX + rootWorldMatrix[4]*localY
+    float frontX = rootWorldMatrix[0]*Math.Sin(yaw) - rootWorldMatrix[1]*Math.Cos(yaw)
+    float frontY = rootWorldMatrix[3]*Math.Sin(yaw) - rootWorldMatrix[4]*Math.Cos(yaw)
+    float heading = HeadingFromVector(frontX, frontY, 0.0)
+    if !Current(expectedGeneration, expectedToken)
+        return false
+    endif
+    Actor candidate = ownedGuard
+    pinBusy = true
+    candidate.SetPosition(px, py, rootPosition[2])
+    if Current(expectedGeneration, expectedToken)
+        candidate.SetAngle(0.0, 0.0, heading)
+    endif
+    return FinishGuardEffect(candidate, expectedGeneration, expectedToken)
+EndFunction
+
+bool Function VisualTargetValid(Actor target, int expectedGeneration, int expectedToken)
+    if !GuardReady(expectedGeneration, expectedToken) || target == None || target == Artillero
+        return false
+    endif
+    bool valid = target.Is3DLoaded() && !target.IsDisabled() && !target.IsDead()
+    bool visible = Artillero.HasLOS(target)
+    return Current(expectedGeneration, expectedToken) && valid && visible
+EndFunction
+
+bool Function SampleVisualTarget(Actor target, int expectedGeneration, int expectedToken)
+    if !VisualTargetValid(target, expectedGeneration, expectedToken) || !ReadPose(expectedGeneration, expectedToken)
+        return false
+    endif
+    float dx = target.GetPositionX() - rootPosition[0]
+    float dy = target.GetPositionY() - rootPosition[1]
+    float distanceSquared = dx*dx + dy*dy
+    if !Current(expectedGeneration, expectedToken) || !Finite(distanceSquared, 6400.0, 36000000.0)
+        return false
+    endif
+    float lx = rootWorldMatrix[0]*dx + rootWorldMatrix[3]*dy
+    float ly = rootWorldMatrix[1]*dx + rootWorldMatrix[4]*dy
+    float angle = HeadingFromVector(lx, -ly, yaw)
+    if angle > 180.0
+        angle -= 360.0
+    endif
+    if !Finite(YawHalfSector, 1.0, 60.0) || !Finite(YawCenter, -60.0+YawHalfSector, 60.0-YawHalfSector) || !Finite(angle, YawCenter-YawHalfSector, YawCenter+YawHalfSector) || !Current(expectedGeneration, expectedToken)
+        return false
+    endif
+    desiredYaw = angle
+    desiredPitch = 0.0
+    return true
+EndFunction
+
+Actor Function ChooseVisualTarget(float now, int expectedGeneration, int expectedToken)
+    Actor enemy = Artillero.GetCombatTarget()
+    if ValidTarget(enemy, expectedGeneration, expectedToken) && SampleVisualTarget(enemy, expectedGeneration, expectedToken)
+        visualTarget = enemy
+        return enemy
+    endif
+    if SampleVisualTarget(visualTarget, expectedGeneration, expectedToken)
+        return visualTarget
+    endif
+    visualTarget = None
+    if now < visualScanAt || !Current(expectedGeneration, expectedToken)
+        return None
+    endif
+    visualScanAt = now + 1.0
+    Actor candidate = Game.GetPlayer()
+    if SampleVisualTarget(candidate, expectedGeneration, expectedToken)
+        visualTarget = candidate
+        return candidate
+    endif
+    int attempt = 0
+    while attempt < 6 && Current(expectedGeneration, expectedToken)
+        candidate = Game.FindRandomActor(rootPosition[0], rootPosition[1], rootPosition[2], 6000.0)
+        if SampleVisualTarget(candidate, expectedGeneration, expectedToken)
+            visualTarget = candidate
+            return candidate
+        endif
+        attempt += 1
+    endwhile
+    return None
+EndFunction
+
+bool Function HorizontalReachable(Actor target, float horizontal, int expectedGeneration, int expectedToken)
+    if !Current(expectedGeneration, expectedToken) || !Finite(horizontal, 80.0, 6000.0) || !Finite(ProjectileSpeed, 1.0, 100000.0) || !Finite(ProjectileGravity, 0.0, 5000.0)
+        return false
+    endif
+    float baseZ = target.GetPositionZ()
+    float height = target.GetHeight()
+    float travel = horizontal/ProjectileSpeed
+    float boltZ = muzzlePosition[2] - 0.5*ProjectileGravity*travel*travel
+    bool validHeights = Finite(baseZ, -1000000.0, 1000000.0) && Finite(height, 24.0, 8192.0)
+    return Current(expectedGeneration, expectedToken) && validHeights && (boltZ >= (baseZ + 8.0)) && (boltZ <= (baseZ + height - 8.0))
+EndFunction
+
+bool Function SampleHorizontalTarget(Actor target, int expectedGeneration, int expectedToken)
+    if !ValidTarget(target, expectedGeneration, expectedToken) || !ReadPose(expectedGeneration, expectedToken)
+        return false
+    endif
+    float dx = target.GetPositionX() - muzzlePosition[0]
+    float dy = target.GetPositionY() - muzzlePosition[1]
+    float horizontal = Math.Sqrt(dx*dx + dy*dy)
+    if !HorizontalReachable(target, horizontal, expectedGeneration, expectedToken)
+        return false
+    endif
+    float wx = dx/horizontal
+    float wy = dy/horizontal
+    float lx = rootWorldMatrix[0]*wx + rootWorldMatrix[3]*wy
+    float ly = rootWorldMatrix[1]*wx + rootWorldMatrix[4]*wy
+    float angle = HeadingFromVector(lx, -ly, yaw)
+    if angle > 180.0
+        angle -= 360.0
+    endif
+    if !Finite(angle, YawCenter-YawHalfSector, YawCenter+YawHalfSector) || !Current(expectedGeneration, expectedToken)
+        return false
+    endif
+    desiredYaw = angle
+    desiredPitch = 0.0
+    aimX = wx
+    aimY = wy
+    aimZ = 0.0
+    targetHorizontal = horizontal
+    return true
+EndFunction

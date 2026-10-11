@@ -1,0 +1,116 @@
+{
+  "revision": 22,
+  "success": true,
+  "utc": "2026-10-11T01:45:54.895945+00:00",
+  "checks": {
+    "contrato_v22": {
+      "ok": true,
+      "detalle": "tests/test_v22_release.py"
+    },
+    "core_v22": {
+      "ok": true,
+      "detalle": "CORE_V22 OK"
+    },
+    "torreta_baja_v22": {
+      "ok": true,
+      "detalle": "TORRETA_BAJA_V22 OK"
+    },
+    "guard_compile": {
+      "ok": true,
+      "detalle": "el .pex congelado es un compilado fiel"
+    }
+  },
+  "design": {
+    "torreta_alta": {
+      "acti": "03000801",
+      "nif": "AstraAsedio\\ballesta.nif",
+      "pivote_u": 153.0,
+      "muzzle_u": 172.6,
+      "uso": "jugador, con mira nativa"
+    },
+    "torreta_baja": {
+      "acti": "03000B04",
+      "nif": "AstraAsedio\\ballesta_guardia.nif",
+      "pivote_u": 117.0,
+      "muzzle_u": 136.6,
+      "uso": "guardias, sin mira"
+    },
+    "regla_de_seguridad": "ninguna colocacion ACTIVA del ACTI bajo activa AllowPlayerTakeover ni UseSightCamera"
+  },
+  "guard_pex_frozen": "3aa60a9d1f3b782004fe0de88b1b3731d8590b5b12a6b8345367f32d461a1352",
+  "guard_pex_recompiled": "5dcca030f6665135cdd629ba77adfe542a706dac1ba6e748a7f12624ba27af9f",
+  "papyrus_compiler_deterministic": false,
+  "requires_open_animation_replacer": true,
+  "bundles_open_animation_replacer": false,
+  "known_debt": [
+    "reports/plugin_compile.json sigue anclado al .psc del guardia de v21 (46f4e833\u2026); regenerarlo exige compile_papyrus.py, que compila en el lugar y pisaria el .pex congelado. La fidelidad del .pex la cubre guard_compile.json.",
+    "La suite completa arrastra fallos heredados: ver reports/tests_v22_diff.json. Ninguno es nuevo respecto de HEAD.",
+    "Los hashes fijados sobre .json y .psc valen para la forma canonica del repo (.gitattributes: text eol=lf) tal como la materializa core.autocrlf=true en Windows. Un clon en otro sistema, con LF, no reproduce esos hashes. Es una propiedad heredada de todo el repo, no de v22."
+  ],
+  "external_dependencies": [
+    "G:/Modding/Skyrim_Runtime_1.6.1170",
+    "Blender 4.4 (solo para rehornear clips o bajar el NIF)"
+  ],
+  "game_tested": false,
+  "nexus_uploaded": false,
+  "live_installation_modified": false,
+  "package": {
+    "path": "dist\\AstraAsedio_QA_v22_Completo_MO2.zip",
+    "bytes": 2605485,
+    "sha256": "8df4fcbdef62df2a5d49c07a08b723596238c677ee8bfcdade296e594a7def30",
+    "entries": 44,
+    "crc_and_hashes_verified": true
+  },
+  "inventory_sha256": {
+    "AstraAsedio.esp": "f91b135fa1235f0b4f3c7a6b7a2da0e3d827bd9d846054a450c92b3e0d3c7a7c",
+    "AstraAsedio_Atalaya.esp": "7491276e651923a8eaf89382e3af8bf676596b48b6e31909c9ee2e5bb1644a02",
+    "AstraAsedio_GuardAnim.esp": "eea4d177a39a3d0b18435214f16c719023a2d691ab4d3ec18aa12e23ae4b9ff2",
+    "AstraAsedio_WhiterunTorres.esp": "69a834b68588d30e270fadf4d29ca2b3ae702318f079e69120391bbbcc0d284c",
+    "Docs/AstraAsedio/Licenses/CommonLibSSE-NG-LICENSE": "253d41f9a66509071e71deeafaad01d9cd5e1d0e235f38d988f33d4f54cb0fe2",
+    "Docs/AstraAsedio/Licenses/fmt-LICENSE": "ae842eaa4d8ac87b936a5f5852bd447e64d2b7dea9fdb12ce5fa96fcfdc82ce6",
+    "Docs/AstraAsedio/Licenses/rapidcsv-LICENSE": "2a07f96569e2cb61824a7cfad718c931ebb43e74338f492d720caff920309a6c",
+    "Docs/AstraAsedio/Licenses/spdlog-LICENSE": "4ccecab18d1ff0b61174fe3d6c430541625d3ddb865b0d5887db296f883c76e7",
+    "Docs/AstraAsedio/README_v22.md": "016ed44fffa0535c23ee76b4e2bb227d64d1416160f99d5c69f5058183f94480",
+    "SKSE/Plugins/AstraSight.dll": "93e5f269d132db1851682dcfaf9ff2b9f5a2c8ee32e8a8164d4c983930982153",
+    "meshes/AstraAsedio/ballesta.nif": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
+    "meshes/AstraAsedio/ballesta_guardia.nif": "ebe715e73d90b136c8d7880f1a230e37bd4bf13e864f24acca384910210aabae",
+    "meshes/AstraAsedio/torre.nif": "1dc1ca22e03357cb292f6a122cd504914885cc540b21990dccf31c7b5d0a2679",
+    "meshes/AstraAsedio/torre_atalaya_v20.nif": "6042738cdb484f9876da3ccc7a279727f666df69ff8a13f3ca2eb135c80f8a55",
+    "meshes/AstraAsedio/torre_whiterun.nif": "a9148ea2fa1c4d8692cbb5863425641ac888c6e9f646e443febbfd4b6b7d77b6",
+    "meshes/AstraAsedio/virote.nif": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5",
+    "meshes/AstraAsedio/voladizo_este.nif": "582041e32f52c4392583a62f0193cb9c1c09f6644963093d8b26d89cd7dd65c5",
+    "meshes/AstraAsedio/voladizo_oeste.nif": "968da3de9fef848fe7bd7489690a97aee09659e9b43ff1e6e41809b8ca81876c",
+    "meshes/actors/character/animations/AstraAsedio/Guard/astra_guard_fire.hkx": "006a551c76aa8dd69ebc99009e0e0aebe06f69b8874050a98e63dbff757a1c69",
+    "meshes/actors/character/animations/AstraAsedio/Guard/astra_guard_operate.hkx": "ead96439eb23f3a895f4cf218b056bb0c780c96e74fbeb8635f14b2ee7151d06",
+    "meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Fire/IdleHandsBehindBack.hkx": "006a551c76aa8dd69ebc99009e0e0aebe06f69b8874050a98e63dbff757a1c69",
+    "meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Fire/IdleHandsBehindBack_Enter.hkx": "006a551c76aa8dd69ebc99009e0e0aebe06f69b8874050a98e63dbff757a1c69",
+    "meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Fire/config.json": "3f323c8b0c25619deefb9889b89b1a2e664d3b798b2dc40d3eb3d3069645dbbb",
+    "meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Operate/IdleHandsBehindBack.hkx": "ead96439eb23f3a895f4cf218b056bb0c780c96e74fbeb8635f14b2ee7151d06",
+    "meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Operate/IdleHandsBehindBack_Enter.hkx": "ead96439eb23f3a895f4cf218b056bb0c780c96e74fbeb8635f14b2ee7151d06",
+    "meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Operate/config.json": "c91e08fc79c45d1e84a510794393b371030bd4007de909b419c76c5220fcbd27",
+    "meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/config.json": "1c36bf42bfd828617c9e96f1893447df2accf306606ccc15ae3dac64316aa135",
+    "scripts/AstraAsedioActi.pex": "983e4f0be39b8162b0dd0889f5a5dc55918b034f3b53b9aa2adadb94f3ac1785",
+    "scripts/AstraAsedioGuard.pex": "3aa60a9d1f3b782004fe0de88b1b3731d8590b5b12a6b8345367f32d461a1352",
+    "scripts/AstraAsedioPlayerAlias.pex": "a384233f817b1329cde5c7a1c8332060e790918f0dedbf404ad52ae8d9783cab",
+    "scripts/AstraAsedioSession.pex": "048d95fbcc9531b2da4c4f5f6c7af6c65ec1c4f5648071effebef68a922203ff",
+    "scripts/AstraAsedioStation.pex": "5c6b319b76a8f7a41b127acb5fff8713738036a28e83349caf264d6cd73ef20f",
+    "scripts/AstraGuardiaAuto.pex": "d9ba8a9dd9593908731dbcb3b83dc2ecf8f8a26c4692da0abd78447531178944",
+    "scripts/AstraGuardiaNPC.pex": "28091167a2cb8a7b229dc1daaae8f5302783801fb930235a5a79de9943bb516e",
+    "scripts/AstraSightNative.pex": "9293d6e014274204763491ffecc7d464273062f712a02407120e61afe89d3991",
+    "scripts/source/AstraAsedioActi.psc": "7cc22a11086c4b0cd234fa7eda9611543e487dbe13be6dae7d26152d23f68dc8",
+    "scripts/source/AstraAsedioGuard.psc": "43a146aa163cb4ee84c1b4b012740d412cbd6a41689e5d29bdfe2e40c24fcd29",
+    "scripts/source/AstraAsedioPlayerAlias.psc": "6ad8ce6822e5349756eaf186afd893c675a874d6a8d1e69c73d6bb2c4aecfc38",
+    "scripts/source/AstraAsedioSession.psc": "a07fbce60ac9b6ad030508cf2c0c5ae9a88b5d03784b9575a21317bf8e6c0775",
+    "scripts/source/AstraAsedioStation.psc": "ff006edb38cff6126673108e90ee2fce81040b89c4964535c95d08b0f7f44643",
+    "scripts/source/AstraGuardiaAuto.psc": "33da9550249530a3d7601ae756e0a845309ec2210a6cf1fa6a50d80eeb2e0bbc",
+    "scripts/source/AstraGuardiaNPC.psc": "dc1c473bffffd5a1a2af0fc511791b90ef0eb01cc01f371a1aa7e2dc017f2f0d",
+    "scripts/source/AstraSightNative.psc": "567f332af85cd265fb09d28cd52e18edcee847c26f14e8abfbde0710746e3505",
+    "seq/AstraAsedio.seq": "5907a2bc621a287e138957f9f8f9ad9be9fbfd706b3087db35225b26f391b551"
+  },
+  "payload_counts": {
+    "core": 24,
+    "city": 3,
+    "atalaya": 2,
+    "guard": 10
+  }
+}
