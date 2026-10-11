@@ -58,7 +58,7 @@ def main():
     run(['git','clone',url,target],env);run(['git','-C',target,'checkout','--detach',revision],env)
    actual=subprocess.check_output(['git','-C',str(target),'rev-parse','HEAD'],text=True).strip()
    if actual!=revision: raise RuntimeError(f'{name}: revision {actual} differs from pin {revision}')
- run([CMAKE,'-S',ROOT/'native','-B',build,'-G','Ninja',f'-DCMAKE_MAKE_PROGRAM={NINJA}','-DCMAKE_BUILD_TYPE=Release','-DASTRA_SHOWINCLUDES_PREFIX=Nota: inclusión del archivo: ',f'-DASTRA_BUILD_PLUGIN={"OFF" if args.core_only else "ON"}',f'-DASTRA_VENDOR={vendor}'],env)
+ run([CMAKE,'-S',ROOT/'native','-B',build,'-G','Ninja',f'-DCMAKE_MAKE_PROGRAM={NINJA}','-DCMAKE_BUILD_TYPE=Release','-DASTRA_SHOWINCLUDES_PREFIX=Nota: inclusiÃƒÂ³n del archivo: ',f'-DASTRA_BUILD_PLUGIN={"OFF" if args.core_only else "ON"}',f'-DASTRA_VENDOR={vendor}'],env)
  run([CMAKE,'--build',build,'--parallel','4'],env)
  run([CTEST,'--test-dir',build,'--output-on-failure'],env)
  vendor_evidence=None
@@ -74,10 +74,11 @@ def main():
   destination=ROOT/'mod/SKSE/Plugins/AstraSight.dll';destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(build/'AstraSight.dll',destination)
   if not args.no_receipt:
    files={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for folder in ['native'] for p in (ROOT/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
-   for p in [ROOT/'scripts/build_native.py',ROOT/'mod/scripts/source/AstraSightNative.psc',ROOT/'mod/scripts/source/AstraAsedioActi.psc']:
+   for p in [ROOT/'scripts/build_native.py',ROOT/'mod/scripts/source/AstraSightNative.psc',ROOT/'mod/scripts/source/AstraAsedioActi.psc',ROOT/'mod/scripts/source/AstraGuardNative.psc']:
     files[str(p.relative_to(ROOT))]=hashlib.sha256(p.read_bytes()).hexdigest()
    files[str(destination.relative_to(ROOT))]=hashlib.sha256(destination.read_bytes()).hexdigest()
-   result={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'project_root':str(ROOT),'build_dir':str(build.relative_to(ROOT)),'vendor_dir':str(vendor),'external_vendor_read_only':bool(args.vendor_dir),'vendor_manifest':vendor_evidence,'runtime':'1.6.1170.0','skse_minimum':'2.2.8','architecture':'AMD64','plugin_name':'AstraSight','plugin_version':50659392,'plugin_version_string':'3.5.4','api_version':4,'pitch_limits_degrees':[-20.0,80.0],'per_session_aim_limits':True,'native_release_seconds':1/15,'nominal_cycle_seconds':1.0,'projectile_critical_path':'native input, game-thread effects, no VM tick','engine_latency_measured':False,'tasklet_callable_session_api':True,'dependencies':PINS,'files_sha256':files,'in_game_verified':False}
+   result={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'project_root':str(ROOT),'build_dir':str(build.relative_to(ROOT)),'vendor_dir':str(vendor),'external_vendor_read_only':bool(args.vendor_dir),'vendor_manifest':vendor_evidence,'runtime':'1.6.1170.0','skse_minimum':'2.2.8','architecture':'AMD64','plugin_name':'AstraSight','plugin_version':50659472,'plugin_version_string':'3.5.9','api_version':4,'pitch_limits_degrees':[-20.0,80.0],'per_session_aim_limits':True,'native_release_seconds':1/15,'nominal_cycle_seconds':1.0,'projectile_critical_path':'native input, game-thread effects, no VM tick','engine_latency_measured':False,'tasklet_callable_session_api':True,'dependencies':PINS,'files_sha256':files,'in_game_verified':False}
+   result.update({'npc_api_version':1,'npc_clip_seconds':{'hold':2.0,'body_fire':1.0,'turn_left':0.8,'turn_right':0.8},'npc_yaw_limits_degrees':[-60.0,60.0],'npc_pitch_degrees':0.0,'npc_visual_radius_units':2100.0,'npc_fire_range_units':6000.0,'npc_maximum_turn_degrees_per_second':15.0,'npc_projectile_speed':5400.0,'npc_gravity_units':240.345,'npc_frame_pump':'PlayerCharacter::Update vfunc0xAD, independent of FirstPersonState/camera','npc_post_ik_order_in_game_verified':False,'npc_reference_scale':1.0,'npc_natural_height_range':[0.9,1.1],'npc_grip_max_correction_units':16.0,'npc_grip_required_before_fire_and_launch':True,'npc_resident_factions':{'Skyrim.esm':[0x28172,0x2BE39]},'npc_pose_reaffirmed_each_update':True,'npc_assigned_package_and_oar_authority':True,'npc_pose_consumed_on_main_pump':True,'npc_character_update_telemetry_only':True,'npc_shield_veto_acquire_and_context':True,'npc_context_failures_log_exact_clause':True})
    (ROOT/'reports/native_build_receipt.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
    sdk=local_sdk if local_sdk.exists() else SDK
    sdk_header=sdk/'Include'/SDK_VERSION/'ucrt/stdlib.h'

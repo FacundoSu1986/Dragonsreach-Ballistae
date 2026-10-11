@@ -5,10 +5,12 @@ bool cityRetirementBusy = false
 Event OnInit()
     Debug.Trace("AstraAsedio Player alias initialized ref=" + GetReference() + " session=" + Session)
     StartCityRetirement()
+    BootstrapGuardV23()
 EndEvent
 Event OnPlayerLoadGame()
     CleanupSession()
     StartCityRetirement()
+    BootstrapGuardV23()
 EndEvent
 Event OnDeath(Actor akKiller)
     CleanupSession()
@@ -83,4 +85,33 @@ bool Function RetireLegacyCity(int oldID, int newID)
     endwhile
     Debug.Trace("AstraAsedio city retired legacy=" + oldID + " replacement=" + newID)
     return true
+EndFunction
+
+Function BootstrapGuardV23()
+    Quest sensors = Game.GetFormFromFile(0x00000806, "AstraAsedio_GuardAnim.esp") as Quest
+    if sensors != None && !sensors.IsRunning()
+        sensors.Start()
+    endif
+    int index = 0
+    while index < 2
+        int formID = 0x00000B70+index*16
+        AstraAsedioGuard controller = Game.GetFormFromFile(formID, "AstraAsedio_WhiterunTorres.esp") as AstraAsedioGuard
+        if controller != None
+            ; Revoke the old token before changing alias/package state. The
+            ; controller waits for its effects barrier before relocating.
+            controller.StartV23()
+            Actor operatorRef = Game.GetFormFromFile(formID+1, "AstraAsedio_WhiterunTorres.esp") as Actor
+            if sensors != None && sensors.IsRunning() && operatorRef != None
+                ReferenceAlias operatorAlias = sensors.GetAlias(index) as ReferenceAlias
+                if operatorAlias != None
+                    ; These two v24 aliases are Optional, so Clear is legal.
+                    ; Refilling reapplies ALPC to FF bases restored from saves.
+                    operatorAlias.Clear()
+                    operatorAlias.ForceRefTo(operatorRef)
+                    operatorRef.EvaluatePackage()
+                endif
+            endif
+        endif
+        index += 1
+    endwhile
 EndFunction

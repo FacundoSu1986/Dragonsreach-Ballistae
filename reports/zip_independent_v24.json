@@ -1,0 +1,15 @@
+{
+  "revision": 24,
+  "success": true,
+  "game_tested": false,
+  "entries": 60,
+  "sha256": "6304b3a525c25219e73a27ae98efe5fc39fd720827526b73cfb6810ecfd8111f",
+  "bytes": 3067996,
+  "crc_ok": true,
+  "complete_manifest_ok": true,
+  "four_plugins": true,
+  "ten_pex": true,
+  "twelve_hkx": true,
+  "previous_v23_zip_unchanged": true,
+  "editable_and_preview_unchanged": true
+}

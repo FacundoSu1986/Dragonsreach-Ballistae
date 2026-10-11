@@ -1,5 +1,7 @@
 # Astra Asedio — QA v21
 
+> **Esta carpeta es la copia de trabajo v27.** Documentos vigentes: `docs/README_v27.md` y `docs/QA_v27.md`. Cambios respecto a v26: diagnóstico y resiliencia acotada del guardia (DLL 3.5.8, Papyrus recompilado; ESP/HKX/NIF/OAR sin tocar). Sin probar en Skyrim. El texto de abajo queda como historial v21.
+
 Paquete de prueba completo para Skyrim SE Steam 1.6.1170, SKSE 2.2.8 y Address Library AE 1170. Mantiene AstraSight 3.5.4/API 4, el disparo, el proyectil y las ballestas de Whiterun. El script de la ballesta conserva el blanco de combate al montar.
 
 ## Qué corrige

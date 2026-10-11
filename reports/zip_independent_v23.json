@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "zip_sha256": "b09b815fa27e11ec9cb15016331c0dd3d338fd160eeb2632b186538e6edc27dd",
+  "entries": 60,
+  "crc_ok": true,
+  "manifest_covers_all_payload_and_docs": true,
+  "blend_and_preview_match_manifest": true,
+  "game_tested": false
+}

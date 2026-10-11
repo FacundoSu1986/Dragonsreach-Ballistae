@@ -1,6 +1,5 @@
 {
   "name": "Astra Guard Operate",
-  "description": "Private faction gate; releases with station ownership.",
   "priority": 1185250,
   "conditions": [
     {

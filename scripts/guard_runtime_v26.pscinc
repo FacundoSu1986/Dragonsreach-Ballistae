@@ -1,0 +1,258 @@
+
+; v26: exclusive operator package; persisted v23 field names stay compatible.
+; Legacy functions remain fenced to let old saved Papyrus stacks return safely.
+bool v23Wanted = false
+int v23PumpOwner = 0
+int v23Generation = 0
+int v23Serial = 0
+int v23Token = 0
+int v23PlacementVersion = 0
+bool v23Warned = false
+int v23LastStatus = -99
+
+Function StartV23()
+    generation += 1
+    running = false
+    recovering = false
+    v23Generation += 1
+    v23Wanted = !stationRetired && !destroyed
+    UnregisterForUpdate()
+    if v23Token > 0 && AstraGuardNative.IsAvailable()
+        AstraGuardNative.EndOperation(Self, v23Token)
+    endif
+    RegisterForSingleUpdate(0.2)
+EndFunction
+
+Function StopV23()
+    generation += 1
+    running = false
+    v23Generation += 1
+    v23Wanted = false
+    UnregisterForUpdate()
+    if v23Token > 0 && AstraGuardNative.IsAvailable()
+        AstraGuardNative.EndOperation(Self, v23Token)
+    endif
+EndFunction
+
+Actor Function ResolveV23Operator()
+    ObjectReference east = Game.GetFormFromFile(0x00000B70, "AstraAsedio_WhiterunTorres.esp") as ObjectReference
+    if Self == east
+        return Game.GetFormFromFile(0x00000B71, "AstraAsedio_WhiterunTorres.esp") as Actor
+    endif
+    ObjectReference west = Game.GetFormFromFile(0x00000B80, "AstraAsedio_WhiterunTorres.esp") as ObjectReference
+    if Self == west
+        return Game.GetFormFromFile(0x00000B81, "AstraAsedio_WhiterunTorres.esp") as Actor
+    endif
+    return None
+EndFunction
+
+bool Function V23Current(int expected)
+    return v23Generation == expected && v23Wanted && !stationRetired && !destroyed
+EndFunction
+
+bool Function MigrateV23(Actor actorRef, int expected)
+    if !V23Current(expected) || actorRef == None || Puesto == None
+        return false
+    endif
+    if !Is3DLoaded() || !actorRef.Is3DLoaded() || actorRef.IsDead()
+        return false
+    endif
+    ; Existing persistent markers can also carry a saved transform: recompute.
+    float angle = GetAngleZ()
+    float px = GetPositionX() - 151.0*Math.Sin(angle)
+    float py = GetPositionY() + 151.0*Math.Cos(angle)
+    float pz = GetPositionZ()
+    if !V23Current(expected)
+        return false
+    endif
+    Puesto.SetPosition(px, py, pz)
+    if !V23Current(expected)
+        return false
+    endif
+    Puesto.SetAngle(0.0, 0.0, angle+180.0)
+    int index = 0
+    while index < 6 && V23Current(expected)
+        if index == 0 || index == 1 || index == 4 || index == 5
+            Faction privateFlag = Game.GetFormFromFile(0x00000800+index, "AstraAsedio_GuardAnim.esp") as Faction
+            if privateFlag != None
+                actorRef.RemoveFromFaction(privateFlag)
+            endif
+        endif
+        index += 1
+    endwhile
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.SetDontMove(false)
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.SetHeadTracking(true)
+    if !V23Current(expected)
+        return false
+    endif
+    ; Remove the active v22 idle graph state as well as its private OAR gates.
+    Debug.SendAnimationEvent(actorRef, "IdleForceDefaultState")
+    if !V23Current(expected)
+        return false
+    endif
+    Idle previousExit = Game.GetFormFromFile(0x00000803, "AstraAsedio_GuardAnim.esp") as Idle
+    if previousExit != None
+        actorRef.PlayIdle(previousExit)
+    endif
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.SetPosition(px, py, pz)
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.SetAngle(0.0, 0.0, angle+180.0)
+    if !V23Current(expected)
+        return false
+    endif
+    ; Only the two owned operators are migrated; retain their armor/inventory.
+    actorRef.StopCombat()
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.SheatheWeapon()
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.EvaluatePackage()
+    if !V23Current(expected)
+        return false
+    endif
+    Artillero = actorRef
+    ownedGuard = None
+    pinBusy = false
+    sceneBusy = false
+    phase = 0
+    shotTarget = None
+    guardPoseStarted = false
+    guardPoseFiring = false
+    v23PlacementVersion = 26
+    Debug.Trace("Astra guard v26 migrated ref="+actorRef+" station="+Self)
+    return true
+EndFunction
+
+bool Function PrepareShieldV26(Actor actorRef, int expected)
+    if !V23Current(expected) || actorRef == None || actorRef != ResolveV23Operator()
+        return false
+    endif
+    Armor shield = actorRef.GetEquippedShield()
+    if !V23Current(expected)
+        return false
+    endif
+    if shield != None
+        ; Free the left hand of these two owned operators; keep inventory.
+        ; Equipment changes can rebuild 3D. Yield and re-query next pump.
+        actorRef.UnequipItem(shield, true, true)
+        return false
+    endif
+    return true
+EndFunction
+
+Function PumpV23()
+    if v23PumpOwner == v23Generation || !v23Wanted || stationRetired || destroyed
+        return
+    endif
+    int expected = v23Generation
+    v23PumpOwner = expected
+    bool available = AstraGuardNative.IsAvailable() && AstraGuardNative.GetAPIVersion() == 1
+    if !V23Current(expected)
+        FinishPumpV23(expected, 0.0)
+        return
+    endif
+    Actor actorRef = ResolveV23Operator()
+    if !V23Current(expected)
+        FinishPumpV23(expected, 0.0)
+        return
+    endif
+    if actorRef == None || !Is3DLoaded() || !actorRef.Is3DLoaded() || actorRef.IsDead()
+        if v23Token > 0 && available
+            AstraGuardNative.EndOperation(Self, v23Token)
+        endif
+        FinishPumpV23(expected, 1.0)
+        return
+    endif
+    ; A v22 upgrade must release the old pin/pose even if OAR is unavailable.
+    ; v22 has no native token; an existing v23 owner still drains below first.
+    if v23PlacementVersion < 26 && v23Token == 0
+        bool migratedBeforeAvailability = MigrateV23(actorRef, expected)
+    endif
+    if !V23Current(expected)
+        FinishPumpV23(expected, 0.0)
+        return
+    endif
+    if !available
+        if !v23Warned
+            Debug.Trace("Astra guard v26: NPC runtime/OAR unavailable; firing disabled.")
+            v23Warned = true
+        endif
+        FinishPumpV23(expected, 2.0)
+        return
+    endif
+    if v23Token > 0
+        int status = AstraGuardNative.GetStatus(Self, v23Token)
+        if !V23Current(expected)
+            FinishPumpV23(expected, 0.0)
+            return
+        endif
+        if status != v23LastStatus
+            Debug.Trace("Astra guard v26 status="+status+" station="+Self+" token="+v23Token)
+            v23LastStatus = status
+        endif
+        if status == -1
+            v23Token = 0
+        elseif status == -2
+            bool drained = AstraGuardNative.EndOperation(Self, v23Token)
+            if V23Current(expected) && drained
+                v23Token = 0
+            endif
+        endif
+    endif
+    if V23Current(expected) && v23Token == 0
+        bool migrated = v23PlacementVersion >= 26
+        if !migrated
+            migrated = MigrateV23(actorRef, expected)
+        endif
+        if migrated && V23Current(expected) && v23Serial < 2000000000
+            if !PrepareShieldV26(actorRef, expected)
+                FinishPumpV23(expected, 0.2)
+                return
+            endif
+            if !V23Current(expected)
+                FinishPumpV23(expected, 0.0)
+                return
+            endif
+            v23Serial += 1
+            int candidate = v23Serial
+            bool accepted = AstraGuardNative.BeginOperation(Self, actorRef, candidate, Launcher, ShotAmmo, ShotSound)
+            if V23Current(expected) && accepted
+                v23Token = candidate
+                v23Warned = false
+            elseif accepted
+                AstraGuardNative.EndOperation(Self, candidate)
+            endif
+        endif
+    endif
+    FinishPumpV23(expected, 1.0)
+EndFunction
+
+Function FinishPumpV23(int expected, float delay)
+    if v23PumpOwner != expected
+        return
+    endif
+    v23PumpOwner = 0
+    if delay > 0.0 && V23Current(expected)
+        RegisterForSingleUpdate(delay)
+    endif
+EndFunction
+
+Function NotifyCombatV23(Actor target)
+    if v23Wanted && v23Token > 0 && AstraGuardNative.IsAvailable()
+        AstraGuardNative.NotifyCombat(Self, v23Token, target)
+    endif
+EndFunction

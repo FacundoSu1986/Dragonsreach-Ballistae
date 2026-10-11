@@ -1,0 +1,37 @@
+{
+  "observed_revision": 26,
+  "source_log": "AstraSight.log",
+  "log_sha256": "148df54e1c532f779bf12d487e34914eb140395625eb30219173c267184e562a",
+  "log_bytes": 81893,
+  "session_window_utc_local": [
+    "2026-10-11 17:12:23.609",
+    "2026-10-11 17:14:14.931"
+  ],
+  "dll_line": "AstraSight 3.5.7 API 4 runtime 1.6.1170, native input/launch, release 66.7ms, cycle 1s, per-session sectors; v26 assigned station AI, shield-free guards and canonical grip; engine latency unmeasured",
+  "acquired_count": 93,
+  "cancel_count": 93,
+  "context_clause_count": 93,
+  "distinct_runonce_packages": [
+    "FF000F64",
+    "FF000F65"
+  ],
+  "idle_null_in_every_context_clause": true,
+  "hold_observed": false,
+  "grip_observed": false,
+  "first_acquisition": [
+    "[2026-10-11 17:13:16.616] [AstraSight] [info] guard v26 acquired gun=14000B70 actor=14000B71 package=14000B90 yaw=-0 heightOffset=0.00048828125 supportZ=-3544.018268585205 actorScale=1.0299999713897705 referenceScale=1 baseHeight=1.0299999713897705 holdRequested=true",
+    "[2026-10-11 17:13:17.606] [AstraSight] [info] guard v26 acquired gun=14000B80 actor=14000B81 package=14000B90 yaw=0.00037054907072824083 heightOffset=0.0009765625 supportZ=-4128.039416313171 actorScale=1.0299999713897705 referenceScale=1 baseHeight=1.0299999713897705 holdRequested=true"
+  ],
+  "first_context_clause": [
+    "[2026-10-11 17:13:16.649] [AstraSight] [warning] guard v26 context gun=14000B70 actor=14000B71 token=60 clause=running package has no owned idle override acquired=true assignedPackage=14000B90 runningPackage=FF000F64 runOncePackage=FF000F64 idle=00000000 weaponDrawn=false weaponState=0 shield=00000000 gunCell=0000961B actorCell=0000961B gunRootStable=true actorRootStable=true actorScale=1.03 referenceScale=1 baseHeight=1.0299999713897705",
+    "[2026-10-11 17:13:17.641] [AstraSight] [warning] guard v26 context gun=14000B80 actor=14000B81 token=60 clause=running package has no owned idle override acquired=true assignedPackage=14000B90 runningPackage=FF000F65 runOncePackage=FF000F65 idle=00000000 weaponDrawn=false weaponState=0 shield=00000000 gunCell=0000961C actorCell=0000961C gunRootStable=true actorRootStable=true actorScale=1.03 referenceScale=1 baseHeight=1.0299999713897705"
+  ],
+  "first_cancel": [
+    "[2026-10-11 17:13:16.649] [AstraSight] [info] guard cancel gun=14000B70 token=60 epoch=1 fault=false reason=running package has no owned idle override",
+    "[2026-10-11 17:13:17.641] [AstraSight] [info] guard cancel gun=14000B80 token=60 epoch=2 fault=false reason=running package has no owned idle override"
+  ],
+  "conclusion": "On 1.6.1170 the PlayIdle run-once wrapper keeps GetRunningPackage() and high->currentProcessIdle stays null while the own idle runs, so the v26 admission clause (running==B90 || ownIdle) is unsatisfiable on this route.",
+  "v26_in_game_tested": true,
+  "v27_in_game_tested": false,
+  "extracted_at_utc": "2026-10-11T22:35:47.715009+00:00"
+}

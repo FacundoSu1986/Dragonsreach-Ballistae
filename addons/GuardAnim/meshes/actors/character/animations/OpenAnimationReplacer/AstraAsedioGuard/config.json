@@ -1,5 +1,5 @@
 {
   "name": "AstraAsedio Guard",
   "author": "Astra",
-  "description": "Owned NPC operators only; hold and visual fire. Requires OAR."
+  "description": "Owned low ballista operators. Fixed height and horizontal aim."
 }

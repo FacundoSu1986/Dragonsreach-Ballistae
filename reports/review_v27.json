@@ -1,0 +1,20 @@
+{
+  "revision": 27,
+  "utc": "2026-10-11T22:36:28.265587+00:00",
+  "scope": "Delta review v26->v27 of this working copy. Self-authored record; not an independent third-party review. Covers the corrected native admission predicate, Papyrus diagnosability and backoff, the 3.5.8 version bump, packaging/verification scripts and docs.",
+  "basis": {
+    "diagnosis_v26_context_sha256": "491e4e3ca051888c6556844aee757b65684f793de355e66c252a4a65dcc161ec",
+    "diagnosis_v25_context_sha256": "97e56cb73349356287009fe760af4f719bbf6545c8121d20a861079d5b546481"
+  },
+  "changes": [
+    "GuardPolicy.guardOperatorPackage: acquired leases tolerate the measured run-once wrapper; requires assigned B90 + sheathed hands (1.6.1170 leaves currentProcessIdle null, measured 93/93)",
+    "v26 guard test table updated to measured semantics",
+    "Papyrus: one-shot trace when Torres operator refs cannot resolve; 5s/30s backoff after faulted acquisitions",
+    "install() logs OAR module presence separately from API grant",
+    "AstraSight 3.5.8; receipt/PE checker aligned"
+  ],
+  "security_assessment": "No fail-closed clause is relaxed: pre-acquisition still requires the assigned B90 running package; post-acquisition still requires assigned B90, sheathed hands, no shield, non-interrupted actor; hold/fire/launch still require the canonical OAR clip observation and a fresh confirmed grip; no-observation cancels remain bounded.",
+  "residual_risk": "A foreign run-once override on an acquired operator is revoked only when the canonical OAR observation times out (bounded), not by package identity; firing cannot occur without the observed grip.",
+  "game_tested": false,
+  "verdict": "APPROVED_FOR_QA_PACKAGE_NOT_FOR_RELEASE"
+}

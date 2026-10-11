@@ -1,0 +1,492 @@
+{
+  "passed": true,
+  "clips": {
+    "left": {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\source\\anim\\astra_guard_turn_left.hkx",
+      "expected_duration": 0.8,
+      "expected_frames": 25,
+      "errors": [],
+      "size_bytes": 8672,
+      "sha256": "27c06ffb40ec74bba125685bcdce362bf8113021e433c81c0b11775405d4aff9",
+      "classes": [
+        "hkRootLevelContainer",
+        "hkaAnimationContainer",
+        "hkaSplineCompressedAnimation",
+        "hkaAnimationBinding"
+      ],
+      "pointer_size": 8,
+      "duration": 0.800000011920929,
+      "num_tracks": 99,
+      "num_float_tracks": 0,
+      "num_frames": 25,
+      "block_inverse_duration": 0.11764705926179886,
+      "extracted_motion": {
+        "raw_pointer": 0,
+        "local_fixup": null,
+        "global_fixup": null
+      },
+      "frame_duration": 0.03333333507180214,
+      "num_blocks": 1,
+      "max_frames_per_block": 256,
+      "block_duration": 8.5,
+      "blend_hint": 0,
+      "original_skeleton_name": "NPC Root [Root]",
+      "binding_indices": [],
+      "track_names": [
+        "NPC Root [Root]",
+        "x_NPC LookNode [Look]",
+        "x_NPC Translate [Pos ]",
+        "x_NPC Rotate [Rot ]",
+        "NPC COM [COM ]",
+        "NPC Pelvis [Pelv]",
+        "NPC L Thigh [LThg]",
+        "NPC L Calf [LClf]",
+        "NPC L Foot [Lft ]",
+        "NPC R Thigh [RThg]",
+        "NPC R Calf [RClf]",
+        "NPC R Foot [Rft ]",
+        "SkirtRBone01",
+        "SkirtRBone02",
+        "SkirtRBone03",
+        "SkirtLBone01",
+        "SkirtLBone02",
+        "SkirtLBone03",
+        "SkirtBBone01",
+        "SkirtBBone02",
+        "SkirtBBone03",
+        "SkirtFBone01",
+        "SkirtFBone02",
+        "SkirtFBone03",
+        "NPC Spine [Spn0]",
+        "NPC Spine1 [Spn1]",
+        "NPC Spine2 [Spn2]",
+        "NPC L Clavicle [LClv]",
+        "NPC L UpperArm [LUar]",
+        "NPC L Forearm [LLar]",
+        "NPC R Clavicle [RClv]",
+        "NPC R UpperArm [RUar]",
+        "NPC R Forearm [RLar]",
+        "AnimObjectA",
+        "AnimObjectB",
+        "NPC Neck [Neck]",
+        "NPC Head [Head]",
+        "NPCEyeBone",
+        "NPC L Hand [LHnd]",
+        "NPC R Hand [RHnd]",
+        "AnimObjectL",
+        "AnimObjectR",
+        "Shield",
+        "Weapon",
+        "NPC L Pauldron",
+        "NPC R Pauldron",
+        "MagicEffectsNode",
+        "NPC L MagicNode [LMag]",
+        "NPC R MagicNode [RMag]",
+        "NPC Head MagicNode [Hmag]",
+        "NPC L Toe0 [LToe]",
+        "NPC R Toe0 [RToe]",
+        "NPC L ForearmTwist1 [LLt1]",
+        "NPC L ForearmTwist2 [LLt2]",
+        "NPC L UpperarmTwist1 [LUt1]",
+        "NPC L UpperarmTwist2 [LUt2]",
+        "NPC R ForearmTwist1 [RLt1]",
+        "NPC R ForearmTwist2 [RLt2]",
+        "NPC R UpperarmTwist1 [RUt1]",
+        "NPC R UpperarmTwist2 [RUt2]",
+        "Quiver",
+        "WeaponAxe",
+        "WeaponBack",
+        "WeaponBow",
+        "WeaponDagger",
+        "WeaponMace",
+        "WeaponSword",
+        "NPC L Finger00 [LF00]",
+        "NPC L Finger01 [LF01]",
+        "NPC L Finger02 [LF02]",
+        "NPC L Finger10 [LF10]",
+        "NPC L Finger11 [LF11]",
+        "NPC L Finger12 [LF12]",
+        "NPC L Finger20 [LF20]",
+        "NPC L Finger21 [LF21]",
+        "NPC L Finger22 [LF22]",
+        "NPC L Finger30 [LF30]",
+        "NPC L Finger31 [LF31]",
+        "NPC L Finger32 [LF32]",
+        "NPC L Finger40 [LF40]",
+        "NPC L Finger41 [LF41]",
+        "NPC L Finger42 [LF42]",
+        "NPC R Finger00 [RF00]",
+        "NPC R Finger01 [RF01]",
+        "NPC R Finger02 [RF02]",
+        "NPC R Finger10 [RF10]",
+        "NPC R Finger11 [RF11]",
+        "NPC R Finger12 [RF12]",
+        "NPC R Finger20 [RF20]",
+        "NPC R Finger21 [RF21]",
+        "NPC R Finger22 [RF22]",
+        "NPC R Finger30 [RF30]",
+        "NPC R Finger31 [RF31]",
+        "NPC R Finger32 [RF32]",
+        "NPC R Finger40 [RF40]",
+        "NPC R Finger41 [RF41]",
+        "NPC R Finger42 [RF42]",
+        "Camera3rd [Cam3]",
+        "Camera Control"
+      ],
+      "max_scale_error": 0.0,
+      "worst_scale": null,
+      "root": {
+        "bone": "NPC Root [Root]",
+        "track_index": 0,
+        "max_translation": 0.0,
+        "translation_span": 0.0,
+        "max_rotation_radians": 0.0,
+        "first_translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "last_translation": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "source_comparison": {
+        "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\build\\guard-v23\\animations\\astra_guard_turn_left.xml",
+        "sha256": "52d9c1fa341e0906d8347172abe0e2067acec342cbeee92cbc3ffa1ec6df7ddd",
+        "errors": [],
+        "ignored_source_bones": [],
+        "compared_bones": 99,
+        "max_translation_error": 0.00600774428497175,
+        "worst_translation": [
+          "NPC COM [COM ]",
+          5
+        ],
+        "max_rotation_error_radians": 0.0016648822889855145,
+        "worst_rotation": [
+          "NPC R Thigh [RThg]",
+          3
+        ],
+        "max_scale_error": 0.0,
+        "worst_scale": null,
+        "passed": true
+      },
+      "annotations": [],
+      "passed": true
+    },
+    "right": {
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\source\\anim\\astra_guard_turn_right.hkx",
+      "expected_duration": 0.8,
+      "expected_frames": 25,
+      "errors": [],
+      "size_bytes": 8672,
+      "sha256": "dd5f4eab345d130e509c51b5160b8cf3d6138fcb5431e96fef621f2a0e3fd9cf",
+      "classes": [
+        "hkRootLevelContainer",
+        "hkaAnimationContainer",
+        "hkaSplineCompressedAnimation",
+        "hkaAnimationBinding"
+      ],
+      "pointer_size": 8,
+      "duration": 0.800000011920929,
+      "num_tracks": 99,
+      "num_float_tracks": 0,
+      "num_frames": 25,
+      "block_inverse_duration": 0.11764705926179886,
+      "extracted_motion": {
+        "raw_pointer": 0,
+        "local_fixup": null,
+        "global_fixup": null
+      },
+      "frame_duration": 0.03333333507180214,
+      "num_blocks": 1,
+      "max_frames_per_block": 256,
+      "block_duration": 8.5,
+      "blend_hint": 0,
+      "original_skeleton_name": "NPC Root [Root]",
+      "binding_indices": [],
+      "track_names": [
+        "NPC Root [Root]",
+        "x_NPC LookNode [Look]",
+        "x_NPC Translate [Pos ]",
+        "x_NPC Rotate [Rot ]",
+        "NPC COM [COM ]",
+        "NPC Pelvis [Pelv]",
+        "NPC L Thigh [LThg]",
+        "NPC L Calf [LClf]",
+        "NPC L Foot [Lft ]",
+        "NPC R Thigh [RThg]",
+        "NPC R Calf [RClf]",
+        "NPC R Foot [Rft ]",
+        "SkirtRBone01",
+        "SkirtRBone02",
+        "SkirtRBone03",
+        "SkirtLBone01",
+        "SkirtLBone02",
+        "SkirtLBone03",
+        "SkirtBBone01",
+        "SkirtBBone02",
+        "SkirtBBone03",
+        "SkirtFBone01",
+        "SkirtFBone02",
+        "SkirtFBone03",
+        "NPC Spine [Spn0]",
+        "NPC Spine1 [Spn1]",
+        "NPC Spine2 [Spn2]",
+        "NPC L Clavicle [LClv]",
+        "NPC L UpperArm [LUar]",
+        "NPC L Forearm [LLar]",
+        "NPC R Clavicle [RClv]",
+        "NPC R UpperArm [RUar]",
+        "NPC R Forearm [RLar]",
+        "AnimObjectA",
+        "AnimObjectB",
+        "NPC Neck [Neck]",
+        "NPC Head [Head]",
+        "NPCEyeBone",
+        "NPC L Hand [LHnd]",
+        "NPC R Hand [RHnd]",
+        "AnimObjectL",
+        "AnimObjectR",
+        "Shield",
+        "Weapon",
+        "NPC L Pauldron",
+        "NPC R Pauldron",
+        "MagicEffectsNode",
+        "NPC L MagicNode [LMag]",
+        "NPC R MagicNode [RMag]",
+        "NPC Head MagicNode [Hmag]",
+        "NPC L Toe0 [LToe]",
+        "NPC R Toe0 [RToe]",
+        "NPC L ForearmTwist1 [LLt1]",
+        "NPC L ForearmTwist2 [LLt2]",
+        "NPC L UpperarmTwist1 [LUt1]",
+        "NPC L UpperarmTwist2 [LUt2]",
+        "NPC R ForearmTwist1 [RLt1]",
+        "NPC R ForearmTwist2 [RLt2]",
+        "NPC R UpperarmTwist1 [RUt1]",
+        "NPC R UpperarmTwist2 [RUt2]",
+        "Quiver",
+        "WeaponAxe",
+        "WeaponBack",
+        "WeaponBow",
+        "WeaponDagger",
+        "WeaponMace",
+        "WeaponSword",
+        "NPC L Finger00 [LF00]",
+        "NPC L Finger01 [LF01]",
+        "NPC L Finger02 [LF02]",
+        "NPC L Finger10 [LF10]",
+        "NPC L Finger11 [LF11]",
+        "NPC L Finger12 [LF12]",
+        "NPC L Finger20 [LF20]",
+        "NPC L Finger21 [LF21]",
+        "NPC L Finger22 [LF22]",
+        "NPC L Finger30 [LF30]",
+        "NPC L Finger31 [LF31]",
+        "NPC L Finger32 [LF32]",
+        "NPC L Finger40 [LF40]",
+        "NPC L Finger41 [LF41]",
+        "NPC L Finger42 [LF42]",
+        "NPC R Finger00 [RF00]",
+        "NPC R Finger01 [RF01]",
+        "NPC R Finger02 [RF02]",
+        "NPC R Finger10 [RF10]",
+        "NPC R Finger11 [RF11]",
+        "NPC R Finger12 [RF12]",
+        "NPC R Finger20 [RF20]",
+        "NPC R Finger21 [RF21]",
+        "NPC R Finger22 [RF22]",
+        "NPC R Finger30 [RF30]",
+        "NPC R Finger31 [RF31]",
+        "NPC R Finger32 [RF32]",
+        "NPC R Finger40 [RF40]",
+        "NPC R Finger41 [RF41]",
+        "NPC R Finger42 [RF42]",
+        "Camera3rd [Cam3]",
+        "Camera Control"
+      ],
+      "max_scale_error": 0.0,
+      "worst_scale": null,
+      "root": {
+        "bone": "NPC Root [Root]",
+        "track_index": 0,
+        "max_translation": 0.0,
+        "translation_span": 0.0,
+        "max_rotation_radians": 0.0,
+        "first_translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "last_translation": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "source_comparison": {
+        "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\build\\guard-v23\\animations\\astra_guard_turn_right.xml",
+        "sha256": "604c44ff789a8197caca174b2d436d9225f39b6e360cb71701d97cb60da09fe6",
+        "errors": [],
+        "ignored_source_bones": [],
+        "compared_bones": 99,
+        "max_translation_error": 0.00600774428497175,
+        "worst_translation": [
+          "NPC COM [COM ]",
+          5
+        ],
+        "max_rotation_error_radians": 0.0016648386621614761,
+        "worst_rotation": [
+          "NPC R Thigh [RThg]",
+          21
+        ],
+        "max_scale_error": 0.0,
+        "worst_scale": null,
+        "passed": true
+      },
+      "annotations": [],
+      "passed": true
+    }
+  },
+  "continuity": {
+    "left": {
+      "operate_loop": {
+        "max_translation_error": 0.0,
+        "worst_translation_bone": "NPC Root [Root]",
+        "max_rotation_error_radians": 0.0,
+        "worst_rotation_bone": "NPC Root [Root]",
+        "max_scale_error": 0.0,
+        "hands": [
+          {
+            "bone": "NPC L Hand [LHnd]",
+            "translation_error": 0.0,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          },
+          {
+            "bone": "NPC R Hand [RHnd]",
+            "translation_error": 0.0,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          }
+        ],
+        "passed": true
+      },
+      "operate_to_fire": {
+        "max_translation_error": 3.0517578125e-05,
+        "worst_translation_bone": "NPC COM [COM ]",
+        "max_rotation_error_radians": 0.0017427277116058904,
+        "worst_rotation_bone": "AnimObjectR",
+        "max_scale_error": 0.0,
+        "hands": [
+          {
+            "bone": "NPC L Hand [LHnd]",
+            "translation_error": 3.814697265625e-06,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          },
+          {
+            "bone": "NPC R Hand [RHnd]",
+            "translation_error": 5.7220458984375e-06,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          }
+        ],
+        "passed": true
+      },
+      "fire_to_operate": {
+        "max_translation_error": 3.0517578125e-05,
+        "worst_translation_bone": "NPC COM [COM ]",
+        "max_rotation_error_radians": 0.0017427277116058904,
+        "worst_rotation_bone": "AnimObjectR",
+        "max_scale_error": 0.0,
+        "hands": [
+          {
+            "bone": "NPC L Hand [LHnd]",
+            "translation_error": 3.814697265625e-06,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          },
+          {
+            "bone": "NPC R Hand [RHnd]",
+            "translation_error": 5.7220458984375e-06,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          }
+        ],
+        "passed": true
+      }
+    },
+    "right": {
+      "operate_loop": {
+        "max_translation_error": 0.0,
+        "worst_translation_bone": "NPC Root [Root]",
+        "max_rotation_error_radians": 0.0,
+        "worst_rotation_bone": "NPC Root [Root]",
+        "max_scale_error": 0.0,
+        "hands": [
+          {
+            "bone": "NPC L Hand [LHnd]",
+            "translation_error": 0.0,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          },
+          {
+            "bone": "NPC R Hand [RHnd]",
+            "translation_error": 0.0,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          }
+        ],
+        "passed": true
+      },
+      "operate_to_fire": {
+        "max_translation_error": 3.4332275390625e-05,
+        "worst_translation_bone": "NPC L Calf [LClf]",
+        "max_rotation_error_radians": 0.0017427277116058904,
+        "worst_rotation_bone": "AnimObjectR",
+        "max_scale_error": 0.0,
+        "hands": [
+          {
+            "bone": "NPC L Hand [LHnd]",
+            "translation_error": 3.814697265625e-06,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          },
+          {
+            "bone": "NPC R Hand [RHnd]",
+            "translation_error": 5.7220458984375e-06,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          }
+        ],
+        "passed": true
+      },
+      "fire_to_operate": {
+        "max_translation_error": 3.4332275390625e-05,
+        "worst_translation_bone": "NPC L Calf [LClf]",
+        "max_rotation_error_radians": 0.0017427277116058904,
+        "worst_rotation_bone": "AnimObjectR",
+        "max_scale_error": 0.0,
+        "hands": [
+          {
+            "bone": "NPC L Hand [LHnd]",
+            "translation_error": 3.814697265625e-06,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          },
+          {
+            "bone": "NPC R Hand [RHnd]",
+            "translation_error": 5.7220458984375e-06,
+            "rotation_error_radians": 0.0,
+            "scale_error": 0.0
+          }
+        ],
+        "passed": true
+      }
+    }
+  },
+  "game_tested": false
+}

@@ -1,0 +1,32 @@
+{
+  "revision": 25,
+  "read_only_review": true,
+  "approved": true,
+  "blocking_findings": [],
+  "reviewer": "guard_ai_v24_review",
+  "scope": [
+    "natural/reference/effective scale separation",
+    "reference scale passed to orbit",
+    "stable lease scale",
+    "main-thread pin and expected OAR postActor IK",
+    "16-unit bounded arm correction",
+    "fresh grip before Fire and Launch",
+    "resident filtering and owned-operator protection",
+    "horizontal-flight gate before Fire and Launch",
+    "v23 persisted fields, drain barrier and alias refresh"
+  ],
+  "reviewer_executed": {
+    "v25_assertions": 23,
+    "v23_assertions": 59,
+    "python_tests": 5,
+    "real_binding_gate": true,
+    "all_passed": true
+  },
+  "game_tested": false,
+  "pending": [
+    "Skyrim acquisition after scale correction",
+    "actual canonical OAR playback",
+    "IK/render order after actor skeleton processing",
+    "live projectile cycle"
+  ]
+}

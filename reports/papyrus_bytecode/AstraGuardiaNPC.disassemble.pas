@@ -1,13 +1,13 @@
 .info
 	.source "AstraGuardiaNPC.psc"
-	.modifyTime 1791676167 ;Sat Oct 10 20:49:27 2026 Local
-	.compileTime 1791679489 ;Sat Oct 10 21:44:49 2026 Local
+	.modifyTime 1791759002 ;Sun Oct 11 19:50:02 2026 Local
+	.compileTime 1791759050 ;Sun Oct 11 19:50:50 2026 Local
 	.user "AstraAsedio"
 	.computer "Build"
 .endInfo
 .userFlagsRef
-	.flag hidden 0	; 0x00000000
 	.flag conditional 1	; 0x00000001
+	.flag hidden 0	; 0x00000000
 .endUserFlagsRef
 .objectTable
 	.object AstraGuardiaNPC Actor
@@ -20,27 +20,6 @@
 		.endPropertyTable
 		.stateTable
 			.state 
-				.function OnDeath
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param akKiller Actor
-					.endParamTable
-					.localTable
-						.local ::temp11 AstraGuardiaAuto
-						.local Torre AstraGuardiaAuto
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod Torre self ::temp11                           ;@line 61
-						Assign Torre ::temp11                                    ;@line 61
-						JumpF Torre _label0                                      ;@line 62
-						CallMethod CalmaCombat Torre ::NoneVar                   ;@line 63
-						Jump _label0                                             ;@line 63
-					_label0:
-					.endCode
-				.endFunction
 				.function Torre
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
@@ -49,24 +28,91 @@
 					.endParamTable
 					.localTable
 						.local ::temp0 objectreference
-						.local ::temp1 Bool
-						.local enlace objectreference
-						.local ::NoneVar None
-						.local ::temp2 AstraGuardiaAuto
+						.local ::temp1 AstraGuardiaAuto
 					.endLocalTable
 					.code
-						CallMethod GetLinkedRef self ::temp0 None                ;@line 17
-						Assign enlace ::temp0                                    ;@line 17
-						Cast ::temp0 None                                        ;@line 18
-						CompareEQ ::temp1 enlace ::temp0                         ;@line 18
-						JumpF ::temp1 _label1                                    ;@line 18
-						CallStatic debug Trace ::NoneVar "AstraGuardiaNPC SIN_ENLACE: el NPC no tiene linked ref a la ballesta (Â¿ESP sin regenerar?)" 0  ;@line 19
-						Cast ::temp2 None                                        ;@line 20
-						Return ::temp2                                           ;@line 20
-						Jump _label1                                             ;@line 20
+						CallMethod GetLinkedRef self ::temp0 None                ;@line 4
+						Cast ::temp1 ::temp0                                     ;@line 4
+						Return ::temp1                                           ;@line 4
+					.endCode
+				.endFunction
+				.function OnUnload
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp13 AstraAsedioGuard
+						.local ::temp14 Bool
+						.local controller AstraAsedioGuard
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod ControllerV23 self ::temp13                   ;@line 41
+						Assign controller ::temp13                               ;@line 41
+						Cast ::temp13 None                                       ;@line 42
+						CompareEQ ::temp14 controller ::temp13                   ;@line 42
+						Not ::temp14 ::temp14                                    ;@line 42
+						JumpF ::temp14 _label0                                   ;@line 42
+						CallMethod StopV23 controller ::NoneVar                  ;@line 43
+						Jump _label0                                             ;@line 43
+					_label0:
+					.endCode
+				.endFunction
+				.function OnLoad
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp6 AstraAsedioGuard
+						.local ::temp7 Bool
+						.local controller AstraAsedioGuard
+						.local ::NoneVar None
+						.local ::temp8 Actor
+					.endLocalTable
+					.code
+						CallMethod ControllerV23 self ::temp6                    ;@line 19
+						Assign controller ::temp6                                ;@line 19
+						Cast ::temp6 None                                        ;@line 20
+						CompareEQ ::temp7 controller ::temp6                     ;@line 20
+						Not ::temp7 ::temp7                                      ;@line 20
+						JumpF ::temp7 _label1                                    ;@line 20
+						CallMethod StartV23 controller ::NoneVar                 ;@line 21
+						CallMethod GetCombatTarget self ::temp8                  ;@line 22
+						CallMethod NotifyCombatV23 controller ::NoneVar ::temp8  ;@line 22
+						Jump _label1                                             ;@line 22
 					_label1:
-						Cast ::temp2 enlace                                      ;@line 22
-						Return ::temp2                                           ;@line 22
+					.endCode
+				.endFunction
+				.function GetState
+					.userFlags 0	; Flags: 0x00000000
+					.docString "Function that returns the current state"
+					.return String
+					.paramTable
+					.endParamTable
+					.localTable
+					.endLocalTable
+					.code
+						Return ::State                                           ;@line ??
+					.endCode
+				.endFunction
+				.function ControllerV23
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return AstraAsedioGuard
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp2 objectreference
+						.local ::temp3 AstraAsedioGuard
+					.endLocalTable
+					.code
+						CallMethod GetLinkedRef self ::temp2 None                ;@line 8
+						Cast ::temp3 ::temp2                                     ;@line 8
+						Return ::temp3                                           ;@line 8
 					.endCode
 				.endFunction
 				.function GotoState
@@ -94,75 +140,46 @@
 						.param aeCombatState Int
 					.endParamTable
 					.localTable
-						.local ::temp8 AstraGuardiaAuto
-						.local ::temp9 Bool
+						.local ::temp9 AstraAsedioGuard
 						.local ::temp10 Bool
-						.local Torre AstraGuardiaAuto
+						.local controller AstraAsedioGuard
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CallMethod Torre self ::temp8                            ;@line 45
-						Assign Torre ::temp8                                     ;@line 45
-						Cast ::temp8 None                                        ;@line 46
-						CompareEQ ::temp9 Torre ::temp8                          ;@line 46
-						JumpF ::temp9 _label2                                    ;@line 46
-						Return None                                              ;@line 47
-						Jump _label2                                             ;@line 47
+						CallMethod ControllerV23 self ::temp9                    ;@line 27
+						Assign controller ::temp9                                ;@line 27
+						Cast ::temp9 None                                        ;@line 28
+						CompareEQ ::temp10 controller ::temp9                    ;@line 28
+						Not ::temp10 ::temp10                                    ;@line 28
+						JumpF ::temp10 _label2                                   ;@line 28
+						CallMethod NotifyCombatV23 controller ::NoneVar akTarget  ;@line 29
+						Jump _label2                                             ;@line 29
 					_label2:
-						CompareEQ ::temp9 aeCombatState 1                        ;@line 49
-						Cast ::temp9 ::temp9                                     ;@line 49
-						JumpT ::temp9 _label3                                    ;@line 49
-						CompareEQ ::temp10 aeCombatState 2                       ;@line 49
-						Cast ::temp9 ::temp10                                    ;@line 49
-					_label3:
-						JumpF ::temp9 _label4                                    ;@line 49
-						CallMethod AlertaCombat Torre ::NoneVar akTarget         ;@line 51
-						Jump _label5                                             ;@line 51
-					_label4:
-						CompareEQ ::temp10 aeCombatState 0                       ;@line 52
-						JumpF ::temp10 _label5                                   ;@line 52
-						CallMethod CalmaCombat Torre ::NoneVar                   ;@line 54
-						Jump _label5                                             ;@line 54
-					_label5:
 					.endCode
 				.endFunction
-				.function OnLoad
+				.function OnDeath
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
 					.return None
 					.paramTable
+						.param akKiller Actor
 					.endParamTable
 					.localTable
-						.local ::temp5 Bool
-						.local ::temp6 AstraGuardiaAuto
-						.local Torre AstraGuardiaAuto
-						.local ::temp7 Actor
+						.local ::temp11 AstraAsedioGuard
+						.local ::temp12 Bool
+						.local controller AstraAsedioGuard
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CallMethod IsInCombat self ::temp5                       ;@line 36
-						JumpF ::temp5 _label6                                    ;@line 36
-						CallMethod Torre self ::temp6                            ;@line 37
-						Assign Torre ::temp6                                     ;@line 37
-						JumpF Torre _label7                                      ;@line 38
-						CallMethod GetCombatTarget self ::temp7                  ;@line 39
-						CallMethod AlertaCombat Torre ::NoneVar ::temp7          ;@line 39
-						Jump _label7                                             ;@line 39
-					_label7:
-						Jump _label6                                             ;@line 39
-					_label6:
-					.endCode
-				.endFunction
-				.function GetState
-					.userFlags 0	; Flags: 0x00000000
-					.docString "Function that returns the current state"
-					.return String
-					.paramTable
-					.endParamTable
-					.localTable
-					.endLocalTable
-					.code
-						Return ::State                                           ;@line ??
+						CallMethod ControllerV23 self ::temp11                   ;@line 34
+						Assign controller ::temp11                               ;@line 34
+						Cast ::temp11 None                                       ;@line 35
+						CompareEQ ::temp12 controller ::temp11                   ;@line 35
+						Not ::temp12 ::temp12                                    ;@line 35
+						JumpF ::temp12 _label3                                   ;@line 35
+						CallMethod StopV23 controller ::NoneVar                  ;@line 36
+						Jump _label3                                             ;@line 36
+					_label3:
 					.endCode
 				.endFunction
 				.function OnInit
@@ -172,20 +189,21 @@
 					.paramTable
 					.endParamTable
 					.localTable
-						.local ::temp3 AstraGuardiaAuto
-						.local ::temp4 Bool
-						.local Torre AstraGuardiaAuto
+						.local ::temp4 AstraAsedioGuard
+						.local ::temp5 Bool
+						.local controller AstraAsedioGuard
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CallMethod Torre self ::temp3                            ;@line 27
-						Assign Torre ::temp3                                     ;@line 27
-						Cast ::temp3 None                                        ;@line 28
-						CompareEQ ::temp4 Torre ::temp3                          ;@line 28
-						JumpF ::temp4 _label8                                    ;@line 28
-						CallStatic debug Trace ::NoneVar "AstraGuardiaNPC enlace no resuelve a AstraGuardiaAuto" 0  ;@line 29
-						Jump _label8                                             ;@line 29
-					_label8:
+						CallMethod ControllerV23 self ::temp4                    ;@line 12
+						Assign controller ::temp4                                ;@line 12
+						Cast ::temp4 None                                        ;@line 13
+						CompareEQ ::temp5 controller ::temp4                     ;@line 13
+						Not ::temp5 ::temp5                                      ;@line 13
+						JumpF ::temp5 _label4                                    ;@line 13
+						CallMethod StartV23 controller ::NoneVar                 ;@line 14
+						Jump _label4                                             ;@line 14
+					_label4:
 					.endCode
 				.endFunction
 			.endState

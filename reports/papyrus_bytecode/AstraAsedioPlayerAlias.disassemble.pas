@@ -1,7 +1,7 @@
 .info
 	.source "AstraAsedioPlayerAlias.psc"
-	.modifyTime 1791645499 ;Sat Oct 10 12:18:19 2026 Local
-	.compileTime 1791679483 ;Sat Oct 10 21:44:43 2026 Local
+	.modifyTime 1791759002 ;Sun Oct 11 19:50:02 2026 Local
+	.compileTime 1791759045 ;Sun Oct 11 19:50:45 2026 Local
 	.user "AstraAsedio"
 	.computer "Build"
 .endInfo
@@ -15,15 +15,15 @@
 		.docString ""
 		.autoState 
 		.variableTable
-			.variable cityRetirementBusy Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
 			.variable ::Session_var astraasediosession
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue None
 			.endVariable
 			.variable cityRetirementPending Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable cityRetirementBusy Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
@@ -37,6 +37,132 @@
 		.endPropertyTable
 		.stateTable
 			.state 
+				.function OnInit
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp0 objectreference
+						.local ::temp1 String
+						.local ::temp2 String
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod GetReference self ::temp0                     ;@line 6
+						Cast ::temp1 ::temp0                                     ;@line 6
+						StrCat ::temp1 "AstraAsedio Player alias initialized ref=" ::temp1  ;@line 6
+						StrCat ::temp1 ::temp1 " session="                       ;@line 6
+						Cast ::temp2 ::Session_var                               ;@line 6
+						StrCat ::temp2 ::temp1 ::temp2                           ;@line 6
+						CallStatic debug Trace ::NoneVar ::temp2 0               ;@line 6
+						CallMethod StartCityRetirement self ::NoneVar            ;@line 7
+						CallMethod BootstrapGuardV23 self ::NoneVar              ;@line 8
+					.endCode
+				.endFunction
+				.function BootstrapGuardV23
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp15 form
+						.local ::temp16 quest
+						.local ::temp17 Bool
+						.local ::temp18 Bool
+						.local sensors quest
+						.local index Int
+						.local ::temp19 Int
+						.local ::temp20 astraasedioguard
+						.local formID Int
+						.local controller astraasedioguard
+						.local ::NoneVar None
+						.local ::temp21 Actor
+						.local ::temp22 Bool
+						.local ::temp23 Bool
+						.local operatorRef Actor
+						.local ::temp24 alias
+						.local ::temp25 ReferenceAlias
+						.local operatorAlias ReferenceAlias
+						.local ::temp26 objectreference
+					.endLocalTable
+					.code
+						CallStatic game GetFormFromFile ::temp15 2054 "AstraAsedio_GuardAnim.esp"  ;@line 91
+						Cast ::temp16 ::temp15                                   ;@line 91
+						Assign sensors ::temp16                                  ;@line 91
+						Cast ::temp16 None                                       ;@line 92
+						CompareEQ ::temp17 sensors ::temp16                      ;@line 92
+						Not ::temp17 ::temp17                                    ;@line 92
+						Cast ::temp17 ::temp17                                   ;@line 92
+						JumpF ::temp17 _label0                                   ;@line 92
+						CallMethod IsRunning sensors ::temp18                    ;@line 92
+						Not ::temp18 ::temp18                                    ;@line 92
+						Cast ::temp17 ::temp18                                   ;@line 92
+					_label0:
+						JumpF ::temp17 _label1                                   ;@line 92
+						CallMethod Start sensors ::temp18                        ;@line 93
+						Jump _label1                                             ;@line 93
+					_label1:
+						Assign index 0                                           ;@line 95
+					_label8:
+						CompareLT ::temp18 index 2                               ;@line 96
+						JumpF ::temp18 _label2                                   ;@line 96
+						IMultiply ::temp19 index 16                              ;@line 97
+						IAdd ::temp19 2928 ::temp19                              ;@line 97
+						Assign formID ::temp19                                   ;@line 97
+						CallStatic game GetFormFromFile ::temp15 formID "AstraAsedio_WhiterunTorres.esp"  ;@line 98
+						Cast ::temp20 ::temp15                                   ;@line 98
+						Assign controller ::temp20                               ;@line 98
+						Cast ::temp20 None                                       ;@line 99
+						CompareEQ ::temp17 controller ::temp20                   ;@line 99
+						Not ::temp17 ::temp17                                    ;@line 99
+						JumpF ::temp17 _label3                                   ;@line 99
+						CallMethod StartV23 controller ::NoneVar                 ;@line 102
+						IAdd ::temp19 formID 1                                   ;@line 103
+						CallStatic game GetFormFromFile ::temp15 ::temp19 "AstraAsedio_WhiterunTorres.esp"  ;@line 103
+						Cast ::temp21 ::temp15                                   ;@line 103
+						Assign operatorRef ::temp21                              ;@line 103
+						Cast ::temp16 None                                       ;@line 104
+						CompareEQ ::temp22 sensors ::temp16                      ;@line 104
+						Not ::temp22 ::temp22                                    ;@line 104
+						Cast ::temp22 ::temp22                                   ;@line 104
+						JumpF ::temp22 _label4                                   ;@line 104
+						CallMethod IsRunning sensors ::temp23                    ;@line 104
+						Cast ::temp22 ::temp23                                   ;@line 104
+					_label4:
+						Cast ::temp22 ::temp22                                   ;@line 104
+						JumpF ::temp22 _label5                                   ;@line 104
+						Cast ::temp21 None                                       ;@line 104
+						CompareEQ ::temp23 operatorRef ::temp21                  ;@line 104
+						Not ::temp23 ::temp23                                    ;@line 104
+						Cast ::temp22 ::temp23                                   ;@line 104
+					_label5:
+						JumpF ::temp22 _label6                                   ;@line 104
+						CallMethod GetAlias sensors ::temp24 index               ;@line 105
+						Cast ::temp25 ::temp24                                   ;@line 105
+						Assign operatorAlias ::temp25                            ;@line 105
+						Cast ::temp25 None                                       ;@line 106
+						CompareEQ ::temp23 operatorAlias ::temp25                ;@line 106
+						Not ::temp23 ::temp23                                    ;@line 106
+						JumpF ::temp23 _label7                                   ;@line 106
+						CallMethod Clear operatorAlias ::NoneVar                 ;@line 109
+						Cast ::temp26 operatorRef                                ;@line 110
+						CallMethod ForceRefTo operatorAlias ::NoneVar ::temp26   ;@line 110
+						CallMethod EvaluatePackage operatorRef ::NoneVar         ;@line 111
+						Jump _label7                                             ;@line 111
+					_label7:
+						Jump _label6                                             ;@line 111
+					_label6:
+						Jump _label3                                             ;@line 111
+					_label3:
+						IAdd ::temp19 index 1                                    ;@line 115
+						Assign index ::temp19                                    ;@line 115
+						Jump _label8                                             ;@line 115
+					_label2:
+					.endCode
+				.endFunction
 				.function GetState
 					.userFlags 0	; Flags: 0x00000000
 					.docString "Function that returns the current state"
@@ -49,20 +175,33 @@
 						Return ::State                                           ;@line ??
 					.endCode
 				.endFunction
-				.function GotoState
+				.function OnPlayerLoadGame
 					.userFlags 0	; Flags: 0x00000000
-					.docString "Function that switches this object to the specified state"
+					.docString ""
 					.return None
 					.paramTable
-						.param newState String
 					.endParamTable
 					.localTable
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CallMethod onEndState self ::NoneVar                     ;@line ??
-						Assign ::State newState                                  ;@line ??
-						CallMethod onBeginState self ::NoneVar                   ;@line ??
+						CallMethod CleanupSession self ::NoneVar                 ;@line 11
+						CallMethod StartCityRetirement self ::NoneVar            ;@line 12
+						CallMethod BootstrapGuardV23 self ::NoneVar              ;@line 13
+					.endCode
+				.endFunction
+				.function OnDeath
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param akKiller Actor
+					.endParamTable
+					.localTable
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod CleanupSession self ::NoneVar                 ;@line 16
 					.endCode
 				.endFunction
 				.function RetireLegacyCity
@@ -91,104 +230,76 @@
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CallStatic game GetFormFromFile ::temp7 newID "AstraAsedio_WhiterunTorres.esp"  ;@line 52
-						Cast ::temp8 ::temp7                                     ;@line 52
-						Assign replacement ::temp8                               ;@line 52
-						Cast ::temp8 None                                        ;@line 53
-						CompareEQ ::temp9 replacement ::temp8                    ;@line 53
-						JumpF ::temp9 _label0                                    ;@line 53
-						Return True                                              ;@line 54
-						Jump _label0                                             ;@line 54
-					_label0:
-						CallStatic game GetFormFromFile ::temp7 oldID "AstraAsedio_WhiterunTorres.esp"  ;@line 56
-						Cast ::temp8 ::temp7                                     ;@line 56
-						Assign previous ::temp8                                  ;@line 56
-						Cast ::temp8 None                                        ;@line 57
-						CompareEQ ::temp9 previous ::temp8                       ;@line 57
-						JumpF ::temp9 _label1                                    ;@line 57
-						Return True                                              ;@line 58
-						Jump _label1                                             ;@line 58
-					_label1:
-						CallStatic skse GetPluginVersion ::temp10 "AstraSight"   ;@line 62
-						CompareGTE ::temp9 ::temp10 50659328                     ;@line 62
-						JumpF ::temp9 _label2                                    ;@line 62
-						CallStatic astrasightnative IsEffectsQuiescent ::temp11 previous 0  ;@line 63
-						Not ::temp11 ::temp11                                    ;@line 63
-						JumpF ::temp11 _label3                                   ;@line 63
-						Return False                                             ;@line 64
-						Jump _label3                                             ;@line 64
-					_label3:
-						Jump _label2                                             ;@line 64
-					_label2:
-						Cast ::temp12 previous                                   ;@line 67
-						Assign controller ::temp12                               ;@line 67
-						Cast ::temp12 None                                       ;@line 68
-						CompareEQ ::temp11 controller ::temp12                   ;@line 68
-						Not ::temp11 ::temp11                                    ;@line 68
-						JumpF ::temp11 _label4                                   ;@line 68
-						CallMethod RetireStation controller ::temp9              ;@line 69
-						Assign drained ::temp9                                   ;@line 69
-						Not ::temp9 drained                                      ;@line 70
-						JumpF ::temp9 _label5                                    ;@line 70
-						Return False                                             ;@line 71
-						Jump _label5                                             ;@line 71
-					_label5:
-						Jump _label4                                             ;@line 71
-					_label4:
-						Assign offset 0                                          ;@line 76
-					_label8:
-						CompareLT ::temp9 offset 5                               ;@line 77
-						JumpF ::temp9 _label6                                    ;@line 77
-						IAdd ::temp10 oldID offset                               ;@line 78
-						CallStatic game GetFormFromFile ::temp7 ::temp10 "AstraAsedio_WhiterunTorres.esp"  ;@line 78
-						Cast ::temp8 ::temp7                                     ;@line 78
-						Assign item ::temp8                                      ;@line 78
-						Cast ::temp8 None                                        ;@line 79
-						CompareEQ ::temp11 item ::temp8                          ;@line 79
-						Not ::temp11 ::temp11                                    ;@line 79
-						JumpF ::temp11 _label7                                   ;@line 79
-						CallMethod Disable item ::NoneVar False                  ;@line 80
-						Jump _label7                                             ;@line 80
-					_label7:
-						IAdd ::temp10 offset 1                                   ;@line 82
-						Assign offset ::temp10                                   ;@line 82
-						Jump _label8                                             ;@line 82
-					_label6:
-						Cast ::temp13 oldID                                      ;@line 84
-						StrCat ::temp13 "AstraAsedio city retired legacy=" ::temp13  ;@line 84
-						StrCat ::temp13 ::temp13 " replacement="                 ;@line 84
-						Cast ::temp14 newID                                      ;@line 84
-						StrCat ::temp14 ::temp13 ::temp14                        ;@line 84
-						CallStatic debug Trace ::NoneVar ::temp14 0              ;@line 84
-						Return True                                              ;@line 85
-					.endCode
-				.endFunction
-				.function OnDeath
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param akKiller Actor
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod CleanupSession self ::NoneVar                 ;@line 14
-					.endCode
-				.endFunction
-				.function OnPlayerLoadGame
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod CleanupSession self ::NoneVar                 ;@line 10
-						CallMethod StartCityRetirement self ::NoneVar            ;@line 11
+						CallStatic game GetFormFromFile ::temp7 newID "AstraAsedio_WhiterunTorres.esp"  ;@line 54
+						Cast ::temp8 ::temp7                                     ;@line 54
+						Assign replacement ::temp8                               ;@line 54
+						Cast ::temp8 None                                        ;@line 55
+						CompareEQ ::temp9 replacement ::temp8                    ;@line 55
+						JumpF ::temp9 _label9                                    ;@line 55
+						Return True                                              ;@line 56
+						Jump _label9                                             ;@line 56
+					_label9:
+						CallStatic game GetFormFromFile ::temp7 oldID "AstraAsedio_WhiterunTorres.esp"  ;@line 58
+						Cast ::temp8 ::temp7                                     ;@line 58
+						Assign previous ::temp8                                  ;@line 58
+						Cast ::temp8 None                                        ;@line 59
+						CompareEQ ::temp9 previous ::temp8                       ;@line 59
+						JumpF ::temp9 _label10                                   ;@line 59
+						Return True                                              ;@line 60
+						Jump _label10                                            ;@line 60
+					_label10:
+						CallStatic skse GetPluginVersion ::temp10 "AstraSight"   ;@line 64
+						CompareGTE ::temp9 ::temp10 50659328                     ;@line 64
+						JumpF ::temp9 _label11                                   ;@line 64
+						CallStatic astrasightnative IsEffectsQuiescent ::temp11 previous 0  ;@line 65
+						Not ::temp11 ::temp11                                    ;@line 65
+						JumpF ::temp11 _label12                                  ;@line 65
+						Return False                                             ;@line 66
+						Jump _label12                                            ;@line 66
+					_label12:
+						Jump _label11                                            ;@line 66
+					_label11:
+						Cast ::temp12 previous                                   ;@line 69
+						Assign controller ::temp12                               ;@line 69
+						Cast ::temp12 None                                       ;@line 70
+						CompareEQ ::temp11 controller ::temp12                   ;@line 70
+						Not ::temp11 ::temp11                                    ;@line 70
+						JumpF ::temp11 _label13                                  ;@line 70
+						CallMethod RetireStation controller ::temp9              ;@line 71
+						Assign drained ::temp9                                   ;@line 71
+						Not ::temp9 drained                                      ;@line 72
+						JumpF ::temp9 _label14                                   ;@line 72
+						Return False                                             ;@line 73
+						Jump _label14                                            ;@line 73
+					_label14:
+						Jump _label13                                            ;@line 73
+					_label13:
+						Assign offset 0                                          ;@line 78
+					_label17:
+						CompareLT ::temp9 offset 5                               ;@line 79
+						JumpF ::temp9 _label15                                   ;@line 79
+						IAdd ::temp10 oldID offset                               ;@line 80
+						CallStatic game GetFormFromFile ::temp7 ::temp10 "AstraAsedio_WhiterunTorres.esp"  ;@line 80
+						Cast ::temp8 ::temp7                                     ;@line 80
+						Assign item ::temp8                                      ;@line 80
+						Cast ::temp8 None                                        ;@line 81
+						CompareEQ ::temp11 item ::temp8                          ;@line 81
+						Not ::temp11 ::temp11                                    ;@line 81
+						JumpF ::temp11 _label16                                  ;@line 81
+						CallMethod Disable item ::NoneVar False                  ;@line 82
+						Jump _label16                                            ;@line 82
+					_label16:
+						IAdd ::temp10 offset 1                                   ;@line 84
+						Assign offset ::temp10                                   ;@line 84
+						Jump _label17                                            ;@line 84
+					_label15:
+						Cast ::temp13 oldID                                      ;@line 86
+						StrCat ::temp13 "AstraAsedio city retired legacy=" ::temp13  ;@line 86
+						StrCat ::temp13 ::temp13 " replacement="                 ;@line 86
+						Cast ::temp14 newID                                      ;@line 86
+						StrCat ::temp14 ::temp13 ::temp14                        ;@line 86
+						CallStatic debug Trace ::NoneVar ::temp14 0              ;@line 86
+						Return True                                              ;@line 87
 					.endCode
 				.endFunction
 				.function OnUpdate
@@ -205,33 +316,63 @@
 						.local west Bool
 					.endLocalTable
 					.code
-						Not ::temp5 cityRetirementPending                        ;@line 34
-						JumpF ::temp5 _label9                                    ;@line 34
-						Return None                                              ;@line 35
-						Jump _label9                                             ;@line 35
-					_label9:
-						JumpF cityRetirementBusy _label10                        ;@line 37
-						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 38
-						Return None                                              ;@line 39
-						Jump _label10                                            ;@line 39
-					_label10:
-						Assign cityRetirementBusy True                           ;@line 41
-						CallMethod RetireLegacyCity self ::temp5 2880 2928       ;@line 42
-						Assign east ::temp5                                      ;@line 42
-						CallMethod RetireLegacyCity self ::temp5 2896 2944       ;@line 43
-						Assign west ::temp5                                      ;@line 43
-						Not ::temp5 east                                         ;@line 44
-						Cast ::temp5 ::temp5                                     ;@line 44
-						JumpT ::temp5 _label11                                   ;@line 44
-						Not ::temp6 west                                         ;@line 44
-						Cast ::temp5 ::temp6                                     ;@line 44
-					_label11:
-						Assign cityRetirementPending ::temp5                     ;@line 44
-						Assign cityRetirementBusy False                          ;@line 45
-						JumpF cityRetirementPending _label12                     ;@line 46
-						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 47
-						Jump _label12                                            ;@line 47
-					_label12:
+						Not ::temp5 cityRetirementPending                        ;@line 36
+						JumpF ::temp5 _label18                                   ;@line 36
+						Return None                                              ;@line 37
+						Jump _label18                                            ;@line 37
+					_label18:
+						JumpF cityRetirementBusy _label19                        ;@line 39
+						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 40
+						Return None                                              ;@line 41
+						Jump _label19                                            ;@line 41
+					_label19:
+						Assign cityRetirementBusy True                           ;@line 43
+						CallMethod RetireLegacyCity self ::temp5 2880 2928       ;@line 44
+						Assign east ::temp5                                      ;@line 44
+						CallMethod RetireLegacyCity self ::temp5 2896 2944       ;@line 45
+						Assign west ::temp5                                      ;@line 45
+						Not ::temp5 east                                         ;@line 46
+						Cast ::temp5 ::temp5                                     ;@line 46
+						JumpT ::temp5 _label20                                   ;@line 46
+						Not ::temp6 west                                         ;@line 46
+						Cast ::temp5 ::temp6                                     ;@line 46
+					_label20:
+						Assign cityRetirementPending ::temp5                     ;@line 46
+						Assign cityRetirementBusy False                          ;@line 47
+						JumpF cityRetirementPending _label21                     ;@line 48
+						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 49
+						Jump _label21                                            ;@line 49
+					_label21:
+					.endCode
+				.endFunction
+				.function GotoState
+					.userFlags 0	; Flags: 0x00000000
+					.docString "Function that switches this object to the specified state"
+					.return None
+					.paramTable
+						.param newState String
+					.endParamTable
+					.localTable
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod onEndState self ::NoneVar                     ;@line ??
+						Assign ::State newState                                  ;@line ??
+						CallMethod onBeginState self ::NoneVar                   ;@line ??
+					.endCode
+				.endFunction
+				.function StartCityRetirement
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						Assign cityRetirementPending True                        ;@line 31
+						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 32
 					.endCode
 				.endFunction
 				.function OnCellDetach
@@ -244,7 +385,7 @@
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						CallMethod CleanupSession self ::NoneVar                 ;@line 17
+						CallMethod CleanupSession self ::NoneVar                 ;@line 19
 					.endCode
 				.endFunction
 				.function CleanupSession
@@ -259,53 +400,16 @@
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						Cast ::temp3 None                                        ;@line 20
-						CompareEQ ::temp4 ::Session_var ::temp3                  ;@line 20
-						Not ::temp4 ::temp4                                      ;@line 20
-						JumpF ::temp4 _label13                                   ;@line 20
-						CallMethod EmergencyCleanup ::Session_var ::NoneVar      ;@line 21
-						Jump _label14                                            ;@line 21
-					_label13:
-						CallStatic debug Trace ::NoneVar "AstraAsedio player alias PROPERTY_SESSION_NONE" 0  ;@line 23
-						CallStatic debug Notification ::NoneVar "Astra: falta la quest de limpieza del jugador."  ;@line 24
-					_label14:
-					.endCode
-				.endFunction
-				.function StartCityRetirement
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						Assign cityRetirementPending True                        ;@line 29
-						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 30
-					.endCode
-				.endFunction
-				.function OnInit
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp0 objectreference
-						.local ::temp1 String
-						.local ::temp2 String
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod GetReference self ::temp0                     ;@line 6
-						Cast ::temp1 ::temp0                                     ;@line 6
-						StrCat ::temp1 "AstraAsedio Player alias initialized ref=" ::temp1  ;@line 6
-						StrCat ::temp1 ::temp1 " session="                       ;@line 6
-						Cast ::temp2 ::Session_var                               ;@line 6
-						StrCat ::temp2 ::temp1 ::temp2                           ;@line 6
-						CallStatic debug Trace ::NoneVar ::temp2 0               ;@line 6
-						CallMethod StartCityRetirement self ::NoneVar            ;@line 7
+						Cast ::temp3 None                                        ;@line 22
+						CompareEQ ::temp4 ::Session_var ::temp3                  ;@line 22
+						Not ::temp4 ::temp4                                      ;@line 22
+						JumpF ::temp4 _label22                                   ;@line 22
+						CallMethod EmergencyCleanup ::Session_var ::NoneVar      ;@line 23
+						Jump _label23                                            ;@line 23
+					_label22:
+						CallStatic debug Trace ::NoneVar "AstraAsedio player alias PROPERTY_SESSION_NONE" 0  ;@line 25
+						CallStatic debug Notification ::NoneVar "Astra: falta la quest de limpieza del jugador."  ;@line 26
+					_label23:
 					.endCode
 				.endFunction
 			.endState

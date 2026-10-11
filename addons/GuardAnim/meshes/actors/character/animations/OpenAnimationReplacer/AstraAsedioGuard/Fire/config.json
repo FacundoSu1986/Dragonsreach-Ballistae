@@ -1,7 +1,6 @@
 {
   "name": "Astra Guard Fire",
-  "description": "Private faction gate; releases with station ownership.",
-  "priority": 1185251,
+  "priority": 1185253,
   "conditions": [
     {
       "condition": "IsInFaction",

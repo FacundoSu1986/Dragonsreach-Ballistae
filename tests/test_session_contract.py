@@ -290,7 +290,7 @@ class InputBehaviorContract(unittest.TestCase):
   self.vm.run('PauseInput')
   self.assertEqual(self.vm.state['generation'],7);self.assertTrue(self.vm.state['shotCommitted'])
  def test_reactivation_closes_and_the_same_input_pulse_cannot_reopen(self):
-  actor=object();self.vm.state['Game']=SimpleNamespace(GetPlayer=lambda:actor)
+  actor=SimpleNamespace(IsSneaking=lambda:False);self.vm.state['Game']=SimpleNamespace(GetPlayer=lambda:actor)
   self.vm.now=10.36;self.vm.run('OnActivate',actor)
   self.assertFalse(self.vm.state['operating'])
   self.vm.run('OnActivate',actor);self.assertFalse(self.vm.state['operating'])

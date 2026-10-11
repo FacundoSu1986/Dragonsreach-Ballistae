@@ -1,0 +1,3835 @@
+{
+  "success": true,
+  "blender": "5.2.2 LTS",
+  "source": "source\\astra_guard_v23.blend",
+  "source_sha256": "5718a5bc848cd2911c01180350839ed7c512d55cc229adac868b89e5b6952c62",
+  "root_motion": false,
+  "scale": 1,
+  "pitch": 0,
+  "yaw_limits": [
+    -60,
+    60
+  ],
+  "clavicle_raise_degrees": 4,
+  "wrists_gun_local_z": 100.5,
+  "operator_foot_gun_local": [
+    0,
+    151,
+    0
+  ],
+  "turn_seconds": 0.8,
+  "turn_degrees": 12.0,
+  "yaw_fraction": "linear",
+  "turn_lift_units": 4,
+  "release_seconds": 0.06666666666666667,
+  "clips": [
+    {
+      "file": "astra_guard_operate.hkx",
+      "sha256": "760373cb413f1170e768a77c1ba9eeba71a8d0632ea0aa0e220253a5077c0960",
+      "frames": 61,
+      "duration": 2.0,
+      "converter_command": [
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Animacion_Guardia_v01\\tools\\blender-hkx.exe",
+        "pack",
+        "30",
+        "AMD64",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\build\\guard-v23\\animations\\astra_guard_operate.xml",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\build\\guard-v23\\animations\\astra_guard_operate.hkx",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Animacion_Guardia_v01\\tools\\skeleton.hkx"
+      ],
+      "converter_output": ".\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(366): [0x36118E94] Report : Number of blocks: 1\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(367): [0x36118E94] Report : Size of largest block (PlayStation(R)3 SPU): 2112 bytes.\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(372): [0x36118E94] Report : Original Size: 386496 bytes. Compressed Size: 2088 bytes.\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(373): [0x36118E94] Report : Compression Ratio: 185.103455:1.\n\n"
+    },
+    {
+      "file": "astra_guard_fire.hkx",
+      "sha256": "d24fb4963dc860aacf17ca5b42de3310df4ac6b08de52205c4e3a59086f97309",
+      "frames": 31,
+      "duration": 1.0,
+      "converter_command": [
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Animacion_Guardia_v01\\tools\\blender-hkx.exe",
+        "pack",
+        "30",
+        "AMD64",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\build\\guard-v23\\animations\\astra_guard_fire.xml",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\build\\guard-v23\\animations\\astra_guard_fire.hkx",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Animacion_Guardia_v01\\tools\\skeleton.hkx"
+      ],
+      "converter_output": ".\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(366): [0x36118E94] Report : Number of blocks: 1\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(367): [0x36118E94] Report : Size of largest block (PlayStation(R)3 SPU): 2784 bytes.\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(372): [0x36118E94] Report : Original Size: 196416 bytes. Compressed Size: 2760 bytes.\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(373): [0x36118E94] Report : Compression Ratio: 71.165215:1.\n\n"
+    },
+    {
+      "file": "astra_guard_turn_left.hkx",
+      "sha256": "27c06ffb40ec74bba125685bcdce362bf8113021e433c81c0b11775405d4aff9",
+      "frames": 25,
+      "duration": 0.8,
+      "converter_command": [
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Animacion_Guardia_v01\\tools\\blender-hkx.exe",
+        "pack",
+        "30",
+        "AMD64",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\build\\guard-v23\\animations\\astra_guard_turn_left.xml",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\build\\guard-v23\\animations\\astra_guard_turn_left.hkx",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Animacion_Guardia_v01\\tools\\skeleton.hkx"
+      ],
+      "converter_output": ".\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(366): [0x36118E94] Report : Number of blocks: 1\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(367): [0x36118E94] Report : Size of largest block (PlayStation(R)3 SPU): 2960 bytes.\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(372): [0x36118E94] Report : Original Size: 158400 bytes. Compressed Size: 2936 bytes.\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(373): [0x36118E94] Report : Compression Ratio: 53.950954:1.\n\n"
+    },
+    {
+      "file": "astra_guard_turn_right.hkx",
+      "sha256": "dd5f4eab345d130e509c51b5160b8cf3d6138fcb5431e96fef621f2a0e3fd9cf",
+      "frames": 25,
+      "duration": 0.8,
+      "converter_command": [
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Animacion_Guardia_v01\\tools\\blender-hkx.exe",
+        "pack",
+        "30",
+        "AMD64",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\build\\guard-v23\\animations\\astra_guard_turn_right.xml",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v23\\build\\guard-v23\\animations\\astra_guard_turn_right.hkx",
+        "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Animacion_Guardia_v01\\tools\\skeleton.hkx"
+      ],
+      "converter_output": ".\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(366): [0x36118E94] Report : Number of blocks: 1\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(367): [0x36118E94] Report : Size of largest block (PlayStation(R)3 SPU): 2960 bytes.\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(372): [0x36118E94] Report : Original Size: 158400 bytes. Compressed Size: 2936 bytes.\n\n.\\Animation\\SplineCompressed\\hkaSplineCompressedAnimationCtor.cpp(373): [0x36118E94] Report : Compression Ratio: 53.950954:1.\n\n"
+    }
+  ],
+  "samples": {
+    "astra_guard_operate": [
+      {
+        "frame": 0,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 1,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6131146988430118,
+            "wrist_error": 1.0831658069229648e-05
+          },
+          "R": {
+            "reach_ratio": 0.6131117634193144,
+            "wrist_error": 8.649042676552321e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 2,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6131951764304785,
+            "wrist_error": 8.856857119086604e-06
+          },
+          "R": {
+            "reach_ratio": 0.6131915416610423,
+            "wrist_error": 1.9073486328125e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 3,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6132736524452933,
+            "wrist_error": 9.344061823971473e-06
+          },
+          "R": {
+            "reach_ratio": 0.6132703610765935,
+            "wrist_error": 1.0956883709980066e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 4,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6133492878405562,
+            "wrist_error": 8.649042676552321e-06
+          },
+          "R": {
+            "reach_ratio": 0.6133460569218341,
+            "wrist_error": 1.1444091796875e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 5,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6134217355421209,
+            "wrist_error": 1.199698030987656e-05
+          },
+          "R": {
+            "reach_ratio": 0.6134185398505815,
+            "wrist_error": 6.106495129998063e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 6,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6134899261991705,
+            "wrist_error": 2.384185791015625e-06
+          },
+          "R": {
+            "reach_ratio": 0.6134864716110767,
+            "wrist_error": 9.548656651735681e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 7,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6135530746478062,
+            "wrist_error": 8.327602957045068e-06
+          },
+          "R": {
+            "reach_ratio": 0.613549854743243,
+            "wrist_error": 8.148196931188136e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 8,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6136104833249707,
+            "wrist_error": 4.498472753551771e-06
+          },
+          "R": {
+            "reach_ratio": 0.6136073381643535,
+            "wrist_error": 7.993247325058084e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 9,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6136618731889267,
+            "wrist_error": 7.64428116888113e-06
+          },
+          "R": {
+            "reach_ratio": 0.6136584480659567,
+            "wrist_error": 1.430511474609375e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 10,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.61370606103145,
+            "wrist_error": 9.548656651735681e-06
+          },
+          "R": {
+            "reach_ratio": 0.6137030760486097,
+            "wrist_error": 8.327602957045068e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 11,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6137430463523272,
+            "wrist_error": 1.6078677463614813e-05
+          },
+          "R": {
+            "reach_ratio": 0.6137397392409852,
+            "wrist_error": 1.244353137083043e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 12,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6137723334898825,
+            "wrist_error": 4.498472753551771e-06
+          },
+          "R": {
+            "reach_ratio": 0.613769168330679,
+            "wrist_error": 8.529922399520072e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 13,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6137929774456441,
+            "wrist_error": 8.649042676552321e-06
+          },
+          "R": {
+            "reach_ratio": 0.613790159246069,
+            "wrist_error": 4.264961199760036e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 14,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6138056661703494,
+            "wrist_error": 7.993247325058084e-06
+          },
+          "R": {
+            "reach_ratio": 0.6138025854063703,
+            "wrist_error": 3.844384073399806e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 15,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.613810639116865,
+            "wrist_error": 6.485686544769022e-06
+          },
+          "R": {
+            "reach_ratio": 0.6138077243569506,
+            "wrist_error": 7.64428116888113e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 16,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6138056661703494,
+            "wrist_error": 7.993247325058084e-06
+          },
+          "R": {
+            "reach_ratio": 0.6138025854063703,
+            "wrist_error": 3.844384073399806e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 17,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6137929774456441,
+            "wrist_error": 8.649042676552321e-06
+          },
+          "R": {
+            "reach_ratio": 0.613790159246069,
+            "wrist_error": 4.264961199760036e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 18,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6137723334898825,
+            "wrist_error": 4.498472753551771e-06
+          },
+          "R": {
+            "reach_ratio": 0.613769168330679,
+            "wrist_error": 8.529922399520072e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 19,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6137430463523272,
+            "wrist_error": 1.6078677463614813e-05
+          },
+          "R": {
+            "reach_ratio": 0.6137397392409852,
+            "wrist_error": 1.244353137083043e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 20,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.61370606103145,
+            "wrist_error": 9.548656651735681e-06
+          },
+          "R": {
+            "reach_ratio": 0.6137030760486097,
+            "wrist_error": 8.327602957045068e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 21,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6136618731889267,
+            "wrist_error": 7.64428116888113e-06
+          },
+          "R": {
+            "reach_ratio": 0.6136584480659567,
+            "wrist_error": 1.430511474609375e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 22,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6136104833249707,
+            "wrist_error": 4.498472753551771e-06
+          },
+          "R": {
+            "reach_ratio": 0.6136073381643535,
+            "wrist_error": 7.993247325058084e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 23,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6135530746478062,
+            "wrist_error": 8.327602957045068e-06
+          },
+          "R": {
+            "reach_ratio": 0.613549854743243,
+            "wrist_error": 8.148196931188136e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 24,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6134899261991705,
+            "wrist_error": 2.384185791015625e-06
+          },
+          "R": {
+            "reach_ratio": 0.6134864716110767,
+            "wrist_error": 9.548656651735681e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 25,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6134217355421209,
+            "wrist_error": 1.199698030987656e-05
+          },
+          "R": {
+            "reach_ratio": 0.6134185398505815,
+            "wrist_error": 6.106495129998063e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 26,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6133492878405562,
+            "wrist_error": 8.649042676552321e-06
+          },
+          "R": {
+            "reach_ratio": 0.6133460569218341,
+            "wrist_error": 1.1444091796875e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 27,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6132736524452933,
+            "wrist_error": 9.344061823971473e-06
+          },
+          "R": {
+            "reach_ratio": 0.6132703610765935,
+            "wrist_error": 1.0956883709980066e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 28,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6131951764304785,
+            "wrist_error": 8.856857119086604e-06
+          },
+          "R": {
+            "reach_ratio": 0.6131915416610423,
+            "wrist_error": 1.9073486328125e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 29,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6131146988430118,
+            "wrist_error": 1.0831658069229648e-05
+          },
+          "R": {
+            "reach_ratio": 0.6131117634193144,
+            "wrist_error": 8.649042676552321e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 30,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 31,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6129531119339555,
+            "wrist_error": 9.77225376697502e-06
+          },
+          "R": {
+            "reach_ratio": 0.6129497602004704,
+            "wrist_error": 4.264961199760036e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 32,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6128728408562988,
+            "wrist_error": 3.932099938981686e-06
+          },
+          "R": {
+            "reach_ratio": 0.6128698099782253,
+            "wrist_error": 8.753566623061094e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 33,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6127948941430532,
+            "wrist_error": 1.4153310851722555e-05
+          },
+          "R": {
+            "reach_ratio": 0.6127913317930885,
+            "wrist_error": 1.0457855319719939e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 34,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6127192263486954,
+            "wrist_error": 8.529922399520072e-06
+          },
+          "R": {
+            "reach_ratio": 0.6127157892988383,
+            "wrist_error": 8.148196931188136e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 35,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6126466657105429,
+            "wrist_error": 8.753566623061094e-06
+          },
+          "R": {
+            "reach_ratio": 0.6126435208210239,
+            "wrist_error": 7.993247325058084e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 36,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6125790629443107,
+            "wrist_error": 7.278603326069711e-06
+          },
+          "R": {
+            "reach_ratio": 0.612575647999495,
+            "wrist_error": 7.993247325058084e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 37,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6125163826132272,
+            "wrist_error": 6.67572021484375e-06
+          },
+          "R": {
+            "reach_ratio": 0.6125131383969716,
+            "wrist_error": 8.753566623061094e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 38,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.61245929576172,
+            "wrist_error": 9.392602731510261e-06
+          },
+          "R": {
+            "reach_ratio": 0.6124555481570202,
+            "wrist_error": 8.327602957045068e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 39,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6124083782551111,
+            "wrist_error": 1.199698030987656e-05
+          },
+          "R": {
+            "reach_ratio": 0.6124047710382534,
+            "wrist_error": 8.327602957045068e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 40,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6123640426864949,
+            "wrist_error": 1.0271386732357986e-05
+          },
+          "R": {
+            "reach_ratio": 0.6123607690722565,
+            "wrist_error": 4.76837158203125e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 41,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6123275711149567,
+            "wrist_error": 1.4153310851722555e-05
+          },
+          "R": {
+            "reach_ratio": 0.6123241613703874,
+            "wrist_error": 1.244353137083043e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 42,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6122983946633149,
+            "wrist_error": 1.3015121520954305e-05
+          },
+          "R": {
+            "reach_ratio": 0.6122956689405824,
+            "wrist_error": 8.529922399520072e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 43,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.612277707012537,
+            "wrist_error": 7.688768146799611e-06
+          },
+          "R": {
+            "reach_ratio": 0.6122741796127299,
+            "wrist_error": 2.86102294921875e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 44,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6122648171249598,
+            "wrist_error": 8.996945507103542e-06
+          },
+          "R": {
+            "reach_ratio": 0.6122615431463357,
+            "wrist_error": 9.5367431640625e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 45,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6122605735002774,
+            "wrist_error": 4.76837158203125e-07
+          },
+          "R": {
+            "reach_ratio": 0.6122576065617578,
+            "wrist_error": 8.856857119086604e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 46,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6122648171249598,
+            "wrist_error": 8.996945507103542e-06
+          },
+          "R": {
+            "reach_ratio": 0.6122615431463357,
+            "wrist_error": 9.5367431640625e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 47,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.612277707012537,
+            "wrist_error": 7.688768146799611e-06
+          },
+          "R": {
+            "reach_ratio": 0.6122741796127299,
+            "wrist_error": 2.86102294921875e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 48,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6122983946633149,
+            "wrist_error": 1.3015121520954305e-05
+          },
+          "R": {
+            "reach_ratio": 0.6122956689405824,
+            "wrist_error": 8.529922399520072e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 49,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6123275711149567,
+            "wrist_error": 1.4153310851722555e-05
+          },
+          "R": {
+            "reach_ratio": 0.6123241613703874,
+            "wrist_error": 1.244353137083043e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 50,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6123640426864949,
+            "wrist_error": 1.0271386732357986e-05
+          },
+          "R": {
+            "reach_ratio": 0.6123607690722565,
+            "wrist_error": 4.76837158203125e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 51,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6124083782551111,
+            "wrist_error": 1.199698030987656e-05
+          },
+          "R": {
+            "reach_ratio": 0.6124047710382534,
+            "wrist_error": 8.327602957045068e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 52,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.61245929576172,
+            "wrist_error": 9.392602731510261e-06
+          },
+          "R": {
+            "reach_ratio": 0.6124555481570202,
+            "wrist_error": 8.327602957045068e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 53,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6125163826132272,
+            "wrist_error": 6.67572021484375e-06
+          },
+          "R": {
+            "reach_ratio": 0.6125131383969716,
+            "wrist_error": 8.753566623061094e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 54,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6125790629443107,
+            "wrist_error": 7.278603326069711e-06
+          },
+          "R": {
+            "reach_ratio": 0.612575647999495,
+            "wrist_error": 7.993247325058084e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 55,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6126466657105429,
+            "wrist_error": 8.753566623061094e-06
+          },
+          "R": {
+            "reach_ratio": 0.6126435208210239,
+            "wrist_error": 7.993247325058084e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 56,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6127192263486954,
+            "wrist_error": 8.529922399520072e-06
+          },
+          "R": {
+            "reach_ratio": 0.6127157892988383,
+            "wrist_error": 8.148196931188136e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 57,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6127948941430532,
+            "wrist_error": 1.4153310851722555e-05
+          },
+          "R": {
+            "reach_ratio": 0.6127913317930885,
+            "wrist_error": 1.0457855319719939e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 58,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6128728408562988,
+            "wrist_error": 3.932099938981686e-06
+          },
+          "R": {
+            "reach_ratio": 0.6128698099782253,
+            "wrist_error": 8.753566623061094e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 59,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6129531119339555,
+            "wrist_error": 9.77225376697502e-06
+          },
+          "R": {
+            "reach_ratio": 0.6129497602004704,
+            "wrist_error": 4.264961199760036e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 60,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      }
+    ],
+    "astra_guard_fire": [
+      {
+        "frame": 0,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 1,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6148169913050814,
+            "wrist_error": 8.740569486533813e-06
+          },
+          "R": {
+            "reach_ratio": 0.621316406255566,
+            "wrist_error": 5.3947966093944364e-06
+          }
+        },
+        "trigger_pull": 0.5,
+        "feet": {}
+      },
+      {
+        "frame": 2,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6166143999751404,
+            "wrist_error": 1.161174360455124e-05
+          },
+          "R": {
+            "reach_ratio": 0.6299534902573469,
+            "wrist_error": 4.76837158203125e-06
+          }
+        },
+        "trigger_pull": 1.0,
+        "feet": {}
+      },
+      {
+        "frame": 3,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6160740479561818,
+            "wrist_error": 0.0
+          },
+          "R": {
+            "reach_ratio": 0.6273262545524877,
+            "wrist_error": 3.337860107421875e-06
+          }
+        },
+        "trigger_pull": 0.85,
+        "feet": {}
+      },
+      {
+        "frame": 4,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.615534238802705,
+            "wrist_error": 7.762346551942685e-06
+          },
+          "R": {
+            "reach_ratio": 0.6247300642598791,
+            "wrist_error": 5.068848520629239e-06
+          }
+        },
+        "trigger_pull": 0.7,
+        "feet": {}
+      },
+      {
+        "frame": 5,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.614906590528177,
+            "wrist_error": 8.996945507103542e-06
+          },
+          "R": {
+            "reach_ratio": 0.6217401136752677,
+            "wrist_error": 1.1796299816945058e-05
+          }
+        },
+        "trigger_pull": 0.5250000000000001,
+        "feet": {}
+      },
+      {
+        "frame": 6,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.614280615285287,
+            "wrist_error": 1.0956883709980066e-05
+          },
+          "R": {
+            "reach_ratio": 0.6187926516934578,
+            "wrist_error": 2.86102294921875e-06
+          }
+        },
+        "trigger_pull": 0.35,
+        "feet": {}
+      },
+      {
+        "frame": 7,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6142199553204194,
+            "wrist_error": 7.152557373046875e-06
+          },
+          "R": {
+            "reach_ratio": 0.6185086153198563,
+            "wrist_error": 9.159742694997094e-06
+          }
+        },
+        "trigger_pull": 0.33299259259259256,
+        "feet": {}
+      },
+      {
+        "frame": 8,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6140617803895676,
+            "wrist_error": 8.529922399520072e-06
+          },
+          "R": {
+            "reach_ratio": 0.6177695410241656,
+            "wrist_error": 4.76837158203125e-06
+          }
+        },
+        "trigger_pull": 0.2886074074074074,
+        "feet": {}
+      },
+      {
+        "frame": 9,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6138410622711407,
+            "wrist_error": 8.148196931188136e-06
+          },
+          "R": {
+            "reach_ratio": 0.6167446236814236,
+            "wrist_error": 1.17673517982989e-05
+          }
+        },
+        "trigger_pull": 0.22680000000000003,
+        "feet": {}
+      },
+      {
+        "frame": 10,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6135940542948901,
+            "wrist_error": 8.996945507103542e-06
+          },
+          "R": {
+            "reach_ratio": 0.615602733583597,
+            "wrist_error": 8.327602957045068e-06
+          }
+        },
+        "trigger_pull": 0.15752592592592596,
+        "feet": {}
+      },
+      {
+        "frame": 11,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.613356502602327,
+            "wrist_error": 7.688768146799611e-06
+          },
+          "R": {
+            "reach_ratio": 0.6145075245643138,
+            "wrist_error": 7.278603326069711e-06
+          }
+        },
+        "trigger_pull": 0.09074074074074079,
+        "feet": {}
+      },
+      {
+        "frame": 12,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6131633106535387,
+            "wrist_error": 1.1444091796875e-05
+          },
+          "R": {
+            "reach_ratio": 0.6136219362872913,
+            "wrist_error": 3.814697265625e-06
+          }
+        },
+        "trigger_pull": 0.03639999999999993,
+        "feet": {}
+      },
+      {
+        "frame": 13,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130498602915327,
+            "wrist_error": 8.529922399520072e-06
+          },
+          "R": {
+            "reach_ratio": 0.613103021376694,
+            "wrist_error": 4.76837158203125e-06
+          }
+        },
+        "trigger_pull": 0.004459259259259274,
+        "feet": {}
+      },
+      {
+        "frame": 14,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 15,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 16,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 17,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 18,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 19,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 20,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 21,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 22,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 23,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 24,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 25,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 26,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 27,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 28,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 29,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      },
+      {
+        "frame": 30,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {}
+      }
+    ],
+    "astra_guard_turn_left": [
+      {
+        "frame": 0,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741902351379395,
+              168.9540252685547,
+              6.076836585998535
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.3486991523486091e-06,
+            "reach_ratio": 0.98780257845665
+          },
+          "R": {
+            "world": [
+              -12.739300727844238,
+              168.953125,
+              6.076473712921143
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 2.384185791015625e-06,
+            "reach_ratio": 0.9878000388200945
+          }
+        },
+        "yaw_fraction": 0.0
+      },
+      {
+        "frame": 1,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6120111897062036,
+            "wrist_error": 6.485686544769022e-06
+          },
+          "R": {
+            "reach_ratio": 0.6120077292499932,
+            "wrist_error": 5.068848520629239e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.045256614685059,
+              168.93348693847656,
+              7.112113952636719
+            ],
+            "expected_world": [
+              12.045256614685059,
+              168.93350219726562,
+              7.112113952636719
+            ],
+            "planted": false,
+            "position_error": 1.52587890625e-05,
+            "reach_ratio": 0.969066325106184
+          },
+          "R": {
+            "world": [
+              -12.739296913146973,
+              168.95310974121094,
+              6.076475620269775
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.538492756357353e-05,
+            "reach_ratio": 0.9823584685519946
+          }
+        },
+        "yaw_fraction": 0.041666666666666664
+      },
+      {
+        "frame": 2,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6110761087471401,
+            "wrist_error": 1.0831658069229648e-05
+          },
+          "R": {
+            "reach_ratio": 0.611072482994031,
+            "wrist_error": 8.529922399520072e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              10.119237899780273,
+              168.8767852783203,
+              8.076839447021484
+            ],
+            "expected_world": [
+              10.119236946105957,
+              168.87677001953125,
+              8.076837539672852
+            ],
+            "planted": false,
+            "position_error": 1.5407080098536978e-05,
+            "reach_ratio": 0.9493421658545563
+          },
+          "R": {
+            "world": [
+              -12.739300727844238,
+              168.95314025878906,
+              6.076475620269775
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.538492756357353e-05,
+            "reach_ratio": 0.9774652360807422
+          }
+        },
+        "yaw_fraction": 0.08333333333333333
+      },
+      {
+        "frame": 3,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6102395803917077,
+            "wrist_error": 8.856857119086604e-06
+          },
+          "R": {
+            "reach_ratio": 0.6102361335358435,
+            "wrist_error": 7.278603326069711e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              7.209721565246582,
+              168.79107666015625,
+              8.905263900756836
+            ],
+            "expected_world": [
+              7.209720611572266,
+              168.79107666015625,
+              8.905264854431152
+            ],
+            "planted": false,
+            "position_error": 1.3486991523486091e-06,
+            "reach_ratio": 0.9304665024632305
+          },
+          "R": {
+            "world": [
+              -12.739298820495605,
+              168.953125,
+              6.076474666595459
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 4.76837158203125e-07,
+            "reach_ratio": 0.9731936321740665
+          }
+        },
+        "yaw_fraction": 0.125
+      },
+      {
+        "frame": 4,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6095077360247108,
+            "wrist_error": 8.58306884765625e-06
+          },
+          "R": {
+            "reach_ratio": 0.6095041126278049,
+            "wrist_error": 8.58306884765625e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              3.5625782012939453,
+              168.6836700439453,
+              9.540940284729004
+            ],
+            "expected_world": [
+              3.562580108642578,
+              168.68365478515625,
+              9.540939331054688
+            ],
+            "planted": false,
+            "position_error": 1.5407080098536978e-05,
+            "reach_ratio": 0.9147235037336988
+          },
+          "R": {
+            "world": [
+              -12.739298820495605,
+              168.953125,
+              6.076474666595459
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 4.76837158203125e-07,
+            "reach_ratio": 0.9696139821777733
+          }
+        },
+        "yaw_fraction": 0.16666666666666666
+      },
+      {
+        "frame": 5,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6088818205983461,
+            "wrist_error": 7.762346551942685e-06
+          },
+          "R": {
+            "reach_ratio": 0.6088782033320896,
+            "wrist_error": 1.0715582396623722e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -0.5763129591941833,
+              168.56175231933594,
+              9.94054126739502
+            ],
+            "expected_world": [
+              -0.5763115882873535,
+              168.56173706054688,
+              9.940540313720703
+            ],
+            "planted": false,
+            "position_error": 1.534990305805636e-05,
+            "reach_ratio": 0.9042392480947701
+          },
+          "R": {
+            "world": [
+              -12.739299774169922,
+              168.95314025878906,
+              6.076476097106934
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.531827774449254e-05,
+            "reach_ratio": 0.9667920463030768
+          }
+        },
+        "yaw_fraction": 0.20833333333333334
+      },
+      {
+        "frame": 6,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6083596515539158,
+            "wrist_error": 1.0137697041258478e-05
+          },
+          "R": {
+            "reach_ratio": 0.6083561173504435,
+            "wrist_error": 5.3947966093944364e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -4.961079120635986,
+              168.43258666992188,
+              10.076837539672852
+            ],
+            "expected_world": [
+              -4.961077690124512,
+              168.43258666992188,
+              10.076837539672852
+            ],
+            "planted": false,
+            "position_error": 1.430511474609375e-06,
+            "reach_ratio": 0.9004553594637308
+          },
+          "R": {
+            "world": [
+              -12.739300727844238,
+              168.953125,
+              6.07647705078125
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 2.6973983046972182e-06,
+            "reach_ratio": 0.9647869975726442
+          }
+        },
+        "yaw_fraction": 0.25
+      },
+      {
+        "frame": 7,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6079358679404016,
+            "wrist_error": 5.7220458984375e-06
+          },
+          "R": {
+            "reach_ratio": 0.6079323677843715,
+            "wrist_error": 8.856857119086604e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -9.345844268798828,
+              168.30345153808594,
+              9.940540313720703
+            ],
+            "expected_world": [
+              -9.345844268798828,
+              168.30343627929688,
+              9.940540313720703
+            ],
+            "planted": false,
+            "position_error": 1.52587890625e-05,
+            "reach_ratio": 0.9037588025175647
+          },
+          "R": {
+            "world": [
+              -12.739297866821289,
+              168.953125,
+              6.076476097106934
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.3486991523486091e-06,
+            "reach_ratio": 0.9636514171808872
+          }
+        },
+        "yaw_fraction": 0.2916666666666667
+      },
+      {
+        "frame": 8,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6076038001545426,
+            "wrist_error": 4.76837158203125e-06
+          },
+          "R": {
+            "reach_ratio": 0.6076002186937114,
+            "wrist_error": 4.76837158203125e-07
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -13.484731674194336,
+              168.18153381347656,
+              9.540940284729004
+            ],
+            "expected_world": [
+              -13.484732627868652,
+              168.18153381347656,
+              9.540939331054688
+            ],
+            "planted": false,
+            "position_error": 1.3486991523486091e-06,
+            "reach_ratio": 0.9133583548819193
+          },
+          "R": {
+            "world": [
+              -12.739297866821289,
+              168.953125,
+              6.076475620269775
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.066240299940009e-06,
+            "reach_ratio": 0.9634291711993851
+          }
+        },
+        "yaw_fraction": 0.3333333333333333
+      },
+      {
+        "frame": 9,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6073558797978771,
+            "wrist_error": 9.159742694997094e-06
+          },
+          "R": {
+            "reach_ratio": 0.6073521873168576,
+            "wrist_error": 7.278603326069711e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -17.131874084472656,
+              168.0740966796875,
+              8.905265808105469
+            ],
+            "expected_world": [
+              -17.131874084472656,
+              168.07411193847656,
+              8.905264854431152
+            ],
+            "planted": false,
+            "position_error": 1.528856233776226e-05,
+            "reach_ratio": 0.9274438073091408
+          },
+          "R": {
+            "world": [
+              -12.739297866821289,
+              168.953125,
+              6.076475143432617
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 9.5367431640625e-07,
+            "reach_ratio": 0.9641545186113958
+          }
+        },
+        "yaw_fraction": 0.375
+      },
+      {
+        "frame": 10,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6071847002401024,
+            "wrist_error": 3.932099938981686e-06
+          },
+          "R": {
+            "reach_ratio": 0.6071810607731324,
+            "wrist_error": 1.258886221165093e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -20.041393280029297,
+              167.98843383789062,
+              8.076836585998535
+            ],
+            "expected_world": [
+              -20.041393280029297,
+              167.98841857910156,
+              8.076837539672852
+            ],
+            "planted": false,
+            "position_error": 1.528856233776226e-05,
+            "reach_ratio": 0.9435723699552906
+          },
+          "R": {
+            "world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 0.0,
+            "reach_ratio": 0.9658520256980901
+          }
+        },
+        "yaw_fraction": 0.4166666666666667
+      },
+      {
+        "frame": 11,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6070844757680182,
+            "wrist_error": 8.148196931188136e-06
+          },
+          "R": {
+            "reach_ratio": 0.6070809606988355,
+            "wrist_error": 4.76837158203125e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -21.9674129486084,
+              167.9316864013672,
+              7.112113952636719
+            ],
+            "expected_world": [
+              -21.9674129486084,
+              167.9316864013672,
+              7.112113952636719
+            ],
+            "planted": false,
+            "position_error": 0.0,
+            "reach_ratio": 0.959186961375353
+          },
+          "R": {
+            "world": [
+              -12.739297866821289,
+              168.95310974121094,
+              6.076475143432617
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.528856233776226e-05,
+            "reach_ratio": 0.968535434931963
+          }
+        },
+        "yaw_fraction": 0.4583333333333333
+      },
+      {
+        "frame": 12,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.607051567612054,
+            "wrist_error": 9.5367431640625e-06
+          },
+          "R": {
+            "reach_ratio": 0.6070480001860828,
+            "wrist_error": 6.106495129998063e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.66405487060547,
+              167.91116333007812,
+              6.076836109161377
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 2.384185791015625e-06,
+            "reach_ratio": 0.9722007837308607
+          },
+          "R": {
+            "world": [
+              -12.739299774169922,
+              168.953125,
+              6.07647705078125
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 2.132480599880018e-06,
+            "reach_ratio": 0.9722082471437655
+          }
+        },
+        "yaw_fraction": 0.5
+      },
+      {
+        "frame": 13,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6070844757680182,
+            "wrist_error": 8.148196931188136e-06
+          },
+          "R": {
+            "reach_ratio": 0.6070809606988355,
+            "wrist_error": 4.76837158203125e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076835632324219
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.9073486328125e-06,
+            "reach_ratio": 0.9685288507203046
+          },
+          "R": {
+            "world": [
+              -13.424982070922852,
+              168.82838439941406,
+              7.111750602722168
+            ],
+            "expected_world": [
+              -13.424983978271484,
+              168.828369140625,
+              7.111751556396484
+            ],
+            "planted": false,
+            "position_error": 1.5407080098536978e-05,
+            "reach_ratio": 0.9591948886505179
+          }
+        },
+        "yaw_fraction": 0.5416666666666666
+      },
+      {
+        "frame": 14,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6071847002401024,
+            "wrist_error": 3.932099938981686e-06
+          },
+          "R": {
+            "reach_ratio": 0.6071810607731324,
+            "wrist_error": 1.258886221165093e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076836585998535
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 9.5367431640625e-07,
+            "reach_ratio": 0.9658461475391615
+          },
+          "R": {
+            "world": [
+              -15.320701599121094,
+              168.48342895507812,
+              8.076475143432617
+            ],
+            "expected_world": [
+              -15.32070255279541,
+              168.4834442138672,
+              8.076475143432617
+            ],
+            "planted": false,
+            "position_error": 1.528856233776226e-05,
+            "reach_ratio": 0.9435800124738902
+          }
+        },
+        "yaw_fraction": 0.5833333333333334
+      },
+      {
+        "frame": 15,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6073558797978771,
+            "wrist_error": 9.159742694997094e-06
+          },
+          "R": {
+            "reach_ratio": 0.6073521873168576,
+            "wrist_error": 7.278603326069711e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.664058685302734,
+              167.9111785888672,
+              6.07683801651001
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.538492756357353e-05,
+            "reach_ratio": 0.9641496297490103
+          },
+          "R": {
+            "world": [
+              -18.1844482421875,
+              167.96240234375,
+              8.904902458190918
+            ],
+            "expected_world": [
+              -18.1844482421875,
+              167.96240234375,
+              8.904902458190918
+            ],
+            "planted": false,
+            "position_error": 0.0,
+            "reach_ratio": 0.9274508968007024
+          }
+        },
+        "yaw_fraction": 0.625
+      },
+      {
+        "frame": 16,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6076038001545426,
+            "wrist_error": 4.76837158203125e-06
+          },
+          "R": {
+            "reach_ratio": 0.6076002186937114,
+            "wrist_error": 4.76837158203125e-07
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.664052963256836,
+              167.9111328125,
+              6.076837539672852
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 3.0755072587198445e-05,
+            "reach_ratio": 0.9634250002394585
+          },
+          "R": {
+            "world": [
+              -21.77420425415039,
+              167.30923461914062,
+              9.54057502746582
+            ],
+            "expected_world": [
+              -21.77420997619629,
+              167.3092498779297,
+              9.540576934814453
+            ],
+            "planted": false,
+            "position_error": 1.6407633337102178e-05,
+            "reach_ratio": 0.9133641783041366
+          }
+        },
+        "yaw_fraction": 0.6666666666666666
+      },
+      {
+        "frame": 17,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6079358679404016,
+            "wrist_error": 5.7220458984375e-06
+          },
+          "R": {
+            "reach_ratio": 0.6079323677843715,
+            "wrist_error": 8.856857119086604e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.66405487060547,
+              167.91116333007812,
+              6.076837062835693
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.966049969490843e-06,
+            "reach_ratio": 0.963648150117092
+          },
+          "R": {
+            "world": [
+              -25.84798812866211,
+              166.5680389404297,
+              9.940178871154785
+            ],
+            "expected_world": [
+              -25.847990036010742,
+              166.5680389404297,
+              9.940177917480469
+            ],
+            "planted": false,
+            "position_error": 2.132480599880018e-06,
+            "reach_ratio": 0.9037630221052667
+          }
+        },
+        "yaw_fraction": 0.7083333333333334
+      },
+      {
+        "frame": 18,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6083596515539158,
+            "wrist_error": 1.0137697041258478e-05
+          },
+          "R": {
+            "reach_ratio": 0.6083561173504435,
+            "wrist_error": 5.3947966093944364e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 0.0,
+            "reach_ratio": 0.9647845508777732
+          },
+          "R": {
+            "world": [
+              -30.163774490356445,
+              165.78277587890625,
+              10.076475143432617
+            ],
+            "expected_world": [
+              -30.163774490356445,
+              165.7827911376953,
+              10.076475143432617
+            ],
+            "planted": false,
+            "position_error": 1.52587890625e-05,
+            "reach_ratio": 0.9004578853647831
+          }
+        },
+        "yaw_fraction": 0.75
+      },
+      {
+        "frame": 19,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6088818205983461,
+            "wrist_error": 7.762346551942685e-06
+          },
+          "R": {
+            "reach_ratio": 0.6088782033320896,
+            "wrist_error": 1.0715582396623722e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 0.0,
+            "reach_ratio": 0.9667903329611178
+          },
+          "R": {
+            "world": [
+              -34.479557037353516,
+              164.99754333496094,
+              9.940178871154785
+            ],
+            "expected_world": [
+              -34.479557037353516,
+              164.99754333496094,
+              9.940177917480469
+            ],
+            "planted": false,
+            "position_error": 9.5367431640625e-07,
+            "reach_ratio": 0.9042400486513383
+          }
+        },
+        "yaw_fraction": 0.7916666666666666
+      },
+      {
+        "frame": 20,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6095077360247108,
+            "wrist_error": 8.58306884765625e-06
+          },
+          "R": {
+            "reach_ratio": 0.6095041126278049,
+            "wrist_error": 8.58306884765625e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.664058685302734,
+              167.91116333007812,
+              6.076838493347168
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 2.132480599880018e-06,
+            "reach_ratio": 0.9696132669630579
+          },
+          "R": {
+            "world": [
+              -38.5533332824707,
+              164.25633239746094,
+              9.540576934814453
+            ],
+            "expected_world": [
+              -38.5533332824707,
+              164.25633239746094,
+              9.540576934814453
+            ],
+            "planted": false,
+            "position_error": 0.0,
+            "reach_ratio": 0.9147227331323571
+          }
+        },
+        "yaw_fraction": 0.8333333333333334
+      },
+      {
+        "frame": 21,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6102395803917077,
+            "wrist_error": 8.856857119086604e-06
+          },
+          "R": {
+            "reach_ratio": 0.6102361335358435,
+            "wrist_error": 7.278603326069711e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.66405487060547,
+              167.91116333007812,
+              6.076838970184326
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 2.384185791015625e-06,
+            "reach_ratio": 0.9731936679277614
+          },
+          "R": {
+            "world": [
+              -42.143096923828125,
+              163.60316467285156,
+              8.90490436553955
+            ],
+            "expected_world": [
+              -42.14310073852539,
+              163.60317993164062,
+              8.904902458190918
+            ],
+            "planted": false,
+            "position_error": 1.5843627668224478e-05,
+            "reach_ratio": 0.9304643266432574
+          }
+        },
+        "yaw_fraction": 0.875
+      },
+      {
+        "frame": 22,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6110761087471401,
+            "wrist_error": 1.0831658069229648e-05
+          },
+          "R": {
+            "reach_ratio": 0.611072482994031,
+            "wrist_error": 8.529922399520072e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.66405487060547,
+              167.91116333007812,
+              6.076838493347168
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 2.132480599880018e-06,
+            "reach_ratio": 0.9774660708705288
+          },
+          "R": {
+            "world": [
+              -45.0068473815918,
+              163.08212280273438,
+              8.076475143432617
+            ],
+            "expected_world": [
+              -45.0068473815918,
+              163.08213806152344,
+              8.076475143432617
+            ],
+            "planted": false,
+            "position_error": 1.52587890625e-05,
+            "reach_ratio": 0.9493391630095288
+          }
+        },
+        "yaw_fraction": 0.9166666666666666
+      },
+      {
+        "frame": 23,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6120111897062036,
+            "wrist_error": 6.485686544769022e-06
+          },
+          "R": {
+            "reach_ratio": 0.6120077292499932,
+            "wrist_error": 5.068848520629239e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076838970184326
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.430511474609375e-06,
+            "reach_ratio": 0.9823601938511864
+          },
+          "R": {
+            "world": [
+              -46.90256118774414,
+              162.73721313476562,
+              7.11175012588501
+            ],
+            "expected_world": [
+              -46.902565002441406,
+              162.73721313476562,
+              7.111751556396484
+            ],
+            "planted": false,
+            "position_error": 4.074098465594068e-06,
+            "reach_ratio": 0.9690633485223996
+          }
+        },
+        "yaw_fraction": 0.9583333333333334
+      },
+      {
+        "frame": 24,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              -22.664060592651367,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "expected_world": [
+              -22.6640567779541,
+              167.91116333007812,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 3.814697265625e-06,
+            "reach_ratio": 0.987802605235088
+          },
+          "R": {
+            "world": [
+              -47.588253021240234,
+              162.61245727539062,
+              6.076474189758301
+            ],
+            "expected_world": [
+              -47.58824920654297,
+              162.61245727539062,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 3.932099938981686e-06,
+            "reach_ratio": 0.9878001167646621
+          }
+        },
+        "yaw_fraction": 1.0
+      }
+    ],
+    "astra_guard_turn_right": [
+      {
+        "frame": 0,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741902351379395,
+              168.9540252685547,
+              6.076836585998535
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.3486991523486091e-06,
+            "reach_ratio": 0.98780257845665
+          },
+          "R": {
+            "world": [
+              -12.739300727844238,
+              168.953125,
+              6.076473712921143
+            ],
+            "expected_world": [
+              -12.739298820495605,
+              168.953125,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 2.384185791015625e-06,
+            "reach_ratio": 0.9878000388200945
+          }
+        },
+        "yaw_fraction": 0.0
+      },
+      {
+        "frame": 1,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6120111897062036,
+            "wrist_error": 6.485686544769022e-06
+          },
+          "R": {
+            "reach_ratio": 0.6120077292499932,
+            "wrist_error": 5.068848520629239e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741899490356445,
+              168.95401000976562,
+              6.076836109161377
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.5443930378629347e-05,
+            "reach_ratio": 0.9823601657223032
+          },
+          "R": {
+            "world": [
+              -12.042662620544434,
+              168.9325714111328,
+              7.111751079559326
+            ],
+            "expected_world": [
+              -12.042659759521484,
+              168.93258666992188,
+              7.111751556396484
+            ],
+            "planted": false,
+            "position_error": 1.5532014346029596e-05,
+            "reach_ratio": 0.9690632300761167
+          }
+        },
+        "yaw_fraction": 0.041666666666666664
+      },
+      {
+        "frame": 2,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6110761087471401,
+            "wrist_error": 1.0831658069229648e-05
+          },
+          "R": {
+            "reach_ratio": 0.611072482994031,
+            "wrist_error": 8.529922399520072e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741902351379395,
+              168.95404052734375,
+              6.076838493347168
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.531827774449254e-05,
+            "reach_ratio": 0.9774661242688927
+          },
+          "R": {
+            "world": [
+              -10.116650581359863,
+              168.8758544921875,
+              8.0764741897583
+            ],
+            "expected_world": [
+              -10.116652488708496,
+              168.87583923339844,
+              8.076475143432617
+            ],
+            "planted": false,
+            "position_error": 1.5407080098536978e-05,
+            "reach_ratio": 0.9493392048046111
+          }
+        },
+        "yaw_fraction": 0.08333333333333333
+      },
+      {
+        "frame": 3,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6102395803917077,
+            "wrist_error": 8.856857119086604e-06
+          },
+          "R": {
+            "reach_ratio": 0.6102361335358435,
+            "wrist_error": 7.278603326069711e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076835632324219
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.9073486328125e-06,
+            "reach_ratio": 0.9731937366068503
+          },
+          "R": {
+            "world": [
+              -7.207154750823975,
+              168.79010009765625,
+              8.904902458190918
+            ],
+            "expected_world": [
+              -7.207155227661133,
+              168.79010009765625,
+              8.904902458190918
+            ],
+            "planted": false,
+            "position_error": 4.76837158203125e-07,
+            "reach_ratio": 0.9304643713167842
+          }
+        },
+        "yaw_fraction": 0.125
+      },
+      {
+        "frame": 4,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6095077360247108,
+            "wrist_error": 8.58306884765625e-06
+          },
+          "R": {
+            "reach_ratio": 0.6095041126278049,
+            "wrist_error": 8.58306884765625e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741900444030762,
+              168.95404052734375,
+              6.07683801651001
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.5295996601434175e-05,
+            "reach_ratio": 0.9696132278820394
+          },
+          "R": {
+            "world": [
+              -3.5600383281707764,
+              168.68263244628906,
+              9.54057788848877
+            ],
+            "expected_world": [
+              -3.560039520263672,
+              168.6826171875,
+              9.540576934814453
+            ],
+            "planted": false,
+            "position_error": 1.5334967356573106e-05,
+            "reach_ratio": 0.9147226527046095
+          }
+        },
+        "yaw_fraction": 0.16666666666666666
+      },
+      {
+        "frame": 5,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6088818205983461,
+            "wrist_error": 7.762346551942685e-06
+          },
+          "R": {
+            "reach_ratio": 0.6088782033320896,
+            "wrist_error": 1.0715582396623722e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741901397705078,
+              168.95401000976562,
+              6.076835632324219
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.5377536293599222e-05,
+            "reach_ratio": 0.9667903051426328
+          },
+          "R": {
+            "world": [
+              0.5788241624832153,
+              168.56063842773438,
+              9.940177917480469
+            ],
+            "expected_world": [
+              0.5788240432739258,
+              168.56063842773438,
+              9.940177917480469
+            ],
+            "planted": false,
+            "position_error": 1.1920928955078125e-07,
+            "reach_ratio": 0.9042399482719081
+          }
+        },
+        "yaw_fraction": 0.20833333333333334
+      },
+      {
+        "frame": 6,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6083596515539158,
+            "wrist_error": 1.0137697041258478e-05
+          },
+          "R": {
+            "reach_ratio": 0.6083561173504435,
+            "wrist_error": 5.3947966093944364e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741901397705078,
+              168.95404052734375,
+              6.07683801651001
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.5266237824995157e-05,
+            "reach_ratio": 0.9647845877810006
+          },
+          "R": {
+            "world": [
+              4.963559150695801,
+              168.4314422607422,
+              10.076475143432617
+            ],
+            "expected_world": [
+              4.963559627532959,
+              168.43142700195312,
+              10.076475143432617
+            ],
+            "planted": false,
+            "position_error": 1.5266237824995157e-05,
+            "reach_ratio": 0.9004578749389435
+          }
+        },
+        "yaw_fraction": 0.25
+      },
+      {
+        "frame": 7,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6079358679404016,
+            "wrist_error": 5.7220458984375e-06
+          },
+          "R": {
+            "reach_ratio": 0.6079323677843715,
+            "wrist_error": 8.856857119086604e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741901397705078,
+              168.95404052734375,
+              6.076837539672852
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.52587890625e-05,
+            "reach_ratio": 0.9636481824684721
+          },
+          "R": {
+            "world": [
+              9.348295211791992,
+              168.30223083496094,
+              9.940177917480469
+            ],
+            "expected_world": [
+              9.348295211791992,
+              168.30221557617188,
+              9.940177917480469
+            ],
+            "planted": false,
+            "position_error": 1.52587890625e-05,
+            "reach_ratio": 0.903763112001431
+          }
+        },
+        "yaw_fraction": 0.2916666666666667
+      },
+      {
+        "frame": 8,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6076038001545426,
+            "wrist_error": 4.76837158203125e-06
+          },
+          "R": {
+            "reach_ratio": 0.6076002186937114,
+            "wrist_error": 4.76837158203125e-07
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076839447021484
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.9073486328125e-06,
+            "reach_ratio": 0.9634250943743596
+          },
+          "R": {
+            "world": [
+              13.487157821655273,
+              168.18026733398438,
+              9.540575981140137
+            ],
+            "expected_world": [
+              13.48715591430664,
+              168.1802520751953,
+              9.540576934814453
+            ],
+            "planted": false,
+            "position_error": 1.5407080098536978e-05,
+            "reach_ratio": 0.9133642724269057
+          }
+        },
+        "yaw_fraction": 0.3333333333333333
+      },
+      {
+        "frame": 9,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6073558797978771,
+            "wrist_error": 9.159742694997094e-06
+          },
+          "R": {
+            "reach_ratio": 0.6073521873168576,
+            "wrist_error": 7.278603326069711e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741899490356445,
+              168.95401000976562,
+              6.076838970184326
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.5443930378629347e-05,
+            "reach_ratio": 0.9641495430336122
+          },
+          "R": {
+            "world": [
+              17.134273529052734,
+              168.07275390625,
+              8.90490436553955
+            ],
+            "expected_world": [
+              17.134275436401367,
+              168.07276916503906,
+              8.904902458190918
+            ],
+            "planted": false,
+            "position_error": 1.5495373543998644e-05,
+            "reach_ratio": 0.9274507684562948
+          }
+        },
+        "yaw_fraction": 0.375
+      },
+      {
+        "frame": 10,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6071847002401024,
+            "wrist_error": 3.932099938981686e-06
+          },
+          "R": {
+            "reach_ratio": 0.6071810607731324,
+            "wrist_error": 1.258886221165093e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741900444030762,
+              168.9540252685547,
+              6.076837062835693
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.066240299940009e-06,
+            "reach_ratio": 0.9658461309112256
+          },
+          "R": {
+            "world": [
+              20.043771743774414,
+              167.98703002929688,
+              8.076475143432617
+            ],
+            "expected_world": [
+              20.043771743774414,
+              167.98703002929688,
+              8.076475143432617
+            ],
+            "planted": false,
+            "position_error": 0.0,
+            "reach_ratio": 0.9435800985766354
+          }
+        },
+        "yaw_fraction": 0.4166666666666667
+      },
+      {
+        "frame": 11,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6070844757680182,
+            "wrist_error": 8.148196931188136e-06
+          },
+          "R": {
+            "reach_ratio": 0.6070809606988355,
+            "wrist_error": 4.76837158203125e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076838493347168
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 9.5367431640625e-07,
+            "reach_ratio": 0.9685288087779049
+          },
+          "R": {
+            "world": [
+              21.969778060913086,
+              167.93028259277344,
+              7.111752510070801
+            ],
+            "expected_world": [
+              21.969778060913086,
+              167.93028259277344,
+              7.111751556396484
+            ],
+            "planted": false,
+            "position_error": 9.5367431640625e-07,
+            "reach_ratio": 0.9591948413755012
+          }
+        },
+        "yaw_fraction": 0.4583333333333333
+      },
+      {
+        "frame": 12,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.607051567612054,
+            "wrist_error": 9.5367431640625e-06
+          },
+          "R": {
+            "reach_ratio": 0.6070480001860828,
+            "wrist_error": 6.106495129998063e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              12.741900444030762,
+              168.9540252685547,
+              6.076836109161377
+            ],
+            "expected_world": [
+              12.741901397705078,
+              168.9540252685547,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.7192608239479013e-06,
+            "reach_ratio": 0.9722008867332373
+          },
+          "R": {
+            "world": [
+              22.66641616821289,
+              167.90972900390625,
+              6.076475143432617
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.5377536293599222e-05,
+            "reach_ratio": 0.9722080469708734
+          }
+        },
+        "yaw_fraction": 0.5
+      },
+      {
+        "frame": 13,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6070844757680182,
+            "wrist_error": 8.148196931188136e-06
+          },
+          "R": {
+            "reach_ratio": 0.6070809606988355,
+            "wrist_error": 4.76837158203125e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              13.427587509155273,
+              168.82925415039062,
+              7.112114906311035
+            ],
+            "expected_world": [
+              13.42758846282959,
+              168.82925415039062,
+              7.112113952636719
+            ],
+            "planted": false,
+            "position_error": 1.3486991523486091e-06,
+            "reach_ratio": 0.959186981073442
+          },
+          "R": {
+            "world": [
+              22.66641616821289,
+              167.9097442626953,
+              6.076476097106934
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 2.132480599880018e-06,
+            "reach_ratio": 0.9685355002836155
+          }
+        },
+        "yaw_fraction": 0.5416666666666666
+      },
+      {
+        "frame": 14,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6071847002401024,
+            "wrist_error": 3.932099938981686e-06
+          },
+          "R": {
+            "reach_ratio": 0.6071810607731324,
+            "wrist_error": 1.258886221165093e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              15.32331657409668,
+              168.4842987060547,
+              8.076837539672852
+            ],
+            "expected_world": [
+              15.323314666748047,
+              168.4842987060547,
+              8.076837539672852
+            ],
+            "planted": false,
+            "position_error": 1.9073486328125e-06,
+            "reach_ratio": 0.9435722718373887
+          },
+          "R": {
+            "world": [
+              22.666419982910156,
+              167.9097442626953,
+              6.076474189758301
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 2.132480599880018e-06,
+            "reach_ratio": 0.9658520491726761
+          }
+        },
+        "yaw_fraction": 0.5833333333333334
+      },
+      {
+        "frame": 15,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6073558797978771,
+            "wrist_error": 9.159742694997094e-06
+          },
+          "R": {
+            "reach_ratio": 0.6073521873168576,
+            "wrist_error": 7.278603326069711e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              18.187070846557617,
+              167.9632110595703,
+              8.905265808105469
+            ],
+            "expected_world": [
+              18.187068939208984,
+              167.9632110595703,
+              8.905264854431152
+            ],
+            "planted": false,
+            "position_error": 2.132480599880018e-06,
+            "reach_ratio": 0.9274438857424379
+          },
+          "R": {
+            "world": [
+              22.666419982910156,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.9073486328125e-06,
+            "reach_ratio": 0.9641545416373966
+          }
+        },
+        "yaw_fraction": 0.625
+      },
+      {
+        "frame": 16,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6076038001545426,
+            "wrist_error": 4.76837158203125e-06
+          },
+          "R": {
+            "reach_ratio": 0.6076002186937114,
+            "wrist_error": 4.76837158203125e-07
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              21.776844024658203,
+              167.30999755859375,
+              9.540937423706055
+            ],
+            "expected_world": [
+              21.776845932006836,
+              167.30999755859375,
+              9.540939331054688
+            ],
+            "planted": false,
+            "position_error": 2.6973983046972182e-06,
+            "reach_ratio": 0.9133583807399929
+          },
+          "R": {
+            "world": [
+              22.66641616821289,
+              167.90972900390625,
+              6.076475620269775
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.538492756357353e-05,
+            "reach_ratio": 0.9634291358989534
+          }
+        },
+        "yaw_fraction": 0.6666666666666666
+      },
+      {
+        "frame": 17,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6079358679404016,
+            "wrist_error": 5.7220458984375e-06
+          },
+          "R": {
+            "reach_ratio": 0.6079323677843715,
+            "wrist_error": 8.856857119086604e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              25.85063934326172,
+              166.5687255859375,
+              9.940542221069336
+            ],
+            "expected_world": [
+              25.85063934326172,
+              166.5687255859375,
+              9.940540313720703
+            ],
+            "planted": false,
+            "position_error": 1.9073486328125e-06,
+            "reach_ratio": 0.9037587669770465
+          },
+          "R": {
+            "world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475620269775
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 4.76837158203125e-07,
+            "reach_ratio": 0.9636514350721173
+          }
+        },
+        "yaw_fraction": 0.7083333333333334
+      },
+      {
+        "frame": 18,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6083596515539158,
+            "wrist_error": 1.0137697041258478e-05
+          },
+          "R": {
+            "reach_ratio": 0.6083561173504435,
+            "wrist_error": 5.3947966093944364e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              30.166439056396484,
+              165.7834014892578,
+              10.076837539672852
+            ],
+            "expected_world": [
+              30.166439056396484,
+              165.7834014892578,
+              10.076837539672852
+            ],
+            "planted": false,
+            "position_error": 0.0,
+            "reach_ratio": 0.9004553990689234
+          },
+          "R": {
+            "world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 0.0,
+            "reach_ratio": 0.9647870071197222
+          }
+        },
+        "yaw_fraction": 0.75
+      },
+      {
+        "frame": 19,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6088818205983461,
+            "wrist_error": 7.762346551942685e-06
+          },
+          "R": {
+            "reach_ratio": 0.6088782033320896,
+            "wrist_error": 1.0715582396623722e-05
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              34.482234954833984,
+              164.99806213378906,
+              9.940539360046387
+            ],
+            "expected_world": [
+              34.48223876953125,
+              164.99807739257812,
+              9.940540313720703
+            ],
+            "planted": false,
+            "position_error": 1.5757285730226807e-05,
+            "reach_ratio": 0.9042390934076623
+          },
+          "R": {
+            "world": [
+              22.66641616821289,
+              167.90972900390625,
+              6.07647705078125
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.5495373543998644e-05,
+            "reach_ratio": 0.9667918829041348
+          }
+        },
+        "yaw_fraction": 0.7916666666666666
+      },
+      {
+        "frame": 20,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6095077360247108,
+            "wrist_error": 8.58306884765625e-06
+          },
+          "R": {
+            "reach_ratio": 0.6095041126278049,
+            "wrist_error": 8.58306884765625e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              38.5560302734375,
+              164.25680541992188,
+              9.540940284729004
+            ],
+            "expected_world": [
+              38.5560302734375,
+              164.25680541992188,
+              9.540939331054688
+            ],
+            "planted": false,
+            "position_error": 9.5367431640625e-07,
+            "reach_ratio": 0.9147235008935557
+          },
+          "R": {
+            "world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076476097106934
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 9.5367431640625e-07,
+            "reach_ratio": 0.9696140290251887
+          }
+        },
+        "yaw_fraction": 0.8333333333333334
+      },
+      {
+        "frame": 21,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6102395803917077,
+            "wrist_error": 8.856857119086604e-06
+          },
+          "R": {
+            "reach_ratio": 0.6102361335358435,
+            "wrist_error": 7.278603326069711e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              42.145809173583984,
+              163.6035919189453,
+              8.905265808105469
+            ],
+            "expected_world": [
+              42.145809173583984,
+              163.6035919189453,
+              8.905264854431152
+            ],
+            "planted": false,
+            "position_error": 9.5367431640625e-07,
+            "reach_ratio": 0.9304664590589304
+          },
+          "R": {
+            "world": [
+              22.666418075561523,
+              167.90975952148438,
+              6.076473712921143
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.5325697593677708e-05,
+            "reach_ratio": 0.9731936395455405
+          }
+        },
+        "yaw_fraction": 0.875
+      },
+      {
+        "frame": 22,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6110761087471401,
+            "wrist_error": 1.0831658069229648e-05
+          },
+          "R": {
+            "reach_ratio": 0.611072482994031,
+            "wrist_error": 8.529922399520072e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              45.00956344604492,
+              163.08248901367188,
+              8.076838493347168
+            ],
+            "expected_world": [
+              45.00956344604492,
+              163.08250427246094,
+              8.076837539672852
+            ],
+            "planted": false,
+            "position_error": 1.528856233776226e-05,
+            "reach_ratio": 0.9493420703232197
+          },
+          "R": {
+            "world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076476097106934
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 9.5367431640625e-07,
+            "reach_ratio": 0.977465171930171
+          }
+        },
+        "yaw_fraction": 0.9166666666666666
+      },
+      {
+        "frame": 23,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6120111897062036,
+            "wrist_error": 6.485686544769022e-06
+          },
+          "R": {
+            "reach_ratio": 0.6120077292499932,
+            "wrist_error": 5.068848520629239e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              46.90528869628906,
+              162.737548828125,
+              7.112113952636719
+            ],
+            "expected_world": [
+              46.90528869628906,
+              162.737548828125,
+              7.112113952636719
+            ],
+            "planted": false,
+            "position_error": 0.0,
+            "reach_ratio": 0.9690663314427976
+          },
+          "R": {
+            "world": [
+              22.66641616821289,
+              167.90972900390625,
+              6.076475620269775
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.538492756357353e-05,
+            "reach_ratio": 0.9823584661478126
+          }
+        },
+        "yaw_fraction": 0.9583333333333334
+      },
+      {
+        "frame": 24,
+        "reach": {
+          "L": {
+            "reach_ratio": 0.6130339765739101,
+            "wrist_error": 1.389389255936953e-05
+          },
+          "R": {
+            "reach_ratio": 0.6130304460857112,
+            "wrist_error": 4.498472753551771e-06
+          }
+        },
+        "trigger_pull": 0.0,
+        "feet": {
+          "L": {
+            "world": [
+              47.590972900390625,
+              162.61276245117188,
+              6.076837062835693
+            ],
+            "expected_world": [
+              47.59097671508789,
+              162.61277770996094,
+              6.076837539672852
+            ],
+            "planted": true,
+            "position_error": 1.5735626220703125e-05,
+            "reach_ratio": 0.9878024751683824
+          },
+          "R": {
+            "world": [
+              22.66641616821289,
+              167.90972900390625,
+              6.076476097106934
+            ],
+            "expected_world": [
+              22.666418075561523,
+              167.9097442626953,
+              6.076475143432617
+            ],
+            "planted": true,
+            "position_error": 1.5407080098536978e-05,
+            "reach_ratio": 0.9877999771338984
+          }
+        },
+        "yaw_fraction": 1.0
+      }
+    ]
+  },
+  "turn_hip_lower_max_units": 2,
+  "game_tested": false,
+  "max_wrist_error_units": 1.6078677463614813e-05,
+  "max_step_foot_error_units": 3.0755072587198445e-05
+}
