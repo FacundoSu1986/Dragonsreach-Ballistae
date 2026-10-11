@@ -14,7 +14,8 @@ import patch_plugin_v12 as P
 import build_plugin as B
 import mundo_v11 as M
 
-NEW={'proj':0x03000B00,'ammo':0x03000B01,'acti':0x03000B02,'tower':0x03000B03}
+NEW={'proj':0x03000B00,'ammo':0x03000B01,'acti':0x03000B02,'tower':0x03000B03,
+     'acti_baja':0x03000B04}
 CITY={'npc':0x04000B00,'gun':0x04000B10,'guard':0x04000B11,'marker':0x04000B12,'tower':0x04000B13}
 
 def subs(raw):return dict(Plugin.subrecords(raw[24:]))
@@ -54,7 +55,7 @@ def ref(fid,base,pos,rot,edid,kind='REFR',persistent=False,vmad=None):
     ss.extend([W.sub('NAME',struct.pack('<I',base)),W.sub('DATA',struct.pack('<6f',*pos,*(math.radians(v) for v in rot)))])
     return W.record(kind,fid,ss,0x400 if persistent else 0)
 
-def main(addons=False):
+def main(addons=False,atalaya=False):
     P.main()  # Rebuild allowed geometry edits from immutable v11, never an in-place cumulative patch.
     cfg=json.loads((ROOT/'config.json').read_text());path=ROOT/'mod/AstraAsedio.esp';p=Plugin(str(path));r=P.record_map(p)
     groups=[];world=None
@@ -75,22 +76,38 @@ def main(addons=False):
     add_group(groups,'PROJ',clone(r[B.IDS['projectile']],NEW['proj'],{'EDID':W.zstr('AstraGuardProjectile'),'FULL':W.zstr('Virote del artillero Astra'),'DATA':bytes(proj)}))
     ammo=bytearray(subs(r[B.IDS['ammo']])['DATA']);struct.pack_into('<I',ammo,0,NEW['proj'])
     add_group(groups,'AMMO',clone(r[B.IDS['ammo']],NEW['ammo'],{'EDID':W.zstr('AstraGuardAmmo'),'FULL':W.zstr('Virote del artillero Astra'),'DATA':bytes(ammo)}))
+    # Dos torretas con el MISMO contrato (clone del ACTI del jugador, sin VMAD: los scripts
+    # los pone el REFR que la coloca) pero distinto MODL:
+    #  - `acti` (0x03000B02) -> `ballesta.nif` (pivote 153). Lo usan los voladizos de
+    #    WhiterunTorres, que son `AstraAsedioStation extends AstraAsedioActi` con
+    #    `AllowPlayerTakeover=True` y `UseSightCamera=True`: el jugador los opera con la
+    #    mira nativa, asi que el pivote NO puede bajar (medido en
+    #    `reports/sight_path_v22_FAILED.json`: la mira degenera con el pivote en 117).
+    #  - `acti_baja` (0x03000B04) -> `ballesta_guardia.nif` (pivote 117, -36 u). Lo usa
+    #    SOLO la torreta guardia-exclusiva de Carrera Blanca (`CITY['gun']`,
+    #    `AllowPlayerTakeover` en su default false): ahi no hay mira nativa, y el bajo es
+    #    la ergonomia que pide la animacion del guardia. `AstraAsedioGuard` no lleva
+    #    `MuzzleAlto` ni `PitchPivotHeight`: lee `ProjectileNode` del NIF en runtime, asi
+    #    que el mismo script sirve para las dos alturas.
     add_group(groups,'ACTI',clone(r[B.IDS['ballesta']],NEW['acti'],{'EDID':W.zstr('AstraGuardBallista'),'FULL':W.zstr('Ballesta del artillero Astra')},('VMAD',)))
+    add_group(groups,'ACTI',clone(r[B.IDS['ballesta']],NEW['acti_baja'],{'EDID':W.zstr('AstraGuardBallistaBaja'),'FULL':W.zstr('Ballesta baja del artillero Astra'),'MODL':W.zstr('AstraAsedio\\ballesta_guardia.nif')},('VMAD',)))
     box=json.loads((ROOT/'reports/assets.json').read_text())['torre_whiterun']['bbox_units']
     obnd=[math.floor(x) for x in box['min']]+[math.ceil(x) for x in box['max']]
     add_group(groups,'STAT',clone(r[B.IDS['tower']],NEW['tower'],{'EDID':W.zstr('AstraTowerWhiterun'),'OBND':struct.pack('<6h',*obnd),'MODL':W.zstr('AstraAsedio\\torre_whiterun.nif')}))
-    core=save_plugin(path,groups,B.MASTERS,0xB04)
+    core=save_plugin(path,groups,B.MASTERS,0xB05)
     B.validate_plugin(str(path))
     if not addons:
-        # Los addons NO se generan aca desde v20. `place_atalaya_v20/v21.py` copian el Atalaya
-        # de la revision anterior (es una cadena propia, no se deriva del core) y
-        # `build_modular_v17.py` arma WhiterunTorres. Regenerarlos desde este stage pisa
-        # artefactos ya verificados: reproducia un Atalaya v13/v14 y rompia el sha de
-        # reports/atalaya_placement_v21.json que exige package_v21.py.
+        # El core solo se reconstruye en cada corrida del pipeline. Los addons NO:
+        # `place_atalaya_v20/v21.py` copia el Atalaya de la revision anterior (es una cadena
+        # propia, no se deriva del core) y `build_modular_v17.py` arma WhiterunTorres.
+        # Regenerarlos desde este stage pisa artefactos ya verificados. El addon Whiterun SI
+        # sale de aca, pero con `main(addons=True)`, que es una corrida aparte y explicita
+        # (reproduce el embarcado byte a byte) y no toca el Atalaya salvo que se pida.
         (ROOT/'reports/modular_v13.json').write_text(json.dumps(
             {'core':core,'addons':None,
-             'nota':'core reconstruido (guardia v22 + formas modulares); addons intactos: los '
-                    'producen place_atalaya_v20/v21.py y build_modular_v17.py'},ensure_ascii=False,indent=2))
+             'nota':'core reconstruido (guardia v22 + formas modulares); addons intactos: '
+                    'Atalaya por place_atalaya_v20/v21.py, WhiterunTorres por '
+                    'build_modular_v17.py, y el addon Whiterun por main(addons=True)'},ensure_ascii=False,indent=2))
         print('MODULAR_CORE_BUILT',core['records'])
         return
     # Former exterior is optional. Only new owned REFR headers change namespace;
@@ -105,7 +122,18 @@ def main(addons=False):
             children.append(raw)
         return C.rearmar(g,children)
     masters=B.MASTERS+['AstraAsedio.esp']
-    old=save_plugin(ROOT/'addons/Atalaya/AstraAsedio_Atalaya.esp',[legacy(world)],masters,0xA4F)
+    # El Atalaya NO se deriva del core: `place_atalaya_v20/v21.py` copia la cadena de la
+    # revision anterior. Regenerarlo aca reproducia un Atalaya v13/v14 y rompia el sha de
+    # `reports/atalaya_placement_v21.json` que exige `package_v21.py`. Por eso `atalaya`
+    # queda en False y solo se reescribe si se pide explicitamente.
+    atalaya_path=ROOT/'addons/Atalaya/AstraAsedio_Atalaya.esp'
+    if atalaya:
+        old=save_plugin(atalaya_path,[legacy(world)],masters,0xA4F)
+    else:
+        assert atalaya_path.exists(),'falta el Atalaya; corre place_atalaya_v20/v21.py primero'
+        old={'path':str(atalaya_path.relative_to(ROOT)),
+             'sha256':hashlib.sha256(atalaya_path.read_bytes()).hexdigest(),
+             'bytes':atalaya_path.stat().st_size,'conservado':True}
     site=json.loads((ROOT/'reports/city_site_v13.json').read_text());cell=int(site['cell'],16)
     vanilla=vanilla_records({0x3C,cell,0xD74,0x001000EC})
     guard_ss=subs(vanilla[0x001000EC]);acbs=bytearray(guard_ss['ACBS'])
@@ -118,7 +146,7 @@ def main(addons=False):
     guardprops={'Artillero':(1,CITY['guard']),'Puesto':(1,CITY['marker']),
                 'Launcher':(1,B.IDS['launcher']),'ShotAmmo':(1,NEW['ammo']),'ShotSound':(1,B.IDS['shot_sound']),
                 'PitchMin':(4,-20.),'PitchMax':(4,45.),'ProjectileSpeed':(4,5400.),'ProjectileGravity':(4,240.345)}
-    gun=ref(CITY['gun'],NEW['acti'],gunpos,rot,'AstraWhiterunBallesta',persistent=True,vmad=B.vmad('AstraAsedioGuard',guardprops))
+    gun=ref(CITY['gun'],NEW['acti_baja'],gunpos,rot,'AstraWhiterunBallesta',persistent=True,vmad=B.vmad('AstraAsedioGuard',guardprops))
     actor=ref(CITY['guard'],CITY['npc'],guardpos,(0,0,225),'AstraWhiterunArtilleroRef','ACHR',True)
     marker=ref(CITY['marker'],0x34,markerpos,(0,0,225),'AstraWhiterunPuesto',persistent=True)
     towerpos,trot=posrot([0,0,0]);temporary=[ref(CITY['tower'],NEW['tower'],towerpos,trot,'AstraWhiterunTorre')]
@@ -141,5 +169,6 @@ def main(addons=False):
                                  'city_LAND':0,'city_NAVM':0,'city_vanilla_REF_overrides':0,
                                  'atalaya_keeps_v11_terrain_edits':True,'patches_for_other_mods':'deferred','game_tested':False}}
     (ROOT/'reports/modular_v13.json').write_text(json.dumps(manifests,ensure_ascii=False,indent=2))
-    print('MODULAR_BUILT',core['records'],city['records'],old['records'])
+    print('MODULAR_BUILT',core['records'],city['records'],
+          old.get('records','atalaya conservado ' + old['sha256'][:12]))
 if __name__=='__main__':main()

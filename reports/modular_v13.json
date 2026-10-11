@@ -1,9 +1,9 @@
 {
   "core": {
     "path": "mod\\AstraAsedio.esp",
-    "sha256": "b63c5e8640c87ecf4741e7f3184cfef2884a03c764b9ed1fd9e3a1ce0d03560f",
-    "bytes": 23385,
-    "records": 65,
+    "sha256": "f91b135fa1235f0b4f3c7a6b7a2da0e3d827bd9d846054a450c92b3e0d3c7a7c",
+    "bytes": 23561,
+    "records": 66,
     "masters": [
       "Skyrim.esm",
       "Update.esm",
@@ -11,5 +11,5 @@
     ]
   },
   "addons": null,
-  "nota": "core reconstruido (guardia v22 + formas modulares); addons intactos: los producen place_atalaya_v20/v21.py y build_modular_v17.py"
+  "nota": "core reconstruido (guardia v22 + formas modulares); addons intactos: Atalaya por place_atalaya_v20/v21.py, WhiterunTorres por build_modular_v17.py, y el addon Whiterun por main(addons=True)"
 }

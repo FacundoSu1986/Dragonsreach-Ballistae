@@ -1,13 +1,13 @@
 .info
 	.source "AstraAsedioStation.psc"
 	.modifyTime 1791645632 ;Sat Oct 10 12:20:32 2026 Local
-	.compileTime 1791678049 ;Sat Oct 10 21:20:49 2026 Local
+	.compileTime 1791679486 ;Sat Oct 10 21:44:46 2026 Local
 	.user "AstraAsedio"
 	.computer "Build"
 .endInfo
 .userFlagsRef
-	.flag conditional 1	; 0x00000001
 	.flag hidden 0	; 0x00000000
+	.flag conditional 1	; 0x00000001
 .endUserFlagsRef
 .objectTable
 	.object AstraAsedioStation AstraAsedioActi
@@ -15,35 +15,19 @@
 		.docString ""
 		.autoState 
 		.variableTable
-			.variable stationLease Int
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0
-			.endVariable
-			.variable stationReleaseDeadline Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.000000
-			.endVariable
-			.variable stationDestroyed Bool
+			.variable stationBusy Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
-			.variable ::Guard_var astraasedioguard
+			.variable stationLease Int
 				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
+				.initialValue 0
 			.endVariable
 			.variable stationUnavailable Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
-			.variable stationRevision Int
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0
-			.endVariable
-			.variable stationReleasing Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable stationWaitStarted Float
+			.variable stationReleaseDeadline Float
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0.000000
 			.endVariable
@@ -51,7 +35,7 @@
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0.000000
 			.endVariable
-			.variable stationWaiting Bool
+			.variable stationDestroyed Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
@@ -59,15 +43,31 @@
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue -1
 			.endVariable
-			.variable stationBusy Bool
+			.variable stationWaiting Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
+			.endVariable
+			.variable stationCoordinator astraasedioguard
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable stationWaitStarted Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
 			.endVariable
 			.variable stationReleaseStarted Float
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0.000000
 			.endVariable
-			.variable stationCoordinator astraasedioguard
+			.variable stationReleasing Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable stationRevision Int
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0
+			.endVariable
+			.variable ::Guard_var astraasedioguard
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue None
 			.endVariable
@@ -81,234 +81,6 @@
 		.endPropertyTable
 		.stateTable
 			.state 
-				.function OnCellDetach
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp44 String
-						.local ::temp45 String
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						Cast ::temp44 self                                       ;@line 370
-						StrCat ::temp44 "AstraAsedioStation OnCellDetach ref=" ::temp44  ;@line 370
-						StrCat ::temp44 ::temp44 " revision="                    ;@line 370
-						Cast ::temp45 stationRevision                            ;@line 370
-						StrCat ::temp45 ::temp44 ::temp45                        ;@line 370
-						CallStatic debug Trace ::NoneVar ::temp45 0              ;@line 370
-						Assign stationUnavailable True                           ;@line 371
-						CallMethod EndSession self ::NoneVar                     ;@line 372
-					.endCode
-				.endFunction
-				.function OnUnload
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp42 String
-						.local ::temp43 String
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						Cast ::temp42 self                                       ;@line 364
-						StrCat ::temp42 "AstraAsedioStation OnUnload ref=" ::temp42  ;@line 364
-						StrCat ::temp42 ::temp42 " revision="                    ;@line 364
-						Cast ::temp43 stationRevision                            ;@line 364
-						StrCat ::temp43 ::temp42 ::temp43                        ;@line 364
-						CallStatic debug Trace ::NoneVar ::temp43 0              ;@line 364
-						Assign stationUnavailable True                           ;@line 365
-						CallMethod EndSession self ::NoneVar                     ;@line 366
-					.endCode
-				.endFunction
-				.function OnInit
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallParent OnInit ::NoneVar                              ;@line 21
-					.endCode
-				.endFunction
-				.function FinishStationCall
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param expectedRevision Int
-					.endParamTable
-					.localTable
-						.local ::temp4 Bool
-					.endLocalTable
-					.code
-						Cast ::temp4 stationBusy                                 ;@line 39
-						JumpF ::temp4 _label0                                    ;@line 39
-						CompareEQ ::temp4 stationBusyRevision expectedRevision   ;@line 39
-						Cast ::temp4 ::temp4                                     ;@line 39
-					_label0:
-						JumpF ::temp4 _label1                                    ;@line 39
-						Assign stationBusy False                                 ;@line 40
-						Assign stationBusyRevision -1                            ;@line 41
-						Jump _label1                                             ;@line 41
-					_label1:
-					.endCode
-				.endFunction
-				.function OnUpdate
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp39 Bool
-						.local ::temp40 Bool
-						.local ::NoneVar None
-						.local ::temp41 Bool
-						.local updateRevision Int
-						.local coordinator astraasedioguard
-						.local lease Int
-						.local active Bool
-						.local stillActive Bool
-					.endLocalTable
-					.code
-						JumpF stationWaiting _label2                             ;@line 332
-						CallMethod PollStationEntry self ::NoneVar               ;@line 333
-						Jump _label3                                             ;@line 333
-					_label2:
-						JumpF stationReleasing _label4                           ;@line 334
-						CallMethod PollStationRelease self ::NoneVar             ;@line 335
-						Jump _label3                                             ;@line 335
-					_label4:
-						Not ::temp39 stationBusy                                 ;@line 336
-						Cast ::temp39 ::temp39                                   ;@line 336
-						JumpF ::temp39 _label5                                   ;@line 336
-						CompareGT ::temp40 stationLease 0                        ;@line 336
-						Cast ::temp39 ::temp40                                   ;@line 336
-					_label5:
-						JumpF ::temp39 _label3                                   ;@line 336
-						Assign stationBusy True                                  ;@line 337
-						Assign updateRevision stationRevision                    ;@line 338
-						Assign stationBusyRevision updateRevision                ;@line 339
-						Assign coordinator stationCoordinator                    ;@line 340
-						Assign lease stationLease                                ;@line 341
-						CallParent IsPlayerOperating ::temp40                    ;@line 342
-						Assign active ::temp40                                   ;@line 342
-						CallMethod StationCurrent self ::temp40 updateRevision coordinator lease  ;@line 343
-						Cast ::temp40 ::temp40                                   ;@line 343
-						JumpF ::temp40 _label6                                   ;@line 343
-						Cast ::temp40 active                                     ;@line 343
-					_label6:
-						JumpF ::temp40 _label7                                   ;@line 343
-						CallParent OnUpdate ::NoneVar                            ;@line 344
-						Jump _label7                                             ;@line 344
-					_label7:
-						CallParent IsPlayerOperating ::temp40                    ;@line 346
-						Assign stillActive ::temp40                              ;@line 346
-						CallMethod FinishStationCall self ::NoneVar updateRevision  ;@line 347
-						CallMethod StationCurrent self ::temp40 updateRevision coordinator lease  ;@line 348
-						Not ::temp40 ::temp40                                    ;@line 348
-						Cast ::temp40 ::temp40                                   ;@line 348
-						JumpT ::temp40 _label8                                   ;@line 348
-						Not ::temp41 stillActive                                 ;@line 348
-						Cast ::temp40 ::temp41                                   ;@line 348
-					_label8:
-						JumpF ::temp40 _label9                                   ;@line 348
-						CallMethod EndSession self ::NoneVar                     ;@line 349
-						Jump _label9                                             ;@line 349
-					_label9:
-						Jump _label3                                             ;@line 349
-					_label3:
-						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 352
-					.endCode
-				.endFunction
-				.function OnLoad
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp47 String
-						.local ::temp48 String
-						.local ::NoneVar None
-						.local ::temp49 Int
-						.local ::temp50 Bool
-						.local ::temp51 astraasedioguard
-						.local loadRevision Int
-						.local ownSlot Bool
-					.endLocalTable
-					.code
-						Cast ::temp47 self                                       ;@line 383
-						StrCat ::temp47 "AstraAsedioStation OnLoad ref=" ::temp47  ;@line 383
-						StrCat ::temp47 ::temp47 " revision="                    ;@line 383
-						Cast ::temp48 stationRevision                            ;@line 383
-						StrCat ::temp48 ::temp47 ::temp48                        ;@line 383
-						CallStatic debug Trace ::NoneVar ::temp48 0              ;@line 383
-						Assign stationUnavailable False                          ;@line 385
-						IAdd ::temp49 stationRevision 1                          ;@line 386
-						Assign stationRevision ::temp49                          ;@line 386
-						Assign loadRevision stationRevision                      ;@line 387
-						Not ::temp50 stationBusy                                 ;@line 388
-						Assign ownSlot ::temp50                                  ;@line 388
-						JumpF ownSlot _label10                                   ;@line 389
-						Assign stationBusy True                                  ;@line 390
-						Assign stationBusyRevision loadRevision                  ;@line 391
-						Jump _label10                                            ;@line 391
-					_label10:
-						Assign stationWaiting False                              ;@line 393
-						Assign stationReleaseStarted 0.000000                    ;@line 394
-						Assign stationReleaseDeadline 0.000000                   ;@line 395
-						Cast ::temp51 None                                       ;@line 396
-						CompareEQ ::temp50 stationCoordinator ::temp51           ;@line 396
-						Not ::temp50 ::temp50                                    ;@line 396
-						Assign stationReleasing ::temp50                         ;@line 396
-						CallParent RecoverStationLoad ::NoneVar                  ;@line 399
-						CallParent NormalizeTimingProperties ::NoneVar           ;@line 400
-						CallMethod BlockActivation self ::NoneVar True           ;@line 401
-						JumpF ownSlot _label11                                   ;@line 402
-						CallMethod FinishStationCall self ::NoneVar loadRevision  ;@line 403
-						Jump _label11                                            ;@line 403
-					_label11:
-						CallMethod PollStationRelease self ::NoneVar             ;@line 405
-						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 406
-					.endCode
-				.endFunction
-				.function StationCurrent
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param expectedRevision Int
-						.param expectedGuard astraasedioguard
-						.param expectedLease Int
-					.endParamTable
-					.localTable
-						.local ::temp0 Bool
-						.local ::temp1 Bool
-					.endLocalTable
-					.code
-						CompareEQ ::temp0 stationRevision expectedRevision       ;@line 25
-						Cast ::temp0 ::temp0                                     ;@line 25
-						JumpF ::temp0 _label12                                   ;@line 25
-						CompareEQ ::temp1 stationCoordinator expectedGuard       ;@line 25
-						Cast ::temp0 ::temp1                                     ;@line 25
-					_label12:
-						Cast ::temp0 ::temp0                                     ;@line 25
-						JumpF ::temp0 _label13                                   ;@line 25
-						CompareEQ ::temp1 stationLease expectedLease             ;@line 25
-						Cast ::temp0 ::temp1                                     ;@line 25
-					_label13:
-						Return ::temp0                                           ;@line 25
-					.endCode
-				.endFunction
 				.function OnMenuOpen
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
@@ -320,12 +92,12 @@
 						.local ::NoneVar None
 					.endLocalTable
 					.code
-						JumpF stationWaiting _label14                            ;@line 356
+						JumpF stationWaiting _label0                             ;@line 356
 						CallMethod EndSession self ::NoneVar                     ;@line 357
-						Jump _label15                                            ;@line 357
-					_label14:
+						Jump _label1                                             ;@line 357
+					_label0:
 						CallParent OnMenuOpen ::NoneVar menuName                 ;@line 359
-					_label15:
+					_label1:
 					.endCode
 				.endFunction
 				.function PollStationEntry
@@ -352,18 +124,18 @@
 					.endLocalTable
 					.code
 						Cast ::temp21 stationBusy                                ;@line 183
-						JumpT ::temp21 _label16                                  ;@line 183
+						JumpT ::temp21 _label2                                   ;@line 183
 						Not ::temp21 stationWaiting                              ;@line 183
 						Cast ::temp21 ::temp21                                   ;@line 183
-					_label16:
+					_label2:
 						Cast ::temp21 ::temp21                                   ;@line 183
-						JumpT ::temp21 _label17                                  ;@line 183
+						JumpT ::temp21 _label3                                   ;@line 183
 						Cast ::temp21 stationReleasing                           ;@line 183
-					_label17:
-						JumpF ::temp21 _label18                                  ;@line 183
+					_label3:
+						JumpF ::temp21 _label4                                   ;@line 183
 						Return None                                              ;@line 184
-						Jump _label18                                            ;@line 184
-					_label18:
+						Jump _label4                                             ;@line 184
+					_label4:
 						Assign stationBusy True                                  ;@line 186
 						Assign entryRevision stationRevision                     ;@line 187
 						Assign stationBusyRevision entryRevision                 ;@line 188
@@ -376,11 +148,11 @@
 						CallMethod StationCurrent self ::temp21 entryRevision coordinator lease  ;@line 193
 						Not ::temp21 ::temp21                                    ;@line 193
 						Cast ::temp21 ::temp21                                   ;@line 193
-						JumpT ::temp21 _label19                                  ;@line 193
+						JumpT ::temp21 _label5                                   ;@line 193
 						Not ::temp23 valid                                       ;@line 193
 						Cast ::temp21 ::temp23                                   ;@line 193
-					_label19:
-						JumpF ::temp21 _label20                                  ;@line 193
+					_label5:
+						JumpF ::temp21 _label6                                   ;@line 193
 						Cast ::temp24 self                                       ;@line 194
 						StrCat ::temp24 "AstraAsedioStation entry cancelled before prepare ref=" ::temp24  ;@line 194
 						StrCat ::temp24 ::temp24 " lease="                       ;@line 194
@@ -390,8 +162,8 @@
 						CallMethod FinishStationCall self ::NoneVar entryRevision  ;@line 195
 						CallMethod EndSession self ::NoneVar                     ;@line 196
 						Return None                                              ;@line 197
-						Jump _label20                                            ;@line 197
-					_label20:
+						Jump _label6                                             ;@line 197
+					_label6:
 						CallMethod PreparePlayerLease coordinator ::temp23 lease  ;@line 199
 						Assign ready ::temp23                                    ;@line 199
 						CallMethod StationEntryValid self ::temp21 entryRevision coordinator lease operator  ;@line 201
@@ -399,11 +171,11 @@
 						CallMethod StationCurrent self ::temp23 entryRevision coordinator lease  ;@line 202
 						Not ::temp21 ::temp23                                    ;@line 202
 						Cast ::temp21 ::temp21                                   ;@line 202
-						JumpT ::temp21 _label21                                  ;@line 202
+						JumpT ::temp21 _label7                                   ;@line 202
 						Not ::temp23 valid                                       ;@line 202
 						Cast ::temp21 ::temp23                                   ;@line 202
-					_label21:
-						JumpF ::temp21 _label22                                  ;@line 202
+					_label7:
+						JumpF ::temp21 _label8                                   ;@line 202
 						Cast ::temp24 self                                       ;@line 203
 						StrCat ::temp25 "AstraAsedioStation entry cancelled after prepare ref=" ::temp24  ;@line 203
 						StrCat ::temp24 ::temp25 " lease="                       ;@line 203
@@ -416,31 +188,31 @@
 						CallMethod FinishStationCall self ::NoneVar entryRevision  ;@line 204
 						CallMethod EndSession self ::NoneVar                     ;@line 205
 						Return None                                              ;@line 206
-						Jump _label22                                            ;@line 206
-					_label22:
+						Jump _label8                                             ;@line 206
+					_label8:
 						Not ::temp23 ready                                       ;@line 208
-						JumpF ::temp23 _label23                                  ;@line 208
+						JumpF ::temp23 _label9                                   ;@line 208
 						CallMethod FinishStationCall self ::NoneVar entryRevision  ;@line 209
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 210
 						Return None                                              ;@line 211
-						Jump _label23                                            ;@line 211
-					_label23:
+						Jump _label9                                             ;@line 211
+					_label9:
 						CallParent ResetStationAim ::NoneVar                     ;@line 213
 						CallMethod StationEntryValid self ::temp21 entryRevision coordinator lease operator  ;@line 214
 						Assign valid ::temp21                                    ;@line 214
 						CallMethod StationCurrent self ::temp23 entryRevision coordinator lease  ;@line 215
 						Not ::temp21 ::temp23                                    ;@line 215
 						Cast ::temp21 ::temp21                                   ;@line 215
-						JumpT ::temp21 _label24                                  ;@line 215
+						JumpT ::temp21 _label10                                  ;@line 215
 						Not ::temp23 valid                                       ;@line 215
 						Cast ::temp21 ::temp23                                   ;@line 215
-					_label24:
-						JumpF ::temp21 _label25                                  ;@line 215
+					_label10:
+						JumpF ::temp21 _label11                                  ;@line 215
 						CallMethod FinishStationCall self ::NoneVar entryRevision  ;@line 216
 						CallMethod EndSession self ::NoneVar                     ;@line 217
 						Return None                                              ;@line 218
-						Jump _label25                                            ;@line 218
-					_label25:
+						Jump _label11                                            ;@line 218
+					_label11:
 						Assign stationWaiting False                              ;@line 220
 						Cast ::temp24 self                                       ;@line 221
 						StrCat ::temp25 "AstraAsedioStation entering player sight ref=" ::temp24  ;@line 221
@@ -456,14 +228,14 @@
 						CallMethod StationCurrent self ::temp21 entryRevision coordinator lease  ;@line 227
 						Not ::temp23 ::temp21                                    ;@line 227
 						Cast ::temp23 ::temp23                                   ;@line 227
-						JumpT ::temp23 _label26                                  ;@line 227
+						JumpT ::temp23 _label12                                  ;@line 227
 						Not ::temp21 active                                      ;@line 227
 						Cast ::temp23 ::temp21                                   ;@line 227
-					_label26:
-						JumpF ::temp23 _label27                                  ;@line 227
+					_label12:
+						JumpF ::temp23 _label13                                  ;@line 227
 						CallMethod EndSession self ::NoneVar                     ;@line 228
-						Jump _label27                                            ;@line 228
-					_label27:
+						Jump _label13                                            ;@line 228
+					_label13:
 					.endCode
 				.endFunction
 				.function GotoState
@@ -540,25 +312,25 @@
 					.endLocalTable
 					.code
 						Cast ::temp7 stationBusy                                 ;@line 79
-						JumpT ::temp7 _label28                                   ;@line 79
+						JumpT ::temp7 _label14                                   ;@line 79
 						Cast ::temp7 stationWaiting                              ;@line 79
-					_label28:
+					_label14:
 						Cast ::temp7 ::temp7                                     ;@line 79
-						JumpT ::temp7 _label29                                   ;@line 79
+						JumpT ::temp7 _label15                                   ;@line 79
 						Cast ::temp7 stationReleasing                            ;@line 79
-					_label29:
+					_label15:
 						Cast ::temp7 ::temp7                                     ;@line 79
-						JumpT ::temp7 _label30                                   ;@line 79
+						JumpT ::temp7 _label16                                   ;@line 79
 						Cast ::temp7 stationDestroyed                            ;@line 79
-					_label30:
+					_label16:
 						Cast ::temp7 ::temp7                                     ;@line 79
-						JumpT ::temp7 _label31                                   ;@line 79
+						JumpT ::temp7 _label17                                   ;@line 79
 						Cast ::temp7 stationUnavailable                          ;@line 79
-					_label31:
-						JumpF ::temp7 _label32                                   ;@line 79
+					_label17:
+						JumpF ::temp7 _label18                                   ;@line 79
 						Return None                                              ;@line 80
-						Jump _label32                                            ;@line 80
-					_label32:
+						Jump _label18                                            ;@line 80
+					_label18:
 						Assign stationBusy True                                  ;@line 82
 						Assign activationRevision stationRevision                ;@line 83
 						Assign stationBusyRevision activationRevision            ;@line 84
@@ -575,76 +347,76 @@
 						CallMethod StationCurrent self ::temp7 activationRevision coordinator lease  ;@line 89
 						Not ::temp7 ::temp7                                      ;@line 89
 						Cast ::temp7 ::temp7                                     ;@line 89
-						JumpT ::temp7 _label33                                   ;@line 89
+						JumpT ::temp7 _label19                                   ;@line 89
 						Cast ::temp11 operator                                   ;@line 89
 						CompareEQ ::temp12 akActionRef ::temp11                  ;@line 89
 						Not ::temp12 ::temp12                                    ;@line 89
 						Cast ::temp7 ::temp12                                    ;@line 89
-					_label33:
-						JumpF ::temp7 _label34                                   ;@line 89
+					_label19:
+						JumpF ::temp7 _label20                                   ;@line 89
 						CallMethod FinishStationCall self ::NoneVar activationRevision  ;@line 90
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 91
 						Return None                                              ;@line 92
-						Jump _label34                                            ;@line 92
-					_label34:
+						Jump _label20                                            ;@line 92
+					_label20:
 						CompareGT ::temp12 lease 0                               ;@line 94
-						JumpF ::temp12 _label35                                  ;@line 94
+						JumpF ::temp12 _label21                                  ;@line 94
 						CallParent IsPlayerOperating ::temp7                     ;@line 95
 						Assign active ::temp7                                    ;@line 95
 						CallMethod StationCurrent self ::temp7 activationRevision coordinator lease  ;@line 96
 						Cast ::temp7 ::temp7                                     ;@line 96
-						JumpF ::temp7 _label36                                   ;@line 96
+						JumpF ::temp7 _label22                                   ;@line 96
 						Cast ::temp7 active                                      ;@line 96
-					_label36:
-						JumpF ::temp7 _label37                                   ;@line 96
+					_label22:
+						JumpF ::temp7 _label23                                   ;@line 96
 						CallParent OnActivate ::NoneVar akActionRef              ;@line 98
-						Jump _label37                                            ;@line 98
-					_label37:
+						Jump _label23                                            ;@line 98
+					_label23:
 						CallParent IsPlayerOperating ::temp7                     ;@line 100
 						Assign stillActive ::temp7                               ;@line 100
 						CallMethod FinishStationCall self ::NoneVar activationRevision  ;@line 101
 						CallMethod StationCurrent self ::temp7 activationRevision coordinator lease  ;@line 102
 						Not ::temp7 ::temp7                                      ;@line 102
 						Cast ::temp7 ::temp7                                     ;@line 102
-						JumpT ::temp7 _label38                                   ;@line 102
+						JumpT ::temp7 _label24                                   ;@line 102
 						Not ::temp13 stillActive                                 ;@line 102
 						Cast ::temp7 ::temp13                                    ;@line 102
-					_label38:
-						JumpF ::temp7 _label39                                   ;@line 102
+					_label24:
+						JumpF ::temp7 _label25                                   ;@line 102
 						CallMethod EndSession self ::NoneVar                     ;@line 103
-						Jump _label39                                            ;@line 103
-					_label39:
+						Jump _label25                                            ;@line 103
+					_label25:
 						Return None                                              ;@line 105
-						Jump _label35                                            ;@line 105
-					_label35:
+						Jump _label21                                            ;@line 105
+					_label21:
 						Assign configuredGuard ::Guard_var                       ;@line 107
 						Cast ::temp14 None                                       ;@line 108
 						CompareEQ ::temp13 configuredGuard ::temp14              ;@line 108
-						JumpF ::temp13 _label40                                  ;@line 108
+						JumpF ::temp13 _label26                                  ;@line 108
 						CallMethod FinishStationCall self ::NoneVar activationRevision  ;@line 109
 						CallParent RejectActivation ::NoneVar "PROPERTY_GUARD_NONE: falta el coordinador de la estaciÃ³n."  ;@line 110
 						Return None                                              ;@line 111
-						Jump _label40                                            ;@line 111
-					_label40:
+						Jump _label26                                            ;@line 111
+					_label26:
 						CallMethod StationNativeFailure self ::temp8 activationRevision coordinator lease  ;@line 113
 						Assign nativeFailure ::temp8                             ;@line 113
 						CallMethod StationCurrent self ::temp7 activationRevision coordinator lease  ;@line 114
 						Not ::temp12 ::temp7                                     ;@line 114
-						JumpF ::temp12 _label41                                  ;@line 114
+						JumpF ::temp12 _label27                                  ;@line 114
 						CallMethod FinishStationCall self ::NoneVar activationRevision  ;@line 115
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 116
 						Return None                                              ;@line 117
-						Jump _label41                                            ;@line 117
-					_label41:
+						Jump _label27                                            ;@line 117
+					_label27:
 						CompareEQ ::temp13 nativeFailure ""                      ;@line 119
 						Not ::temp13 ::temp13                                    ;@line 119
-						JumpF ::temp13 _label42                                  ;@line 119
+						JumpF ::temp13 _label28                                  ;@line 119
 						CallParent RejectActivation ::NoneVar nativeFailure      ;@line 120
 						CallMethod FinishStationCall self ::NoneVar activationRevision  ;@line 121
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 122
 						Return None                                              ;@line 123
-						Jump _label42                                            ;@line 123
-					_label42:
+						Jump _label28                                            ;@line 123
+					_label28:
 						Assign coordinator configuredGuard                       ;@line 125
 						IAdd ::temp15 stationRevision 1                          ;@line 126
 						Assign stationRevision ::temp15                          ;@line 126
@@ -655,18 +427,18 @@
 						CallMethod ReservePlayerLease coordinator ::temp15       ;@line 131
 						Assign lease ::temp15                                    ;@line 131
 						CompareGT ::temp7 lease 0                                ;@line 134
-						JumpF ::temp7 _label43                                   ;@line 134
+						JumpF ::temp7 _label29                                   ;@line 134
 						Assign stationLease lease                                ;@line 135
-						Jump _label43                                            ;@line 135
-					_label43:
+						Jump _label29                                            ;@line 135
+					_label29:
 						CallMethod StationCurrent self ::temp12 activationRevision coordinator lease  ;@line 137
 						Not ::temp13 ::temp12                                    ;@line 137
 						Cast ::temp12 ::temp13                                   ;@line 137
-						JumpT ::temp12 _label44                                  ;@line 137
+						JumpT ::temp12 _label30                                  ;@line 137
 						CompareLTE ::temp7 lease 0                               ;@line 137
 						Cast ::temp12 ::temp7                                    ;@line 137
-					_label44:
-						JumpF ::temp12 _label45                                  ;@line 137
+					_label30:
+						JumpF ::temp12 _label31                                  ;@line 137
 						Cast ::temp9 self                                        ;@line 138
 						StrCat ::temp8 "AstraAsedioStation reservation rejected ref=" ::temp9  ;@line 138
 						StrCat ::temp9 ::temp8 " lease="                         ;@line 138
@@ -676,34 +448,34 @@
 						CallMethod FinishStationCall self ::NoneVar activationRevision  ;@line 139
 						CallMethod EndSession self ::NoneVar                     ;@line 140
 						Return None                                              ;@line 141
-						Jump _label45                                            ;@line 141
-					_label45:
+						Jump _label31                                            ;@line 141
+					_label31:
 						CallStatic utility GetCurrentRealTime ::temp16           ;@line 143
 						Assign now ::temp16                                      ;@line 143
 						CallMethod StationCurrent self ::temp13 activationRevision coordinator lease  ;@line 144
 						Not ::temp7 ::temp13                                     ;@line 144
 						Cast ::temp13 ::temp7                                    ;@line 144
-						JumpT ::temp13 _label46                                  ;@line 144
+						JumpT ::temp13 _label32                                  ;@line 144
 						CompareEQ ::temp12 now now                               ;@line 144
 						Not ::temp12 ::temp12                                    ;@line 144
 						Cast ::temp13 ::temp12                                   ;@line 144
-					_label46:
+					_label32:
 						Cast ::temp12 ::temp13                                   ;@line 144
-						JumpT ::temp12 _label47                                  ;@line 144
+						JumpT ::temp12 _label33                                  ;@line 144
 						CompareLT ::temp7 now 0.000000                           ;@line 144
 						Cast ::temp12 ::temp7                                    ;@line 144
-					_label47:
+					_label33:
 						Cast ::temp7 ::temp12                                    ;@line 144
-						JumpT ::temp7 _label48                                   ;@line 144
+						JumpT ::temp7 _label34                                   ;@line 144
 						CompareGT ::temp13 now 1000000000.000000                 ;@line 144
 						Cast ::temp7 ::temp13                                    ;@line 144
-					_label48:
-						JumpF ::temp7 _label49                                   ;@line 144
+					_label34:
+						JumpF ::temp7 _label35                                   ;@line 144
 						CallMethod FinishStationCall self ::NoneVar activationRevision  ;@line 145
 						CallMethod EndSession self ::NoneVar                     ;@line 146
 						Return None                                              ;@line 147
-						Jump _label49                                            ;@line 147
-					_label49:
+						Jump _label35                                            ;@line 147
+					_label35:
 						Assign stationWaitStarted now                            ;@line 149
 						FAdd ::temp16 now 10.000000                              ;@line 152
 						Assign stationWaitDeadline ::temp16                      ;@line 152
@@ -711,98 +483,12 @@
 						CallMethod FinishStationCall self ::NoneVar activationRevision  ;@line 154
 						CallMethod StationCurrent self ::temp12 activationRevision coordinator lease  ;@line 155
 						Not ::temp13 ::temp12                                    ;@line 155
-						JumpF ::temp13 _label50                                  ;@line 155
+						JumpF ::temp13 _label36                                  ;@line 155
 						CallMethod EndSession self ::NoneVar                     ;@line 156
 						Return None                                              ;@line 157
-						Jump _label50                                            ;@line 157
-					_label50:
+						Jump _label36                                            ;@line 157
+					_label36:
 						CallMethod PollStationEntry self ::NoneVar               ;@line 159
-					.endCode
-				.endFunction
-				.function GetState
-					.userFlags 0	; Flags: 0x00000000
-					.docString "Function that returns the current state"
-					.return String
-					.paramTable
-					.endParamTable
-					.localTable
-					.endLocalTable
-					.code
-						Return ::State                                           ;@line ??
-					.endCode
-				.endFunction
-				.function StationNativeFailure
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return String
-					.paramTable
-						.param expectedRevision Int
-						.param expectedGuard astraasedioguard
-						.param expectedLease Int
-					.endParamTable
-					.localTable
-						.local ::temp5 Int
-						.local ::temp6 Bool
-						.local skseVersion Int
-						.local pluginVersion Int
-						.local api Int
-						.local available Bool
-					.endLocalTable
-					.code
-						CallStatic skse GetVersion ::temp5                       ;@line 47
-						Assign skseVersion ::temp5                               ;@line 47
-						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 48
-						Not ::temp6 ::temp6                                      ;@line 48
-						JumpF ::temp6 _label51                                   ;@line 48
-						Return "STATION_ENTRY_CANCELLED"                         ;@line 49
-						Jump _label51                                            ;@line 49
-					_label51:
-						CompareLT ::temp6 skseVersion 2                          ;@line 51
-						JumpF ::temp6 _label52                                   ;@line 51
-						Return "SKSE_MISSING: inicia Skyrim con SKSE64."         ;@line 52
-						Jump _label52                                            ;@line 52
-					_label52:
-						CallStatic skse GetPluginVersion ::temp5 "AstraSight"    ;@line 54
-						Assign pluginVersion ::temp5                             ;@line 54
-						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 55
-						Not ::temp6 ::temp6                                      ;@line 55
-						JumpF ::temp6 _label53                                   ;@line 55
-						Return "STATION_ENTRY_CANCELLED"                         ;@line 56
-						Jump _label53                                            ;@line 56
-					_label53:
-						CompareLT ::temp6 pluginVersion 50659392                 ;@line 58
-						JumpF ::temp6 _label54                                   ;@line 58
-						Return "NATIVE_SIGHT_MISSING: instala AstraSight.dll 3.5.4 de esta versiÃ³n."  ;@line 59
-						Jump _label54                                            ;@line 59
-					_label54:
-						CallStatic astrasightnative GetAPIVersion ::temp5        ;@line 61
-						Assign api ::temp5                                       ;@line 61
-						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 62
-						Not ::temp6 ::temp6                                      ;@line 62
-						JumpF ::temp6 _label55                                   ;@line 62
-						Return "STATION_ENTRY_CANCELLED"                         ;@line 63
-						Jump _label55                                            ;@line 63
-					_label55:
-						CompareEQ ::temp6 api 4                                  ;@line 65
-						Not ::temp6 ::temp6                                      ;@line 65
-						JumpF ::temp6 _label56                                   ;@line 65
-						Return "NATIVE_API_MISMATCH: reinstala los archivos completos de esta versiÃ³n."  ;@line 66
-						Jump _label56                                            ;@line 66
-					_label56:
-						CallStatic astrasightnative IsAvailable ::temp6          ;@line 68
-						Assign available ::temp6                                 ;@line 68
-						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 69
-						Not ::temp6 ::temp6                                      ;@line 69
-						JumpF ::temp6 _label57                                   ;@line 69
-						Return "STATION_ENTRY_CANCELLED"                         ;@line 70
-						Jump _label57                                            ;@line 70
-					_label57:
-						Not ::temp6 available                                    ;@line 72
-						JumpF ::temp6 _label58                                   ;@line 72
-						Return "NATIVE_SIGHT_UNAVAILABLE: la mira nativa no estÃ¡ disponible."  ;@line 73
-						Jump _label58                                            ;@line 73
-					_label58:
-						Return ""                                                ;@line 75
 					.endCode
 				.endFunction
 				.function StationEntryValid
@@ -829,78 +515,78 @@
 						CallMethod StationCurrent self ::temp17 expectedRevision expectedGuard expectedLease  ;@line 163
 						Not ::temp17 ::temp17                                    ;@line 163
 						Cast ::temp17 ::temp17                                   ;@line 163
-						JumpT ::temp17 _label59                                  ;@line 163
+						JumpT ::temp17 _label37                                  ;@line 163
 						Cast ::temp18 None                                       ;@line 163
 						CompareEQ ::temp19 operator ::temp18                     ;@line 163
 						Cast ::temp17 ::temp19                                   ;@line 163
-					_label59:
+					_label37:
 						Cast ::temp19 ::temp17                                   ;@line 163
-						JumpT ::temp19 _label60                                  ;@line 163
+						JumpT ::temp19 _label38                                  ;@line 163
 						Cast ::temp19 stationUnavailable                         ;@line 163
-					_label60:
+					_label38:
 						Cast ::temp17 ::temp19                                   ;@line 163
-						JumpT ::temp17 _label61                                  ;@line 163
+						JumpT ::temp17 _label39                                  ;@line 163
 						Cast ::temp17 stationDestroyed                           ;@line 163
-					_label61:
-						JumpF ::temp17 _label62                                  ;@line 163
+					_label39:
+						JumpF ::temp17 _label40                                  ;@line 163
 						Return False                                             ;@line 164
-						Jump _label62                                            ;@line 164
-					_label62:
+						Jump _label40                                            ;@line 164
+					_label40:
 						CallMethod Is3DLoaded self ::temp19                      ;@line 166
 						Assign loaded ::temp19                                   ;@line 166
 						CallMethod StationCurrent self ::temp17 expectedRevision expectedGuard expectedLease  ;@line 167
 						Not ::temp19 ::temp17                                    ;@line 167
 						Cast ::temp19 ::temp19                                   ;@line 167
-						JumpT ::temp19 _label63                                  ;@line 167
+						JumpT ::temp19 _label41                                  ;@line 167
 						Not ::temp17 loaded                                      ;@line 167
 						Cast ::temp19 ::temp17                                   ;@line 167
-					_label63:
-						JumpF ::temp19 _label64                                  ;@line 167
+					_label41:
+						JumpF ::temp19 _label42                                  ;@line 167
 						Return False                                             ;@line 168
-						Jump _label64                                            ;@line 168
-					_label64:
+						Jump _label42                                            ;@line 168
+					_label42:
 						CallStatic utility IsInMenuMode ::temp17                 ;@line 170
 						Assign menuOpen ::temp17                                 ;@line 170
 						CallMethod StationCurrent self ::temp19 expectedRevision expectedGuard expectedLease  ;@line 171
 						Not ::temp17 ::temp19                                    ;@line 171
 						Cast ::temp19 ::temp17                                   ;@line 171
-						JumpT ::temp19 _label65                                  ;@line 171
+						JumpT ::temp19 _label43                                  ;@line 171
 						Cast ::temp19 menuOpen                                   ;@line 171
-					_label65:
-						JumpF ::temp19 _label66                                  ;@line 171
+					_label43:
+						JumpF ::temp19 _label44                                  ;@line 171
 						Return False                                             ;@line 172
-						Jump _label66                                            ;@line 172
-					_label66:
+						Jump _label44                                            ;@line 172
+					_label44:
 						CallMethod IsDead operator ::temp17                      ;@line 174
 						Assign dead ::temp17                                     ;@line 174
 						CallMethod StationCurrent self ::temp19 expectedRevision expectedGuard expectedLease  ;@line 175
 						Not ::temp17 ::temp19                                    ;@line 175
 						Cast ::temp19 ::temp17                                   ;@line 175
-						JumpT ::temp19 _label67                                  ;@line 175
+						JumpT ::temp19 _label45                                  ;@line 175
 						Cast ::temp19 dead                                       ;@line 175
-					_label67:
-						JumpF ::temp19 _label68                                  ;@line 175
+					_label45:
+						JumpF ::temp19 _label46                                  ;@line 175
 						Return False                                             ;@line 176
-						Jump _label68                                            ;@line 176
-					_label68:
+						Jump _label46                                            ;@line 176
+					_label46:
 						CallStatic utility GetCurrentRealTime ::temp20           ;@line 178
 						Assign now ::temp20                                      ;@line 178
 						CallMethod StationCurrent self ::temp17 expectedRevision expectedGuard expectedLease  ;@line 179
 						Cast ::temp17 ::temp17                                   ;@line 179
-						JumpF ::temp17 _label69                                  ;@line 179
+						JumpF ::temp17 _label47                                  ;@line 179
 						CompareEQ ::temp19 now now                               ;@line 179
 						Cast ::temp17 ::temp19                                   ;@line 179
-					_label69:
+					_label47:
 						Cast ::temp17 ::temp17                                   ;@line 179
-						JumpF ::temp17 _label70                                  ;@line 179
+						JumpF ::temp17 _label48                                  ;@line 179
 						CompareGTE ::temp19 now stationWaitStarted               ;@line 179
 						Cast ::temp17 ::temp19                                   ;@line 179
-					_label70:
+					_label48:
 						Cast ::temp17 ::temp17                                   ;@line 179
-						JumpF ::temp17 _label71                                  ;@line 179
+						JumpF ::temp17 _label49                                  ;@line 179
 						CompareLTE ::temp19 now stationWaitDeadline              ;@line 179
 						Cast ::temp17 ::temp19                                   ;@line 179
-					_label71:
+					_label49:
 						Return ::temp17                                          ;@line 179
 					.endCode
 				.endFunction
@@ -917,22 +603,182 @@
 					.endLocalTable
 					.code
 						Cast ::temp2 stationWaiting                              ;@line 31
-						JumpT ::temp2 _label72                                   ;@line 31
+						JumpT ::temp2 _label50                                   ;@line 31
 						Cast ::temp2 stationReleasing                            ;@line 31
-					_label72:
+					_label50:
 						Cast ::temp2 ::temp2                                     ;@line 31
-						JumpT ::temp2 _label73                                   ;@line 31
+						JumpT ::temp2 _label51                                   ;@line 31
 						Cast ::temp3 stationBusy                                 ;@line 31
-						JumpF ::temp3 _label74                                   ;@line 31
+						JumpF ::temp3 _label52                                   ;@line 31
 						CompareGT ::temp3 stationLease 0                         ;@line 31
 						Cast ::temp3 ::temp3                                     ;@line 31
-					_label74:
+					_label52:
 						Cast ::temp2 ::temp3                                     ;@line 31
-					_label73:
-						JumpF ::temp2 _label75                                   ;@line 31
+					_label51:
+						JumpF ::temp2 _label53                                   ;@line 31
 						CallMethod RegisterForSingleUpdate self ::NoneVar 0.050000  ;@line 32
-						Jump _label75                                            ;@line 32
-					_label75:
+						Jump _label53                                            ;@line 32
+					_label53:
+					.endCode
+				.endFunction
+				.function OnCellDetach
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp44 String
+						.local ::temp45 String
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						Cast ::temp44 self                                       ;@line 370
+						StrCat ::temp44 "AstraAsedioStation OnCellDetach ref=" ::temp44  ;@line 370
+						StrCat ::temp44 ::temp44 " revision="                    ;@line 370
+						Cast ::temp45 stationRevision                            ;@line 370
+						StrCat ::temp45 ::temp44 ::temp45                        ;@line 370
+						CallStatic debug Trace ::NoneVar ::temp45 0              ;@line 370
+						Assign stationUnavailable True                           ;@line 371
+						CallMethod EndSession self ::NoneVar                     ;@line 372
+					.endCode
+				.endFunction
+				.function OnUnload
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp42 String
+						.local ::temp43 String
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						Cast ::temp42 self                                       ;@line 364
+						StrCat ::temp42 "AstraAsedioStation OnUnload ref=" ::temp42  ;@line 364
+						StrCat ::temp42 ::temp42 " revision="                    ;@line 364
+						Cast ::temp43 stationRevision                            ;@line 364
+						StrCat ::temp43 ::temp42 ::temp43                        ;@line 364
+						CallStatic debug Trace ::NoneVar ::temp43 0              ;@line 364
+						Assign stationUnavailable True                           ;@line 365
+						CallMethod EndSession self ::NoneVar                     ;@line 366
+					.endCode
+				.endFunction
+				.function OnInit
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallParent OnInit ::NoneVar                              ;@line 21
+					.endCode
+				.endFunction
+				.function FinishStationCall
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param expectedRevision Int
+					.endParamTable
+					.localTable
+						.local ::temp4 Bool
+					.endLocalTable
+					.code
+						Cast ::temp4 stationBusy                                 ;@line 39
+						JumpF ::temp4 _label54                                   ;@line 39
+						CompareEQ ::temp4 stationBusyRevision expectedRevision   ;@line 39
+						Cast ::temp4 ::temp4                                     ;@line 39
+					_label54:
+						JumpF ::temp4 _label55                                   ;@line 39
+						Assign stationBusy False                                 ;@line 40
+						Assign stationBusyRevision -1                            ;@line 41
+						Jump _label55                                            ;@line 41
+					_label55:
+					.endCode
+				.endFunction
+				.function GetState
+					.userFlags 0	; Flags: 0x00000000
+					.docString "Function that returns the current state"
+					.return String
+					.paramTable
+					.endParamTable
+					.localTable
+					.endLocalTable
+					.code
+						Return ::State                                           ;@line ??
+					.endCode
+				.endFunction
+				.function OnUpdate
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp39 Bool
+						.local ::temp40 Bool
+						.local ::NoneVar None
+						.local ::temp41 Bool
+						.local updateRevision Int
+						.local coordinator astraasedioguard
+						.local lease Int
+						.local active Bool
+						.local stillActive Bool
+					.endLocalTable
+					.code
+						JumpF stationWaiting _label56                            ;@line 332
+						CallMethod PollStationEntry self ::NoneVar               ;@line 333
+						Jump _label57                                            ;@line 333
+					_label56:
+						JumpF stationReleasing _label58                          ;@line 334
+						CallMethod PollStationRelease self ::NoneVar             ;@line 335
+						Jump _label57                                            ;@line 335
+					_label58:
+						Not ::temp39 stationBusy                                 ;@line 336
+						Cast ::temp39 ::temp39                                   ;@line 336
+						JumpF ::temp39 _label59                                  ;@line 336
+						CompareGT ::temp40 stationLease 0                        ;@line 336
+						Cast ::temp39 ::temp40                                   ;@line 336
+					_label59:
+						JumpF ::temp39 _label57                                  ;@line 336
+						Assign stationBusy True                                  ;@line 337
+						Assign updateRevision stationRevision                    ;@line 338
+						Assign stationBusyRevision updateRevision                ;@line 339
+						Assign coordinator stationCoordinator                    ;@line 340
+						Assign lease stationLease                                ;@line 341
+						CallParent IsPlayerOperating ::temp40                    ;@line 342
+						Assign active ::temp40                                   ;@line 342
+						CallMethod StationCurrent self ::temp40 updateRevision coordinator lease  ;@line 343
+						Cast ::temp40 ::temp40                                   ;@line 343
+						JumpF ::temp40 _label60                                  ;@line 343
+						Cast ::temp40 active                                     ;@line 343
+					_label60:
+						JumpF ::temp40 _label61                                  ;@line 343
+						CallParent OnUpdate ::NoneVar                            ;@line 344
+						Jump _label61                                            ;@line 344
+					_label61:
+						CallParent IsPlayerOperating ::temp40                    ;@line 346
+						Assign stillActive ::temp40                              ;@line 346
+						CallMethod FinishStationCall self ::NoneVar updateRevision  ;@line 347
+						CallMethod StationCurrent self ::temp40 updateRevision coordinator lease  ;@line 348
+						Not ::temp40 ::temp40                                    ;@line 348
+						Cast ::temp40 ::temp40                                   ;@line 348
+						JumpT ::temp40 _label62                                  ;@line 348
+						Not ::temp41 stillActive                                 ;@line 348
+						Cast ::temp40 ::temp41                                   ;@line 348
+					_label62:
+						JumpF ::temp40 _label63                                  ;@line 348
+						CallMethod EndSession self ::NoneVar                     ;@line 349
+						Jump _label63                                            ;@line 349
+					_label63:
+						Jump _label57                                            ;@line 349
+					_label57:
+						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 352
 					.endCode
 				.endFunction
 				.function OnDestructionStageChanged
@@ -949,11 +795,63 @@
 					.endLocalTable
 					.code
 						CompareGT ::temp46 aiCurrentStage 0                      ;@line 376
-						JumpF ::temp46 _label76                                  ;@line 376
+						JumpF ::temp46 _label64                                  ;@line 376
 						Assign stationDestroyed True                             ;@line 377
 						CallMethod EndSession self ::NoneVar                     ;@line 378
-						Jump _label76                                            ;@line 378
-					_label76:
+						Jump _label64                                            ;@line 378
+					_label64:
+					.endCode
+				.endFunction
+				.function OnLoad
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp47 String
+						.local ::temp48 String
+						.local ::NoneVar None
+						.local ::temp49 Int
+						.local ::temp50 Bool
+						.local ::temp51 astraasedioguard
+						.local loadRevision Int
+						.local ownSlot Bool
+					.endLocalTable
+					.code
+						Cast ::temp47 self                                       ;@line 383
+						StrCat ::temp47 "AstraAsedioStation OnLoad ref=" ::temp47  ;@line 383
+						StrCat ::temp47 ::temp47 " revision="                    ;@line 383
+						Cast ::temp48 stationRevision                            ;@line 383
+						StrCat ::temp48 ::temp47 ::temp48                        ;@line 383
+						CallStatic debug Trace ::NoneVar ::temp48 0              ;@line 383
+						Assign stationUnavailable False                          ;@line 385
+						IAdd ::temp49 stationRevision 1                          ;@line 386
+						Assign stationRevision ::temp49                          ;@line 386
+						Assign loadRevision stationRevision                      ;@line 387
+						Not ::temp50 stationBusy                                 ;@line 388
+						Assign ownSlot ::temp50                                  ;@line 388
+						JumpF ownSlot _label65                                   ;@line 389
+						Assign stationBusy True                                  ;@line 390
+						Assign stationBusyRevision loadRevision                  ;@line 391
+						Jump _label65                                            ;@line 391
+					_label65:
+						Assign stationWaiting False                              ;@line 393
+						Assign stationReleaseStarted 0.000000                    ;@line 394
+						Assign stationReleaseDeadline 0.000000                   ;@line 395
+						Cast ::temp51 None                                       ;@line 396
+						CompareEQ ::temp50 stationCoordinator ::temp51           ;@line 396
+						Not ::temp50 ::temp50                                    ;@line 396
+						Assign stationReleasing ::temp50                         ;@line 396
+						CallParent RecoverStationLoad ::NoneVar                  ;@line 399
+						CallParent NormalizeTimingProperties ::NoneVar           ;@line 400
+						CallMethod BlockActivation self ::NoneVar True           ;@line 401
+						JumpF ownSlot _label66                                   ;@line 402
+						CallMethod FinishStationCall self ::NoneVar loadRevision  ;@line 403
+						Jump _label66                                            ;@line 403
+					_label66:
+						CallMethod PollStationRelease self ::NoneVar             ;@line 405
+						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 406
 					.endCode
 				.endFunction
 				.function PollStationRelease
@@ -985,14 +883,14 @@
 					.endLocalTable
 					.code
 						Cast ::temp30 stationBusy                                ;@line 245
-						JumpT ::temp30 _label77                                  ;@line 245
+						JumpT ::temp30 _label67                                  ;@line 245
 						Not ::temp30 stationReleasing                            ;@line 245
 						Cast ::temp30 ::temp30                                   ;@line 245
-					_label77:
-						JumpF ::temp30 _label78                                  ;@line 245
+					_label67:
+						JumpF ::temp30 _label68                                  ;@line 245
 						Return None                                              ;@line 246
-						Jump _label78                                            ;@line 246
-					_label78:
+						Jump _label68                                            ;@line 246
+					_label68:
 						Assign stationBusy True                                  ;@line 248
 						Assign releaseRevision stationRevision                   ;@line 249
 						Assign stationBusyRevision releaseRevision               ;@line 250
@@ -1003,106 +901,106 @@
 						CallMethod StationCurrent self ::temp30 releaseRevision coordinator lease  ;@line 254
 						Not ::temp30 ::temp30                                    ;@line 254
 						Cast ::temp30 ::temp30                                   ;@line 254
-						JumpT ::temp30 _label79                                  ;@line 254
+						JumpT ::temp30 _label69                                  ;@line 254
 						Cast ::temp30 active                                     ;@line 254
-					_label79:
-						JumpF ::temp30 _label80                                  ;@line 254
+					_label69:
+						JumpF ::temp30 _label70                                  ;@line 254
 						CallMethod FinishStationCall self ::NoneVar releaseRevision  ;@line 255
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 256
 						Return None                                              ;@line 257
-						Jump _label80                                            ;@line 257
-					_label80:
+						Jump _label70                                            ;@line 257
+					_label70:
 						CallParent IsPlayerCleanupPending ::temp30               ;@line 259
 						Assign pending ::temp30                                  ;@line 259
 						CallMethod StationCurrent self ::temp30 releaseRevision coordinator lease  ;@line 260
 						Not ::temp30 ::temp30                                    ;@line 260
 						Cast ::temp30 ::temp30                                   ;@line 260
-						JumpT ::temp30 _label81                                  ;@line 260
+						JumpT ::temp30 _label71                                  ;@line 260
 						Cast ::temp30 pending                                    ;@line 260
-					_label81:
-						JumpF ::temp30 _label82                                  ;@line 260
+					_label71:
+						JumpF ::temp30 _label72                                  ;@line 260
 						CallMethod FinishStationCall self ::NoneVar releaseRevision  ;@line 261
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 262
 						Return None                                              ;@line 263
-						Jump _label82                                            ;@line 263
-					_label82:
+						Jump _label72                                            ;@line 263
+					_label72:
 						CallStatic skse GetPluginVersion ::temp31 "AstraSight"   ;@line 266
 						Assign pluginVersion ::temp31                            ;@line 266
 						CallMethod StationCurrent self ::temp30 releaseRevision coordinator lease  ;@line 267
 						Not ::temp30 ::temp30                                    ;@line 267
-						JumpF ::temp30 _label83                                  ;@line 267
+						JumpF ::temp30 _label73                                  ;@line 267
 						CallMethod FinishStationCall self ::NoneVar releaseRevision  ;@line 268
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 269
 						Return None                                              ;@line 270
-						Jump _label83                                            ;@line 270
-					_label83:
+						Jump _label73                                            ;@line 270
+					_label73:
 						Assign quiet True                                        ;@line 272
 						CompareGTE ::temp30 pluginVersion 50659328               ;@line 273
-						JumpF ::temp30 _label84                                  ;@line 273
+						JumpF ::temp30 _label74                                  ;@line 273
 						Cast ::temp32 self                                       ;@line 274
 						CallStatic astrasightnative IsEffectsQuiescent ::temp33 ::temp32 0  ;@line 274
 						Assign quiet ::temp33                                    ;@line 274
-						Jump _label84                                            ;@line 274
-					_label84:
+						Jump _label74                                            ;@line 274
+					_label74:
 						CallMethod StationCurrent self ::temp33 releaseRevision coordinator lease  ;@line 276
 						Not ::temp30 ::temp33                                    ;@line 276
-						JumpF ::temp30 _label85                                  ;@line 276
+						JumpF ::temp30 _label75                                  ;@line 276
 						CallMethod FinishStationCall self ::NoneVar releaseRevision  ;@line 277
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 278
 						Return None                                              ;@line 279
-						Jump _label85                                            ;@line 279
-					_label85:
+						Jump _label75                                            ;@line 279
+					_label75:
 						Not ::temp33 quiet                                       ;@line 281
-						JumpF ::temp33 _label86                                  ;@line 281
+						JumpF ::temp33 _label76                                  ;@line 281
 						CallStatic utility GetCurrentRealTime ::temp34           ;@line 282
 						Assign now ::temp34                                      ;@line 282
 						CallMethod StationCurrent self ::temp30 releaseRevision coordinator lease  ;@line 283
 						Not ::temp30 ::temp30                                    ;@line 283
-						JumpF ::temp30 _label87                                  ;@line 283
+						JumpF ::temp30 _label77                                  ;@line 283
 						CallMethod FinishStationCall self ::NoneVar releaseRevision  ;@line 284
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 285
 						Return None                                              ;@line 286
-						Jump _label87                                            ;@line 286
-					_label87:
+						Jump _label77                                            ;@line 286
+					_label77:
 						CompareEQ ::temp30 now now                               ;@line 290
 						Cast ::temp30 ::temp30                                   ;@line 290
-						JumpF ::temp30 _label88                                  ;@line 290
+						JumpF ::temp30 _label78                                  ;@line 290
 						CompareGTE ::temp35 now 0.000000                         ;@line 290
 						Cast ::temp30 ::temp35                                   ;@line 290
-					_label88:
+					_label78:
 						Cast ::temp30 ::temp30                                   ;@line 290
-						JumpF ::temp30 _label89                                  ;@line 290
+						JumpF ::temp30 _label79                                  ;@line 290
 						CompareLTE ::temp35 now 1000000000.000000                ;@line 290
 						Cast ::temp30 ::temp35                                   ;@line 290
-					_label89:
+					_label79:
 						Assign clockOk ::temp30                                  ;@line 290
 						Cast ::temp30 clockOk                                    ;@line 291
-						JumpF ::temp30 _label90                                  ;@line 291
+						JumpF ::temp30 _label80                                  ;@line 291
 						CompareLTE ::temp35 stationReleaseDeadline 0.000000      ;@line 291
 						Cast ::temp30 ::temp35                                   ;@line 291
-					_label90:
-						JumpF ::temp30 _label91                                  ;@line 291
+					_label80:
+						JumpF ::temp30 _label81                                  ;@line 291
 						Assign stationReleaseStarted now                         ;@line 292
 						FAdd ::temp34 now 5.000000                               ;@line 293
 						Assign stationReleaseDeadline ::temp34                   ;@line 293
-						Jump _label91                                            ;@line 293
-					_label91:
+						Jump _label81                                            ;@line 293
+					_label81:
 						Cast ::temp30 clockOk                                    ;@line 295
-						JumpF ::temp30 _label92                                  ;@line 295
+						JumpF ::temp30 _label82                                  ;@line 295
 						CompareGTE ::temp35 now stationReleaseStarted            ;@line 295
 						Cast ::temp30 ::temp35                                   ;@line 295
-					_label92:
+					_label82:
 						Cast ::temp30 ::temp30                                   ;@line 295
-						JumpF ::temp30 _label93                                  ;@line 295
+						JumpF ::temp30 _label83                                  ;@line 295
 						CompareLTE ::temp35 now stationReleaseDeadline           ;@line 295
 						Cast ::temp30 ::temp35                                   ;@line 295
-					_label93:
-						JumpF ::temp30 _label94                                  ;@line 295
+					_label83:
+						JumpF ::temp30 _label84                                  ;@line 295
 						CallMethod FinishStationCall self ::NoneVar releaseRevision  ;@line 296
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 297
 						Return None                                              ;@line 298
-						Jump _label94                                            ;@line 298
-					_label94:
+						Jump _label84                                            ;@line 298
+					_label84:
 						Cast ::temp36 self                                       ;@line 300
 						StrCat ::temp36 "AstraAsedioStation effects quiescence timed out ref=" ::temp36  ;@line 300
 						StrCat ::temp36 ::temp36 " lease="                       ;@line 300
@@ -1111,52 +1009,154 @@
 						CallStatic debug Trace ::NoneVar ::temp37 0              ;@line 300
 						CallMethod StationCurrent self ::temp35 releaseRevision coordinator lease  ;@line 301
 						Not ::temp30 ::temp35                                    ;@line 301
-						JumpF ::temp30 _label95                                  ;@line 301
+						JumpF ::temp30 _label85                                  ;@line 301
 						CallMethod FinishStationCall self ::NoneVar releaseRevision  ;@line 302
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 303
 						Return None                                              ;@line 304
-						Jump _label95                                            ;@line 304
-					_label95:
+						Jump _label85                                            ;@line 304
+					_label85:
 						Assign quiet True                                        ;@line 306
-						Jump _label86                                            ;@line 306
-					_label86:
+						Jump _label76                                            ;@line 306
+					_label76:
 						CallMethod StationCurrent self ::temp35 releaseRevision coordinator lease  ;@line 308
 						Not ::temp30 ::temp35                                    ;@line 308
 						Cast ::temp35 ::temp30                                   ;@line 308
-						JumpT ::temp35 _label96                                  ;@line 308
+						JumpT ::temp35 _label86                                  ;@line 308
 						Not ::temp33 quiet                                       ;@line 308
 						Cast ::temp35 ::temp33                                   ;@line 308
-					_label96:
-						JumpF ::temp35 _label97                                  ;@line 308
+					_label86:
+						JumpF ::temp35 _label87                                  ;@line 308
 						CallMethod FinishStationCall self ::NoneVar releaseRevision  ;@line 309
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 310
 						Return None                                              ;@line 311
-						Jump _label97                                            ;@line 311
-					_label97:
+						Jump _label87                                            ;@line 311
+					_label87:
 						Assign stationReleaseStarted 0.000000                    ;@line 315
 						Assign stationReleaseDeadline 0.000000                   ;@line 316
 						Cast ::temp38 None                                       ;@line 317
 						CompareEQ ::temp30 coordinator ::temp38                  ;@line 317
 						Not ::temp30 ::temp30                                    ;@line 317
 						Cast ::temp35 ::temp30                                   ;@line 317
-						JumpF ::temp35 _label98                                  ;@line 317
+						JumpF ::temp35 _label88                                  ;@line 317
 						CompareGT ::temp33 lease 0                               ;@line 317
 						Cast ::temp35 ::temp33                                   ;@line 317
-					_label98:
-						JumpF ::temp35 _label99                                  ;@line 317
+					_label88:
+						JumpF ::temp35 _label89                                  ;@line 317
 						CallMethod ReleasePlayerLease coordinator ::temp30 lease  ;@line 320
-						Jump _label99                                            ;@line 320
-					_label99:
+						Jump _label89                                            ;@line 320
+					_label89:
 						CallMethod StationCurrent self ::temp33 releaseRevision coordinator lease  ;@line 322
-						JumpF ::temp33 _label100                                 ;@line 322
+						JumpF ::temp33 _label90                                  ;@line 322
 						Cast ::temp38 None                                       ;@line 323
 						Assign stationCoordinator ::temp38                       ;@line 323
 						Assign stationLease 0                                    ;@line 324
 						Assign stationReleasing False                            ;@line 325
-						Jump _label100                                           ;@line 325
-					_label100:
+						Jump _label90                                            ;@line 325
+					_label90:
 						CallMethod FinishStationCall self ::NoneVar releaseRevision  ;@line 327
 						CallMethod ScheduleStationPoll self ::NoneVar            ;@line 328
+					.endCode
+				.endFunction
+				.function StationNativeFailure
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return String
+					.paramTable
+						.param expectedRevision Int
+						.param expectedGuard astraasedioguard
+						.param expectedLease Int
+					.endParamTable
+					.localTable
+						.local ::temp5 Int
+						.local ::temp6 Bool
+						.local skseVersion Int
+						.local pluginVersion Int
+						.local api Int
+						.local available Bool
+					.endLocalTable
+					.code
+						CallStatic skse GetVersion ::temp5                       ;@line 47
+						Assign skseVersion ::temp5                               ;@line 47
+						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 48
+						Not ::temp6 ::temp6                                      ;@line 48
+						JumpF ::temp6 _label91                                   ;@line 48
+						Return "STATION_ENTRY_CANCELLED"                         ;@line 49
+						Jump _label91                                            ;@line 49
+					_label91:
+						CompareLT ::temp6 skseVersion 2                          ;@line 51
+						JumpF ::temp6 _label92                                   ;@line 51
+						Return "SKSE_MISSING: inicia Skyrim con SKSE64."         ;@line 52
+						Jump _label92                                            ;@line 52
+					_label92:
+						CallStatic skse GetPluginVersion ::temp5 "AstraSight"    ;@line 54
+						Assign pluginVersion ::temp5                             ;@line 54
+						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 55
+						Not ::temp6 ::temp6                                      ;@line 55
+						JumpF ::temp6 _label93                                   ;@line 55
+						Return "STATION_ENTRY_CANCELLED"                         ;@line 56
+						Jump _label93                                            ;@line 56
+					_label93:
+						CompareLT ::temp6 pluginVersion 50659392                 ;@line 58
+						JumpF ::temp6 _label94                                   ;@line 58
+						Return "NATIVE_SIGHT_MISSING: instala AstraSight.dll 3.5.4 de esta versiÃ³n."  ;@line 59
+						Jump _label94                                            ;@line 59
+					_label94:
+						CallStatic astrasightnative GetAPIVersion ::temp5        ;@line 61
+						Assign api ::temp5                                       ;@line 61
+						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 62
+						Not ::temp6 ::temp6                                      ;@line 62
+						JumpF ::temp6 _label95                                   ;@line 62
+						Return "STATION_ENTRY_CANCELLED"                         ;@line 63
+						Jump _label95                                            ;@line 63
+					_label95:
+						CompareEQ ::temp6 api 4                                  ;@line 65
+						Not ::temp6 ::temp6                                      ;@line 65
+						JumpF ::temp6 _label96                                   ;@line 65
+						Return "NATIVE_API_MISMATCH: reinstala los archivos completos de esta versiÃ³n."  ;@line 66
+						Jump _label96                                            ;@line 66
+					_label96:
+						CallStatic astrasightnative IsAvailable ::temp6          ;@line 68
+						Assign available ::temp6                                 ;@line 68
+						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 69
+						Not ::temp6 ::temp6                                      ;@line 69
+						JumpF ::temp6 _label97                                   ;@line 69
+						Return "STATION_ENTRY_CANCELLED"                         ;@line 70
+						Jump _label97                                            ;@line 70
+					_label97:
+						Not ::temp6 available                                    ;@line 72
+						JumpF ::temp6 _label98                                   ;@line 72
+						Return "NATIVE_SIGHT_UNAVAILABLE: la mira nativa no estÃ¡ disponible."  ;@line 73
+						Jump _label98                                            ;@line 73
+					_label98:
+						Return ""                                                ;@line 75
+					.endCode
+				.endFunction
+				.function StationCurrent
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param expectedRevision Int
+						.param expectedGuard astraasedioguard
+						.param expectedLease Int
+					.endParamTable
+					.localTable
+						.local ::temp0 Bool
+						.local ::temp1 Bool
+					.endLocalTable
+					.code
+						CompareEQ ::temp0 stationRevision expectedRevision       ;@line 25
+						Cast ::temp0 ::temp0                                     ;@line 25
+						JumpF ::temp0 _label99                                   ;@line 25
+						CompareEQ ::temp1 stationCoordinator expectedGuard       ;@line 25
+						Cast ::temp0 ::temp1                                     ;@line 25
+					_label99:
+						Cast ::temp0 ::temp0                                     ;@line 25
+						JumpF ::temp0 _label100                                  ;@line 25
+						CompareEQ ::temp1 stationLease expectedLease             ;@line 25
+						Cast ::temp0 ::temp1                                     ;@line 25
+					_label100:
+						Return ::temp0                                           ;@line 25
 					.endCode
 				.endFunction
 			.endState

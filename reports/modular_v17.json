@@ -1,6 +1,6 @@
 {
   "revision": 17,
-  "core_sha256": "c74e4ab88910b8bf97b9e84b69b51529dc5e02cfe2db8a70c480028015c3aaa9",
+  "core_sha256": "f91b135fa1235f0b4f3c7a6b7a2da0e3d827bd9d846054a450c92b3e0d3c7a7c",
   "core_unchanged_from_v14": true,
   "atalaya_unchanged_from_v14": true,
   "whiterun_torres": {
@@ -12,7 +12,7 @@
       "Dawnguard.esm",
       "AstraAsedio.esp"
     ],
-    "sha256": "b1bf734136892dbddfad835a36be0a0f60aa60f7286c0be7561e7c2d7e80b685"
+    "sha256": "69a834b68588d30e270fadf4d29ca2b3ae702318f079e69120391bbbcc0d284c"
   },
   "platforms_evidence_sha256": "dc9db170a75c68ecd8b53d3da727b17eab0cf24dada81049a4430aec1e3534f4",
   "placements": [

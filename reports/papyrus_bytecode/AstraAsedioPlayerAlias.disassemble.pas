@@ -1,7 +1,7 @@
 .info
 	.source "AstraAsedioPlayerAlias.psc"
 	.modifyTime 1791645499 ;Sat Oct 10 12:18:19 2026 Local
-	.compileTime 1791678046 ;Sat Oct 10 21:20:46 2026 Local
+	.compileTime 1791679483 ;Sat Oct 10 21:44:43 2026 Local
 	.user "AstraAsedio"
 	.computer "Build"
 .endInfo
@@ -19,13 +19,13 @@
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
-			.variable cityRetirementPending Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
 			.variable ::Session_var astraasediosession
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue None
+			.endVariable
+			.variable cityRetirementPending Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
 			.endVariable
 		.endVariableTable
 		.propertyTable
@@ -63,20 +63,6 @@
 						CallMethod onEndState self ::NoneVar                     ;@line ??
 						Assign ::State newState                                  ;@line ??
 						CallMethod onBeginState self ::NoneVar                   ;@line ??
-					.endCode
-				.endFunction
-				.function OnDeath
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param akKiller Actor
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod CleanupSession self ::NoneVar                 ;@line 14
 					.endCode
 				.endFunction
 				.function RetireLegacyCity
@@ -177,6 +163,20 @@
 						Return True                                              ;@line 85
 					.endCode
 				.endFunction
+				.function OnDeath
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param akKiller Actor
+					.endParamTable
+					.localTable
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod CleanupSession self ::NoneVar                 ;@line 14
+					.endCode
+				.endFunction
 				.function OnPlayerLoadGame
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
@@ -271,6 +271,20 @@
 					_label14:
 					.endCode
 				.endFunction
+				.function StartCityRetirement
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						Assign cityRetirementPending True                        ;@line 29
+						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 30
+					.endCode
+				.endFunction
 				.function OnInit
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
@@ -292,20 +306,6 @@
 						StrCat ::temp2 ::temp1 ::temp2                           ;@line 6
 						CallStatic debug Trace ::NoneVar ::temp2 0               ;@line 6
 						CallMethod StartCityRetirement self ::NoneVar            ;@line 7
-					.endCode
-				.endFunction
-				.function StartCityRetirement
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						Assign cityRetirementPending True                        ;@line 29
-						CallMethod RegisterForSingleUpdate self ::NoneVar 0.200000  ;@line 30
 					.endCode
 				.endFunction
 			.endState

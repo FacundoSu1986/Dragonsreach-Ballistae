@@ -25,8 +25,14 @@ def parent_meshes():
 
 
 class ShippedNifFamily(unittest.TestCase):
-    def test_the_family_is_the_three_shipped_nifs(self):
-        self.assertEqual({p.name for p in shipped()}, {'torre.nif', 'ballesta.nif', 'virote.nif'})
+    def test_the_family_is_the_shipped_nifs(self):
+        # La familia creció respecto de v08: `torre_whiterun.nif` (STAT del addon de ciudad) y
+        # `ballesta_guardia.nif` (v22, la torreta baja del guardia, pivote 117). Las dos son
+        # NIF embarcados con colision Havok, asi que las pruebas de fisica de arriba las
+        # recorren solas; esta lista es la que hace visible que aparecio una nueva.
+        self.assertEqual({p.name for p in shipped()},
+                         {'torre.nif', 'torre_whiterun.nif', 'ballesta.nif',
+                          'ballesta_guardia.nif', 'virote.nif'})
 
     def test_no_shipped_shape_carries_an_alpha_property(self):
         # No material of this mod needs alpha: the walkway DXT1 has zero transparent texels.

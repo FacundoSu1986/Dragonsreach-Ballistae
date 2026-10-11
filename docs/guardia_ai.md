@@ -75,12 +75,18 @@ sección `guardia`.
 1. `python scripts/build_assets.py` (y el resto del pipeline v21, como siempre).
 2. `python scripts/build_modular_v13.py` — corre en cadena `patch_plugin_v12.py` (baseline v11
    → core con estructura, escudos, Z de la ballesta, navmesh, **y el guardia**) y después
-   agrega las formas modulares `0x03000B00-03`. Salida esperada:
-   `V12_PLUGIN_PATCHED … guardia GuardWhiterunCityGeneric` + `MODULAR_CORE_BUILT 65`.
+   agrega las formas modulares `0x03000B00-04`. Salida esperada:
+   `V12_PLUGIN_PATCHED … guardia GuardWhiterunCityGeneric` + `MODULAR_CORE_BUILT 66`.
    **Los addons no se generan acá**: `place_atalaya_v20/v21.py` copian el Atalaya de la
    revisión anterior y `build_modular_v17.py` arma WhiterunTorres.
    **No correr `scripts/build_plugin.py`**: pisa `mod/AstraAsedio.esp` con un ESP sin las
    formas modulares y deja los tres addons con masters colgantes.
+2b. **Torreta baja (v22)**: `python scripts/bajar_ballesta.py mod/meshes/AstraAsedio/ballesta.nif mod/meshes/AstraAsedio/ballesta_guardia.nif`
+   produce el NIF del guardia (pivote 117, −36 u) parcheando bytes. Después:
+   `python scripts/build_modular_v13.py` con `main(addons=True)` para regenerar el addon
+   Whiterun (reproduce el embarcado byte a byte y **no toca el Atalaya**), y
+   `python scripts/build_modular_v17.py` para los voladizos. Verificar con
+   `python scripts/verify_core_v22.py` y `python scripts/verify_torreta_baja_v22.py`.
 3. `python scripts/compile_papyrus.py` — compila TODOS los `.psc` por glob (los dos nuevos
    entran solos). El nativo NO cambia: la IA usa solo Papyrus + SKSE (NetImmerse).
 4. **Demo del guardia (animación `GuardiaCiclo`)**: la secuencia NO viaja en el NIF del
@@ -93,6 +99,41 @@ sección `guardia`.
 5. En juego: `coc AstraAsedioTest`, agredir al guardia de la torre (o soltar un dragón/lobos
    cerca) y NO operar la ballesta: el guardia entra en combate → la torre apunta sola,
    espera ~1 frame de asiento y dispara el virote real contra el blanco del guardia.
+
+## Dos torretas: alta para el jugador, baja para el guardia (v22)
+
+La v22 nació de bajar la torreta 36 u (pivote 153 → 117) para que la animación del guardia
+quede a la altura de las manos. La bajada se hacía sobre el `ballesta.nif` **global**, y eso
+rompió la **mira nativa del jugador**: medido en `reports/sight_path_v22_FAILED.json`, la
+holgura cámara→malla del arma cae de 10,29 u a 2,94 u (el mínimo es 8; la esfera del motor
+mide 12–15 u) y se pierde `near_plane_check_falsified`. El pivote en 117 deja el anclaje de
+cámara por debajo del piso de 65 u que exigen `scripts/sight_pose.py` y `kMinCameraHeight`
+de `native/src/Core.cpp`.
+
+La solución es **dos NIF y dos ACTI**, con el MISMO contrato (clone del ACTI del jugador sin
+`VMAD`: los scripts los pone el REFR que coloca):
+
+| ACTI | EDID | MODL | Pivote | Quién lo usa |
+|---|---|---|---|---|
+| `0x03000801` | `AstraAsedioBallesta` | `ballesta.nif` | 153 | el jugador (core `03000901` + Atalaya `04000A00`) |
+| `0x03000B02` | `AstraGuardBallista` | `ballesta.nif` | 153 | sólo tombstones deshabilitados (`04000B40/B50`) |
+| `0x03000B04` | `AstraGuardBallistaBaja` | `ballesta_guardia.nif` | 117 | los guardias (`04000B70/B80` y `04000B10`) |
+
+La regla que hace segura la torreta baja: **ninguna colocación activa del ACTI bajo puede
+dejar que el jugador la opere** (`AllowPlayerTakeover=false`) ni declarar mira nativa
+(`UseSightCamera=false`). La mira vive en `AstraAsedioActi` y en
+`AstraAsedioStation extends AstraAsedioActi`; `AstraAsedioGuard` **no** la usa, y además no
+lleva `MuzzleAlto` ni `PitchPivotHeight`: lee `ProjectileNode` del NIF en runtime, así que el
+mismo script sirve para las dos alturas. `verify_core_v22.py` (sección 6) recorre **todas**
+las referencias a `0x03000B04` en los tres addons y falla si alguna habilita al jugador —una
+colocación nueva que se olvide del flag rompe el test.
+
+Consecuencia de diseño aceptada: los **voladizos de WhiterunTorres pasan a ser puestos de
+guardia** (antes eran estaciones compartidas: `AllowPlayerTakeover=true`,
+`UseSightCamera=true`). El jugador conserva la mira nativa en la torreta del core. El addon
+`AstraAsedio_Whiterun.esp` (torreta guardia-exclusiva `04000B10`) también apunta al ACTI bajo,
+aunque ese addon está deprecado (`reports/modular_v14.json` →
+`replace_old_plugin: AstraAsedio_Whiterun.esp (disable)`).
 
 ### Estado de la integración (2026-10-10, v22)
 

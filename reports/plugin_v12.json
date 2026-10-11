@@ -1,6 +1,6 @@
 {
   "source_sha256": "16f5e02305778d52589902bdfd28b98d42c54cf70d52e1348d60178a0e6ca8f1",
-  "sha256": "88e9f5b9eb3144aca02259c66f8bf895de4114589528625e288d029a70f38d77",
+  "sha256": "668da1a502dadd1f1c9f2a8b1018aa771c7c68699d7f581fd91bc3ff9a3672cd",
   "bytes": 90279,
   "removed_refs": [
     "03000940",
@@ -244,7 +244,7 @@
     "navmesh_triangles": 313,
     "ck_finalized_verified": false,
     "in_game_verified": false,
-    "sha256": "88e9f5b9eb3144aca02259c66f8bf895de4114589528625e288d029a70f38d77",
+    "sha256": "668da1a502dadd1f1c9f2a8b1018aa771c7c68699d7f581fd91bc3ff9a3672cd",
     "size": 90279
   },
   "world_own_refs": 15,

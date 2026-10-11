@@ -21,8 +21,15 @@ ADDONS = ['addons/Atalaya/AstraAsedio_Atalaya.esp',
           'addons/WhiterunTorres/AstraAsedio_WhiterunTorres.esp']
 # Formas del core que los addons referencian por master index 03.
 MODULAR = {0x030009C0: 'STAT', 0x03000B00: 'PROJ', 0x03000B01: 'AMMO',
-           0x03000B02: 'ACTI', 0x03000B03: 'STAT'}
+           0x03000B02: 'ACTI', 0x03000B03: 'STAT', 0x03000B04: 'ACTI'}
 REF_SUBS = ('NAME', 'TPLT', 'WNAM', 'CNAM', 'INAM', 'SCRI', 'SDSC')
+
+# Dos torretas, mismo contrato (clone del ACTI del jugador sin VMAD) y distinto MODL.
+# El alto lleva la mira nativa (pivote 153, contrato de camara de v10); el bajo (pivote
+# 117, -36 u) es la ergonomia de la animacion del guardia y solo puede ir donde NO hay
+# mira nativa. Ver `reports/sight_path_v22_FAILED.json` para la medicion del fallo.
+MODELO_ALTO = 'AstraAsedio\\ballesta.nif'
+MODELO_BAJO = 'AstraAsedio\\ballesta_guardia.nif'
 
 fails = []
 
@@ -147,6 +154,63 @@ def main():
                         dangling[f'{ref:08X}'] += 1
         check(not dangling, f'{rel}: 0 referencias colgantes a master 03' +
               ('' if not dangling else ' ' + str(dict(dangling))))
+
+    print('== 6) dos torretas: MODL alto/bajo y quien coloca cada una ==')
+    modl = {}
+    for fid in (B.IDS['ballesta'], 0x03000B02, 0x03000B04):
+        t, ss = recs.get(fid, ('<ausente>', {}))
+        modl[fid] = ss.get('MODL', b'').rstrip(b'\0').decode('cp1252', 'replace')
+    check(modl[B.IDS['ballesta']] == MODELO_ALTO,
+          f'ACTI {B.IDS["ballesta"]:08X} (jugador) MODL = {modl[B.IDS["ballesta"]]!r}')
+    check(modl[0x03000B02] == MODELO_ALTO,
+          f'ACTI 03000B02 (tombstones deshabilitados) MODL = {modl[0x03000B02]!r}')
+    check(modl[0x03000B04] == MODELO_BAJO,
+          f'ACTI 03000B04 (guardia, sin mira) MODL = {modl[0x03000B04]!r}')
+    nif_alto = ROOT / 'mod/meshes/AstraAsedio/ballesta.nif'
+    nif_bajo = ROOT / 'mod/meshes/AstraAsedio/ballesta_guardia.nif'
+    check(nif_alto.exists() and nif_bajo.exists(), 'existen ballesta.nif y ballesta_guardia.nif')
+    if nif_alto.exists() and nif_bajo.exists():
+        check(nif_alto.read_bytes() != nif_bajo.read_bytes(),
+              'ballesta_guardia.nif es un archivo distinto de ballesta.nif')
+
+    # El invariante que hace segura la torreta baja: NINGUNA referencia ACTIVA que la use
+    # puede dejar que el jugador la opere, porque la mira nativa degenera con el pivote en
+    # 117 (`reports/sight_path_v22_FAILED.json`). Se recorre TODO lo que apunta al ACTI bajo
+    # en vez de una lista fija: una colocacion nueva que se olvide del flag rompe el test.
+    DISABLED = 0x800
+    usos_bajo, usos_alto = [], []
+    for rel in ADDONS:
+        ap, arecs, _ = records(ROOT / rel)
+        for fid, (t, ss) in arecs.items():
+            if 'NAME' not in ss or len(ss['NAME']) != 4:
+                continue
+            base = struct.unpack('<I', ss['NAME'])[0]
+            if base not in (0x03000B04, B.IDS['ballesta'], 0x03000B02):
+                continue
+            off = next(o for tt, o, nn, dd in ap.recorrer() if tt != 'GRUP' and ap.form_id(o) == fid)
+            disabled = bool(struct.unpack_from('<I', ap.d, off + 8)[0] & DISABLED)
+            vmad = B.read_vmad(ss['VMAD']) if 'VMAD' in ss else {'scripts': []}
+            props = {k: v['value'] for s in vmad['scripts'] for k, v in s['properties'].items()}
+            item = (rel.split('/')[1], fid, disabled, props.get('AllowPlayerTakeover'),
+                    props.get('UseSightCamera'))
+            (usos_bajo if base == 0x03000B04 else usos_alto).append(item)
+
+    esperado_bajo = {(r, f) for r, f in [('Whiterun', 0x04000B10),
+                                         ('WhiterunTorres', 0x04000B70),
+                                         ('WhiterunTorres', 0x04000B80)]}
+    real_bajo = {(r, f) for r, f, d, _a, _c in usos_bajo if not d}
+    check(real_bajo == esperado_bajo,
+          f'colocaciones ACTIVAS del ACTI bajo = {sorted(real_bajo)}')
+    for r, f, d, takeover, camera in usos_bajo:
+        if d:
+            continue
+        check(takeover is not True, f'{r} {f:08X}: sin AllowPlayerTakeover (el jugador no la opera)')
+        check(camera is not True, f'{r} {f:08X}: sin UseSightCamera (no hay mira nativa que romper)')
+    # Y el ACTI alto sigue siendo el del jugador, con la mira intacta.
+    check(any(r == 'Atalaya' and f == 0x04000A00 for r, f, d, _a, _c in usos_alto if not d),
+          'el Atalaya usa el ACTI alto del jugador')
+    check(any(r == 'WhiterunTorres' and f == 0x04000B40 for r, f, d, _a, _c in usos_alto if d),
+          'WhiterunTorres conserva sus tombstones deshabilitados del ACTI alto')
 
     print()
     if fails:
