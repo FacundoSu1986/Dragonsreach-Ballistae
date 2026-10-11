@@ -44,7 +44,7 @@ string Property VisualBoltNode = "VIROTE_VISUAL" Auto
 ; --- balística del proyectil (PROJ donante; ver docs/guardia_ai.md) ---
 float Property VelocidadProyectil = 5400.0 Auto
 float Property GravedadProyectil = 240.345 Auto  ; 0.35*9.81*70
-float Property MuzzleAlto = 172.6 Auto       ; z del ProjectileNode sobre la raíz
+float Property MuzzleAlto = 136.6 Auto       ; z del ProjectileNode sobre la raíz (v22: 172.6 - 36)
 float Property MuzzleAdelante = -224.0 Auto  ; y del ProjectileNode sobre la raíz
 
 ; --- límites mecánicos (espejo de AstraAsedioActi) ---
@@ -234,8 +234,8 @@ Function FaseRastreo(float ahora, float dt)
         DormirSiCalma(ahora)
         return
     endif
-    float[] sol = ResolverBlanco(dt)
-    if sol == None
+    float[] sol = new float[2]
+    if !ResolverBlanco(dt, sol)
         DormirSiCalma(ahora)
         return
     endif
@@ -472,7 +472,13 @@ EndFunction
 ; Balística: mismo proyectil, misma matemática que el registro v08 de sight
 ; zero (tests/test_v08_sight_zero.py re-deriva 5400 u/s y 240.345 u/s^2).
 ; =============================================================================
-float[] Function ResolverBlanco(float dt)
+bool Function ResolverBlanco(float dt, float[] sol)
+    ; Escribe el apuntado en `sol` (2 elementos) y devuelve true; false si no hay
+    ; solucion. El array va por parametro a proposito: un `float[]` de retorno que
+    ; pueda ser None obliga al compilador a emitir `Cast float[] None`, que el gate
+    ; de compile_papyrus rechaza y que en el VM envenena ArrayCreate. Y devolver un
+    ; array vacio no es opcion: Papyrus exige entre 1 y 128 elementos (`new float[0]`
+    ; no compila).
     ; Posición futura aproximada del blanco. Papyrus no tiene GetVelocity:
     ; la velocidad se MIDE entre ticks (posición actual vs. anterior).
     float tx = blanco.GetPositionX()
@@ -506,7 +512,7 @@ float[] Function ResolverBlanco(float dt)
     float dy = ty - my
     float d = Math.Sqrt(dx*dx + dy*dy)
     if d < 1.0
-        return None
+        return false
     endif
     ; Solución balística (tiro bajo) para un blanco a altura relativa
     ; dzRel = altura del BLANCO sobre la boca (negativa si está más abajo,
@@ -515,7 +521,7 @@ float[] Function ResolverBlanco(float dt)
     ; OJO al signo: el término lleva la altura del BLANCO sobre la boca, no
     ; al revés. Con dzRel < 0 el discriminante se relaja y el ángulo baja.
     ; (Verificado contra integración del vuelo: z(t_llegada) == dzRel.)
-    ; Devuelve None si no llega.
+    ; Devuelve un array VACIO (length 0) si no llega: nunca None, para no emitir Cast float[] None.
     float dzRel = tz - mz
     float v2 = VelocidadProyectil * VelocidadProyectil
     float disc = v2*v2 - GravedadProyectil*(GravedadProyectil*d*d + 2.0*dzRel*v2)
@@ -523,7 +529,7 @@ float[] Function ResolverBlanco(float dt)
         if QALog
             Debug.Trace("AstraGuardiaAuto fuera de alcance balístico")
         endif
-        return None
+        return false
     endif
     float tanP = (v2 - Math.Sqrt(disc)) / (GravedadProyectil * d)
     float solPitch = Grados(Math.Atan(tanP))
@@ -531,14 +537,13 @@ float[] Function ResolverBlanco(float dt)
         if QALog
             Debug.Trace("AstraGuardiaAuto elevación " + solPitch + " fuera de (" + PitchMin + ", " + PitchMax + ")")
         endif
-        return None
+        return false
     endif
     ; gunDirection del nativo: (sin(y)cos(p), -cos(y)cos(p), sin(p)); para
     ; apuntar a (dx, dy): sin(y) = dx/L y cos(y) = -dy/L.
-    float[] sol = new float[2]
     sol[0] = Grados(Atan2(dx, -dy))
     sol[1] = solPitch
-    return sol
+    return true
 EndFunction
 
 ; =============================================================================
@@ -581,13 +586,15 @@ Function LeerAnguloDeNodos()
     ; torre parte del último rumbo del jugador, no de un supuesto).
     float[] m = new float[9]
     if NetImmerse.GetNodeLocalRotationMatrix(Self, YawNode, m, false) && m.Length == 9
-        yawActual = Grados(Math.Atan2(m[3], m[0]))
+        ; AplicarNodos escribe m[0]=cos, m[3]=sin: atan2(m[3], m[0]) devuelve el yaw.
+        ; Atan2 es un helper DE ESTE SCRIPT (abajo), no de Math: Math solo tiene Atan.
+        yawActual = Grados(Atan2(m[3], m[0]))
     endif
     if NetImmerse.GetNodeLocalRotationMatrix(Self, PitchNode, m, false) && m.Length == 9
         ; AplicarNodos escribe rx(-pitch): m[4]=cos(p), m[5]=+sin(p). El pitch
         ; es atan2(m[5], m[4]) DIRECTO (con el signo de m[5] invertido se
         ; recuperaba negado y el slew saltaba tras cada load).
-        pitchActual = Grados(Math.Atan2(m[5], m[4]))
+        pitchActual = Grados(Atan2(m[5], m[4]))
     endif
     if QALog
         Debug.Trace("AstraGuardiaAuto ángulos de nodo: yaw=" + yawActual + " pitch=" + pitchActual)

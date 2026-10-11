@@ -54,7 +54,7 @@ def ref(fid,base,pos,rot,edid,kind='REFR',persistent=False,vmad=None):
     ss.extend([W.sub('NAME',struct.pack('<I',base)),W.sub('DATA',struct.pack('<6f',*pos,*(math.radians(v) for v in rot)))])
     return W.record(kind,fid,ss,0x400 if persistent else 0)
 
-def main():
+def main(addons=False):
     P.main()  # Rebuild allowed geometry edits from immutable v11, never an in-place cumulative patch.
     cfg=json.loads((ROOT/'config.json').read_text());path=ROOT/'mod/AstraAsedio.esp';p=Plugin(str(path));r=P.record_map(p)
     groups=[];world=None
@@ -65,11 +65,10 @@ def main():
         else:groups.append(g)
         off+=size
     assert world is not None
-    vm=B.read_vmad(subs(r[B.IDS['ballesta']])['VMAD'])['scripts'][0]
-    props={k:(v['type'],v['value']['form_id'] if v['type']==1 else v['value']) for k,v in vm['properties'].items()}
-    props['PitchMin']=(4,-20.0)
-    change=P.modify_subs(r[B.IDS['ballesta']],{'VMAD':B.vmad('AstraAsedioActi',props)})
-    groups=[P.transform_groups(g,{B.IDS['ballesta']:change},set(),{}) for g in groups]
+    # El VMAD del ACTI ya viene completo de patch_plugin_v12 (properties vigentes de config.json
+    # + OcupadaGuardia + el 2.º script AstraGuardiaAuto). Reescribirlo aca lo dejaba en un solo
+    # script y validate_plugin moria con "bad auto VMAD": este stage solo agrega las formas
+    # modulares 0x03000B00-03 que referencian los tres addons.
     proj=bytearray(subs(r[B.IDS['projectile']])['DATA'])
     struct.pack_into('<H',proj,0,struct.unpack_from('<H',proj)[0]&~2)
     struct.pack_into('<I',proj,36,0)
@@ -82,6 +81,18 @@ def main():
     add_group(groups,'STAT',clone(r[B.IDS['tower']],NEW['tower'],{'EDID':W.zstr('AstraTowerWhiterun'),'OBND':struct.pack('<6h',*obnd),'MODL':W.zstr('AstraAsedio\\torre_whiterun.nif')}))
     core=save_plugin(path,groups,B.MASTERS,0xB04)
     B.validate_plugin(str(path))
+    if not addons:
+        # Los addons NO se generan aca desde v20. `place_atalaya_v20/v21.py` copian el Atalaya
+        # de la revision anterior (es una cadena propia, no se deriva del core) y
+        # `build_modular_v17.py` arma WhiterunTorres. Regenerarlos desde este stage pisa
+        # artefactos ya verificados: reproducia un Atalaya v13/v14 y rompia el sha de
+        # reports/atalaya_placement_v21.json que exige package_v21.py.
+        (ROOT/'reports/modular_v13.json').write_text(json.dumps(
+            {'core':core,'addons':None,
+             'nota':'core reconstruido (guardia v22 + formas modulares); addons intactos: los '
+                    'producen place_atalaya_v20/v21.py y build_modular_v17.py'},ensure_ascii=False,indent=2))
+        print('MODULAR_CORE_BUILT',core['records'])
+        return
     # Former exterior is optional. Only new owned REFR headers change namespace;
     # NAME/VMAD dependencies continue to resolve to the core master at index03.
     def legacy(g):

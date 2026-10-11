@@ -19,7 +19,10 @@ def surface(parent,rope):
         obj.data.calc_loop_triangles();triangles.extend(tuple(off+i for i in t.vertices) for t in obj.data.loop_triangles)
     return BVHTree.FromPolygons(vertices,triangles,all_triangles=True),[o.name for o in objs]
 revision=json.loads((ROOT/'reports/limb_ties_revision.json').read_text())
-lift=Vector((0,0,json.loads((ROOT/'config.json').read_text()).get('mount_raise_units',0.0)))
+_cfg=json.loads((ROOT/'config.json').read_text())
+# El cabezal giratorio lleva +mount_raise_units (v07) y -turret_drop_units (v22): las dos
+# tienen que entrar aca o los puntos de la amarra se comparan contra un NIF que ya bajó.
+lift=Vector((0,0,_cfg.get('mount_raise_units',0.0)-_cfg.get('turret_drop_units',0.0)))
 base=Vector((0,0,6.65))
 def centers_of(part):
     """Puntos del centro de la amarra en unidades de NIF.

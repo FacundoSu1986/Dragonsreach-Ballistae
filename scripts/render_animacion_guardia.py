@@ -34,7 +34,9 @@ CFG = json.loads((ROOT/'config.json').read_text())
 S = CFG['meters_to_units']
 BASE = 6.65
 RAISE = float(CFG.get('mount_raise_units', 0.0))          # 20 u: ya vienen dentro de los NIF v10
+DROP = float(CFG.get('turret_drop_units', 0.0))           # 36 u: v22 bajó el cabezal (ergonomía)
 TOPE = float(CFG['tower_top_units'])                      # raíz de la ballesta sobre la torre
+PIVOT = float(CFG['pitch_pivot_units'])                   # altura de CTRL_ELEVACION sobre la raíz
 GRAVEDAD = 9.81 * S                                       # u/s^2
 V0 = 2100.0                                               # u/s (velocidad de demostración)
 ELEVACION = math.radians(25.0)
@@ -77,12 +79,12 @@ CAJA_RECORTES = (   # (x0,x1,y0,y1,z0,z1) pitch-local: piezas fusionadas a reemp
     (0.64*S, 1.06*S, 1.24*S, 1.92*S, (8.15-8.55)*S, (8.82-8.55)*S),   # volante+manivela+mango+casquillo
     (-0.05*S, 0.05*S, 1.07*S, 1.44*S, (8.10-8.55)*S, (8.64-8.55)*S),  # palanca del gatillo
 )
-# Cuerdas en espacio RAÍZ (constantes de build_assets + alza v07 de 20 u).
+# Cuerdas en espacio RAÍZ (constantes de build_assets + alza v07 de 20 u - bajada v22 de 36 u).
 RESTTIP = {
-    'Cuerda_I': Vector((-1.89*S, -1.445*S, (8.83-BASE)*S + RAISE)),
-    'Cuerda_D': Vector((1.89*S, -1.445*S, (8.83-BASE)*S + RAISE)),
+    'Cuerda_I': Vector((-1.89*S, -1.445*S, (8.83-BASE)*S + RAISE - DROP)),
+    'Cuerda_D': Vector((1.89*S, -1.445*S, (8.83-BASE)*S + RAISE - DROP)),
 }
-CENTRO_Z = (8.83-BASE)*S + RAISE
+CENTRO_Z = (8.83-BASE)*S + RAISE - DROP
 Z_BLANCO = 280.0                                            # altura del centro del blanco
 
 def abanico(f, a, b):
@@ -95,7 +97,7 @@ def rot2(v, a): return Vector((v.x*math.cos(a)-v.y*math.sin(a), v.x*math.sin(a)+
 def pre_simular():
     """Vuelo del virote sin bpy: frame de impacto y distancia del blanco.
     El origen es el centro aproximado del virote ya elevado (pitch-local (0,-76,-17.5))."""
-    M = Matrix.Translation((0, 0, TOPE+153.0)) @ Matrix.Rotation(-ELEVACION, 4, 'X')
+    M = Matrix.Translation((0, 0, TOPE+PIVOT)) @ Matrix.Rotation(-ELEVACION, 4, 'X')
     origen = M @ Vector((0, -76.0, -17.5))
     v = Vector((0, -V0*math.cos(ELEVACION), V0*math.sin(ELEVACION)))
     t, f = 0.0, F_LIBERACION

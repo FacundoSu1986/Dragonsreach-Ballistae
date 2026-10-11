@@ -1,7 +1,7 @@
 {
   "source_sha256": "16f5e02305778d52589902bdfd28b98d42c54cf70d52e1348d60178a0e6ca8f1",
-  "sha256": "a9ec53af23eb1e6504857756331b2a7aacd59203e41d91bbd6963b20bc605674",
-  "bytes": 89048,
+  "sha256": "88e9f5b9eb3144aca02259c66f8bf895de4114589528625e288d029a70f38d77",
+  "bytes": 90279,
   "removed_refs": [
     "03000940",
     "03000941",
@@ -135,6 +135,7 @@
   "changed_records": [
     "00012FB4",
     "03000800",
+    "03000801",
     "03000809",
     "03000901",
     "030009C1",
@@ -150,6 +151,9 @@
     "03000A47"
   ],
   "added_refs": [
+    "0300080E",
+    "0300080F",
+    "03000940",
     "030009C6",
     "030009C7",
     "030009C8",
@@ -228,20 +232,42 @@
       "QUST": 1,
       "CELL": 2,
       "REFR": 61,
+      "ACHR": 1,
       "NAVM": 1,
       "WRLD": 1,
       "LAND": 1,
-      "NAVI": 1
+      "NAVI": 1,
+      "GLOB": 1,
+      "NPC_": 1
     },
     "navmesh_vertices": 234,
     "navmesh_triangles": 313,
     "ck_finalized_verified": false,
     "in_game_verified": false,
-    "sha256": "a9ec53af23eb1e6504857756331b2a7aacd59203e41d91bbd6963b20bc605674",
-    "size": 89048
+    "sha256": "88e9f5b9eb3144aca02259c66f8bf895de4114589528625e288d029a70f38d77",
+    "size": 90279
   },
   "world_own_refs": 15,
   "local_shields": 12,
   "world_shields": 12,
+  "guardia": {
+    "donante_npc": "GuardWhiterunCityGeneric",
+    "donante_fid": "00099CE5",
+    "paquete_torre": "GuardPost",
+    "paquete_torre_fid": "0001C9FF",
+    "template_flags_borrados": [
+      "BaseData (0x0080)",
+      "AIPackages (0x0020)"
+    ],
+    "glob_ocupada": "0300080E",
+    "npc": "0300080F",
+    "ref": "03000940",
+    "ref_tipo": "ACHR",
+    "xlkr_reciproco": [
+      "03000901",
+      "03000940"
+    ],
+    "auto_script": "AstraGuardiaAuto (2.\u00ba VMAD del ACTI)"
+  },
   "game_tested": false
 }

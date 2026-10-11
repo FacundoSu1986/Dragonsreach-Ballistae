@@ -1,13 +1,13 @@
 .info
 	.source "AstraAsedioSession.psc"
 	.modifyTime 1791645499 ;Sat Oct 10 12:18:19 2026 Local
-	.compileTime 1791649525 ;Sat Oct 10 13:25:25 2026 Local
+	.compileTime 1791678047 ;Sat Oct 10 21:20:47 2026 Local
 	.user "AstraAsedio"
 	.computer "Build"
 .endInfo
 .userFlagsRef
-	.flag hidden 0	; 0x00000000
 	.flag conditional 1	; 0x00000001
+	.flag hidden 0	; 0x00000000
 .endUserFlagsRef
 .objectTable
 	.object AstraAsedioSession Quest
@@ -19,11 +19,7 @@
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
-			.variable releasing Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable acquiring Bool
+			.variable acquiredCamSwitch Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
@@ -31,7 +27,7 @@
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
-			.variable acquiredCamSwitch Bool
+			.variable releasing Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
@@ -47,13 +43,17 @@
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue -1
 			.endVariable
-			.variable generation Int
+			.variable acquiring Bool
 				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0
+				.initialValue False
 			.endVariable
 			.variable activeGun AstraAsedioActi
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue None
+			.endVariable
+			.variable generation Int
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0
 			.endVariable
 		.endVariableTable
 		.propertyTable
@@ -284,51 +284,6 @@
 						Return leaseGeneration                                   ;@line 73
 					.endCode
 				.endFunction
-				.function IsCurrent
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return Bool
-					.paramTable
-						.param gun AstraAsedioActi
-						.param token Int
-					.endParamTable
-					.localTable
-						.local ::temp15 AstraAsedioActi
-						.local ::temp16 Bool
-						.local ::temp17 Bool
-					.endLocalTable
-					.code
-						Cast ::temp15 None                                       ;@line 112
-						CompareEQ ::temp16 gun ::temp15                          ;@line 112
-						Not ::temp16 ::temp16                                    ;@line 112
-						Cast ::temp16 ::temp16                                   ;@line 112
-						JumpF ::temp16 _label28                                  ;@line 112
-						Not ::temp17 acquiring                                   ;@line 112
-						Cast ::temp16 ::temp17                                   ;@line 112
-					_label28:
-						Cast ::temp16 ::temp16                                   ;@line 112
-						JumpF ::temp16 _label29                                  ;@line 112
-						Not ::temp17 releasing                                   ;@line 112
-						Cast ::temp16 ::temp17                                   ;@line 112
-					_label29:
-						Cast ::temp16 ::temp16                                   ;@line 112
-						JumpF ::temp16 _label30                                  ;@line 112
-						Not ::temp17 cleanupRequested                            ;@line 112
-						Cast ::temp16 ::temp17                                   ;@line 112
-					_label30:
-						Cast ::temp16 ::temp16                                   ;@line 112
-						JumpF ::temp16 _label31                                  ;@line 112
-						CompareEQ ::temp17 activeGun gun                         ;@line 112
-						Cast ::temp16 ::temp17                                   ;@line 112
-					_label31:
-						Cast ::temp16 ::temp16                                   ;@line 112
-						JumpF ::temp16 _label32                                  ;@line 112
-						CompareEQ ::temp17 generation token                      ;@line 112
-						Cast ::temp16 ::temp17                                   ;@line 112
-					_label32:
-						Return ::temp16                                          ;@line 112
-					.endCode
-				.endFunction
 				.function RollbackAcquire
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
@@ -377,45 +332,127 @@
 					.code
 						Not ::temp10 restorePerspective                          ;@line 97
 						Cast ::temp12 ::temp10                                   ;@line 97
-						JumpT ::temp12 _label33                                  ;@line 97
+						JumpT ::temp12 _label28                                  ;@line 97
 						CompareEQ ::temp11 previousCamera 8                      ;@line 97
 						Not ::temp11 ::temp11                                    ;@line 97
 						Cast ::temp11 ::temp11                                   ;@line 97
-						JumpF ::temp11 _label34                                  ;@line 97
+						JumpF ::temp11 _label29                                  ;@line 97
 						CompareEQ ::temp12 previousCamera 9                      ;@line 97
 						Not ::temp12 ::temp12                                    ;@line 97
 						Cast ::temp11 ::temp12                                   ;@line 97
-					_label34:
+					_label29:
 						Cast ::temp12 ::temp11                                   ;@line 97
-					_label33:
-						JumpF ::temp12 _label35                                  ;@line 97
+					_label28:
+						JumpF ::temp12 _label30                                  ;@line 97
 						Return None                                              ;@line 98
-						Jump _label35                                            ;@line 98
-					_label35:
+						Jump _label30                                            ;@line 98
+					_label30:
 						CallStatic game GetPlayer ::temp13                       ;@line 100
 						Assign operator ::temp13                                 ;@line 100
 						Cast ::temp13 None                                       ;@line 101
 						CompareEQ ::temp10 operator ::temp13                     ;@line 101
 						Cast ::temp12 ::temp10                                   ;@line 101
-						JumpT ::temp12 _label36                                  ;@line 101
+						JumpT ::temp12 _label31                                  ;@line 101
 						CallMethod IsDead operator ::temp11                      ;@line 101
 						Cast ::temp12 ::temp11                                   ;@line 101
-					_label36:
+					_label31:
 						Cast ::temp11 ::temp12                                   ;@line 101
-						JumpT ::temp11 _label37                                  ;@line 101
+						JumpT ::temp11 _label32                                  ;@line 101
 						CallStatic utility IsInMenuMode ::temp10                 ;@line 101
 						Cast ::temp11 ::temp10                                   ;@line 101
-					_label37:
-						JumpF ::temp11 _label38                                  ;@line 101
+					_label32:
+						JumpF ::temp11 _label33                                  ;@line 101
 						Return None                                              ;@line 102
-						Jump _label38                                            ;@line 102
-					_label38:
+						Jump _label33                                            ;@line 102
+					_label33:
 						CallMethod ReadCameraState self ::temp14                 ;@line 106
 						CompareEQ ::temp12 ::temp14 0                            ;@line 106
-						JumpF ::temp12 _label39                                  ;@line 106
+						JumpF ::temp12 _label34                                  ;@line 106
 						CallStatic game ForceThirdPerson ::NoneVar               ;@line 107
-						Jump _label39                                            ;@line 107
+						Jump _label34                                            ;@line 107
+					_label34:
+					.endCode
+				.endFunction
+				.function FinishCancelledAcquire
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp18 AstraAsedioActi
+					.endLocalTable
+					.code
+						Assign acquiredMovement False                            ;@line 116
+						Assign acquiredFighting False                            ;@line 117
+						Assign acquiredCamSwitch False                           ;@line 118
+						Assign savedCamera -1                                    ;@line 119
+						Assign changedPerspective False                          ;@line 120
+						Cast ::temp18 None                                       ;@line 121
+						Assign activeGun ::temp18                                ;@line 121
+						Assign cleanupRequested False                            ;@line 122
+						Assign acquiring False                                   ;@line 124
+					.endCode
+				.endFunction
+				.function IsCurrent
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return Bool
+					.paramTable
+						.param gun AstraAsedioActi
+						.param token Int
+					.endParamTable
+					.localTable
+						.local ::temp15 AstraAsedioActi
+						.local ::temp16 Bool
+						.local ::temp17 Bool
+					.endLocalTable
+					.code
+						Cast ::temp15 None                                       ;@line 112
+						CompareEQ ::temp16 gun ::temp15                          ;@line 112
+						Not ::temp16 ::temp16                                    ;@line 112
+						Cast ::temp16 ::temp16                                   ;@line 112
+						JumpF ::temp16 _label35                                  ;@line 112
+						Not ::temp17 acquiring                                   ;@line 112
+						Cast ::temp16 ::temp17                                   ;@line 112
+					_label35:
+						Cast ::temp16 ::temp16                                   ;@line 112
+						JumpF ::temp16 _label36                                  ;@line 112
+						Not ::temp17 releasing                                   ;@line 112
+						Cast ::temp16 ::temp17                                   ;@line 112
+					_label36:
+						Cast ::temp16 ::temp16                                   ;@line 112
+						JumpF ::temp16 _label37                                  ;@line 112
+						Not ::temp17 cleanupRequested                            ;@line 112
+						Cast ::temp16 ::temp17                                   ;@line 112
+					_label37:
+						Cast ::temp16 ::temp16                                   ;@line 112
+						JumpF ::temp16 _label38                                  ;@line 112
+						CompareEQ ::temp17 activeGun gun                         ;@line 112
+						Cast ::temp16 ::temp17                                   ;@line 112
+					_label38:
+						Cast ::temp16 ::temp16                                   ;@line 112
+						JumpF ::temp16 _label39                                  ;@line 112
+						CompareEQ ::temp17 generation token                      ;@line 112
+						Cast ::temp16 ::temp17                                   ;@line 112
 					_label39:
+						Return ::temp16                                          ;@line 112
+					.endCode
+				.endFunction
+				.function GotoState
+					.userFlags 0	; Flags: 0x00000000
+					.docString "Function that switches this object to the specified state"
+					.return None
+					.paramTable
+						.param newState String
+					.endParamTable
+					.localTable
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod onEndState self ::NoneVar                     ;@line ??
+						Assign ::State newState                                  ;@line ??
+						CallMethod onBeginState self ::NoneVar                   ;@line ??
 					.endCode
 				.endFunction
 				.function Release
@@ -468,22 +505,6 @@
 						Jump _label45                                            ;@line 133
 					_label45:
 						CallMethod RestoreControls self ::NoneVar                ;@line 135
-					.endCode
-				.endFunction
-				.function GotoState
-					.userFlags 0	; Flags: 0x00000000
-					.docString "Function that switches this object to the specified state"
-					.return None
-					.paramTable
-						.param newState String
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod onEndState self ::NoneVar                     ;@line ??
-						Assign ::State newState                                  ;@line ??
-						CallMethod onBeginState self ::NoneVar                   ;@line ??
 					.endCode
 				.endFunction
 				.function ReadCameraState
@@ -676,45 +697,6 @@
 						Assign releasing False                                   ;@line 200
 					.endCode
 				.endFunction
-				.function FinishCancelledAcquire
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp18 AstraAsedioActi
-					.endLocalTable
-					.code
-						Assign acquiredMovement False                            ;@line 116
-						Assign acquiredFighting False                            ;@line 117
-						Assign acquiredCamSwitch False                           ;@line 118
-						Assign savedCamera -1                                    ;@line 119
-						Assign changedPerspective False                          ;@line 120
-						Cast ::temp18 None                                       ;@line 121
-						Assign activeGun ::temp18                                ;@line 121
-						Assign cleanupRequested False                            ;@line 122
-						Assign acquiring False                                   ;@line 124
-					.endCode
-				.endFunction
-				.function OnInit
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-					.endParamTable
-					.localTable
-						.local ::temp0 Bool
-						.local ::temp1 String
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						CallMethod IsRunning self ::temp0                        ;@line 15
-						Cast ::temp1 ::temp0                                     ;@line 15
-						StrCat ::temp1 "AstraAsedio session quest initialized running=" ::temp1  ;@line 15
-						CallStatic debug Trace ::NoneVar ::temp1 0               ;@line 15
-					.endCode
-				.endFunction
 				.function EmergencyCleanup
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
@@ -737,6 +719,24 @@
 						CallMethod EndSession gun ::NoneVar                      ;@line 207
 						Jump _label66                                            ;@line 207
 					_label66:
+					.endCode
+				.endFunction
+				.function OnInit
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+					.endParamTable
+					.localTable
+						.local ::temp0 Bool
+						.local ::temp1 String
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						CallMethod IsRunning self ::temp0                        ;@line 15
+						Cast ::temp1 ::temp0                                     ;@line 15
+						StrCat ::temp1 "AstraAsedio session quest initialized running=" ::temp1  ;@line 15
+						CallStatic debug Trace ::NoneVar ::temp1 0               ;@line 15
 					.endCode
 				.endFunction
 			.endState
