@@ -3,7 +3,9 @@
 > Actualizado el 2026-10-12 para v29. El texto anterior de este archivo era de v22: describía otro paquete y trazas que ya no existen. Lo vigente del paquete está en `docs/README_v29.md` y `docs/QA_v29.md`.
 
 Paquete: `dist/AstraAsedio_QA_v29_Unificado_MO2.zip`
-**sha256 `ac8b04d42c0d4a4dd50f319281fd9efea826ca93aa05d1205674bc53bba6cee3`**, 3 068 559 bytes, 60 entradas. Comprobá que sea el que instalaste.
+**sha256 `ac8b04d42c0d4a4dd50f319281fd9efea826ca93aa05d1205674bc53bba6cee3`**, 3 068 559 bytes, 60 entradas.
+
+> ⚠️ **Ese ZIP es anterior al renombrado de EDID del juego legacy de los voladizos** (`AstraAsedio_WhiterunTorres.esp`, ver `docs/2026-10-12-edid-legacy-voladizos.md`). Si vas a probar ahora, volvé a correr `python scripts/package_v29.py` y usá el sha que imprima: el contenido es el mismo salvo ese ESP, que cambió de `fabe09b28a3b…` a `cfccc9cd6bd2…`. En juego no cambia nada (solo nombres de editor de referencias que nacen desactivadas).
 
 **Nada de esto está probado en el juego todavía.** Los informes lo declaran (`game_tested: false`). Lo que existe es verificación *fuera* del juego — contrato de release, NIF, ESP, clips y tests portables. Los renders y las mediciones geométricas no prueban la cámara real ni la puntería en Skyrim.
 

@@ -64,10 +64,16 @@ def main():
                    ref(pre+4,statid,origin,(0,0,0),'AstraVoladizo'+name.title()+'Plataforma','REFR',True)]
     # Preserve original IDs as disabled records for old saved instances. New
     # refs guarantee complete Station/Guard properties without rebinding a save.
+    # v29: el legacy conserva FormID, flags, base y datos, pero recibe EDID propio
+    # (`AstraLegacyVoladizo*`). Los dos juegos comparten celda y repetian nombre, que
+    # es lo unico que xEdit marca como duplicado. `scripts/patch_legacy_edids_v29.py`
+    # deja el ESP publicado en este mismo estado sin volver a correr el pipeline.
     previous=P.record_map(Plugin(str(ROOT.with_name('Ballesta_Astra_Vanilla_SE_v16')/'addons/WhiterunTorres/AstraAsedio_WhiterunTorres.esp')))
-    for start in (0x04000B40,0x04000B50):
+    legacy_parts=('Ballesta','Guardia','Puesto','Espera','Plataforma')
+    for start,side in ((0x04000B40,'Este'),(0x04000B50,'Oeste')):
         for offset in range(5):
             raw=bytearray(previous[start+offset]);struct.pack_into('<I',raw,8,struct.unpack_from('<I',raw,8)[0]|0x800)
+            raw=bytearray(P.modify_subs(bytes(raw),{'EDID':W.zstr('AstraLegacyVoladizo'+side+legacy_parts[offset])}))
             placed.append(bytes(raw))
     vanilla=vanilla_records({0x3c,0xd74})
     world=clone(vanilla[0x3c],0x3c,{'FULL':W.zstr('Skyrim')},('OFST','RNAM'))
@@ -88,6 +94,7 @@ def main():
                                        'por eso la torreta puede ser la baja (la mira nativa degenera con el pivote '
                                        'en 117, medido en reports/sight_path_v22_FAILED.json)'},
             'whiterun_torres':{'path':str(path.relative_to(ROOT)),'records':len(city),'masters':masters,'sha256':sha(path)},
+            'legacy_edids':'AstraLegacyVoladizo{Este,Oeste}* (0xB40-0xB54, sin cambios de FormID, flags ni base)',
             'platforms_evidence_sha256':sha(ROOT/'reports/platforms_v15.json'),'placements':measured['sites'],
             'compatibility':{'LAND_edits':0,'NAVM_edits':0,'NAVI_edits':0,'PACK_edits':0,'vanilla_reference_edits':0,
                             'patrol_destination_edits':0,'existing_tower_edits':0,'city_save_migration_supported':False,
