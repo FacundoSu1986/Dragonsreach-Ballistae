@@ -1,5 +1,29 @@
 # Pruebas en juego — Astra Asedio v29
 
+> **v29.2 (DLL 3.6.3) — apuntado y disparo de los voladizos.** Con la pose ya funcionando, el guardia sigue con la mira a quien pasa (jugador a ≤ 2100 u y dentro de ±60°) y dispara a lo hostil. Cambios: la ballesta **sube y baja** (±30°, 25°/s) con tiro balístico; el **jugador es blanco solo mientras los guardias del pueblo luchan contra él**; cada disparo rechazado deja su motivo en el log. Diseño y límites: `docs/superpowers/specs/2026-10-12-guardia-apuntado-disparo.md`. **No está compilada ni probada en Skyrim.**
+>
+> Qué mirar en `AstraSight.log` (todo lo resume `python scripts/analyze_guard_log.py`):
+>
+> | Línea | Significado |
+> |---|---|
+> | `AstraSight 3.6.3 …` | DLL correcta. |
+> | `guard v29 pose … target=000000xx … pitch= desiredPitch=` | Hay blanco; `pitch` debe acercarse a `desiredPitch` (vía `PITCH-OK`/`PITCH-NOT-TRACKING` del analizador). |
+> | `guard v29.2 shot refused … reason=…` | Por qué no disparó (cada 5 s como máximo): "no elevation reaches the target", "path blocked before the target", "a protected actor is on the path", … |
+> | `guard v29.2 player-hostile … hunted=true` | El runtime vio a un guardia del pueblo en combate contra vos. **Su criterio no está verificado contra el motor**: si lo provocás y nunca aparece, decímelo. |
+> | `guard real projectile … pitch= solvedPitch= velocityZ= expectedZ= player=` | Disparo real. `velocityZ` debe coincidir con `expectedZ` (si no, `LAUNCH-VELOCITY-MISMATCH`). |
+>
+> Pruebas sugeridas: (1) caminar bajo un voladizo y ver que te siga, subiendo/bajando según tu altura; (2) un enemigo hostil a pie en la calle (generalo por consola con un ID que confirmes en tu instalación); (3) un dragón; (4) provocar combate contra guardias de Whiterun. Límites conocidos: las **manos no suben con la ballesta** (la pose es un clip fijo) y **no hay adelanto de puntería**, así que un blanco en movimiento rápido se falla.
+
+> **v29.1 (DLL 3.6.2) — leer primero.** El guardia de los voladizos quedaba en una pose trabada. v29.1 solo cambia la DLL (escribe la pose únicamente si cambia, parte la solicitud del idle en dos pasos, registra qué clip suena de verdad). Diseño e hipótesis: `docs/superpowers/specs/2026-10-12-guardia-pose-fixes.md`. **No está compilada ni probada en Skyrim.**
+>
+> Tras compilar (`python scripts/build_native.py`) e instalar, la **primera línea** de `AstraSight.log` debe decir `AstraSight 3.6.3`. Después de una prueba de ~2 min junto a un voladizo, corré:
+>
+> ```
+> python scripts/analyze_guard_log.py "%USERPROFILE%\Documents\My Games\Skyrim Special Edition\SKSE\AstraSight.log"
+> ```
+>
+> y mandá su salida junto con `AstraSight.log`, `Papyrus.0.log` y, si el guardia sigue mal, una captura con OAR abierto (Shift+O) sobre él. Líneas nuevas: `guard v29.1 PlayIdle … accepted=`, `guard v29.1 re-request 1/2`, `guard v29.1 unexpected clip …`, `guard v29.1 hold unresolved`, y en `guard v29 pose` los campos `writesPos`, `writesRot`, `maxDrift`, `reissues`, `held`. En reposo, sin objetivo, `writesPos`/`writesRot` deben ser ≈0.
+
 > Actualizado el 2026-10-12 para v29. El texto anterior de este archivo era de v22: describía otro paquete y trazas que ya no existen. Lo vigente del paquete está en `docs/README_v29.md` y `docs/QA_v29.md`.
 
 Paquete: `dist/AstraAsedio_QA_v29_Unificado_MO2.zip`
@@ -47,7 +71,7 @@ Orden esperado en una sesión sana:
 
 | Línea | Qué significa |
 |---|---|
-| `AstraSight 3.6.0 …` | Está cargada la DLL correcta. Si dice 3.5.x, hay paquete viejo instalado. |
+| `AstraSight 3.6.3 …` (v29.2; 3.6.2 = v29.1, 3.6.0 = ZIP v29) | Está cargada la DLL correcta. Si dice otra versión con el paquete v29.2, hay otro mod pisando la DLL. |
 | `AstraGuardNative API1 frame pump … OAR Animations V1=True (module loaded=True)` | OAR cargó y concedió la API. Con `False` el guardia nunca animará. |
 | `guard v26 acquired gun=… actor=… package=14000B90 … holdRequested=true` | El runtime tomó el puesto. La traza conserva el prefijo `v26` por historia. |
 | `guard v29 holding gun=… actor=… yaw=…` | Entró en la pose (≈0,6 s tras la solicitud). |

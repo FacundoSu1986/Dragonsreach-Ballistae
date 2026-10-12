@@ -57,8 +57,10 @@ class Guard29(unittest.TestCase):
         shoot = body('bool GuardRuntime::shoot(')
         for removed in ('fireObserved', 'guardGripFresh(', 'cycle.release(', 'lastScaledTime', 'stepPhase'):
             self.assertNotIn(removed, shoot, removed)
-        for kept in ('enemy(target,guard)', 'guardProjectileContract(', 'guardPathSafe(', 'visible(target,guard,muzzle)',
-                     'horizontalFlight(', 'protect.push_back(*playerBounds)', 'RE::Projectile::Launch('):
+        # v29.2 supersedes the flat-shot pieces: enemy() takes `hunted`, the flat horizontalFlight gate became the
+        # elevation solution (aimAt) and the player is protected unless they are the target (see test_guard_aim_contracts.py).
+        for kept in ('enemy(target,guard,hunted)', 'guardProjectileContract(', 'guardPathSafe(', 'visible(target,guard,muzzle)',
+                     'aimAt(gun,center)', 'protect.push_back(*playerBounds)', 'RE::Projectile::Launch('):
             self.assertIn(kept, shoot, kept)
         # The mechanism's own Fire sequence starts with the real launch, not before.
         self.assertLess(shoot.index('RE::Projectile::Launch('), shoot.index('GetSequence("Fire")'))
@@ -72,14 +74,15 @@ class Guard29(unittest.TestCase):
         self.assertIn('guard v29 pose', CPP)
         self.assertNotIn('rotateBone(', body('void GuardRuntime::tick(float dt)'))
 
-    def test_version_is_360_everywhere(self):
+    def test_version_is_363_everywhere(self):
+        """Superseded 3.6.0/3.6.2 contracts: v29.2 (docs/superpowers/specs/2026-10-12-guardia-apuntado-disparo.md) is 3.6.3."""
         plugin = (ROOT/'native/src/Plugin.cpp').read_text()
-        for value in ('v.PluginVersion({3,6,0,0})', 'info->version=0x03060000', 'AstraSight 3.6.0 API 4'):
+        for value in ('v.PluginVersion({3,6,3,0})', 'info->version=0x03060030', 'AstraSight 3.6.3 API 4'):
             self.assertIn(value, plugin)
-        self.assertIn('REL::Version{3,6,0,0}', CPP)
-        self.assertIn('project(AstraSight VERSION 3.6.0', (ROOT/'native/CMakeLists.txt').read_text())
-        self.assertIn('0x03060000', (ROOT/'native/verify_binary.py').read_text())
-        self.assertIn('50724864', (ROOT/'scripts/build_native.py').read_text())
+        self.assertIn('REL::Version{3,6,3,0}', CPP)
+        self.assertIn('project(AstraSight VERSION 3.6.3', (ROOT/'native/CMakeLists.txt').read_text())
+        self.assertIn('0x03060030', (ROOT/'native/verify_binary.py').read_text())
+        self.assertIn('50724912', (ROOT/'scripts/build_native.py').read_text())
 
     def test_scene_assets_are_identical_to_v27(self):
         manifest = json.loads((ROOT/'dist/MANIFEST_v27.json').read_text())['files_sha256']

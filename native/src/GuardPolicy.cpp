@@ -1,6 +1,7 @@
 #include "Astra/GuardPolicy.h"
 #include <algorithm>
 #include <limits>
+#include <numbers>
 #include <string>
 #include <cctype>
 namespace Astra {
@@ -52,20 +53,22 @@ std::optional<double> horizontalFlight(Vec d,double speed,double gravity,double 
  double t=std::hypot(d.x,d.y)/speed;if(t<=0||t>6000./speed)return {};
  return std::abs(d.z+.5*gravity*t*t)<=tolerance?std::optional<double>{t}:std::nullopt;
 }
-std::optional<uint32_t> selectGuardTarget(std::span<const GuardCandidate> actors,uint32_t cached,Vec origin,Mat root,Vec muzzle){
+bool guardEnemy(const GuardCandidate& a){return a.hostile&&a.combat&&!a.teammate&&(!a.player||(GuardAllowPlayerTarget&&a.hunted));}
+std::optional<uint32_t> selectGuardTarget(std::span<const GuardCandidate> actors,uint32_t cached,Vec origin,Mat root,Vec muzzle,bool ballistic){
  const GuardCandidate* stable=nullptr;const GuardCandidate* best=nullptr;double bestDistance=std::numeric_limits<double>::infinity();
- for(auto& a:actors){Vec d=a.position-origin;bool enemy=a.hostile&&a.combat&&!a.player&&!a.teammate;
+ for(auto& a:actors){Vec d=a.position-origin;bool enemy=guardEnemy(a);
   double yaw=std::remainder(aimFromWorld(root,d).yaw,360.);
   if(!a.id||!a.loaded||!a.visible||!std::isfinite(length(d))||length(d)>(enemy?6000.:2100.)||std::abs(yaw)>60.)continue;
   if(a.resident&&!a.player&&!enemy)continue;
   // Nearby enemies may be followed visually at any visible height. Extending
-  // the engagement beyond the visual radius requires a reachable flat shot.
-  if(enemy&&length(d)>2100&&!horizontalFlight(a.position-muzzle,5400,240.345,a.halfHeight))continue;
+  // the engagement beyond the visual radius requires a reachable shot (flat, or
+  // elevated when the caller can aim: the muzzle swing is solved later).
+  if(enemy&&length(d)>2100&&!(ballistic?guardAimSolution(a.position-muzzle,0,0).has_value():horizontalFlight(a.position-muzzle,5400,240.345,a.halfHeight).has_value()))continue;
   if(a.id==cached)stable=&a;
-  bool bestEnemy=best&&best->hostile&&best->combat&&!best->player&&!best->teammate;
+  bool bestEnemy=best&&guardEnemy(*best);
   double distance=dot(d,d);if(!best||(enemy&&!bestEnemy)||(enemy==bestEnemy&&(distance<bestDistance||(distance==bestDistance&&a.id<best->id)))){best=&a;bestDistance=distance;}
  }
- if(stable){bool stableEnemy=stable->hostile&&stable->combat&&!stable->player&&!stable->teammate;bool bestEnemy=best&&best->hostile&&best->combat&&!best->player&&!best->teammate;if(stableEnemy||!bestEnemy)return stable->id;}
+ if(stable){bool stableEnemy=guardEnemy(*stable);bool bestEnemy=best&&guardEnemy(*best);if(stableEnemy||!bestEnemy)return stable->id;}
  return best?std::optional<uint32_t>{best->id}:std::nullopt;
 }
 std::vector<Vec> guardTrajectory(Vec muzzle,Vec bore,double seconds,double speed,double gravity){
@@ -102,17 +105,59 @@ std::optional<double> guardTrackYaw(double yaw,double desired,double dt){
  double step=GuardTrackRate*std::min(dt,GuardTrackMaxDt);
  return yaw+std::clamp(std::clamp(desired,-60.,60.)-yaw,-step,step);
 }
+std::optional<GuardAim> guardAimSolution(Vec to,double along,double up,double pitchMin,double pitchMax,double speed,double gravity){
+ if(!std::isfinite(length(to)+along+up+pitchMin+pitchMax+speed+gravity)||speed<=0||gravity<=0||pitchMin>pitchMax)return {};
+ const double distance=std::hypot(to.x,to.y);double pitch=0;
+ for(int i=0;i<12;++i){
+  // Muzzle swing: (along,up) rotated by the elevation, then range and drop measured from the muzzle.
+  double c=std::cos(pitch),s=std::sin(pitch),range=distance-(along*c-up*s),drop=to.z-(along*s+up*c);
+  if(range<64)return {};
+  double k=gravity*range*range/(2*speed*speed),disc=range*range-4*k*(drop+k);if(disc<0)return {};
+  double tangent=(range-std::sqrt(disc))/(2*k),next=std::atan(tangent);
+  if(!std::isfinite(next))return {};
+  bool done=std::abs(next-pitch)<1e-9;pitch=next;if(done)break;
+ }
+ double degrees=deg(pitch);if(degrees<pitchMin||degrees>pitchMax)return {};
+ double range=distance-(along*std::cos(pitch)-up*std::sin(pitch)),seconds=range/(speed*std::cos(pitch));
+ if(!std::isfinite(seconds)||seconds<=0)return {};
+ return GuardAim{degrees,seconds};
+}
+std::optional<double> guardTrackPitch(double pitch,double desired,double dt){
+ if(!std::isfinite(pitch+desired+dt)||dt<0||pitch<GuardPitchMin-.001||pitch>GuardPitchMax+.001)return {};
+ double step=GuardPitchRate*std::min(dt,GuardTrackMaxDt);
+ return pitch+std::clamp(std::clamp(desired,GuardPitchMin,GuardPitchMax)-pitch,-step,step);
+}
+std::optional<Vec> guardBore(Vec horizontal,double pitchDegrees){
+ double h=std::hypot(horizontal.x,horizontal.y);if(!std::isfinite(h+pitchDegrees)||h<1e-9)return {};
+ double p=rad(pitchDegrees);return Vec{horizontal.x/h*std::cos(p),horizontal.y/h*std::cos(p),std::sin(p)};
+}
+std::vector<Vec> guardArcTrajectory(Vec muzzle,Vec bore,double seconds,double speed,double gravity){
+ if(!std::isfinite(length(muzzle)+length(bore)+seconds+speed+gravity)||std::abs(length(bore)-1)>.001||seconds<=0||seconds>6000./speed||speed<=0||gravity<=0)return {};
+ int n=int(std::ceil(seconds/.02));std::vector<Vec> result;result.reserve(n+1);for(int i=0;i<=n;++i){double t=seconds*i/n;result.push_back(muzzle+bore*(speed*t)+Vec{0,0,-.5*gravity*t*t});}return result;
+}
 bool guardShouldFire(bool enemy,bool reachable,double yawError,double now,double nextShot){
  return enemy&&reachable&&std::isfinite(yawError+now+nextShot)&&std::abs(yawError)<=GuardAimTolerance&&now>=nextShot;
 }
-void GuardHoldWatch::begin(double now){since_=last_=now;seen_=-1e300;}
+void GuardHoldWatch::begin(double now){since_=last_=now;seen_=-1e300;reissues_=0;}
 void GuardHoldWatch::seen(double now){if(std::isfinite(now))seen_=now;}
 bool GuardHoldWatch::entered(double now)const{return std::isfinite(now)&&now-since_>=GuardEnterSeconds;}
 bool GuardHoldWatch::reissue(double now){
  // Samples are optional telemetry (an off-screen actor may not generate). Only a
- // clip silent for 3 s is re-requested, at most every 6 s; it never cancels.
- if(!std::isfinite(now)||now-std::max(seen_,last_)<=3.||now-last_<6.)return false;
- since_=last_=now;return true;
+ // clip silent for 3 s is re-requested, at most every 6 s and GuardMaxReissues times
+ // per lease; it never cancels.
+ if(!std::isfinite(now)||now-std::max(seen_,last_)<=3.||now-last_<6.||exhausted())return false;
+ since_=last_=now;++reissues_;return true;
+}
+void GuardHoldWatch::restart(double now){if(std::isfinite(now))since_=last_=now;}
+bool GuardHoldWatch::stale(double now)const{return std::isfinite(now)&&now-std::max(seen_,last_)>3.;}
+GuardPoseWrites guardPoseWrites(Vec current,Vec desired,double currentHeading,double desiredHeading,double currentPitch){
+ if(!std::isfinite(length(current)+length(desired)+currentHeading+desiredHeading+currentPitch))return {true,true};
+ double turn=std::abs(std::remainder(desiredHeading-currentHeading,2*std::numbers::pi));
+ return {length(desired-current)>GuardPoseEpsilonPosition,turn>GuardPoseEpsilonAngle||std::abs(currentPitch)>GuardPoseEpsilonAngle};
+}
+bool guardHandsHeld(double leftError,double rightError){
+ // A negative error is "not measured" (hand node or grip unavailable): no evidence.
+ return std::isfinite(leftError+rightError)&&leftError>=0&&rightError>=0&&leftError<=GuardHeldHandError&&rightError<=GuardHeldHandError;
 }
 bool GuardLease::begin(Key key,uint32_t actor){if(owner_||effects_||pending_||!key.handle||key.token<=0||!actor)return false;owner_={key,++epoch_};actor_=actor;return true;}
 std::optional<double> guardOrbit(Vec feet,Vec gun,Mat root,Vec facing,double scale){
