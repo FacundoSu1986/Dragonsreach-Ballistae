@@ -31,25 +31,21 @@ class ReleaseContract(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.records=P.record_map(Plugin(str(ROOT/'addons/Atalaya/AstraAsedio_Atalaya.esp')))
-    def test_core_and_city_payload_preserved(self):
-        parent=ROOT.with_name('Ballesta_Astra_Vanilla_SE_v20')
-        # Mounting sheathes the player and drops the dragon. Recompiling stamps
-        # every PEX. The quiescence guard also changes Guard, PlayerAlias,
-        # Session and Station sources.
-        exempt={Path('scripts')/name for name in (
-            'AstraAsedioActi.pex','AstraAsedioGuard.pex','AstraAsedioPlayerAlias.pex',
-            'AstraAsedioSession.pex','AstraAsedioStation.pex','AstraSightNative.pex',
-            'source/AstraAsedioActi.psc','source/AstraAsedioGuard.psc',
-            'source/AstraAsedioPlayerAlias.psc','source/AstraAsedioSession.psc',
-            'source/AstraAsedioStation.psc')}
-        for folder in ['mod','addons/WhiterunTorres']:
-            a={p.relative_to(ROOT/folder):sha(p) for p in (ROOT/folder).rglob('*') if p.is_file()}
-            b={p.relative_to(parent/folder):sha(p) for p in (parent/folder).rglob('*') if p.is_file()}
-            if folder!='mod':
-                self.assertEqual(a,b,folder); continue
-            self.assertEqual(set(a), set(b))
-            changed={rel for rel in a if a[rel]!=b[rel]}
-            self.assertEqual(changed, exempt)
+    def test_v21_release_archive_is_intact(self):
+        # El arbol vivo ya es v22 (dos torretas + addon de animacion del guardia), asi
+        # que comparar `mod/` contra el hermano v20 ya no puede sostenerse: esa
+        # comprobacion vive ahora en tests/test_v22_release.py, anclada al ZIP v21
+        # publicado en vez de a un directorio hermano. Lo que sigue teniendo sentido en
+        # el contrato de v21 es que su ZIP publicado no derive, porque todo el pipeline
+        # de v22 lo usa como baseline congelado (build_bridge, compile_bridge,
+        # package_v22).
+        import zipfile
+        base=json.loads((ROOT/'reports/base_archive.json').read_text())
+        archive=Path(base['path'])
+        self.assertEqual(sha(archive),base['sha256'])
+        with zipfile.ZipFile(archive) as z:
+            got={n.replace('\\','/'):hashlib.sha256(z.read(n)).hexdigest() for n in z.namelist()}
+        self.assertEqual(got,base['files'])
     def test_stable_owned_identities(self):
         before=P.record_map(Plugin(str(ROOT.with_name('Ballesta_Astra_Vanilla_SE_v20')/'addons/Atalaya/AstraAsedio_Atalaya.esp')))
         self.assertEqual({k for k in before if k>>24==4},{k for k in self.records if k>>24==4})

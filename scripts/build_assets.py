@@ -545,7 +545,35 @@ def main():
             o.data.update()
         yaw.location.z+=lift
         bpy.context.view_layer.update()
-    (ROOT/'reports/mount_revision.json').write_text(json.dumps({'raise_units':lift,'fixed_base_before':old_fixed_min,'fixed_base_after':min(v.co.z for o in fixed for v in o.data.vertices),'fixed_top_before':old_fixed_max,'fixed_top_after':max(v.co.z for o in fixed for v in o.data.vertices),'yaw_pivot_z':yaw.location.z,'pitch_pivot_z':yaw.location.z+pitch.location.z,'moving_local_pivots_unchanged':True,'source_original_modified':False},indent=2))
+    # v22 ergonomics: lower the whole rotating head so the operator works the machine
+    # without raising his arms above the shoulder line. Mirror of the lift above, but
+    # NOT anchored at min(z): the floor plate (z 0..~15.3) is ground-contact geometry and
+    # must not move, so the compression starts at turret_drop_base_units and only vertices
+    # ABOVE it are scaled. The base and the `z > base` cutoff are not a guess: fitting
+    # z' = base + (z-base)*k against the reference v22 NIF pins base at 20.000 (max error
+    # 1e-5 u over 714 vertices), and the binary edit that produced v22 documented the same
+    # 20 / z>20 rule. Two config values must carry the same delta or the sights and the ESP
+    # disagree with the mesh: pitch_pivot_units (153.0 -> 117.0, the iron sights are built
+    # from it) and guardia.muzzle_alto (172.6 -> 136.6). ProjectileNode and
+    # AstraSightCameraNode hang from CTRL_ELEVACION, so they follow yaw for free;
+    # OperatorNode is a child of the root and does not move.
+    drop=float(CFG.get('turret_drop_units',0.0))
+    drop_base=float(CFG.get('turret_drop_base_units',0.0))
+    drop_top=max(v.co.z for o in fixed for v in o.data.vertices)
+    if drop:
+        if drop>=drop_top-drop_base:
+            raise RuntimeError('turret_drop_units (%g) would invert the pedestal (base %g, top %g)'%(drop,drop_base,drop_top))
+        support_scale=(drop_top-drop_base-drop)/(drop_top-drop_base)
+        for o in fixed:
+            for v in o.data.vertices:
+                if v.co.z>drop_base:
+                    v.co.z=drop_base+(v.co.z-drop_base)*support_scale
+            o.data.update()
+        yaw.location.z-=drop
+        bpy.context.view_layer.update()
+    # pitch_pivot_z is the local pivot chain (yaw + pitch) and must equal pitch_pivot_units:
+    # that is the self-check that the mesh drop and the ESP pivot agree.
+    (ROOT/'reports/mount_revision.json').write_text(json.dumps({'raise_units':lift,'drop_units':drop,'drop_base_units':drop_base,'fixed_base_before':old_fixed_min,'fixed_base_after':min(v.co.z for o in fixed for v in o.data.vertices),'fixed_top_before':old_fixed_max,'fixed_top_after':max(v.co.z for o in fixed for v in o.data.vertices),'yaw_pivot_z':yaw.location.z,'pitch_pivot_z':yaw.location.z+pitch.location.z,'pitch_pivot_config':CFG['pitch_pivot_units'],'pitch_pivot_agrees':abs(yaw.location.z+pitch.location.z-CFG['pitch_pivot_units'])<1e-6,'moving_local_pivots_unchanged':True,'source_original_modified':False},indent=2))
     verts=[o.matrix_world@v.co for o in fixed for v in o.data.vertices]
     lo=[min(v[i] for v in verts) for i in range(3)]; hi=[max(v[i] for v in verts) for i in range(3)]
     # v10: the v09 camera recorder showed Skyrim pulling the sight camera toward the player head when this

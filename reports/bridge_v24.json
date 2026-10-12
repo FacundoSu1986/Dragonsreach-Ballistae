@@ -1,0 +1,25 @@
+{
+  "revision": 24,
+  "success": true,
+  "game_tested": false,
+  "donor": "Skyrim.esm:0002AC7B",
+  "template": "Skyrim.esm:00016FAA",
+  "package": "AstraAsedio_WhiterunTorres.esp:000B90",
+  "owned_npcs": [
+    "000B00",
+    "000B01"
+  ],
+  "aliases": [
+    "000B71",
+    "000B81"
+  ],
+  "alias_package_subrecord": "ALPC",
+  "quest_priority": 100,
+  "ignore_combat": true,
+  "weapons_unequipped": true,
+  "no_combat_alert": true,
+  "files_sha256": {
+    "addons/WhiterunTorres/AstraAsedio_WhiterunTorres.esp": "fabe09b28a3b1c3559b965242f85a6f42e95a7f784e5db6e7068be8b0db63b3b",
+    "addons/GuardAnim/AstraAsedio_GuardAnim.esp": "7882f952d9d71648ef9277f39193271d8cdddc8a00ca332c5ffbc5d2954c9eba"
+  }
+}

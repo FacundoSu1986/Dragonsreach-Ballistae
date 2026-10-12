@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "baseline_zip": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_Vanilla_SE_v21\\dist\\AstraAsedio_QA_v21_Completo_MO2.zip",
+  "baseline_sha256": "0a60c61f9e7e81e262e97d46c1237363021b71e030ad767b474b9fa481230fee",
+  "guard_psc_sha256_pre_bridge": "46f4e833f233381666e03857469b7b169c24341acf314aa84b2a268548db476f",
+  "guard_psc_sha256": "43a146aa163cb4ee84c1b4b012740d412cbd6a41689e5d29bdfe2e40c24fcd29",
+  "addon_esp_sha256": "eea4d177a39a3d0b18435214f16c719023a2d691ab4d3ec18aa12e23ae4b9ff2",
+  "clips": {
+    "operate": "ead96439eb23f3a895f4cf218b056bb0c780c96e74fbeb8635f14b2ee7151d06",
+    "fire": "006a551c76aa8dd69ebc99009e0e0aebe06f69b8874050a98e63dbff757a1c69"
+  },
+  "requires_open_animation_replacer": true,
+  "bundles_open_animation_replacer": false,
+  "runtime_integrated": false
+}

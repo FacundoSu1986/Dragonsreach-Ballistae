@@ -1,0 +1,16 @@
+{
+  "observed_revision": 24,
+  "game_failure_confirmed": true,
+  "log_sha256": "88f38c0595a2b1b200e4b5728c4217c0f877c69073192506a4f7d86860cbd41d",
+  "log_bytes": 101143,
+  "reject_count": 230,
+  "clauses": {
+    "station / actor scale differs from 1": 230
+  },
+  "first_rejections": [
+    "[2026-10-11 15:21:38.054] [AstraSight] [warning] guard v24 reject gun=14000B70 actor=14000B71 token=7 clause=station / actor scale differs from 1 actorXYZ=(17801.738,-8673.609,-3545.417) gunXYZ=(17801.740,-8824.610,-3544.014) actorScale=1.03 rootScale=1 package=14000B90 weaponDrawn=false",
+    "[2026-10-11 15:21:38.263] [AstraSight] [warning] guard v24 reject gun=14000B80 actor=14000B81 token=7 clause=station / actor scale differs from 1 actorXYZ=(15225.558,-8575.520,-4128.014) gunXYZ=(15225.560,-8726.520,-4128.014) actorScale=1.03 rootScale=1 package=14000B90 weaponDrawn=false"
+  ],
+  "cause": "effective actor scale 1.03 rejected by strict scale1 precondition before requestClip",
+  "v25_in_game_tested": false
+}

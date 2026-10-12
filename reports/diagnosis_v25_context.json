@@ -1,0 +1,25 @@
+{
+  "observed_revision": 25,
+  "log_sha256": "d8fd019cee97d42cbc7f6da406eecebb923261a2ddfe1d5deac85cc7474f16eb",
+  "log_bytes": 57450,
+  "acquired_count": 134,
+  "cancel_count": 134,
+  "cancel_reasons": {
+    "death/stagger/unload/owner/context\r": 134
+  },
+  "hold_observed": false,
+  "grip_observed": false,
+  "first_acquisition": [
+    "[2026-10-11 16:28:59.862] [AstraSight] [info] guard v25 acquired gun=14000B70 actor=14000B71 package=14000B90 yaw=-0 heightOffset=0.00048828125 supportZ=-3544.018268585205 actorScale=1.0299999713897705 referenceScale=1 baseHeight=1.0299999713897705 holdRequested=true\r",
+    "[2026-10-11 16:29:00.349] [AstraSight] [info] guard v25 acquired gun=14000B80 actor=14000B81 package=14000B90 yaw=0.00037054907072824083 heightOffset=0.0009765625 supportZ=-4128.039416313171 actorScale=1.0299999713897705 referenceScale=1 baseHeight=1.0299999713897705 holdRequested=true\r"
+  ],
+  "first_cancel": [
+    "[2026-10-11 16:28:59.897] [AstraSight] [info] guard cancel gun=14000B70 token=60 epoch=1 fault=false reason=death/stagger/unload/owner/context\r",
+    "[2026-10-11 16:29:00.383] [AstraSight] [info] guard cancel gun=14000B80 token=60 epoch=2 fault=false reason=death/stagger/unload/owner/context\r"
+  ],
+  "video_sha256": "0435aa87f1bce2c9c0118ff3f0cd1a65a9f70530cf5befae96c4ad999a1e3b47",
+  "video_seconds": 3.3012111111111113,
+  "fps": 29.988993938251618,
+  "frame_count": 99.0,
+  "v26_in_game_tested": false
+}

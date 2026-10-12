@@ -1,0 +1,41 @@
+{
+  "revision": 29,
+  "reviewer": "same-session self-review by the implementing agent; NOT an independent review",
+  "scope": [
+    "native/src/GuardRuntime.cpp (tick, pose, shoot, observe, menu, poseLog, reload)",
+    "native/src/GuardPolicy.cpp + include/Astra/GuardPolicy.h (guardTrackYaw, guardShouldFire, GuardHoldWatch)",
+    "native/include/Astra/GuardRuntime.h",
+    "tests/test_v29_guard_simple.py, native/tests/v29_guard_tests.cpp",
+    "superseded assertions in tests/test_v27_guard_resilience.py and tests/test_v28_runtime.py"
+  ],
+  "design": "docs/superpowers/specs/2026-10-11-guardias-v29-design.md",
+  "findings": [
+    {
+      "severity": "diagnosability",
+      "finding": "A move refused by floor support / swept clearance kept the previous yaw silently; the 2 s pose log showed yaw != desired without the reason.",
+      "outcome": "fixed: Slot::moveRefusal printed as moveRefused= in 'guard v29 pose'."
+    },
+    {
+      "severity": "test",
+      "finding": "v29 native test compared entered(10.6) after begin(10); 10.6-10 is 0.5999999999999996 in binary floating point.",
+      "outcome": "fixed in the test (10.61); policy keeps >= GuardEnterSeconds."
+    }
+  ],
+  "checked_without_findings": [
+    "Yaw convention: rz(yaw)*(0,-1,0) == gunDirection(yaw,0) and aimFromWorld inverts it; operator at rz(yaw)*(0,151,0) faces the bore.",
+    "guardTrackYaw output stays within [-60.001, 60.001] for any in-range input, so pose() and guardGrip() never see an out-of-sector yaw.",
+    "Fire alignment: |error| <= 0.25 deg implies |bore - horizontal| <= 0.0044 < 0.006 required by shoot(); tracking reaches the bearing exactly while the target moves slower than 20 deg/s.",
+    "Turret collision (bhkCompressedMeshShape) spans only the pedestal (+-91.7 x +-88.5 x 0..35 u); the operator capsule at radius 151 never enters it, so the swept clearance rays cannot be blocked by the gun itself.",
+    "NIF Fire/Reset sequences animate CTRL_BRAZO_I/D, Cuerda_I/D and VIROTE_VISUAL only, never CTRL_GIRO_360.",
+    "Locking: observe() still takes only observationsMutex_ and never holds it across OAR calls; requestClip on the main pump holds mutex_ but releases observationsMutex_ before OAR.",
+    "All shoot() target, trajectory, protected-actor, projectile-contract and live revalidation checks are unchanged."
+  ],
+  "residual_risks": [
+    "Feet slide while the mount turns (accepted by the original clip contract).",
+    "If own-clip samples are structurally absent while the guard is on screen, the 3 s / 6 s re-request causes a visible hold re-entry every 6 s; visible in the log as repeated 'guard v29 hold re-request'.",
+    "Per-frame SetPosition/SetRotation may fight AI turn-to-face; unmeasured jitter.",
+    "Platform railings may stop tracking at some angles; the guard keeps the grip at the last valid yaw (moveRefused= in the log).",
+    "No body gesture on fire; the hold clip stays active during launch and reload."
+  ],
+  "game_tested": false
+}

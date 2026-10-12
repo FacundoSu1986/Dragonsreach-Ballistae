@@ -1,0 +1,25 @@
+{
+  "revision": 22,
+  "delta_units": 36.0,
+  "nif_alto": {
+    "path": "mod\\meshes\\AstraAsedio\\ballesta.nif",
+    "pivote_z": 153.0,
+    "muzzle_z": 172.6,
+    "nodos": 12
+  },
+  "nif_bajo": {
+    "path": "mod\\meshes\\AstraAsedio\\ballesta_guardia.nif",
+    "pivote_z": 117.0,
+    "muzzle_z": 136.6,
+    "nodos": 12
+  },
+  "usa_alto": {
+    "ACTI_03000801": "jugador (core + Atalaya)",
+    "ACTI_03000B02": "voladizos de WhiterunTorres (AstraAsedioStation, mira nativa)"
+  },
+  "usa_bajo": {
+    "ACTI_03000B04": "torreta guardia-exclusiva de Carrera Blanca (04000B10)"
+  },
+  "ok": true,
+  "fails": []
+}

@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "baseline_commit": "46bfbf7",
+  "guard_positions": {
+    "0xb71": [
+      17801.740234375,
+      -8673.6103515625,
+      -3544.013916015625,
+      0.0,
+      0.0,
+      3.141592653589793
+    ],
+    "0xb81": [
+      15225.5595703125,
+      -8575.51953125,
+      -4128.01416015625,
+      0.0,
+      0.0,
+      3.141592653589793
+    ]
+  },
+  "operator_local_offset": [
+    0,
+    151,
+    0
+  ],
+  "fixed_npc_pitch": 0,
+  "guard_anim_masters": [
+    "Skyrim.esm",
+    "AstraAsedio.esp",
+    "AstraAsedio_WhiterunTorres.esp"
+  ],
+  "sensor_quest_local": "000806",
+  "clips": {
+    "operate": "760373cb413f1170e768a77c1ba9eeba71a8d0632ea0aa0e220253a5077c0960",
+    "fire": "d24fb4963dc860aacf17ca5b42de3310df4ac6b08de52205c4e3a59086f97309",
+    "turn_left": "27c06ffb40ec74bba125685bcdce362bf8113021e433c81c0b11775405d4aff9",
+    "turn_right": "dd5f4eab345d130e509c51b5160b8cf3d6138fcb5431e96fef621f2a0e3fd9cf"
+  },
+  "game_tested": false,
+  "changed_city_forms": [
+    "04000B70",
+    "04000B71",
+    "04000B72",
+    "04000B80",
+    "04000B81",
+    "04000B82"
+  ]
+}

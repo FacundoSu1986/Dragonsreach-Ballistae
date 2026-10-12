@@ -47,13 +47,19 @@ def replace_clone(donor,edid,updates,drop=()):
  return ss
 
 def find_guard_npc(path,candidates):
- p=Plugin(path)
+ # La lista de candidatos es una PRIORIDAD, no un conjunto: se recorre el ESM una vez y
+ # despues se elige por orden de config. Devolver el primero que aparece en el archivo
+ # hacia que donores_npc[0] fuera decorativo (Skyrim.esm lista GuardWindhelmImperial antes
+ # que GuardWhiterunCityGeneric).
+ p=Plugin(path);found={}
  for t,o,n,d in p.recorrer():
   if t=='NPC_':
    ss=p.subrecords(p.datos(o))
    ed=next((v.rstrip(b'\0').decode('cp1252') for k,v in ss if k=='EDID'),'')
    if ed in candidates:
-    return {'edid':ed,'type':t,'fid':p.form_id(o),'subs':ss,'flags':struct.unpack_from('<I',p.d,o+8)[0]}
+    found[ed]={'edid':ed,'type':t,'fid':p.form_id(o),'subs':ss,'flags':struct.unpack_from('<I',p.d,o+8)[0]}
+ for c in candidates:
+  if c in found:return found[c]
  raise ValueError('Guard NPC donor not found among %s: abri xEdit, buscá el EDID de un guardia de ciudad (NPC_) y agregalo a config.json guardia.donores_npc'%candidates)
 
 def lenstr(s):
@@ -522,8 +528,20 @@ def build():
  if sk['DefaultImageSpace']['fid']!=0x167 or struct.unpack('<4f',dict(sk['DefaultImageSpace']['subs'])['TNAM'])!=(0.,1.,1.,1.):raise ValueError('neutral vanilla ImageSpace changed')
  gcfg=cfg.get('guardia')
  guard_donor=None
+ guard_pack=None
  if gcfg:
   guard_donor=find_guard_npc(data/'Skyrim.esm',gcfg['donores_npc'])
+  if gcfg.get('paquete_torre'):
+   # El guardia debe quedar apostado en la torre, no caminar a la ciudad del donante.
+   # El paquete tiene que estar anclado a la ubicacion del editor (PLDT type 3) y ser
+   # incondicional, o el clon lo ignora y el NPC se va. Se valida aca, no en el juego.
+   guard_pack=find_records(data/'Skyrim.esm',[gcfg['paquete_torre']])[gcfg['paquete_torre']]
+   if guard_pack['type']!='PACK':raise ValueError('guardia.paquete_torre debe ser un PACK, no '+guard_pack['type'])
+   pldts=[v for k,v in guard_pack['subs'] if k=='PLDT']
+   if not pldts or any(struct.unpack_from('<I',v,0)[0]!=3 for v in pldts):
+    raise ValueError('guardia.paquete_torre %s debe anclarse a la ubicacion del editor (PLDT type=3)'%gcfg['paquete_torre'])
+   if any(k=='CTDA' for k,_ in guard_pack['subs']):
+    raise ValueError('guardia.paquete_torre %s debe ser incondicional (sin CTDA)'%gcfg['paquete_torre'])
  (ROOT/'build/Dawnguard.esm.donors.json').write_text(json.dumps({k:{**{q:v for q,v in d.items() if q!='subs'},'subs':[[k,v.hex()] for k,v in d['subs']]} for k,d in dg.items()},indent=2))
  groups=[];new=[]
  def add(t,fid,ss,flags=0):
@@ -554,10 +572,15 @@ def build():
  # v-guardia: flag compartido sesión/demo <-> torre autónoma
  groups.append(W.grupo('GLOB',[add('GLOB',IDS['ocupada'],[W.sub('EDID',W.zstr('AstraGuardiaOcupada')),W.sub('FNAM',b's\0'),W.sub('FLTV',struct.pack('<f',0.0))])]))
  if guard_donor:
-  # Clon de un guardia vanilla: paquetes/facciones/combate del donante (sandbox
-  # anclado a la ubicación del editor = la torre). El VMAD del sensor va justo
-  # después de EDID, como exige el orden de subrecords de NPC_.
-  gsubs=[]
+  # Clon de un guardia vanilla: facciones/inventario/outfit/combate del donante.
+  # templateFlags decide que se hereda del TPLT del donante, asi que hay que borrar:
+  #   BaseData  (0x0080) -> el nombre es el de config, no el del template. Sin esto el
+  #                        FULL del clon se ignora y el guardia se llama como el donante.
+  #   AIPackages(0x0020) -> manda guardia.paquete_torre, no las patrullas de la ciudad
+  #                        del donante (si no, el guardia se va caminando).
+  # El VMAD del sensor va justo despues de EDID, como exige el orden de subrecords de NPC_.
+  drop=0x0080|(0x0020 if guard_pack else 0)
+  gsubs=[];pkid_written=False;full_written=False
   for k,v in guard_donor['subs']:
    if k=='EDID':
     gsubs.append(W.sub('EDID',W.zstr('AstraGuardiaNPC')))
@@ -565,9 +588,23 @@ def build():
    elif k=='VMAD':
     continue
    elif k=='FULL':
-    gsubs.append(W.sub('FULL',W.zstr(gcfg['nombre'])))
+    gsubs.append(W.sub('FULL',W.zstr(gcfg['nombre'])));full_written=True
+   elif k=='PKID' and guard_pack:
+    if not pkid_written:
+     gsubs.append(W.sub('PKID',U(guard_pack['fid'])));pkid_written=True
+   elif k=='ACBS':
+    acbs=bytearray(v);tfl=struct.unpack_from('<H',acbs,18)[0]
+    struct.pack_into('<H',acbs,18,tfl&~drop)
+    gsubs.append(W.sub('ACBS',bytes(acbs)))
    else:
     gsubs.append(W.sub(k,v))
+  if guard_pack and not pkid_written:
+   at=next((i for i,s in enumerate(gsubs) if s[:4]==b'AIDT'),len(gsubs)-1)
+   gsubs.insert(at+1,W.sub('PKID',U(guard_pack['fid'])))
+  if not full_written:
+   # El donante no trae FULL (lo hereda del template): hay que inyectarlo despues de CNAM.
+   at=next((i for i,s in enumerate(gsubs) if s[:4]==b'CNAM'),len(gsubs)-1)
+   gsubs.insert(at+1,W.sub('FULL',W.zstr(gcfg['nombre'])))
   groups.append(W.grupo('NPC_',[add('NPC_',IDS['guardia'],gsubs)]))
  light_donor=sk['MagicVoiceDragonRendProjectileLight']
  groups.append(W.grupo('LIGH',[add('LIGH',IDS['light_fill'],neutral_light(light_donor,'AstraAsedioNeutralFill',1450)),add('LIGH',IDS['light_target'],neutral_light(light_donor,'AstraAsedioNeutralTargetLight',900))]))
@@ -651,6 +688,9 @@ def build():
  report['door']={'base':'000C78A3 FarmhouseAnimDoor01','teleport':False,'opens':cfg['tower_v11']['room']['door_opens'],'swing_verified_in_game':False}
  report['angle_convention']={k:v for k,v in json.loads((ROOT/'reports/angle_convention.json').read_text()).items() if k in ('decided','order','signs','falsified')}
  report['guardia']={'donante_npc':(guard_donor or {}).get('edid'),'donante_fid':('%08X'%guard_donor['fid']) if guard_donor else None,
+  'paquete_torre':gcfg.get('paquete_torre') if gcfg else None,'paquete_torre_fid':('%08X'%guard_pack['fid']) if guard_pack else None,
+  'paquete_torre_anclaje':'PLDT type=3 (near editor location), sin CTDA; templateFlags.AIPackages borrado' if guard_pack else 'paquetes del donante (v1)',
+  'template_flags_borrados':['BaseData (0x0080): el nombre es el de config']+(['AIPackages (0x0020): manda paquete_torre'] if guard_pack else []),
   'nombre':gcfg['nombre'] if gcfg else None,'posicion':gcfg['posicion'] if gcfg else None,
   'glob_ocupada':'%08X'%IDS['ocupada'],'auto_script':'AstraGuardiaAuto en la ballesta (segundo VMAD)',
   'balistica':{'velocidad':gcfg['velocidad_proyectil'],'gravedad':gcfg['gravedad_proyectil'],'fuente':'native/src/Core.cpp v08 sight zero (5400 u/s, 0.35*9.81*70)'},

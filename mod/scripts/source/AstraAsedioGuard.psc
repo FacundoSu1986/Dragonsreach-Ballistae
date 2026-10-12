@@ -29,6 +29,17 @@ string Property PitchNode = "CTRL_ELEVACION" Auto
 string Property MuzzleNode = "ProjectileNode" Auto
 string Property VisualBoltNode = "VIROTE_VISUAL" Auto
 
+; GuardAnim v01: private OAR bridge; player controller remains byte-identical.
+Faction poseFaction
+Faction fireFaction
+Idle holdIdle
+Idle exitIdle
+Actor visualTarget
+float visualScanAt = 0.0
+bool guardPoseStarted = false
+bool guardPoseFiring = false
+float guardPoseFireAt = 0.0
+
 bool running = false
 bool recovering = false
 bool updating = false
@@ -72,32 +83,49 @@ bool stationRetired = false
 int playerLease = 0
 int playerSerial = 0
 
+
+; v26: exclusive operator package; persisted v23 field names stay compatible.
+; Legacy functions remain fenced to let old saved Papyrus stacks return safely.
+bool v23Wanted = false
+int v23PumpOwner = 0
+int v23Generation = 0
+int v23Serial = 0
+int v23Token = 0
+int v23PlacementVersion = 0
+bool v23Warned = false
+int v23LastStatus = -99
+; v27: diagnosability + fault backoff. New names; old saves initialize defaults.
+; v27WarnedRefs: one-shot trace when the Torres weapon/operator refs cannot
+; resolve (the otherwise silent failure measured in the v21 packaging incident).
+; v27Faults: consecutive native fault drains (status -2). Backs the next pump
+; off instead of re-beginning every second (v25 log showed 134 churn cycles).
+bool v27WarnedRefs = false
+int v27Faults = 0
+bool v28RetryWaited = false
+
+
+
 Event OnInit()
     BlockActivation(true)
-    BeginRecovery()
+    StartV23()
 EndEvent
 
 Event OnLoad()
-    InvalidatePlayerLease()
-    ; Also invalidates any Fire/Reset stack restored from a save. Saved node
-    ; transforms are not trusted: start a new token at the neutral rest pose.
-    BeginRecovery()
+    StartV23()
 EndEvent
 
 Event OnUnload()
-    InvalidatePlayerLease()
-    Shutdown()
+    StopV23()
 EndEvent
 
 Event OnCellDetach()
-    InvalidatePlayerLease()
-    Shutdown()
+    StopV23()
 EndEvent
 
 Event OnDestructionStageChanged(int aiOldStage, int aiCurrentStage)
     if aiCurrentStage > 0
         destroyed = true
-        Shutdown()
+        StopV23()
     endif
 EndEvent
 
@@ -106,20 +134,17 @@ Event OnActivate(ObjectReference akActionRef)
 EndEvent
 
 bool Function Current(int expectedGeneration, int expectedToken)
-    return running && !stationRetired && !playerReserved && !recovering && !destroyed && !faulted && generation == expectedGeneration && token == expectedToken && token > 0
+    ; Fences every v22 aim/Fire/Reset stack restored from a save.
+    return false
 EndFunction
 
 bool Function RetireStation()
-    if !stationRetired
-        stationRetired = true
-        InvalidatePlayerLease()
-        Shutdown()
+    stationRetired = true
+    StopV23()
+    if v23Token <= 0 || !AstraGuardNative.IsAvailable()
+        return !sceneBusy && !pinBusy
     endif
-    if pinBusy || sceneBusy
-        return false
-    endif
-    ReleaseOwnedGuard()
-    return !pinBusy && !sceneBusy && ownedGuard == None
+    return AstraGuardNative.EndOperation(Self, v23Token)
 EndFunction
 
 Function InvalidatePlayerLease()
@@ -153,120 +178,12 @@ bool Function StationSceneAvailable()
 EndFunction
 
 int Function ReservePlayerLease()
-    if !AllowPlayerTakeover || stationRetired || destroyed || playerReserved || Standby == None || playerSerial >= 2000000000
-        return -1
-    endif
-    Actor player = Game.GetPlayer()
-    if playerReserved || destroyed || !AllowPlayerTakeover || Standby == None || Artillero == player
-        return -1
-    endif
-    playerSerial += 1
-    int lease = playerSerial
-    playerLease = lease
-    playerReserved = true
-    playerReady = false
-    playerRestored = false
-    ; Current() is now false before Shutdown's external effects. Suspended
-    ; shot stacks must complete their compensation before preparation can pass.
-    Shutdown()
-    if !PlayerLeaseCurrent(lease)
-        return -1
-    endif
-    return lease
+    ; Low Whiterun stations remain NPC-only.
+    return -1
 EndFunction
 
 bool Function PreparePlayerLease(int lease)
-    if !PlayerLeaseCurrent(lease) || pinBusy || sceneBusy || recovering || running
-        return false
-    endif
-    if playerReady
-        return true
-    endif
-    bool sceneFree = StationSceneAvailable()
-    if !PlayerLeaseCurrent(lease) || pinBusy || sceneBusy || !sceneFree
-        return false
-    endif
-    int scenePluginVersion = SKSE.GetPluginVersion("AstraSight")
-    if !PlayerLeaseCurrent(lease) || scenePluginVersion < 50659392
-        return false
-    endif
-    ReleaseOwnedGuard()
-    if !PlayerLeaseCurrent(lease) || pinBusy || sceneBusy
-        return false
-    endif
-    bool placed = EnsureCityPlacement(generation, lease)
-    if !PlayerLeaseCurrent(lease) || pinBusy || sceneBusy || !placed
-        return false
-    endif
-    if !playerRestored
-        bool loaded = Is3DLoaded()
-        bool controls = NetImmerse.HasNode(Self, YawNode, false) && NetImmerse.HasNode(Self, PitchNode, false)
-        if !PlayerLeaseCurrent(lease) || pinBusy || sceneBusy || !loaded || !controls
-            return false
-        endif
-        ; Both exported controls have identity rest. Never recapture a aimed
-        ; matrix as the next controller's rest, or aim would be applied twice.
-        float[] rest = new float[9]
-        rest[0] = 1.0
-        rest[4] = 1.0
-        rest[8] = 1.0
-        sceneBusy = true
-        bool settled = AstraSightNative.ResetIdleScene(Self)
-        if PlayerLeaseCurrent(lease) && settled
-            NetImmerse.SetNodeLocalRotationMatrix(Self, YawNode, rest, false)
-        endif
-        if PlayerLeaseCurrent(lease) && settled
-            NetImmerse.SetNodeLocalRotationMatrix(Self, PitchNode, rest, false)
-        endif
-        sceneBusy = false
-        if !PlayerLeaseCurrent(lease)
-            QueueDeferredRecovery()
-            return false
-        endif
-        if !settled
-            return false
-        endif
-        yaw = 0.0
-        pitch = 0.0
-        playerRestored = true
-    endif
-    Actor candidate = Artillero
-    Actor player = Game.GetPlayer()
-    if !PlayerLeaseCurrent(lease) || pinBusy || sceneBusy || candidate == player
-        return false
-    endif
-    if candidate != None
-        bool usable = !candidate.IsDead() && !candidate.IsDisabled() && candidate.Is3DLoaded()
-        if !PlayerLeaseCurrent(lease) || pinBusy || sceneBusy
-            return false
-        endif
-        if usable
-            ObjectReference waitPoint = Standby
-            if waitPoint == None
-                return false
-            endif
-            pinBusy = true
-            candidate.MoveTo(waitPoint)
-            if PlayerLeaseCurrent(lease)
-                candidate.SetDontMove(true)
-            endif
-            if !PlayerLeaseCurrent(lease)
-                ; Keep the slot until the old True/Move effect and compensation
-                ; finish. A new recovery cannot pin/move a guard meanwhile.
-                candidate.SetDontMove(false)
-                pinBusy = false
-                QueueDeferredRecovery()
-                return false
-            endif
-            ownedGuard = candidate
-            pinBusy = false
-        endif
-    endif
-    if !PlayerLeaseCurrent(lease) || pinBusy || sceneBusy
-        return false
-    endif
-    playerReady = true
-    return true
+    return false
 EndFunction
 
 bool Function ReleasePlayerLease(int lease)
@@ -339,256 +256,21 @@ bool Function EnsureCityPlacement(int expectedGeneration, int lease = 0)
 EndFunction
 
 Function BeginRecovery()
-    if playerReserved || stationRetired
-        return
-    endif
-    int probeGeneration = generation
-    bool sceneFree = StationSceneAvailable()
-    if generation != probeGeneration || playerReserved
-        return
-    endif
-    if !sceneFree
-        running = false
-        generation += 1
-        int deferredGeneration = generation
-        token = -1
-        recovering = false
-        updating = false
-        phase = 0
-        shotTarget = None
-        matricesReady = false
-        recoveryRequested = true
-        bool loaded = Is3DLoaded()
-        if loaded && generation == deferredGeneration && !playerReserved && !pinBusy && !sceneBusy
-            RegisterForSingleUpdate(0.2)
-        endif
-        return
-    endif
-    running = false
-    generation += 1
-    int recoveryGeneration = generation
-    token = -1
-    serial += 1
-    recovering = true
-    updating = false
-    phase = 0
-    shotTarget = None
-    faulted = false
-    matricesReady = false
-    recoveryRequested = false
-    ; Invalidate saved callbacks before migrating properties or touching 3D.
-    NormalizeTimingProperties()
-    if pinBusy || sceneBusy
-        ; A preceding native still owns a mutation slot. Defer this generation
-        ; until its effect and any compensation have finished.
-        recoveryRequested = true
-        recovering = false
-        return
-    endif
-    UnregisterForUpdate()
-    if generation != recoveryGeneration || token != -1
-        return
-    endif
-    ReleaseOwnedGuard()
-    if generation != recoveryGeneration || token != -1
-        return
-    endif
-    Actor player = Game.GetPlayer()
-    if generation != recoveryGeneration || token != -1
-        return
-    endif
-    BlockActivation(true)
-    if generation != recoveryGeneration || token != -1
-        return
-    endif
-    if destroyed || Artillero == None || Artillero == player || Puesto == None || Launcher == None || ShotAmmo == None
-        faulted = true
-        recovering = false
-        return
-    endif
-    bool gunLoaded = Is3DLoaded()
-    bool guardLoaded = Artillero.Is3DLoaded()
-    bool guardDead = Artillero.IsDead()
-    bool guardDisabled = Artillero.IsDisabled()
-    if generation != recoveryGeneration || token != -1
-        return
-    endif
-    if guardDead || guardDisabled || destroyed
-        faulted = true
-        recovering = false
-        return
-    endif
-    if !gunLoaded || !guardLoaded
-        recovering = false
-        if gunLoaded
-            RegisterForSingleUpdate(1.0)
-        endif
-        return
-    endif
-    bool placed = EnsureCityPlacement(recoveryGeneration)
-    if generation != recoveryGeneration || token != -1
-        return
-    endif
-    if !placed
-        recovering = false
-        recoveryRequested = true
-        QueueDeferredRecovery()
-        return
-    endif
-    bool captured = CaptureMatrices()
-    if generation != recoveryGeneration || token != -1
-        return
-    endif
-    if !captured
-        faulted = true
-        recovering = false
-        Debug.Trace("AstraAsedioGuard: missing or invalid model controls; controller stopped.")
-        return
-    endif
-    float distance = Artillero.GetDistance(Puesto)
-    if generation != recoveryGeneration || token != -1
-        return
-    endif
-    if !Finite(distance, 0.0, 1000000.0)
-        faulted = true
-        recovering = false
-        return
-    endif
-    if distance > 64.0
-        ; A suspended recovery MoveTo can apply after player reservation or a
-        ; newer load. Retain the mutation slot until that old move returns;
-        ; Prepare must not move/pin the guard in Standby before this effect.
-        Actor movingGuard = Artillero
-        ObjectReference recoveryPoint = Puesto
-        pinBusy = true
-        movingGuard.MoveTo(recoveryPoint)
-        bool moveCurrent = generation == recoveryGeneration && token == -1 && recovering && !playerReserved && !destroyed && !faulted
-        pinBusy = false
-        if !moveCurrent
-            QueueDeferredRecovery()
-            return
-        endif
-    endif
-    bool aliveAfterMove = !Artillero.IsDead() && !Artillero.IsDisabled() && Artillero.Is3DLoaded()
-    if generation != recoveryGeneration || token != -1
-        return
-    endif
-    if !aliveAfterMove
-        faulted = true
-        recovering = false
-        return
-    endif
-    bool pinAcquired = AcquirePin(recoveryGeneration)
-    if generation != recoveryGeneration || token != -1
-        return
-    endif
-    if !pinAcquired
-        faulted = true
-        recovering = false
-        return
-    endif
-    yaw = 0.0
-    pitch = 0.0
-    token = serial
-    running = true
-    recovering = false
-    int recoveryToken = token
-    float now = Utility.GetCurrentRealTime()
-    if !Current(recoveryGeneration, recoveryToken)
-        return
-    endif
-    if !Finite(now, 0.0, 1000000000.0)
-        faulted = true
-        Shutdown()
-        return
-    endif
-    lastTick = now
-    nextShotAt = now + SafeCadenceSeconds()
-    bool resetStarted = PlaySceneAnimation("Reset", recoveryGeneration, recoveryToken)
-    if !Current(recoveryGeneration, recoveryToken)
-        return
-    endif
-    if !resetStarted
-        faulted = true
-        Shutdown()
-        return
-    endif
-    ApplyAim(recoveryGeneration, recoveryToken)
-    if !Current(recoveryGeneration, recoveryToken)
-        return
-    endif
-    SetVisualBolt(1.0, recoveryGeneration, recoveryToken)
-    if Current(recoveryGeneration, recoveryToken)
-        RegisterForSingleUpdate(0.2)
-    endif
+    StartV23()
 EndFunction
 
 Function Shutdown()
-    running = false
-    generation += 1
-    int cleanupGeneration = generation
-    token = -1
-    recovering = false
-    updating = false
-    phase = 0
-    shotTarget = None
-    matricesReady = false
-    recoveryRequested = false
-    UnregisterForUpdate()
-    if generation != cleanupGeneration || token != -1
-        return
-    endif
-    ; If acquisition is pending, its originating stack performs compensation
-    ; after the True effect returns. No newer generation can pin before then.
-    ReleaseOwnedGuard()
-    if generation != cleanupGeneration || token != -1
-        return
-    endif
-    if !sceneBusy
-        sceneBusy = true
-        RestoreNeutralScene()
-        sceneBusy = false
-        QueueDeferredRecovery()
-    endif
+    StopV23()
 EndFunction
 
 bool Function AcquirePin(int expectedGeneration)
-    if pinBusy || generation != expectedGeneration || token != -1 || !recovering || destroyed || faulted
-        return false
-    endif
-    Actor candidate = Artillero
-    pinBusy = true
-    candidate.SetDontMove(true)
-    if generation != expectedGeneration || token != -1 || !recovering || destroyed || faulted
-        ; Cancellation may run before the native True effect. Keep the slot
-        ; locked while undoing that effect, so an old False cannot unpin a new
-        ; owner's guard. Shutdown never discards this pending compensation.
-        candidate.SetDontMove(false)
-        pinBusy = false
-        QueueDeferredRecovery()
-        return false
-    endif
-    ownedGuard = candidate
-    pinBusy = false
-    return true
+    ; Retired v22 effects: a restored stack cannot acquire or write.
+    return false
 EndFunction
 
 Function ReleaseOwnedGuard()
-    if pinBusy
-        return
-    endif
-    Actor previousGuard = ownedGuard
-    ownedGuard = None
-    if previousGuard == None
-        return
-    endif
-    pinBusy = true
-    Actor player = Game.GetPlayer()
-    if previousGuard != player
-        previousGuard.SetDontMove(false)
-    endif
-    pinBusy = false
-    QueueDeferredRecovery()
+    ; Retired v22 effects: native NPC operation is the sole owner.
+    return
 EndFunction
 
 Function QueueDeferredRecovery()
@@ -606,25 +288,8 @@ Function QueueDeferredRecovery()
 EndFunction
 
 Function RestoreNeutralScene()
-    if !StationSceneAvailable()
-        return
-    endif
-    ; Called only while sceneBusy holds the mutation slot. New OnLoad callbacks
-    ; may invalidate state, but cannot write a newer pose until these effects
-    ; finish. This also compensates an old hide/Fire effect applied after load.
-    bool loaded = Is3DLoaded()
-    if loaded
-        if AllowPlayerTakeover
-            ; Shared city stations settle existing sequences directly, as the
-            ; player's native cleanup does. Avoid replaying a full Reset here.
-            if SKSE.GetPluginVersion("AstraSight") >= 50659392
-                AstraSightNative.ResetIdleScene(Self)
-            endif
-        else
-            PlayGamebryoAnimation("Reset", true)
-        endif
-        NetImmerse.SetNodeScale(Self, VisualBoltNode, 1.0, false)
-    endif
+    ; Retired v22 effects: native NPC operation is the sole owner.
+    return
 EndFunction
 
 bool Function FinishSceneEffect(int expectedGeneration, int expectedToken)
@@ -638,31 +303,18 @@ bool Function FinishSceneEffect(int expectedGeneration, int expectedToken)
 EndFunction
 
 bool Function PlaySceneAnimation(string name, int expectedGeneration, int expectedToken)
-    if sceneBusy || !Current(expectedGeneration, expectedToken)
-        return false
-    endif
-    sceneBusy = true
-    bool started = PlayGamebryoAnimation(name, true)
-    bool valid = FinishSceneEffect(expectedGeneration, expectedToken)
-    return valid && started
+    ; Retired v22 effects: a restored stack cannot acquire or write.
+    return false
 EndFunction
 
 Function SetVisualBolt(float scale, int expectedGeneration, int expectedToken)
-    if sceneBusy || !Current(expectedGeneration, expectedToken)
-        return
-    endif
-    sceneBusy = true
-    NetImmerse.SetNodeScale(Self, VisualBoltNode, scale, false)
-    FinishSceneEffect(expectedGeneration, expectedToken)
+    ; Retired v22 effects: native NPC operation is the sole owner.
+    return
 EndFunction
 
 Function WriteAimNode(string node, float[] matrix, int expectedGeneration, int expectedToken)
-    if sceneBusy || !Current(expectedGeneration, expectedToken)
-        return
-    endif
-    sceneBusy = true
-    NetImmerse.SetNodeLocalRotationMatrix(Self, node, matrix, false)
-    FinishSceneEffect(expectedGeneration, expectedToken)
+    ; Retired v22 effects: native NPC operation is the sole owner.
+    return
 EndFunction
 
 bool Function CaptureMatrices()
@@ -698,33 +350,8 @@ bool Function CaptureMatrices()
 EndFunction
 
 Function ApplyAim(int expectedGeneration, int expectedToken)
-    if !Current(expectedGeneration, expectedToken) || !matricesReady
-        return
-    endif
-    float yc = Math.Cos(yaw)
-    float ys = Math.Sin(yaw)
-    float pc = Math.Cos(-pitch)
-    float ps = Math.Sin(-pitch)
-    if !Current(expectedGeneration, expectedToken)
-        return
-    endif
-    int j = 0
-    while j < 3
-        yawMatrix[j] = yc*yawBase[j] - ys*yawBase[j+3]
-        yawMatrix[j+3] = ys*yawBase[j] + yc*yawBase[j+3]
-        yawMatrix[j+6] = yawBase[j+6]
-        pitchMatrix[j] = pitchBase[j]
-        pitchMatrix[j+3] = pc*pitchBase[j+3] - ps*pitchBase[j+6]
-        pitchMatrix[j+6] = ps*pitchBase[j+3] + pc*pitchBase[j+6]
-        j += 1
-    endwhile
-    ; Same row-major products as the player controller: Rz(yaw)*rest and
-    ; Rx(-pitch)*rest. The bore is local -Y; ProjectileNode supplies world +Y.
-    WriteAimNode(YawNode, yawMatrix, expectedGeneration, expectedToken)
-    if !Current(expectedGeneration, expectedToken)
-        return
-    endif
-    WriteAimNode(PitchNode, pitchMatrix, expectedGeneration, expectedToken)
+    ; Retired v22 effects: native NPC operation is the sole owner.
+    return
 EndFunction
 
 bool Function RotationValid(float[] matrix)
@@ -783,8 +410,8 @@ bool Function GuardReady(int expectedGeneration, int expectedToken)
         return false
     endif
     bool ready = Is3DLoaded() && !IsDisabled() && ownedGuard.Is3DLoaded() && !ownedGuard.IsDead() && !ownedGuard.IsDisabled()
-    float distance = ownedGuard.GetDistance(Puesto)
-    return Current(expectedGeneration, expectedToken) && ready && Finite(distance, 0.0, 64.0)
+    float distance = ownedGuard.GetDistance(Self)
+    return Current(expectedGeneration, expectedToken) && ready && Finite(distance, 0.0, 240.0)
 EndFunction
 
 bool Function ValidTarget(Actor target, int expectedGeneration, int expectedToken)
@@ -823,81 +450,7 @@ float Function HeadingFromVector(float vectorX, float vectorY, float fallback)
 EndFunction
 
 bool Function SampleTarget(Actor target, int expectedGeneration, int expectedToken)
-    if !ValidTarget(target, expectedGeneration, expectedToken) || !ReadPose(expectedGeneration, expectedToken)
-        return false
-    endif
-    float tx = target.GetPositionX()
-    float ty = target.GetPositionY()
-    float tz = target.GetPositionZ() + TargetHeight
-    if !Current(expectedGeneration, expectedToken) || !Finite(tx, -1000000.0, 1000000.0) || !Finite(ty, -1000000.0, 1000000.0) || !Finite(tz, -1000000.0, 1000000.0)
-        return false
-    endif
-    float dx = tx - muzzlePosition[0]
-    float dy = ty - muzzlePosition[1]
-    float dz = tz - muzzlePosition[2]
-    float rangeSquared = dx*dx + dy*dy + dz*dz
-    if !Finite(rangeSquared, 6400.0, 36000000.0) || !Finite(ProjectileSpeed, 1.0, 100000.0) || !Finite(ProjectileGravity, 0.0, 5000.0)
-        return false
-    endif
-    float horizontal = Math.Sqrt(dx*dx + dy*dy)
-    if horizontal < 0.01
-        return false
-    endif
-    float tangent = dz/horizontal
-    if ProjectileGravity > 0.0
-        ; Analytical low arc from z = h*tan(theta) - g*h²/(2*v²*cos²(theta)).
-        ; The rationalized lower root avoids subtracting almost equal v² and
-        ; sqrt(discriminant) values in Papyrus float arithmetic.
-        float speedSquared = ProjectileSpeed*ProjectileSpeed
-        float discriminant = speedSquared*speedSquared - ProjectileGravity*(ProjectileGravity*horizontal*horizontal + 2.0*dz*speedSquared)
-        if discriminant < 0.0 || discriminant != discriminant
-            return false
-        endif
-        tangent = (ProjectileGravity*horizontal*horizontal + 2.0*dz*speedSquared)/(horizontal*(speedSquared + Math.Sqrt(discriminant)))
-    endif
-    float horizontalFactor = 1.0/Math.Sqrt(1.0 + tangent*tangent)
-    float wx = dx/horizontal*horizontalFactor
-    float wy = dy/horizontal*horizontalFactor
-    float wz = tangent*horizontalFactor
-    ; Row-major transpose maps world launch direction to the root's local frame.
-    float lx = rootWorldMatrix[0]*wx + rootWorldMatrix[3]*wy + rootWorldMatrix[6]*wz
-    float ly = rootWorldMatrix[1]*wx + rootWorldMatrix[4]*wy + rootWorldMatrix[7]*wz
-    float lz = rootWorldMatrix[2]*wx + rootWorldMatrix[5]*wy + rootWorldMatrix[8]*wz
-    if lz > 1.0
-        lz = 1.0
-    elseif lz < -1.0
-        lz = -1.0
-    endif
-    float nextYaw = HeadingFromVector(lx, -ly, yaw)
-    if nextYaw > 180.0
-        nextYaw -= 360.0
-    endif
-    float nextPitch = Math.ASin(lz)
-    ; Reject outside the NPC sector; never clamp an unreachable target into it.
-    float certifiedPitchMax = 45.0
-    if AllowPlayerTakeover
-        ; V15 shared stations certify the complete -20..80 static envelope.
-        certifiedPitchMax = 80.0
-    endif
-    if !Finite(PitchMin, -20.0, certifiedPitchMax) || !Finite(PitchMax, -20.0, certifiedPitchMax) || PitchMin >= PitchMax
-        return false
-    endif
-    if !Finite(YawHalfSector, 1.0, 60.0)
-        return false
-    endif
-    if !Finite(YawCenter, -60.0+YawHalfSector, 60.0-YawHalfSector)
-        return false
-    endif
-    if !Finite(nextYaw, YawCenter-YawHalfSector, YawCenter+YawHalfSector) || !Finite(nextPitch, PitchMin, PitchMax) || !Current(expectedGeneration, expectedToken)
-        return false
-    endif
-    desiredYaw = nextYaw
-    desiredPitch = nextPitch
-    aimX = wx
-    aimY = wy
-    aimZ = wz
-    targetHorizontal = horizontal
-    return true
+    return SampleHorizontalTarget(target, expectedGeneration, expectedToken)
 EndFunction
 
 float Function Approach(float value, float goal, float maximumStep)
@@ -917,7 +470,7 @@ Function TurnToward(float dt, int expectedGeneration, int expectedToken)
         rate = 30.0
     endif
     float nextYaw = Approach(yaw, desiredYaw, rate*dt)
-    float nextPitch = Approach(pitch, desiredPitch, rate*dt)
+    float nextPitch = 0.0
     if !Current(expectedGeneration, expectedToken)
         return
     endif
@@ -1036,6 +589,11 @@ Function BeginShot(Actor target, int expectedGeneration, int expectedToken)
     if !Current(expectedGeneration, expectedToken) || phase != 0 || !Finite(now, 0.0, 1000000000.0) || now < nextShotAt
         return
     endif
+    bool bodyStarted = SetGuardFirePose(true, expectedGeneration, expectedToken)
+    if !Current(expectedGeneration, expectedToken) || !bodyStarted
+        return
+    endif
+    guardPoseFireAt = now
     phase = 1
     phaseAt = now
     shotTarget = target
@@ -1051,69 +609,18 @@ Function BeginShot(Actor target, int expectedGeneration, int expectedToken)
 EndFunction
 
 Function CommitShot(Actor target, int expectedGeneration, int expectedToken)
-    if sceneBusy || !Current(expectedGeneration, expectedToken) || phase != 1 || shotTarget != target
-        return
-    endif
-    float now = Utility.GetCurrentRealTime()
-    ; Obtain the clock before the final scene/target preflight: a yielding clock
-    ; must not create a fresh native boundary between validation and launch.
-    bool safe = ShotPreflight(target, expectedGeneration, expectedToken)
-    if !Current(expectedGeneration, expectedToken) || phase != 1 || shotTarget != target
-        return
-    endif
-    if !safe || !Finite(now, 0.0, 1000000000.0)
-        AbortShot(expectedGeneration, expectedToken)
-        return
-    endif
-    float cadence = SafeCadenceSeconds()
-    if nextShotAt < now+cadence
-        nextShotAt = now+cadence
-    endif
-    ; Reserve before the native call. Weapon.Fire is an external launch, not a
-    ; success boolean or an atomic transaction; it cannot be undone afterwards.
-    phase = 2
-    phaseAt = now
-    if !Current(expectedGeneration, expectedToken) || phase != 2 || shotTarget != target
-        return
-    endif
-    ; Weapon.Fire can suspend before its irreversible projectile effect. Keep
-    ; the same scene slot as animations until it returns and any old pose is
-    ; compensated; player preparation must wait for this launch to drain.
-    sceneBusy = true
-    Launcher.Fire(Self, ShotAmmo)
-    bool launchCurrent = FinishSceneEffect(expectedGeneration, expectedToken)
-    if !launchCurrent || !Current(expectedGeneration, expectedToken) || phase != 2
-        return
-    endif
-    ; The post-launch clock closes delays during release/preflight/Fire itself.
-    ; It creates no boundary between target validation and the native launch.
-    float launchedAt = Utility.GetCurrentRealTime()
-    if !Current(expectedGeneration, expectedToken) || phase != 2
-        return
-    endif
-    if !Finite(launchedAt, 0.0, 1000000000.0)
-        faulted = true
-        Shutdown()
-        return
-    endif
-    phaseAt = launchedAt
-    if nextShotAt < launchedAt+cadence
-        nextShotAt = launchedAt+cadence
-    endif
-    SetVisualBolt(0.0, expectedGeneration, expectedToken)
-    if !Current(expectedGeneration, expectedToken) || phase != 2
-        return
-    endif
-    if ShotSound != None
-        ShotSound.Play(Self)
-    endif
+    ; Retired v22 effects: native NPC operation is the sole owner.
+    return
 EndFunction
 
 Function AbortShot(int expectedGeneration, int expectedToken)
     if !Current(expectedGeneration, expectedToken) || phase == 0
         return
     endif
-    StartReset(expectedGeneration, expectedToken)
+    SetGuardFirePose(false, expectedGeneration, expectedToken)
+    if Current(expectedGeneration, expectedToken)
+        StartReset(expectedGeneration, expectedToken)
+    endif
 EndFunction
 
 Function StartReset(int expectedGeneration, int expectedToken)
@@ -1142,146 +649,425 @@ Function FinishUpdate(int expectedGeneration, int expectedToken, float delay)
 EndFunction
 
 Event OnUpdate()
-    if updating || recovering || pinBusy || sceneBusy || destroyed || faulted
+    PumpV23()
+EndEvent
+
+; Private OAR membership is held only while this controller owns its NPC.
+bool Function LoadGuardAnimation()
+    poseFaction = Game.GetFormFromFile(0x800, "AstraAsedio_GuardAnim.esp") as Faction
+    fireFaction = Game.GetFormFromFile(0x801, "AstraAsedio_GuardAnim.esp") as Faction
+    holdIdle = Game.GetFormFromFile(0x802, "AstraAsedio_GuardAnim.esp") as Idle
+    exitIdle = Game.GetFormFromFile(0x803, "AstraAsedio_GuardAnim.esp") as Idle
+    return SKSE.GetPluginVersion("OpenAnimationReplacer") >= 0 && poseFaction != None && fireFaction != None && holdIdle != None && exitIdle != None
+EndFunction
+
+Function StopGuardPose(Actor candidate)
+    ; Retired v22 effects: native NPC operation is the sole owner.
+    return
+EndFunction
+
+; The existing handoff waits for pinBusy. Keep it across every actor effect;
+; a cancelled stack undoes its old effects before a new owner may move the NPC.
+bool Function FinishGuardEffect(Actor candidate, int expectedGeneration, int expectedToken)
+    ; Retired v22 effects: a restored stack cannot acquire or write.
+    return false
+EndFunction
+
+bool Function StartGuardPose(int expectedGeneration, int expectedToken)
+    ; Retired v22 effects: a restored stack cannot acquire or write.
+    return false
+EndFunction
+
+bool Function SetGuardFirePose(bool fire, int expectedGeneration, int expectedToken)
+    ; Retired v22 effects: a restored stack cannot acquire or write.
+    return false
+EndFunction
+
+bool Function PositionOperator(int expectedGeneration, int expectedToken)
+    ; Retired v22 effects: a restored stack cannot acquire or write.
+    return false
+EndFunction
+
+bool Function VisualTargetValid(Actor target, int expectedGeneration, int expectedToken)
+    if !GuardReady(expectedGeneration, expectedToken) || target == None || target == Artillero
+        return false
+    endif
+    bool valid = target.Is3DLoaded() && !target.IsDisabled() && !target.IsDead()
+    bool visible = Artillero.HasLOS(target)
+    return Current(expectedGeneration, expectedToken) && valid && visible
+EndFunction
+
+bool Function SampleVisualTarget(Actor target, int expectedGeneration, int expectedToken)
+    if !VisualTargetValid(target, expectedGeneration, expectedToken) || !ReadPose(expectedGeneration, expectedToken)
+        return false
+    endif
+    float dx = target.GetPositionX() - rootPosition[0]
+    float dy = target.GetPositionY() - rootPosition[1]
+    float distanceSquared = dx*dx + dy*dy
+    if !Current(expectedGeneration, expectedToken) || !Finite(distanceSquared, 6400.0, 36000000.0)
+        return false
+    endif
+    float lx = rootWorldMatrix[0]*dx + rootWorldMatrix[3]*dy
+    float ly = rootWorldMatrix[1]*dx + rootWorldMatrix[4]*dy
+    float angle = HeadingFromVector(lx, -ly, yaw)
+    if angle > 180.0
+        angle -= 360.0
+    endif
+    if !Finite(YawHalfSector, 1.0, 60.0) || !Finite(YawCenter, -60.0+YawHalfSector, 60.0-YawHalfSector) || !Finite(angle, YawCenter-YawHalfSector, YawCenter+YawHalfSector) || !Current(expectedGeneration, expectedToken)
+        return false
+    endif
+    desiredYaw = angle
+    desiredPitch = 0.0
+    return true
+EndFunction
+
+Actor Function ChooseVisualTarget(float now, int expectedGeneration, int expectedToken)
+    Actor enemy = Artillero.GetCombatTarget()
+    if ValidTarget(enemy, expectedGeneration, expectedToken) && SampleVisualTarget(enemy, expectedGeneration, expectedToken)
+        visualTarget = enemy
+        return enemy
+    endif
+    if SampleVisualTarget(visualTarget, expectedGeneration, expectedToken)
+        return visualTarget
+    endif
+    visualTarget = None
+    if now < visualScanAt || !Current(expectedGeneration, expectedToken)
+        return None
+    endif
+    visualScanAt = now + 1.0
+    Actor candidate = Game.GetPlayer()
+    if SampleVisualTarget(candidate, expectedGeneration, expectedToken)
+        visualTarget = candidate
+        return candidate
+    endif
+    int attempt = 0
+    while attempt < 6 && Current(expectedGeneration, expectedToken)
+        candidate = Game.FindRandomActor(rootPosition[0], rootPosition[1], rootPosition[2], 6000.0)
+        if SampleVisualTarget(candidate, expectedGeneration, expectedToken)
+            visualTarget = candidate
+            return candidate
+        endif
+        attempt += 1
+    endwhile
+    return None
+EndFunction
+
+bool Function HorizontalReachable(Actor target, float horizontal, int expectedGeneration, int expectedToken)
+    if !Current(expectedGeneration, expectedToken) || !Finite(horizontal, 80.0, 6000.0) || !Finite(ProjectileSpeed, 1.0, 100000.0) || !Finite(ProjectileGravity, 0.0, 5000.0)
+        return false
+    endif
+    float baseZ = target.GetPositionZ()
+    float height = target.GetHeight()
+    float travel = horizontal/ProjectileSpeed
+    float boltZ = muzzlePosition[2] - 0.5*ProjectileGravity*travel*travel
+    bool validHeights = Finite(baseZ, -1000000.0, 1000000.0) && Finite(height, 24.0, 8192.0)
+    return Current(expectedGeneration, expectedToken) && validHeights && (boltZ >= (baseZ + 8.0)) && (boltZ <= (baseZ + height - 8.0))
+EndFunction
+
+bool Function SampleHorizontalTarget(Actor target, int expectedGeneration, int expectedToken)
+    if !ValidTarget(target, expectedGeneration, expectedToken) || !ReadPose(expectedGeneration, expectedToken)
+        return false
+    endif
+    float dx = target.GetPositionX() - muzzlePosition[0]
+    float dy = target.GetPositionY() - muzzlePosition[1]
+    float horizontal = Math.Sqrt(dx*dx + dy*dy)
+    if !HorizontalReachable(target, horizontal, expectedGeneration, expectedToken)
+        return false
+    endif
+    float wx = dx/horizontal
+    float wy = dy/horizontal
+    float lx = rootWorldMatrix[0]*wx + rootWorldMatrix[3]*wy
+    float ly = rootWorldMatrix[1]*wx + rootWorldMatrix[4]*wy
+    float angle = HeadingFromVector(lx, -ly, yaw)
+    if angle > 180.0
+        angle -= 360.0
+    endif
+    if !Finite(angle, YawCenter-YawHalfSector, YawCenter+YawHalfSector) || !Current(expectedGeneration, expectedToken)
+        return false
+    endif
+    desiredYaw = angle
+    desiredPitch = 0.0
+    aimX = wx
+    aimY = wy
+    aimZ = 0.0
+    targetHorizontal = horizontal
+    return true
+EndFunction
+
+Function StartV23()
+    v27WarnedRefs = false
+    v28RetryWaited = false
+    generation += 1
+    running = false
+    recovering = false
+    v23Generation += 1
+    v23Wanted = !stationRetired && !destroyed
+    UnregisterForUpdate()
+    if v23Token > 0 && AstraGuardNative.IsAvailable()
+        AstraGuardNative.EndOperation(Self, v23Token)
+    endif
+    RegisterForSingleUpdate(0.2)
+EndFunction
+
+Function StopV23()
+    generation += 1
+    running = false
+    v23Generation += 1
+    v23Wanted = false
+    UnregisterForUpdate()
+    if v23Token > 0 && AstraGuardNative.IsAvailable()
+        AstraGuardNative.EndOperation(Self, v23Token)
+    endif
+EndFunction
+
+Actor Function ResolveV23Operator()
+    ObjectReference east = Game.GetFormFromFile(0x00000B70, "AstraAsedio_WhiterunTorres.esp") as ObjectReference
+    if Self == east
+        return Game.GetFormFromFile(0x00000B71, "AstraAsedio_WhiterunTorres.esp") as Actor
+    endif
+    ObjectReference west = Game.GetFormFromFile(0x00000B80, "AstraAsedio_WhiterunTorres.esp") as ObjectReference
+    if Self == west
+        return Game.GetFormFromFile(0x00000B81, "AstraAsedio_WhiterunTorres.esp") as Actor
+    endif
+    return None
+EndFunction
+
+bool Function V23Current(int expected)
+    return v23Generation == expected && v23Wanted && !stationRetired && !destroyed
+EndFunction
+
+bool Function MigrateV23(Actor actorRef, int expected)
+    if !V23Current(expected) || actorRef == None || Puesto == None
+        return false
+    endif
+    if !Is3DLoaded() || !actorRef.Is3DLoaded() || actorRef.IsDead()
+        return false
+    endif
+    ; Existing persistent markers can also carry a saved transform: recompute.
+    float angle = GetAngleZ()
+    float px = GetPositionX() - 151.0*Math.Sin(angle)
+    float py = GetPositionY() + 151.0*Math.Cos(angle)
+    float pz = GetPositionZ()
+    if !V23Current(expected)
+        return false
+    endif
+    Puesto.SetPosition(px, py, pz)
+    if !V23Current(expected)
+        return false
+    endif
+    Puesto.SetAngle(0.0, 0.0, angle+180.0)
+    int index = 0
+    while index < 6 && V23Current(expected)
+        if index == 0 || index == 1 || index == 4 || index == 5
+            Faction privateFlag = Game.GetFormFromFile(0x00000800+index, "AstraAsedio_GuardAnim.esp") as Faction
+            if privateFlag != None
+                actorRef.RemoveFromFaction(privateFlag)
+            endif
+        endif
+        index += 1
+    endwhile
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.SetDontMove(false)
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.SetHeadTracking(true)
+    if !V23Current(expected)
+        return false
+    endif
+    ; Remove the active v22 idle graph state as well as its private OAR gates.
+    Debug.SendAnimationEvent(actorRef, "IdleForceDefaultState")
+    if !V23Current(expected)
+        return false
+    endif
+    Idle previousExit = Game.GetFormFromFile(0x00000803, "AstraAsedio_GuardAnim.esp") as Idle
+    if previousExit != None
+        actorRef.PlayIdle(previousExit)
+    endif
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.SetPosition(px, py, pz)
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.SetAngle(0.0, 0.0, angle+180.0)
+    if !V23Current(expected)
+        return false
+    endif
+    ; Only the two owned operators are migrated; retain their armor/inventory.
+    actorRef.StopCombat()
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.SheatheWeapon()
+    if !V23Current(expected)
+        return false
+    endif
+    actorRef.EvaluatePackage()
+    if !V23Current(expected)
+        return false
+    endif
+    Artillero = actorRef
+    ownedGuard = None
+    pinBusy = false
+    sceneBusy = false
+    phase = 0
+    shotTarget = None
+    guardPoseStarted = false
+    guardPoseFiring = false
+    v23PlacementVersion = 26
+    Debug.Trace("Astra guard v26 migrated ref="+actorRef+" station="+Self)
+    return true
+EndFunction
+
+bool Function PrepareShieldV26(Actor actorRef, int expected)
+    if !V23Current(expected) || actorRef == None || actorRef != ResolveV23Operator()
+        return false
+    endif
+    Armor shield = actorRef.GetEquippedShield()
+    if !V23Current(expected)
+        return false
+    endif
+    if shield != None
+        ; Free the left hand of these two owned operators; keep inventory.
+        ; Equipment changes can rebuild 3D. Yield and re-query next pump.
+        actorRef.UnequipItem(shield, true, true)
+        return false
+    endif
+    return true
+EndFunction
+
+Function PumpV23()
+    if v23PumpOwner == v23Generation || !v23Wanted || stationRetired || destroyed
         return
     endif
-    if !running
-        BeginRecovery()
+    int expected = v23Generation
+    v23PumpOwner = expected
+    bool available = AstraGuardNative.IsAvailable() && AstraGuardNative.GetAPIVersion() == 1
+    if !V23Current(expected)
+        FinishPumpV23(expected, 0.0)
         return
     endif
-    updating = true
-    int updateGeneration = generation
-    int updateToken = token
-    float now = Utility.GetCurrentRealTime()
-    if !Current(updateGeneration, updateToken)
+    Actor actorRef = ResolveV23Operator()
+    if !V23Current(expected)
+        FinishPumpV23(expected, 0.0)
         return
     endif
-    if !Finite(now, 0.0, 1000000000.0)
-        faulted = true
-        Shutdown()
+    if actorRef == None || !Is3DLoaded() || !actorRef.Is3DLoaded() || actorRef.IsDead()
+        if actorRef == None && !v27WarnedRefs
+            ; The v21 incident was exactly this silent loop: Torres.esp absent,
+            ; so 0xB70/0xB71 and 0xB80/0xB81 never resolve and nothing traces.
+            Debug.Trace("Astra guard v27: operator refs missing; enable AstraAsedio_WhiterunTorres.esp (B70/B71, B80/B81). station="+Self)
+            v27WarnedRefs = true
+        endif
+        if v23Token > 0 && available
+            AstraGuardNative.EndOperation(Self, v23Token)
+        endif
+        FinishPumpV23(expected, 1.0)
         return
     endif
-    if now < lastTick
-        ; GetCurrentRealTime restarts with the runtime. This second recovery path
-        ; rejects a pending saved update even before a restored OnLoad callback.
-        BeginRecovery()
+    ; A v22 upgrade must release the old pin/pose even if OAR is unavailable.
+    ; v22 has no native token; an existing v23 owner still drains below first.
+    if v23PlacementVersion < 26 && v23Token == 0
+        bool migratedBeforeAvailability = MigrateV23(actorRef, expected)
+    endif
+    if !V23Current(expected)
+        FinishPumpV23(expected, 0.0)
         return
     endif
-    float dt = now-lastTick
-    if dt > 0.4
-        dt = 0.4
-    endif
-    lastTick = now
-    bool ready = GuardReady(updateGeneration, updateToken)
-    if !Current(updateGeneration, updateToken)
+    if !available
+        if !v23Warned
+            Debug.Trace("Astra guard v26: NPC runtime/OAR unavailable; firing disabled.")
+            v23Warned = true
+        endif
+        FinishPumpV23(expected, 2.0)
         return
     endif
-    if !ready
-        bool dead = Artillero.IsDead()
-        bool guardLoaded = Artillero.Is3DLoaded()
-        bool gunLoaded = Is3DLoaded()
-        if !Current(updateGeneration, updateToken)
+    if v23Token > 0
+        int status = AstraGuardNative.GetStatus(Self, v23Token)
+        if !V23Current(expected)
+            FinishPumpV23(expected, 0.0)
             return
         endif
-        ; Death/displacement releases the pin and stops until a new load. A
-        ; temporarily unloaded guard may recover when its 3D attaches again.
-        faulted = dead || guardLoaded
-        Shutdown()
-        if !faulted && gunLoaded && !destroyed
-            RegisterForSingleUpdate(1.0)
+        if status != v23LastStatus
+            Debug.Trace("Astra guard v26 status="+status+" station="+Self+" token="+v23Token)
+            v23LastStatus = status
         endif
-        return
+        if status == 1 || status == 2 || status == 3
+            v27Faults = 0
+            v28RetryWaited = false
+        endif
+        if status == -1
+            ; Clean end of a finished operation; not an acquisition fault.
+            v27Faults = 0
+            v28RetryWaited = false
+            v23Token = 0
+        elseif status == -2
+            bool drained = AstraGuardNative.EndOperation(Self, v23Token)
+            if V23Current(expected) && drained
+                v23Token = 0
+                v27Faults += 1
+                v28RetryWaited = false
+            endif
+        endif
     endif
-    bool menuOpen = Utility.IsInMenuMode()
-    if !Current(updateGeneration, updateToken)
-        return
-    endif
-    if menuOpen && (phase == 1 || phase == 2)
-        AbortShot(updateGeneration, updateToken)
-    endif
-    if !Current(updateGeneration, updateToken)
-        return
-    endif
-    if phase == 1
-        ; Fixed bounds are used if edited timing properties are invalid.
-        float releaseDelay = ReleaseSeconds
-        if !Finite(releaseDelay, 0.0666666, 1.0) || releaseDelay > FireSeconds
-            releaseDelay = 0.0666667
+    if V23Current(expected) && v23Token == 0
+        if v27Faults > 0 && !v28RetryWaited
+            ; v27: after a native acquisition fault (status -2 drained), back
+            ; off instead of re-beginning every second (v25 churned 134 times).
+            ; Fail-closed: the native safety contract is untouched; only the
+            ; Papyrus retry cadence slows down.
+            float backoff = 5.0
+            if v27Faults > 3
+                backoff = 30.0
+            endif
+            Debug.Trace("Astra guard v27: backoff "+backoff+"s after "+v27Faults+" faulted acquisition(s); first clause is logged in AstraSight.log. station="+Self)
+            v28RetryWaited = true
+            FinishPumpV23(expected, backoff)
+            return
         endif
-        if now >= phaseAt+releaseDelay
-            CommitShot(shotTarget, updateGeneration, updateToken)
+        bool migrated = v23PlacementVersion >= 26
+        if !migrated
+            migrated = MigrateV23(actorRef, expected)
         endif
-        FinishUpdate(updateGeneration, updateToken, 0.2)
-        return
-    elseif phase == 2
-        float fireDelay = FireSeconds
-        if !Finite(fireDelay, 0.2, 2.0)
-            fireDelay = 0.2
-        endif
-        if now >= phaseAt+fireDelay
-            StartReset(updateGeneration, updateToken)
-        endif
-        FinishUpdate(updateGeneration, updateToken, 0.2)
-        return
-    elseif phase == 3
-        float resetDelay = ResetSeconds
-        if !Finite(resetDelay, 0.8, 5.0)
-            resetDelay = 0.8
-        endif
-        if now >= phaseAt+resetDelay
-            SetVisualBolt(1.0, updateGeneration, updateToken)
-            if !Current(updateGeneration, updateToken)
+        if migrated && V23Current(expected) && v23Serial < 2000000000
+            if !PrepareShieldV26(actorRef, expected)
+                FinishPumpV23(expected, 0.2)
                 return
             endif
-            phase = 0
-            shotTarget = None
-        endif
-        FinishUpdate(updateGeneration, updateToken, 0.2)
-        return
-    endif
-    if menuOpen
-        FinishUpdate(updateGeneration, updateToken, 1.0)
-        return
-    endif
-    Actor target = Artillero.GetCombatTarget()
-    bool sampled = SampleTarget(target, updateGeneration, updateToken)
-    if !Current(updateGeneration, updateToken)
-        return
-    endif
-    if !sampled
-        FinishUpdate(updateGeneration, updateToken, 1.0)
-        return
-    endif
-    TurnToward(dt, updateGeneration, updateToken)
-    if !Current(updateGeneration, updateToken)
-        return
-    endif
-    bool poseRead = ReadPose(updateGeneration, updateToken)
-    if !Current(updateGeneration, updateToken)
-        return
-    endif
-    if poseRead
-        float heading = HeadingFromVector(muzzleWorldMatrix[1], muzzleWorldMatrix[4], 0.0)
-        if !Current(updateGeneration, updateToken)
-            return
-        endif
-        Artillero.SetAngle(0.0, 0.0, heading)
-    endif
-    ; The bounded player trajectory check is needed only when a shot is due.
-    if now >= nextShotAt
-        bool aligned = ShotPreflight(target, updateGeneration, updateToken)
-        if !Current(updateGeneration, updateToken)
-            return
-        endif
-        if aligned
-            BeginShot(target, updateGeneration, updateToken)
+            if !V23Current(expected)
+                FinishPumpV23(expected, 0.0)
+                return
+            endif
+            v23Serial += 1
+            int candidate = v23Serial
+            bool accepted = AstraGuardNative.BeginOperation(Self, actorRef, candidate, Launcher, ShotAmmo, ShotSound)
+            if V23Current(expected) && accepted
+                v23Token = candidate
+                v23Warned = false
+            elseif accepted
+                AstraGuardNative.EndOperation(Self, candidate)
+            endif
         endif
     endif
-    if Current(updateGeneration, updateToken)
-        if phase == 1
-            FinishUpdate(updateGeneration, updateToken, 0.1)
-        else
-            FinishUpdate(updateGeneration, updateToken, 0.2)
-        endif
+    FinishPumpV23(expected, 1.0)
+EndFunction
+
+Function FinishPumpV23(int expected, float delay)
+    if v23PumpOwner != expected
+        return
     endif
-EndEvent
+    v23PumpOwner = 0
+    if delay > 0.0 && V23Current(expected)
+        RegisterForSingleUpdate(delay)
+    endif
+EndFunction
+
+Function NotifyCombatV23(Actor target)
+    if v23Wanted && v23Token > 0 && AstraGuardNative.IsAvailable()
+        AstraGuardNative.NotifyCombat(Self, v23Token, target)
+    endif
+EndFunction

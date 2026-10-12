@@ -1,0 +1,37 @@
+{
+  "name": "Astra Guard Fire",
+  "priority": 1185253,
+  "conditions": [
+    {
+      "condition": "IsInFaction",
+      "requiredVersion": "1.0.0",
+      "Faction": {
+        "pluginName": "AstraAsedio_GuardAnim.esp",
+        "formID": "000800"
+      }
+    },
+    {
+      "condition": "IsInFaction",
+      "requiredVersion": "1.0.0",
+      "Faction": {
+        "pluginName": "AstraAsedio_GuardAnim.esp",
+        "formID": "000801"
+      }
+    },
+    {
+      "condition": "IsActorBase",
+      "requiredVersion": "1.0.0",
+      "negated": true,
+      "Actor base": {
+        "pluginName": "Skyrim.esm",
+        "formID": "000007"
+      }
+    }
+  ],
+  "interruptible": true,
+  "hasCustomBlendTimeOnInterrupt": true,
+  "blendTimeOnInterrupt": 0.0,
+  "replaceOnLoop": true,
+  "hasCustomBlendTimeOnLoop": true,
+  "blendTimeOnLoop": 0.0
+}

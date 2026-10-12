@@ -398,12 +398,13 @@
   },
   "guardia": {
     "donores_npc": [
-      "GuardWhiterun",
-      "GuardSolitude",
-      "GuardWindhelm",
-      "GuardMarkarth",
-      "GuardRiften"
+      "GuardWhiterunCityGeneric",
+      "GuardSolitudeImperialDay",
+      "GuardWindhelmImperial",
+      "GuardMarkarthImperialDayShift01",
+      "GuardRiftenImperialKeepPatrol01Day"
     ],
+    "paquete_torre": "GuardPost",
     "nombre": "Guardia de la torre Astra",
     "posicion": [
       105.0,
@@ -424,6 +425,6 @@
     "anticipacion": 0.5,
     "tick_segundos": 0.08,
     "qa_log": false,
-    "nota": "donores_npc: EDIDs de NPC_ de Skyrim.esm probados en orden; el guardia clonado conserva paquetes/facciones/combate del donante (sandbox anclado a la ubicaci\u00f3n del editor). Bal\u00edstica id\u00e9ntica al PROJ donante: 5400 u/s y g=0.35*9.81*70=240.345 u/s^2 (native/src/Core.cpp). IA de la ballesta DEL JUGADOR (celda de pruebas); las torres de ciudad usan AstraAsedioGuard (addons)."
+    "nota": "donores_npc: EDIDs de NPC_ de Skyrim.esm probados en orden (los cinco existen; verificado con parser_esm sobre Skyrim.esm). El guardia clonado conserva facciones/inventario/outfit/combate del donante. paquete_torre: EDID de un PACK de Skyrim.esm con PLDT type=3 (\"near editor location\") y sin CTDA; reemplaza los PKID del donante y borra el bit AIPackages de templateFlags, asi el guardia queda apostado en la torre (guardia.posicion) en vez de caminar a su ciudad de origen. Poner null para volver al comportamiento v1 (paquetes del donante). Balística idéntica al PROJ donante: 5400 u/s y g=0.35*9.81*70=240.345 u/s^2 (native/src/Core.cpp). IA de la ballesta DEL JUGADOR (celda de pruebas); las torres de ciudad usan AstraAsedioGuard (addons)."
   }
 }

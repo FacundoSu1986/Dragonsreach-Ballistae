@@ -1,0 +1,31 @@
+{
+  "revision": 26,
+  "reviewer": "guard_ai_v24_review",
+  "scope": "Static final guard runtime, package/idle admission, shield preparation, migration, OAR/grip/projectile barriers and compiled receipt; final ZIP inspected separately",
+  "status": "approved_static_no_pending_blockers_found",
+  "previous_findings_closed": [
+    "obsolete exclusiveOperator call replaced in pre-acquisition tick",
+    "weapon readiness requires kSheathed and weaponState is logged"
+  ],
+  "checks": {
+    "v26_native_assertions": 9,
+    "v25_native_assertions": 23,
+    "v23_native_assertions": 59,
+    "python_guard_tests": 7,
+    "live_esp_nif_binding_test_passed": true,
+    "ctest_targets_passed": 13,
+    "source_receipt_dll_hashes_match": true,
+    "psc_matches_runtime_include": true
+  },
+  "native_version": "3.5.7",
+  "exact_v25_cancellation_clause_measured": false,
+  "v26_in_game_tested": false,
+  "files_sha256": {
+    "native/src/GuardRuntime.cpp": "59d615de4371c1de7258cb0bb9cb29fd21039063f40319e935a756962edd55d8",
+    "native/src/GuardPolicy.cpp": "960f79880175b6dedb23ac4a96f3e389e7705f415cdce1ad0d5d1e4f9c665426",
+    "scripts/guard_runtime_v26.pscinc": "55d791feb6b8764b63bbe374108fdfd5f628b9fe4778b400e87db97c6a000f95",
+    "mod/scripts/source/AstraAsedioGuard.psc": "476c1129fce4f893e78c7c4bcfb727063cf7082d0e1850e36c1283409567f4bd",
+    "mod/SKSE/Plugins/AstraSight.dll": "2a2d95f0c6148c31f4877575e53f54d1485d20f8663469512beaacacb8570f53",
+    "reports/native_build_receipt.json": "8231728779701be5e02b6da9cfd0ab5b69d183931d6e53114f3a1c26f683749a"
+  }
+}

@@ -24,6 +24,15 @@ textures/
 sound/
 strings/
 
+# 2b. EXCEPCIÓN ACOTADA: clips de animación de autoría propia.
+# Son poses autoradas sobre el rig de terceros NickNak y retargeteadas al
+# skeleton.hkx de ese mismo rig (no extraído de Skyrim). Es contenido propio en
+# formato de Bethesda, exactamente igual que los .esp/.pex/.dll del proyecto, que
+# ya se versionan. La regla general de *.hkx sigue vigente para todo lo demás.
+# Ver THIRD_PARTY_POLICY.md §2.
+!source/anim/*.hkx
+!addons/GuardAnim/**/*.hkx
+
 # 3. Herramientas de extracción y volcados de datos
 extracted/
 *extractor*/

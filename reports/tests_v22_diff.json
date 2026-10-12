@@ -1,0 +1,31 @@
+{
+  "revision": 22,
+  "interprete": "3.11.9",
+  "tests_arbol_de_trabajo": 377,
+  "tests_head_pristino": 377,
+  "fallos_arbol_de_trabajo": 137,
+  "fallos_head_pristino": 154,
+  "regresiones_nuevas": [],
+  "fallos_heredados": 137,
+  "tests_que_ahora_pasan": [
+    "test_all_scripts_compiled_by_real_bethesda_compiler (test_session_contract.SessionContract.test_all_scripts_compiled_by_real_bethesda_compiler)",
+    "test_current_pose_probe_is_clear_and_uses_same_forward_as_projectile (test_sight_anchor.SightAnchorAcceptance.test_current_pose_probe_is_clear_and_uses_same_forward_as_projectile)",
+    "test_drift_from_v21_is_exactly_the_documented_delta (test_v22_release.ReleaseV22.test_drift_from_v21_is_exactly_the_documented_delta)",
+    "test_esp_timing_and_mode_match_config (test_v07_camera_contract.V07Integration.test_esp_timing_and_mode_match_config)",
+    "test_final_esp_validator_rejects_silent_legacy_mode (test_native_sight.NativeSightContract.test_final_esp_validator_rejects_silent_legacy_mode)",
+    "test_fitted_mesh_matches_recorded_verification (test_v21_release.ReleaseContract.test_fitted_mesh_matches_recorded_verification)",
+    "test_la_fuente_es_de_v11 (test_v11_layout.Config.test_la_fuente_es_de_v11)",
+    "test_navmesh_connects_ground_to_collision_rooftop (test_plugin_contract.PluginContract.test_navmesh_connects_ground_to_collision_rooftop)",
+    "test_new_cell_and_valid_navmesh (test_plugin_contract.PluginContract.test_new_cell_and_valid_navmesh)",
+    "test_plugin_bounds_come_from_final_nif_measurements (test_plugin_contract.PluginContract.test_plugin_bounds_come_from_final_nif_measurements)",
+    "test_shot_sound_is_bound_to_dawnguard_crossbow_fire (test_plugin_contract.PluginContract.test_shot_sound_is_bound_to_dawnguard_crossbow_fire)",
+    "test_sight_path_verification_is_for_these_nifs (test_v10_sight.WrittenNif.test_sight_path_verification_is_for_these_nifs)",
+    "test_stable_owned_identities (test_v21_release.ReleaseContract.test_stable_owned_identities)",
+    "test_stair_entrance_is_a_step_and_rubble_stays_disabled (test_v21_release.ReleaseContract.test_stair_entrance_is_a_step_and_rubble_stays_disabled)",
+    "test_v08_siege_ballistics_on_final_bytes (test_plugin_contract.PluginContract.test_v08_siege_ballistics_on_final_bytes)",
+    "test_validator_rejects_none_session_property (test_plugin_contract.PluginContract.test_validator_rejects_none_session_property)",
+    "test_validator_rejects_pickable_projectile_playable_ammo_and_missing_sound (test_plugin_contract.PluginContract.test_validator_rejects_pickable_projectile_playable_ammo_and_missing_sound)"
+  ],
+  "sin_regresiones": true,
+  "nota": "el export pristino omite archivos ignorados por git, asi que falla de mas; el baseline es pesimista, no laxo"
+}

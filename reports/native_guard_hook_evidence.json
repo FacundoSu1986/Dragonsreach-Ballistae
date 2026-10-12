@@ -1,0 +1,36 @@
+{
+  "runtime": "1.6.1170.0",
+  "executable_sha256": "c434208894f07f604b852f29b8edc3a58c4de63de783373733e72b2b73f33be9",
+  "address_library_sha256": "c4093c569a3c83b26587f4b9ea4c55de9ae6e73b84a2af9fb3fbd30e2fe0d452",
+  "inspection": "PE and Address Library only; binaries never loaded or modified",
+  "hooks": [
+    {
+      "name": "PlayerCharacter::Update",
+      "ae_vtable_id": 208040,
+      "slot": 173,
+      "vtable_rva": 25868736,
+      "function_rva": 7546464,
+      "executable_section": ".text"
+    },
+    {
+      "name": "Character::Update",
+      "ae_vtable_id": 207886,
+      "slot": 173,
+      "vtable_rva": 25843032,
+      "function_rva": 6716736,
+      "executable_section": ".text"
+    },
+    {
+      "name": "hkbClipGenerator::Generate",
+      "ae_vtable_id": 226785,
+      "slot": 23,
+      "vtable_rva": 26623608,
+      "function_rva": 11330560,
+      "executable_section": ".text"
+    }
+  ],
+  "camera_hook_dependency": false,
+  "wrapped_text_decode_verified": false,
+  "in_game_order_verified": false,
+  "scope": "Confirms only Address Library vtable/slot pointers into an executable PE section. Steam-wrapped on-disk .text was not decoded; this does not prove function implementation, pump cadence, animation execution or post-IK render ordering."
+}

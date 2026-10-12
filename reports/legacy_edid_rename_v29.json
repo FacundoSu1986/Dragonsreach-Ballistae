@@ -1,0 +1,61 @@
+{
+  "revision": 29,
+  "success": true,
+  "game_tested": false,
+  "plugin": "addons/WhiterunTorres/AstraAsedio_WhiterunTorres.esp",
+  "before_sha256": "fabe09b28a3b1c3559b965242f85a6f42e95a7f784e5db6e7068be8b0db63b3b",
+  "after_sha256": "cfccc9cd6bd24ff5a2bd8b5a0670b89efc3ff6f87c9428b14d8087e5975de818",
+  "records": 28,
+  "renames": {
+    "04000B40": {
+      "old": "AstraVoladizoEsteBallesta",
+      "new": "AstraLegacyVoladizoEsteBallesta"
+    },
+    "04000B41": {
+      "old": "AstraVoladizoEsteGuardia",
+      "new": "AstraLegacyVoladizoEsteGuardia"
+    },
+    "04000B42": {
+      "old": "AstraVoladizoEstePuesto",
+      "new": "AstraLegacyVoladizoEstePuesto"
+    },
+    "04000B43": {
+      "old": "AstraVoladizoEsteEspera",
+      "new": "AstraLegacyVoladizoEsteEspera"
+    },
+    "04000B44": {
+      "old": "AstraVoladizoEstePlataforma",
+      "new": "AstraLegacyVoladizoEstePlataforma"
+    },
+    "04000B50": {
+      "old": "AstraVoladizoOesteBallesta",
+      "new": "AstraLegacyVoladizoOesteBallesta"
+    },
+    "04000B51": {
+      "old": "AstraVoladizoOesteGuardia",
+      "new": "AstraLegacyVoladizoOesteGuardia"
+    },
+    "04000B52": {
+      "old": "AstraVoladizoOestePuesto",
+      "new": "AstraLegacyVoladizoOestePuesto"
+    },
+    "04000B53": {
+      "old": "AstraVoladizoOesteEspera",
+      "new": "AstraLegacyVoladizoOesteEspera"
+    },
+    "04000B54": {
+      "old": "AstraVoladizoOestePlataforma",
+      "new": "AstraLegacyVoladizoOestePlataforma"
+    }
+  },
+  "verified": [
+    "conjunto y orden de FormID",
+    "subrecords identicos salvo EDID",
+    "firma, flags y FormID por registro",
+    "cabecera TES4 y conteo",
+    "EDID unico en todo el plugin",
+    "legacy persistente+apagado en 0x0B02, vigente en 0x0B04"
+  ],
+  "why": "el juego legacy 0xB40-0xB54 comparte celda con el puesto vigente 0xB70-0xB84 y repetia sus EDID",
+  "zip_rebuild_required": true
+}

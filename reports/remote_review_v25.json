@@ -1,0 +1,12 @@
+{
+  "revision": 25,
+  "local_base": "46bfbf7",
+  "remote": "https://github.com/FacundoSu1986/Ballesta-Astra-SkyrimSE.git",
+  "heads_rechecked_read_only": {
+    "main": "7397197ad28b6620c12c096da42ea86ef5035190",
+    "arena/25eb3851-ballesta-astra-skyrimse": "0d0a50aed86071534ff6654c8c48efab0f32cda5"
+  },
+  "remote_heads_unchanged_from_prior_review": true,
+  "method": "git ls-remote --heads origin; no pull, reset or push",
+  "game_tested": false
+}

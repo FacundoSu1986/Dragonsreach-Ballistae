@@ -35,6 +35,7 @@ class AimFixture:
         player = SimpleNamespace(
             GetAngleX=lambda: self.angle(0), GetAngleZ=lambda: self.angle(1),
             SetAngle=self.set_angle, IsDead=lambda: self.lease.dead,
+            IsSneaking=lambda: False,
             GetItemCount=lambda ammo: 10, GetCombatTarget=lambda: None,
         )
         self.vm.state.update(

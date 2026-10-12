@@ -29,35 +29,64 @@ Modificados:
 - `scripts/build_plugin.py` — genera todo el wiring nuevo en el ESP.
 - `config.json` — sección `guardia` (17 claves).
 
-## Qué genera build_plugin.py
+## Qué genera el build (v22: `patch_plugin_v12.py` + `build_modular_v13.py`)
 
-IDs nuevos (dinámicos terminaban en `0x925`, luces `0x930–33`):
+> **Corrección de integración (v22).** Este documento decía que el core lo regeneraba
+> `scripts/build_plugin.py`. Es **falso** y rompía el producto: `build_plugin.py` arma un ESP
+> desde cero con la celda de pruebas, y **sin** las formas modulares
+> `0x030009C0` / `0x03000B00-03` que los tres addons referencian como master 03
+> (Atalaya → `03000801`/`03000808`/`030009C0`; Whiterun → `030009C0`/`03000B02`/`03000B03`;
+> WhiterunTorres → `03000B02`). Correrlo sobre el repo dejaba los addons con masters
+> colgantes. El core embarcado sale de `patch_plugin_v12.py` (sobre el baseline v11 inmutable)
+> + `build_modular_v13.py` (formas modulares), y es ahí donde vive el guardia.
+
+IDs del guardia (mismos en los dos builders, para que `validate_plugin` sirva de gate único):
 - `0x0300080E` GLOB `AstraGuardiaOcupada` (float, arranca 0.0).
-- `0x0300080F` NPC_ `AstraGuardiaTorre` — clon del primer donante de `guardia.donores_npc`
-  que exista en `Skyrim.esm` (orden por defecto: GuardWhiterun, GuardSolitude, GuardWindhelm,
-  GuardMarkarth, GuardRiften). Conserva packages/facciones/combate del donante (v1); solo
-  cambia EDID/FULL y se le agrega el VMAD de `AstraGuardiaNPC`. Si ningún candidato existe,
-  el build falla con error explícito: revisar los EDID en xEdit (`Skyrim.esm` → NPC_) y
-  ajustar `donores_npc`.
-- `0x03000940` REF del NPC en la celda de la torre, en `guardia.posicion`, mirando a la
-  ballesta, con XLKR recíproco ballesta↔guardia (así `GetLinkedRef()` funciona de ambos lados).
+- `0x0300080F` NPC_ `AstraGuardiaNPC` — clon del primer donante de `guardia.donores_npc`
+  que exista en `Skyrim.esm`. La lista es una **prioridad**, no un conjunto: el donante es
+  `donores_npc[0]` (`GuardWhiterunCityGeneric`). Si ningún candidato existe, el build falla
+  con error explícito: revisar los EDID en xEdit (`Skyrim.esm` → NPC_).
+- `0x03000940` ACHR del NPC en la celda de pruebas, en `guardia.posicion`, mirando a la
+  ballesta, con XLKR recíproco ballesta↔guardia. En el linaje v11 esa dirección queda libre
+  porque el parche borra las 64 piezas vanilla que empiezan en `VANILLA_FIRST` (mismo valor).
+  El record tiene que ser **ACHR**: el engine solo instancia actores desde ACHR.
 - La ballesta ACTI pasa a llevar **dos** scripts: `AstraAsedioActi` + `AstraGuardiaAuto`
   (VMAD multi-script), con todas las properties llenas desde `config.json`.
 
-El validador del propio build (`validate_plugin`) ahora verifica: 2 scripts en el ACTI, forms
-y valores del `AstraGuardiaAuto`, GLOB bien formado, VMAD del NPC sin properties, XLKR
-recíprocos y NAME del ref → NPC. El reporte JSON incorpora la sección `guardia`.
+**Herencia del donante**: hay que borrar dos bits de `templateFlags` (ACBS +18) o el clon no
+obedece al config: `0x0080` BaseData (sin esto el `FULL` inyectado se ignora y el guardia se
+llama como el donante) y `0x0020` AIPackages (sin esto hereda el paquete del donante y se va
+caminando a su ciudad). Con `guardia.paquete_torre` se reemplaza el `PKID` por un PACK anclado
+a la ubicación del editor (`PLDT type=3`, sin `CTDA`) — `GuardPost` (`0001C9FF`).
+
+El validador del propio build (`validate_plugin`) verifica: 2 scripts en el ACTI, forms y
+valores del `AstraGuardiaAuto`, GLOB bien formado, VMAD del NPC sin properties, XLKR
+recíprocos y NAME del ref → NPC. Los reportes JSON (`reports/plugin_v12.json`) incorporan la
+sección `guardia`.
 
 ## Runbook (máquina Windows del usuario, sobre v21)
 
 > Desde el merge con v21 este sistema convive con las torres de ciudad de los addons
 > (`AstraAsedioGuard` en `addons/Whiterun*`, estaciones autónomas): este híbrido es para
-> LA BALLESTA DEL JUGADOR en la celda de pruebas. No se pisan: wiring distinto, ESP distinto.
+> LA BALLESTA DEL JUGADOR en la celda de pruebas. **Sí comparten el core** `mod/AstraAsedio.esp`
+> (los addons lo referencian como master 03), así que el core se reconstruye una sola vez y los
+> addons no se tocan.
 
 1. `python scripts/build_assets.py` (y el resto del pipeline v21, como siempre).
-2. `python scripts/build_plugin.py` — regenera `mod/AstraAsedio.esp` con el guardia
-   (GLOB + NPC_ clon + ACHR + XLKR recíprocos + 2.º script en la ballesta). Si pide
-   donante de NPC, revisar `guardia.donores_npc` en xEdit.
+2. `python scripts/build_modular_v13.py` — corre en cadena `patch_plugin_v12.py` (baseline v11
+   → core con estructura, escudos, Z de la ballesta, navmesh, **y el guardia**) y después
+   agrega las formas modulares `0x03000B00-04`. Salida esperada:
+   `V12_PLUGIN_PATCHED … guardia GuardWhiterunCityGeneric` + `MODULAR_CORE_BUILT 66`.
+   **Los addons no se generan acá**: `place_atalaya_v20/v21.py` copian el Atalaya de la
+   revisión anterior y `build_modular_v17.py` arma WhiterunTorres.
+   **No correr `scripts/build_plugin.py`**: pisa `mod/AstraAsedio.esp` con un ESP sin las
+   formas modulares y deja los tres addons con masters colgantes.
+2b. **Torreta baja (v22)**: `python scripts/bajar_ballesta.py mod/meshes/AstraAsedio/ballesta.nif mod/meshes/AstraAsedio/ballesta_guardia.nif`
+   produce el NIF del guardia (pivote 117, −36 u) parcheando bytes. Después:
+   `python scripts/build_modular_v13.py` con `main(addons=True)` para regenerar el addon
+   Whiterun (reproduce el embarcado byte a byte y **no toca el Atalaya**), y
+   `python scripts/build_modular_v17.py` para los voladizos. Verificar con
+   `python scripts/verify_core_v22.py` y `python scripts/verify_torreta_baja_v22.py`.
 3. `python scripts/compile_papyrus.py` — compila TODOS los `.psc` por glob (los dos nuevos
    entran solos). El nativo NO cambia: la IA usa solo Papyrus + SKSE (NetImmerse).
 4. **Demo del guardia (animación `GuardiaCiclo`)**: la secuencia NO viaja en el NIF del
@@ -70,6 +99,78 @@ recíprocos y NAME del ref → NPC. El reporte JSON incorpora la sección `guard
 5. En juego: `coc AstraAsedioTest`, agredir al guardia de la torre (o soltar un dragón/lobos
    cerca) y NO operar la ballesta: el guardia entra en combate → la torre apunta sola,
    espera ~1 frame de asiento y dispara el virote real contra el blanco del guardia.
+
+## Dos torretas: alta para el jugador, baja para el guardia (v22)
+
+La v22 nació de bajar la torreta 36 u (pivote 153 → 117) para que la animación del guardia
+quede a la altura de las manos. La bajada se hacía sobre el `ballesta.nif` **global**, y eso
+rompió la **mira nativa del jugador**: medido en `reports/sight_path_v22_FAILED.json`, la
+holgura cámara→malla del arma cae de 10,29 u a 2,94 u (el mínimo es 8; la esfera del motor
+mide 12–15 u) y se pierde `near_plane_check_falsified`. El pivote en 117 deja el anclaje de
+cámara por debajo del piso de 65 u que exigen `scripts/sight_pose.py` y `kMinCameraHeight`
+de `native/src/Core.cpp`.
+
+La solución es **dos NIF y dos ACTI**, con el MISMO contrato (clone del ACTI del jugador sin
+`VMAD`: los scripts los pone el REFR que coloca):
+
+| ACTI | EDID | MODL | Pivote | Quién lo usa |
+|---|---|---|---|---|
+| `0x03000801` | `AstraAsedioBallesta` | `ballesta.nif` | 153 | el jugador (core `03000901` + Atalaya `04000A00`) |
+| `0x03000B02` | `AstraGuardBallista` | `ballesta.nif` | 153 | sólo tombstones deshabilitados (`04000B40/B50`) |
+| `0x03000B04` | `AstraGuardBallistaBaja` | `ballesta_guardia.nif` | 117 | los guardias (`04000B70/B80` y `04000B10`) |
+
+La regla que hace segura la torreta baja: **ninguna colocación activa del ACTI bajo puede
+dejar que el jugador la opere** (`AllowPlayerTakeover=false`) ni declarar mira nativa
+(`UseSightCamera=false`). La mira vive en `AstraAsedioActi` y en
+`AstraAsedioStation extends AstraAsedioActi`; `AstraAsedioGuard` **no** la usa, y además no
+lleva `MuzzleAlto` ni `PitchPivotHeight`: lee `ProjectileNode` del NIF en runtime, así que el
+mismo script sirve para las dos alturas. `verify_core_v22.py` (sección 6) recorre **todas**
+las referencias a `0x03000B04` en los tres addons y falla si alguna habilita al jugador —una
+colocación nueva que se olvide del flag rompe el test.
+
+Consecuencia de diseño aceptada: los **voladizos de WhiterunTorres pasan a ser puestos de
+guardia** (antes eran estaciones compartidas: `AllowPlayerTakeover=true`,
+`UseSightCamera=true`). El jugador conserva la mira nativa en la torreta del core. El addon
+`AstraAsedio_Whiterun.esp` (torreta guardia-exclusiva `04000B10`) también apunta al ACTI bajo,
+aunque ese addon está deprecado (`reports/modular_v14.json` →
+`replace_old_plugin: AstraAsedio_Whiterun.esp (disable)`).
+
+### Estado de la integración (2026-10-10, v22)
+
+Verificado en el sandbox, sin Skyrim:
+- Cadena verde: `patch_plugin_v12.py` → `build_modular_v13.py` (`MODULAR_CORE_BUILT 65`), con
+  `validate_plugin` pasando sobre el ESP final.
+- Core `mod/AstraAsedio.esp`: 66 records, sin FormIDs duplicados, masters
+  `[Skyrim.esm, Update.esm, Dawnguard.esm]`, formas modulares presentes, ACTI con dos scripts,
+  `PitchPivotHeight = 117.0` (sigue la bajada de 36 u), GLOB/NPC_/ACHR y XLKR recíprocos.
+- Los tres addons (incluido el Atalaya v21 restaurado, sha `7491276e…`) resuelven todas sus
+  referencias a master 03 contra el core nuevo: 0 colgantes.
+- `python scripts/verify_guardia_ai.py` → TODO OK. `python scripts/compile_papyrus.py` →
+  exit 0, los 8 scripts compilan (incluidos `AstraGuardiaAuto` y `AstraGuardiaNPC`).
+- **Pendiente en tu máquina**: `build_assets.py` (Blender), `build_guardia.py`, y la prueba
+  in-game. El core v22 invalida los `files_sha256` de `reports/baseline_v*.json` y el assert
+  de `build_modular_v17.py` (que exige el core == v14): hay que re-derivar la baseline v22
+  antes de volver a empaquetar con `package_v21.py`.
+
+### Bugs reales que traía el merge (corregidos en v22)
+
+1. `donores_npc` apuntaba a cinco EDID inexistentes (`GuardWhiterun`, `GuardSolitude`, …):
+   el build moría con "Guard NPC donor not found". Reemplazados por cinco EDID verificados
+   contra `Skyrim.esm`.
+2. `find_guard_npc` devolvía el primer candidato **en orden de archivo**, así que
+   `donores_npc[0]` era decorativo (`Skyrim.esm` lista `GuardWindhelmImperial` antes).
+3. `Math.Atan2(...)` en `AstraGuardiaAuto.psc` (líneas 584 y 590): `Math.psc` no tiene `Atan2`
+   (solo `Atan`); el script define su propio `Atan2` y los otros dos call sites ya lo llamaban
+   sin calificar. **No compilaba.**
+4. `float[] Function ResolverBlanco(...)` con `return None`: el compilador emitía
+   `Cast float[] None`, que el gate de `compile_papyrus.validate_assembly` rechaza
+   (`BYTECODE_REJECTED: None cast into array temporary`). Reescrito como `bool` + array de
+   salida (`new float[0]` no es opción: Papyrus exige 1..128 elementos).
+   La suite `verify_guardia_ai.py` no vio ninguno de los dos últimos porque porta el código a
+   Python y **nunca invoca el compilador**.
+5. El runbook mandaba regenerar el core con `build_plugin.py`, que borra las formas modulares
+   que los addons necesitan (ver arriba).
+
 
 ## Comportamiento esperado (qué verificar in-game)
 
@@ -108,10 +209,12 @@ comportamiento que la mira del jugador).
 
 ## Limitaciones conocidas v1 (y su salida)
 
-- **Packages del donante**: el clon conserva el sandbox/paquetes del guardia original. Si en
-  juego el NPC intenta caminar a su ciudad, reemplazar sus packages por uno de "stay" anclado
-  a la torre con xEdit (packages del NPC_ o un `Package` propio con editor location = la
-  celda de la torre). Es el ajuste más probable tras la primera prueba.
+- **Packages del donante** (resuelto en v22): el clon heredaba el sandbox/paquetes del guardia
+  original porque el único paquete del donante elegido (`GuardWhiterunCityGeneric`) era
+  `CWPatrolAndGuardWhileHoldContested` (`000587E1`), una patrulla atada a los holds: el
+  guardia se iba caminando de la torre. Ahora `guardia.paquete_torre` (`GuardPost`, `0001C9FF`,
+  `PLDT type=3` sin `CTDA`) reemplaza el `PKID` y se borra el bit `AIPackages` de
+  `templateFlags`. Poner `null` para volver al comportamiento v1.
 - **Muzzle**: el offset del ProjectileNode se aplica asumiendo la raíz de la ballesta a 0° en
   la celda (así está colocada). Si algún día la ballesta se coloca girada, hay que rotar el
   offset con el yaw de la raíz.

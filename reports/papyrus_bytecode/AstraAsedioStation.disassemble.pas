@@ -1,7 +1,7 @@
 .info
 	.source "AstraAsedioStation.psc"
-	.modifyTime 1791645632 ;Sat Oct 10 12:20:32 2026 Local
-	.compileTime 1791649526 ;Sat Oct 10 13:25:26 2026 Local
+	.modifyTime 1791718973 ;Sun Oct 11 08:42:53 2026 Local
+	.compileTime 1791759047 ;Sun Oct 11 19:50:47 2026 Local
 	.user "AstraAsedio"
 	.computer "Build"
 .endInfo
@@ -15,15 +15,27 @@
 		.docString ""
 		.autoState 
 		.variableTable
-			.variable stationDestroyed Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
 			.variable stationReleaseStarted Float
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0.000000
 			.endVariable
-			.variable stationWaitDeadline Float
+			.variable stationDestroyed Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable stationWaitStarted Float
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0.000000
+			.endVariable
+			.variable stationLease Int
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue 0
+			.endVariable
+			.variable ::Guard_var astraasedioguard
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable stationReleaseDeadline Float
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0.000000
 			.endVariable
@@ -31,43 +43,31 @@
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
+			.variable stationCoordinator astraasedioguard
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue None
+			.endVariable
+			.variable stationUnavailable Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
 			.variable stationRevision Int
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0
 			.endVariable
-			.variable stationReleaseDeadline Float
+			.variable stationWaiting Bool
+				.userFlags 0	; Flags: 0x00000000
+				.initialValue False
+			.endVariable
+			.variable stationWaitDeadline Float
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue 0.000000
-			.endVariable
-			.variable ::Guard_var astraasedioguard
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
 			.endVariable
 			.variable stationBusyRevision Int
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue -1
 			.endVariable
 			.variable stationReleasing Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable stationWaiting Bool
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue False
-			.endVariable
-			.variable stationCoordinator astraasedioguard
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue None
-			.endVariable
-			.variable stationLease Int
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0
-			.endVariable
-			.variable stationWaitStarted Float
-				.userFlags 0	; Flags: 0x00000000
-				.initialValue 0.000000
-			.endVariable
-			.variable stationUnavailable Bool
 				.userFlags 0	; Flags: 0x00000000
 				.initialValue False
 			.endVariable
@@ -787,37 +787,6 @@
 					_label65:
 					.endCode
 				.endFunction
-				.function GetState
-					.userFlags 0	; Flags: 0x00000000
-					.docString "Function that returns the current state"
-					.return String
-					.paramTable
-					.endParamTable
-					.localTable
-					.endLocalTable
-					.code
-						Return ::State                                           ;@line ??
-					.endCode
-				.endFunction
-				.function OnMenuOpen
-					.userFlags 0	; Flags: 0x00000000
-					.docString ""
-					.return None
-					.paramTable
-						.param menuName String
-					.endParamTable
-					.localTable
-						.local ::NoneVar None
-					.endLocalTable
-					.code
-						JumpF stationWaiting _label66                            ;@line 356
-						CallMethod EndSession self ::NoneVar                     ;@line 357
-						Jump _label67                                            ;@line 357
-					_label66:
-						CallParent OnMenuOpen ::NoneVar menuName                 ;@line 359
-					_label67:
-					.endCode
-				.endFunction
 				.function StationNativeFailure
 					.userFlags 0	; Flags: 0x00000000
 					.docString ""
@@ -840,56 +809,87 @@
 						Assign skseVersion ::temp5                               ;@line 47
 						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 48
 						Not ::temp6 ::temp6                                      ;@line 48
-						JumpF ::temp6 _label68                                   ;@line 48
+						JumpF ::temp6 _label66                                   ;@line 48
 						Return "STATION_ENTRY_CANCELLED"                         ;@line 49
-						Jump _label68                                            ;@line 49
-					_label68:
+						Jump _label66                                            ;@line 49
+					_label66:
 						CompareLT ::temp6 skseVersion 2                          ;@line 51
-						JumpF ::temp6 _label69                                   ;@line 51
+						JumpF ::temp6 _label67                                   ;@line 51
 						Return "SKSE_MISSING: inicia Skyrim con SKSE64."         ;@line 52
-						Jump _label69                                            ;@line 52
-					_label69:
+						Jump _label67                                            ;@line 52
+					_label67:
 						CallStatic skse GetPluginVersion ::temp5 "AstraSight"    ;@line 54
 						Assign pluginVersion ::temp5                             ;@line 54
 						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 55
 						Not ::temp6 ::temp6                                      ;@line 55
-						JumpF ::temp6 _label70                                   ;@line 55
+						JumpF ::temp6 _label68                                   ;@line 55
 						Return "STATION_ENTRY_CANCELLED"                         ;@line 56
-						Jump _label70                                            ;@line 56
-					_label70:
+						Jump _label68                                            ;@line 56
+					_label68:
 						CompareLT ::temp6 pluginVersion 50659392                 ;@line 58
-						JumpF ::temp6 _label71                                   ;@line 58
+						JumpF ::temp6 _label69                                   ;@line 58
 						Return "NATIVE_SIGHT_MISSING: instala AstraSight.dll 3.5.4 de esta versiÃ³n."  ;@line 59
-						Jump _label71                                            ;@line 59
-					_label71:
+						Jump _label69                                            ;@line 59
+					_label69:
 						CallStatic astrasightnative GetAPIVersion ::temp5        ;@line 61
 						Assign api ::temp5                                       ;@line 61
 						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 62
 						Not ::temp6 ::temp6                                      ;@line 62
-						JumpF ::temp6 _label72                                   ;@line 62
+						JumpF ::temp6 _label70                                   ;@line 62
 						Return "STATION_ENTRY_CANCELLED"                         ;@line 63
-						Jump _label72                                            ;@line 63
-					_label72:
+						Jump _label70                                            ;@line 63
+					_label70:
 						CompareEQ ::temp6 api 4                                  ;@line 65
 						Not ::temp6 ::temp6                                      ;@line 65
-						JumpF ::temp6 _label73                                   ;@line 65
+						JumpF ::temp6 _label71                                   ;@line 65
 						Return "NATIVE_API_MISMATCH: reinstala los archivos completos de esta versiÃ³n."  ;@line 66
-						Jump _label73                                            ;@line 66
-					_label73:
+						Jump _label71                                            ;@line 66
+					_label71:
 						CallStatic astrasightnative IsAvailable ::temp6          ;@line 68
 						Assign available ::temp6                                 ;@line 68
 						CallMethod StationCurrent self ::temp6 expectedRevision expectedGuard expectedLease  ;@line 69
 						Not ::temp6 ::temp6                                      ;@line 69
-						JumpF ::temp6 _label74                                   ;@line 69
+						JumpF ::temp6 _label72                                   ;@line 69
 						Return "STATION_ENTRY_CANCELLED"                         ;@line 70
-						Jump _label74                                            ;@line 70
-					_label74:
+						Jump _label72                                            ;@line 70
+					_label72:
 						Not ::temp6 available                                    ;@line 72
-						JumpF ::temp6 _label75                                   ;@line 72
+						JumpF ::temp6 _label73                                   ;@line 72
 						Return "NATIVE_SIGHT_UNAVAILABLE: la mira nativa no estÃ¡ disponible."  ;@line 73
-						Jump _label75                                            ;@line 73
-					_label75:
+						Jump _label73                                            ;@line 73
+					_label73:
 						Return ""                                                ;@line 75
+					.endCode
+				.endFunction
+				.function OnMenuOpen
+					.userFlags 0	; Flags: 0x00000000
+					.docString ""
+					.return None
+					.paramTable
+						.param menuName String
+					.endParamTable
+					.localTable
+						.local ::NoneVar None
+					.endLocalTable
+					.code
+						JumpF stationWaiting _label74                            ;@line 356
+						CallMethod EndSession self ::NoneVar                     ;@line 357
+						Jump _label75                                            ;@line 357
+					_label74:
+						CallParent OnMenuOpen ::NoneVar menuName                 ;@line 359
+					_label75:
+					.endCode
+				.endFunction
+				.function GetState
+					.userFlags 0	; Flags: 0x00000000
+					.docString "Function that returns the current state"
+					.return String
+					.paramTable
+					.endParamTable
+					.localTable
+					.endLocalTable
+					.code
+						Return ::State                                           ;@line ??
 					.endCode
 				.endFunction
 				.function OnDestructionStageChanged

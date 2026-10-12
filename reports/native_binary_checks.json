@@ -1,17 +1,17 @@
 {
   "dll": "mod\\SKSE\\Plugins\\AstraSight.dll",
-  "sha256": "93e5f269d132db1851682dcfaf9ff2b9f5a2c8ee32e8a8164d4c983930982153",
-  "size": 715776,
+  "sha256": "4910f6c89e2cf26364b81cff284019bec67959329e6d5dfca411d79cc2065326",
+  "size": 808448,
   "machine": "AMD64 (0x8664)",
   "exports": {
-    "SKSEPlugin_Load": 168416,
-    "SKSEPlugin_Query": 170112,
-    "SKSEPlugin_Version": 672400
+    "SKSEPlugin_Load": 173264,
+    "SKSEPlugin_Query": 175088,
+    "SKSEPlugin_Version": 758416
   },
   "metadata": {
     "version_data": 1,
     "plugin_name": "AstraSight",
-    "packed_plugin_version": 50659392,
+    "packed_plugin_version": 50724864,
     "address_library": true,
     "structs_post_629": true,
     "compatible_packed_versions": [
@@ -34,6 +34,8 @@
     ],
     "minimum_skse_packed": 33685632
   },
+  "npc_binding_strings_present": true,
+  "npc_api_version_receipt": 1,
   "imports": [
     "KERNEL32.dll",
     "MSVCP140.dll",
@@ -53,5 +55,5 @@
     "USER32.dll",
     "SHELL32.dll"
   ],
-  "verified_by": "PE parse only; DLL not loaded and game not launched"
+  "verified_by": "PE parse and receipt only; DLL not loaded and game not launched"
 }

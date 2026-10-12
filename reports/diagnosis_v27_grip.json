@@ -1,0 +1,16 @@
+{
+  "observed_revision": 27,
+  "log_sha256": "9194df9d219bbe6bbb927fdac901983224b801e3e6ab781cf813bc584176abb0",
+  "bytes": 3822,
+  "acquired": 6,
+  "hold_confirmed": 7,
+  "grip_confirmed": 0,
+  "projectiles": 0,
+  "hold_timeout": 2,
+  "character_hook_execution_thread_measured": false,
+  "v28_in_game_tested": false,
+  "v27_zip_sha256": "d328c4a7bb1b6d36f90d777b7e8568a9384a5a80ac4b46b426072f8f7b9d9094",
+  "papyrus_sha256": "3d1131acb69ffdc53ab3adacb15ba859f50bbb1a470587b474005b6f62a3d454",
+  "repeated_backoff_count": 25,
+  "backoff_bug_reproduced_with_two_updates": true
+}

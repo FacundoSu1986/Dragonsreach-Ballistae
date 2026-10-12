@@ -49,12 +49,12 @@
   "alignment_points": "written rear-ring centre (bounding box of the ring vertices) and written post apex, post node set as Plugin.cpp sets it",
   "nif_sha256": {
     "torre": "1dc1ca22e03357cb292f6a122cd504914885cc540b21990dccf31c7b5d0a2679",
-    "ballesta": "e6fcf2a64cfeca82f186bc7f4b76ce4f47a4371577cb6e037bf8ba094fc483b2"
+    "ballesta": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17"
   },
   "inputs_sha256": {
     "scripts/sight_pose.py": "7e7493af493254e58bf6e1760c5a27e06b2ddaee872b7352acd54ae4fc5a1a4f",
     "scripts/verify_sight_path.py": "426269e37a165f928b820c666c6adb224a1aad779999a804e6dc7b39888310d0",
-    "config.json": "a9012c7cb1c4b5e2eef47f1093264bd1f8a4c72b88673748016f27a367aec1b6",
+    "config.json": "159d35a51fb9cf4ffb2b7571f845f18872d4dfeff835ca5aa004bd873e48612a",
     "scripts/v11_layout.py": "dd52ec2c6d5b89f3688345d2261119bc134ceb6c2018a6d8cab8e8e388533505",
     "reports/angle_convention.json": "a26dd4ae3ca8e49ad54f03910b73c578413a49653542c625b673e5bc4729a5fc"
   },
