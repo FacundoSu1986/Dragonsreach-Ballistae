@@ -46,10 +46,9 @@ class GuardResilience27(unittest.TestCase):
         self.assertIn('assigned package / weapon-state contract broken', CPP)
         # Diagnostics keep printing running/runOnce/idle fields for the clause.
         self.assertIn('currentProcessIdle', CPP)
-        # The closed failure path is unchanged: no observable canonical hold
-        # still cancels bounded, and grip confirmation still gates Fire/Launch.
-        self.assertIn('hold replacement not observable', CPP)
-        self.assertIn('guardGripFresh', CPP)
+        # v29 retired the two closed paths this test used to pin (cancel when OAR
+        # samples stop; grip confirmation gating Fire/Launch). They never passed
+        # in game. Their replacements are pinned by tests/test_v29_guard_simple.py.
 
     def test_v26_policy_table_matches_measured_semantics(self):
         self.assertIn('check(guardOperatorPackage(true,false,false,true,true)', V26T)
@@ -60,10 +59,12 @@ class GuardResilience27(unittest.TestCase):
         self.assertIn('OAR Animations V1={} (module loaded={})', CPP)
 
     def test_v26_fail_closed_strings_survive(self):
-        for kept in ('guard v26 context', 'guard v26 reject', 'hold replacement not observable',
+        # 'hold replacement not observable' left with v29: missing samples re-request, never cancel.
+        for kept in ('guard v26 context', 'guard v26 reject',
                      'operator personal weapon not fully sheathed', 'owned operator package missing'):
             self.assertIn(kept, CPP, kept)
 
+    @unittest.skip('AstraSight 3.5.8 superseded; current version pinned by test_v29_guard_simple.test_version_is_360_everywhere')
     def test_version_bump_is_consistent_across_sources_and_checkers(self):
         plugin = (ROOT / 'native/src/Plugin.cpp').read_text()
         self.assertIn('v.PluginVersion({3,5,8,0})', plugin)

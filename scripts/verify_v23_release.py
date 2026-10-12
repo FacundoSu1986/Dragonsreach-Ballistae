@@ -106,7 +106,7 @@ def plugin_checks():
 
 
 def main(revision=23):
-    assert revision in (23,24,25,26,27,28)
+    assert revision in (23,24,25,26,27,28,29)
     checks = {}
     def record(name,fn):
         try:checks[name]={'success':True,'result':fn()}
@@ -128,6 +128,8 @@ def main(revision=23):
         record('v27_measured_clause_correction_and_resilience',lambda:run([sys.executable,'-m','unittest','tests.test_v27_guard_resilience']))
     if revision==28:
         record('v28_pose_pump_and_retry_lifecycle',lambda:run([sys.executable,'-m','unittest','tests.test_v26_guard_ai','tests.test_v28_runtime']))
+    if revision==29:
+        record('v29_hold_clip_grips_rigid_mount_and_retry_lifecycle',lambda:run([sys.executable,'-m','unittest','tests.test_v26_guard_ai','tests.test_v28_runtime','tests.test_v29_guard_simple']))
     record('player_camera_input_lease_regressions',lambda:run([sys.executable,'-m','unittest',
            'tests.test_camera_aim','tests.test_control_lease','tests.test_session_contract']))
     record('hkx_independent_decode',lambda:run([sys.executable,'scripts/verify_hkx_v23.py']))

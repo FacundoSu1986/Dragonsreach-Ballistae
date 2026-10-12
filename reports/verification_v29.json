@@ -1,0 +1,112 @@
+{
+  "revision": 29,
+  "success": true,
+  "utc": "2026-10-12T00:05:30.669077+00:00",
+  "checks": {
+    "v23_acceptance": {
+      "success": true,
+      "result": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.004s\n\nOK\n"
+    },
+    "v29_hold_clip_grips_rigid_mount_and_retry_lifecycle": {
+      "success": true,
+      "result": ".......s........s.........\n----------------------------------------------------------------------\nRan 26 tests in 0.010s\n\nOK (skipped=2)\n"
+    },
+    "player_camera_input_lease_regressions": {
+      "success": true,
+      "result": "....................................................................................\n----------------------------------------------------------------------\nRan 84 tests in 0.626s\n\nOK\n"
+    },
+    "hkx_independent_decode": {
+      "success": true,
+      "result": "operate PASS\nfire PASS\nturn_left PASS\nturn_right PASS\n"
+    },
+    "plugin_bindings_and_player_preservation": {
+      "success": true,
+      "result": {
+        "records": {
+          "AstraAsedio.esp": 66,
+          "AstraAsedio_WhiterunTorres.esp": 27,
+          "AstraAsedio_Atalaya.esp": 21,
+          "AstraAsedio_GuardAnim.esp": 7
+        },
+        "vmad_aliases_and_object_properties_resolve": true,
+        "player_properties_and_high_meshes_match_v22": true,
+        "vanilla_master_reference_integrity": "structural; no xEdit engine check"
+      }
+    },
+    "compiled_bytecode": {
+      "success": true,
+      "result": {
+        "fresh_compiled_scripts": 10,
+        "source_pex_disassembly_hashes_match": true
+      }
+    },
+    "native_build_and_ctest": {
+      "success": true,
+      "result": "Test project E:/Sectores/Sector_Modelado_3D/Ballesta_Astra_v28/build/native/v29-release\n      Start  1: AstraCoreTests\n 1/15 Test  #1: AstraCoreTests ...................   Passed    0.09 sec\n      Start  2: AstraV07Tests\n 2/15 Test  #2: AstraV07Tests ....................   Passed    0.05 sec\n      Start  3: AstraV08Tests\n 3/15 Test  #3: AstraV08Tests ....................   Passed    0.01 sec\n      Start  4: AstraV09Tests\n 4/15 Test  #4: AstraV09Tests ....................   Passed    0.01 sec\n      Start  5: AstraV10Tests\n 5/15 Test  #5: AstraV10Tests ....................   Passed    0.01 sec\n      Start  6: AstraV15Tests\n 6/15 Test  #6: AstraV15Tests ....................   Passed    0.01 sec\n      Start  7: AstraV17Tests\n 7/15 Test  #7: AstraV17Tests ....................   Passed    0.01 sec\n      Start  8: AstraV18Tests\n 8/15 Test  #8: AstraV18Tests ....................   Passed    0.01 sec\n      Start  9: AstraV19Tests\n 9/15 Test  #9: AstraV19Tests ....................   Passed    0.01 sec\n      Start 10: AstraV23GuardTests\n10/15 Test #10: AstraV23GuardTests ...............   Passed    0.01 sec\n      Start 11: AstraV25GuardTests\n11/15 Test #11: AstraV25GuardTests ...............   Passed    0.01 sec\n      Start 12: AstraV26GuardTests\n12/15 Test #12: AstraV26GuardTests ...............   Passed    0.01 sec\n      Start 13: AstraV28GuardTests\n13/15 Test #13: AstraV28GuardTests ...............   Passed    0.01 sec\n      Start 14: AstraV29GuardTests\n14/15 Test #14: AstraV29GuardTests ...............   Passed    0.01 sec\n      Start 15: AstraV23BindingTests\n15/15 Test #15: AstraV23BindingTests .............   Passed    0.05 sec\n\n100% tests passed, 0 tests failed out of 15\n\nTotal Test time (real) =   0.30 sec\n"
+    },
+    "native_pe_exports_and_skse_metadata": {
+      "success": true,
+      "result": "{\n  \"dll\": \"mod\\\\SKSE\\\\Plugins\\\\AstraSight.dll\",\n  \"sha256\": \"4910f6c89e2cf26364b81cff284019bec67959329e6d5dfca411d79cc2065326\",\n  \"size\": 808448,\n  \"machine\": \"AMD64 (0x8664)\",\n  \"exports\": {\n    \"SKSEPlugin_Load\": 173264,\n    \"SKSEPlugin_Query\": 175088,\n    \"SKSEPlugin_Version\": 758416\n  },\n  \"metadata\": {\n    \"version_data\": 1,\n    \"plugin_name\": \"AstraSight\",\n    \"packed_plugin_version\": 50724864,\n    \"address_library\": true,\n    \"structs_post_629\": true,\n    \"compatible_packed_versions\": [\n      17189152,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0,\n      0\n    ],\n    \"minimum_skse_packed\": 33685632\n  },\n  \"npc_binding_strings_present\": true,\n  \"npc_api_version_receipt\": 1,\n  \"imports\": [\n    \"KERNEL32.dll\",\n    \"MSVCP140.dll\",\n    \"VCRUNTIME140.dll\",\n    \"VCRUNTIME140_1.dll\",\n    \"api-ms-win-crt-heap-l1-1-0.dll\",\n    \"api-ms-win-crt-string-l1-1-0.dll\",\n    \"api-ms-win-crt-math-l1-1-0.dll\",\n    \"api-ms-win-crt-locale-l1-1-0.dll\",\n    \"api-ms-win-crt-runtime-l1-1-0.dll\",\n    \"api-ms-win-crt-convert-l1-1-0.dll\",\n    \"api-ms-win-crt-stdio-l1-1-0.dll\",\n    \"api-ms-win-crt-filesystem-l1-1-0.dll\",\n    \"api-ms-win-crt-time-l1-1-0.dll\",\n    \"ole32.dll\",\n    \"VERSION.dll\",\n    \"USER32.dll\",\n    \"SHELL32.dll\"\n  ],\n  \"verified_by\": \"PE parse and receipt only; DLL not loaded and game not launched\"\n}\n"
+    }
+  },
+  "files_sha256": {
+    "mod/AstraAsedio.esp": "204ac14d57d0cbd68a893e12776d88d485ad7395da6db404ffc129a2ab7ed53a",
+    "mod/Docs/AstraAsedio/RECIBO_v12.json": "b6b2bd7619ac00108c19c8f2b2f315158f99cf09156585cc1bff6571414d551e",
+    "mod/meshes/AstraAsedio/ballesta.nif": "bcee401b79a3708ec16452ba23dd7e6364eb421bab310a218595232fac5d9e17",
+    "mod/meshes/AstraAsedio/ballesta_guardia.nif": "ebe715e73d90b136c8d7880f1a230e37bd4bf13e864f24acca384910210aabae",
+    "mod/meshes/AstraAsedio/torre.nif": "1dc1ca22e03357cb292f6a122cd504914885cc540b21990dccf31c7b5d0a2679",
+    "mod/meshes/AstraAsedio/torre_whiterun.nif": "a9148ea2fa1c4d8692cbb5863425641ac888c6e9f646e443febbfd4b6b7d77b6",
+    "mod/meshes/AstraAsedio/virote.nif": "5f25efaee1bf20700484593e4b2a6057e16b14723de6870a1fc2f50a1c6546e5",
+    "mod/scripts/AstraAsedioActi.pex": "62bc222af61c30d934b11d9a7670c49c1e5a26bcc75733fec42bd103246dc383",
+    "mod/scripts/AstraAsedioGuard.pex": "52f1c0c009a48e695f4aee72f3d20acbb81e57813d8722daef8762099348793c",
+    "mod/scripts/AstraAsedioPlayerAlias.pex": "b6bd2847830fac643bfc0e879ac72e6c2be9949fd1145fb851d4f920d818d6b7",
+    "mod/scripts/AstraAsedioSession.pex": "ae0221000548d1e6c025c9358be49d6c02a7e5e08abcc40c061cb56404de6680",
+    "mod/scripts/AstraAsedioStation.pex": "49472eb7829535480ca3da15cd7d99b34cfc3681c52fb83a2ab62fe7e0fee1eb",
+    "mod/scripts/AstraGuardiaAuto.pex": "892185e3f1222b602ee6b4589ca226cf2882c7cf912bb5e05d2e7689110133f7",
+    "mod/scripts/AstraGuardiaNPC.pex": "25d4309edfc2f415504dee1964c35ca112f4241b257f32bffc028aff3d123287",
+    "mod/scripts/AstraGuardNative.pex": "64f966ea2a6bf4b6ac204114f3f62d9a9a3a485291acfb6428e62de474784aba",
+    "mod/scripts/AstraGuardOperatorAlias.pex": "9f4c85745e9dfb42e9001b8b170e748ac7ff650f9193ee86c4a62452e65805d1",
+    "mod/scripts/AstraSightNative.pex": "b530e838a03be03dc965c697aec0021170b50062b27544b0299377ee2c1accc7",
+    "mod/scripts/source/AstraAsedioActi.psc": "7cc22a11086c4b0cd234fa7eda9611543e487dbe13be6dae7d26152d23f68dc8",
+    "mod/scripts/source/AstraAsedioGuard.psc": "5ccd377a3a43abaebe148e6a866694aefef98653a08fbc77000f0a09e2c7026a",
+    "mod/scripts/source/AstraAsedioPlayerAlias.psc": "12c55f4a2483cfbbf23ce7816435ba1d2c910240737d9da034abfaba60f9c29b",
+    "mod/scripts/source/AstraAsedioSession.psc": "67975ef7dfd52e37904f74fab96f46aa5fd57c230dab48282846d8d87bd7f713",
+    "mod/scripts/source/AstraAsedioStation.psc": "be5ec4dc0051fc460bfeea89c80029c6f8e8b150ec897695f01f693f28fd3652",
+    "mod/scripts/source/AstraGuardiaAuto.psc": "1ec8eb58308b9649ac0e0e43fbbc2a1e611bb0f2c4a91aaa8fae987d6f4297e9",
+    "mod/scripts/source/AstraGuardiaNPC.psc": "e453954f267afb64ef98294ab7ff03c5ab6b45195871769b461ad33b26b60b00",
+    "mod/scripts/source/AstraGuardNative.psc": "bdb2ae00f8937914b47352bf429336f4652a9f39b600ba379a858d78c4f63e4b",
+    "mod/scripts/source/AstraGuardOperatorAlias.psc": "78ee8d30dcfd6c5a6f14401f569a80a31ad74132b21e1fc59f5c27ac8296444f",
+    "mod/scripts/source/AstraSightNative.psc": "567f332af85cd265fb09d28cd52e18edcee847c26f14e8abfbde0710746e3505",
+    "mod/seq/AstraAsedio.seq": "5907a2bc621a287e138957f9f8f9ad9be9fbfd706b3087db35225b26f391b551",
+    "mod/SKSE/Plugins/AstraSight.dll": "4910f6c89e2cf26364b81cff284019bec67959329e6d5dfca411d79cc2065326",
+    "addons/WhiterunTorres/AstraAsedio_WhiterunTorres.esp": "fabe09b28a3b1c3559b965242f85a6f42e95a7f784e5db6e7068be8b0db63b3b",
+    "addons/WhiterunTorres/meshes/AstraAsedio/voladizo_este.nif": "582041e32f52c4392583a62f0193cb9c1c09f6644963093d8b26d89cd7dd65c5",
+    "addons/WhiterunTorres/meshes/AstraAsedio/voladizo_oeste.nif": "968da3de9fef848fe7bd7489690a97aee09659e9b43ff1e6e41809b8ca81876c",
+    "addons/Atalaya/AstraAsedio_Atalaya.esp": "7491276e651923a8eaf89382e3af8bf676596b48b6e31909c9ee2e5bb1644a02",
+    "addons/Atalaya/meshes/AstraAsedio/torre_atalaya_v20.nif": "6042738cdb484f9876da3ccc7a279727f666df69ff8a13f3ca2eb135c80f8a55",
+    "addons/Atalaya/meshes/AstraAsedio/torre_atalaya_v21.nif": "22580ed56d8e31275404372da4eb667769e49c3163a70f6b4617c5d70e0a1af9",
+    "addons/GuardAnim/AstraAsedio_GuardAnim.esp": "7882f952d9d71648ef9277f39193271d8cdddc8a00ca332c5ffbc5d2954c9eba",
+    "addons/GuardAnim/meshes/actors/character/animations/AstraAsedio/Guard/astra_guard_fire.hkx": "d24fb4963dc860aacf17ca5b42de3310df4ac6b08de52205c4e3a59086f97309",
+    "addons/GuardAnim/meshes/actors/character/animations/AstraAsedio/Guard/astra_guard_operate.hkx": "760373cb413f1170e768a77c1ba9eeba71a8d0632ea0aa0e220253a5077c0960",
+    "addons/GuardAnim/meshes/actors/character/animations/AstraAsedio/Guard/astra_guard_turn_left.hkx": "27c06ffb40ec74bba125685bcdce362bf8113021e433c81c0b11775405d4aff9",
+    "addons/GuardAnim/meshes/actors/character/animations/AstraAsedio/Guard/astra_guard_turn_right.hkx": "dd5f4eab345d130e509c51b5160b8cf3d6138fcb5431e96fef621f2a0e3fd9cf",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/config.json": "e4fa8cae4c61fa24a03cd3d05a30be2c042600e0cd68bff529b1d40313151e1f",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Fire/config.json": "fc5dba1b052abf9779b2a058fbbfb277a076b9a6f54ead702e17a38dadbf41b8",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Fire/IdleHandsBehindBack.hkx": "d24fb4963dc860aacf17ca5b42de3310df4ac6b08de52205c4e3a59086f97309",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Fire/IdleHandsBehindBack_Enter.hkx": "d24fb4963dc860aacf17ca5b42de3310df4ac6b08de52205c4e3a59086f97309",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Operate/config.json": "4151ce582dba208c59f07589d68ce3571927efba08485e7120f09e17467051e2",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Operate/IdleHandsBehindBack.hkx": "760373cb413f1170e768a77c1ba9eeba71a8d0632ea0aa0e220253a5077c0960",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/Operate/IdleHandsBehindBack_Enter.hkx": "760373cb413f1170e768a77c1ba9eeba71a8d0632ea0aa0e220253a5077c0960",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/TurnLeft/config.json": "dfd43dd346b05cfc4dfc9430012dc246f126765a1139d74abd644a1afc16d073",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/TurnLeft/IdleHandsBehindBack.hkx": "27c06ffb40ec74bba125685bcdce362bf8113021e433c81c0b11775405d4aff9",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/TurnLeft/IdleHandsBehindBack_Enter.hkx": "27c06ffb40ec74bba125685bcdce362bf8113021e433c81c0b11775405d4aff9",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/TurnRight/config.json": "2e97de3bf3bd8d639302e09115cdb757d4c23eec308b3fe1349f56567f4be1cc",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/TurnRight/IdleHandsBehindBack.hkx": "dd5f4eab345d130e509c51b5160b8cf3d6138fcb5431e96fef621f2a0e3fd9cf",
+    "addons/GuardAnim/meshes/actors/character/animations/OpenAnimationReplacer/AstraAsedioGuard/TurnRight/IdleHandsBehindBack_Enter.hkx": "dd5f4eab345d130e509c51b5160b8cf3d6138fcb5431e96fef621f2a0e3fd9cf",
+    "addons/GuardAnim/seq/AstraAsedio_GuardAnim.seq": "5907a2bc621a287e138957f9f8f9ad9be9fbfd706b3087db35225b26f391b551"
+  },
+  "game_tested": false,
+  "live_installation_modified": false,
+  "nexus_uploaded": false,
+  "historical_checks": "Archived build routes are not executed; current acceptance includes preserved v23 geometry/HKX contracts"
+}

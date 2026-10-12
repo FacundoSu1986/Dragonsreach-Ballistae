@@ -1,14 +1,13 @@
-# AstraSight 3.5.9 / v28 current runtime
+# AstraSight 3.6.0 / v29 current runtime
 
-The station main-thread pump now consumes the OAR observation and applies the
-bounded feet/grip solve before aim/Fire decisions. Character::Update is telemetry
-only (atomic counters; no scene, physics or slot writes). Each clip request
-invalidates grip. A 1.5s watchdog rejects unavailable pose samples instead of
-waiting indefinitely for an unobserved Character callback. The v27 log has six
-acquisitions, seven OAR holds and zero grip confirmations; the exact thread or
-cadence of the old Character callback was not measured. Main-thread execution
-and fresh OAR data do not certify post-animation render ordering. v28 must be
-checked in Skyrim, including subsequent-frame hand errors from the bounded log.
+The guard hold clip itself puts both wrists on the grips (FK of the shipped HKX:
+0.026 u). The station pump only steers mount and operator rigidly
+(`guardTrackYaw`, 20 deg/s, +-60 deg) and fires through `guardShouldFire` plus the
+unchanged `shoot()` safety checks. OAR clip samples are telemetry only: a clip
+silent for 3 s is re-requested at most every 6 s and never cancels the lease.
+Grip/feet IK, turn and body-fire clip synchronisation were removed. Only the
+Loading Menu, load, new game and revert invalidate guards. `guard v29 pose`
+logs live wrist-to-grip distances every 2 s. Not yet tested in Skyrim.
 
 Papyrus retries once after the scheduled 5s/30s backoff; its persistent wait flag
 prevents an infinite self-rescheduling loop. Consecutive faults reset only after

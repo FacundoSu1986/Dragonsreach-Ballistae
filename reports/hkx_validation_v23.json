@@ -2,7 +2,7 @@
   "success": true,
   "clips": {
     "operate": {
-      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v27\\source\\anim\\astra_guard_operate.hkx",
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v28\\source\\anim\\astra_guard_operate.hkx",
       "expected_duration": 2.0,
       "expected_frames": 61,
       "errors": [],
@@ -153,7 +153,7 @@
         ]
       },
       "source_comparison": {
-        "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v27\\build\\guard-v23\\animations\\astra_guard_operate.xml",
+        "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v28\\build\\guard-v23\\animations\\astra_guard_operate.xml",
         "sha256": "51909ed3675e45e01a54d34989bfe1a4a4a8bc5fbe8b4c66a14447c14f95c4f4",
         "errors": [],
         "ignored_source_bones": [],
@@ -176,7 +176,7 @@
       "passed": true
     },
     "fire": {
-      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v27\\source\\anim\\astra_guard_fire.hkx",
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v28\\source\\anim\\astra_guard_fire.hkx",
       "expected_duration": 1.0,
       "expected_frames": 31,
       "errors": [],
@@ -327,7 +327,7 @@
         ]
       },
       "source_comparison": {
-        "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v27\\build\\guard-v23\\animations\\astra_guard_fire.xml",
+        "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v28\\build\\guard-v23\\animations\\astra_guard_fire.xml",
         "sha256": "b93add52ae1ddcba03959d4bc10c8b9a91defe1676fd25a1466ee558b8795547",
         "errors": [],
         "ignored_source_bones": [],
@@ -355,7 +355,7 @@
       "passed": true
     },
     "turn_left": {
-      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v27\\source\\anim\\astra_guard_turn_left.hkx",
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v28\\source\\anim\\astra_guard_turn_left.hkx",
       "expected_duration": 0.8,
       "expected_frames": 25,
       "errors": [],
@@ -506,7 +506,7 @@
         ]
       },
       "source_comparison": {
-        "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v27\\build\\guard-v23\\animations\\astra_guard_turn_left.xml",
+        "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v28\\build\\guard-v23\\animations\\astra_guard_turn_left.xml",
         "sha256": "52d9c1fa341e0906d8347172abe0e2067acec342cbeee92cbc3ffa1ec6df7ddd",
         "errors": [],
         "ignored_source_bones": [],
@@ -529,7 +529,7 @@
       "passed": true
     },
     "turn_right": {
-      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v27\\source\\anim\\astra_guard_turn_right.hkx",
+      "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v28\\source\\anim\\astra_guard_turn_right.hkx",
       "expected_duration": 0.8,
       "expected_frames": 25,
       "errors": [],
@@ -680,7 +680,7 @@
         ]
       },
       "source_comparison": {
-        "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v27\\build\\guard-v23\\animations\\astra_guard_turn_right.xml",
+        "path": "E:\\Sectores\\Sector_Modelado_3D\\Ballesta_Astra_v28\\build\\guard-v23\\animations\\astra_guard_turn_right.xml",
         "sha256": "604c44ff789a8197caca174b2d436d9225f39b6e360cb71701d97cb60da09fe6",
         "errors": [],
         "ignored_source_bones": [],

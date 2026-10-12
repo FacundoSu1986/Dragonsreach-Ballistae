@@ -19,6 +19,9 @@ class GuardRuntime {
  void playerLeaseProbe(std::function<bool(uint32_t)> probe){playerOwns_=std::move(probe);}
  private:
  using Observation=GuardPoseSample;
+ // ok: mount+operator placed. blocked: this move is refused, previous yaw kept.
+ // invalid: the station/operator contract is broken and the lease must end.
+ enum class Pose {ok,blocked,invalid};
  struct Slot {
   GuardLease lease;GuardCycle cycle;RE::FormID gun{},actor{},weapon{},ammo{},sound{},target{},advisory{};
   int status{-1};Key retired{};bool acquired{},fault{},flagsSaved{},movement{},head{},graphHead{},graphHeadSaved{};std::array<int,4> ranks{{-1,-1,-1,-1}};
@@ -26,17 +29,17 @@ class GuardRuntime {
    int recoveries{};bool fireObserved{},launched{},resetStarted{},packageRequested{},supportSaved{};Mat yawBase{},pitchBase{};
    double heightOffset{},supportZ{},actorScale{},gripWaitSince{},nextPoseLog{};bool gripConfirmed{};const char* failure{"acquisition not evaluated"};
    std::array<Vec,2> feet{};std::array<Mat,2> footRotation{};
+   GuardHoldWatch hold;double nextShot{},fireAt{},blockedSince{-1},sampleAt{-1};const char* moveRefusal{};
   };
  mutable std::recursive_mutex mutex_;std::mutex observationsMutex_;std::array<Slot,2> slots_{};std::array<Observation,2> observations_{};
  std::array<std::atomic<RE::FormID>,2> watchedActors_{};std::array<std::atomic<uint64_t>,2> postMain_{},postWorker_{};
  std::atomic<uint64_t> frame_{};uint64_t observationSerial_{};double clock_{};std::atomic_bool installed_{};void* oar_{};
  std::function<bool(uint32_t)> playerOwns_;
  Slot* find(Key);void cancel(Slot&,bool,const char*);void cleanup(Slot&);bool context(Slot&,RE::NiPointer<RE::TESObjectREFR>&,RE::NiPointer<RE::Actor>&);
- bool acquire(Slot&,RE::TESObjectREFR*,RE::Actor*);bool pose(Slot&,RE::TESObjectREFR*,RE::Actor*,double);bool feetIK(Slot&,RE::Actor*);
- bool settleGrip(Slot&,RE::TESObjectREFR*,RE::Actor*,const Observation&);
- bool observationFresh(const Slot&,const Observation&)const;bool gripIK(Slot&,RE::TESObjectREFR*,RE::Actor*,const Observation&);
+ bool acquire(Slot&,RE::TESObjectREFR*,RE::Actor*);Pose pose(Slot&,RE::TESObjectREFR*,RE::Actor*,double);
+ void reload(Slot&,RE::TESObjectREFR*);void poseLog(Slot&,RE::TESObjectREFR*,RE::Actor*,const Observation&,double);
  bool reject(Slot&,RE::TESObjectREFR*,RE::Actor*,const char*);
-  bool requestClip(Slot&,RE::Actor*,int);void targets(Slot&,RE::TESObjectREFR*,RE::Actor*);bool shoot(Slot&,RE::TESObjectREFR*,RE::Actor*,double);
+  bool requestClip(Slot&,RE::Actor*,int);void targets(Slot&,RE::TESObjectREFR*,RE::Actor*);bool shoot(Slot&,RE::TESObjectREFR*,RE::Actor*);
  bool blocked()const;
 };
 }

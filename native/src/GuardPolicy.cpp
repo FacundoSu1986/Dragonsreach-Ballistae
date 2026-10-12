@@ -97,6 +97,23 @@ std::optional<GuardLegPose> guardLeg(Vec hip,Vec knee,Vec foot,Vec target){
  Vec axis=(target-hip)*(1/c),bend=knee-hip-axis*dot(knee-hip,axis);double l=length(bend);if(l<.001)return {};
  double x=(a*a-b*b+c*c)/(2*c),y=std::sqrt(std::max(0.,a*a-x*x));return GuardLegPose{hip+axis*x+bend*(y/l)};
 }
+std::optional<double> guardTrackYaw(double yaw,double desired,double dt){
+ if(!std::isfinite(yaw+desired+dt)||dt<0||std::abs(yaw)>60.001)return {};
+ double step=GuardTrackRate*std::min(dt,GuardTrackMaxDt);
+ return yaw+std::clamp(std::clamp(desired,-60.,60.)-yaw,-step,step);
+}
+bool guardShouldFire(bool enemy,bool reachable,double yawError,double now,double nextShot){
+ return enemy&&reachable&&std::isfinite(yawError+now+nextShot)&&std::abs(yawError)<=GuardAimTolerance&&now>=nextShot;
+}
+void GuardHoldWatch::begin(double now){since_=last_=now;seen_=-1e300;}
+void GuardHoldWatch::seen(double now){if(std::isfinite(now))seen_=now;}
+bool GuardHoldWatch::entered(double now)const{return std::isfinite(now)&&now-since_>=GuardEnterSeconds;}
+bool GuardHoldWatch::reissue(double now){
+ // Samples are optional telemetry (an off-screen actor may not generate). Only a
+ // clip silent for 3 s is re-requested, at most every 6 s; it never cancels.
+ if(!std::isfinite(now)||now-std::max(seen_,last_)<=3.||now-last_<6.)return false;
+ since_=last_=now;return true;
+}
 bool GuardLease::begin(Key key,uint32_t actor){if(owner_||effects_||pending_||!key.handle||key.token<=0||!actor)return false;owner_={key,++epoch_};actor_=actor;return true;}
 std::optional<double> guardOrbit(Vec feet,Vec gun,Mat root,Vec facing,double scale){
  if(!finite({root,gun,scale})||std::abs(scale-1)>.001||!std::isfinite(length(feet)+length(facing))||std::abs(root.m[8]-1)>.001)return {};

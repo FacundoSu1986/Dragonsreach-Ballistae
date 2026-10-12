@@ -357,14 +357,14 @@ void message(SKSE::MessagingInterface::Message* m){switch(m->type){case SKSE::Me
 void revert(SKSE::SerializationInterface*){if(session.ticket())spdlog::warn("sight dropped: save revert");fastShots.invalidate();guards.invalidate();}
 }
 
-extern "C" __declspec(dllexport) constinit SKSE::PluginVersionData SKSEPlugin_Version=[](){SKSE::PluginVersionData v;v.PluginName("AstraSight");v.PluginVersion({3,5,9,0});v.AuthorName("Astra mounted sight");v.UsesAddressLibrary();v.UsesStructsPost629();v.CompatibleVersions({REL::Version{1,6,1170,0}});v.MinimumRequiredXSEVersion({2,2,8,0});return v;}();
-extern "C" __declspec(dllexport) bool SKSEPlugin_Query(const SKSE::QueryInterface* skse,SKSE::PluginInfo* info){info->infoVersion=SKSE::PluginInfo::kVersion;info->name="AstraSight";info->version=0x03050090;return !skse->IsEditor()&&skse->RuntimeVersion()==REL::Version{1,6,1170,0};}
+extern "C" __declspec(dllexport) constinit SKSE::PluginVersionData SKSEPlugin_Version=[](){SKSE::PluginVersionData v;v.PluginName("AstraSight");v.PluginVersion({3,6,0,0});v.AuthorName("Astra mounted sight");v.UsesAddressLibrary();v.UsesStructsPost629();v.CompatibleVersions({REL::Version{1,6,1170,0}});v.MinimumRequiredXSEVersion({2,2,8,0});return v;}();
+extern "C" __declspec(dllexport) bool SKSEPlugin_Query(const SKSE::QueryInterface* skse,SKSE::PluginInfo* info){info->infoVersion=SKSE::PluginInfo::kVersion;info->name="AstraSight";info->version=0x03060000;return !skse->IsEditor()&&skse->RuntimeVersion()==REL::Version{1,6,1170,0};}
 extern "C" __declspec(dllexport) bool SKSEPlugin_Load(const SKSE::LoadInterface* skse){
  if(skse->IsEditor()||skse->RuntimeVersion()!=REL::Version{1,6,1170,0})return false;
  SKSE::Init(skse);
  guards.playerLeaseProbe([](uint32_t handle){auto owner=session.ticket();return owner&&owner.key.handle==handle||!fastShots.quiescent({handle,0});});
  auto log=SKSE::log::log_directory();if(log){*log/="AstraSight.log";auto logger=std::make_shared<spdlog::logger>("AstraSight",std::make_shared<spdlog::sinks::basic_file_sink_mt>(log->string(),true));spdlog::set_default_logger(logger);spdlog::flush_on(spdlog::level::info);}
- spdlog::info("AstraSight 3.5.9 API 4 runtime 1.6.1170, native input/launch, release 66.7ms, cycle 1s, per-session sectors; v28 main-pump grip and one-shot fault backoff; engine latency unmeasured");
+ spdlog::info("AstraSight 3.6.0 API 4 runtime 1.6.1170, native input/launch, release 66.7ms, cycle 1s, per-session sectors; v29 guards: hold clip grips, rigid mount tracking, no telemetry gates; engine latency unmeasured");
  if(!SKSE::GetPapyrusInterface()->Register(registerPapyrus))return false;
  if(!SKSE::GetMessagingInterface()->RegisterListener(message))return false;
  SKSE::GetSerializationInterface()->SetUniqueID(0x41535452);SKSE::GetSerializationInterface()->SetRevertCallback(revert);
