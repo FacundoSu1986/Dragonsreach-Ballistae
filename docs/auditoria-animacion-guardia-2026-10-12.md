@@ -124,28 +124,27 @@ Geometría medida (clave para entender el síntoma): el clip de sostener deja la
 
 ## 7. Revisión adicional del árbol v29 — qué más está mal
 
-> Todo lo de esta sección se verificó parseando los ESP con el propio `scripts/vendor/parser_esm.py` del repositorio y leyendo las fuentes nativas. **Es el hallazgo que mejor explica el síntoma reportado.**
+> Todo lo de esta sección se verificó parseando los ESP con el propio `scripts/vendor/parser_esm.py` del repositorio (incluidos los **flags de cabecera de registro**, no sólo los subrecords), leyendo las fuentes nativas y el ciclo de vida Papyrus. Son defectos y deudas reales, pero **ninguno es la causa del síntoma reportado**: la causa está en la cronología de §2, ya corregida en v29.
 
-### 7.1 En cada voladizo hay **dos puestos superpuestos** y **cuatro guardias** (dos por puesto)
+> ### ⚠️ Nota de corrección (misma fecha)
+> La **primera versión de este informe** recomendaba *borrar* el juego legacy `0xB40–0xB54` de los voladizos, tras leer sólo los subrecords de los REFR. Al verificar los **flags de cabecera del registro** y el ciclo de vida Papyrus, esa recomendación resultó **incorrecta y peligrosa** para partidas existentes. Se conserva abajo el análisis ya corregido, y esa recomendación queda **retirada** (§8, punto 2).
 
-En la misma celda persistente vanilla (`0x00000D74`, la que `docs/nexus/RELEASE_STATUS.md` ya señala como cabecera vanilla retenida) conviven **dos juegos completos** de contenido, con las ballestas en **posiciones idénticas bit a bit**:
+### 7.1 El juego legacy de los voladizos **no** es basura: es la red de seguridad de las partidas anteriores a v17
 
-| Ref | EDID | Base | Propiedades de la estación | ¿Lo conoce el runtime nativo? |
+Cada voladizo tiene, en efecto, dos juegos completos en la misma celda persistente vanilla (`0x00000D74`), con las dos ballestas en posiciones idénticas bit a bit. Pero el estado real de cada uno no está en los subrecords, sino en los **flags del encabezado de registro** (`+8`):
+
+| Refs | Base | `0x400` persistente | `0x800` **Initially Disabled** | ¿Lo conoce el runtime nativo? |
 |---|---|---|---|---|
-| `0xB70` / `0xB80` | `AstraVoladizo{Este,Oeste}Ballesta` | `AstraAsedio.esp:0x0B04` `AstraGuardBallistaBaja` (`ballesta_guardia.nif`) | `UseSightCamera=False`, `AllowPlayerTakeover=False`, `PitchPivotHeight=117`, `PitchMin/Max=0` | **Sí** (par `0xB70↔0xB71`, `0xB80↔0xB81`) |
-| `0xB40` / `0xB50` | `AstraVoladizo{Este,Oeste}Ballesta` (**EDID duplicado**) | `AstraAsedio.esp:0x0B02` `AstraGuardBallista` (`ballesta.nif`, la malla del jugador; creada en v13 por `build_modular_v13.py`) | `UseSightCamera=True`, **`AllowPlayerTakeover=True`**, `PitchPivotHeight=153`, `PitchMin=-20/PitchMax=80` | **No** (`station()` exige base `0x0B04`; la tabla de pares no lista `0xB40`) |
-| `0xB71` / `0xB81` | `AstraVoladizo{Este,Oeste}Guardia` | `Torres.esp:0x0B00/0x0B01` | — | **Sí** (reciben facción `0x800`, `PlayIdle(0x802)`, lease) |
-| `0xB41` / `0xB51` | `AstraVoladizo{Este,Oeste}Guardia` (**EDID duplicado**) | **las mismas** bases `0x0B00/0x0B01` | — | **No** |
+| `0xB70–0xB84` (puesto vigente) | `AstraAsedio.esp:0x0B04` `AstraGuardBallistaBaja` (`ballesta_guardia.nif`) | sí | **no** | **Sí** (pares `0xB70↔0xB71`, `0xB80↔0xB81`) |
+| `0xB40–0xB54` (juego v13/v17) | `AstraAsedio.esp:0x0B02` `AstraGuardBallista` (`ballesta.nif`) | sí | **sí** | **No** |
 
-Consecuencias verificables:
+Consecuencias verificadas:
 
-1. **Cuatro actores guardia para dos puestos.** Como el paquete del puesto (`PKID = 0x0B90`) está en la **base NPC**, las dos instancias de cada base lo ejecutan: los gemelos `0xB41/0xB51` quedan plantados en el puesto (armas envainadas, sin alerta de combate) **sin recibir nunca** la facción OAR, el `PlayIdle` ni el lease. Es exactamente la estampa de “guardia junto a la ballesta que no anima”: **el gemelo huérfano**. Los dos ACHR están separados 124 u sobre la misma línea (uno a 17801,7 y otro a 17925,7 para el este).
-2. **Dos mallas de ballesta coincidentes** (una `ballesta.nif` y otra `ballesta_guardia.nif` en el mismo punto, sin `XESP`/`XACT` que desactive ninguna) → z-fighting y dos activadores superpuestos con propiedades distintas.
-3. La estación legacy sigue siendo **montable por el jugador** (`AllowPlayerTakeover=True`, `UseSightCamera=True`), lo que **contradice el diseño v22** (“los voladizos son puestos exclusivos del guardia”, `docs/README_v22.md`) y el paso 5 de `PRUEBAS_EN_JUEGO.md`. Al montarla, `AstraAsedioStation` mueve al guardia huérfano a su marcador `Standby`.
-
-**Cómo confirmarlo en juego (30 s):** en consola, `prid` sobre el guardia que no anima → si su FormID es `04000B41`/`04000B51`, es el gemelo huérfano; el conducido es `04000B71`/`04000B81`. Para la ballesta: `04000B40`/`0B50` = legacy (base `0x0B02`), `04000B70`/`0B80` = la del guardia (base `0x0B04`).
-
-**Corrección recomendada (sin tocar código):** borrar el juego legacy `0xB40–0xB54` del `AstraAsedio_WhiterunTorres.esp` (2 ballestas + 2 ACHR + 4 marcadores + el VMAD del script retirado). No lo usa ningún sistema: el jugador ya tiene su torreta principal y la atalaya. Si en cambio se quiere conservar una estación alta en el voladizo, hay que migrarla al sistema nativo (§7.2) y decidir explícitamente quién es el dueño del puesto.
+1. **En partida nueva el juego legacy nunca aparece:** nace desactivado, así que no hay z-fighting, ni guardias gemelos, ni estación montable por el jugador. La duplicación de contenido no causa el síntoma reportado.
+2. **En partidas anteriores a v17** esos cinco refs por voladizo están horneados como *activados* en el guardado y el cambio de plugin no los desactiva retroactivamente. Para eso existe `AstraAsedioPlayerAlias.StartCityRetirement()` → `RetireLegacyCity(0xB40, 0xB70)` / `(0xB50, 0xB80)`, que corre en `OnInit` **y en `OnPlayerLoadGame`**, espera a que los efectos nativos estén quietos (`IsEffectsQuiescent`) y a que el controlador viejo drene (`RetireStation()`), y recién entonces desactiva los cinco refs de cada juego. El propio builder lo documenta: *"saved refs retain prior bindings; replacement must be a fresh ref"*.
+3. **Por eso no hay que borrar nada.** Eliminar `0xB40–0xB54` dejaría referencias persistentes colgando en los guardados que las tienen activas, y rompería el drenaje de efectos previos. Además rompería `tests/test_v17_city_upgrade.py` y `tests/test_effects_quiescent_guard.py`, que son exactamente el contrato de esa reparación.
+4. **Lo único accionable es cosmético:** los dos juegos comparten EDID (`AstraVoladizo{Este,Oeste}Ballesta/Guardia/Puesto/Espera/Plataforma`), lo que produce avisos de EDID duplicado en xEdit/CK (relevante porque el `xEdit Check for Errors` sigue pendiente en `docs/nexus/RELEASE_STATUS.md`). Se corrige renombrando el juego legacy en su generador (`scripts/build_modular_v17.py`, donde ambos se nombran con el mismo literal) y regenerando el addon: no afecta partidas, runtime ni scripts.
+5. **Caso real a descartar en una partida vieja:** si en un voladizo se ve una estación vieja habilitada con un guardia que no anima, con el log de Papyrus activado debe aparecer `AstraAsedio city retired legacy=…` tras cargar. Si **no** aparece, la retirada quedó frenada en el fence y ese es un fallo concreto a diagnosticar (no el caso general de este informe).
 
 ### 7.2 El runtime nativo está cableado a **exactamente dos** puestos
 
@@ -171,10 +170,10 @@ Caso concreto ya presente en el repo: `addons/Whiterun/AstraAsedio_Whiterun.esp`
 ## 8. Recomendaciones priorizadas
 
 1. **Prueba v29 con la DLL correcta** (`AstraSight 3.6.0` en la primera línea del log). Es el único paso que certifica la corrección (§5).
-2. **Borrar el juego legacy de los voladizos** (`0xB40–0xB54`) o migrarlo. Es un cambio de datos, no de código, y elimina los dos guardias gemelos que nunca pueden animar (§7.1). Es la acción con mejor relación beneficio/riesgo de todo el informe.
+2. ~~Borrar el juego legacy de los voladizos (`0xB40–0xB54`).~~ **Retirado:** es la red de seguridad de las partidas anteriores a v17 y borrarlo rompería su reparación (§7.1). Lo cosmético es desambiguar los EDID en el generador. Si en una partida vieja se ve una estación legacy habilitada, buscar `AstraAsedio city retired legacy=` en `Papyrus.0.log`.
 3. **No activar `AstraAsedio_Whiterun.esp`** (no se empaqueta en v29). Si se quiere un puesto animado en la puerta, planificarlo como migración nativa (§7.2).
 4. **Reemplazar `PRUEBAS_EN_JUEGO.md`** por el protocolo v29 con las trazas reales (§7.3).
-5. **Limpiar los restos del híbrido v1** al reempaquetar (§7.4).
+5. **Limpiar los restos del híbrido v1** al reempaquetar (§7.4): `GLOB 0x0300080E`, `NPC_ 0x0300080F` y su `ACHR` en `AstraAsedioTest`.
 6. **Antes de agregar más estaciones**, generalizar el runtime de 2 puestos a N (§7.2); hoy cada puesto nuevo es una trampa silenciosa.
 
 ## 9. Referencias externas consultadas
