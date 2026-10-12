@@ -32,6 +32,8 @@ class GuardRuntime {
    double heightOffset{},supportZ{},actorScale{},gripWaitSince{},nextPoseLog{};bool gripConfirmed{};const char* failure{"acquisition not evaluated"};
    // v29.1: two-phase re-request, held-pose evidence and write counters (poseLog).
    double replayAt{-1},nextHandCheck{},maxDrift{};std::array<double,2> handError{{-1,-1}};bool holdGaveUp{};unsigned writesPos{},writesRot{};
+   // v29.2: elevation of CTRL_ELEVACION (degrees), the town guards are fighting the player, last shot refusal.
+   double pitch{},nextRefusalLog{};bool hunted{};const char* shotRefusal{""};
    std::array<Vec,2> feet{};std::array<Mat,2> footRotation{};
    GuardHoldWatch hold;double nextShot{},fireAt{},blockedSince{-1},sampleAt{-1};const char* moveRefusal{};
   };
@@ -43,8 +45,8 @@ class GuardRuntime {
  struct LoggedClip{std::string key;std::chrono::steady_clock::time_point at{};};
  std::array<std::vector<LoggedClip>,2> loggedClips_{};
  Slot* find(Key);void cancel(Slot&,bool,const char*);void cleanup(Slot&);bool context(Slot&,RE::NiPointer<RE::TESObjectREFR>&,RE::NiPointer<RE::Actor>&);
- bool acquire(Slot&,RE::TESObjectREFR*,RE::Actor*);Pose pose(Slot&,RE::TESObjectREFR*,RE::Actor*,double);
- void reload(Slot&,RE::TESObjectREFR*);void poseLog(Slot&,RE::TESObjectREFR*,RE::Actor*,const Observation&,double);
+ bool acquire(Slot&,RE::TESObjectREFR*,RE::Actor*);Pose pose(Slot&,RE::TESObjectREFR*,RE::Actor*,double,double);
+ void reload(Slot&,RE::TESObjectREFR*);void poseLog(Slot&,RE::TESObjectREFR*,RE::Actor*,const Observation&,double,double);
  bool reject(Slot&,RE::TESObjectREFR*,RE::Actor*,const char*);
   bool requestClip(Slot&,RE::Actor*,int,bool again=false);bool playHold(Slot&,RE::Actor*);void targets(Slot&,RE::TESObjectREFR*,RE::Actor*);bool shoot(Slot&,RE::TESObjectREFR*,RE::Actor*);
  bool blocked()const;

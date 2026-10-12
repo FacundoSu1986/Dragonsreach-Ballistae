@@ -9,17 +9,17 @@ analyzer = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(analyzer)
 
 STAMP = '[2026-10-12 20:00:00.000] [AstraSight] '
-BANNER = STAMP+'[info] AstraSight 3.6.2 API 4 runtime 1.6.1170, native input/launch, release 66.7ms, cycle 1s, per-session sectors; v29.1 guards'
+BANNER = STAMP+'[info] AstraSight 3.6.3 API 4 runtime 1.6.1170, native input/launch, release 66.7ms, cycle 1s, per-session sectors; v29.1 guards'
 OAR_OK = STAMP+'[info] AstraGuardNative API1 frame pump PlayerCharacter::Update (0xAD); v29 hold clip grips, mount steered rigidly, OAR samples are telemetry only; OAR Animations V1=True (module loaded=True)'
 ACQUIRED = STAMP+'[info] guard v26 acquired gun=14000B70 actor=14000B71 package=14000B90 yaw=-0 heightOffset=0.0 supportZ=-3544.0 actorScale=1.03 referenceScale=1 baseHeight=1.03 holdRequested=true'
 PLAY = STAMP+'[info] guard v29.1 PlayIdle gun=14000B70 actor=14000B71 accepted=true'
 HOLDING = STAMP+'[info] guard v29 holding gun=14000B70 actor=14000B71 yaw=0.00'
 
 
-def pose(left, right, target='00000000', writes=(0, 0), drift='0.000', status=1, refused='none'):
+def pose(left, right, target='00000000', writes=(0, 0), drift='0.000', status=1, refused='none', pitch=0.0, wanted=0.0):
     return (STAMP+f'[info] guard v29 pose gun=14000B70 actor=14000B71 status={status} yaw=0.00 desired=0.00 target={target} clip=0 phase=0.500 '
             f'sampleAge=0.02 handErrorL={left} handErrorR={right} moveRefused={refused} characterMain=120 characterWorker=0 '
-            f'writesPos={writes[0]} writesRot={writes[1]} maxDrift={drift} reissues=0 held=true')
+            f'writesPos={writes[0]} writesRot={writes[1]} maxDrift={drift} reissues=0 held=true pitch={pitch:.2f} desiredPitch={wanted:.2f} hunted=false')
 
 
 def keys(report):
@@ -81,12 +81,38 @@ class Analyzer(unittest.TestCase):
         self.assertIn('operator cannot be held on the mount', analyzer.render(report))
 
     def test_wrong_dll_and_missing_oar(self):
-        old = BANNER.replace('3.6.2', '3.6.0')
+        old = BANNER.replace('3.6.3', '3.6.0')
         no_oar = OAR_OK.replace('V1=True (module loaded=True)', 'V1=False (module loaded=False)')
         report = analyzer.analyze('\n'.join([old, no_oar, ACQUIRED, pose(3, 3)]))
         self.assertIn('DLL', keys(report))
         self.assertIn('OAR', keys(report))
         self.assertEqual(analyzer.analyze('\n'.join([old, OAR_OK]), expect='3.6.0')['version'], '3.6.0')
+
+    def test_v292_pitch_following_refusals_hunted_player_and_launch(self):
+        launch = STAMP+'[info] guard real projectile gun=14000B70 guard=14000B71 target=00000014 token=3 epoch=1 handle=5 yaw=10.00 pitch=-12.00 solvedPitch=-12.10 speed=5400 velocityZ={vz} expectedZ={ez} blast=0 player={pl}'
+        refused = STAMP+'[info] guard v29.2 shot refused gun=14000B70 target=00000014 yaw=1.00 pitch=0.00 desiredPitch=-12.00 reason=path blocked before the target'
+        hunted = STAMP+'[info] guard v29.2 player-hostile gun=14000B70 hunted=true'
+        tracking = [pose(3, 3, target='00000014', pitch=-11.9, wanted=-12.0) for _ in range(4)]
+        report = analyzer.analyze('\n'.join([BANNER, OAR_OK, ACQUIRED, HOLDING]+tracking+[hunted, refused, refused,
+                                            launch.format(vz='-1122', ez='-1122', pl='true')]))
+        found = keys(report)
+        self.assertIn('PITCH-OK', found)
+        self.assertIn('SHOT-REFUSED', found)
+        self.assertIn('PLAYER-HUNTED', found)
+        self.assertNotIn('LAUNCH-VELOCITY-MISMATCH', found)
+        text = analyzer.render(report)
+        self.assertIn('path blocked before the target x2', text)
+        self.assertIn('1 at the player', text)
+        stuck = [pose(3, 3, target='00000014', pitch=0.0, wanted=-25.0) for _ in range(4)]
+        flat = analyzer.analyze('\n'.join([BANNER, OAR_OK, ACQUIRED, HOLDING]+stuck+[launch.format(vz='0', ez='-1122', pl='false')]))
+        self.assertIn('PITCH-NOT-TRACKING', keys(flat))
+        self.assertIn('LAUNCH-VELOCITY-MISMATCH', keys(flat))
+
+    def test_v291_logs_without_the_new_fields_still_parse(self):
+        old = STAMP+'[info] guard v29 pose gun=14000B70 actor=14000B71 status=1 yaw=0.00 desired=0.00 target=00000014 clip=0 phase=0.500 sampleAge=0.02 handErrorL=3 handErrorR=3 moveRefused=none characterMain=1 characterWorker=0 writesPos=0 writesRot=0 maxDrift=0.000 reissues=0 held=true'
+        report = analyzer.analyze('\n'.join([BANNER, OAR_OK, ACQUIRED, HOLDING, old]))
+        self.assertNotIn('PITCH-OK', keys(report))
+        self.assertNotIn('PITCH-NOT-TRACKING', keys(report))
 
     def test_empty_or_foreign_text(self):
         self.assertEqual(keys(analyzer.analyze('')), {'NO-DATA'})

@@ -1,6 +1,6 @@
 """Read AstraSight.log and say which guard-pose hypothesis the evidence supports.
 
-Usage: python scripts/analyze_guard_log.py [path/to/AstraSight.log] [--expect 3.6.2]
+Usage: python scripts/analyze_guard_log.py [path/to/AstraSight.log] [--expect 3.6.3]
 Default path: Documents/My Games/Skyrim Special Edition/SKSE/AstraSight.log
 
 Reads the lines written by AstraSight 3.6.x (`guard v26 acquired`, `guard v29 pose`,
@@ -15,7 +15,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 HELD_UNITS = 12.0          # GuardHeldHandError in native/include/Astra/GuardPolicy.h
-EXPECTED_VERSION = '3.6.2'
+EXPECTED_VERSION = '3.6.3'
 DEFAULT_LOG = Path.home()/'Documents/My Games/Skyrim Special Edition/SKSE/AstraSight.log'
 LINE = re.compile(r'^\[[^\]]*\] \[AstraSight\] \[(?P<level>\w+)\] (?P<msg>.*)$')
 KEY = re.compile(r'(\w+)=(\S+)')
@@ -29,6 +29,7 @@ def fields(message):
 def analyze(text, expect=EXPECTED_VERSION):
     r = {'version': None, 'oar': None, 'acquired': 0, 'holding': 0, 'projectiles': 0, 'cancels': Counter(), 'rejects': Counter(),
          'play_idle': Counter(), 're_requests': defaultdict(int), 'unresolved': 0, 'unexpected': [], 'poses': defaultdict(list),
+         'refused': Counter(), 'hunted': [], 'launches': [],
          'lines': 0, 'expect': expect}
     for raw in text.splitlines():
         m = LINE.match(raw.strip())
@@ -48,6 +49,16 @@ def analyze(text, expect=EXPECTED_VERSION):
             r['holding'] += 1
         elif msg.startswith('guard real projectile'):
             r['projectiles'] += 1
+            f = fields(msg)
+            try:
+                r['launches'].append({'pitch': float(f['pitch']), 'solved': float(f['solvedPitch']), 'vz': float(f['velocityZ']),
+                                      'ez': float(f['expectedZ']), 'player': f.get('player') == 'true'})
+            except (KeyError, ValueError):
+                pass
+        elif msg.startswith('guard v29.2 shot refused'):
+            r['refused'][msg.split(' reason=', 1)[1] if ' reason=' in msg else '?'] += 1
+        elif msg.startswith('guard v29.2 player-hostile'):
+            r['hunted'].append(fields(msg).get('hunted') == 'true')
         elif msg.startswith('guard cancel'):
             reason = msg.split(' reason=', 1)[1] if ' reason=' in msg else '?'
             r['cancels'][reason] += 1
@@ -70,6 +81,7 @@ def analyze(text, expect=EXPECTED_VERSION):
                     'status': int(f['status']), 'target': int(f['target'], 16), 'clip': int(f['clip']),
                     'left': float(f['handErrorL']), 'right': float(f['handErrorR']),
                     'writes_pos': int(f.get('writesPos', -1)), 'writes_rot': int(f.get('writesRot', -1)),
+                    'pitch': float(f.get('pitch', 'nan')), 'desired_pitch': float(f.get('desiredPitch', 'nan')),
                     'drift': float(f.get('maxDrift', -1)), 'refused': f.get('moveRefused', 'none')})
             except (KeyError, ValueError):
                 pass
@@ -127,9 +139,28 @@ def verdicts(r):
         names = Counter((u.get('mod') or '(none)', u.get('submod') or '(none)', u.get('animation') or '(no replacement: vanilla clip)') for u in r['unexpected'])
         top = '; '.join(f'mod={m} submod={s} anim={a} x{n}' for (m, s, a), n in names.most_common(3))
         out.append(('H4-OTHER-CLIP', f'Clips that are not ours play on the operator: {top}. Open OAR (Shift+O) on the guard to see which submod wins.'))
+    # v29.2: elevation tracking and shooting.
+    tracked = [s for s in samples if s['target'] != 0 and s['desired_pitch'] == s['desired_pitch'] and s['pitch'] == s['pitch']]
+    if tracked:
+        off = [s for s in tracked if abs(s['desired_pitch']-s['pitch']) > 1.0]
+        if len(off) > len(tracked)/2:
+            out.append(('PITCH-NOT-TRACKING', f'With a target, the elevation is more than 1 deg from the wanted one in {len(off)}/{len(tracked)} samples '
+                        f'(median |error| {statistics.median(abs(s["desired_pitch"]-s["pitch"]) for s in off):.1f} deg): the mount cannot reach it (limits +-30 deg, 25 deg/s) or pose() refuses the move.'))
+        else:
+            out.append(('PITCH-OK', f'Elevation follows the target in {len(tracked)-len(off)}/{len(tracked)} samples.'))
+    if r['refused']:
+        out.append(('SHOT-REFUSED', 'shoot() declined: ' + '; '.join(f'{c} x{n}' for c, n in r['refused'].most_common(4))))
+    if r['hunted']:
+        out.append(('PLAYER-HUNTED', f'The runtime saw the town guards fight the player {sum(r["hunted"])} time(s) '
+                    f'({len(r["hunted"])} state changes); the player is a valid target only then.'))
+    bad = [l for l in r['launches'] if abs(l['vz']-l['ez']) > max(25., .02*abs(l['ez']))]
+    if bad:
+        out.append(('LAUNCH-VELOCITY-MISMATCH', f'{len(bad)}/{len(r["launches"])} launches report a vertical velocity that differs from the bore '
+                    f'(first: velocityZ={bad[0]["vz"]:.0f} expected {bad[0]["ez"]:.0f}): the engine did not keep the elevated velocity.'))
     if r['projectiles']:
-        out.append(('FIRE', f'{r["projectiles"]} real projectiles launched.'))
-    if not any(not k.endswith('-OK') and k not in ('FIRE',) for k, _ in out):
+        out.append(('FIRE', f'{r["projectiles"]} real projectiles launched'
+                    + (f' ({sum(1 for l in r["launches"] if l["player"])} at the player, {sum(1 for l in r["launches"] if abs(l["pitch"]) > 1)} elevated by more than 1 deg).' if r['launches'] else '.')))
+    if not any(not k.endswith('-OK') and k not in ('FIRE', 'PLAYER-HUNTED') for k, _ in out):
         out.append(('LOOKS-HEALTHY', 'No hypothesis is supported by this log; if the pose still looks wrong in game, the cause is not in these signals.'))
     return out
 

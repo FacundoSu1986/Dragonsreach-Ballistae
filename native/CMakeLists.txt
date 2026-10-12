@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project(AstraSight VERSION 3.6.2 LANGUAGES CXX)
+project(AstraSight VERSION 3.6.3 LANGUAGES CXX)
 # Installed compiler emits UTF-8 Spanish include diagnostics. CMake's probe
 # misdecodes that prefix; correct it so Ninja tracks headers and avoids stale ABI.
 set(ASTRA_SHOWINCLUDES_PREFIX "" CACHE STRING "Optional local MSVC include diagnostic prefix")
@@ -56,6 +56,9 @@ add_test(NAME AstraV29GuardTests COMMAND AstraV29GuardTests)
 add_executable(AstraGuardPoseTests tests/guard_pose_tests.cpp)
 target_link_libraries(AstraGuardPoseTests PRIVATE AstraCore)
 add_test(NAME AstraGuardPoseTests COMMAND AstraGuardPoseTests)
+add_executable(AstraGuardAimTests tests/guard_aim_tests.cpp)
+target_link_libraries(AstraGuardAimTests PRIVATE AstraCore)
+add_test(NAME AstraGuardAimTests COMMAND AstraGuardAimTests)
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../addons/WhiterunTorres/AstraAsedio_WhiterunTorres.esp")
   find_package(Python3 REQUIRED COMPONENTS Interpreter)
   add_test(NAME AstraV23BindingTests COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/guard_binding_tests.py")
