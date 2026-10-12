@@ -1,5 +1,15 @@
 # Pruebas en juego — Astra Asedio v29
 
+> **v29.1 (DLL 3.6.2) — leer primero.** El guardia de los voladizos quedaba en una pose trabada. v29.1 solo cambia la DLL (escribe la pose únicamente si cambia, parte la solicitud del idle en dos pasos, registra qué clip suena de verdad). Diseño e hipótesis: `docs/superpowers/specs/2026-10-12-guardia-pose-fixes.md`. **No está compilada ni probada en Skyrim.**
+>
+> Tras compilar (`python scripts/build_native.py`) e instalar, la **primera línea** de `AstraSight.log` debe decir `AstraSight 3.6.2`. Después de una prueba de ~2 min junto a un voladizo, corré:
+>
+> ```
+> python scripts/analyze_guard_log.py "%USERPROFILE%\Documents\My Games\Skyrim Special Edition\SKSE\AstraSight.log"
+> ```
+>
+> y mandá su salida junto con `AstraSight.log`, `Papyrus.0.log` y, si el guardia sigue mal, una captura con OAR abierto (Shift+O) sobre él. Líneas nuevas: `guard v29.1 PlayIdle … accepted=`, `guard v29.1 re-request 1/2`, `guard v29.1 unexpected clip …`, `guard v29.1 hold unresolved`, y en `guard v29 pose` los campos `writesPos`, `writesRot`, `maxDrift`, `reissues`, `held`. En reposo, sin objetivo, `writesPos`/`writesRot` deben ser ≈0.
+
 > Actualizado el 2026-10-12 para v29. El texto anterior de este archivo era de v22: describía otro paquete y trazas que ya no existen. Lo vigente del paquete está en `docs/README_v29.md` y `docs/QA_v29.md`.
 
 Paquete: `dist/AstraAsedio_QA_v29_Unificado_MO2.zip`
@@ -47,7 +57,7 @@ Orden esperado en una sesión sana:
 
 | Línea | Qué significa |
 |---|---|
-| `AstraSight 3.6.0 …` | Está cargada la DLL correcta. Si dice 3.5.x, hay paquete viejo instalado. |
+| `AstraSight 3.6.2 …` (v29.1; 3.6.0 en el ZIP v29) | Está cargada la DLL correcta. Si dice 3.5.x o 3.6.0 con el paquete v29.1, hay otro mod pisando la DLL. |
 | `AstraGuardNative API1 frame pump … OAR Animations V1=True (module loaded=True)` | OAR cargó y concedió la API. Con `False` el guardia nunca animará. |
 | `guard v26 acquired gun=… actor=… package=14000B90 … holdRequested=true` | El runtime tomó el puesto. La traza conserva el prefijo `v26` por historia. |
 | `guard v29 holding gun=… actor=… yaw=…` | Entró en la pose (≈0,6 s tras la solicitud). |

@@ -14,7 +14,7 @@ data=pe.get_data(exports['SKSEPlugin_Version'],848)
 u32=lambda offset:struct.unpack_from('<I',data,offset)[0]
 name=data[8:264].split(b'\0')[0].decode();compat=[u32(780+4*i) for i in range(16)]
 runtime=(1<<24)|(6<<16)|(1170<<4)
-assert name=='AstraSight' and u32(4)==0x03060000
+assert name=='AstraSight' and u32(4)==0x03060020
 assert data[776]&1 and data[776]&4
 assert compat[0]==runtime and not any(compat[1:])
 assert u32(844)==(2<<24)|(2<<16)|(8<<4)

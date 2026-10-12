@@ -5,6 +5,8 @@
 #include "Astra/GuardPolicy.h"
 #include <string>
 #include <atomic>
+#include <chrono>
+#include <vector>
 namespace Astra {
 // Separate API1. No player camera or player ValidateShot is involved.
 class GuardRuntime {
@@ -28,6 +30,8 @@ class GuardRuntime {
   uintptr_t root{},actorRoot{},character{};uint64_t seen{},gripFrame{};double entered{},phaseAt{},nextScan{},lastTime{},yaw{},stepStart{},stepDelta{},stepPhase{},fireStart{};
    int recoveries{};bool fireObserved{},launched{},resetStarted{},packageRequested{},supportSaved{};Mat yawBase{},pitchBase{};
    double heightOffset{},supportZ{},actorScale{},gripWaitSince{},nextPoseLog{};bool gripConfirmed{};const char* failure{"acquisition not evaluated"};
+   // v29.1: two-phase re-request, held-pose evidence and write counters (poseLog).
+   double replayAt{-1},nextHandCheck{},maxDrift{};std::array<double,2> handError{{-1,-1}};bool holdGaveUp{};unsigned writesPos{},writesRot{};
    std::array<Vec,2> feet{};std::array<Mat,2> footRotation{};
    GuardHoldWatch hold;double nextShot{},fireAt{},blockedSince{-1},sampleAt{-1};const char* moveRefusal{};
   };
@@ -35,11 +39,14 @@ class GuardRuntime {
  std::array<std::atomic<RE::FormID>,2> watchedActors_{};std::array<std::atomic<uint64_t>,2> postMain_{},postWorker_{};
  std::atomic<uint64_t> frame_{};uint64_t observationSerial_{};double clock_{};std::atomic_bool installed_{};void* oar_{};
  std::function<bool(uint32_t)> playerOwns_;
+ // v29.1: clips seen on a watched actor that are not the owned ones (worker thread; observationsMutex_).
+ struct LoggedClip{std::string key;std::chrono::steady_clock::time_point at{};};
+ std::array<std::vector<LoggedClip>,2> loggedClips_{};
  Slot* find(Key);void cancel(Slot&,bool,const char*);void cleanup(Slot&);bool context(Slot&,RE::NiPointer<RE::TESObjectREFR>&,RE::NiPointer<RE::Actor>&);
  bool acquire(Slot&,RE::TESObjectREFR*,RE::Actor*);Pose pose(Slot&,RE::TESObjectREFR*,RE::Actor*,double);
  void reload(Slot&,RE::TESObjectREFR*);void poseLog(Slot&,RE::TESObjectREFR*,RE::Actor*,const Observation&,double);
  bool reject(Slot&,RE::TESObjectREFR*,RE::Actor*,const char*);
-  bool requestClip(Slot&,RE::Actor*,int);void targets(Slot&,RE::TESObjectREFR*,RE::Actor*);bool shoot(Slot&,RE::TESObjectREFR*,RE::Actor*);
+  bool requestClip(Slot&,RE::Actor*,int,bool again=false);bool playHold(Slot&,RE::Actor*);void targets(Slot&,RE::TESObjectREFR*,RE::Actor*);bool shoot(Slot&,RE::TESObjectREFR*,RE::Actor*);
  bool blocked()const;
 };
 }

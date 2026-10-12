@@ -52,7 +52,7 @@ def main():
         dll=z.read('SKSE/Plugins/AstraSight.dll');assert digest(dll)==receipt_hashes['mod/SKSE/Plugins/AstraSight.dll']
         pe=pefile.PE(data=dll);assert pe.FILE_HEADER.Machine==0x8664
         version=next(e.address for e in pe.DIRECTORY_ENTRY_EXPORT.symbols if e.name==b'SKSEPlugin_Version')
-        assert struct.unpack('<I',pe.get_data(version+4,4))[0]==0x03060000
+        assert struct.unpack('<I',pe.get_data(version+4,4))[0] in (0x03060000,0x03060020)
         assert b'hold replacement not observable' not in dll,'v29 never cancels on missing clip samples'
         assert b'canonical grip correction exceeds 16 units' not in dll,'v29 has no grip gate'
         assert b'guard v29 pose' in dll and b'moveRefused=' in dll,'v29 pose telemetry absent'

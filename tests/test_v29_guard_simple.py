@@ -72,14 +72,15 @@ class Guard29(unittest.TestCase):
         self.assertIn('guard v29 pose', CPP)
         self.assertNotIn('rotateBone(', body('void GuardRuntime::tick(float dt)'))
 
-    def test_version_is_360_everywhere(self):
+    def test_version_is_362_everywhere(self):
+        """Superseded 3.6.0 contract: v29.1 (docs/superpowers/specs/2026-10-12-guardia-pose-fixes.md) is 3.6.2."""
         plugin = (ROOT/'native/src/Plugin.cpp').read_text()
-        for value in ('v.PluginVersion({3,6,0,0})', 'info->version=0x03060000', 'AstraSight 3.6.0 API 4'):
+        for value in ('v.PluginVersion({3,6,2,0})', 'info->version=0x03060020', 'AstraSight 3.6.2 API 4'):
             self.assertIn(value, plugin)
-        self.assertIn('REL::Version{3,6,0,0}', CPP)
-        self.assertIn('project(AstraSight VERSION 3.6.0', (ROOT/'native/CMakeLists.txt').read_text())
-        self.assertIn('0x03060000', (ROOT/'native/verify_binary.py').read_text())
-        self.assertIn('50724864', (ROOT/'scripts/build_native.py').read_text())
+        self.assertIn('REL::Version{3,6,2,0}', CPP)
+        self.assertIn('project(AstraSight VERSION 3.6.2', (ROOT/'native/CMakeLists.txt').read_text())
+        self.assertIn('0x03060020', (ROOT/'native/verify_binary.py').read_text())
+        self.assertIn('50724896', (ROOT/'scripts/build_native.py').read_text())
 
     def test_scene_assets_are_identical_to_v27(self):
         manifest = json.loads((ROOT/'dist/MANIFEST_v27.json').read_text())['files_sha256']

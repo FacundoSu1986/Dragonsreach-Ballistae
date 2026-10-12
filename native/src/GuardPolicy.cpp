@@ -1,6 +1,7 @@
 #include "Astra/GuardPolicy.h"
 #include <algorithm>
 #include <limits>
+#include <numbers>
 #include <string>
 #include <cctype>
 namespace Astra {
@@ -105,14 +106,26 @@ std::optional<double> guardTrackYaw(double yaw,double desired,double dt){
 bool guardShouldFire(bool enemy,bool reachable,double yawError,double now,double nextShot){
  return enemy&&reachable&&std::isfinite(yawError+now+nextShot)&&std::abs(yawError)<=GuardAimTolerance&&now>=nextShot;
 }
-void GuardHoldWatch::begin(double now){since_=last_=now;seen_=-1e300;}
+void GuardHoldWatch::begin(double now){since_=last_=now;seen_=-1e300;reissues_=0;}
 void GuardHoldWatch::seen(double now){if(std::isfinite(now))seen_=now;}
 bool GuardHoldWatch::entered(double now)const{return std::isfinite(now)&&now-since_>=GuardEnterSeconds;}
 bool GuardHoldWatch::reissue(double now){
  // Samples are optional telemetry (an off-screen actor may not generate). Only a
- // clip silent for 3 s is re-requested, at most every 6 s; it never cancels.
- if(!std::isfinite(now)||now-std::max(seen_,last_)<=3.||now-last_<6.)return false;
- since_=last_=now;return true;
+ // clip silent for 3 s is re-requested, at most every 6 s and GuardMaxReissues times
+ // per lease; it never cancels.
+ if(!std::isfinite(now)||now-std::max(seen_,last_)<=3.||now-last_<6.||exhausted())return false;
+ since_=last_=now;++reissues_;return true;
+}
+void GuardHoldWatch::restart(double now){if(std::isfinite(now))since_=last_=now;}
+bool GuardHoldWatch::stale(double now)const{return std::isfinite(now)&&now-std::max(seen_,last_)>3.;}
+GuardPoseWrites guardPoseWrites(Vec current,Vec desired,double currentHeading,double desiredHeading,double currentPitch){
+ if(!std::isfinite(length(current)+length(desired)+currentHeading+desiredHeading+currentPitch))return {true,true};
+ double turn=std::abs(std::remainder(desiredHeading-currentHeading,2*std::numbers::pi));
+ return {length(desired-current)>GuardPoseEpsilonPosition,turn>GuardPoseEpsilonAngle||std::abs(currentPitch)>GuardPoseEpsilonAngle};
+}
+bool guardHandsHeld(double leftError,double rightError){
+ // A negative error is "not measured" (hand node or grip unavailable): no evidence.
+ return std::isfinite(leftError+rightError)&&leftError>=0&&rightError>=0&&leftError<=GuardHeldHandError&&rightError<=GuardHeldHandError;
 }
 bool GuardLease::begin(Key key,uint32_t actor){if(owner_||effects_||pending_||!key.handle||key.token<=0||!actor)return false;owner_={key,++epoch_};actor_=actor;return true;}
 std::optional<double> guardOrbit(Vec feet,Vec gun,Mat root,Vec facing,double scale){

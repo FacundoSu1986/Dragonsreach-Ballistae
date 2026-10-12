@@ -93,11 +93,17 @@ bool visible(RE::Actor* actor,RE::Actor* guard,Vec origin){
  if(!alive(actor)||!loaded(guard))return false;auto bounds=physicalBounds(actor,0);if(!bounds)return false;Vec p=bounds->feet+Vec{0,0,bounds->height*.5};Vec d=p-origin;double n=length(d);if(n<1)return true;
  auto cell=guard->GetParentCell();auto r=ray(cell?cell->GetbhkWorld():nullptr,origin,p-d*(32/n));return r.known&&(!r.hit||r.ref==actor->GetFormID());
 }
+// v29.1: live wrists against the grips the hold clip was authored for (about 3 u at Nord
+// height 1.03). -1 = not measurable. Measurement only; used as evidence, never as a gate.
+void handErrors(RE::TESObjectREFR* gun,RE::Actor* actor,double yaw,double* out){
+ out[0]=out[1]=-1;auto root=gun?gun->Get3D():nullptr;auto body=actor?actor->Get3D():nullptr;if(!root||!body)return;auto world=from(root->world);
+ for(int i=0;i<2;++i){auto hand=body->GetObjectByName(i==0?"NPC L Hand [LHnd]":"NPC R Hand [RHnd]");auto grip=guardGrip(world.translation,world.rotation,yaw,i==0);if(hand&&grip)out[i]=length(from(hand->world.translate)-*grip);}
+}
 }
 void GuardRuntime::install(){
  if(installed_)return;
  runtime=this;auto module=REX::W32::GetModuleHandleA("OpenAnimationReplacer.dll");auto request=reinterpret_cast<OAR_API::Animations::Request>(module?REX::W32::GetProcAddress(module,"RequestPluginAPI_Animations"):nullptr);
-  if(request)oar_=request(OAR_API::Animations::InterfaceVersion::V1,"AstraSight",REL::Version{3,6,0,0});
+  if(request)oar_=request(OAR_API::Animations::InterfaceVersion::V1,"AstraSight",REL::Version{3,6,2,0});
  REL::Relocation<uintptr_t> playerTable(RE::VTABLE_PlayerCharacter[0]),characterTable(RE::VTABLE_Character[0]),clipTable(RE::VTABLE_hkbClipGenerator[0]);
  playerOriginal=playerTable.write_vfunc(0xAD,playerPump);characterOriginal=characterTable.write_vfunc(0xAD,actorPost);clipOriginal=clipTable.write_vfunc(0x17,clipGenerated);
  installed_=true;spdlog::info("AstraGuardNative API1 frame pump PlayerCharacter::Update (0xAD); v29 hold clip grips, mount steered rigidly, OAR samples are telemetry only; OAR Animations V1={} (module loaded={})",oar_!=nullptr,module!=nullptr);
@@ -155,12 +161,22 @@ bool GuardRuntime::reject(Slot& s,RE::TESObjectREFR* gun,RE::Actor* actor,const 
  spdlog::warn("guard v26 reject gun={:08X} actor={:08X} token={} clause={} actorXYZ=({:.3f},{:.3f},{:.3f}) gunXYZ=({:.3f},{:.3f},{:.3f}) actorScale={} referenceScale={} baseHeight={} rootScale={} package={:08X} weaponDrawn={} weaponState={}",s.gun,s.actor,s.lease.ticket().key.token,reason,p.x,p.y,p.z,g.x,g.y,g.z,actor->GetScale(),referenceScale(actor),naturalHeight(actor),gun->Get3D()->world.scale,pkg?pkg->GetFormID():0,actor->AsActorState()->IsWeaponDrawn(),int(actor->AsActorState()->GetWeaponState()));
  return false;
 }
-bool GuardRuntime::requestClip(Slot& s,RE::Actor* actor,int clip){
+bool GuardRuntime::requestClip(Slot& s,RE::Actor* actor,int clip,bool again){
  s.gripConfirmed=false;s.gripWaitSince=clock_;
  {std::lock_guard obsLock(observationsMutex_);observations_[size_t(&s-slots_.data())]={0,s.lease.ticket().epoch,frame_.load(),s.character};}
  for(size_t i=0;i<4;++i){auto f=faction(i);if(!f)return false;if(int(i)==clip||i==0)actor->AddToFaction(f,0);else actor->RemoveFromFaction(f);}
  auto api=static_cast<OAR_API::Animations::IAnimationsInterface1*>(oar_);if(!api||!idle()||!actor->GetActorRuntimeData().currentProcess)return false;
- api->ClearConditionStateData(actor);actor->NotifyAnimationGraph("IdleForceDefaultState");return actor->GetActorRuntimeData().currentProcess->PlayIdle(actor,idle(),nullptr);
+ api->ClearConditionStateData(actor);
+ // v29.1: the pre-v29.1 pair (IdleForceDefaultState then PlayIdle in the same frame) asks the
+ // graph for two transitions at once. The first request only plays the idle. A re-request
+ // returns the graph to default now and plays the idle GuardReplayDelay s later (tick -> playHold).
+ if(again){bool sent=actor->NotifyAnimationGraph("IdleForceDefaultState");s.replayAt=clock_+GuardReplayDelay;spdlog::info("guard v29.1 re-request 1/2 IdleForceDefaultState sent={} gun={:08X} actor={:08X} PlayIdle in {}s",sent,s.gun,s.actor,GuardReplayDelay);return true;}
+ return playHold(s,actor);
+}
+bool GuardRuntime::playHold(Slot& s,RE::Actor* actor){
+ auto process=actor?actor->GetActorRuntimeData().currentProcess:nullptr;auto owned=idle();if(!process||!owned)return false;
+ bool played=process->PlayIdle(actor,owned,nullptr);
+ spdlog::info("guard v29.1 PlayIdle gun={:08X} actor={:08X} accepted={}",s.gun,s.actor,played);return played;
 }
 bool GuardRuntime::acquire(Slot& s,RE::TESObjectREFR* gun,RE::Actor* actor){
  auto fail=[&](const char* reason){return reject(s,gun,actor,reason);};
@@ -204,7 +220,19 @@ void GuardRuntime::observe(RE::hkbClipGenerator* clip,const RE::hkbContext& ctx)
  // v29: telemetry only. Any sample of the own clip proves the replacement is
  // live; blend weights vary through vanilla transitions and gate nothing.
  double weight=clip->animationControl->weight;
- if(kind<0)return;
+ if(kind<0){
+  // v29.1: not one of our clips. Say which one is playing on the watched actor (vanilla
+  // shows an empty animation path), once per clip every 10 s. Worker thread: only
+  // observationsMutex_ and the thread-safe logger are touched.
+  std::string key=std::string(info.animationPath.c_str())+"|"+info.modName.c_str()+"|"+info.subModName.c_str();
+  auto now=std::chrono::steady_clock::now();bool report=false;
+  {std::lock_guard lock(observationsMutex_);auto& known=loggedClips_[index];
+   auto it=std::find_if(known.begin(),known.end(),[&](const LoggedClip& c){return c.key==key;});
+   if(it==known.end()){if(known.size()>=16)known.erase(known.begin());known.push_back({key,now});report=true;}
+   else if(now-it->at>=std::chrono::seconds(10)){it->at=now;report=true;}}
+  if(report)spdlog::info("guard v29.1 unexpected clip slot={} animation='{}' project='{}' mod='{}' submod='{}' variant='{}'",index,info.animationPath.c_str(),info.projectName.c_str(),info.modName.c_str(),info.subModName.c_str(),info.variantFilename.c_str());
+  return;
+ }
  std::lock_guard lock(observationsMutex_);auto& o=observations_[index];
  if(o.character!=character||o.epoch!=epoch)return;
  o.clip=kind;o.time=clip->localTime;o.duration=clip->animationControl->binding->animation->duration;o.weight=weight;o.frame=frame_.load();o.serial=++observationSerial_;
@@ -232,10 +260,17 @@ GuardRuntime::Pose GuardRuntime::pose(Slot& s,RE::TESObjectREFR* gun,RE::Actor* 
  if(length(old-p)>5||std::abs(old.z-p.z)>2)return refused("capsule move exceeds bounded horizontal step");
  if(move){double radius=bound->radius;for(double z:std::array<double,3>{12,bound->height*.5,bound->height-12})for(int i=0;i<9;++i){Vec offset=i?Vec{radius*std::cos(2*std::numbers::pi*(i-1)/8),radius*std::sin(2*std::numbers::pi*(i-1)/8),z}:Vec{0,0,z};auto r=ray(physics,old+offset,p+offset,RE::COL_LAYER::kLOS,filter);if(!r.known||r.hit)return refused("operator swept clearance obstructed / unknown");}}
  auto ticket=s.lease.ticket();if(!s.lease.current(ticket))return Pose::invalid;
- RE::hkVector4 before{},after{};controller->GetPositionImpl(before,true);actor->SetPosition(into(p),true);controller->GetPositionImpl(after,true);
- alignas(16) float b[4],a[4];_mm_store_ps(b,before.quad);_mm_store_ps(a,after.quad);double inverseScale=RE::bhkWorld::GetWorldScaleInverse();Vec moved{(a[0]-b[0])*inverseScale,(a[1]-b[1])*inverseScale,(a[2]-b[2])*inverseScale};
- if(length(moved-(p-old))>1){actor->SetPosition(into(old),true);return refused("actor/controller displacement mismatch");}
- Vec f=world.rotation*rz(rad(yawValue))*Vec{0,-1,0};actor->SetRotationX(0);actor->SetRotationZ(float(std::atan2(f.x,f.y)));
+ // v29.1: write only what changed. Until v29 SetPosition/SetRotation ran on every frame even for
+ // a still target: a per-frame teleport that can keep the animation graph from settling.
+ Vec f=world.rotation*rz(rad(yawValue))*Vec{0,-1,0};double heading=std::atan2(f.x,f.y);
+ auto writes=guardPoseWrites(old,p,actor->GetAngleZ(),heading,actor->GetAngleX());s.maxDrift=std::max(s.maxDrift,length(old-p));
+ if(writes.position){
+  RE::hkVector4 before{},after{};controller->GetPositionImpl(before,true);actor->SetPosition(into(p),true);controller->GetPositionImpl(after,true);
+  alignas(16) float b[4],a[4];_mm_store_ps(b,before.quad);_mm_store_ps(a,after.quad);double inverseScale=RE::bhkWorld::GetWorldScaleInverse();Vec moved{(a[0]-b[0])*inverseScale,(a[1]-b[1])*inverseScale,(a[2]-b[2])*inverseScale};
+  if(length(moved-(p-old))>1){actor->SetPosition(into(old),true);return refused("actor/controller displacement mismatch");}
+  ++s.writesPos;
+ }
+ if(writes.rotation){actor->SetRotationX(0);actor->SetRotationZ(float(heading));++s.writesRot;}
  if(!s.lease.current(ticket)||actor->Get3D()!=reinterpret_cast<RE::NiAVObject*>(s.actorRoot))return Pose::invalid;
  yaw->local.rotate=into(rz(rad(yawValue))*s.yawBase);pitch->local.rotate=into(s.pitchBase);transforms(yaw);s.yaw=yawValue;
  if(length(from(actor->GetPosition())-p)>=1||!actor->GetCharController())return refused("actor pose did not settle");return Pose::ok;
@@ -252,11 +287,11 @@ void GuardRuntime::poseLog(Slot& s,RE::TESObjectREFR* gun,RE::Actor* actor,const
  // Measurement only: live wrists against the grips the hold clip was authored
  // for (about 3 u at Nord height 1.03). Nothing is corrected or gated on it.
  if(clock_<s.nextPoseLog)return;s.nextPoseLog=clock_+2;
- auto body=actor->Get3D();auto world=from(gun->Get3D()->world);double error[2]{-1,-1};
- for(int i=0;i<2;++i){auto hand=body?body->GetObjectByName(i==0?"NPC L Hand [LHnd]":"NPC R Hand [RHnd]"):nullptr;auto grip=guardGrip(world.translation,world.rotation,s.yaw,i==0);if(hand&&grip)error[i]=length(from(hand->world.translate)-*grip);}
+ double error[2];handErrors(gun,actor,s.yaw,error);s.handError={error[0],error[1]};
  size_t index=size_t(&s-slots_.data());
- spdlog::info("guard v29 pose gun={:08X} actor={:08X} status={} yaw={:.2f} desired={:.2f} target={:08X} clip={} phase={:.3f} sampleAge={:.2f} handErrorL={:.1f} handErrorR={:.1f} moveRefused={} characterMain={} characterWorker={}",
-  s.gun,s.actor,s.status,s.yaw,desired,s.target,obs.serial?obs.clip:-1,obs.time,s.sampleAt<0?-1.:clock_-s.sampleAt,error[0],error[1],s.moveRefusal?s.moveRefusal:"none",postMain_[index].load(),postWorker_[index].load());
+ spdlog::info("guard v29 pose gun={:08X} actor={:08X} status={} yaw={:.2f} desired={:.2f} target={:08X} clip={} phase={:.3f} sampleAge={:.2f} handErrorL={:.1f} handErrorR={:.1f} moveRefused={} characterMain={} characterWorker={} writesPos={} writesRot={} maxDrift={:.3f} reissues={} held={}",
+  s.gun,s.actor,s.status,s.yaw,desired,s.target,obs.serial?obs.clip:-1,obs.time,s.sampleAt<0?-1.:clock_-s.sampleAt,error[0],error[1],s.moveRefusal?s.moveRefusal:"none",postMain_[index].load(),postWorker_[index].load(),s.writesPos,s.writesRot,s.maxDrift,s.hold.reissues(),guardHandsHeld(error[0],error[1]));
+ s.writesPos=s.writesRot=0;s.maxDrift=0;
 }
 void GuardRuntime::reload(Slot& s,RE::TESObjectREFR* gun){
  // The mechanism's own Fire (0.2 s) then Reset (0.8 s) sequences, timed from the launch.
@@ -343,7 +378,12 @@ void GuardRuntime::tick(float dt){
   // Telemetry: any sample of the own hold clip keeps the watch quiet. It never gates.
   Observation obs;{std::lock_guard obsLock(observationsMutex_);obs=observations_[size_t(&s-slots_.data())];}
   if(obs.serial&&obs.serial!=s.seen&&obs.epoch==s.lease.ticket().epoch&&obs.character==s.character){s.seen=obs.serial;s.sampleAt=clock_;if(obs.clip==0)s.hold.seen(clock_);}
-  if(s.hold.reissue(clock_)){spdlog::info("guard v29 hold re-request gun={:08X} actor={:08X}: no own clip sample for 3 s",s.gun,s.actor);if(!requestClip(s,actor.get(),0)){cancel(s,true,"hold PlayIdle re-request rejected");s.lease.leaveEffect();continue;}}
+  // v29.1: wrists on the grips prove the pose is held even when no OAR sample is seen.
+  if(clock_>=s.nextHandCheck){s.nextHandCheck=clock_+.25;handErrors(gun.get(),actor.get(),s.yaw,s.handError.data());if(s.replayAt<0&&guardHandsHeld(s.handError[0],s.handError[1]))s.hold.seen(clock_);}
+  // Second step of a re-request: the graph has had GuardReplayDelay s to leave the hold.
+  if(s.replayAt>=0&&clock_>=s.replayAt){s.replayAt=-1;if(!playHold(s,actor.get())){cancel(s,true,"hold PlayIdle re-request rejected");s.lease.leaveEffect();continue;}s.hold.restart(clock_);}
+  if(s.replayAt<0&&s.hold.reissue(clock_)){spdlog::info("guard v29 hold re-request gun={:08X} actor={:08X}: no own clip sample and wrists not on the grips for 3 s (try {}/{})",s.gun,s.actor,s.hold.reissues(),GuardMaxReissues);if(!requestClip(s,actor.get(),0,true)){cancel(s,true,"hold PlayIdle re-request rejected");s.lease.leaveEffect();continue;}}
+  if(s.hold.exhausted()&&!s.holdGaveUp&&s.replayAt<0&&s.hold.stale(clock_)){s.holdGaveUp=true;spdlog::warn("guard v29.1 hold unresolved gun={:08X} actor={:08X} reissues={} handErrorL={:.1f} handErrorR={:.1f}: keeping the pose, no more re-requests",s.gun,s.actor,s.hold.reissues(),s.handError[0],s.handError[1]);}
   if(s.status==0&&s.hold.entered(clock_)){s.status=1;spdlog::info("guard v29 holding gun={:08X} actor={:08X} yaw={:.2f}",s.gun,s.actor,s.yaw);}
   if(clock_>=s.nextScan)targets(s,gun.get(),actor.get());
   // Steer mount and operator together; the hold clip keeps both hands on the grips.
