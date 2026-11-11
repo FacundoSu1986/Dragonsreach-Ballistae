@@ -1,0 +1,9 @@
+directxmath jun2026-d9b23f80e1
+directxtk may2026-a68e548ea6
+fmt 12.2.0-d352ede310
+nlohmann-json v3.12.0-89fed620e6
+rapidcsv v8.99-fcbbd6a5ea
+simpleini v4.26-1b98993126
+spdlog v1.17.0-8a1a388e84
+toml11 v4.4.0-e6c50d7814
+xbyak v7.28-a06d7369c4

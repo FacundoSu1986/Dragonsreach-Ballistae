@@ -1,0 +1,88 @@
+#include "Astra/FastShot.h"
+#include <atomic>
+#include <iostream>
+#include <thread>
+using namespace Astra;
+int main(){
+ int failures=0,checks=0;auto check=[&](bool b,const char*n){++checks;if(!b){++failures;std::cerr<<n<<'\n';}};
+ Ticket t{{23,7},44},old{{23,7},43};FastShot f;
+ check(f.begin(t,{},{}),"valid session arms");
+ check(f.edge(t,0,true,10,true)==InputResult::Accepted,"first fresh click is accepted");
+ check(f.next(10,true)==ShotAction::Prepare,"click prepares on same engine frame without VM tick");
+ check(f.edge(t,1,true,10,true)==InputResult::Ignored,"simultaneous second device cannot double fire");
+ auto seq=f.request().sequence;f.edge(t,0,false,10.01,true);f.edge(t,1,false,10.01,true);
+ f.prepared(10,true);
+ check(f.next(10.06,true)==ShotAction::None,"NIF marker delay is explicit");
+ check(f.next(10.067,true)==ShotAction::Launch,"short released click still launches at native marker");
+ f.launched(10.067,true);
+ check(f.edge(t,0,true,10.1,true)==InputResult::Ignored,"busy click discarded");f.edge(t,0,false,10.11,true);
+ check(f.next(10.2,true)==ShotAction::Reset,"Fire moves to Reset natively");f.reset(10.2);
+ check(f.next(11.01,true)==ShotAction::None,"one second cooldown starts at launch");
+ check(f.next(11.067,true)==ShotAction::Restore,"ready visual after cooldown and reset");f.restored();
+ check(f.next(11.5,true)==ShotAction::None,"discarded busy click never becomes queued shot");
+ check(f.edge(old,0,true,12,true)==InputResult::Ignored,"old epoch cannot press");
+ check(f.edge(t,0,true,12,true)==InputResult::Accepted,"new valid edge works");
+ check(f.request().sequence==seq+1,"only admitted shot advances sequence");
+ f.invalidate();check(f.next(20,true)==ShotAction::None,"cancel before preparation prevents effects");
+ check(f.begin(t,{},{{true,false,false,false}}),"new session starts");
+ check(f.edge(t,0,true,20,true)==InputResult::Ignored,"physical hold on entry requires release");
+ f.edge(t,0,false,20.1,true);check(f.edge(t,0,true,20.2,true)==InputResult::Accepted,"release clears entry gate");
+ f.prepared(20.2,true);f.pause({{true,false,false,false}});
+ check(f.next(21,false)==ShotAction::None,"menu suppresses reset and pending launch");
+ check(f.edge(t,0,true,21,true)==InputResult::Ignored,"menu-held button cannot leak after close");
+ f.edge(t,0,false,21,false);check(f.next(22,true)==ShotAction::Reset,"cancelled Fire resets on valid resume");
+ f.reset(22);check(f.next(22.8,true)==ShotAction::Restore,"cancelled shot can restore");f.restored();
+ check(f.edge(t,0,true,23,true)==InputResult::Accepted,"up inside menu permits new post-menu edge");
+ f.prepared(23,true);check(f.next(23.1,false)==ShotAction::None,"context loss before commit cancels launch");
+ check(f.next(24,true)==ShotAction::Reset,"context cancellation keeps only cosmetic reset");
+ f.invalidate();ShotTiming continuous;continuous.continuous=true;f.begin(t,continuous,{});
+ check(f.edge(t,0,true,30,true)==InputResult::Accepted,"continuous initial press");f.prepared(30,true);f.launched(30.067,true);
+ f.reset(30.2);f.restored();check(f.next(31.066,true)==ShotAction::None,"repeat cannot precede cooldown");
+ check(f.next(40,true)==ShotAction::Prepare,"slow frame admits one repeat without catch-up burst");
+ check(f.request().repeated,"repeat marked in timing log");f.prepared(40,true);f.launched(40.067,true);
+ f.edge(t,0,false,40.1,true);f.reset(40.2);f.restored();check(f.next(50,true)==ShotAction::None,"release stops future continuous repeats");
+ check(f.edge(t,2,true,50,true)==InputResult::ModeChanged&&!f.continuous(),"Sprint changes mode natively");
+ check(f.edge(t,2,true,50.1,true)==InputResult::Ignored,"held Sprint cannot toggle twice");
+ int ammo=1,launches=0,refunds=0;auto count=[&]{return ammo;};auto remove=[&]{--ammo;};auto refund=[&]{++ammo;++refunds;};
+ auto ok=transactAmmo(count,remove,[&]{++launches;return true;},refund);
+ check(ok.launched&&ok.charged&&!ok.refunded&&ammo==0&&launches==1,"valid handle consumes exactly one cost item");
+ auto empty=transactAmmo(count,remove,[&]{++launches;return true;},refund);check(!empty.launched&&launches==1,"no ammo never calls Launch");
+ ammo=1;auto bad=transactAmmo(count,remove,[&]{++launches;return false;},refund);
+ check(!bad.launched&&bad.charged&&bad.refunded&&ammo==1&&refunds==1,"invalid handle compensates one cost exactly once");
+ ammo=1;auto failedRemove=transactAmmo(count,[]{},[&]{++launches;return true;},refund);
+ check(!failedRemove.launched&&!failedRemove.charged&&launches==2,"failed removal cannot create free projectile");
+ ammo=1;bool commitCurrent=true;
+ auto cancelled=transactAmmo(count,[&]{--ammo;commitCurrent=false;},[&]{if(!commitCurrent)return false;++launches;return true;},refund);
+ check(!cancelled.launched&&cancelled.refunded&&ammo==1&&launches==2,"reentrant cancellation during removal aborts launch and refunds cost");
+ EffectsBarrier barrier;std::atomic_bool started{},ended{};std::thread waiter;
+ {auto lock=barrier.lock();barrier.enter();check(!barrier.quiescent(),"in-flight scene effects prevent new Begin");
+ waiter=std::thread([&]{started=true;auto other=barrier.lock();ended=true;check(barrier.quiescent(),"End barrier waits until prior effects complete");});
+ while(!started.load())std::this_thread::yield();check(!ended.load(),"concurrent End cannot overtake effects");barrier.leave();}
+ waiter.join();
+ Session limited;check(limited.begin({30,4},90,70,{0,20,-10,45}),"sector session begins");
+ Aim applied;auto apply=[&](Aim a){applied=a;Snapshot s;s.aim=a;s.valid=true;return s;};
+ limited.update(limited.ticket(),{90,70},false,apply,true);
+ check(applied.yaw==20&&applied.pitch==45,"per-session city yaw and pitch clamp before scene write");
+ limited.update(limited.ticket(),{70,20},false,apply,true);
+ check(std::abs(std::remainder(applied.yaw,360))<=20&&applied.pitch>=-10,"city mouse increments stay in sector");
+ ShotTiming papyrus;papyrus.fire=float(.2);papyrus.release=float(1./15.);papyrus.reset=float(.8);papyrus.cycle=1;
+ FastShot floating;check(floating.begin(t,papyrus,{}),"valid IEEE Papyrus timing survives float rounding");
+ EffectsFence fence;check(fence.begin(t),"effects lease begins");
+ check(!fence.quiescent({23,0}),"guard wildcard refuses active player ownership");
+ check(fence.quiescent({24,0}),"another gun is not blocked");
+ fence.requestEnd(t);check(fence.pending()&&!fence.quiescent(t.key),"End waits queued scene cleanup");
+ bool controlsReleased=false,sceneRestored=false,guardAcquired=false;
+ auto handoff=[&]{if(fence.quiescent(t.key)&&fence.quiescent({23,0})){controlsReleased=sceneRestored=guardAcquired=true;}};
+ handoff();check(!controlsReleased&&!sceneRestored&&!guardAcquired,"all release effects remain behind real cleanup fence");
+ check(!fence.begin({{24,8},45}),"new native Begin cannot overtake queued cleanup");
+ fence.complete(old);check(fence.pending(),"stale cleanup cannot acknowledge a new epoch");
+ fence.complete(t);handoff();check(controlsReleased&&sceneRestored&&guardAcquired&&!fence.pending(),"matching cleanup allows release and guard acquire");
+ check(fence.begin({{24,8},45}),"new lease starts only after cleanup acknowledgment");
+ Session acquired;acquired.begin({29,9},17,13);auto a=acquired.ticket();
+ acquired.update(a,{17,13},false,apply,true,1234);
+ check(acquired.invalidateScene(a)==1234&&!acquired.ticket(),"End before input arming returns acquired scene atomically");
+ check(acquired.invalidateScene(a)==0,"scene cleanup identity acknowledged once");
+ acquired.begin({29,10},0,0);a=acquired.ticket();acquired.update(a,{0,0},false,[](Aim){return Snapshot{};},true,5678);
+ check(acquired.invalidateScene(a)==5678,"rejected first camera pose still retains original scene cleanup identity");
+ std::cout<<(failures?"FAILED ":"PASS ")<<checks<<" v15 assertions, "<<failures<<" failures\n";return failures?1:0;
+}
